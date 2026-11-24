@@ -7,7 +7,8 @@
   const p = s => `<p>${s}</p>`;
   const ol = xs => `<ol class="mm-ol">${xs.map(x => `<li>${x}</li>`).join('')}</ol>`;
   const bl = xs => `<ul class="mm-ol">${xs.map(x => `<li>${x}</li>`).join('')}</ul>`;
-  const tbl = (head, rows) => `<div class="tw"><table><tr>${head.map(h => `<th>${h}</th>`).join('')}</tr>${rows.map(r => `<tr>${r.map(x => `<td>${x}</td>`).join('')}</tr>`).join('')}</table></div>`;
+  // each cell carries its column name: a narrow phone shows one card per row (style.css .stack)
+  const tbl = (head, rows) => `<div class="tw"><table class="stack"><tr>${head.map(h => `<th>${h}</th>`).join('')}</tr>${rows.map(r => `<tr>${r.map((x, i) => `<td data-th="${esc(String(head[i]).replace(/<[^>]*>/g, ''))}">${x}</td>`).join('')}</tr>`).join('')}</table></div>`;
   const C = id => L('clase', id), O = id => L('objeto', id), PJ = id => L('personaje', id);
   const CN = es => C(Object.keys(CLASSES).find(k => CLASSES[k].es === es) || es);  // class link by official name
   const pid = es => (Object.values(CHARS).find(c => c.es === es) || {}).id;
@@ -50,8 +51,8 @@
         [t('Reclutas'), c.recruits.map(x => `${PJ(x.pid)} <small class="mut">(${recruitCost(x.cost)})</small>`).join('<br>')],
         [t('Se unen'), list(c.joins.map(nl))],
         [t('Perdibles'), lost.filter(Boolean).join(' · ')],
-        [t('Comprar'), buy.length ? `${upTo(buy, 3, `${h}?ir=eq-semana`)} <a href="${h}?ir=eq-semana">${t('(por qué)')}</a>` : ''],
-        [t('Refinar'), forge.length ? upTo(forge, 3, `${h}?ir=eq-herreria`) : ''],
+        [t('Comprar'), buy.length ? `${upTo(buy, 3, `#/semana?c=${c.key}&ir=eq-semana`)} <a href="#/semana?c=${c.key}&ir=eq-semana">${t('(por qué)')}</a>` : ''],
+        [t('Refinar'), forge.length ? upTo(forge, 3, `#/semana?c=${c.key}&ir=eq-herreria`) : ''],
         // battles of the same name (the four practice fights) once, with how many
         [t('Batallas'), c.battles.filter((b, i) => c.battles.findIndex(x => x.es === b.es) === i).map(b => { const n = c.battles.filter(x => x.es === b.es).length;
           return `<a href="${href('batalla', b.id)}">${esc(gt(b.es))}</a>${n > 1 ? ` ×${n}` : ''}${b.boss ? ` <small class="mut">${t('(jefe: {b})', { b: esc(dataTx(b.boss)) })}</small>` : ''}`; }).join(' · ')],

@@ -142,7 +142,7 @@ function charLimits(pid) {
     const inGifts = lord || Object.values(W.gifts?.chars || {}).some(g => g.pid === c.id), want = ctxWant().includes(c.id);
     // gifts have one weekly list (Capítulo › Esta semana) and one reference page (Regalos): link, never copy
     const dishes = list((p.meals?.best_dishes || []).map(d => `<a href="#/instalaciones?ir=comidas">${esc(dx(d.es))}</a>`));
-    return (inGifts ? `<p>${lord ? t('Solo se le puede regalar en las Partes 2 y 3.') + ' ' : ''}${want ? t('Qué regalarle esta semana: {a}.', { a: `<a href="#/cap?ir=eq-ronda">${t('ronda de regalos')}</a>` }) + ' ' : ''}` +
+    return (inGifts ? `<p>${lord ? t('Solo se le puede regalar en las Partes 2 y 3.') + ' ' : ''}${want ? t('Qué regalarle esta semana: {a}.', { a: `<a href="#/semana?ir=eq-ronda">${t('ronda de regalos')}</a>` }) + ' ' : ''}` +
       `${t('Todos sus gustos y comidas: {a}.', { a: `<a href="#/regalos?q=${encodeURIComponent(c.es)}&amp;eq=todos">${t('Regalos de {c}', { c: esc(nm(c)) })}</a>` })}</p>` : '') + kvRows([
       [t('Comidas que más le gustan'), dishes],
       [t('Obras que le gustan'), plays('le gusta')], [t('Obras que no le gustan'), plays('no le gusta')],

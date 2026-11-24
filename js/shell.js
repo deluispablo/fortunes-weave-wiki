@@ -76,10 +76,10 @@ function sectionIndex(sec, more, id = parseHash(location.hash).id, qs = parseHas
     (temas ? `<div class="nav-g nav-temas"><b>${t('Por tema')}</b>${temas}</div>` : '') +
     (ROUTES.guias && !skip('guias') ? `<a class="nav-all${cur === 'guias' ? ' on' : ''}" href="#/guias"${cur === 'guias' ? ' aria-current="page"' : ''}>${t('Todas las guías ({n})', { n: all })}</a>` : '') + '</section>';
   const consulta = NAV.filter(g => g.id !== 'guias' && g.id !== 'partida').map(g => { const l = pages(g); return l.length ? `<div class="nav-g"><b>${esc(t(g.title))}</b>${l.join('')}</div>` : ''; }).join('');
-  // Perdibles is listed once, in Empieza aquí; «Esta semana» is the chapter page's week section, marked instead of «Capítulo actual»
+  // Perdibles is listed once, in Empieza aquí; the order is the tabs' (the weekend first)
   const week = pg === 'semana' || (pg === 'cap' && qs.ir === 'eq-semana'), mineOpen = MINE_TABS.some(([p]) => p === pg) || store.get('navMine', false) === true;
-  // all three always, also in the phone's «Más» sheet: the bottom bar's «Mi partida» opens only the last of them
-  const mine = [a('#/cap', t('Capítulo actual'), pg === 'cap' && !week), ...(ROUTES.semana ? [a('#/semana', t('Esta semana'), week)] : []),
+  // all three always, also in the phone's «Más» sheet
+  const mine = [...(ROUTES.semana ? [a('#/semana', t('Este fin de semana'), week)] : []), a('#/cap', t('Capítulo actual'), pg === 'cap' && !week),
     ...['equipo'].filter(x => ROUTES[x]).map(x => a('#/' + x, t(NAV.flatMap(g => g.pages).find(p => p.id === x).title), pg === x))];
   const mineBlk = open => `<div class="nav-mine"><button type="button" class="nav-mb" aria-expanded="${open}" aria-controls="${px}mine">${navIcon('cap')}<span>${t('Mi partida')}</span>${navIcon('chev')}</button>` +
     `<div id="${px}mine"${open ? '' : ' hidden'}>${mine.join('')}</div></div>`;
@@ -113,14 +113,14 @@ const NAV_ICON = {  // 24px stroke icons
   x: '<path d="M6 6l12 12M18 6 6 18"/>',
 };
 const navIcon = k => `<svg viewBox="0 0 24 24" aria-hidden="true">${NAV_ICON[k]}</svg>`;
-/* «Mi partida» (R-NAV-1): the last game page visited (fe2.partida), Capítulo the first time. A chapter is stored as #/cap (the current
+/* «Mi partida» (R-NAV-1): the last game page visited (fe2.partida), the weekend the first time. A chapter is stored as #/cap (the current
    one): its own address would pull the context back to that chapter; ?ir= jumps are dropped so the tab never re-scrolls */
 const PARTIDA = ['cap', 'semana', 'equipo', 'perdibles'];
 /** Mi partida's three tabs, on top of each of its pages (phone and desktop alike) */
-const MINE_TABS = [['cap', '#/cap', 'Capítulo'], ['semana', '#/semana', 'Semana'], ['equipo', '#/equipo', 'Equipo']];
+const MINE_TABS = [['semana', '#/semana', 'Fin de semana'], ['cap', '#/cap', 'Capítulo'], ['equipo', '#/equipo', 'Equipo']];
 const mineTabs = pg => (MINE_TABS.some(([p]) => p === pg) ? `<nav class="tabs mine-tabs" aria-label="${t('Mi partida')}">${MINE_TABS.filter(([p]) => ROUTES[p] || P[p])
   .map(([p, h, lb]) => `<a href="${h}"${p === pg ? ' class="on" aria-current="page"' : ''}>${t(lb)}</a>`).join('')}</nav>` : '');
-const partidaHref = () => { const h = store.get('partida', null); return typeof h === 'string' && PARTIDA.includes(ROUTES[parseHash(h).sec]) ? h : '#/cap'; };
+const partidaHref = () => { const h = store.get('partida', null); return typeof h === 'string' && PARTIDA.includes(ROUTES[parseHash(h).sec]) ? h : '#/semana'; };
 function rememberPartida(hash) {
   const { sec, qs } = parseHash(hash), pg = ROUTES[sec];
   // ?r= is dropped too: a listing's ?r= sets the context route (listRoute), so an old one would pull the context back
@@ -144,17 +144,24 @@ function tabbar(sec) {
 
 /* ---------------- modals: background inert, page scroll locked, focus back to the trigger ---------------- */
 let modalReturn = null;
+/* the phone's Back closes an open sheet or the search: opening one adds a history entry (same address), Back pops it.
+   A dismiss (×, backdrop, Esc) or a close on the same address (a route pick) pops it too; a link or search result first pops it,
+   then goes (modalLeave), so Back never lands on a dead entry. */
+let modalPushed = false, modalHash = '', modalGo = null;
+const canPush = () => typeof history !== 'undefined' && typeof history.pushState === 'function';
 function modalShow(el) {
   if (!modalReturn) modalReturn = document.activeElement;
+  if (!modalPushed && canPush()) { history.pushState({ fwModal: 1 }, ''); modalPushed = true; modalHash = location.hash; }
   el.hidden = false;
   ['.skip', '.top', '.app', '.tabbar'].forEach(s => { const b = $(s); if (b) b.inert = true; });
   document.documentElement.classList.add('modal');
 }
-function modalHide(el) {
+function modalHide(el, dismiss = false) {
   if (!el || el.hidden) return;
   el.hidden = true;
   $('#ctx-btn')?.setAttribute('aria-expanded', 'false');
   if (!$('#sheet').hidden || !$('#pal').hidden) return;
+  if (modalPushed) { modalPushed = false; if ((dismiss || location.hash === modalHash) && history.state?.fwModal) history.back(); }
   ['.skip', '.top', '.app', '.tabbar'].forEach(s => { const b = $(s); if (b) b.inert = false; });
   document.documentElement.classList.remove('modal');
   const f = modalReturn; modalReturn = null;
@@ -173,17 +180,19 @@ function openSheet(kind) {
   modalShow($('#sheet'));
   $('#ctx-btn')?.setAttribute('aria-expanded', String(kind === 'ctx'));
   $('#sheet .x').focus();
+  if (kind === 'ctx') $('#sheet-body .chaps button.on')?.scrollIntoView?.({ block: 'center' });  // a long route list opens at the current chapter
 }
-const closeSheet = () => modalHide($('#sheet'));
+const closeSheet = (dismiss = false) => modalHide($('#sheet'), dismiss);
 
 /* ---------------- search palette ---------------- */
 let palSel = 0, palItems = [];
 function openPal(text = '') {
-  closeSheet();
   const q = $('#pal-q');
-  modalShow($('#pal')); q.value = text; q.focus(); palRender();
+  modalShow($('#pal')); closeSheet(); q.value = text; q.focus(); palRender();  // shown first: the sheet's history entry carries over
 }
-const closePal = () => modalHide($('#pal'));
+const closePal = (dismiss = false) => modalHide($('#pal'), dismiss);
+/** go to `href` from inside the sheet or the search: pop their history entry first, then navigate (popstate below) */
+const modalLeave = href => { if (modalPushed && history.state?.fwModal) { modalGo = href; history.back(); } else { closeSheet(); closePal(); location.hash = href; } };
 /** results as a listbox: one group per kind, options out of the tab order (arrows move, Enter opens) */
 function palHtml(items, q) {
   if (!items.length) return `<p class="mut sr-empty">${t(String(q).trim() ? 'Sin resultados.' : 'Nombre en español, inglés o japonés.')}</p>`;
@@ -220,7 +229,7 @@ function palMove(d) {
   els[palSel].scrollIntoView({ block: 'nearest' });
   palActive();
 }
-function palGo(i) { const r = palItems[i]; if (!r) return; recents.push(r.href); closePal(); location.hash = r.href; }
+function palGo(i) { const r = palItems[i]; if (!r) return; recents.push(r.href); modalLeave(r.href); }
 
 /** polite announcement in the live region (page changes, result counts) */
 function announce(t) { const l = $('#live'); if (!l) return; l.textContent = ''; setTimeout(() => { l.textContent = t; }, 60); }
@@ -305,7 +314,7 @@ function render(keepScroll) {
   if (keepSheet && sheetKind === 'ctx' && !$('#sheet').hidden) { $('#sheet-body').innerHTML = ctxSheet(); $('#sheet-body [data-route].on')?.focus(); } else closeSheet();
   keepSheet = false;
   closePal();
-  const irNow = parseHash(location.hash).qs.ir || ir;  // a page may have moved the address (old #/equipo?sec=semana → #/cap?ir=eq-semana)
+  const irNow = parseHash(location.hash).qs.ir || ir;  // a page may have moved the address (old #/equipo?sec=semana → #/semana)
   const to = irNow && document.getElementById(irNow);  // ?ir=<id>: deep link to a section (its tab and folds open first)
   if (keepScroll !== true) {
     window.scrollTo(0, history.state?.y > 0 ? history.state.y : 0);  // back/forward (and reload) land where the page was left; a new page at the top
@@ -327,6 +336,10 @@ function render(keepScroll) {
 }
 
 window.onhashchange = () => { clearTimeout(qsTimer); clearTimeout(scrollTimer); render(); };
+if (typeof window.addEventListener === 'function') window.addEventListener('popstate', () => {
+  if (modalGo != null) { const h = modalGo; modalGo = null; modalPushed = false; closeSheet(); closePal(); if (location.hash !== h) location.hash = h; return; }
+  if (modalPushed) { modalPushed = false; closeSheet(); closePal(); }
+});
 /* scroll memory: the position rides in the history entry (history.state.y), saved when scrolling stops and before following a link */
 let scrollTimer;
 const saveScroll = () => { try { history.replaceState({ ...history.state, y: Math.round(window.scrollY) }, ''); } catch (e) { /* Safari caps replaceState calls */ } };
@@ -338,7 +351,8 @@ document.addEventListener('change', e => {
   if (e.target.dataset.qs != null) location.hash = qsHref(e.target.dataset.qs, parseHash(location.hash).qs, { [e.target.name]: e.target.value });  // listing filter controls: <select|input data-qs="path" name="param">
 });
 document.addEventListener('click', e => {
-  if (e.target.closest('#sheet a[href^="#"]')) closeSheet();  // «Más»: a link to the page already shown changes no hash, so close here
+  const sa = e.target.closest('#sheet a[href^="#"]');
+  if (sa && !e.defaultPrevented && !e.ctrlKey && !e.metaKey) { e.preventDefault(); modalLeave(sa.getAttribute('href')); }  // «Más»: also a link to the page already shown
   const fh = e.target.closest('.fold-h');  // the whole header of a fold toggles it (its links and buttons keep their own job)
   if (fh && !e.target.closest('a,button,input,select,textarea,label')) { fh.querySelector('.fold-b')?.click(); return; }
   const nb = e.target.closest('.nav-tb,.nav-mb');  // sidebar folds: a topic's guides, the Mi partida footer (remembered)
@@ -351,7 +365,7 @@ document.addEventListener('click', e => {
   const fb = e.target.closest('.fold-b');
   if (fb && fb.dataset.eqFold == null) { foldToggle(fb); return; }  // the team selector fold is stored in ctx: equipo.js handles it
   const el = e.target.closest('[data-sheet],[data-pal],[data-route],[data-key],[data-close],[data-to],[data-more],[role="tab"],.sr');
-  if (!el) { if (e.target.id === 'sheet') closeSheet(); else if (e.target.id === 'pal') closePal(); return; }
+  if (!el) { if (e.target.id === 'sheet') closeSheet(true); else if (e.target.id === 'pal') closePal(true); return; }
   if (el.dataset.sheet) openSheet(el.dataset.sheet);
   else if (el.dataset.pal != null) openPal();
   else if (el.dataset.route) { keepSheet = true; pickRoute(el.dataset.route); }
@@ -360,7 +374,7 @@ document.addEventListener('click', e => {
     pickChapter(el.dataset.key);
     if (inPage) { focusH1(); announce(`${t('Tu partida')}: ${capShort(CAPS[el.dataset.key])}`); }  // «Usar como mi capítulo» (capitulo.js) went away with the redraw
   }
-  else if (el.dataset.close != null) { closeSheet(); closePal(); }
+  else if (el.dataset.close != null) { closeSheet(true); closePal(true); }
   else if (el.dataset.more) {  // listing «Mostrar más»: reveal the next batch of hidden cards in the grid before the button
     const rest = [...(el.previousElementSibling?.querySelectorAll('[hidden]') || [])];
     const shown = rest.slice(0, +el.dataset.more);
@@ -418,9 +432,9 @@ document.addEventListener('input', e => {
 });
 document.addEventListener('keydown', e => {
   const palOpen = !$('#pal').hidden, typing = /INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName);
-  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); palOpen ? closePal() : openPal(); }
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); palOpen ? closePal(true) : openPal(); }
   else if (e.key === '/' && !typing && !palOpen) { e.preventDefault(); openPal(); }
-  else if (e.key === 'Escape') { document.documentElement.classList.add('tip-off'); if (palOpen) closePal(); else closeSheet(); }  // Esc also hides a stat tooltip
+  else if (e.key === 'Escape') { document.documentElement.classList.add('tip-off'); if (palOpen) closePal(true); else closeSheet(true); }  // Esc also hides a stat tooltip
   else if (palOpen && e.key === 'ArrowDown') { e.preventDefault(); palMove(1); }
   else if (palOpen && e.key === 'ArrowUp') { e.preventDefault(); palMove(-1); }
   else if (palOpen && e.key === 'Enter' && e.target.id === 'pal-q') { e.preventDefault(); palGo(palSel); }

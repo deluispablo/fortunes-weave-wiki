@@ -132,7 +132,7 @@
     return header(c, chapNav(key, route)) + mine(c) +
       block('Antes de que termine', closing(c), 'ul') +
       // what to do in Dagsion this chapter (was Equipo › Semana): 0 taps from the front page
-      (wr && typeof window.teamWeekBlock === 'function' ? `<section class="card" id="eq-semana"><h3>${t('Esta semana')}</h3>${window.teamWeekBlock(wr, key)}</section>` : '') +
+      (wr && typeof window.teamWeekendSummary === 'function' ? `<section class="card" id="eq-semana"><h3>${t('Este fin de semana')}</h3>${window.teamWeekendSummary(wr, key)}</section>` : '') +
       block('Prioridades de min-max', priorities(c) || (c.part >= 2 ? `<li class="mut">${t('Sin prioridades escritas aún para este capítulo. Guía de las Partes 2 y 3: <a href="#/guia/guerra-y-salvacion">Guerra y salvación</a>.')}</li>` : ''), 'ol') +
       block('Reclutables ahora', recruits(c), 'ul') +
       block('Batallas', battles(c)) +

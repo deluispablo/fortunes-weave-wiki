@@ -558,7 +558,7 @@
 .tt-bar { display: inline-block; width: 48px; height: 6px; border-radius: 3px; background: linear-gradient(90deg, var(--acc) var(--v), var(--surface2) var(--v)); }`;
   register({ id: 'instalaciones', title: 'Dagsion: actividades semanales', render: () => instalaciones(), css: CSS,
     search: () => [S('Dagsion: actividades semanales', 'Plaza de armas, Posada, Teatro, Termas, Percha', '#/instalaciones', ['instalaciones', 'locales semanales']),  // i18n-ignore
-      ...[['plaza-de-armas', 'Plaza de armas', ['entrenamiento']], ['comidas', 'Posada · Comida', ['comida', 'posada']], ['teatro', 'Teatro', []], ['termas', 'Termas', []],
+      ...[['plaza-de-armas', 'Plaza de armas', ['entrenamiento', 'coliseo', 'entrenar']], ['comidas', 'Posada · Comida', ['comida', 'posada']], ['teatro', 'Teatro', []], ['termas', 'Termas', []],
         ['percha', 'Percha · Cuervo Blanco', ['cuervo blanco']], ['formacion', 'Formación (ruta de Cai)', ['lecciones']], ['torneo', 'Torneo: asistir', []],  // i18n-ignore
         ['actividades-automaticas', 'Posada: actividades automáticas', ['dormir']], ['motivacion', 'Motivación', []], ['adivinacion', 'Adivinación', []], ['horario', 'Horario de los locales', []]]  // i18n-ignore
         .map(([id, l, al]) => S(l, 'Dagsion', '#/instalaciones?ir=' + id, al))] });

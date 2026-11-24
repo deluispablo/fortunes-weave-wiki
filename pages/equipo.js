@@ -5,7 +5,7 @@
 (() => {
   const TL = { fav: '★ Favorito', love: '♥ Le encanta', like: 'Le gusta' };  // shown through t()
   // tokens and components of style.css only: cards between units, a softer rule between stages, a tinted block for the extras
-  const CSS = `.fi-sec:has(> .eq-box){background:none;border:0;box-shadow:none;padding:0}.eq-box+.eq-box{margin-top:var(--s3)}\n@media (max-width:600px){.eq-gifts .eq-gi{display:flex;align-items:center;gap:6px;padding:2px 0}.eq-gifts .eq-gi>a{flex:1;min-width:0}.eq-gifts .eq-tw{display:none}.eq-gifts .eq-rec{gap:var(--s2)}}\n.eq-pick{font:inherit;cursor:pointer}.eq-pick.on{padding-right:28px}.eq-pick.on::after{background:url(img/ui/IconCheck.png) right 8px center/14px no-repeat,var(--cf)}.eq-st{font-weight:650;color:var(--tx)}
+  const CSS = `.fi-sec:has(> .eq-box){background:none;border:0;box-shadow:none;padding:0}.eq-box+.eq-box{margin-top:var(--s3)}\n@media (max-width:600px){.eq-gifts .eq-gi{display:flex;align-items:center;gap:6px;padding:2px 0}.eq-gifts .eq-gi>a{flex:1;min-width:0}.eq-gifts .eq-tw{display:none}.eq-gifts .eq-rec{gap:var(--s2)}}\n.eq-pick{font:inherit;cursor:pointer;padding-right:28px}.eq-pick.on::after{background:url(img/ui/IconCheck.png) right 8px center/14px no-repeat,var(--cf)}.eq-st{font-weight:650;color:var(--tx)}
 .eq-units{display:grid;gap:var(--s4)}.eq-unit{margin:0;padding:var(--s3) var(--s4)}
 .eq-unit>header{display:flex;align-items:center;gap:var(--s3);margin:0 0 var(--s2)}.eq-unit>header h4{margin:0}.eq-unit>header .cp-tag{margin:0 var(--s1) 0 0}
 .eq-steps{list-style:none;margin:0;padding:0}.eq-steps>li{padding:var(--s2) 0;border-top:1px dashed var(--line)}.eq-steps>li:first-child{border-top:0;padding-top:0}
@@ -123,16 +123,17 @@
   /** «★ Favorito»: the symbol and the word apart, so a narrow screen can keep only the symbol */
   const tierTag = k => { const m = t(TL[k]).match(/^([★♥])\s*(.*)$/);
     return `<span class="eq-tag">${m ? `<span aria-hidden="true">${m[1]}</span><span class="eq-tw"> ${esc(m[2])}</span>` : esc(t(TL[k]))}</span>`; };
-  /** the gift round: one compact row per «quiero» (serial order), its first gifts inline and the rest folded */
+  /** the gift round: one compact row per «quiero» (serial order), the next gift inline and the rest folded */
   function giftRound(round) {
     if (!round.length) return '';
     // one short line per gift (name, level, price); where to get it is the item's ficha and the line's tooltip
     const it = x => `<span class="eq-gi" title="${esc(list(x.src.slice(0, 3)).replace(/<[^>]*>/g, ''))}"><i class="tier tier-${x.t}" aria-hidden="true"></i>${img(ico().item?.[x.iid], 'ico')}${L('objeto', x.iid)} ${tierTag(x.t)}${x.price ? ` <span class="mut">${gold(x.price)}</span>` : ''}</span>`;
     const row = r => `<li class="eq-rec">${face(r.pid, 'cp-face') || '<span class="cp-face"></span>'}<div><b>${L('personaje', r.pid)}</b>` +
       (r.none ? `<span class="eq-line mut">${t('Sin datos de regalos.')}</span>` : !r.items.length ? `<span class="eq-line mut">${t('Ningún regalo apreciado con fuente abierta en esta parte.')}</span>` :
-        (() => { const love = r.items.filter(x => x.t === 'love'), top = [...r.items.filter(x => x.t === 'fav'), ...love.slice(0, 2)];  // favourite + the two cheapest loves visible
-          const like = r.items.filter(x => x.t === 'like'), ord = Object.keys(W.items); like.sort((a, b) => ord.indexOf(a.iid) - ord.indexOf(b.iid));  // likes in the game's item order, to find them in the in-game gift list
-          const rest = [...love.slice(2), ...like];
+        (() => { const route = ctxGet().route, key = ctxGet().key;
+          const top = [r.items.find(x => teamOffers(x.iid, route, key).length) || r.items[0]];  // the next gift: the best one on sale now (as the weekend)
+          const like = r.items.filter(x => x.t === 'like' && x !== top[0]), ord = Object.keys(W.items); like.sort((a, b) => ord.indexOf(a.iid) - ord.indexOf(b.iid));  // likes in the game's item order, to find them in the in-game gift list
+          const rest = [...r.items.filter(x => x.t !== 'like' && x !== top[0]), ...like];
           return top.map(it).join('') + (rest.length ? `<details class="eq-more"><summary>${t('Más regalos ({n})', { n: rest.length })}</summary>${rest.map(it).join('')}</details>` : ''); })()) + '</div></li>';
     return `<ul class="eq-recs">${round.map(row).join('')}</ul>`;
   }
@@ -159,25 +160,10 @@
     const lordN = L('personaje', w.lord), compras = shopHtml(shop, w.route) + forgeHtml(forge);
     if (!w.need.length) return compras + `<p class="mut">${t('Ningún recluta marcado como «quiero reclutarlo» en esta ruta: no hay regalos ni comidas que preparar.')}</p>`;
     const live = w.need.filter(n => !n.late && n.pts > 0);
-    // meals: one line per week, the first two open
-    const dish = d => (d ? `${esc(gt(d.es))}${d.renown_rank > 1 ? ` <small class="mut">(${t('Prestigio {n}', { n: d.renown_rank })})</small>` : ''}` : t('sin plato en la carta'));
-    const menu = sun => (CAPS[w.key]?.weeks || []).find(x => x.sunday === sun)?.menu || [];  // the week's full menu, folded under its row
-    const weekRow = m => li(t('Semana del {d}', { d: day(m.sunday) }), m.pairs.map(q => `${t('{a} con {b}', { a: lordN, b: who(q.guests) })}: ${dish(q.dish)}`).join(' · ') +
-      (menu(m.sunday).length ? `<details class="eq-more"><summary>${t('Carta de la Posada ({n})', { n: menu(m.sunday).length })}</summary>${esc(list(menu(m.sunday).map(d => gt(d.es) + (d.renown_rank > 1 ? ` (${t('Prestigio {n}', { n: d.renown_rank })})` : ''))))}</details>` : ''));
-    const comidas = `<h4>${t('Comidas en la Posada')}</h4>` + (!w.inn ? `<p class="mut">${t('La Posada abre en el {c}.', { c: chapLink(w.innAt) })}</p>` : !live.length ? `<p class="mut">${t('Ningún «quiero» necesita apoyo con el señor.')}</p>` :
-      (w.meals.length ? ul(w.meals.slice(0, 2).map(weekRow)) + (w.meals.length > 2 ? `<details class="eq-more"><summary>${t('Resto de semanas del capítulo ({n})', { n: w.meals.length - 2 })}</summary>${ul(w.meals.slice(2).map(weekRow))}</details>` : '') : '') +
-      (w.rerun ? `<p class="mut">${t('Nueva vuelta: salta las parejas que ya tengan el apoyo.')}</p>` : ''));
-    // gifts: the round, one row per «quiero»
-    const regalos = `<h4 id="eq-ronda">${t('Ronda de regalos')}</h4>` + birthdays(w) +
-      (giftRound(round) || `<p class="mut">${t('Ningún «quiero» con regalos que preparar.')}</p>`);
-    // Servicio divino
-    const tp = w.temple;
-    const templo = `<h4>${t('Servicio divino')}</h4>` + (!tp ? `<p class="mut">${t('Todavía no está abierto en este capítulo.')}</p>` :
-      `<p>${t(tp.with ? '{l} con {p}, en domingo{d} o en el día sagrado del dios.' : '{l}, en domingo{d} o en el día sagrado del dios.', { l: lordN, p: tp.with ? L('personaje', tp.with) : '', d: tp.sundays.length ? ` (${list(tp.sundays.map(day))})` : '' })}</p>`);
     // deadlines: the ones due this chapter, the rest folded
     const dl = n => n.deadline ? (n.deadline.part ? t('antes del final de la Parte 1') : t('antes del {d} ({c})', { d: day(n.deadline.date), c: chapLink(n.deadline.key) })) : '';
     const plazoRow = n => li(`${L('personaje', n.pid)} · ${t('apoyo {a}, Prestigio {r}', { a: n.support, r: n.renown })}`,
-      n.late ? t('El plazo ya pasó.') : [n.open ? t('ya se puede reclutar') : t('desde el {c}', { c: chapLink(n.from) }), dl(n), n.meals ? t('unas {n} comidas desde cero', { n: n.meals }) : ''].filter(Boolean).join(' · '));
+      n.late ? t('El plazo ya pasó.') : [n.open ? t('ya se puede reclutar') : t('desde el {c}', { c: chapLink(n.from) }), dl(n)].filter(Boolean).join(' · '));
     const byDate = [...w.need].sort((a, b) => chapOrder(a.deadline?.key) - chapOrder(b.deadline?.key) || b.urgency - a.urgency);
     const due = byDate.filter(n => n.late || n.deadline?.key === w.key), later = byDate.filter(n => !due.includes(n));
     const plazos = `<h4>${t('Plazos')}</h4>` + (due.length ? ul(due.map(plazoRow)) : `<p class="mut">${t('Ningún recluta cierra en este capítulo.')}</p>`) +
@@ -185,7 +171,6 @@
     const other = [
       w.play.length && li(t('Teatro (Prestigio 7)'), w.play.map(pl => `«${esc(gt(pl.es))}»${pl.fans.length ? t(': les gusta a {p}', { p: who(pl.fans) }) : ''}`).join(' · ')),
       w.renown >= 8 && li(t('Termas (Prestigio 8)'), t('{l} con un «quiero»; el domingo da más apoyo.', { l: lordN })),
-      w.training && li(gt('Plaza de armas'), t('poco apoyo; sirve para las competencias.')),
       w.rerun && li(t('Nueva vuelta'), t('las misiones de otras rutas ya están hechas.')),
       w.renown && li(t('Prestigio'), t('el más alto que piden tus «quiero»: {n}.', { n: w.renown })),
     ].filter(Boolean);
@@ -194,8 +179,90 @@
     const raven = live.filter(n => CHARS[n.pid]?.p?.pale_raven?.sets?.length).map(n => `<a href="${href('personaje', n.pid)}?sec=partida">${esc(nm(CHARS[n.pid]))}</a>`);
     const percha = w.perch ? `<h4>${t('Percha')}</h4><p>${t('Sube el apoyo con Eshmel, no con {l}.', { l: lordN })}${raven.length ? ' ' + t('Respuestas: {l}.', { l: list(raven) }) : ''}</p>` : '';
     const dueLine = due.length ? `<p class="eq-due">${t('Cierran en este capítulo: {l}. Detalle en Plazos.', { l: list(due.map(n => L('personaje', n.pid))) })}</p>` : '';
-    return dueLine + compras + comidas + regalos + templo + percha + plazos + detours + (other.length ? `<details class="eq-more"><summary>${t('Otras actividades ({n})', { n: other.length })}</summary>${ul(other)}</details>` : '');
+    return dueLine + compras + percha + plazos + detours + (other.length ? `<details class="eq-more"><summary>${t('Otras actividades ({n})', { n: other.length })}</summary>${ul(other)}</details>` : '');
   }
+
+  /* ---------------- «Este fin de semana»: the Saturday + Sunday visit to Dagsion as a checklist ---------------- */
+  const DAY_NAME = { 'sáb': 'Sábado', dom: 'Domingo' };  // i18n-ignore (keys: data weekdays; the names go through t())
+  const dayName = d => t(DAY_NAME[d.dow] || d.dow);
+  /** «Día de Dagda: Servicio divino potenciado en todos los templos…» / «Día sagrado del Templo de Credna: …» → a short line */
+  const holyTxt = s => { const g = /Templo de ([^:]+)/.exec(s || '');
+    return /Día de Dagda/.test(s || '') ? t('Día de Dagda: todos los templos') : g ? t('Día sagrado de {g}', { g: esc(gt(g[1])) }) : ''; };
+  const WEEKDAY = { lun: 'lunes', mar: 'martes', 'mié': 'miércoles', jue: 'jueves', vie: 'viernes', 'sáb': 'sábado', dom: 'domingo' };  // i18n-ignore (keys: data weekdays; the names go through t())
+  const weekdays = w => w.split('/').map(d => t(WEEKDAY[d] || d)).join('/');
+  const finKey = (key, we) => `finde.${key}.${we.sat || we.sun}`;
+  const finDone = (key, we) => { const v = store.get(finKey(key, we), []); return Array.isArray(v) ? v : []; };
+  /** one checkbox row: the whole row is the tap target */
+  const plain = ps => esc(list(ps.map(p => nm(CHARS[p]))));  // names inside a checkbox row are text: a link there would steal the tap
+  const ck = (id, html, done) => `<li><label class="fin-ck"><input type="checkbox" data-fin-ck="${esc(id)}"${done.includes(id) ? ' checked' : ''}><span>${html}</span></label></li>`;
+  /** the weekend page body for plan `w` (teamWeekend) */
+  function weekendHtml(w, wk) {
+    const lordN = L('personaje', w.lord), done = finDone(w.key, w), ids = [];
+    const box = (id, html) => { ids.push(id); return ck(id, html, done); };
+    const we = w.weekends.length ? w.weekends[w.n] : null;
+    if (!we) return `<p class="mut">${t('Este capítulo no tiene días libres en fin de semana.')}</p>`;
+    const label = [w.sat && `${t('Sáb')} ${fechaDia(w.sat)}`, w.sun && `${t('Dom')} ${fechaDia(w.sun)}`].filter(Boolean).join(' – ');
+    const sel = `<div class="fin-sel" role="group" aria-label="${t('Fin de semana')}"><button type="button" class="fin-nav fin-prev" data-fin-n="${w.n - 1}"${w.n ? '' : ' disabled'} aria-label="${t('Fin de semana anterior')}">‹</button>` +
+      `<b class="fin-lbl">${label}</b><button type="button" class="fin-nav fin-next" data-fin-n="${w.n + 1}"${w.n < w.weekends.length - 1 ? '' : ' disabled'} aria-label="${t('Fin de semana siguiente')}">›</button></div>`;
+    const lv = n => t('apoyo {a} ({p} puntos)', { a: n.support, p: num(n.pts) });
+    // gifts
+    const giftRow = g => {
+      const it = x => `${img(ico().item?.[x.iid], 'ico')}${L('objeto', x.iid)} ${tierTag(x.t)}`;
+      const off = o => o.type === 'barter' ? t('trueque en {p}', { p: o.spot ? L('lugar', o.spot) : esc(dataTx(o.where)) }) : `${o.spot ? L('lugar', o.spot) : esc(dataTx(o.where))}, ${gold(o.price)}`;
+      const what = g.pick ? `${it(g.pick)} <span class="mut">· ${off(g.pick.offer)}</span>` : g.other ? `${it(g.other)} <span class="mut">· ${t('no se vende ahora')}: ${list(g.other.src.slice(0, 2))}</span>` : `<span class="mut">${t('Sin regalo apreciado con fuente abierta.')}</span>`;
+      const alts = g.alts.length ? `<details class="eq-more"><summary>${t('Otras opciones ({n})', { n: g.alts.length })}</summary>${ul(g.alts.map(x => `<li>${it(x)} <span class="mut">· ${off(x.offer)}</span></li>`))}</details>` : '';
+      const daysCk = w.days.filter(d => g.days.includes(d.date)).map(d => { const id = `g:${g.pid}:${d.date}`; ids.push(id);
+        return `<label class="fin-day"><input type="checkbox" data-fin-ck="${esc(id)}" aria-label="${esc(t('Regalo a {p}, {d}', { p: nm(CHARS[g.pid]), d: dayName(d) }))}"${done.includes(id) ? ' checked' : ''}>${d.dow === 'dom' ? t('Dom') : t('Sáb')}</label>`; }).join('');
+      return `<li class="fin-gift">${face(g.pid, 'cp-face') || '<span class="cp-face"></span>'}<div><b>${L('personaje', g.pid)}</b><span class="eq-line">${what}</span>` +
+        (g.birthday ? `<small class="mut">${t('Cumpleaños el {d}: un regalo más, que no gasta el de la semana.', { d: fechaDia(g.birthday) })}</small>` : '') + alts + `</div><span class="fin-days">${daysCk}</span></li>`;
+    };
+    const wd = w.away.filter(a => a.when), gone = w.away.filter(a => !a.when);
+    const away = (wd.length ? `<p class="mut">${t('Solo entre semana (regálales otro día): {l}.', { l: list(wd.map(a => `${L('personaje', a.pid)} (${esc(weekdays(a.when))})`)) })}</p>` : '') +
+      (gone.length ? `<p class="mut">${t('No están en Dagsion este fin de semana: {l}.', { l: who(gone.map(a => a.pid)) })}</p>` : '') +
+      (w.away.length && w.route !== 'cai' ? `<p class="mut">${t('Días de presencia según la ruta de Cai; en otras rutas pueden cambiar.')}</p>` : '');
+    const regalos = `<section class="card fin-blk" id="eq-ronda"><h3>${t('Regalos')}</h3><p class="mut">${t('Antes de comer: el primer regalo abre las comidas. Uno por persona el sábado y otro el domingo.')}</p>` +
+      (w.gifts.length ? `<ul class="eq-recs">${w.gifts.map(giftRow).join('')}</ul>` : `<p class="mut">${t('Ningún «quiero» en Dagsion este fin de semana.')}</p>`) + away + '</section>';
+    // meals
+    const comidas = `<section class="card fin-blk"><h3>${t('Comidas en la Posada')}</h3>` + (!w.inn ? `<p class="mut">${t('La Posada abre en el {c}.', { c: chapLink(w.innAt) })}</p>` :
+      w.meals.map(m => `<h4>${dayName(m)} · ${t('{g} por plato', { g: gold(m.price) })}</h4>` + (!m.guests.length ? `<p class="mut">${t('Nadie a quien invitar este día.')}</p>` :
+        `<p>${t('{a} con {b}', { a: lordN, b: who(m.guests) })}</p><ul class="fin-list">${m.dishes.map(d => box(`m:${m.date}:${d.es}`, esc(gt(d.es)))).join('')}</ul>` +
+        (m.more.length ? `<p class="mut">${t('Con Prestigio 3: {l}.', { l: esc(list(m.more.map(d => gt(d.es)))) })}</p>` : ''))).join('') +
+      (w.rerun ? `<p class="mut">${t('Nueva vuelta: salta las parejas que ya tengan el apoyo.')}</p>` : '')) + '</section>';
+    // Plaza de armas
+    const plaza = `<section class="card fin-blk"><h3>${gt('Plaza de armas')}</h3>` + (!w.training ? `<p class="mut">${w.trainingAt ? t('Abre en el {c}.', { c: chapLink(w.trainingAt) }) : t('No hay Plaza de armas en esta parte.')}</p>` :
+      w.training.map(d => `<h4>${dayName(d)} · ${t('{g} por sesión', { g: gold(d.price) })}${d.missing.length ? ` <small class="mut">· ${t('esta semana no hay {l}', { l: esc(list(d.missing.map(gt))) })}</small>` : ''}</h4>` +
+        `<ul class="fin-list">${d.options.map((o, i) => box(`t:${d.date}:${i}`, `${esc(gt(o.es))}${o.pair.length ? ` <span class="mut">· ${plain(o.pair)}</span>` : ''}`)).join('')}</ul>`).join('') +
+      `<p class="mut">${t('Sube el apoyo entre los dos de cada pareja, solo con unidades de tu ejército (no con reclutas pendientes). Cada unidad, 3 sesiones como mucho por la motivación. El domingo abre a las 6:00.')}</p>`) + '</section>';
+    // Servicio divino
+    const servicio = `<section class="card fin-blk"><h3>${t('Servicio divino')}</h3>` + (!w.service ? `<p class="mut">${t('Todavía no está abierto en este capítulo.')}</p>` :
+      `<ul class="fin-list">${w.service.map(s => box(`s:${s.date}`, `<b>${dayName(s)}</b>: ${s.with ? t('{a} con {b}', { a: plain([w.lord]), b: plain([s.with]) }) : plain([w.lord])}${s.holy ? ` <span class="mut">· ${holyTxt(s.holy)}</span>` : ''}`)).join('')}</ul>` +
+      `<p class="mut">${t('Uno al día en total. En día sagrado el resultado alto está garantizado: el sábado en Credna, el domingo en cualquier templo.')}</p>`) + '</section>';
+    // how many weekends like this one each recruit needs, from zero
+    const est = w.need.filter(n => n.weekend).map(n => li(L('personaje', n.pid), `${lv(n)} · ${t('≈ {n} fines de semana como este', { n: n.visits })}`));
+    const head = `${sel}<p class="fin-sum">${t('Dagsion · {r} · ≈ {g}', { r: t(w.gifts.length === 1 ? '1 recluta' : '{n} reclutas', { n: w.gifts.length }), g: gold(w.gold) })} · <span class="fin-prog" data-fin-total="${ids.length}">${t('{a}/{b} hecho', { a: ids.filter(id => done.includes(id)).length, b: ids.length })}</span></p>` +
+      `<p class="mut">${t('El sábado y el domingo cuentan como dos semanas: lo que hagas el sábado vuelve a estar libre el domingo a las 0:00.')}</p>` +
+      (est.length ? `<details class="eq-more"><summary>${t('Apoyo con {l}: cuántos fines de semana', { l: lordN })}</summary>${ul(est)}<p class="mut">${t('Desde cero, sin el bono del Prestigio ni la afinidad.')}</p></details>` : '');
+    return `<div class="fin" data-fin-store="${esc(finKey(w.key, we))}">${head}${regalos}${comidas}${plaza}${servicio}</div>`;
+  }
+
+  /** «En este capítulo»: shop novelties, barters that pay off (with where the material comes from), free loot that sells, deadlines */
+  window.teamTipsBlock = (route, key) => {
+    const x = teamTips(route, key), c = CAPS[key] || {};
+    const at = o => (o.spot ? L('lugar', o.spot) : esc(dataTx(o.where))) + (o.renown ? ` <small class="mut">(${t('Prestigio {n}', { n: o.renown })})</small>` : '');
+    const it = iid => `${img(ico().item?.[iid], 'ico')}${L('objeto', iid)}`;
+    const fold = (rows, k, label) => ul(rows.slice(0, k)) + (rows.length > k ? `<details class="eq-more"><summary>${t(label, { n: rows.length - k })}</summary>${ul(rows.slice(k))}</details>` : '');
+    const news = x.news.map(n => li(it(n.iid), `${at(n.offer)}, ${gold(n.offer.price)}`));
+    const mat = m => `${m.n > 1 ? m.n + '× ' : ''}${L('objeto', m.id)} <span class="mut">(${m.src.shop ? `${at(m.src.shop)}, ${gold(m.src.shop.price)}` : t('Búsqueda en {p} ({n})', { p: L('lugar', m.src.search.spot), n: pct(m.src.search.pct) })})</span>`;
+    const barters = x.barters.map(b => li(`${it(b.iid)} · ${at(b.offer)}`, `${t('por {l}', { l: b.mats.map(mat).join(' + ') })} · ${t('se vende por {g}', { g: gold(b.value) })}`));
+    const loot = x.loot.map(l => li(it(l.iid), `${t('Búsqueda en {p} ({n})', { p: L('lugar', l.spot), n: pct(l.pct) })} · ${t('se vende por {g}', { g: gold(l.sell) })}`));
+    const due = (c.closing || []).length;
+    return `<section class="card fin-blk" id="eq-consejos"><h3>${t('En este capítulo')}</h3>` +
+      (news.length ? `<h4>${t('Novedades en las tiendas')}</h4>` + fold(news, 4, 'Más novedades ({n})') : '') +
+      (barters.length ? `<h4>${t('Trueques de Vandahl que salen a cuenta')}</h4>` + fold(barters, 3, 'Más trueques ({n})') : '') +
+      (loot.length ? `<h4>${t('Dinero fácil')}</h4>` + fold(loot, 3, 'Más botín ({n})') : '') +
+      (!news.length && !barters.length && !loot.length ? `<p class="mut">${t('Nada nuevo en tiendas ni trueques en este capítulo.')}</p>` : '') +
+      `<p class="mut">${due ? `<a href="#/cap">${t('Lo que cierra en este capítulo ({n})', { n: due })}</a> · ` : ''}<a href="#/semana?ir=eq-semana">${t('Compras completas y herrería')}</a></p></section>`;
+  };
 
   const matTxt = m => list(Object.entries(m).map(([iid, n]) => `${n}× ${L('objeto', iid)}`));
   const plusN = iid => (String(ITEMS[iid]?.es || '').match(/\+\d+$/) || [''])[0];
@@ -223,7 +290,7 @@
     if (!g) return '';
     const fr = g.now && forge?.rows.find(r => r.iid === g.now.iid && !r.repair);
     const now = g.now ? `${img(ico().item?.[g.now.iid], 'ico')}${L('objeto', g.now.iid)} <span class="mut">· ${SRC_KIND[g.now.kind](g.now)}${g.now.loss ? ' · ' + t('pesa: −{n} de velocidad de ataque (peso {w} − Con ≈{c})', { n: g.now.loss, w: ITEMS[g.now.iid].weapon.weight, c: g.con }) : ''}</span>` +
-      (fr ? ` · <a href="#/cap?ir=eq-herreria">${t('refínala a {n}', { n: plusN(fr.to) })}</a>` : '') : g.spells ? `<span class="mut">${t('{m}: sus hechizos son propios de la unidad; no hay arma que comprar.', { m: t(g.spells === 'magia-blanca' ? 'Magia blanca' : 'Magia negra') })}</span>` : `<span class="mut">${t('Sin arma de su build que pueda llevar ahora con su clase.')}</span>`;
+      (fr ? ` · <a href="#/semana?ir=eq-herreria">${t('refínala a {n}', { n: plusN(fr.to) })}</a>` : '') : g.spells ? `<span class="mut">${t('{m}: sus hechizos son propios de la unidad; no hay arma que comprar.', { m: t(g.spells === 'magia-blanca' ? 'Magia blanca' : 'Magia negra') })}</span>` : `<span class="mut">${t('Sin arma de su build que pueda llevar ahora con su clase.')}</span>`;
     const opts = g.options.map(o => li(`${img(ico().item?.[o.iid], 'ico')}${L('objeto', o.iid)} · ${L('lugar', o.spot, o.where.replace(/\s*\(.*\)$/, ''))}, ${gold(o.price)}`,
       [t('Pot {m}, peso {w}', { m: ITEMS[o.iid].weapon.might, w: ITEMS[o.iid].weapon.weight }), o.effective && t('arma eficaz')].filter(Boolean).join(' · ')));
     const acc = g.acc ? li(`${L('objeto', g.acc.iid)} · ${g.acc.spot ? L('lugar', g.acc.spot, g.acc.where.replace(/\s*\(.*\)$/, '')) : esc(dataTx(g.acc.where))}${g.acc.price ? `, ${gold(g.acc.price)}` : ''}`, esc(t(g.acc.why))) : '';
@@ -307,14 +374,26 @@
       ['equipo', 'Equipo', equipo + `<h4 id="eq-equipamiento">${t('Builds y equipamiento')}</h4>${gearOfTxt}${builds}`],
       ['reclutamiento', 'Reclutamiento', `<section class="card eq-box">${recruitment(route, want) || `<p class="mut">${t('Ningún recluta marcado como «quiero reclutarlo».')}</p>`}</section>` +
         (want.length ? `<section class="card eq-box eq-gifts"><h3>${t('Regalos para subir el apoyo')}</h3>${birthdays(plan.week)}` +
-          (giftRound(plan.round) || `<p class="mut">${t('Ningún «quiero» con regalos que preparar.')}</p>`) + `<p class="mut"><a href="#/semana">${t('Plan de la semana: comidas, regalos y Servicio divino')} →</a></p></section>` : '')],
+          (giftRound(plan.round) || `<p class="mut">${t('Ningún «quiero» con regalos que preparar.')}</p>`) + `<p class="mut"><a href="#/semana">${t('Este fin de semana: regalos, comidas y Servicio divino')} →</a></p></section>` : '')],
     ]) + `<details class="card eq-reglas" id="eq-reglas"${qs.sec === 'reglas' ? ' open' : ''}><summary>${t('Cómo se calcula ({n})', { n: rules.length })}</summary>${ul(rules.map(r => `<li>${esc(t(r))}</li>`))}</details>`;
   }
 
   /** Capítulo › «Esta semana»: the week checklist for the context team at `key` (the «quiero» recruits), with its rules folded */
-  window.teamWeekBlock = (route, key) => {
-    const plan = teamPlan(route, key, ctxRecruits(route), ctxDrop(route), ctxWant(route)), rules = RULES.filter(r => WEEK_RULE.test(r));
-    return weekHtml(plan.week, plan.round, plan.shop, plan.forge) + `<details class="eq-more"><summary>${t('Cómo se calcula ({n})', { n: rules.length })}</summary>${ul(rules.map(r => `<li>${esc(t(r))}</li>`))}</details>`;
+  const weekBody = plan => { const rules = RULES.filter(r => WEEK_RULE.test(r));
+    return weekHtml(plan.week, plan.round, plan.shop, plan.forge) + `<details class="eq-more"><summary>${t('Cómo se calcula ({n})', { n: rules.length })}</summary>${ul(rules.map(r => `<li>${esc(t(r))}</li>`))}</details>`; };
+  window.teamWeekBlock = (route, key) => weekBody(teamPlan(route, key, ctxRecruits(route), ctxDrop(route), ctxWant(route)));
+  const finN = key => { const m = store.get('findeN', {}); return m && Number.isInteger(m[key]) ? m[key] : 0; };
+  /** Capítulo's three lines about the weekend (the whole plan is #/semana) */
+  window.teamWeekendSummary = (route, key) => {
+    const w = teamWeekend(route, key, ctxWant(route), finN(key)), lordN = L('personaje', w.lord);
+    if (!w.weekends.length) return `<p class="mut">${t('Este capítulo no tiene días libres en fin de semana.')}</p>`;
+    const meal = w.meals.find(m => m.guests.length), svc = (w.service || []).find(s => s.with);
+    const lines = [
+      w.gifts.length ? t('Regalos para {l}.', { l: who(w.gifts.map(g => g.pid)) }) : t('Ningún «quiero» en Dagsion este fin de semana.'),
+      meal && t('Comidas: {a} con {b}.', { a: lordN, b: who(meal.guests) }),
+      svc && t('Servicio divino: {a} con {b}.', { a: lordN, b: L('personaje', svc.with) }),
+    ].filter(Boolean);
+    return ul(lines.map(x => `<li>${x}</li>`)) + `<p><a href="#/semana">${t('Ver el fin de semana')} →</a></p>`;
   };
 
   /** re-render in place keeping the page scroll and the focus on the pressed control (selector `again` finds it) */
@@ -322,8 +401,12 @@
     const y = window.scrollY;
     const h = location.hash.replace(/([?&])ir=[^&]*&?/, '$1').replace(/[?&]$/, '');  // a deep-link ?ir= would scroll on every render
     if (h !== location.hash) history.replaceState(null, '', h);
+    // folds stay as they were (shell.js turns <details> into .fold): open ones are found again by their title (its counts may change)
+    const key = b => (b.dataset.t || '').replace(/\d+/g, '#');
+    const open = new Set([...document.querySelectorAll('main .fold-b[aria-expanded="true"]')].map(key));
     change();
     render(true);
+    if (open.size && typeof foldToggle === 'function') document.querySelectorAll('main .fold-b[aria-expanded="false"]').forEach(b => { if (open.has(key(b))) foldToggle(b, true); });
     document.querySelector(again)?.focus({ preventScroll: true });
     window.scrollTo(0, y);
     if (say && typeof announce === 'function') announce(t('Equipo y equipamiento recalculados'));
@@ -346,29 +429,52 @@
 
   // #/planificador is rewritten to #/equipo by core.js (OLD_ADDR) before it gets here
   const renderEquipo = (id, qs) => {
-    // the week moved to Capítulo: #/equipo?sec=semana and …&ir=eq-ronda land there
+    // the week lives in Este fin de semana: #/equipo?sec=semana and …&ir=eq-ronda land there
     if (qs && (qs.sec === 'semana' || qs.ir === 'eq-ronda')) {
-      const h = `#/cap?ir=${qs.ir === 'eq-ronda' ? 'eq-ronda' : 'eq-semana'}`;
+      const h = qs.ir === 'eq-ronda' ? '#/semana?ir=eq-ronda' : '#/semana';
       if (typeof history !== 'undefined' && history.replaceState) history.replaceState(null, '', h);
-      return P.cap('');
+      if (typeof render === 'function' && typeof document.querySelector === 'function' && document.querySelector('main')) setTimeout(() => render());  // tabs and title of the weekend page
+      return P.semana('', {});
     }
     return page(qs || {});
   };
-  /** «Esta semana» on its own (Mi partida's second tab): the same week block Capítulo shows, for the chosen route and chapter */
-  register({ id: 'semana', title: 'Esta semana', routes: ['semana'], render: () => {
-    if (!ctxChosen()) return `<h1>${t('Esta semana')}</h1><section class="card"><p>${t('Elige ruta y capítulo para ver qué hacer esta semana, a quién reclutar y qué no perderte.')}</p>` +
+  /** «Este fin de semana» (Mi partida's first tab): the Saturday + Sunday checklist, the chapter's tips, then shopping, forge and deadlines */
+  register({ id: 'semana', title: 'Este fin de semana', routes: ['semana'], render: (id, qs) => {
+    if (!ctxChosen()) return `<h1>${t('Este fin de semana')}</h1><section class="card"><p>${t('Elige ruta y capítulo para ver qué hacer este fin de semana, a quién reclutar y qué no perderte.')}</p>` +
       `<p><button class="txtbtn" type="button" data-sheet="ctx" aria-haspopup="dialog">${t('Elegir ruta y capítulo')}</button></p></section>`;
-    const key = ctxGet().key, c = CAPS[key], wr = c.route === 'comun' ? ctxRoute() : c.route;
-    return `<h1>${t('Esta semana')}</h1><p class="mut">${esc(ROUTE_NAME[wr] || '')} · ${chapLink(key)}</p>` +
-      `<section class="card" id="eq-semana">${window.teamWeekBlock(wr, key)}</section>`;
+    if (CAPS[qs?.c] && CAPS[qs.c].key !== ctxGet().key) { const c0 = CAPS[qs.c]; ctxSet(c0.route === 'comun' ? ctxRoute() : c0.route, c0.key); }  // a min-max chapter link
+    const key = ctxGet().key, c = CAPS[key], wr = c.route === 'comun' ? ctxRoute() : c.route, idx = chapIdx(wr, key);
+    const want = ctxWant(wr), plan = teamPlan(wr, key, ctxRecruits(wr), ctxDrop(wr), want), mem = new Set(plan.prio.map(x => x.pid));
+    const joined = p => p === LORDS[wr] || !CHARS[p]?.routes?.[wr]?.join_key || chapIdx(wr, CHARS[p].routes[wr].join_key) <= idx;  // as teamPlan's «tengo»
+    const w = teamWeekend(wr, key, want.filter(p => mem.has(p)), finN(key), plan.prio.map(x => x.pid).filter(p => !want.includes(p) && joined(p)));
+    return `<h1>${t('Este fin de semana')}</h1><p class="mut">${esc(ROUTE_NAME[wr] || '')} · ${chapLink(key)}</p>` + weekendHtml(w) +
+      (typeof window.teamTipsBlock === 'function' ? window.teamTipsBlock(wr, key) : '') +
+      `<section class="card" id="eq-semana"><h3>${t('Compras, herrería y plazos')}</h3>${weekBody(plan)}</section>`;
   } });
+  // weekend selector and checkboxes: the choice per chapter, the ticks per weekend (fe2.finde.<chapter>.<first day>)
+  document.addEventListener('click', e => {
+    const b = e.target.closest?.('[data-fin-n]');
+    if (!b || b.disabled) return;
+    const key = ctxGet().key, m = store.get('findeN', {}) || {};
+    keepPlace(b.classList.contains('fin-prev') ? '.fin-prev:not([disabled])' : '.fin-next:not([disabled])', () => store.set('findeN', { ...m, [key]: +b.dataset.finN }), false);
+  });
+  document.addEventListener('change', e => {
+    const c = e.target.closest?.('[data-fin-ck]'), box = c?.closest('[data-fin-store]');
+    if (!box) return;
+    const k = box.dataset.finStore.replace(/^fe2\./, ''), v = new Set(store.get(k, []) || []);
+    c.checked ? v.add(c.dataset.finCk) : v.delete(c.dataset.finCk);
+    store.set(k, [...v]);
+    const p = box.querySelector('.fin-prog'), all = box.querySelectorAll('[data-fin-ck]');
+    if (p) p.textContent = t('{a}/{b} hecho', { a: [...all].filter(x => x.checked).length, b: all.length });
+  });
   register({ id: 'equipo', title: 'Equipo', routes: ['equipo', 'planificador'], render: renderEquipo, css: CSS,
     search: () => [
       // search.js translates label and sub with t()
       { group: 'Secciones', label: 'Equipo', sub: 'Builds, equipamiento, reclutamiento', href: '#/equipo', aliases: ['team', 'planner', 'planificador', 'reclutas'] },  // i18n-ignore (aliases)
-      { group: 'Secciones', label: 'Semana', sub: 'Capítulo · compras, herrería, comidas, regalos y Servicio divino', href: '#/semana', aliases: ['esta semana', 'comidas', 'posada', 'servicio divino', 'compras', 'checklist'] },  // i18n-ignore (aliases)
-      { group: 'Secciones', label: 'Ronda de regalos', sub: 'Capítulo · Esta semana', href: '#/cap?ir=eq-ronda', aliases: ['ronda', 'regalos de la semana', 'regalar'] },  // i18n-ignore (aliases)
-      { group: 'Secciones', label: 'Herrería', sub: 'Capítulo · Esta semana · qué refinar', href: '#/cap?ir=eq-herreria', aliases: ['refinar', 'refinado', 'forja', 'reparar'] },  // i18n-ignore (aliases)
+      { group: 'Secciones', label: 'Este fin de semana', sub: 'Mi partida · regalos, comidas, Plaza de armas y Servicio divino', href: '#/semana', aliases: ['semana', 'esta semana', 'fin de semana', 'sábado', 'domingo', 'comidas', 'posada', 'servicio divino', 'coliseo', 'checklist'] },  // i18n-ignore (aliases)
+      { group: 'Secciones', label: 'Regalos del fin de semana', sub: 'Mi partida · Este fin de semana', href: '#/semana?ir=eq-ronda', aliases: ['ronda', 'ronda de regalos', 'regalos de la semana', 'regalar'] },  // i18n-ignore (aliases)
+      { group: 'Secciones', label: 'Consejos del capítulo', sub: 'Mi partida · novedades, trueques de Vandahl y dinero fácil', href: '#/semana?ir=eq-consejos', aliases: ['consejos', 'trueques', 'vandahl', 'dinero', 'novedades'] },  // i18n-ignore (aliases)
+      { group: 'Secciones', label: 'Herrería', sub: 'Mi partida · Este fin de semana · qué refinar', href: '#/semana?ir=eq-herreria', aliases: ['refinar', 'refinado', 'forja', 'reparar', 'compras'] },  // i18n-ignore (aliases)
       { group: 'Secciones', label: 'Builds del equipo', sub: 'Equipo', href: '#/equipo?ir=eq-equipamiento', aliases: ['build', 'clases del equipo', 'monturas', 'equipamiento', 'armas del equipo'] },  // i18n-ignore (aliases)
       { group: 'Secciones', label: 'Reclutamiento', sub: 'Equipo · condiciones, oro y objetos', href: '#/equipo?sec=reclutamiento', aliases: ['reclutar', 'requisitos'] },  // i18n-ignore (aliases)
     ] });

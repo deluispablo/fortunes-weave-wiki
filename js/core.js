@@ -428,14 +428,25 @@ function rewardOpen(w, route, key) {
 const ROUTE_CODE = { cai: 'KAI', dietrich: 'DIT', theodora: 'SEO', leda: 'LED' };  // route codes of Part 1 dungeon conditions
 /** an obtain row tied to one part (W.items `part`: Part 3 dungeon tables, gate and miasma rewards, story-map loot, one-part quests…) counts only in that part */
 const partOk = (o, key) => !o.part || CAPS[key]?.part === o.part;
+/* Dagsion facilities that open during the story: a shelf there sells nothing before its facility's chapter (chapter data «unlocks») */
+// i18n-ignore-next (data values)
+const FAC_OF = [[/^Sociedad Mercantil Vandahl/, 'Sociedad Mercantil Vandahl'], [/^Dagsion \(taberna\)/, 'Venta de regalos de la taberna'],
+  [/^Dagsion \(mercado\)/, 'Mercado'], [/^Dagsion \(puesto de bebidas\)/, 'Puesto de bebidas']];
+/** chapter index (on `route`) where the facility selling source `o` opens; 0 when it needs none; -1 when it never opens there */
+const facIdx = (o, route) => { const f = FAC_OF.find(([re]) => re.test(o.where || ''))?.[1];
+  return f ? routeChapters(route).findIndex(c => (c.unlocks || []).includes(f)) : 0; };
+/** the facility of `o` is open at `key` (now) or, with `later`, from some chapter of the same part on */
+const facOk = (o, route, key, later = false) => { const i = facIdx(o, route), k = chapIdx(route, key), ch = routeChapters(route);
+  if (i < 0) return false;
+  return i <= k || (later && ch[i]?.part === ch[k]?.part); };
 /** can the party get item `iid` on `route` from chapter `key` on (to pay a barter)? Any source counts: a shop or merchant at a reachable
     place, a search, crop or dungeon at a reachable place, in the row's own part (partOk), a box that can itself be had, automatic activities, an open quest reward, enemy loot.
     A barter counts one level deep. */
 function payOk(iid, route, key, depth = 1, noBox = false) {
   return (ITEMS[iid]?.obtain || []).some(o => {
     if (!partOk(o, key) || (noBox && o.type === 'sorteo')) return false;  // refining materials: a random box is not a plan
-    if (o.type === 'tienda' || o.type === 'ambulante') return (o.rows || [{ conds: o.conds || [] }]).some(w => srcOpen(w.conds, route, key)) && spotAccess(sourceSpot(o), route, key).ok;
-    if (o.type === 'barter') return depth > 0 && (o.rows || [{ conds: [] }]).some(w => srcOpen(w.conds, route, key)) && spotAccess(sourceSpot(o), route, key).ok && (o.pay || []).every(x => payOk(x.id, route, key, depth - 1));
+    if (o.type === 'tienda' || o.type === 'ambulante') return facOk(o, route, key, true) && (o.rows || [{ conds: o.conds || [] }]).some(w => srcOpen(w.conds, route, key)) && spotAccess(sourceSpot(o), route, key).ok;
+    if (o.type === 'barter') return depth > 0 && facOk(o, route, key, true) && (o.rows || [{ conds: [] }]).some(w => srcOpen(w.conds, route, key)) && spotAccess(sourceSpot(o), route, key).ok && (o.pay || []).every(x => payOk(x.id, route, key, depth - 1));
     if (o.type === 'búsqueda') return routeOk(o.condition || [], route) && spotAccess(o.spot, route, key).ok;
     if (o.type?.startsWith('cultivo') || o.type === 'mazmorra' || o.type === 'expedición a mazmorra') {
       const codes = (o.conds || []).filter(Array.isArray).map(c => c[0]);
@@ -461,7 +472,7 @@ function itemSources(iid, route, key) {
     const open = o.rows ? o.rows.some(w => ok(w.conds)) : !key || ok(o.conds || o.condition || []);
     if (!open || (key && (!partOk(o, key) || (o.type === 'recompensa' && !rewardOpen(o.when, route, key))))) continue;
     if (key) {  // places the party cannot reach on this route/part (Cai Part 1's closed regions) are not a source, nor a barter nobody can pay
-      if (!spotAccess(sourceSpot(o), route, key).ok || !barterOk(o, route, key)) continue;
+      if (!spotAccess(sourceSpot(o), route, key).ok || !barterOk(o, route, key) || !facOk(o, route, key, true)) continue;
     }
     // each shelf has its own discount: the price paid is the base price minus it (as the item ficha shows it)
     const row = o.rows?.find(w => ok(w.conds)) || o.rows?.[0] || {}, base = row.price ?? o.price ?? ITEMS[iid].price;
@@ -575,7 +586,7 @@ const MENU = [['guias', 'Guías', ['guia', 'builds', 'reclutas', 'trucos', 'perd
   ['mundo', 'Mundo y misiones', ['mapa', 'lugares', 'mazmorras', 'misiones', 'batallas']],
   ['sistemas', 'Sistemas', ['instalaciones', 'dioses', 'prestigio', 'turnos', 'sendas', 'senores', 'partes23', 'dificultad']],
   ['historia', 'Historia y textos', ['archivo', 'guion', 'tutoriales', 'glosario']],
-  ['partida', 'Mi partida', ['inicio', 'cap', 'semana', 'equipo', 'ajustes']]];
+  ['partida', 'Mi partida', ['inicio', 'semana', 'cap', 'equipo', 'ajustes']]];
 const NAV = MENU.map(([id, title]) => ({ id, title, pages: [] }));
 const ROUTES = {};  // hash section → page id
 /* Japanese never reaches the screen: names left in text nodes become their official Spanish name, the rest is dropped */
