@@ -44,7 +44,8 @@ const TEAM_TIER = (() => {  // first published tier table: name → S/A/B/C («e
 })();
 /** priority order: the route's lord, then tier (S > A > B > C), then who joins first, then name; each with its reason */
 function teamPriority(route, pids) {
-  const tierOf = p => (p === LORDS[route] ? 'Señor' : TEAM_TIER[CHARS[p].es] || 'B');
+  const rt = ((window.WIKI_EXT || {}).builds?.tiers || {})[route] || {};  // the route's own community consensus first
+  const tierOf = p => (p === LORDS[route] ? 'Señor' : (rt[p] || '')[0] || TEAM_TIER[CHARS[p].es] || 'B');
   const rank = { Señor: 0, S: 1, A: 2, B: 3, C: 4 };
   const at = p => chapIdx(route, CHARS[p].routes?.[route]?.join_key || CHARS[p].routes?.[route]?.recruit_key);
   return [...pids].sort((a, b) => rank[tierOf(a)] - rank[tierOf(b)] || at(a) - at(b) || CHARS[a].es.localeCompare(CHARS[b].es, 'es'))
@@ -171,13 +172,81 @@ function teamWeapon(type, route, key) {
     .sort((a, b) => (b[1].weapon.might || 0) - (a[1].weapon.might || 0) || (a[1].price || 0) - (b[1].price || 0) || a[0].localeCompare(b[0]))[0]?.[0] || null;
 }
 
-/** full build of `pid` on `route` from chapter `key` (see the page notes for every rule applied) */
-function teamBuild(pid, route, key) {
+/* ---------------- community builds: several per unit, the pick depends on the rest of the team ---------------- */
+/** a community path as one class per tier above the start, each usable with `w` and what the earlier ones train; null otherwise.
+    Riding, Flying and Armor also rise with manuals and the drill ground, so they never block: {chain, needs} lists the ones to raise that way. */
+function teamChain(pid, jids, route, w, key) {
+  const start = teamStart(pid, route, key), t0 = CLASSES[start]?.tier || 0, chain = jids.filter(j => CLASSES[j].tier > t0);
+  let trained = new Set([w, ...supportOf(start)]);
+  const needs = new Set();
+  for (let i = 0; i < chain.length; i++) {
+    (CLASSES[chain[i]].exam_requirements || []).filter(r => SUPPORT_SKILLS.includes(r.es) && !trained.has(r.es)).forEach(r => needs.add(r.es));
+    if (CLASSES[chain[i]].tier !== t0 + 1 + i || !teamUsable(pid, chain[i], route, w, new Set([...trained, ...SUPPORT_SKILLS]))) return null;
+    trained = new Set([...trained, ...supportOf(chain[i])]);
+  }
+  return chain.length ? { chain, needs: [...needs] } : null;
+}
+/** the unit's community builds (WIKI_EXT.builds.units[pid]) for `route`, in the published order; each {…, jids, target, ok, issue}.
+    A build is ok when every class exists, the unit may take its target on this route and the target uses the build's weapon. */
+function teamOptions(pid, route, key) {
+  return (((window.WIKI_EXT || {}).builds?.units || {})[pid] || []).filter(o => !o.routes || o.routes.includes(route)).map(o => {
+    const jids = (o.path || []).map(es => teamJid(es) || null), bad = (o.path || []).filter((es, i) => !jids[i]);
+    const target = bad.length ? null : jids.at(-1);
+    const issue = bad.length ? t('clase desconocida: {c}', { c: bad.join(', ') }) :
+      !target || !teamCan(pid, target) ? t('no puede ser {c}', { c: nm(CLASSES[target] || {}) }) :
+      teamClassIdx(target, route) < 0 ? t('{c} no existe en esta ruta', { c: nm(CLASSES[target]) }) :
+      !(CLASSES[target].weapons_usable || []).includes(o.weapon) ? t('{c} no usa {w}', { c: nm(CLASSES[target]), w: t(o.weapon || '?').toLowerCase() }) :
+      !teamChain(pid, jids, route, o.weapon, key) && !teamPath(pid, target, route, o.weapon, key) ? t('ningún camino de clases llega a {c} con {w}', { c: nm(CLASSES[target]), w: t(o.weapon).toLowerCase() }) : '';
+    const needs = (!issue && teamChain(pid, jids, route, o.weapon, key)?.needs) || [];
+    return { ...o, jids, target, needs, roles: [...new Set([...(o.roles || []), ...(target ? teamRolesOf(target).filter(r => ['tanque', 'volador', 'montado'].includes(r)) : [])])], ok: !issue, issue };  // what the build is for, plus what its class makes objectively true
+  });
+}
+/** roles nobody may double up on (one is enough) */
+const TEAM_ONE = new Set(['bailarin']);
+/** {pid: {pick, opts: [{id, score, why}]}} for the members with a valid community build. Each unit, by priority, takes the build that
+    best fits what the others' current picks leave: the published order (first = main), +3 for a needed role nobody else covers,
+    +2 or +3 for each «when» rule met, −4 for a one-per-team role someone else already has. Three passes, so later picks can move earlier ones. */
+function teamChoose(route, key, members) {
+  const prio = teamPriority(route, members).map(x => x.pid), opts = {}, pick = {};
+  prio.forEach(p => { const o = teamOptions(p, route, key).filter(x => x.ok); if (o.length) { opts[p] = o; pick[p] = o[0]; } });
+  const rolesOf = p => opts[p] ? pick[p].roles : (teamBuild(p, route, key)?.roles || []);
+  const base = Object.fromEntries(members.filter(p => !opts[p]).map(p => [p, rolesOf(p)]));  // units with no community build: computed roles
+  const others = me => [...Object.entries(base).map(([, r]) => r), ...Object.keys(opts).filter(p => p !== me).map(p => pick[p].roles)].flat();
+  const score = (me, o, i) => {
+    const rest = others(me), why = [];
+    let s = -i * 0.5;
+    o.roles.filter(r => ROLE_NEEDED.includes(r) && !rest.includes(r)).forEach(r => { s += 3; why.push(t('cubre el hueco de {r}', { r: roleName(r) })); });
+    o.roles.filter(r => TEAM_ONE.has(r) && rest.includes(r)).forEach(r => { s -= 4; why.push(t('ya hay {r} en el equipo', { r: roleName(r) })); });
+    (o.when || []).forEach(w => {
+      if (w.has && members.includes(w.has)) { s += 2; why.push(t('con {p} en el equipo', { p: nm(CHARS[w.has]) })); }
+      if (w.lacks && !members.includes(w.lacks)) { s += 2; why.push(t('sin {p} en el equipo', { p: nm(CHARS[w.lacks]) })); }
+      if (w.lacks_role && !rest.includes(w.lacks_role)) { s += 3; if (!o.roles.includes(w.lacks_role) || !ROLE_NEEDED.includes(w.lacks_role)) why.push(t('nadie más hace de {r}', { r: roleName(w.lacks_role) })); }  // a needed role already says «cubre el hueco»
+    });
+    return { id: o.id, score: s, why };
+  };
+  for (let pass = 0; pass < 3; pass++) prio.filter(p => opts[p]).forEach(p => {
+    const sc = opts[p].map((o, i) => score(p, o, i));
+    pick[p] = opts[p][sc.reduce((b, x, i) => (x.score > sc[b].score ? i : b), 0)];
+  });
+  return Object.fromEntries(Object.keys(opts).map(p => [p, { pick: pick[p].id, opts: opts[p].map((o, i) => score(p, o, i)) }]));
+}
+const ROLE_EXTRA = { bailarin: 'Bailarín', golpe: 'Golpe físico', esquiva: 'Esquiva' };
+const roleName = r => t((ROLES.find(x => x[0] === r) || [r, ROLE_EXTRA[r] || r])[1]).toLowerCase();
+
+/** full build of `pid` on `route` from chapter `key` (see the page notes for every rule applied); `pick` = one of teamOptions():
+    its class path when valid as written, else the best path to its target with its weapon */
+function teamBuild(pid, route, key, pick) {
   const c = CHARS[pid], cb = teamCombat(pid), r = c?.routes?.[route];
   if (!c) return null;
   let target = null, found = null;
   const opts = teamTargets(pid);
-  for (const [jid, why] of opts) { found = teamPath(pid, jid, route, null, key); if (found) { target = { jid, why }; break; } }
+  if (pick?.ok) {
+    const chain = teamChain(pid, pick.jids, route, pick.weapon, key);
+    found = chain ? { path: chain.chain, weapon: pick.weapon } : teamPath(pid, pick.target, route, pick.weapon, key);
+    if (found) target = { jid: pick.target, why: t('de la build «{n}»', { n: tx(pick, 'name') }) };
+  }
+  const picked = !!found;
+  if (!found) for (const [jid, why] of opts) { found = teamPath(pid, jid, route, null, key); if (found) { target = { jid, why }; break; } }
   if (!found && opts.length) {  // no listed target is reachable here: best tier-4 class reachable with the main weapon, by growth in the unit's top stats
     const w0 = teamMainWeapon(pid, opts[0][0], route, key), mine = teamTop(teamCombat(pid).growth || {});
     const sum = j => mine.reduce((a, st) => a + teamGrowth(pid, j)[st], 0);
@@ -219,8 +288,9 @@ function teamBuild(pid, route, key) {
   return {
     pid, start, target: target?.jid || '', target_why: target?.why || '', steps, bridge: bridge ? { jid: bridge[1], skill: bridge[0] } : null,
     skills: masteries,  // personal skills are always on; only masteries need a slot
-    kind: fin.mount_kind || null, weapon: w, weapons: w ? [{ type: w, iid: teamWeapon(w, route, key) }] : [], roles: teamRolesOf(target?.jid),
+    kind: fin.mount_kind || null, weapon: w, weapons: w ? [{ type: w, iid: teamWeapon(w, route, key) }] : [], roles: picked ? pick.roles : teamRolesOf(target?.jid),
     late: !!(r?.recruit_key && !r?.join_key), final_growth: target ? teamGrowth(pid, target.jid) : null,
+    ...(picked ? { pick: pick.id, pick_needs: pick.needs || [] } : {}),
   };
 }
 
@@ -307,7 +377,9 @@ function teamApply(a) {
 /** everything the page shows, for `route` at chapter `key` with the picked `recruits` («quiero» + «tengo»); gifts only for `want` */
 function teamPlan(route, key, recruits, drop = [], want = recruits) {
   const members = teamMembers(route, key, recruits, drop), prio = teamPriority(route, members);
-  const builds = prio.map(x => teamBuild(x.pid, route, key));
+  const choice = teamChoose(route, key, members);
+  const pickOf = p => choice[p] && teamOptions(p, route, key).find(o => o.id === choice[p].pick);
+  const builds = prio.map(x => teamBuild(x.pid, route, key, pickOf(x.pid)));
   const team = new Set(members);
   const mounts = teamAssignMounts(builds.flatMap(b => teamMountStages(b).map(st => { const ranked = teamMountWants(b.pid, st.kind, b.final_growth, route, key, team);
     return { pid: b.pid, kind: st.kind, ranked, score: Object.fromEntries(ranked.map(r => [r, teamMountSc(MOUNTS[r], b.final_growth) * teamMountMul(st.classes)])) }; })));
@@ -317,6 +389,6 @@ function teamPlan(route, key, recruits, drop = [], want = recruits) {
   // «tengo»: picked recruits not in «quiero», story joiners from their chapter, the lord
   const have = members.filter(p => !want.includes(p) && (p === LORDS[route] || !CHARS[p].routes[route].join_key || chapIdx(route, CHARS[p].routes[route].join_key) <= chapIdx(route, key)));
   const gear = teamGear(route, key, have, builds);
-  return { route, key, prio, builds, mounts, roles: teamRoles(builds, route), gifts, round: teamGiftRound(want.filter(p => members.includes(p) && CHARS[p]?.routes?.[route]?.recruit_key), route, key), week: teamWeek(route, key, want.filter(p => members.includes(p))), shop,
+  return { route, key, prio, choice, builds, mounts, roles: teamRoles(builds, route), gifts, round: teamGiftRound(want.filter(p => members.includes(p) && CHARS[p]?.routes?.[route]?.recruit_key), route, key), week: teamWeek(route, key, want.filter(p => members.includes(p))), shop,
     gear, forge: teamForge(route, key, builds, shop, gear) };
 }

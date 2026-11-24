@@ -28,8 +28,12 @@
   ];
   const COMPETENCIAS = [
     ['EXP acumulada por rango', 'E 0 · E+ 20 · D 35 · D+ 80 · C 220 · C+ 440 · B 690 · B+ 910 · A 1215 · A+ 1510 · S 1960 · S+ 2560'],
-    ['EXP por asalto', '1 + aptitud (+1/0/−1) + bono de clase + Ayudas, en cada asalto con al menos 1 de daño; Equitación, Coraza, Vuelo e Infantería no tienen el 1 base'],
-    ['Batalla rápida', 'solo cuentan los primeros 15 asaltos para la EXP de competencia, de clase y de movimiento; el botón + salta 15 asaltos'],
+    ['EXP por asalto', '1 + aptitud (+1/0/−1) + bono de clase + Ayudas, en cada asalto con al menos 1 de daño; atacar dos veces no suma más. Equitación, Coraza, Vuelo e Infantería no tienen el 1 base (un vídeo de la comunidad dice que sí lo tienen)'],
+    ['Aptitud', 'competencia en dorado: +1 por asalto; en negro: 0; en azul: −1'],
+    ['Bono de clase', 'cada clase suma a las competencias que entrena (se ve al cambiar de clase): Gladiador, a Espada, Hacha y Guanteletes, no a Lanza'],
+    ['Mazmorras', 'las unidades montadas luchan a pie: suben Infantería, no Equitación ni Vuelo'],
+    ['Ayudas de salvación', 'suman en cada combate; una prueba de la comunidad no las vio sumar en la Batalla rápida (sin confirmar)'],
+    ['Batalla rápida', 'solo cuentan los primeros 15 asaltos para la EXP de competencia, de clase y de movimiento; el botón + salta 15 asaltos. Para subir sin gastar turnos: Trucos › Golpear y retirarse'],
     ['Manuales', 'manual +20, tratado +100; solo Mando, Equitación, Coraza, Vuelo, Magia negra y Magia blanca'],
   ];
 

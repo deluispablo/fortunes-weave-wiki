@@ -5,7 +5,7 @@
 (() => {
   const TL = { fav: '★ Favorito', love: '♥ Le encanta', like: 'Le gusta' };  // shown through t()
   // tokens and components of style.css only: cards between units, a softer rule between stages, a tinted block for the extras
-  const CSS = `.fi-sec:has(> .eq-box){background:none;border:0;box-shadow:none;padding:0}.eq-box+.eq-box{margin-top:var(--s3)}\n@media (max-width:600px){.eq-gifts .eq-gi{display:flex;align-items:center;gap:6px;padding:2px 0}.eq-gifts .eq-gi>a{flex:1;min-width:0}.eq-gifts .eq-tw{display:none}.eq-gifts .eq-rec{gap:var(--s2)}}\n.eq-pick{font:inherit;cursor:pointer;padding-right:28px}.eq-pick.on::after{background:url(img/ui/IconCheck.png) right 8px center/14px no-repeat,var(--cf)}.eq-st{font-weight:650;color:var(--tx)}
+  const CSS = `.fi-sec:has(> .eq-box){background:none;border:0;box-shadow:none;padding:0}.eq-box+.eq-box{margin-top:var(--s3)}\n@media (max-width:600px){.eq-gifts .eq-gi{display:flex;align-items:center;gap:6px;padding:2px 0}.eq-gifts .eq-gi>a{flex:1;min-width:0}.eq-gifts .eq-tw{display:none}.eq-gifts .eq-rec{gap:var(--s2)}}\n.eq-pick{font:inherit;cursor:pointer;padding-right:28px}.eq-pick.on::after{background:url(img/ui/IconCheck.png) right 8px center/14px no-repeat,var(--cf)}.eq-st{font-weight:650;color:var(--tx)}.eq-pickb{margin:var(--s2) 0}.eq-pickb p{margin:var(--s1) 0}.eq-pickb details{margin-top:var(--s1)}
 .eq-units{display:grid;gap:var(--s4)}.eq-unit{margin:0;padding:var(--s3) var(--s4)}
 .eq-unit>header{display:flex;align-items:center;gap:var(--s3);margin:0 0 var(--s2)}.eq-unit>header h4{margin:0}.eq-unit>header .cp-tag{margin:0 var(--s1) 0 0}
 .eq-steps{list-style:none;margin:0;padding:0}.eq-steps>li{padding:var(--s2) 0;border-top:1px dashed var(--line)}.eq-steps>li:first-child{border-top:0;padding-top:0}
@@ -17,7 +17,7 @@
   const cls = jid => (CLASSES[jid] ? `${img(ico().job?.[jid], 'ico')}${L('clase', jid)}` : '');
   const capOf = key => (CAPS[key] ? chapLink(key) : '');
   const statLine = o => STAT_KEYS.filter(k => o?.[k]).map(k => `${statName(k)} +${o[k]}`).join(', ');
-  const roleNames = rs => list(rs.map(r => t(ROLES.find(x => x[0] === r)[1])));
+  const roleNames = rs => list(rs.map(r => t((ROLES.find(x => x[0] === r) || [r, ROLE_EXTRA[r] || r])[1])));
 
   /** one mount stage in one line: mount, rarity, what it adds at bond 5, best place, and when to start; details live in the mount's ficha */
   function mountRow(b, st, got, route, key) {
@@ -51,9 +51,25 @@
     ]) + '</div>';
   }
   window.teamBuildHtml = buildHtml;
+  /** the community build picked for `b` given the rest of the team: its name, why it fits this roster, what to raise with manuals,
+      then the other builds folded with when to choose them. `full` (character ficha) adds each build's explanation. */
+  function pickHtml(b, plan, route = ctxGet().route, key = ctxGet().key, full = false) {
+    const ch = plan?.choice?.[b?.pid]; if (!ch || !b.pick) return '';
+    const opts = teamOptions(b.pid, route, key), me = opts.find(o => o.id === b.pick), sc = Object.fromEntries(ch.opts.map(o => [o.id, o]));
+    const why = sc[b.pick]?.why || [], needs = b.pick_needs || [];
+    const others = opts.filter(o => o.id !== b.pick);
+    const alt = o => li(`<b>${esc(tx(o, 'name'))}</b> <span class="mut">${o.ok ? o.jids.map(j => esc(nm(CLASSES[j]))).join(' → ') : esc(o.issue)}</span>`,
+      [o.ok && tx(o, 'fits') && t('Elígela: {f}', { f: tx(o, 'fits') }), full && o.ok && tx(o, 'why')].filter(Boolean).map(esc).join(' '));
+    return `<div class="eq-pickb"><p><span class="cp-tag">${t('Build para tu equipo')}</span> <b>${esc(tx(me, 'name'))}</b></p>` +
+      (why.length ? `<p class="mut">${esc(t('Por tu equipo: {w}.', { w: list(why) }))}</p>` : `<p class="mut">${t('La build principal de la comunidad: el resto del equipo no pide otra.')}</p>`) +
+      (full && tx(me, 'why') ? `<p>${esc(tx(me, 'why'))}</p>` : '') +
+      (needs.length ? `<p class="mut">${esc(t('Sube {s} con manuales o en la Plaza de armas para su examen.', { s: list(needs.map(x => t(x))) }))}</p>` : '') +
+      (others.length ? `<details><summary>${t('Otras builds ({n})', { n: others.length })}</summary>${ul(others.map(alt))}</details>` : '') + '</div>';
+  }
+  window.teamPickHtml = pickHtml;
   /** Equipo › Builds: one line per unit (class path and target); stages, skills, weapon and mounts live in the character ficha */
-  const buildSummary = b => (!b?.target ? `<p class="mut">${t('Sin ruta de clases válida en esta ruta.')}</p>` :
-    `<p class="eq-path">${[b.start, ...b.steps.map(x => x.jid)].map(cls).join(' → ')}</p>` +
+  const buildSummary = (b, plan) => (!b?.target ? `<p class="mut">${t('Sin ruta de clases válida en esta ruta.')}</p>` :
+    pickHtml(b, plan) + `<p class="eq-path">${[b.start, ...b.steps.map(x => x.jid)].map(cls).join(' → ')}</p>` +
     `<p><a href="${href('personaje', b.pid)}?sec=partida">${t('Build completa, armas y monturas')}</a></p>`);
 
   /** character ficha: the mount of each stage for every build of the unit, with what it adds at bond 5 and the difference with the recommended one */
@@ -366,7 +382,7 @@
       return `<span class="cp-tag">${s === 'tengo' ? t('ya lo tienes') : s === 'llega' ? t('se une en {c}', { c: esc(capShort(CAPS[CHARS[p].routes[route].join_key])) }) : t('quieres reclutarlo')}</span>`; };
     const builds = `<div class="eq-units">${[...plan.builds].sort((a, b) => bySerial(a.pid, b.pid)).map(b => `<section class="card eq-unit" id="eq-${esc(b.pid)}">` +
       `<header>${face(b.pid, 'cp-face')}<div><h4>${L('personaje', b.pid)}</h4><span class="cp-tag">${t('prioridad {n}', { n: rank[b.pid] })}</span>${b.roles.length ? `<span class="cp-tag">${esc(roleNames(b.roles))}</span>` : ''}${stTag(b.pid)}</div></header>` +
-      `${buildSummary(b)}${gearHtml(gearOf[b.pid], plan.forge)}</section>`).join('')}</div>`;
+      `${buildSummary(b, plan)}${gearHtml(gearOf[b.pid], plan.forge)}</section>`).join('')}</div>`;
     const gearOfTxt = plan.gear.length ? `<p class="mut">${t('Arma de cada unidad que ya tienes, con lo que se consigue en este capítulo; se recalcula al cambiar de capítulo o de reclutas.')}</p>` : '';
     const rules = RULES.filter(r => !WEEK_RULE.test(r));
     // two tabs: the team (roles, builds, equipment) and recruitment; the rules folded at the foot (?sec=reglas opens it)

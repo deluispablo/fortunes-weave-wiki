@@ -283,7 +283,7 @@ function charLimits(pid) {
     // three tabs: what matters in your run first (route, requirement, team build, gifts, Percha; the profile folded), the reference build, supports (endings folded: spoilers)
     const rel = related(c, p), res = summary(c, p) + (rel ? `<h4>${t('Misiones y desvíos')}${route ? ` (${t('ruta de {r}', { r: esc(ROUTE_NAME[route]) })})` : ''}</h4>${rel}` : ''), fin = endings(c);
     const partida = (route ? recruitment(c, p, route) : '') +
-      (mine ? `<h4>${t('Build en tu equipo')}</h4>${teamBuildHtml(mine, plan.mounts[c.id], route, ctxGet().key, true)}` : '') +
+      (mine ? `<h4>${t('Build en tu equipo')}</h4>${teamPickHtml(mine, plan, route, ctxGet().key, true)}${teamBuildHtml(mine, plan.mounts[c.id], route, ctxGet().key, true)}` : '') +
       gifts(c, p) + perch(p) + (window.frasesBlock ? frasesBlock(c.id) : '') + (res ? `<details><summary>${t('Resumen y misiones')}</summary>${res}</details>` : '');
     return ficha(head, [
       ['partida', 'En tu partida', partida],
