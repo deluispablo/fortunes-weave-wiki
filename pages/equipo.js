@@ -5,7 +5,7 @@
 (() => {
   const TL = { fav: '★ Favorito', love: '♥ Le encanta', like: 'Le gusta' };  // shown through t()
   // tokens and components of style.css only: cards between units, a softer rule between stages, a tinted block for the extras
-  const CSS = `.eq-pick{font:inherit;cursor:pointer}.eq-pick.on{padding-right:28px}.eq-pick.on::after{background:url(img/ui/IconCheck.png) right 8px center/14px no-repeat,var(--cf)}.eq-st{font-weight:650;color:var(--tx)}
+  const CSS = `.fi-sec:has(> .eq-box){background:none;border:0;box-shadow:none;padding:0}.eq-box+.eq-box{margin-top:var(--s3)}\n@media (max-width:600px){.eq-gifts .eq-gi{display:flex;align-items:center;gap:6px;padding:2px 0}.eq-gifts .eq-gi>a{flex:1;min-width:0}.eq-gifts .eq-tw{display:none}.eq-gifts .eq-rec{gap:var(--s2)}}\n.eq-pick{font:inherit;cursor:pointer}.eq-pick.on{padding-right:28px}.eq-pick.on::after{background:url(img/ui/IconCheck.png) right 8px center/14px no-repeat,var(--cf)}.eq-st{font-weight:650;color:var(--tx)}
 .eq-units{display:grid;gap:var(--s4)}.eq-unit{margin:0;padding:var(--s3) var(--s4)}
 .eq-unit>header{display:flex;align-items:center;gap:var(--s3);margin:0 0 var(--s2)}.eq-unit>header h4{margin:0}.eq-unit>header .cp-tag{margin:0 var(--s1) 0 0}
 .eq-steps{list-style:none;margin:0;padding:0}.eq-steps>li{padding:var(--s2) 0;border-top:1px dashed var(--line)}.eq-steps>li:first-child{border-top:0;padding-top:0}
@@ -116,13 +116,18 @@
     const late = CAPS[s.start_by_key] && Object.values(CAPS).flatMap(c => (c.route === route ? c.closing : []).filter(x => x.kind === 'recluta' && x.id === s.pid).map(x => [c.key, x]))[0];
     const asks = [t('Apoyo {n} con {l}', { n: s.support, l: esc(ROUTE_NAME[route]) }), t('Prestigio {n}', { n: s.renown }), s.gold ? gold(s.gold) : '', ...s.items.map(i => `${i.n}× ${L('objeto', i.id, i.es)}`)].filter(Boolean).join(' · ');
     const plazo = late ? `<small class="mut">${t('Plazo: {d} ({c}).', { d: late[1].deadline ? t('hasta el {d}', { d: fechaDia(late[1].deadline) }) : t('hasta el final del capítulo'), c: chapLink(late[0]) })} ${esc(dataTx(late[1].if_missed || ''))}</small>` : '';
-    return `<li class="eq-rec">${face(s.pid, 'cp-face') || '<span class="cp-face"></span>'}<div><b>${L('personaje', s.pid)}</b><span class="eq-line">${asks}</span>${plazo}</div></li>`;
+    const j = joinAt(s.pid, route, joinKeyFor(s.pid, route, ctxGet().key));  // the class of the level they join at (core.js)
+    const llega = j ? `<small class="mut">${t('Llega con Nv {a}–{b} aprox.: {k}', { a: j.lv[0], b: j.lv[1], k: j.classes.map(c => c[1] ? L('clase', c[1]) : esc(gt(c[2]))).join(` ${t('o')} `) })}</small>` : '';
+    return `<li class="eq-rec">${face(s.pid, 'cp-face') || '<span class="cp-face"></span>'}<div><b>${L('personaje', s.pid)}</b><span class="eq-line">${asks}</span>${llega}${plazo}</div></li>`;
   }
+  /** «★ Favorito»: the symbol and the word apart, so a narrow screen can keep only the symbol */
+  const tierTag = k => { const m = t(TL[k]).match(/^([★♥])\s*(.*)$/);
+    return `<span class="eq-tag">${m ? `<span aria-hidden="true">${m[1]}</span><span class="eq-tw"> ${esc(m[2])}</span>` : esc(t(TL[k]))}</span>`; };
   /** the gift round: one compact row per «quiero» (serial order), its first gifts inline and the rest folded */
   function giftRound(round) {
     if (!round.length) return '';
     // one short line per gift (name, level, price); where to get it is the item's ficha and the line's tooltip
-    const it = x => `<span class="eq-gi" title="${esc(list(x.src.slice(0, 3)).replace(/<[^>]*>/g, ''))}"><i class="tier tier-${x.t}" aria-hidden="true"></i>${img(ico().item?.[x.iid], 'ico')}${L('objeto', x.iid)} <span class="eq-tag">${t(TL[x.t])}</span>${x.price ? ` <span class="mut">${gold(x.price)}</span>` : ''}</span>`;
+    const it = x => `<span class="eq-gi" title="${esc(list(x.src.slice(0, 3)).replace(/<[^>]*>/g, ''))}"><i class="tier tier-${x.t}" aria-hidden="true"></i>${img(ico().item?.[x.iid], 'ico')}${L('objeto', x.iid)} ${tierTag(x.t)}${x.price ? ` <span class="mut">${gold(x.price)}</span>` : ''}</span>`;
     const row = r => `<li class="eq-rec">${face(r.pid, 'cp-face') || '<span class="cp-face"></span>'}<div><b>${L('personaje', r.pid)}</b>` +
       (r.none ? `<span class="eq-line mut">${t('Sin datos de regalos.')}</span>` : !r.items.length ? `<span class="eq-line mut">${t('Ningún regalo apreciado con fuente abierta en esta parte.')}</span>` :
         (() => { const love = r.items.filter(x => x.t === 'love'), top = [...r.items.filter(x => x.t === 'fav'), ...love.slice(0, 2)];  // favourite + the two cheapest loves visible
@@ -145,6 +150,9 @@
   const day = d => (d ? fechaDia(d) : '');
   const who = ps => list(ps.map(p => L('personaje', p)));
 
+  /** birthdays of the «quiero» in this chapter: that day the gift counts more */
+  const birthdays = w => { const bds = (w?.birthdays || []).map(b => t('{p} el {d}', { p: L('personaje', b.pid), d: day(b.date) }));
+    return bds.length ? `<p class="mut">${t('Cumpleaños: {l}; ese día el regalo cuenta más.', { l: list(bds) })}</p>` : ''; };
   /** «Semana»: a short checklist for the «quiero» recruits at the context chapter, in the order it is done:
       buy, meals, gifts (the gift round), Servicio divino, deadlines due this chapter; explanations live in «Cómo se calcula» */
   function weekHtml(w, round, shop, forge) {
@@ -160,8 +168,7 @@
       (w.meals.length ? ul(w.meals.slice(0, 2).map(weekRow)) + (w.meals.length > 2 ? `<details class="eq-more"><summary>${t('Resto de semanas del capítulo ({n})', { n: w.meals.length - 2 })}</summary>${ul(w.meals.slice(2).map(weekRow))}</details>` : '') : '') +
       (w.rerun ? `<p class="mut">${t('Nueva vuelta: salta las parejas que ya tengan el apoyo.')}</p>` : ''));
     // gifts: the round, one row per «quiero»
-    const bds = w.birthdays.map(b => t('{p} el {d}', { p: L('personaje', b.pid), d: day(b.date) }));
-    const regalos = `<h4 id="eq-ronda">${t('Ronda de regalos')}</h4>` + (bds.length ? `<p class="mut">${t('Cumpleaños: {l}; ese día el regalo cuenta más.', { l: list(bds) })}</p>` : '') +
+    const regalos = `<h4 id="eq-ronda">${t('Ronda de regalos')}</h4>` + birthdays(w) +
       (giftRound(round) || `<p class="mut">${t('Ningún «quiero» con regalos que preparar.')}</p>`);
     // Servicio divino
     const tp = w.temple;
@@ -298,7 +305,9 @@
     // two tabs: the team (roles, builds, equipment) and recruitment; the rules folded at the foot (?sec=reglas opens it)
     return ficha(head, [
       ['equipo', 'Equipo', equipo + `<h4 id="eq-equipamiento">${t('Builds y equipamiento')}</h4>${gearOfTxt}${builds}`],
-      ['reclutamiento', 'Reclutamiento', recruitment(route, want) || `<p class="mut">${t('Ningún recluta marcado como «quiero reclutarlo».')}</p>`],
+      ['reclutamiento', 'Reclutamiento', `<section class="card eq-box">${recruitment(route, want) || `<p class="mut">${t('Ningún recluta marcado como «quiero reclutarlo».')}</p>`}</section>` +
+        (want.length ? `<section class="card eq-box eq-gifts"><h3>${t('Regalos para subir el apoyo')}</h3>${birthdays(plan.week)}` +
+          (giftRound(plan.round) || `<p class="mut">${t('Ningún «quiero» con regalos que preparar.')}</p>`) + `<p class="mut"><a href="#/semana">${t('Plan de la semana: comidas, regalos y Servicio divino')} →</a></p></section>` : '')],
     ]) + `<details class="card eq-reglas" id="eq-reglas"${qs.sec === 'reglas' ? ' open' : ''}><summary>${t('Cómo se calcula ({n})', { n: rules.length })}</summary>${ul(rules.map(r => `<li>${esc(t(r))}</li>`))}</details>`;
   }
 
@@ -345,11 +354,19 @@
     }
     return page(qs || {});
   };
+  /** «Esta semana» on its own (Mi partida's second tab): the same week block Capítulo shows, for the chosen route and chapter */
+  register({ id: 'semana', title: 'Esta semana', routes: ['semana'], render: () => {
+    if (!ctxChosen()) return `<h1>${t('Esta semana')}</h1><section class="card"><p>${t('Elige ruta y capítulo para ver qué hacer esta semana, a quién reclutar y qué no perderte.')}</p>` +
+      `<p><button class="txtbtn" type="button" data-sheet="ctx" aria-haspopup="dialog">${t('Elegir ruta y capítulo')}</button></p></section>`;
+    const key = ctxGet().key, c = CAPS[key], wr = c.route === 'comun' ? ctxRoute() : c.route;
+    return `<h1>${t('Esta semana')}</h1><p class="mut">${esc(ROUTE_NAME[wr] || '')} · ${chapLink(key)}</p>` +
+      `<section class="card" id="eq-semana">${window.teamWeekBlock(wr, key)}</section>`;
+  } });
   register({ id: 'equipo', title: 'Equipo', routes: ['equipo', 'planificador'], render: renderEquipo, css: CSS,
     search: () => [
       // search.js translates label and sub with t()
       { group: 'Secciones', label: 'Equipo', sub: 'Builds, equipamiento, reclutamiento', href: '#/equipo', aliases: ['team', 'planner', 'planificador', 'reclutas'] },  // i18n-ignore (aliases)
-      { group: 'Secciones', label: 'Semana', sub: 'Capítulo · compras, herrería, comidas, regalos y Servicio divino', href: '#/cap?ir=eq-semana', aliases: ['esta semana', 'comidas', 'posada', 'servicio divino', 'compras', 'checklist'] },  // i18n-ignore (aliases)
+      { group: 'Secciones', label: 'Semana', sub: 'Capítulo · compras, herrería, comidas, regalos y Servicio divino', href: '#/semana', aliases: ['esta semana', 'comidas', 'posada', 'servicio divino', 'compras', 'checklist'] },  // i18n-ignore (aliases)
       { group: 'Secciones', label: 'Ronda de regalos', sub: 'Capítulo · Esta semana', href: '#/cap?ir=eq-ronda', aliases: ['ronda', 'regalos de la semana', 'regalar'] },  // i18n-ignore (aliases)
       { group: 'Secciones', label: 'Herrería', sub: 'Capítulo · Esta semana · qué refinar', href: '#/cap?ir=eq-herreria', aliases: ['refinar', 'refinado', 'forja', 'reparar'] },  // i18n-ignore (aliases)
       { group: 'Secciones', label: 'Builds del equipo', sub: 'Equipo', href: '#/equipo?ir=eq-equipamiento', aliases: ['build', 'clases del equipo', 'monturas', 'equipamiento', 'armas del equipo'] },  // i18n-ignore (aliases)

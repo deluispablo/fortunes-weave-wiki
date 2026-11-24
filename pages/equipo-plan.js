@@ -73,8 +73,11 @@ function teamTargets(pid) {
   return [[mm?.best?.[0], t('clase recomendada')], [mm?.alt?.[0], t('alternativa a la recomendada')], [rec?.jid, t('clase avanzada recomendada')]]
     .filter(([j], i, a) => j && CLASSES[j] && a.findIndex(x => x[0] === j) === i);
 }
-/** starting class: the last of the game's default Part 1 classes (or the data class when it is higher) */
-function teamStart(pid) {
+/** starting class: a recruit's class at the level they join with (core.js joinAt, upper end of the chapter's range); otherwise
+    the last of the game's default Part 1 classes (or the data class when it is higher) */
+function teamStart(pid, route, key) {
+  const j = route ? joinAt(pid, route, joinKeyFor(pid, route, key)) : null, jj = j?.classes.at(-1)?.[1];
+  if (jj && CLASSES[jj]) return jj;
   const cb = teamCombat(pid), defs = (cb.default_classes_p1 || []).map(teamJid).filter(Boolean), d = defs[defs.length - 1];
   return d && (CLASSES[d].tier || 0) >= (CLASSES[cb.class]?.tier || 0) ? d : cb.class;
 }
@@ -82,14 +85,14 @@ const WEAPON_NAMES = ARMAS.map(([, es]) => es);
 const SUPPORT_SKILLS = ['Equitación', 'Vuelo', 'Coraza'];
 const WEAPON_BY_ES = Object.fromEntries(Object.values(ITEMS).filter(i => i.weapon?.type).map(i => [i.es, WEAPON_NAMES.find(w => armaKey(w) === armaKey(i.weapon.type))]));
 /** candidate main weapons among the target's, in order: published weapon lines → starting weapons → shared with the starting class → magic → the rest */
-function teamMainWeapons(pid, target) {
-  const tw = CLASSES[target]?.weapons_usable || [], st = CLASSES[teamStart(pid)];
+function teamMainWeapons(pid, target, route, key) {
+  const tw = CLASSES[target]?.weapons_usable || [], st = CLASSES[teamStart(pid, route, key)];
   const lines = ((window.WIKI_EXT || {}).minmax?.lines || []).filter(l => WEAPON_NAMES.includes(l.line) && (l.units || []).some(u => u[0] === pid)).map(l => l.line);
   const items = (teamCombat(pid).start_items || []).map(x => WEAPON_BY_ES[x]);
   const shared = st?.tier ? tw.filter(w => (st.weapons_usable || []).includes(w)) : [];
   return [...new Set([...lines, ...items, ...shared, ...tw.filter(w => w.startsWith('Magia')), ...tw])].filter(w => w && tw.includes(w));
 }
-const teamMainWeapon = (pid, target) => teamMainWeapons(pid, target)[0] || null;
+const teamMainWeapon = (pid, target, route, key) => teamMainWeapons(pid, target, route, key)[0] || null;
 /** first chapter index where the class can be taken on `route`: classes behind an unlock flag only in the routes/parts that unlock them
     (a lord's name → that route; another unit's name → Part 3 on any route); the flag is shared, so later parts keep it. -1 = never */
 function teamClassIdx(jid, route) {
@@ -122,12 +125,12 @@ const CUADRI = Object.keys(CLASSES).find(k => CLASSES[k].es === 'Cuadriguero');
 const CUADRI_HORSE = Object.fromEntries(STAT_KEYS.map(k => [k, Math.max(0, ...Object.values(MOUNTS).filter(m => m.kind === 'Caballo' && !m.unique_q).map(m => m.growth_by_bond?.['5']?.[k] || 0))]));
 /** best class path from the start class to `target` (one class per tier, each usable when reached). Order, from strongest:
     fewest mount-type changes, current mount kept longest, listed masteries, the game's class tree, growth in the target's top stats */
-function teamPath(pid, target, route, weapon) {
+function teamPath(pid, target, route, weapon, key) {
   if (!weapon) {  // the first candidate weapon with a valid path is the build's main weapon
-    for (const w of teamMainWeapons(pid, target)) { const p = teamPath(pid, target, route, w); if (p) return p; }
+    for (const w of teamMainWeapons(pid, target, route, key)) { const p = teamPath(pid, target, route, w, key); if (p) return p; }
     return null;
   }
-  const start = teamStart(pid), w = weapon, t0 = CLASSES[start]?.tier || 0, tT = CLASSES[target].tier;
+  const start = teamStart(pid, route, key), w = weapon, t0 = CLASSES[start]?.tier || 0, tT = CLASSES[target].tier;
   if (tT <= t0) return null;
   const top = teamTop(teamGrowth(pid, target));
   const byTier = t => Object.keys(CLASSES).filter(j => CLASSES[j].tier === t).sort();
@@ -174,25 +177,26 @@ function teamBuild(pid, route, key) {
   if (!c) return null;
   let target = null, found = null;
   const opts = teamTargets(pid);
-  for (const [jid, why] of opts) { found = teamPath(pid, jid, route); if (found) { target = { jid, why }; break; } }
+  for (const [jid, why] of opts) { found = teamPath(pid, jid, route, null, key); if (found) { target = { jid, why }; break; } }
   if (!found && opts.length) {  // no listed target is reachable here: best tier-4 class reachable with the main weapon, by growth in the unit's top stats
-    const w0 = teamMainWeapon(pid, opts[0][0]), mine = teamTop(teamCombat(pid).growth || {});
+    const w0 = teamMainWeapon(pid, opts[0][0], route, key), mine = teamTop(teamCombat(pid).growth || {});
     const sum = j => mine.reduce((a, st) => a + teamGrowth(pid, j)[st], 0);
     for (const j of Object.keys(CLASSES).filter(j => CLASSES[j].tier === 4 && (CLASSES[j].weapons_usable || []).includes(w0)).sort((a, b) => sum(b) - sum(a) || a.localeCompare(b))) {
-      found = teamPath(pid, j, route, w0);
+      found = teamPath(pid, j, route, w0, key);
       if (found) { target = { jid: j, why: t('mejor clase alcanzable con {w} en esta ruta', { w: t(w0).toLowerCase() }) }; break; }
     }
   }
   const chain = found ? found.path : [], w = found?.weapon || null;
-  const joinIdx = Math.max(0, chapIdx(route, r?.join_key || r?.recruit_key));
+  const joinIdx = Math.max(0, chapIdx(route, r?.join_key || joinKeyFor(pid, route, key)));
+  const start = teamStart(pid, route, key);
   const examIdx = teamFirst(route, 0, ch => (ch.unlocks || []).includes('Examen de aptitud'));  // i18n-ignore (data value)
   // bridge: first listed mastery not on the path, from a class the unit can take with the build's weapon and trained skills, below the target
-  const trained = new Set([w, ...supportOf(teamStart(pid)), ...chain.flatMap(supportOf)]);
+  const trained = new Set([w, ...supportOf(start), ...chain.flatMap(supportOf)]);
   const bridge = target && BRIDGES.map(sk => [sk, Object.keys(CLASSES).find(j => masteryOf(j) === sk)])
-    .find(([, j]) => j && !chain.includes(j) && j !== teamStart(pid) && CLASSES[j].tier < CLASSES[target.jid].tier && CLASSES[j].tier > 1 && teamUsable(pid, j, route, w, trained));
+    .find(([, j]) => j && !chain.includes(j) && j !== start && CLASSES[j].tier < CLASSES[target.jid].tier && CLASSES[j].tier > 1 && teamUsable(pid, j, route, w, trained));
   const path = [...chain];
   if (bridge) { const at = path.findIndex(j => CLASSES[j].tier > CLASSES[bridge[1]].tier); path.splice(at < 0 ? path.length : at, 0, bridge[1]); }
-  let prevKind = CLASSES[teamStart(pid)]?.mount_kind || null, from = joinIdx;
+  let prevKind = CLASSES[start]?.mount_kind || null, from = joinIdx;
   const ch = routeChapters(route);
   const steps = path.map(jid => {
     const k = CLASSES[jid], g = teamGrowth(pid, jid), lv = k.recommended_level || null;
@@ -213,7 +217,7 @@ function teamBuild(pid, route, key) {
   const fin = CLASSES[target?.jid] || {};
   const masteries = [...new Set(steps.map(s => s.mastery).filter(Boolean))].sort((a, b) => MAST_REC.has(b) - MAST_REC.has(a));
   return {
-    pid, start: teamStart(pid), target: target?.jid || '', target_why: target?.why || '', steps, bridge: bridge ? { jid: bridge[1], skill: bridge[0] } : null,
+    pid, start, target: target?.jid || '', target_why: target?.why || '', steps, bridge: bridge ? { jid: bridge[1], skill: bridge[0] } : null,
     skills: masteries,  // personal skills are always on; only masteries need a slot
     kind: fin.mount_kind || null, weapon: w, weapons: w ? [{ type: w, iid: teamWeapon(w, route, key) }] : [], roles: teamRolesOf(target?.jid),
     late: !!(r?.recruit_key && !r?.join_key), final_growth: target ? teamGrowth(pid, target.jid) : null,

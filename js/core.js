@@ -383,6 +383,24 @@ const chapOrder = key => (CAPS[key] ? CAPS[key].part * 100 + CAPS[key].n : 1e4);
 /** chapters of `route` in play order: prologue, its Part 1, Parts 2 and 3 */
 const routeChapters = route => chapterGroups(ROUTE_IDS.includes(route) ? route : 'cai').flatMap(g => g[1]);
 const chapIdx = (route, key) => routeChapters(route).findIndex(c => c.key === key);
+/* class at join: a recruit not yet recruited levels up on their own along their class-by-level path (combat.autolevel_classes), so
+   they join with the class of their level then; each route's chapter has a level range (CAPS[key].level), the join level is about that.
+   Story joins and lords keep their data class. */
+const lvPath = pid => Object.entries(CHARS[pid]?.p?.combat?.autolevel_classes || {})
+  .map(([lv, es]) => [+lv, Object.keys(CLASSES).find(k => CLASSES[k].es === es) || null, es]).sort((a, b) => a[0] - b[0]);
+const scoutedOn = (pid, route) => { const x = CHARS[pid]?.routes?.[route]; return !!(x?.recruit_key && !x.join_key); };
+/** {lv: [min, max], classes: [[level, jid, es]…]} when `pid` is recruited on `route` in chapter `key` (default: the first it can be); null for story joins */
+function joinAt(pid, route, key) {
+  const x = CHARS[pid]?.routes?.[route], cap = CAPS[key || x?.recruit_key], path = lvPath(pid);
+  if (!scoutedOn(pid, route) || !cap?.level || !path.length) return null;
+  const at = lv => path.filter(([l]) => l <= lv).pop(), [a, b] = cap.level;
+  return { lv: [a, b], cap, classes: [at(a), at(b)].filter((c, i, arr) => c && arr.findIndex(y => y?.[2] === c[2]) === i) };
+}
+/** chapter a recruit joins in on `route` when the player is at `key`: the first one possible, or now when they are still to recruit */
+const joinKeyFor = (pid, route, key) => {
+  const r = CHARS[pid]?.routes?.[route]?.recruit_key;
+  return r && key && !ctxGet().have.includes(pid) && chapIdx(route, key) > chapIdx(route, r) ? key : r;
+};
 /** true when a game condition list can hold in chapter `c` of `route` (route, part and chapter-number conditions; flags count as reachable) */
 const condOk = (cs, route, c) => routeOk(cs, route) && (cs || []).every(x => {
   let m;
@@ -557,7 +575,7 @@ const MENU = [['guias', 'Guías', ['guia', 'builds', 'reclutas', 'trucos', 'perd
   ['mundo', 'Mundo y misiones', ['mapa', 'lugares', 'mazmorras', 'misiones', 'batallas']],
   ['sistemas', 'Sistemas', ['instalaciones', 'dioses', 'prestigio', 'turnos', 'sendas', 'senores', 'partes23', 'dificultad']],
   ['historia', 'Historia y textos', ['archivo', 'guion', 'tutoriales', 'glosario']],
-  ['partida', 'Mi partida', ['inicio', 'cap', 'equipo', 'ajustes']]];
+  ['partida', 'Mi partida', ['inicio', 'cap', 'semana', 'equipo', 'ajustes']]];
 const NAV = MENU.map(([id, title]) => ({ id, title, pages: [] }));
 const ROUTES = {};  // hash section → page id
 /* Japanese never reaches the screen: names left in text nodes become their official Spanish name, the rest is dropped */

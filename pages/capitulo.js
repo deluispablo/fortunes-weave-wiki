@@ -54,7 +54,10 @@
   }).join('');
 
   const recruits = c => c.recruits.map(r => `<li class="cp-rec">${img(ico().face?.[r.pid], 'cp-face') || '<span class="cp-face"></span>'}` +
-    `<div><b>${L('personaje', r.pid)}</b><small>${recruitCost(r.cost)}</small></div></li>`).join('');
+    `<div><b>${L('personaje', r.pid)}</b><small>${recruitCost(r.cost)}</small>${joinTxt(r.pid, c)}</div></li>`).join('');
+  /** the class they join with if recruited in this chapter (core.js joinAt) */
+  const joinTxt = (pid, c) => { const j = joinAt(pid, c.route, c.key);
+    return j ? `<small class="mut">${t('Llega con Nv {a}–{b} aprox.: {k}', { a: j.lv[0], b: j.lv[1], k: j.classes.map(x => x[1] ? L('clase', x[1]) : esc(gt(x[2]))).join(` ${t('o')} `) })}</small>` : ''; };
 
   function enemies(id) {
     const b = ((window.WIKI_EXT || {}).batallas?.b || []).find(x => x.id === id);

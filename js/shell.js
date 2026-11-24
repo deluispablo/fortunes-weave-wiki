@@ -77,14 +77,18 @@ function sectionIndex(sec, more, id = parseHash(location.hash).id, qs = parseHas
     (ROUTES.guias && !skip('guias') ? `<a class="nav-all${cur === 'guias' ? ' on' : ''}" href="#/guias"${cur === 'guias' ? ' aria-current="page"' : ''}>${t('Todas las guías ({n})', { n: all })}</a>` : '') + '</section>';
   const consulta = NAV.filter(g => g.id !== 'guias' && g.id !== 'partida').map(g => { const l = pages(g); return l.length ? `<div class="nav-g"><b>${esc(t(g.title))}</b>${l.join('')}</div>` : ''; }).join('');
   // Perdibles is listed once, in Empieza aquí; «Esta semana» is the chapter page's week section, marked instead of «Capítulo actual»
-  const week = pg === 'cap' && qs.ir === 'eq-semana', mineOpen = ['cap', 'equipo'].includes(pg) || store.get('navMine', false) === true;
-  const mine = [a('#/cap', t('Capítulo actual'), pg === 'cap' && !week), ...(skip('cap') ? [] : [a('#/cap?ir=eq-semana', t('Esta semana'), week)]),
+  const week = pg === 'semana' || (pg === 'cap' && qs.ir === 'eq-semana'), mineOpen = MINE_TABS.some(([p]) => p === pg) || store.get('navMine', false) === true;
+  // all three always, also in the phone's «Más» sheet: the bottom bar's «Mi partida» opens only the last of them
+  const mine = [a('#/cap', t('Capítulo actual'), pg === 'cap' && !week), ...(ROUTES.semana ? [a('#/semana', t('Esta semana'), week)] : []),
     ...['equipo'].filter(x => ROUTES[x]).map(x => a('#/' + x, t(NAV.flatMap(g => g.pages).find(p => p.id === x).title), pg === x))];
+  const mineBlk = open => `<div class="nav-mine"><button type="button" class="nav-mb" aria-expanded="${open}" aria-controls="${px}mine">${navIcon('cap')}<span>${t('Mi partida')}</span>${navIcon('chev')}</button>` +
+    `<div id="${px}mine"${open ? '' : ' hidden'}>${mine.join('')}</div></div>`;
+  const consultaBlk = `<section class="nav-blk" aria-labelledby="${px}co-h"><h2 class="nav-blk-h" id="${px}co-h">${t('Consulta')}</h2>${consulta}</section>`;
+  const homeA = `<a class="nav-home${sec === '' ? ' on' : ''}" href="#/"${sec === '' ? ' aria-current="page"' : ''}>${navIcon('home')}${t('Inicio')}</a>`;
+  // phone «Más»: Mi partida first and open (the game being played is what a phone is used for), then Consulta, the guides last
+  if (more) return homeA + mineBlk(true) + consultaBlk + panel;
   return (home ? '' : `<button class="nav-q" type="button" data-pal aria-haspopup="dialog" aria-keyshortcuts="/ Control+K">${navIcon('q')}<span>${t('Buscar en la wiki')}</span><kbd aria-hidden="true">/</kbd></button>`) +
-    `<a class="nav-home${sec === '' ? ' on' : ''}" href="#/"${sec === '' ? ' aria-current="page"' : ''}>${navIcon('home')}${t('Inicio')}</a>` + (home ? '' : panel) +
-    `<section class="nav-blk" aria-labelledby="${px}co-h"><h2 class="nav-blk-h" id="${px}co-h">${t('Consulta')}</h2>${consulta}</section>` +
-    `<div class="nav-mine"><button type="button" class="nav-mb" aria-expanded="${mineOpen}" aria-controls="${px}mine">${navIcon('cap')}<span>${t('Mi partida')}</span>${navIcon('chev')}</button>` +
-    `<div id="${px}mine"${mineOpen ? '' : ' hidden'}>${mine.join('')}</div></div>`;
+    homeA + (home ? '' : panel) + consultaBlk + mineBlk(mineOpen);
 }
 const NAV_ICON = {  // 24px stroke icons
   cap: '<path d="M4 5h11a3 3 0 0 1 3 3v11H7a3 3 0 0 1-3-3z"/><path d="M8 9h6M8 13h6"/>',
@@ -111,7 +115,11 @@ const NAV_ICON = {  // 24px stroke icons
 const navIcon = k => `<svg viewBox="0 0 24 24" aria-hidden="true">${NAV_ICON[k]}</svg>`;
 /* «Mi partida» (R-NAV-1): the last game page visited (fe2.partida), Capítulo the first time. A chapter is stored as #/cap (the current
    one): its own address would pull the context back to that chapter; ?ir= jumps are dropped so the tab never re-scrolls */
-const PARTIDA = ['cap', 'equipo', 'perdibles'];
+const PARTIDA = ['cap', 'semana', 'equipo', 'perdibles'];
+/** Mi partida's three tabs, on top of each of its pages (phone and desktop alike) */
+const MINE_TABS = [['cap', '#/cap', 'Capítulo'], ['semana', '#/semana', 'Semana'], ['equipo', '#/equipo', 'Equipo']];
+const mineTabs = pg => (MINE_TABS.some(([p]) => p === pg) ? `<nav class="tabs mine-tabs" aria-label="${t('Mi partida')}">${MINE_TABS.filter(([p]) => ROUTES[p] || P[p])
+  .map(([p, h, lb]) => `<a href="${h}"${p === pg ? ' class="on" aria-current="page"' : ''}>${t(lb)}</a>`).join('')}</nav>` : '');
 const partidaHref = () => { const h = store.get('partida', null); return typeof h === 'string' && PARTIDA.includes(ROUTES[parseHash(h).sec]) ? h : '#/cap'; };
 function rememberPartida(hash) {
   const { sec, qs } = parseHash(hash), pg = ROUTES[sec];
@@ -278,7 +286,7 @@ function render(keepScroll) {
   const was = document.activeElement?.closest?.('main') ? document.activeElement.getAttribute('href') : null;
   const fn = P[ROUTES[sec] ?? sec];  // viewing a chapter never changes the context: only the header's selector does
   let html = notFound();
-  if (fn) try { html = autoLink(fn(id, qs, sec), id ? href(sec, id) : ''); } catch (e) { console.error(e); html = `<h1>${t('No se pudo mostrar la página')}</h1><p><a href="#/">${t('Ir a la portada')}</a></p>`; }
+  if (fn) try { html = mineTabs(ROUTES[sec] ?? sec) + autoLink(fn(id, qs, sec), id ? href(sec, id) : ''); } catch (e) { console.error(e); html = `<h1>${t('No se pudo mostrar la página')}</h1><p><a href="#/">${t('Ir a la portada')}</a></p>`; }
   const ir = qs.ir;
   const typing = document.activeElement?.closest?.('main') && document.activeElement.dataset.qs != null ? document.activeElement.name : null;
   const main = $('#main');

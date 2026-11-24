@@ -28,7 +28,7 @@ function homeTips() {
     ['glosario', 'Glosario', () => (W.gloss || []).length, 'término', 'términos', 'gloss'],
   ];
   const START = ['guia', 'builds', 'reclutas', 'trucos', 'perdibles'];  // Empieza aquí, as in the sidebar's Guías panel
-  const GO = [['#/cap', 'cap', 'Capítulo'], ['#/cap?ir=eq-semana', 'week', 'Esta semana'], ['#/equipo', 'eq', 'Equipo'], ['#/equipo?ir=eq-equipamiento', 'build', 'Builds']];
+  const GO = [['#/cap', 'cap', 'Capítulo'], ['#/semana', 'week', 'Esta semana'], ['#/equipo', 'eq', 'Equipo'], ['#/equipo?ir=eq-equipamiento', 'build', 'Builds']];
   const svg = k => navIcon(k).replace('<svg ', '<svg class="hm-ic" ');
   const icon = k => (/^Icon/.test(k) ? `<i class="hm-ic" style="--m: url(img/ui/${k}.png)" aria-hidden="true"></i>` : svg(k));
   const pageOf = r => NAV.flatMap(g => g.pages).find(p => p.id === ROUTES[r]);

@@ -1,6 +1,6 @@
 window.WIKI={
  "meta": {
-  "built": "2026-11-23",
+  "built": "2026-11-24",
   "profiles_json": true,
   "route_codes": {
    "0": "todas",

@@ -22,17 +22,13 @@ function charLimits(pid) {
   /** route entry {join_key|recruit_key, cost} → "Se une en Cap. 1-4" (link or plain text) */
   /* class at join: an unrecruited character levels up on their own along the game's class-by-level path, so they join with the
      class of their level then; the game sets a level range for each route's chapter (CAPS[key].level), the join level is about that */
-  const lvPath = c => Object.entries(c.p?.combat?.autolevel_classes || {}).map(([lv, es]) => [+lv, es]).sort((a, b) => a[0] - b[0]);
-  const clsAt = (path, lv) => path.filter(([l]) => l <= lv).pop()?.[1];
   const clsL = es => { const k = Object.keys(CLASSES).find(id => CLASSES[id].es === es); return k ? L('clase', k) : esc(gt(es)); };
-  const pathTxt = c => lvPath(c).map(([lv, es]) => `${t('Nv {n}', { n: lv })} ${clsL(es)}`).join(' → ');
-  const scouted = c => Object.values(c.routes || {}).some(x => x.recruit_key && !x.join_key);
-  /** «Nv 3–5 approx.: Plebeyo or Soldado» for recruiting in the first chapter it can be done on `route` */
-  const joinClass = (c, route) => {
-    const x = c.routes?.[route], cap = x && !x.join_key && CAPS[x.recruit_key], path = lvPath(c);
-    if (!cap?.level || !path.length) return '';
-    const [a, b] = cap.level, cs = [...new Set([clsAt(path, a), clsAt(path, b)].filter(Boolean))];
-    return t('Si se recluta en {c}: Nv {a}–{b} aprox., {k}', { c: esc(capShort(cap)), a, b, k: cs.map(clsL).join(` ${t('o')} `) });
+  const pathTxt = c => lvPath(c.id).map(([lv, , es]) => `${t('Nv {n}', { n: lv })} ${clsL(es)}`).join(' → ');
+  const scouted = c => ROUTE_IDS.some(r => scoutedOn(c.id, r));
+  /** «Si se recluta en Cap. 1-4: Nv 3–5 aprox., Plebeyo o Soldado» (core.js joinAt) */
+  const joinClass = (c, route, key) => {
+    const j = joinAt(c.id, route, key);
+    return j ? t('Si se recluta en {c}: Nv {a}–{b} aprox., {k}', { c: esc(capShort(j.cap)), a: j.lv[0], b: j.lv[1], k: j.classes.map(x => clsL(x[2])).join(` ${t('o')} `) }) : '';
   };
   const routeTxt = (x, plain) => {
     const k = x.join_key || x.recruit_key, ch = CAPS[k] ? (plain ? esc(capShort(CAPS[k])) : chapLink(k)) : '';
@@ -84,13 +80,17 @@ function charLimits(pid) {
     const r = listRoute(qs), arma = qs.arma || '', team = r ? teamNow(r) : null, onlyTeam = team && qs.eq === '1';
     const rows = Object.values(CHARS).sort((a, b) => rank(a) - rank(b))
       .filter(c => (!r || c.routes?.[r]) && (!arma || weapons(c).includes(arma)) && (!onlyTeam || team.has(c.id)));
-    const sub = c => (r ? routeTxt(c.routes[r], true) : hasRoutes(c) ? ROUTE_IDS.filter(x => c.routes?.[x]).map(x => ROUTE_NAME[x]).join(' · ')
-      : guestBattles(c).length ? t('Aliado temporal') : t('No jugable'));
+    const cost = x => x?.recruit_key && !x.join_key && x.cost ? x.cost : null;
+    const sub = c => (r ? routeTxt(c.routes[r], true) + (cost(c.routes[r]) ? ` · ${t('Apoyo {a} · Prestigio {p}', { a: cost(c.routes[r]).support, p: cost(c.routes[r]).renown })}` : '')
+      : hasRoutes(c) ? ROUTE_IDS.filter(x => c.routes?.[x]).map(x => ROUTE_NAME[x]).join(' · ') : guestBattles(c).length ? t('Aliado temporal') : t('No jugable'));
+    /** without a route: the recruit requirement of every route in one short line («Apoyo/Prestigio: Cai 3/10 · Leda 1/2») */
+    const reqs = c => { const l = ROUTE_IDS.filter(x => cost(c.routes?.[x])).map(x => `${ROUTE_NAME[x]} ${cost(c.routes[x]).support}/${cost(c.routes[x]).renown}`);
+      return !r && l.length ? t('Apoyo/Prestigio: {l}', { l: l.join(' · ') }) : ''; };
     return `<h1>${t('Personajes')}</h1>${routeChips('personajes', qs, r)}${armaChips('personajes', qs, arma)}` +
       (team ? chips('personajes', qs, 'eq', [['', 'Todos'], ['1', 'Solo mi equipo']], onlyTeam ? '1' : '', 'Equipo') : '') +
       resultCount(rows.length, 'personaje', 'personajes') +
       (rows.length ? `<div class="li-grid">${rows.map(c => `<a class="li-card${team?.has(c.id) ? ' eq-on' : ''}" href="${href('personaje', c.id)}">${face(c.id, 'li-pic li-face')}` +
-        `<span><b>${esc(nm(c))}</b>${c.p?.identity?.title ? `<small>${esc(dx(c.p.identity.title))}</small>` : ''}${sub(c) ? `<small>${sub(c)}</small>` : ''}` +
+        `<span><b>${esc(nm(c))}</b>${c.p?.identity?.title ? `<small>${esc(dx(c.p.identity.title))}</small>` : ''}${sub(c) ? `<small>${sub(c)}</small>` : ''}${reqs(c) ? `<small>${reqs(c)}</small>` : ''}` +
         `${team?.has(c.id) ? `<small class="eq-tag">${t('En tu equipo')}</small>` : ''}</span></a>`).join('')}</div>`
         : `<p class="mut">${t('Sin resultados con estos filtros.')}</p>`);
   }
@@ -271,8 +271,8 @@ function charLimits(pid) {
     const p = c.p || {}, route = ctxRoute(), cb = p.combat || {}, idn = p.identity || {};
     // summary, no click: class, route line (every route when none is chosen) and the stat table; tabs for the rest
     const head = fichaHead(face(c.id, 'fi-pic fi-face'), `<a href="#/personajes">${t('Personajes')}</a>`, nm(c), dx(idn.title), kvRows([
-      ...(scouted(c) && lvPath(c).length ? [
-        [t('Clase al unirse'), (route && joinClass(c, route) ? joinClass(c, route) + `<br><small>${t('Si se recluta más tarde, llega con más nivel y quizá otra clase.')}</small>` : '') ||
+      ...(scouted(c) && lvPath(c.id).length ? [
+        [t('Clase al unirse'), (route && joinClass(c, route) ? joinClass(c, route) + (joinKeyFor(c.id, route, ctxKey()) !== c.routes[route].recruit_key ? `<br>${joinClass(c, route, ctxKey())}` : '') + `<br><small>${t('Si se recluta más tarde, llega con más nivel y quizá otra clase.')}</small>` : '') ||
           t('Depende de su nivel al reclutarle: mientras no se recluta, sube de nivel por su cuenta y cambia de clase.')],
         [t('Clases por nivel'), pathTxt(c)]] : [[t('Clase inicial'), cb.class && L('clase', cb.class, cb.class_es)]]),
       [t('Cumpleaños'), idn.birthday && esc(isEn() ? bday(idn.birthday) : idn.birthday) + (idn.birth_year ? ` (${idn.birth_year})` : '') + (idn.birthday_when ? ` <small>· ${esc(dx(idn.birthday_when))}</small>` : '')],
