@@ -20,6 +20,20 @@ function charLimits(pid) {
   const playStart = x => { const m = String(x.part1 || '').match(/^(\d+)\/(\d+)/); return m ? +m[2] * 100 + +m[1] : 9999; };
 
   /** route entry {join_key|recruit_key, cost} → "Se une en Cap. 1-4" (link or plain text) */
+  /* class at join: an unrecruited character levels up on their own along the game's class-by-level path, so they join with the
+     class of their level then; the game sets a level range for each route's chapter (CAPS[key].level), the join level is about that */
+  const lvPath = c => Object.entries(c.p?.combat?.autolevel_classes || {}).map(([lv, es]) => [+lv, es]).sort((a, b) => a[0] - b[0]);
+  const clsAt = (path, lv) => path.filter(([l]) => l <= lv).pop()?.[1];
+  const clsL = es => { const k = Object.keys(CLASSES).find(id => CLASSES[id].es === es); return k ? L('clase', k) : esc(gt(es)); };
+  const pathTxt = c => lvPath(c).map(([lv, es]) => `${t('Nv {n}', { n: lv })} ${clsL(es)}`).join(' → ');
+  const scouted = c => Object.values(c.routes || {}).some(x => x.recruit_key && !x.join_key);
+  /** «Nv 3–5 approx.: Plebeyo or Soldado» for recruiting in the first chapter it can be done on `route` */
+  const joinClass = (c, route) => {
+    const x = c.routes?.[route], cap = x && !x.join_key && CAPS[x.recruit_key], path = lvPath(c);
+    if (!cap?.level || !path.length) return '';
+    const [a, b] = cap.level, cs = [...new Set([clsAt(path, a), clsAt(path, b)].filter(Boolean))];
+    return t('Si se recluta en {c}: Nv {a}–{b} aprox., {k}', { c: esc(capShort(cap)), a, b, k: cs.map(clsL).join(` ${t('o')} `) });
+  };
   const routeTxt = (x, plain) => {
     const k = x.join_key || x.recruit_key, ch = CAPS[k] ? (plain ? esc(capShort(CAPS[k])) : chapLink(k)) : '';
     return ch ? t(x.join_key ? 'Se une en {c}' : 'Reclutable desde {c}', { c: ch }) : '';
@@ -85,7 +99,8 @@ function charLimits(pid) {
   const here = (c, route) => {
     const j = join23(c), how = j && esc(dx(j.how));
     if (!hasRoutes(c)) return kvRows([[t('En el juego'), guestNote(c)]]);
-    if (!route) return kvRows([...ROUTE_IDS.filter(r => c.routes?.[r]).map(r => [t('Ruta de {r}', { r: ROUTE_NAME[r] }), routeTxt(c.routes[r]) + (need(c, r) ? `<br><small>${need(c, r)}</small>` : '')]),
+    if (!route) return kvRows([...ROUTE_IDS.filter(r => c.routes?.[r]).map(r => [t('Ruta de {r}', { r: ROUTE_NAME[r] }), routeTxt(c.routes[r]) +
+      [need(c, r), joinClass(c, r)].filter(Boolean).map(v => `<br><small>${v}</small>`).join('')]),
       [t('Cómo se une'), how], [t('Otras rutas'), isLord(c) ? absent(c, '') : '']]);
     const x = c.routes?.[route];
     return kvRows([[t('Ruta de {r}', { r: ROUTE_NAME[route] }), x ? routeTxt(x) : absent(c, route)], [t('Requisito'), x && need(c, route)], [t('Cómo se une'), x && how]]);
@@ -256,7 +271,10 @@ function charLimits(pid) {
     const p = c.p || {}, route = ctxRoute(), cb = p.combat || {}, idn = p.identity || {};
     // summary, no click: class, route line (every route when none is chosen) and the stat table; tabs for the rest
     const head = fichaHead(face(c.id, 'fi-pic fi-face'), `<a href="#/personajes">${t('Personajes')}</a>`, nm(c), dx(idn.title), kvRows([
-      [t('Clase inicial'), cb.class && L('clase', cb.class, cb.class_es)],
+      ...(scouted(c) && lvPath(c).length ? [
+        [t('Clase al unirse'), (route && joinClass(c, route) ? joinClass(c, route) + `<br><small>${t('Si se recluta más tarde, llega con más nivel y quizá otra clase.')}</small>` : '') ||
+          t('Depende de su nivel al reclutarle: mientras no se recluta, sube de nivel por su cuenta y cambia de clase.')],
+        [t('Clases por nivel'), pathTxt(c)]] : [[t('Clase inicial'), cb.class && L('clase', cb.class, cb.class_es)]]),
       [t('Cumpleaños'), idn.birthday && esc(isEn() ? bday(idn.birthday) : idn.birthday) + (idn.birth_year ? ` (${idn.birth_year})` : '') + (idn.birthday_when ? ` <small>· ${esc(dx(idn.birthday_when))}</small>` : '')],
       isEn() ? [t('Nombre en español'), c.es && c.es !== c.en ? esc(c.es) : ''] : [t('Nombre en inglés'), c.en && c.en !== c.es ? esc(c.en) : ''],
     ]) + stats(c, p) + here(c, route));
