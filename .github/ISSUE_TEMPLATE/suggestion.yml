@@ -1,0 +1,15 @@
+name: Suggestion
+description: A guide, page or fact that is missing.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What is missing
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: How you know
+      description: Seen in the game, or the guide or video that explains it.

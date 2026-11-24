@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#102020" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#102020" media="(prefers-color-scheme: dark)">
+<script>try{var t=JSON.parse(localStorage.getItem("fe2.tema"));if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}
+var lg=null;try{lg=JSON.parse(localStorage.getItem("fe2.lang"))}catch(e){}if(lg!=="es"&&lg!=="en")lg=/^es\b/i.test(navigator.language||"es")?"es":"en";document.documentElement.lang=lg</script>
+<title>Fortune's Weave · Wiki</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/favicon-32.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="FW Wiki">
+<link rel="stylesheet" href="style.css?v=004389508164">
+</head>
+<body>
+<a class="skip" href="#main" data-to="main">Ir al contenido</a>
+<div id="live" class="sr-only" role="status" aria-live="polite"></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<header class="top">
+  <a class="brand" href="#/" aria-label="Fortune's Weave · Inicio" title="Inicio">Fortune's Weave</a>
+  <div class="ctx" id="ctx"></div>
+</header>
+<div class="app">
+  <nav class="side" id="side" aria-label="Secciones"></nav>
+  <main id="main" tabindex="-1" aria-busy="true"><div class="skel" aria-hidden="true"><i class="skel-h1"></i><i class="skel-card"></i><i class="skel-card"></i><i class="skel-card short"></i></div><p class="mut skel-n"><span id="load-t">Cargando la wiki:</span> <span id="load-n">0 de 47</span> <span id="load-u">archivos</span> <progress id="load-p" max="47" value="0"></progress></p></main>
+</div>
+<nav class="tabbar" id="tabbar" aria-label="Accesos rápidos"></nav>
+<div class="sheet" id="sheet" hidden>
+  <div class="sheet-box" role="dialog" aria-modal="true" aria-labelledby="sheet-t">
+    <div class="sheet-head"><b id="sheet-t"></b><button class="x" type="button" data-close aria-label="Cerrar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+    <div class="sheet-body" id="sheet-body"></div>
+  </div>
+</div>
+<div class="pal" id="pal" hidden>
+  <div class="pal-box" role="dialog" aria-modal="true" aria-label="Buscar en la wiki">
+    <div class="pal-head"><input id="pal-q" type="search" placeholder="Secciones, personajes, objetos, lugares…" aria-label="Buscar" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="pal-lb" autocomplete="off" spellcheck="false"><button class="x" type="button" data-close><span class="k-fine">Esc</span><span class="k-coarse">Cancelar</span></button></div>
+    <div class="pal-res" id="pal-res"></div>
+  </div>
+</div>
+<!--data-->
+<script>window.WIKI_SCRIPTS=["data.js?v=004389508164", "ext/apoyos.data.js?v=004389508164", "ext/apoyos_ventana.data.js?v=004389508164", "ext/batallas.data.js?v=004389508164", "ext/batallas_mapas.data.js?v=004389508164", "ext/detalle.data.js?v=004389508164", "ext/extras.data.js?v=004389508164", "ext/guerra.data.js?v=004389508164", "ext/iconos.data.js?v=004389508164", "ext/ignicion.data.js?v=004389508164", "ext/lore.data.js?v=004389508164", "ext/minmax.data.js?v=004389508164", "ext/rutas.data.js?v=004389508164", "ext/sistemas.data.js?v=004389508164", "ext/tiendas.data.js?v=004389508164", "ext/tutoriales.data.js?v=004389508164", "js/core.js?v=004389508164", "js/shell.js?v=004389508164", "js/search.js?v=004389508164", "js/pwa.js?v=004389508164", "pages/ajustes.js?v=004389508164", "pages/apoyos.js?v=004389508164", "pages/archivo.js?v=004389508164", "pages/batallas.js?v=004389508164", "pages/capitulo.js?v=004389508164", "pages/clases.js?v=004389508164", "pages/equipo-equipamiento.js?v=004389508164", "pages/equipo-monturas.js?v=004389508164", "pages/equipo-plan.js?v=004389508164", "pages/equipo-semana.js?v=004389508164", "pages/equipo.js?v=004389508164", "pages/guias.js?v=004389508164", "pages/guion.js?v=004389508164", "pages/habilidades.js?v=004389508164", "pages/inicio.js?v=004389508164", "pages/lugares.js?v=004389508164", "pages/mapa.js?v=004389508164", "pages/mecanicas.js?v=004389508164", "pages/minmax.js?v=004389508164", "pages/monturas.js?v=004389508164", "pages/mundo.js?v=004389508164", "pages/objetos.js?v=004389508164", "pages/perdibles.js?v=004389508164", "pages/personajes.js?v=004389508164", "pages/sistemas.js?v=004389508164"];window.WIKI_EN=["ext/guias_en.data.js?v=004389508164", "ext/i18n_en.data.js?v=004389508164"];(function(){var L=window.WIKI_SCRIPTS.slice(),i=0,en=document.documentElement.lang==="en";if(en){var c=L.indexOf(L.filter(function(x){return x.indexOf("js/core.js")===0})[0]);L.splice.apply(L,[c,0].concat(window.WIKI_EN));var t=document.getElementById("load-t"),u=document.getElementById("load-u");if(t)t.textContent="Loading the wiki:";if(u)u.textContent="files"}function one(n){var s=document.createElement("script");s.src=L[i];s.async=false;s.onload=function(){i++;next()};s.onerror=function(){s.remove();if(n<3)setTimeout(function(){one(n+1)},250*(n+1));else{console.error((en?"Could not load ":"No se pudo cargar ")+L[i]);i++;next()}};document.body.appendChild(s)}function next(){var n=document.getElementById("load-n"),p=document.getElementById("load-p");if(n)n.textContent=i+(en?" of ":" de ")+L.length;if(p){p.max=L.length;p.value=i}if(i<L.length)one(0);else document.dispatchEvent(new Event("wiki:ready"))}next()})();</script>
+<!--/data-->
+</body>
+</html>

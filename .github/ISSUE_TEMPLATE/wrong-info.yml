@@ -1,0 +1,22 @@
+name: Wrong information
+description: Something in the wiki doesn't match the game.
+labels: [bug]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page
+      description: Paste the address or the page name.
+    validations:
+      required: true
+  - type: textarea
+    id: says
+    attributes:
+      label: What the wiki says and what you see in the game
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: Where it shows in the game
+      description: Route, part, chapter or menu. A screenshot helps a lot.
