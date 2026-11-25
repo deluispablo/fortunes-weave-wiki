@@ -61,7 +61,7 @@
     const alt = o => li(`<b>${esc(tx(o, 'name'))}</b> <span class="mut">${o.ok ? o.jids.map(j => esc(nm(CLASSES[j]))).join(' → ') : esc(o.issue)}</span>`,
       [o.ok && tx(o, 'fits') && t('Elígela: {f}', { f: tx(o, 'fits') }), full && o.ok && tx(o, 'why')].filter(Boolean).map(esc).join(' '));
     return `<div class="eq-pickb"><p><span class="cp-tag">${t('Build para tu equipo')}</span> <b>${esc(tx(me, 'name'))}</b></p>` +
-      (why.length ? `<p class="mut">${esc(t('Por tu equipo: {w}.', { w: list(why) }))}</p>` : `<p class="mut">${t('La build principal de la comunidad: el resto del equipo no pide otra.')}</p>`) +
+      (why.length ? `<p class="mut">${esc(t('Por tu equipo: {w}.', { w: list(why) }))}</p>` : `<p class="mut">${t('La build principal: el resto del equipo no pide otra.')}</p>`) +
       (full && tx(me, 'why') ? `<p>${esc(tx(me, 'why'))}</p>` : '') +
       (needs.length ? `<p class="mut">${esc(t('Sube {s} con manuales o en la Plaza de armas para su examen.', { s: list(needs.map(x => t(x))) }))}</p>` : '') +
       (others.length ? `<details><summary>${t('Otras builds ({n})', { n: others.length })}</summary>${ul(others.map(alt))}</details>` : '') + '</div>';

@@ -198,10 +198,22 @@ function charLimits(pid) {
       [t('Valoración'), p.why?.text && esc(dx(p.why.text)) + (p.why.community ? COM() : '')],
       [t(p1 ? 'Clases por defecto (Parte 1)' : 'Clases por defecto'), defs.map(nl).join(' → ')],
       ...(charLimits(c.id) || [[t('Clases vetadas'), list((p.class_bans || []).map(nl))]]),
-    ]) + ignition(c.id) + (rec?.growth_in_class && rec.jid && CLASSES[rec.jid] ? `<h4>${t('Crecimientos en {c}', { c: esc(nm(CLASSES[rec.jid])) })}</h4>${statTable([rec.growth_in_class], ['Crecimiento %'])}` : '') +
+    ]) + communityBuilds(c.id) + ignition(c.id) + (rec?.growth_in_class && rec.jid && CLASSES[rec.jid] ? `<h4>${t('Crecimientos en {c}', { c: esc(nm(CLASSES[rec.jid])) })}</h4>${statTable([rec.growth_in_class], ['Crecimiento %'])}` : '') +
       (lines.length ? `<h4>${t('Líneas de clase')}</h4>${ul(lines)}` : '') + (alt.length ? `<h4>${t('Rutas alternativas')} ${COM()}</h4>${ul(alt)}` : '') + (arch.length ? `<h4>${t('Arquetipos')}</h4>${ul(arch)}` : '') +
       (skills.length ? `<h4>${t('Habilidades personales')}</h4>${ul(skills)}` : '') +
       (Object.keys(learn).length ? `<details><summary>${t('Aprendizaje por competencia')}</summary>${kvRows(Object.entries(learn).map(([k, v]) => [dx(k), v.join(' · ')]))}</details>` : '') + (mounts || '');
+  }
+
+  /** every community build of the unit (WIKI_EXT.builds), by route (Part 1) and end game (Parts 2-3); Mi partida picks one by roster */
+  function communityBuilds(pid) {
+    const all = ((window.WIKI_EXT || {}).builds?.units || {})[pid] || [];
+    if (!all.length) return '';
+    const where = o => (o.routes ? t('Parte 1 con {r}', { r: esc(o.routes.map(r => ROUTE_NAME[r]).join(', ')) }) : t('Partes 2 y 3'));
+    const groups = [...new Set(all.map(where))];
+    return `<h4>${t('Builds propuestas')} ${COM()}</h4><p class="mut">${t('En <a href="#/equipo?ir=eq-equipamiento">Mi partida › Equipo</a> se elige una a partir del resto de tu equipo.')}</p>` +
+      groups.map(g => `<details><summary>${g} (${all.filter(o => where(o) === g).length})</summary>${ul(all.filter(o => where(o) === g).map(o =>
+        li(`<b>${esc(tx(o, 'name'))}</b> <span class="mut">${o.path.map(es => { const j = teamJid(es); return j ? L('clase', j) : esc(es); }).join(' → ')} · ${esc(t(o.weapon))}</span>`,
+          [tx(o, 'why'), tx(o, 'fits') && t('Elígela: {f}', { f: tx(o, 'fits') })].filter(Boolean).map(esc).join(' '))))}</details>`).join('');
   }
 
   /** Burst lords: ignition type and technique chains (W.ignicion) */

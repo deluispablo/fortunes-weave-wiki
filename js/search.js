@@ -125,13 +125,15 @@ function search(q, max = 12) {
   let gs = searchIndex().filter(e => e.group === 'Guía').map(e => [guideScore(e, n), e]).filter(x => x[0] != null)
     .sort((a, b) => a[0] - b[0] || a[1].label.length - b[1].label.length);
   if (gs.some(x => x[0] < 2.5)) gs = gs.filter(x => x[0] < 2.5);
-  const guides = gs.slice(0, 3).map(x => x[1]), weak = gs.length && gs[0][0] >= 2.5;
+  const guides = gs.slice(0, 3).map(x => x[1]);
   const rank = e => { const l = norm(e.label); return l === n ? 0 : l.startsWith(n) ? 1 : e.k.startsWith(n) || e.k.includes(' ' + n) ? 2 : 3; };
   const pool = searchIndex().filter(e => e.group !== 'Guía');
   let hits = pool.filter(e => e.k.includes(n)).map(e => [rank(e), e]);
   if (!hits.length && n.length >= 3) { const toks = n.split(/\s+/); hits = pool.filter(e => typoHit(toks, e.k)).map(e => [4, e]); }
   hits.sort((a, b) => a[0] - b[0] || a[1].label.length - b[1].label.length);
   const top = hits.slice(0, Math.max(0, max - guides.length)).map(h => h[1]), named = hits.some(h => h[0] <= 1);
+  // an entity named exactly like the query («cai») also beats guides found only by an alias prefix («cai parte 1»)
+  const weak = gs.length && gs[0][0] >= (hits.some(h => h[0] === 0) ? 2 : 2.5);
   const ents = SEARCH_GROUPS.flatMap(g => top.filter(e => e.group === g));
   return (weak && named ? [...ents, ...guides] : [...guides, ...ents]).slice(0, max).map(pub);
 }

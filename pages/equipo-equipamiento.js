@@ -61,7 +61,7 @@ function teamGearPool(route, key) {
 function teamGear(route, key, have, builds) {
   const pool = teamGearPool(route, key), taken = new Set(), cap = teamRankCap(key), out = [];
   const effective = iid => Object.values(EFF_ITEMS).some(a => a.includes(iid));  // the specialised effective weapons Compras also uses
-  for (const { pid } of teamPriority(route, have)) {
+  for (const { pid } of teamPriority(route, have, key)) {
     const b = builds.find(x => x.pid === pid); if (!b) continue;
     const cls = teamClassAt(b, route, key), usable = (CLASSES[cls]?.weapons_usable || []).map(armaKey).filter(t => RANK_OF[t]);
     const main = armaKey(b.weapon || ''), con = teamCon(pid, key);
