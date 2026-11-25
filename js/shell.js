@@ -141,7 +141,7 @@ function rememberPartida(hash) {
 }
 const TABS = {  // inicio is not in TABBAR today: it is there so that putting it back is one line
   inicio: ['#/', 'home', 'Inicio', (sec) => sec === ''],
-  guias: ['#/guias', 'book', 'Guías', (sec, pg) => ['guias', 'guia', 'builds', 'reclutas', 'trucos'].includes(pg)],
+  guias: ['#/guias', 'book', 'Guías', (sec, pg) => ['guias', 'guia', 'builds', 'mejores-armas', 'reclutas', 'trucos'].includes(pg)],
   personajes: ['#/personajes', 'pj', 'Personajes', (sec, pg) => ['personajes', 'apoyos', 'regalos'].includes(pg)],
   mapa: ['#/mapa', 'map', 'Mapa', (sec, pg) => pg === 'mapa'],
   partida: [() => partidaHref(), 'cap', 'Mi partida', (sec, pg) => PARTIDA.includes(pg)],

@@ -116,7 +116,8 @@ function freeWeaponBarters(route, key, types, only = null) {
     out.push({ tier: 2, kind: 'trueque', spot: first.src, at: o.spot, trade: i, turns, travel, ...(only ? { only: true } : { save }),
       gain: mats.map(({ iid, n, src, buy }) => ({ iid, n, ...(src ? { src } : { buy }) })), might: ITEMS[i].weapon.might || 0 });
   });
-  return out.sort((a, b) => b.might - a.might || a.turns - b.turns || (a.trade < b.trade ? -1 : 1)).map(({ might, ...x }) => x);
+  const tr = x => ARMS_RANK[(armsTier(x.trade, CAPS[key]?.part || 1) || {}).tier] ?? 9;  // curated tier first (Purificadora, Espada trueno), then might
+  return out.sort((a, b) => tr(a) - tr(b) || b.might - a.might || a.turns - b.turns || (a.trade < b.trade ? -1 : 1)).map(({ might, ...x }) => x);
 }
 
 /** «Tiempo libre» in five sections → {now, ahead, weapons, gold, mats}, 3 tasks each at most, no task twice */

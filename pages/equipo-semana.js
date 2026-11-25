@@ -273,7 +273,7 @@ function teamFoeKinds(cls) {
   return out;
 }
 const FOE_ES = { acorazado: 'acorazados', jinete: 'jinetes', volador: 'voladores', bestia: 'bestias', nomuerto: 'no muertos' };
-const FOE_EFF = { acorazado: /SID_重装(有効|特効)/, jinete: /SID_騎兵(有効|特効)/, bestia: /SID_獣有効/, nomuerto: /SID_冥魔有効/ };  // fliers: every bow already hits them
+const FOE_EFF = { acorazado: /SID_重装(有効|特効)/, jinete: /SID_騎兵(有効|特効)/, bestia: /SID_獣有効/, nomuerto: /SID_(冥魔有効|清めの剣効果)/ };  // fliers: every bow already hits them
 /** the battles ahead from chapter `key`: the chapter's own story battle (it closes the chapter) and the next chapter's, with the enemy types (2 or more) */
 function teamFoesAhead(route, key) {
   const B = (window.WIKI_EXT || {}).batallas?.b || [], ch = routeChapters(route), i = chapIdx(route, key);

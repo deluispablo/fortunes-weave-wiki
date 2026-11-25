@@ -14,7 +14,7 @@
     const where = i.where ? (i.spot ? L('lugar', i.spot, dataTx(i.where).replace(/\s*\(.*\)$/, '')) : esc(dataTx(i.where))) : '';
     const pay = i.pay?.length ? t('trueque por {l}', { l: list(i.pay.map(p => `${p.n > 1 ? p.n + '× ' : ''}${L('objeto', p.id, p.es)}`)) }) : i.price ? gold(i.price) : '';
     const ref = i.refine ? `<span class="ar-ref"><span class="cp-tag">${t('Refinar')}</span> → ${L('objeto', i.refine.to)} · ${list(Object.entries(i.refine.mats).map(([m, n]) => `${n}× ${L('objeto', m)}`))} · ${gold(i.refine.gold)}</span>` : '';
-    return `<div class="ar-i">${img(ico().item?.[i.iid], 'ico')}<span><span class="ar-n">${L('objeto', i.iid)}</span> <span class="ar-who" title="${esc(list(i.who.map(p => nm(CHARS[p]))))}">${i.who.map(face).join('')}</span></span>` +
+    return `<div class="ar-i">${img(ico().item?.[i.iid], 'ico')}<span><span class="ar-n">${L('objeto', i.iid)}</span>${(x => (x ? ` <span class="cp-tag">${x.tier}</span>` : ''))(armsTier(i.iid, CAPS[ctxGet().key]?.part || 1))} <span class="ar-who" title="${esc(list(i.who.map(p => nm(CHARS[p]))))}">${i.who.map(face).join('')}</span></span>` +
       `<span class="ar-m">${[i.why !== 'refinar' && t(WHY[i.why]), where, pay, stats, i.note && esc(t(i.note))].filter(Boolean).join(' · ')}</span>${ref}</div>`;
   }
   function page() {

@@ -626,7 +626,7 @@ const P = {};  // id → render(arg) returning an HTML string
    Mi partida apart at the end. Every registered page is listed here: this list alone places it (a page's `group` is ignored).
    Ids not registered are skipped. Every menu item is a page, and every address highlights exactly one item (fichas their listing,
    topic guides in the Guías panel). Ajustes (nav: false) is behind the header gear */
-const MENU = [['guias', 'Guías', ['guia', 'builds', 'reclutas', 'trucos', 'perdibles', 'guias']],
+const MENU = [['guias', 'Guías', ['guia', 'builds', 'mejores-armas', 'reclutas', 'trucos', 'perdibles', 'guias']],
   ['consulta', 'Personajes', ['personajes', 'apoyos', 'regalos']],
   ['combate', 'Clases y combate', ['clases', 'habilidades', 'monturas', 'batallones', 'mecanicas']],
   ['economia', 'Objetos y economía', ['objetos', 'tiendas', 'recoleccion']],
