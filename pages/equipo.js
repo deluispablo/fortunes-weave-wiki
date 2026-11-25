@@ -114,7 +114,7 @@
     'Regalos: el favorito de un «quiero» no se propone a otro (si dos comparten favorito, lo recibe el de más prioridad). Orden: favorito (el más caro da más apoyo), le encanta (el más barato primero) y le gusta (en el orden del juego, para encontrarlos en la lista de regalos). Solo se proponen regalos con alguna fuente abierta en esta ruta y parte.',
     'Regalos semanales: los «le gusta» y «le encanta» más baratos con fuente abierta, sin ningún favorito de otro «quiero».',
     'Comidas: el apoyo para reclutar es con el señor de la ruta. Se cuenta desde cero (la página no lee la partida): 400, 1400, 2400 y 3200 puntos para los apoyos 2 a 5, a 60 puntos por comida sin bonos. Van primero los que necesitan más comidas por cada semana que les queda hasta su plazo (el cierre del recluta o, si no tiene, el final de la Parte 1), de dos en dos. El plato es el de la carta de esa semana que más gusta a los dos.',
-    'Servicio divino: el señor con el «quiero» más urgente, porque el apoyo sube entre los dos que sirven; el día sagrado del dios garantiza el resultado alto, y todos los domingos son día sagrado de todos los templos. Una vez por semana; también suma tributo a la bendición del dios.',
+    'Servicio divino: el señor con una unidad ya reclutada (sirven dos del ejército) en el templo donde los dos tienen más aptitud; el día sagrado del dios garantiza el resultado alto, y todos los domingos son día sagrado de todos los templos. Una vez por semana; también suma tributo a la bendición del dios.',
     'Comidas: dos platos por semana (tres desde Prestigio 3), a mitad de precio el domingo. Cada invitado necesita un regalo previo.',
     'Plazos: arriba los reclutas que cierran en este capítulo; los demás, plegados. Las comidas se cuentan desde cero.',
     'Ronda de regalos: favoritos y «le encanta» a la vista; los «le gusta», plegados. El resto de perdibles de la ruta está en Perdibles.',
@@ -353,12 +353,13 @@
   window.teamWeekBlock = (route, key) => weekBody(teamPlan(route, key, ctxRecruits(route), ctxDrop(route), ctxWant(route)));
   /** Capítulo › En Dagsion: who eats with the lord and who goes to the Servicio divino this weekend (gifts live in Equipo › Regalos) */
   window.teamWeekendSummary = (route, key) => {
-    const w = teamWeekend(route, key, ctxWant(route), 0), lordN = L('personaje', w.lord);
+    const army = ctxTeam(route).filter(p => p !== LORDS[route] && teamState(p, route, key) === 'tengo');  // the Servicio divino pairs the lord with a recruited unit
+    const w = teamWeekend(route, key, ctxWant(route), 0, army), lordN = L('personaje', w.lord);
     if (!w.weekends.length) return `<p class="mut">${t('Este capítulo no tiene días libres en fin de semana.')}</p>`;
     const meal = w.meals.find(m => m.guests.length), svc = (w.service || []).find(s => s.with);
     const lines = [
       meal && t('Comidas: {a} con {b}.', { a: lordN, b: who(meal.guests) }),
-      svc && t('Servicio divino: {a} con {b}.', { a: lordN, b: L('personaje', svc.with) }),
+      svc && t('Servicio divino: {a} con {b} en el {c}.', { a: lordN, b: L('personaje', svc.with), c: L('lugar', svc.god) }),
     ].filter(Boolean);
     return lines.length ? ul(lines.map(x => `<li>${x}</li>`)) : '';
   };

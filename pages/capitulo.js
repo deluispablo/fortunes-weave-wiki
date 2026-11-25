@@ -18,6 +18,29 @@
   const PORTAL = { アウロラ: 'Aurora', マーズ: 'Mars', カーラ: 'Kalla', 'ユ・ファス': 'Yu Phas' };
   const unlocks = c => [...c.unlocks.map(dt),
     ...(line(c)?.unlocks || []).map(u => /^神殿_転移_(.+)神殿$/.exec(u.jp)?.[1]).filter(g => PORTAL[g]).map(g => t('Portal al Templo de {g}', { g: PORTAL[g] }))];
+  /** the route's Part 1 temple portal: the story opens it (Dagsion's annex ↔ the god's main temple) */
+  const portalAt = route => { for (const c of routeChapters(route).filter(x => x.part === 1)) {
+    const g = (line(c)?.unlocks || []).map(u => /^神殿_転移_(.+)神殿$/.exec(u.jp)?.[1]).find(x => PORTAL[x]);
+    if (g) return { g: PORTAL[g], c }; } return null; };
+  /** Moverse rápido (Part 1): the portal and the carriage, with the quests each Cai line needs (map data) */
+  function travel(route, c) {
+    if (c.part !== 1 || !route) return '';
+    const p = portalAt(route), at = p && chapIdx(route, p.c.key) - chapIdx(route, c.key), out = [];
+    if (p) out.push(at < 0 ? t('Portal al Templo de {g}: abierto. Del anexo del templo en Dagsion al templo principal, al instante.', { g: p.g })
+      : t(at ? 'Portal al Templo de {g}: lo abre la historia en el cap. {n}; no hay que hacer nada.' : 'Portal al Templo de {g}: lo abre la historia en este capítulo; no hay que hacer nada.', { g: p.g, n: p.c.n }));
+    out.push(t('Los demás portales se abren en la Parte 3, con la petición de cada dios.'));
+    out.push(t('Carruaje: 0 turnos, solo la tarifa (100/200/300 G). Solo sales de postas que ya visitaste: pasa por cada una al menos una vez.'));
+    if (route === 'cai') {
+      const CL = W.map?.carriage_lines || [], free = new Set(CL.filter(l => !l.closed_cai && !l.cai_subquest).flatMap(l => [l.from_es, l.to_es]));
+      const by = new Map(); CL.filter(l => l.cai_subquest).forEach(l => by.set(l.cai_subquest.id, new Set([...(by.get(l.cai_subquest.id) || []), l.from_es, l.to_es].filter(x => !free.has(x)))));
+      const closed = [...new Set(CL.filter(l => l.closed_cai).flatMap(l => [l.from_es, l.to_es]))].filter(x => !free.has(x) && ![...by.values()].some(v => v.has(x)));
+      out.push(t('En la ruta de Cai el cochero pide antes {q} (desde el cap. 7).', { q: L('mision', 'SQID_カイ篇_使い慣れたもの') }));
+      by.forEach((v, q) => out.push(t('{a}: hace falta además {q}.', { a: esc(list([...v])), q: L('mision', q) })));
+      if (closed.length) out.push(t('Sin carruaje en la Parte 1 de Cai: {a}.', { a: esc(list(closed)) }));
+    }
+    out.push(`<a href="#/turnos">${t('Turnos y viajes')}</a>`);
+    return `<details class="card" id="cp-viaje"><summary><h3>${t('Moverse rápido')}</h3></summary><ul class="cp-list">${out.map(x => `<li>${x}</li>`).join('')}</ul></details>`;
+  }
   /** what the calendar holds this chapter (Part 1): events by day, plays on stage, Sundays */
   function calendar(c) {
     const x = line(c); if (!x) return '';
@@ -140,6 +163,7 @@
       folded('Calendario', calendar(c)) +
       folded('Preparar para lo siguiente', prepare(c), 'ul') +
       folded('Prestigio', renown(c), 'ul') +
+      travel(wr, c) +
       (wr && typeof window.teamWeekBlock === 'function' ? `<details class="card" id="eq-semana"><summary><h3>${t('Compras, herrería y plazos')}</h3></summary>${window.teamWeekBlock(wr, key)}</details>` : '') +
       (wr && typeof window.teamTipsBlock === 'function' && window.teamTipsBlock(wr, key) ? `<details class="card" id="eq-consejos"><summary><h3>${t('Trueques y dinero fácil')}</h3></summary>${window.teamTipsBlock(wr, key)}</details>` : '');
   }

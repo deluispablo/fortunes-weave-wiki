@@ -210,7 +210,11 @@
   function center(svg, k, zoomTo) {
     const s = SPOTS[k]; if (!s?.xy) return;
     let [, , w, h] = MV.vb; if (zoomTo && w > MV.full[2] * zoomTo) { h = h * MV.full[2] * zoomTo / w; w = MV.full[2] * zoomTo; }
-    MV.vb = [s.xy[0] - w / 2, s.xy[1] - h / 2, w, h]; applyVB(svg);
+    // the middle of the map's visible part: on phones the place panel (fixed at the bottom) covers the lower half
+    const r = svg.getBoundingClientRect(), p = document.querySelector('.mpanel')?.getBoundingClientRect();
+    const bot = Math.min(r.bottom, innerHeight || r.bottom, p && p.left <= r.left + 1 && p.top > r.top ? p.top : Infinity), top = Math.max(r.top, 0);
+    const fy = r.height > 0 && bot > top ? ((top + bot) / 2 - r.top) / r.height : 0.5;
+    MV.vb = [s.xy[0] - w / 2, s.xy[1] - h * fy, w, h]; applyVB(svg);
   }
   const svgPoint = (svg, cx, cy) => { const r = svg.getBoundingClientRect(); return [MV.vb[0] + (cx - r.left) / r.width * MV.vb[2], MV.vb[1] + (cy - r.top) / r.height * MV.vb[3]]; };
   const phone = () => innerWidth <= 760;

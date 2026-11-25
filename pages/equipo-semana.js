@@ -65,7 +65,7 @@ function teamGiftRound(want, route, key, team = want) {
 
 /* ---------------- week plan («Semana»): what to do in Dagsion this chapter for the «quiero» recruits ---------------- */
 const SUPPORT_AT = [0, 0, 400, 1400, 2400, 3200];  // cumulative support points per level
-// support from zero a weekend visit gives one recruit (two gifts, two meals a day, two services), before the Prestigio bonuses
+// support from zero a weekend visit gives one recruit (two gifts, two meals a day; the Servicio divino is only for army units), before the Prestigio bonuses
 const WEEKEND_PTS = 500;
 const teamOpenIdx = (route, what) => teamFirst(route, 0, c => (c.unlocks || []).includes(what));
 /** last day to recruit `pid` on `route`: its closing row, else the end of Part 1 → {key, date|null} */
@@ -101,7 +101,7 @@ function teamWeek(route, key, want) {
     return { sunday: w.sunday, pairs };
   });
   const svcOpen = teamOpenIdx(route, 'Servicio divino'), [a, b] = teamFree(key), inCh = d => d >= a && d <= b;
-  const temple = svcOpen >= 0 && svcOpen <= idx ? { with: live[0]?.pid || null, sundays: (ch.weeks || []).map(w => w.sunday).filter(inCh),
+  const temple = svcOpen >= 0 && svcOpen <= idx ? { sundays: (ch.weeks || []).map(w => w.sunday).filter(inCh),
     holy: (ch.weeks || []).flatMap(w => (w.discounts || []).filter(d => inCh(d.date) && /Día sagrado|Día de Dagda/.test(d.es)).map(d => ({ date: d.date, es: d.es }))) } : null;
   const fansIn = (ch.weeks || []).flatMap(w => (w.plays || []).map(pl => ({ es: pl.es, fans: (pl.fans || []).filter(p => p === lord || live.some(n => n.pid === p)) })));
   const play = fansIn.filter((x, i) => fansIn.findIndex(y => y.es === x.es) === i);
@@ -153,7 +153,7 @@ function teamHere(pid, date, key) {
 /** the weekdays a recruit is in Dagsion, when they never are on Saturday or Sunday: «mar/mié» (else null) */
 const teamWeekdays = pid => { const d = [...new Set((CHARS[pid]?.recruit?.where || []).flatMap(x => (/solo ((?:lun|mar|mié|jue|vie|sáb|dom)(?:\/\S+?)*)(?:,|$)/.exec(x) || [])[1]?.split('/') || []))];
   return d.length ? d.sort((a, b) => DOW.indexOf(a) - DOW.indexOf(b)).join('/') : null; };
-const GIFT_PTS = { fav: 90, love: 75, like: 65 }, MEAL_BASE = 80, SERVICE_PTS = 10;
+const GIFT_PTS = { fav: 90, love: 75, like: 65 }, MEAL_BASE = 80;
 /** the weekend plan for `want` («quiero») at chapter `key`, weekend number `n` (0-based, clamped); `army`: the units already in the army,
     in priority order (the Plaza de armas pairs). → {weekends, n, sat, sun, days, gifts, away, meals, training, service, need, gold} */
 function teamWeekend(route, key, want, n = 0, army = []) {
@@ -194,14 +194,18 @@ function teamWeekend(route, key, want, n = 0, army = []) {
       return { es: o.es, pair };
     }) };
   });
-  // Servicio divino: one a day, the lord with the most urgent recruit present that day
+  // Servicio divino: two units of the army (the game: «dos unidades»), so the lord with a unit already recruited — never a «quiero»;
+  // one a day, the next army unit in priority each day
   const svcOpen = teamOpenIdx(route, 'Servicio divino');
-  const service = svcOpen >= 0 && svcOpen <= idx ? days.map(d => ({ date: d.date, dow: d.dow, with: d.here[0] || null, holy: d.holy })) : null;
+  // and the temple where the two have the best aptitude together (2 = +20 points to the result, 0 = −20)
+  const gods = W.mech?.facilities?.temple?.gods || [], apt = (p, g) => (CHARS[p]?.p?.temple_service?.values || {})[g.service.es] ?? 1;
+  const bestGod = p => gods.reduce((b, g) => (!b || apt(lord, g) + apt(p, g) > apt(lord, b) + apt(p, b) ? g : b), null)?.id || null;
+  const service = svcOpen >= 0 && svcOpen <= idx ? days.map((d, i) => { const m = mates.length ? mates[i % mates.length] : null;
+    return { date: d.date, dow: d.dow, with: m, god: m && bestGod(m), holy: d.holy }; }) : null;
   // support per recruit this weekend and visits to reach the level from zero
   const need = live.map(x => {
     const g = gifts.find(y => y.pid === x.pid), tier = g?.pick?.t || g?.other?.t;
-    const pts = (g ? g.days.length * (GIFT_PTS[tier] || 40) : 0) + meals.reduce((a, m) => a + (m.guests.includes(x.pid) ? m.dishes.length * MEAL_BASE : 0), 0) +
-      (service || []).filter(s => s.with === x.pid).length * SERVICE_PTS;
+    const pts = (g ? g.days.length * (GIFT_PTS[tier] || 40) : 0) + meals.reduce((a, m) => a + (m.guests.includes(x.pid) ? m.dishes.length * MEAL_BASE : 0), 0);
     return { ...x, weekend: pts, visits: pts ? Math.ceil(x.pts / pts) : null };
   });
   const gold = gifts.reduce((a, g) => a + (g.pick ? (g.pick.offer.type === 'barter' ? 0 : g.pick.offer.price) * g.days.length : 0), 0) +
