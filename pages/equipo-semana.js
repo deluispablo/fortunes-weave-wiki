@@ -287,10 +287,33 @@ const EFF_ITEMS = Object.fromEntries(Object.entries(FOE_EFF).map(([k, re]) => [k
 const MANUAL_OF = { 'Equitación': 'IID_馬術書', 'Vuelo': 'IID_飛行術書', 'Coraza': 'IID_重装術書' };
 const ROUTINE_ITEMS = ['IID_白魔術書', 'IID_黒魔術書', 'IID_上級資格手形'];
 /** accessory rules: an accessory worth it only for a class on the build */
-const ACC_RULES = [{ name: 'Anillo de gigante', cls: 'Cuadriguero', why: 'Con +4 compensa el peso; el Cuadriguero no depende de la esquiva' }];  // i18n-ignore — name, cls: Spanish game names (lookup keys); why: shown through t()
+// i18n-ignore — name, cls: Spanish game names (lookup keys); why: shown through t(). test(jid, ctx {pid, key, gap}): gap = attack speed missing to double the typical enemy
+const ACC_USE = jid => CLASSES[jid]?.weapons_usable || [];
+const ACC_RULES = [
+  { name: 'Anillo de gigante', cls: 'Cuadriguero', test: j => CLASSES[j]?.es === 'Cuadriguero', why: 'Con +4 compensa el peso; el Cuadriguero no depende de la esquiva' },  // i18n-ignore
+  { name: 'Escudo antimagia', test: j => (CLASSES[j]?.skills_trainable_q?.Coraza || 0) > 0, why: 'Res +5: tapa el punto débil de los acorazados' },  // i18n-ignore
+  { name: 'Bastón de sanación', test: j => ACC_USE(j).includes('Magia blanca') && !ACC_USE(j).includes('Magia negra'), why: 'Cura más con cada bastón' },  // i18n-ignore
+  { name: 'Bastón de hechicero', test: j => ACC_USE(j).includes('Magia negra'), why: 'Mag +3 para los hechizos' },  // i18n-ignore
+  { name: 'Anillo vendaval', test: (j, c) => c && c.gap >= 1 && c.gap <= 3, why: 'Vel +3: le faltan 1–3 puntos para atacar dos veces' },  // i18n-ignore
+];
 
 /** what to buy, search and barter in chapter `key` for the team `builds` (+ the mounts plan):
     buy: [{spot|null, where, items: [{iid, why, offer}]}] grouped by place; chains: search → Vandahl barter; routine: the chapter's usual purchases */
+/** what Anna's shop in Dagsion sells only this Part 1 chapter (rows «N章» with no «N+1章» row) and serves the team:
+    an accessory a rule fits for a class of the builds now, a weapon crate when some build uses a weapon → [{iid, crate, why}] */
+function teamAnnaOnce(route, key, builds) {
+  const c = CAPS[key]; if (!c || c.part !== 1) return [];
+  const n = c.n, now = `${n}章`, next = `${n + 1}章`, out = [];
+  const clsNow = builds.map(b => teamClassAt(b, route, key)).filter(Boolean), armed = builds.some(b => b.weapon && !/^Magia/.test(b.weapon));
+  for (const [iid, it] of Object.entries(ITEMS)) {
+    const rows = (it.obtain || []).filter(o => /tienda de Anna/.test(o.where || '')).flatMap(o => o.rows || []).filter(r => r.conds.includes('1部'));
+    if (!rows.some(r => r.conds.includes(now)) || rows.some(r => r.conds.includes(next))) continue;
+    if (/^Caja armas/.test(it.es)) { if (armed) out.push({ iid, crate: true, why: t('guarda antes: el contenido se decide al comprar') }); continue; }
+    const rule = ACC_RULES.find(r => r.name === it.es && clsNow.some(j => r.test(j, null)));
+    if (rule) out.push({ iid, crate: false, why: t(rule.why) });
+  }
+  return out;
+}
 function teamShopping(route, key, builds, mounts = {}) {
   const ch = routeChapters(route), i = chapIdx(route, key), nextKey = ch[i + 1]?.key, want = [];
   const add = (iid, why, prio) => { const o = teamOffers(iid, route, key)[0]; if (o && !want.some(w => w.iid === iid && w.why === why)) want.push({ iid, why, prio, offer: o }); };
@@ -318,7 +341,7 @@ function teamShopping(route, key, builds, mounts = {}) {
     (j?.exam_requirements || []).forEach(r => { const m = MANUAL_OF[r.es]; if (m && !(prev?.skills_trainable_q?.[r.es] > 0)) add(m, t('{p} necesita {s} {r} para {c}', { p: nm(CHARS[b.pid]), s: t(r.es), r: r.rank, c: nm(j) }), 3); });
   });
   // the main weapon of each unit is in «Equipamiento» (Equipo), not repeated here
-  for (const r of ACC_RULES) { const iid = Object.keys(ITEMS).find(k => ITEMS[k].es === r.name), users = builds.filter(b => (b.steps || []).some(s => CLASSES[s.jid]?.es === r.cls)).map(b => b.pid);
+  for (const r of ACC_RULES.filter(x => x.cls)) { const iid = Object.keys(ITEMS).find(k => ITEMS[k].es === r.name), users = builds.filter(b => (b.steps || []).some(s => CLASSES[s.jid]?.es === r.cls)).map(b => b.pid);
     if (iid && users.length) add(iid, `${t(r.why)}: ${list(users.map(p => nm(CHARS[p])))}`, 3); }
   // 3 · Vandahl barters whose payment comes from a search at a reachable place: needed items first
   const chains = [];
@@ -331,7 +354,7 @@ function teamShopping(route, key, builds, mounts = {}) {
   const top = want.sort((a, b) => a.prio - b.prio), groups = [];
   for (const w of top) { const k = w.offer.spot || w.offer.where; let g = groups.find(x => x.k === k); if (!g) groups.push(g = { k, spot: w.offer.spot, where: w.offer.where, renown: w.offer.renown, items: [] }); if (!g.items.some(x => x.iid === w.iid)) g.items.push(w); }
   groups.sort((a, b) => Math.min(...a.items.map(x => x.prio)) - Math.min(...b.items.map(x => x.prio)) || a.renown - b.renown || b.items.length - a.items.length);
-  return { buy: groups, chains, routine, lures, foes: teamFoesAhead(route, key) };
+  return { buy: groups, chains, routine, lures, foes: teamFoesAhead(route, key), once: teamAnnaOnce(route, key, builds) };
 }
 
 /* ---------------- refining at the Herrería («Herrería» in Esta semana) ---------------- */

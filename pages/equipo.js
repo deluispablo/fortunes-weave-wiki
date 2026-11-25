@@ -242,7 +242,9 @@
     const opts = g.options.map(o => li(`${img(ico().item?.[o.iid], 'ico')}${L('objeto', o.iid)} · ${L('lugar', o.spot, o.where.replace(/\s*\(.*\)$/, ''))}, ${gold(o.price)}`,
       [t('Pot {m}, peso {w}', { m: ITEMS[o.iid].weapon.might, w: ITEMS[o.iid].weapon.weight }), o.effective && t('arma eficaz')].filter(Boolean).join(' · ')));
     const acc = g.acc ? li(`${L('objeto', g.acc.iid)} · ${g.acc.spot ? L('lugar', g.acc.spot, g.acc.where.replace(/\s*\(.*\)$/, '')) : esc(dataTx(g.acc.where))}${g.acc.price ? `, ${gold(g.acc.price)}` : ''}`, esc(t(g.acc.why))) : '';
-    return `<div class="eq-gear"><p><b>${t('Arma')}</b> ${now}</p>` +
+    const hi = g.higher ? `<p class="mut">${t('Si llega a {a} {r}: {o} ({w})', { a: t(ARMAS.find(a => a[0] === g.higher.type)?.[1] || '').toLowerCase(), r: g.higher.rank, o: L('objeto', g.higher.iid),
+      w: g.higher.spot ? L('lugar', g.higher.spot, dataTx(g.higher.where).replace(/\s*\(.*\)$/, '')) : esc(dataTx(g.higher.where || '')) })}</p>` : '';
+    return `<div class="eq-gear"><p><b>${t('Arma')}</b> ${now}</p>${hi}` +
       (opts.length || acc ? `<details class="eq-more"><summary>${t('Opciones ({n})', { n: opts.length + (acc ? 1 : 0) })}</summary>${ul([...opts, acc].filter(Boolean))}</details>` : '') + '</div>';
   }
 
@@ -257,7 +259,8 @@
       `${t('{a} → cámbialo por {b} en {p}', { a: L('objeto', c.pay.id, c.pay.es), b: L('objeto', c.get), p: c.offer.spot ? L('lugar', c.offer.spot) : esc(dataTx(c.offer.where)) })}: ${esc(c.why)}.`));
     const routine = sh.routine.map(r => t('{i} en {p}', { i: L('objeto', r.iid), p: list(r.offers.slice(0, 4).map(o => o.spot ? L('lugar', o.spot) : esc(dataTx(o.where)))) }));
     const lures = sh.lures.slice(0, 3).map(m => t('{m} para {p} en {s} ({n})', { m: L('montura', m.rid), p: L('personaje', m.pid), s: L('lugar', m.spot.spot, m.spot.es), n: pct(m.spot.pct) }));
-    return `<h4>${t('Compras y búsquedas')}</h4>` + (top.length ? ul(top.map(row)) : `<p class="mut">${t('Nada urgente que comprar para este capítulo.')}</p>`) +
+    const once = (sh.once || []).map(x => li(L('objeto', x.iid), esc(x.why)));
+    return `<h4>${t('Compras y búsquedas')}</h4>` + (once.length ? `<p><b>${t('Solo este capítulo')}</b> · ${L('lugar', DAGSION, t('tienda de Anna'))}</p>${ul(once)}` : '') + (top.length ? ul(top.map(row)) : `<p class="mut">${t('Nada urgente que comprar para este capítulo.')}</p>`) +
       (rest.length ? `<details class="eq-more"><summary>${t('Más sitios ({n})', { n: rest.length })}</summary>${ul(rest.map(row))}</details>` : '') +
       (chains.length ? `<details class="eq-more"><summary>${t('Búsqueda y trueque con Vandahl ({n})', { n: chains.length })}</summary>${ul(chains)}</details>` : '') +
       ((routine.length || lures.length) ? `<p class="mut">${t('Cada capítulo: {l}. Los manuales se conservan para la Parte 3.', { l: [...routine, ...(lures.length ? [t('cebo para {l}', { l: list(lures) })] : [])].join('; ') })}</p>` : '');

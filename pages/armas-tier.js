@@ -6,7 +6,7 @@ const ARMS_SOUL = 'IID_戦魂石';  // Marcialito: the refine step that asks for
 const armsBase = iid => String(iid).replace(/＋[0-9０-９]+$/, '');
 const armsBlock = part => (part >= 2 ? 2 : 1);
 /** the tier row of a weapon (a refined copy reads its base) for a part; null without one */
-const armsTier = (iid, part) => (((window.WIKI_EXT || {}).armas || {}).tiers || []).find(r => r.iid === armsBase(iid) && r.parts.includes(armsBlock(part) === 2 ? 2 : 1)) || null;
+const armsTier = (iid, part) => (((window.WIKI_EXT || {}).armas || {}).tiers || []).find(r => r.iid === armsBase(iid) && r.parts.includes(armsBlock(part))) || null;
 const armsScore = w => w.might + (w.hit || 0) / 10 + (w.crit || 0) / 5 - (w.weight || 0) / 2;
 /** refine steps reachable before the Marcialito step: {cap, capped} */
 function armsCap(iid) {
@@ -30,20 +30,22 @@ function armsAvail(route, part) {
 }
 /** {type: [{iid, tier, why, why_en, web, score, idx, routes, marks, cap, src}]} in ARMAS order; route '' → every route, no chapter */
 function armsCatalog(route, part) {
-  const rows = (((window.WIKI_EXT || {}).armas || {}).tiers || []).filter(r => r.parts.includes(armsBlock(part) === 2 ? 2 : 1));
+  const rows = (((window.WIKI_EXT || {}).armas || {}).tiers || []).filter(r => r.parts.includes(armsBlock(part)));
   const out = {};
   for (const r of rows) {
     const it = ITEMS[r.iid], w = it?.weapon; if (!w) continue;
     const av = route ? armsAvail(route, part)[r.iid] : null;
     const routes = route ? [] : ROUTE_IDS.filter(x => armsAvail(x, part)[r.iid]);
     if (route && !av) continue;
-    const src = av ? av.src : routes.length ? armsAvail(routes[0], part)[r.iid].src : null;
+    // no route has it in the pool (story loot, a quest outside the pool): the game's own source line
+    // only what the pool cannot model (quests, story loot); a crate is not a shop
+    const gameSrc = () => { const o = (it.obtain || []).find(x => ['recompensa', 'botín enemigo'].includes(x.type)); return o ? { kind: o.type, where: o.where || o.what || '' } : null; };
+    const src = av ? av.src : routes.length ? armsAvail(routes[0], part)[r.iid].src : route ? null : gameSrc();
     const { cap, capped } = armsCap(r.iid), marks = [];
     if (armsBlock(part) === 1 && capped) marks.push('tope');
     if (!route && armsBlock(part) === 1 && routes.length && !routes.includes('cai')) marks.push('nocai');
     if (/^Prototipo/.test(it.es)) marks.push('dlc');
-    if (Math.max(...Object.values(w.rank || {}), 0) > 5) marks.push('rango');
-    if (!src && (it.obtain || []).some(o => o.type === 'sorteo')) marks.push('cajas');
+    if (!(av || routes.length) && (it.obtain || []).some(o => o.type === 'sorteo')) marks.push('cajas');
     const ty = armaKey(w.type);
     (out[ty] ??= []).push({ iid: r.iid, tier: r.tier, why: r.why, why_en: r.why_en, web: r.web || null, score: Math.round(armsScore(w) * 10) / 10,
       idx: av ? av.idx : -1, routes, marks, cap, src: src || null, lvl: armsDungeonLv(src, part) });
@@ -55,20 +57,20 @@ function armsCatalog(route, part) {
 
 (() => {
   const ARMS_H = { espada: 'Espadas', lanza: 'Lanzas', hacha: 'Hachas', arco: 'Arcos', punos: 'Guanteletes' };
-  const MARK = { tope: c => t('tope P1: +{n}', { n: c }), nocai: () => t('no en Cai P1'), dlc: () => t('DLC'), rango: () => '', cajas: () => t('solo cajas') };
+  const MARK = { tope: c => t('tope P1: +{n}', { n: c }), nocai: () => t('no en Cai P1'), dlc: () => t('DLC'), cajas: () => t('solo cajas') };
   const COM = () => `<span class="gu-com" title="${esc(t('Dato de la comunidad'))}"></span>`;
   const CSS = `.aw-ctx{display:flex;flex-wrap:wrap;gap:var(--s2);margin:0 0 var(--s3)}.aw-g h2{font-size:var(--fs-row);margin:0 0 var(--s2)}
 .aw-u{border-top:1px solid var(--line)}.aw-u>summary,.aw-u>.fold-h .fold-t{display:flex;align-items:center;gap:var(--s2);min-height:var(--tap);white-space:nowrap;overflow:hidden}
 .aw-u .ico{flex:none;width:28px;height:28px}.aw-n{font-weight:600;flex:none}.aw-w{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;color:var(--tx2);font-size:var(--fs-small)}
 .mm-tag{display:inline-block;padding:0 var(--s2);border-radius:var(--r1);background:var(--surface2);color:var(--tx2);font-size:var(--fs-small);font-weight:500}.aw-u .mm-tag{flex:none}.bd-now{color:var(--acc)}.aw-b{margin:var(--s2) 0 var(--s3) var(--s3)}.aw-b p{margin:0 0 var(--s2)}`;
-  const rankOf = iid => { const r = Math.max(...Object.values(ITEMS[iid].weapon.rank || {}), 0); return r >= 9 ? 'A' : r >= 7 ? 'B' : ''; };
+  const rankOf = iid => { const r = Math.max(...Object.values(ITEMS[iid].weapon.rank || {}), 0); return r >= 9 ? 'A' : r > 5 ? 'B' : ''; };
   function srcLine(s) {
     if (!s) return '';
     const at = s.spot ? L('lugar', s.spot, dataTx(s.where).replace(/\s*\(.*\)$/, '')) : esc(dataTx(s.where || ''));
     if (s.kind === 'barter') return t('Trueque en {w}: {p}', { w: at, p: list((s.pay || []).map(p => `${p.n > 1 ? p.n + '× ' : ''}${L('objeto', p.id, p.es)}`)) });
     if (s.kind === 'tienda') return t('Tienda: {w}', { w: at }) + (s.price ? ' · ' + gold(s.price) : '');
     if (s.kind === 'cofre') return t('Cofre: {w}', { w: at });
-    return t('Misión: {w}', { w: at });
+    return s.kind === 'recompensa' || s.kind === 'mision' ? t('Misión: {w}', { w: at }) : at;
   }
   function page(qs = {}) {
     const c = ctxGet(), cp = ctxChosen() ? CAPS[c.key]?.part : 1;
@@ -79,7 +81,7 @@ function armsCatalog(route, part) {
     const when = x => (x.lvl ? t('Cofre · Nv {n}', { n: x.lvl }) : r ? (x.idx <= here && here >= 0 ? `<b class="bd-now">${t('ahora')}</b>` : t('desde el {c}', { c: chapLink(routeChapters(r)[x.idx].key) }))
       : x.routes.length ? esc(list(x.routes.map(k => ROUTE_NAME[k]))) : '');
     const row = x => { const it = ITEMS[x.iid], w = it.weapon, rk = rankOf(x.iid);
-      const tags = [...x.marks.filter(m => m !== 'rango').map(m => MARK[m](x.cap)), rk && t('Rango {r}', { r: rk })].filter(Boolean).map(s => `<span class="mm-tag">${esc(s)}</span>`).join('');
+      const tags = [...x.marks.map(m => MARK[m](x.cap)), rk && t('Rango {r}', { r: rk })].filter(Boolean).map(s => `<span class="mm-tag">${esc(s)}</span>`).join('');
       return `<details class="aw-u"><summary>${img(ico().item?.[x.iid], 'ico')}<span class="aw-n">${esc(nm(it))}</span><span class="mm-tag">${x.tier}</span><span class="aw-w">${when(x)}</span></summary><div class="aw-b">` + (tags ? `<p>${tags}</p>` : '') +
         `<p>${esc(LANG === 'en' ? x.why_en : x.why)} ${COM()}</p>` + (x.src ? `<p>${srcLine(x.src)}</p>` : '') +
         `<p class="mut">${t('Pot {m}, peso {w}', { m: w.might, w: w.weight })} · ${L('objeto', x.iid, t('Ficha'))}</p>` +

@@ -87,11 +87,18 @@ function teamGear(route, key, have, builds) {
       const o = (pool[x.iid] || []).filter(s => (s.kind === 'tienda' || s.kind === 'ambulante') && s.price > 0 && s.spot && spotAccess(s.spot, route, key).ok).sort((a, z) => a.price - z.price)[0];
       if (o) opts.push({ iid: x.iid, where: o.where, spot: o.spot, price: o.price, effective: effective(x.iid) });
     }
-    const rule = ACC_RULES.find(r => CLASSES[cls]?.es === r.cls), accIid = rule && Object.keys(ITEMS).find(k => ITEMS[k].es === rule.name);
-    const accOffer = accIid && teamOffers(accIid, route, key)[0];
+    const fight = teamFight(pid, cls, key, con), gap = nowW ? teamFoe(key, 'Spd') + 4 - (fight.spd - Math.max(0, nowW.weight - con)) : 0;
+    const accOf = r => { const iid = Object.keys(ITEMS).find(k => ITEMS[k].es === r.name), o = iid && teamOffers(iid, route, key)[0]; return o ? { iid, o, r } : null; };
+    const accHit = ACC_RULES.filter(r => r.test(cls, { pid, key, gap })).map(accOf).find(Boolean), rule = accHit?.r, accIid = accHit?.iid, accOffer = accHit?.o;
+    // a stronger weapon of the same type that asks for more rank than the cap: an option for when the unit gets there
+    const hi = Object.entries(pool).filter(([iid]) => { const w = ITEMS[iid]?.weapon, rk = w && (w.rank?.[RANK_OF[armaKey(w.type || '')]] || 1);
+      return w && armaKey(w.type) === (nowW ? armaKey(nowW.type) : main) && rk > cap && rk <= 9 && (!nowW || armsScore(w) > armsScore(nowW) + 0.5) && !(CAPS[key]?.part === 1 && isSilver(iid)); })
+      .sort(([a], [z]) => armsScore(ITEMS[z].weapon) - armsScore(ITEMS[a].weapon) || a.localeCompare(z))[0];  // better = higher weapon score (might, hit, crit, weight)
+    const higher = hi ? (() => { const w = ITEMS[hi[0]].weapon, rk = w.rank[RANK_OF[armaKey(w.type)]], s = hi[1][0];
+      return { iid: hi[0], rank: rk >= 9 ? 'A' : rk >= 7 ? 'B' : 'C', type: armaKey(w.type), where: s.where, spot: s.spot }; })() : null;
     // spells are each unit's own list (no tome is sold or found): a magic build gets no weapon to buy, never a fallback sword
     const spells = !best && /^magia-/.test(main) && usable.includes(main) ? main : null;
-    out.push({ pid, cls, con, spells, now: best && { iid: best.iid, ...best.src, heavy: heavy(best.iid), loss: Math.max(0, nowW.weight - con) }, options: opts,
+    out.push({ pid, cls, con, spells, higher, now: best && { iid: best.iid, ...best.src, heavy: heavy(best.iid), loss: Math.max(0, nowW.weight - con) }, options: opts,
       acc: accOffer ? { iid: accIid, where: accOffer.where, spot: accOffer.spot || accOffer.home, price: accOffer.price, why: rule.why } : null });
   }
   return out.sort((a, z) => bySerial(a.pid, z.pid));

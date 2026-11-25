@@ -52,10 +52,23 @@
       const adds = [...Object.entries(w.stat_bonus || {}).map(([s, v]) => `${statName(s) || esc(s)} ${v > 0 ? '+' : ''}${v}`),
         ...(w.equip_skills || []).filter(x => !(it.weapon.equip_skills || []).includes(x) && SKILLS[x]).map(x => L('habilidad', x))];
       rows.push(`<tr><td>${L('objeto', f.to, '+' + (n + 1))}</td><td>${w.might} · ${w.hit} · ${w.crit}</td><td>${list(adds)}</td>` +
-        `<td>${list(f.mats.map(m => `${m.n}× ${L('objeto', m.iid)}`))}</td><td>${f.part3 ? t('Parte {p}', { p: 3 }) : ''}</td></tr>`);
+        `<td>${list(f.mats.map(m => `${m.n}× ${L('objeto', m.iid)}`))}</td><td>${f.part3 || f.mats.some(m => m.iid === ARMS_SOUL) ? t('Parte {p}', { p: 3 }) + (n === armsCap(k).cap ? ' · ' + t('tope P1: +{n}', { n }) : '') : ''}</td></tr>`);
       cur = nx;
     }
     return rows.length ? `<details><summary>${t('Refinado ({n} niveles)', { n: rows.length })}</summary><div class="tw"><table><tr><th>${t('Nivel')}</th><th>${t('Pot · Gol · Crít')}</th><th>${t('Efecto')}</th><th>${t('Material')}</th><th>${t('Solo en')}</th></tr>${rows.join('')}</table></div></details>` : '';
+  }
+  /** battles whose enemies carry the weapon (or a refined copy), grouped by route; with a route chosen, only that one */
+  function carriers(k) {
+    const base = k.replace(/＋[0-9０-９]+$/, ''), r = ctxRoute(), rn = r ? ROUTE_NAME[r] : '', by = {};
+    for (const b of Object.values((window.WIKI_EXT || {}).batallas?.b || {})) {
+      const who = [...new Set(b.e.filter(e => (e.it || []).some(x => String(x[0]).replace(/＋[0-9０-９]+$/, '') === base)).map(e => e.n))];
+      if (!who.length) continue;
+      const g = (b.r || []).filter(x => !rn || x === rn || !ROUTE_IDS.some(id => ROUTE_NAME[id] === x)).join(', ');
+      if (rn && !(b.r || []).some(x => x === rn || !ROUTE_IDS.some(id => ROUTE_NAME[id] === x))) continue;
+      (by[g || '—'] ??= []).push(li(`<a href="${href('batalla', b.id)}">${esc(gt(b.t))}</a>`, esc(list(who.map(n => gt(n))))));
+    }
+    const head = g => g.split(', ').map(x => (/^Parte (\d)$/.test(x) ? t('Parte {p}', { p: x.slice(-1) }) : x === 'Prólogo' ? t('Prólogo') : esc(x))).join(', ');  // i18n-ignore (data values)
+    return Object.entries(by).map(([g, rows]) => `<h4>${head(g)}</h4>${ul(rows)}`).join('');
   }
   /** fixed dungeon chests holding the item, as obtain rows; a two-item chest holds the Part 1 item first, the Part 3 one second */
   const chests = k => Object.entries(DT().chests || {}).flatMap(([sp, rows]) => rows.filter(r => r.includes(k))
@@ -271,6 +284,7 @@
     // the summary carries what most visits want (what it does, weapon numbers, where to get it): no click; tabs only for the rest
     const head = fichaHead(img(ico().item?.[k], 'fi-pic'), `<a href="#/objetos">${t('Objetos')}</a>`, nm(it) || it.jp, dx(it.section),
       (tx(it, 'effect') ? `<p>${esc(clean(tx(it, 'effect')).replace(/\s+/g, ' '))}</p>` : '') + weaponRows(it, k) + useRules(it) + foodRows(it) + kvRows([
+        [t('Tier'), (x => (x ? `<span class="cp-tag">${x.tier}</span> <a href="#/mejores-armas">${t('Mejores armas')}</a>` : ''))(it.weapon && armsTier(k, ctxChosen() ? CAPS[ctxGet().key]?.part || 1 : 1))],
         [t('Uso'), it.use_es && esc(dx(it.use_es))],
         [t('Precio · venta'), it.price || it.sell ? `${it.price ? gold(it.price) : '—'} · ${it.sell ? gold(it.sell) : '—'}` : ''],
         groups.length ? mainSources(groups) : null,
@@ -281,6 +295,7 @@
     return ficha(head, [
       ['conseguir', 'Dónde se consigue', shardGot + obtain(groups)],
       ['usos', 'Para qué sirve', shardPay + uses(it, route)],
+      ['enemigos', 'Enemigos que la llevan', it.weapon ? carriers(k) : ''],
       ['notas', 'Notas', ul((it.web_notes || []).filter(n => factOnly(n.es)).map(n => li(esc(fo(n.es)), n.where && esc(dx(n.where)))))],
     ]);
   }

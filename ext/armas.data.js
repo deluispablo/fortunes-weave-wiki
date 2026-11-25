@@ -617,6 +617,90 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["armas"]={
     "https://www.youtube.com/watch?v=9NBy5IJIVug",
     "https://www.youtube.com/watch?v=ZPZsLR25eMk"
    ]
+  },
+  {
+   "iid": "IID_試作品１号",
+   "tier": "A",
+   "parts": [
+    1
+   ],
+   "why": "Arma propia de la ruta de Dietrich (Pase de expansión); su último refinado pide Marcialito.",
+   "why_en": "Dietrich route weapon (Expansion Pass); its last refine needs Warrior's Soulstone.",
+   "refs": [
+    "https://www.youtube.com/watch?v=0Bn0V-28gXU"
+   ]
+  },
+  {
+   "iid": "IID_試作品５号",
+   "tier": "A",
+   "parts": [
+    1
+   ],
+   "why": "Arma propia de la ruta de Leda (Pase de expansión).",
+   "why_en": "Leda route weapon (Expansion Pass).",
+   "refs": [
+    "https://www.youtube.com/watch?v=0Bn0V-28gXU"
+   ]
+  },
+  {
+   "iid": "IID_試作品７号",
+   "tier": "A",
+   "parts": [
+    1
+   ],
+   "why": "Arma propia de la ruta de Cai (Pase de expansión).",
+   "why_en": "Cai route weapon (Expansion Pass).",
+   "refs": [
+    "https://www.youtube.com/watch?v=0Bn0V-28gXU"
+   ]
+  },
+  {
+   "iid": "IID_試作品11号",
+   "tier": "A",
+   "parts": [
+    1
+   ],
+   "why": "Arma propia de la ruta de Theodora (Pase de expansión).",
+   "why_en": "Theodora route weapon (Expansion Pass).",
+   "refs": [
+    "https://www.youtube.com/watch?v=0Bn0V-28gXU"
+   ]
+  },
+  {
+   "iid": "IID_邪槍ハノーア",
+   "tier": "A",
+   "parts": [
+    1
+   ],
+   "why": "Lanza demoniaca de cofre (Fuerte de la Huella, nivel alto); pide lanza A.",
+   "why_en": "Demonic chest lance (high-level fort); needs Lance A.",
+   "refs": [
+    "https://www.youtube.com/watch?v=0Bn0V-28gXU"
+   ]
+  },
+  {
+   "iid": "IID_邪槍ムーエン",
+   "tier": "A",
+   "parts": [
+    1
+   ],
+   "why": "Lanza demoniaca de cofre, la más fuerte de la Parte 1; pide lanza A.",
+   "why_en": "Demonic chest lance, the strongest in Part 1; needs Lance A.",
+   "refs": [
+    "https://www.youtube.com/watch?v=0Bn0V-28gXU"
+   ]
+  },
+  {
+   "iid": "IID_邪斧ガンドギャ",
+   "tier": "A",
+   "parts": [
+    1
+   ],
+   "why": "Hacha demoniaca de cofre; pide hacha A.",
+   "why_en": "Demonic chest axe; needs Axe A.",
+   "refs": [
+    "https://www.youtube.com/watch?v=0Bn0V-28gXU"
+   ]
   }
  ]
 };
