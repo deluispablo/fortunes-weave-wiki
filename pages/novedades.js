@@ -4,7 +4,8 @@
   // one entry per publish day; es and en side by side, newest first. {page-id} becomes a link named with the title that page registers
   const LOG = [
     ['2026-11-25', [
-      ['Nuevas páginas: {mejor-equipamiento}, {planificador} con enlace para compartir, {comparar}, {arbol-clases}, {calculadora} y {checklist}.', 'New pages: {mejor-equipamiento}, {planificador} with a share link, {comparar}, {arbol-clases}, {calculadora} and {checklist}.'],  // i18n-ignore
+      ['Un solo equipo: el planificador vive ahora en {equipo}. Añade unidades por su cara, completa el equipo, elige build y equipamiento, y compártelo con un enlace.', 'One team: the planner now lives in {equipo}. Add units by their face, complete the team, pick builds and equipment, and share it with a link.'],  // i18n-ignore
+      ['Nuevas páginas: {mejor-equipamiento}, {comparar}, {arbol-clases}, {calculadora} y {checklist}.', 'New pages: {mejor-equipamiento}, {comparar}, {arbol-clases}, {calculadora} and {checklist}.'],  // i18n-ignore
       ['Páginas propias para cada personaje, clase, objeto, habilidad, montura y lugar, para encontrarlas desde los buscadores.', 'Pages of their own for every character, class, item, skill, mount and place, so search engines can find them.'],  // i18n-ignore
       ['Arreglos en Tiempo libre, {builds}, {mejores-armas}, {cap} y {regalos}.', 'Fixes in Free time, {builds}, {mejores-armas}, {cap} and {regalos}.'],  // i18n-ignore
       ['Barra de tier lists en todas las páginas y {tier-personajes} por ruta y para las Partes 2 y 3.', 'Tier list bar on every page, and the {tier-personajes} per route and for Parts 2 and 3.'],  // i18n-ignore

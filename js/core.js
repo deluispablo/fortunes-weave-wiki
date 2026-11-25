@@ -333,9 +333,24 @@ const caiFold = h => (caiHide(true) ? `<p class="mut">${t('No está en la Parte 
 const routeParts = s => { const r = ctxRoute(); if (!r) return s;
   const other = ROUTE_IDS.filter(x => x !== r).map(x => `(${t('ruta de {r}', { r: ROUTE_NAME[x] })})`);
   return s.split('; ').filter(x => !other.some(o => x.includes(o))).join('; '); };
-/** writes the context in the current shape ({route, key, team, got, drop, fold}) */
+/** writes the context in the current shape ({route, key, team, got, drop, fold, plan}) */
 const ctxSave = o => { const v = ctxStored() || {}, c = ctxGet();
-  store.set('ctx', { route: c.route, key: c.key, team: ctxTeamRaw(v), got: c.have, drop: c.drop, ...(c.fold != null ? { fold: c.fold } : {}), ...o }); };
+  store.set('ctx', { route: c.route, key: c.key, team: ctxTeamRaw(v), got: c.have, drop: c.drop, ...(c.fold != null ? { fold: c.fold } : {}), ...(ctxObj(v.plan) ? { plan: v.plan } : {}), ...o }); };
+const ctxObj = x => !!x && typeof x === 'object' && !Array.isArray(x);
+/** the two blocks a team is planned for: '1' (prologue and Part 1) or '3' (Parts 2–3) of a chapter key */
+const partBlk = key => (CAPS[key]?.part >= 2 ? '3' : '1');
+/** where the hand picks of a route and block are stored in ctx.plan: «leda» (Part 1), «leda@3» (Parts 2–3) */
+const pickKey = (route, pt) => (pt === '3' ? route + '@3' : route);
+/** Equipo's hand picks on `route` in block `pt` (default: the game's): {pid: {b, c, w0, w1, g}} (build id, class, weapon 1 and 2, equipment;
+    '' = none on purpose, a missing field = auto). Stored as ctx.plan[pickKey]; anything corrupt reads as no pick */
+const CTX_PICK = { b: () => true, c: k => Object.hasOwn(CLASSES, k), w0: k => k === '' || Object.hasOwn(ITEMS, k), w1: k => k === '' || Object.hasOwn(ITEMS, k), g: k => k === '' || Object.hasOwn(ITEMS, k) };
+const ctxPicks = (route = ctxGet().route, v = ctxStored(), pt = partBlk(ctxGet().key)) => { const k = pickKey(route, pt), o = ctxObj(v?.plan) && Object.hasOwn(v.plan, k) && v.plan[k];
+  return Object.fromEntries(Object.entries(ctxObj(o) ? o : {}).filter(([p, x]) => Object.hasOwn(CHARS, p) && ctxObj(x))
+    .map(([p, x]) => [p, Object.fromEntries(Object.entries(x).filter(([f, k]) => Object.hasOwn(CTX_PICK, f) && typeof k === 'string' && CTX_PICK[f](k)))])); };
+/** the whole ctx.plan of a stored (or imported) ctx, validated: only route / route@3 keys */
+const ctxPlanAll = v => Object.fromEntries(ROUTE_IDS.flatMap(r => ['1', '3'].map(pt => [pickKey(r, pt), r, pt])).filter(([k]) => ctxObj(v?.plan) && Object.hasOwn(v.plan, k)).map(([k, r, pt]) => [k, ctxPicks(r, v, pt)]));
+/** replaces the hand picks of `route` in block `pt` (the other routes' and blocks' are kept) */
+const ctxSetPicks = (route, picks, pt = partBlk(ctxGet().key)) => { const v = ctxStored() || {}; ctxSave({ plan: { ...(ctxObj(v.plan) ? v.plan : {}), [pickKey(route, pt)]: picks } }); };
 const ctxSet = (route, key) => ctxSave({ route, key });
 /** the old two lists: `pids` («quiero») and `have` («tengo») both go into the team, `have` also into got */
 const ctxSetRecruits = (pids, drop = ctxGet().drop, have = ctxGet().have) => ctxSave({ team: ctxPids([...pids, ...have]), got: ctxPids(have), drop: [...new Set(drop)] });
@@ -638,7 +653,7 @@ function parseHash(hash) {
 }
 
 /* ---------------- old addresses and stored state: the only place that knows them ---------------- */
-/** old addresses → their page now. Keys: '<section>' (the query is kept), '<section>?p' (only with ?p=: the old recruit planner #/planificador?p=<pids> feeds the team page), '<section>/<id>'
+/** old addresses → their page now. Keys: '<section>' (the query is kept), '<section>/<id>'
     (the positional mechanics pages #/mecanicas/hN, now sections of the page each topic belongs to) or '<section>?ir=<id>' or '<section>?t=<tab>' (a tab that became its own page) */
 const MECH_OLD = { h1: 'mecanicas?ir=experiencia', h2: 'mecanicas?ir=formula-de-exp', h3: 'mecanicas?ir=niveles-y-crecimiento',
   h4: 'apoyos?ir=como-funcionan', h5: 'apoyos?ir=como-funcionan', h6: 'apoyos?ir=como-funcionan', h7: 'apoyos?ir=puntos-por-actividad', h8: 'apoyos?ir=bonos-de-combate',
@@ -647,7 +662,7 @@ const MECH_OLD = { h1: 'mecanicas?ir=experiencia', h2: 'mecanicas?ir=formula-de-
   h18: 'instalaciones?ir=teatro', h19: 'instalaciones?ir=torneo', h20: 'instalaciones?ir=adivinacion', h21: 'instalaciones?ir=percha', h22: 'instalaciones?ir=formacion',
   h23: 'instalaciones?ir=actividades-automaticas', h24: 'monturas?ir=establo', h25: 'instalaciones?ir=horario', h26: 'turnos', h27: 'recoleccion',
   h28: 'mecanicas?ir=nivel-de-los-enemigos', h29: 'ayudas?ir=esquirlas', h30: 'sendas?ir=fin-de-la-parte-1', h31: 'sendas?ir=reiniciar-capitulo' };
-const OLD_ADDR = { minmax: '#/guia', unidades: '#/personajes', sistemas: '#/instalaciones', mundo: '#/mapa', 'planificador?p': '#/equipo',
+const OLD_ADDR = { minmax: '#/guia', unidades: '#/personajes', sistemas: '#/instalaciones', mundo: '#/mapa', planificador: '#/equipo',
   semana: '#/cap', 'semana?ir=eq-ronda': '#/equipo?sec=regalos', 'equipo?ir=eq-ronda': '#/equipo?sec=regalos',
   ...Object.fromEntries(['eq-semana', 'eq-consejos', 'eq-herreria'].map(id => [`equipo?ir=${id}`, `#/cap?ir=${id}`])),  // the week blocks moved to Capítulo
   'clases?ir=monturas': '#/monturas', 'sendas?t=senores': '#/senores',
@@ -655,9 +670,12 @@ const OLD_ADDR = { minmax: '#/guia', unidades: '#/personajes', sistemas: '#/inst
 /** an old address → the current one, null when current. Also ?ir=<id> on the bare #/ (the chapter used to live there) → #/cap?ir=<id> */
 const legacyHash = hash => {
   const { sec, id, qs } = parseHash(hash), byT = OLD_ADDR[`${sec}?t=${qs.t}`], byIr = byT || OLD_ADDR[`${sec}?ir=${qs.ir}`];
-  const to = (id && OLD_ADDR[`${sec}/${id}`]) || byIr || (!sec && qs.ir ? '#/cap' : (qs.p && OLD_ADDR[`${sec}?p`]) || OLD_ADDR[sec]);
+  const to = (id && OLD_ADDR[`${sec}/${id}`]) || byIr || (!sec && qs.ir ? '#/cap' : OLD_ADDR[sec]);
   if (!to) return null;
   const rest = { ...qs }; if (byT) delete rest.t; else if (byIr) delete rest.ir;
+  // the planner (folded into Equipo): ?e= (a shared plan, read-only there) and ?p= (old recruit picks) keep their route; a bare planner
+  // address drops its view route and part, which Equipo would otherwise take as the game's
+  if (sec === 'planificador' && !qs.e && !qs.p) { delete rest.r; delete rest.pt; }
   const q = new URLSearchParams(rest).toString();
   return to + (q ? (to.includes('?') ? '&' : '?') + q : '');
 };
@@ -682,7 +700,7 @@ const MENU = [['guias', 'Guías', ['guia', 'tier-personajes', 'builds', 'mejores
   ['mundo', 'Mundo y misiones', ['mapa', 'lugares', 'mazmorras', 'misiones', 'batallas']],
   ['sistemas', 'Sistemas', ['instalaciones', 'dioses', 'prestigio', 'turnos', 'sendas', 'senores', 'partes23', 'dificultad']],
   ['historia', 'Historia y textos', ['archivo', 'guion', 'tutoriales', 'glosario']],
-  ['partida', 'Mi partida', ['inicio', 'cap', 'equipo', 'planificador', 'armas', 'checklist', 'ajustes', 'novedades']]];
+  ['partida', 'Mi partida', ['inicio', 'cap', 'equipo', 'armas', 'checklist', 'ajustes', 'novedades']]];
 const NAV = MENU.map(([id, title]) => ({ id, title, pages: [] }));
 const ROUTES = {};  // hash section → page id
 /* Japanese never reaches the screen: names left in text nodes become their official Spanish name, the rest is dropped */

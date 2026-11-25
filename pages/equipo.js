@@ -8,13 +8,15 @@
   const CSS = `.fi-sec:has(> .eq-box){background:none;border:0;box-shadow:none;padding:0}.eq-box+.eq-box{margin-top:var(--s3)}\n@media (max-width:600px){.eq-gifts .eq-gi{display:flex;align-items:center;gap:6px;padding:2px 0}.eq-gifts .eq-gi>a{flex:1;min-width:0}.eq-gifts .eq-tw{display:none}.eq-gifts .eq-rec{gap:var(--s2)}}\n
 .eq-roles{margin:0 0 var(--s2);font-size:var(--fs-small);color:var(--mut)}.eq-role b{color:var(--tx)}.eq-gapc,.eq-gapc b{color:var(--red)}.eq-gaps{list-style:none;padding:0;margin:0}.eq-gaps li{padding:4px 0;display:flex;flex-wrap:wrap;align-items:center;gap:6px}.eq-add{padding-left:6px}.eq-add small{color:var(--mut)}.eq-aimg{width:24px;height:24px;border-radius:50%}.rg-pick{margin-bottom:var(--s3)}.rg-pick .eq-face[aria-pressed=false]{opacity:.5}.rg-pick .eq-face[aria-pressed=true]{outline:2px solid var(--focus);outline-offset:1px}.rg-u h3{font-size:var(--fs-row);margin:0 0 var(--s1)}.rg-l{list-style:none;padding:0;margin:0;columns:2;column-gap:var(--s3)}.rg-l li{padding:3px 0;break-inside:avoid;font-size:var(--fs-small);line-height:1.2}.rg-l a{color:var(--tx)}.rg-l li.rg-fav a,.rg-l li.rg-love a{font-weight:650}.rg-t{color:var(--acc)}.rg-meal{margin:0 0 var(--s1);font-size:var(--fs-small)}.rg-no{margin-top:var(--s1);font-size:var(--fs-small)}.eq-rec{position:relative}.eq-got{align-self:center;white-space:nowrap}
 .eq-pick{font:inherit;cursor:pointer;padding-right:28px}.eq-pick.on::after{background:url(img/ui/IconCheck.png) right 8px center/14px no-repeat,var(--cf)}.eq-st{font-weight:650;color:var(--tx)}.eq-pickb{margin:var(--s2) 0}.eq-pickb p{margin:var(--s1) 0}.eq-pickb details{margin-top:var(--s1)}
-.eq-units{display:grid;gap:var(--s4)}.eq-unit{margin:0;padding:var(--s3) var(--s4)}
+.eq-units{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s2)}.eq-row{display:flex;align-items:center;gap:var(--s3)}.eq-rowt{flex:1;min-width:0}.eq-rowt .eq-line{font-size:var(--fs-small);overflow-wrap:anywhere}.eq-ed{flex:none;min-height:var(--tap)}.eq-unit.eq-open>.eq-row{margin-bottom:var(--s2)}.eq-strip{display:flex;flex-wrap:wrap;gap:4px;margin:var(--s2) 0 0}.eq-sface{width:32px;height:32px;border-radius:50%;object-fit:cover;object-position:50% 15%;background:var(--surface2);font-size:11px;display:inline-grid;place-items:center}.eq-unit{margin:0;padding:var(--s2) var(--s3)}
 .eq-unit>header{display:flex;align-items:center;gap:var(--s3);margin:0 0 var(--s2)}.eq-unit>header h4{margin:0}.eq-unit>header .cp-tag{margin:0 var(--s1) 0 0}
 .eq-steps{list-style:none;margin:0;padding:0}.eq-steps>li{padding:var(--s2) 0;border-top:1px dashed var(--line)}.eq-steps>li:first-child{border-top:0;padding-top:0}
 .eq-steps small{display:block;color:var(--mut)}.eq-extra{margin:var(--s3) 0 0;padding:var(--s1) var(--s3);background:var(--surface2);border-radius:var(--r1)}
 .eq-extra .kv:first-of-type{border-top:0}.eq-extra .kv{border-top-color:var(--line)}.eq-sel summary{cursor:pointer;min-height:var(--tap);display:flex;align-items:center;gap:var(--s2);flex-wrap:wrap}
 .eq-gap{color:var(--tx);box-shadow:inset 3px 0 0 var(--focus);padding-left:var(--s3)}.li-card.eq-on,.card.eq-on{border-color:var(--sel-line)}
-.eq-tag{font-size:var(--fs-small);color:var(--tx2)}.eq-more summary{cursor:pointer;color:var(--tx2);min-height:var(--tap);display:flex;align-items:center}\n.eq-recs,.eq-need,.eq-gl{list-style:none;margin:0;padding:0}.eq-rec{display:flex;gap:var(--s3);align-items:flex-start;padding:var(--s2) 0;border-top:1px solid var(--line)}.eq-rec:first-child{border-top:0}.eq-rec>div{min-width:0;flex:1}.eq-rec b{display:block;font:600 15px/1.3 var(--font-display);letter-spacing:.02em}.eq-line{display:block;color:var(--tx2)}.eq-rec small{display:block}.eq-need li{display:grid;grid-template-columns:auto auto 1fr;column-gap:var(--s2);align-items:baseline;padding:var(--s1) 0;border-top:1px solid var(--line)}.eq-need li:first-child{border-top:0}.eq-need li small{grid-column:1/-1}.eq-need li:only-child,.eq-need li:not(:has(b)){display:block}.eq-gi{display:block;padding:2px 0;font-size:var(--fs-small);line-height:1.4}.eq-gi .ico{vertical-align:middle}.eq-gear{margin:var(--s2) 0 0;padding-top:var(--s2);border-top:1px dashed var(--line)}.eq-gear>p{margin:0}.eq-gear .fold{border-top:0;margin:0}.eq-sel-t{font-size:17px;line-height:1.3}.eq-sel-t small{display:block;font:400 var(--fs-small)/1.4 var(--font);letter-spacing:0}.eq-acts{margin-left:calc(-1 * var(--s2))}.eq-due{padding-left:var(--s3);box-shadow:inset 3px 0 0 var(--focus)}`;
+.eq-tag{font-size:var(--fs-small);color:var(--tx2)}.eq-more summary{cursor:pointer;color:var(--tx2);min-height:var(--tap);display:flex;align-items:center}\n.eq-recs,.eq-need,.eq-gl{list-style:none;margin:0;padding:0}.eq-rec{display:flex;gap:var(--s3);align-items:flex-start;padding:var(--s2) 0;border-top:1px solid var(--line)}.eq-rec:first-child{border-top:0}.eq-rec>div{min-width:0;flex:1}.eq-rec b{display:block;font:600 15px/1.3 var(--font-display);letter-spacing:.02em}.eq-line{display:block;color:var(--tx2)}.eq-rec small{display:block}.eq-need li{display:grid;grid-template-columns:auto auto 1fr;column-gap:var(--s2);align-items:baseline;padding:var(--s1) 0;border-top:1px solid var(--line)}.eq-need li:first-child{border-top:0}.eq-need li small{grid-column:1/-1}.eq-need li:only-child,.eq-need li:not(:has(b)){display:block}.eq-gi{display:block;padding:2px 0;font-size:var(--fs-small);line-height:1.4}.eq-gi .ico{vertical-align:middle}.eq-gear{margin:var(--s2) 0 0;padding-top:var(--s2);border-top:1px dashed var(--line)}.eq-gear>p{margin:0}.eq-gear .fold{border-top:0;margin:0}.eq-sel-t{font-size:17px;line-height:1.3}.eq-sel-t small{display:block;font:400 var(--fs-small)/1.4 var(--font);letter-spacing:0}.eq-acts{margin-left:calc(-1 * var(--s2))}.eq-bs{list-style:none;margin:var(--s2) 0;padding:0;display:grid;gap:var(--s2)}.eq-b{font:inherit;color:inherit;text-align:left;width:100%;min-height:var(--tap);padding:var(--s2) var(--s3);border:1px solid var(--line);border-radius:var(--r1);background:none;cursor:pointer}.eq-b[aria-pressed=true]{border-color:var(--sel-line);box-shadow:inset 3px 0 0 var(--focus)}.eq-b small{display:block}
+.eq-slots{margin:var(--s2) 0}.eq-slots .fbar{flex-direction:column;align-items:stretch;overflow:visible}.eq-slots .fsel{max-width:100%}@media (min-width:600px){.eq-slots .fbar{display:grid;grid-template-columns:1fr 1fr}}.eq-size{margin:var(--s2) 0 0}
+.eq-dlg{width:min(560px,calc(100vw - 2*var(--s3)));max-height:min(80vh,720px);padding:var(--s3);border:1px solid var(--line);border-radius:var(--r2,10px);background:var(--surface);color:var(--tx)}.eq-dlg::backdrop{background:rgb(0 0 0 / .55)}.eq-dlg-h{display:flex;align-items:center;justify-content:space-between;gap:var(--s2);margin:0 0 var(--s2)}.eq-dlg-h h2{margin:0;font-size:var(--fs-row)}.eq-dlg h3{font-size:var(--fs-small);color:var(--tx2);margin:var(--s3) 0 var(--s1)}.eq-dlg h3:first-of-type{margin-top:0}.eq-due{padding-left:var(--s3);box-shadow:inset 3px 0 0 var(--focus)}`;
   const face = (pid, cls = 'ico ico-personaje') => img(ico().face?.[pid], cls);
   const cls = jid => (CLASSES[jid] ? `${img(ico().job?.[jid], 'ico')}${L('clase', jid)}` : '');
   const capOf = key => (CAPS[key] ? chapLink(key) : '');
@@ -48,7 +50,7 @@
     return `<ol class="eq-steps">${steps}</ol><div class="eq-extra">` + kvRows([
       [t('Clase objetivo'), `${cls(b.target)} <small class="mut">${esc(b.target_why)}</small>`],
       [t('Habilidades que llevar'), esc(list(b.skills.map(gt)))],
-      [t('Arma principal'), list(b.weapons.map(w => `${esc(t(w.type))}: ${w.iid ? L('objeto', w.iid) : t('sin arma en tienda en esta parte')}`))],
+      [t('Arma principal'), list(b.weapons.map(w => `${esc(t(w.type))}: ${w.iid ? L('objeto', w.iid) : /^Magia/.test(w.type) ? t('hechizos propios') : t('sin arma en tienda en esta parte')}`))],
       ...stages.map(st => mountRow(b, st, mounts?.[st.kind], route, key)),
     ]) + '</div>';
   }
@@ -66,12 +68,47 @@
       (why.length ? `<p class="mut">${esc(t('Por tu equipo: {w}.', { w: list(why) }))}</p>` : '') +
       (full && tx(me, 'why') ? `<p>${esc(tx(me, 'why'))}</p>` : '') +
       (teamFocus(b).length ? `<p class="eq-focus"><span class="cp-tag">${t('Sube')}</span> ${teamFocus(b).map(f => `<b>${esc(t(f.skill))} ${esc(f.rank)}</b>`).join(' · ')}</p>` : '') +
-      (others.length ? `<details><summary>${t('Otras builds ({n})', { n: others.length })}</summary>${ul(others.map(alt))}</details>` : '') + '</div>';
+      (full && others.length ? `<details><summary>${t('Otras builds ({n})', { n: others.length })}</summary>${ul(others.map(alt))}</details>` : '') + '</div>';
   }
   window.teamPickHtml = pickHtml;
+  /** Equipo: the builds to choose from (the recommended one first, then up to 3 others in the published order) as short cards; the one
+      in use is pressed. `ro` (a shared plan): only the one in use */
+  function buildChoices(b, plan, route, key, ro) {
+    const opts = teamOptions(b.pid, route, key).filter(o => o.ok), rec = plan.choice?.[b.pid]?.rec;
+    if (opts.length < 2 || ro) return '';
+    const list = [...opts.filter(o => o.id === rec), ...opts.filter(o => o.id !== rec)].slice(0, 4);
+    return `<ul class="eq-bs" aria-label="${esc(t('Builds de {p}', { p: nm(CHARS[b.pid]) }))}">${list.map(o => `<li><button type="button" class="eq-b" data-eq-b="${esc(b.pid)}|${esc(o.id)}" aria-pressed="${o.id === b.pick}">` +
+      `<b>${esc(tx(o, 'name'))}</b>${o.id === rec ? ` <span class="cp-tag">${t('Recomendada')}</span>` : ''}<span class="eq-line">${o.jids.map(j => esc(nm(CLASSES[j]))).join(' → ')}</span>` +
+      `<small class="mut">${esc([roleNames(o.roles || []), tx(o, 'fits')].filter(Boolean).join(' · '))}</small></button></li>`).join('')}</ul>`;
+  }
+  const TIERS = (W.classes || {}).meta?.tiers || {};
+  const demon = k => (isCursed(k) ? ' · ' + t('Tesoro maldito') : '');
+  const armaName = type => t((ARMAS.find(([k]) => k === armaKey(type)) || [, type])[1]);
+  /** a select styled like the filter pills (filterCtl); opts [[value, label, group]] (consecutive equal groups share an <optgroup>) */
+  const sel = (label, who, key, opts, cur, auto) => { const s = opts.find(([v]) => v === cur) || opts[0], k = t(label) + (auto ? ' · ' + t('auto') : '');
+    let g = '', html = '';
+    for (const [v, lb, gr = ''] of opts) {
+      if (gr !== g) { html += (g ? '</optgroup>' : '') + (gr ? `<optgroup label="${esc(gr)}">` : ''); g = gr; }
+      html += `<option value="${esc(v)}"${v === s[0] ? ' selected' : ''}>${esc(lb)}</option>`;
+    }
+    return `<label class="fsel"><span class="fsel-k">${esc(k)}</span><span class="fsel-v">${esc(s[1])}</span><select data-eq-s="${esc(key)}" aria-label="${esc(t(label) + ' · ' + who)}">` +
+      html + (g ? '</optgroup>' : '') + '</select></label>'; };
+  /** Equipo: the unit's class, two weapons and equipment (teamSlots), each a select marked «auto» until changed by hand, and «Restablecer»;
+      `ro` (a shared plan): the same as text */
+  function slotsHtml(b, s, pick, route, key) {
+    const who = nm(CHARS[b.pid]), none = [['', '—']], here = chapIdx(route, key);
+    const weap = s.ws.map(k => [k, `${nm(ITEMS[k])} · ${t('Pot {n}', { n: ITEMS[k].weapon.might || 0 })}${demon(k)}`, armaName(ITEMS[k].weapon.type)]);
+    const gear = planEquip().map(k => [k, nm(ITEMS[k]) + demon(k), t(/^Escudos/.test(ITEMS[k].section || '') ? 'Escudos' : 'Accesorios')]).sort((a, z) => a[2].localeCompare(z[2], LANG));
+    // a class not open yet at this chapter says from when
+    const cls = s.cls.map(j => { const i = classFromIdx(j, route); return [j, nm(CLASSES[j]) + (i > here ? ' · ' + t('desde {c}', { c: capShort(routeChapters(route)[i]) }) : ''), nm(TIERS[+CLASSES[j].tier] || {}) || '']; });
+    const w0none = [['', s.magic ? t('Hechizos propios') : '—']];
+    return `<div class="eq-slots">${sel('Clase', who, `${b.pid}|c`, cls, s.c, s.auto.c)}${sel('Arma 1', who, `${b.pid}|w0`, [...w0none, ...weap], s.w0, s.auto.w0)}` +
+      `${sel('Arma 2', who, `${b.pid}|w1`, [...none, ...weap], s.w1, s.auto.w1)}${sel('Equipamiento', who, `${b.pid}|g`, [...none, ...gear], s.g, s.auto.g)}</div>` +
+      (pick && Object.keys(pick).length ? `<button type="button" class="txtbtn txtbtn-2" data-eq-reset="${esc(b.pid)}" aria-label="${esc(t('Volver a automático: build recomendada y equipamiento de {p}', { p: who }))}">${t('Volver a automático')}</button>` : '');
+  }
   /** Equipo › Builds: one line per unit (class path and target); stages, skills, weapon and mounts live in the character ficha */
-  const buildSummary = (b, plan) => (!b?.target ? `<p class="mut">${t('Sin ruta de clases válida en esta ruta.')}</p>` :
-    pickHtml(b, plan) + `<p class="eq-path">${[b.start, ...b.steps.map(x => x.jid)].map(cls).join(' → ')}</p>` +
+  const buildSummary = (b, plan, route, key, ro) => (!b?.target ? `<p class="mut">${t('Sin ruta de clases válida en esta ruta.')}</p>` :
+    pickHtml(b, plan) + buildChoices(b, plan, route, key, ro) + `<p class="eq-path">${[b.start, ...b.steps.map(x => x.jid)].map(cls).join(' → ')}</p>` +
     `<p><a href="${href('personaje', b.pid)}?sec=partida">${t('Build completa, armas y monturas')}</a></p>`);
 
   /** character ficha: the mount of each stage for every build of the unit, with what it adds at bond 5 and the difference with the recommended one */
@@ -231,7 +268,7 @@
       `<p class="mut">${t('Refina en vez de reparar: el primer paso cuesta lo mismo y también la deja al máximo. Hazlo antes de que llegue a 0 usos.')}</p>`;
   }
   const SRC_KIND = { inicial: () => t('equipo inicial'), mision: s => t('misión {q}', { q: L('mision', s.quest) }), cofre: s => t('cofre en {p}', { p: L('lugar', s.spot) }),
-    tienda: s => `${s.spot ? L('lugar', s.spot) : esc(dataTx(s.where))}, ${gold(s.price)}`, ambulante: s => `${esc(dataTx(s.where))}, ${gold(s.price)}`,
+    tienda: s => `${s.spot ? L('lugar', s.spot) : esc(dataTx(s.where))}, ${gold(s.price)}`, ambulante: s => `${s.spot ? t('mercader ambulante de {p}', { p: L('lugar', s.spot) }) : esc(dataTx(s.where))}, ${gold(s.price)}`, mano: () => t('elegida a mano'),
     barter: s => t('trueque en {p}', { p: s.spot ? L('lugar', s.spot) : esc(dataTx(s.where)) }) };
   /** one unit's equipment: a compact line (weapon now, where from, refining link) and the options folded */
   function gearHtml(g, forge) {
@@ -289,7 +326,37 @@
         (g.bad.length ? `<details class="rg-no"><summary>${t('No le gustan ({n})', { n: g.bad.length })}</summary><p>${list(g.bad.map(i => L('objeto', i)))}</p></details>` : '') + '</section>'; }).join('');
   }
 
+  /** #/equipo?e=: a shared team, read-only (the stored game is not touched until «Usar como mi equipo» is confirmed) */
+  /** one unit as a compact row: face, name, build, then class · weapon 1 · weapon 2 · equipment in a line; `open`: the editor below
+      (tags, build choices, path, the four selects, where the weapon comes from). `ro` (a shared plan): the row only */
+  function unitRow(b, plan, route, key, { open = false, ro = false, picks = {}, extra = '', tags = '' } = {}) {
+    const s = plan.slots[b.pid], name = k => (k ? nm(ITEMS[k]) + demon(k) : '');
+    const o = b.pick && teamOptions(b.pid, route, key).find(x => x.id === b.pick);
+    const line = s ? [esc(nm(CLASSES[s.c])) + (s.next ? ` <small class="mut">(${t('siguiente')})</small>` : ''),
+      s.magic && !s.w0 ? esc(t('Hechizos propios') + (s.spells.length ? ': ' + list(s.spellIds.map((id, i) => (SKILLS[id] ? nm(SKILLS[id]) : gt(s.spells[i]))).slice(-3)) : '')) : esc(name(s.w0)), esc(name(s.w1)), esc(name(s.g))].filter(Boolean).join(' · ') : '';
+    const who = nm(CHARS[b.pid]);
+    return `<section class="card eq-unit${open ? ' eq-open' : ''}" id="eq-${esc(b.pid)}"><div class="eq-row">${face(b.pid, 'cp-face') || '<span class="cp-face"></span>'}<div class="eq-rowt">` +
+      `<b>${L('personaje', b.pid)}</b>${o ? ` <span class="eq-tag">${esc(tx(o, 'name'))}</span>` : ''}<span class="eq-line">${line}</span></div>` +
+      (ro ? '' : `<button type="button" class="txtbtn txtbtn-2 eq-ed" data-eq-open="${esc(b.pid)}" aria-expanded="${open}" aria-controls="eq-u-${esc(b.pid)}" aria-label="${esc(t('Editar a {p}', { p: who }))}">${t(open ? 'Cerrar' : 'Editar')}</button>`) + '</div>' +
+      (open ? `<div id="eq-u-${esc(b.pid)}">${tags}${buildSummary(b, plan, route, key)}${s?.next ? `<p class="mut">${t('Siguiente clase de su build: {c} (examen hacia el {k}).', { c: cls(s.c), k: chapLink(s.next.key) || '—' })}</p>` : ''}` +
+        (s ? slotsHtml(b, s, picks[b.pid], route, key) : '') + extra + '</div>' : '') + '</section>';
+  }
+  /** #/equipo?e=: a shared team, read-only (the stored game is not touched until «Usar como mi equipo» is confirmed) */
+  function sharedPage(qs) {
+    const { r, pt, key, units, picks, recruits, drop } = teamLinkRead(qs);
+    const top = `<h1>${t('Equipo')}</h1><section class="card"><h2>${t('Equipo de un enlace')} <small class="mut">${esc(ROUTE_NAME[r])} · ${esc(capShort(CAPS[key]))}</small></h2>` +
+      `<p class="mut">${t('Solo lectura: tu partida no cambia hasta que lo uses como tu equipo.')}</p><div class="eq-acts">` +
+      (units.length ? `<button type="button" class="txtbtn" data-eq-use>${t('Usar como mi equipo')}</button>` : '') + `<a class="txtbtn txtbtn-2" href="#/equipo">${t('Ver mi equipo')}</a></div></section>`;
+    if (!units.length) return top + `<p class="mut">${t('El enlace no trae ningún equipo de esta ruta.')}</p>`;
+    const plan = teamPlan(r, key, recruits, drop, [], picks);
+    const gaps = plan.roles.gaps.map(g => t(ROLE_WARN[g])), n = plan.builds.length, m = planSize(r, pt);
+    return top + `<p class="mut eq-size">${t(n > m ? '{n} en el equipo; en cada batalla caben {m}' : '{n} de {m} en el equipo', { n, m })}</p>` + (gaps.length ? `<p class="eq-gapc">${esc(list(gaps))}</p>` : '') +
+      `<div class="eq-units">${[...plan.builds].sort((a, b) => bySerial(a.pid, b.pid)).map(b => unitRow(b, plan, r, key, { ro: true })).join('')}</div>`;
+  }
+  const ROLE_WARN = { sanador: 'Nadie cura', arquero: 'Nadie con arco', mago: 'Nadie con magia', volador: 'Nadie vuela', tanque: 'Nadie aguanta golpes' };  // i18n-ignore (shown through t())
+
   function page(qs) {
+    if (qs.e) return sharedPage(qs);
     // nothing picked: no pretend Cai game, an invitation (as the home page and Capítulo)
     if (!ROUTE_IDS.includes(qs.r) && !ctxChosen()) return `<h1>${t('Equipo')}</h1><section class="card"><p>${t('Elige ruta y capítulo para planificar reclutas, builds, monturas y equipamiento.')}</p>` +
       `<p><button class="txtbtn" type="button" data-sheet="ctx" aria-haspopup="dialog">${t('Elegir ruta y capítulo')}</button></p>` +
@@ -297,51 +364,65 @@
     // Equipo is the player's game, not a listing: its ?r= (the invitation, old planner links) picks the game like the header selector
     if (ROUTE_IDS.includes(qs.r) && (!ctxChosen() || qs.r !== ctxGet().route)) { const c0 = CAPS[ctxGet().key]; ctxSet(qs.r, c0.route === 'comun' ? c0.key : chapterFromPath(qs.r, 1, c0.n)); }
     const route = ctxGet().route, key = ctxGet().key;
-    // old recruit planner links (#/planificador?r=&p=pid,pid): their picks join the selection as «quiero»
-    if (qs.p) { const add = String(qs.p).split(',').filter(p => CHARS[p]?.routes?.[route]?.recruit_key && !ctxTeamRaw().includes(p)); if (add.length) ctxSetRecruits([...ctxTeamRaw(), ...add]); }
+    // old recruit planner links (#/planificador?r=&p=pid,pid): their picks join the selection as «quiero»; none of this route: said
+    let oldP = '';
+    if (qs.p) { const ps = String(qs.p).split(','), add = ps.filter(p => Object.hasOwn(CHARS, p) && CHARS[p].routes?.[route]?.recruit_key && !ctxTeamRaw().includes(p));
+      if (add.length) ctxSetRecruits([...ctxTeamRaw(), ...add]); else if (!ps.some(p => ctxTeamRaw().includes(p))) oldP = `<p class="mut">${t('El enlace antiguo no traía unidades de esta ruta.')}</p>`; }
     // ?r= and ?p= are applied once: out of the address, so a later header route or a tap that takes a unit out is not undone
     if ((qs.r || qs.p) && typeof history !== 'undefined' && history.replaceState) { const { r: _r, p: _p, ...rest } = qs; history.replaceState(history.state, '', qsHref('equipo', rest, {})); }
-    const c = ctxGet(), all = teamChips(route, key), picked = ctxRecruits(route), want = ctxWant(route), drop = ctxDrop(route), fold = c.fold;
-    const story = p => !!CHARS[p].routes[route].join_key, st = p => teamState(p, route, key, c);
-    const n = teamCounts(route, key, c), counts = teamCountTxt(n), marked = all.filter(p => st(p) !== 'no'), rest = all.filter(p => st(p) === 'no');
-    // faces grid: one tap puts a unit in or out of the team (the lord is always in); a unit still to come shows its chapter
-    const inTeam = p => st(p) !== 'no', lord = LORDS[route], STW = { quiero: 'quiero', tengo: 'tengo', llega: 'llega' };
-    const at = capPos(route, key), from = p => { const x = CHARS[p].routes[route]; return x.join_key || x.recruit_key; };
-    const cell = p => { const soon = capPos(route, from(p)) > at, x = CHARS[p].routes[route];
-      const s = st(p), label = s === 'no' ? (soon ? esc(capShort(CAPS[from(p)])) : '') : t(STW[s]);
-      return `<button type="button" class="eq-face st-${s}${inTeam(p) ? ' on' : ''}" data-eq="${esc(p)}" aria-pressed="${inTeam(p)}" aria-label="${esc(nm(CHARS[p]))}: ${esc(t(STW[s] || 'no está en el equipo'))}">${face(p, 'eq-fimg')}<span>${esc(nm(CHARS[p]))}</span>` +
-        `${label ? `<small>${label}</small>` : ''}</button>`; };
-    const size = 1 + marked.length, folded = picked.length > 0 && !teamUi.editing && fold !== false;
-    const summary = `${esc(ROUTE_NAME[route])} · ${esc(capShort(CAPS[key]))} · ${t('{n} en el equipo', { n: size })}`;
-    const grid = `<div class="eq-faces" role="group" aria-label="${t('Equipo')}"><span class="eq-face on lord">${face(lord, 'eq-fimg')}<span>${esc(nm(CHARS[lord]))}</span></span>${[...all].sort((a, b) => !!CHARS[b].routes[route].join_key - !!CHARS[a].routes[route].join_key || capPos(route, from(a)) - capPos(route, from(b)) || bySerial(a, b)).map(cell).join('')}</div>`;
-    const chev = picked.length ? `<button type="button" class="fold-b" data-eq-fold="${folded ? 0 : 1}" aria-expanded="${!folded}" aria-controls="eq-sel-p" aria-label="${folded ? t('Desplegar') : t('Plegar')}"><i class="fold-i" aria-hidden="true"></i></button>` : '';
-    const head = `<h1>${t('Equipo')}</h1><section class="card eq-sel fold"><div class="fold-h"><h2 class="eq-sel-t">${t('Tu equipo')} <small class="mut">${summary}</small></h2>${chev}</div>` +
-      `<div class="fold-p" id="eq-sel-p"${folded ? ' hidden' : ''}>${folded ? '' : grid}</div></section>`;
-    if (!picked.length && !marked.length) return head;
-    const plan = teamPlan(route, key, picked, drop, want), { roles } = plan;
-    // roles in one line of chips; each gap: who in the team could switch to it, and up to 3 recruits who fill it (+ adds them)
-    const roleChips = `<p class="eq-roles">${ROLES.map(([r, rn]) => { const n = roles.cover[r].length;
-      const gap = !n && ROLE_NEEDED.includes(r);
+    const c = ctxGet(), all = teamChips(route, key), picked = ctxRecruits(route), want = ctxWant(route), drop = ctxDrop(route);
+    const st = p => teamState(p, route, key, c), marked = all.filter(p => st(p) !== 'no'), lord = LORDS[route], STW = { quiero: 'quiero', tengo: 'tengo', llega: 'llega' };
+    const at = capPos(route, key), from = p => { const x = CHARS[p].routes[route]; return x.join_key || x.recruit_key; }, later = marked.filter(p => capPos(route, from(p)) > at);
+    const plan = teamPlan(route, key, picked, drop, want), { roles } = plan, pt = planPt(key), picks = ctxPicks(route), size = 1 + marked.length, cap = planSize(route, pt);
+    // «Elegir equipo»: one dialog with every face (a tap cycles no → quiero → tengo, a story unit in or out; the lord is always in), the
+    // suggestions on top: «Completar equipo» (teamFill) or, from a gap's «Arreglar», who covers that role
+    const cell = (p, why = '') => { const s = st(p), soon = capPos(route, from(p)) > at, label = why || (s === 'no' ? (soon ? esc(capShort(CAPS[from(p)])) : '') : t(STW[s]) + (soon ? ' · ' + esc(capShort(CAPS[from(p)])) : ''));
+      return `<button type="button" class="eq-face st-${s}${s !== 'no' ? ' on' : ''}" data-eq="${esc(p)}" aria-pressed="${s !== 'no'}" aria-label="${esc(nm(CHARS[p]))}: ${esc(t(STW[s] || 'no está en el equipo'))}">${face(p, 'eq-fimg')}<span>${esc(nm(CHARS[p]))}</span>` +
+        `${label ? `<small>${esc(label)}</small>` : ''}</button>`; };
+    const fill = teamFill(route, key, c), gapsAll = teamGaps(route, key, plan.prio.map(x => x.pid), plan.builds);
+    const fixG = teamUi.fix && gapsAll.find(g => g.role === teamUi.fix), sug = fixG ? fixG.picks.map(x => ({ pid: x.pid, why: t('cubre {r}', { r: roleName(fixG.role) }) })) : fill;
+    const order = [...all].sort((a, b) => !!CHARS[b].routes[route].join_key - !!CHARS[a].routes[route].join_key || capPos(route, from(a)) - capPos(route, from(b)) || bySerial(a, b));
+    const dlg = `<dialog class="eq-dlg" id="eq-pick" aria-labelledby="eq-pick-t"><div class="eq-dlg-h"><h2 id="eq-pick-t">${t('Elegir equipo')} <small class="mut">${t(size > cap ? '{n} en el equipo; en cada batalla caben {m}' : '{n} de {m} en el equipo', { n: size, m: cap })}</small></h2>` +
+      `<button type="button" class="txtbtn txtbtn-2" data-eq-close aria-label="${esc(t('Cerrar'))}">✕</button></div>` +
+      (sug.length ? `<h3>${t('Sugeridos')}</h3><div class="eq-faces">${sug.map(x => cell(x.pid, x.why)).join('')}</div><h3>${t('Todos')}</h3>` : '') +
+      `<div class="eq-faces" role="group" aria-label="${t('Equipo')}"><span class="eq-face on lord">${face(lord, 'eq-fimg')}<span>${esc(nm(CHARS[lord]))}</span></span>${order.map(p => cell(p)).join('')}</div>` +
+      `<p class="mut">${t('Un toque: quiero reclutarlo; otro: ya lo tengo; otro: fuera.')}</p></dialog>`;
+    // who is in, at a glance (the faces only; the dialog changes it)
+    const strip = `<div class="eq-strip" aria-label="${esc(t('En el equipo: {l}', { l: list([lord, ...marked].map(p => nm(CHARS[p]))) }))}">${[lord, ...marked].map(p => face(p, 'eq-sface') || `<span class="eq-sface">${esc(nm(CHARS[p]).slice(0, 2))}</span>`).join('')}</div>`;
+    // «Hazlo todo»: completes the team and fixes the recommended build where none is chosen; hand picks stay
+    const unfixed = plan.builds.filter(b => plan.choice[b?.pid] && !picks[b.pid]?.b);
+    const todo = fill.length || unfixed.length ? `<button type="button" class="txtbtn" data-eq-fill="${esc(fill.map(x => x.pid).join(','))}" aria-describedby="eq-todo-d">${t('Hazlo todo')}</button>` : '';
+    const todoD = todo ? `<p class="mut" id="eq-todo-d">${fill.length ? t('Completa el equipo con {l} y fija la build recomendada de quien no tiene una elegida; lo que cambiaste a mano se queda.', { l: esc(list(fill.map(x => nm(CHARS[x.pid])))) })
+      : t('Fija la build recomendada de quien no tiene una elegida; lo que cambiaste a mano se queda.')}</p>` : '';
+    const sizeTxt = t(size > cap ? '{n} en el equipo; en cada batalla caben {m}' : '{n} de {m} en el equipo', { n: size, m: cap }) + (later.length ? ' ' + t(later.length === 1 ? '({n} se une más adelante)' : '({n} se unen más adelante)', { n: later.length }) : '') +
+      (pt === '3' ? ' ' + t('(hasta {f} en la batalla final)', { f: planFinal(route) }) : '');
+    const head = `<h1>${t('Equipo')}</h1>${oldP}<section class="card eq-sel"><h2 class="eq-sel-t">${t('Tu equipo')} <small class="mut">${esc(ROUTE_NAME[route])} · ${esc(capShort(CAPS[key]))}</small></h2>` +
+      `${strip}<p class="mut eq-size">${sizeTxt}</p><div class="eq-acts"><button type="button" class="txtbtn" data-eq-pick aria-haspopup="dialog">${t('Elegir equipo')}</button>${todo}` +
+      `<a class="txtbtn" data-eq-copy href="${esc(qsHref('equipo', {}, { r: route, pt, k: key, e: planEnc(teamLink(route, key, c)) }))}">${t('Copiar enlace')}</a></div>${todoD}${dlg}</section>`;
+    // roles in one line; each gap: a warning, «Arreglar» (the dialog with who covers it) and the build switches that open no other gap
+    const roleChips = `<p class="eq-roles" tabindex="-1">${ROLES.map(([r, rn]) => { const n = roles.cover[r].length, gap = !n && ROLE_NEEDED.includes(r);
       return `<span class="eq-role${gap ? ' eq-gapc' : ''}" title="${esc(list([...roles.cover[r]].sort(bySerial).map(p => nm(CHARS[p]))))}">${t(rn)} <b>${n}</b>${gap ? ' ⚠' : ''}</span>`; }).join('<span aria-hidden="true"> · </span>')}</p>`;
-    const gaps = teamGaps(route, key, plan.prio.map(x => x.pid), plan.builds);
-    const gapTxt = gaps.map(g => { const rn = ROLES.find(x => x[0] === g.role)[1], f = roles.fix[g.role] || [];
-      const recs = g.picks.map(x => `<button type="button" class="eq-add" data-eq="${esc(x.pid)}" aria-label="${esc(t('Añadir a {p} al equipo', { p: nm(CHARS[x.pid]) }))}">+ ${face(x.pid, 'eq-aimg')}${esc(nm(CHARS[x.pid]))} <small>${esc(capShort(CAPS[x.ch]))}</small></button>`);
+    const opens = (p, o) => ROLE_NEEDED.some(r => !roles.gaps.includes(r) && !plan.builds.some(b => (b.pid === p ? o.roles || [] : b.roles).includes(r)));
+    const gapTxt = gapsAll.map(g => { const f = roles.fix[g.role] || [];
       const sw = f.length ? t('o {l}', { l: list([...f].sort((a, b) => bySerial(a[0], b[0])).map(([p, j]) => t('{p} como {c}', { p: L('personaje', p), c: cls(j) }))) }) : '';
-      return `<li><b>${t(rn)}</b> ${recs.length ? recs.join('') : `<span class="mut">${t('nadie en esta ruta')}</span>`}${sw ? ` <small class="mut">${sw}</small>` : ''}</li>`; });
+      const bf = plan.builds.flatMap(b => { const o = teamOptions(b.pid, route, key).find(x => x.ok && x.id !== b.pick && (x.roles || []).includes(g.role) && !opens(b.pid, x)); return o ? [[b.pid, o]] : []; }).slice(0, 2)
+        .map(([p, o]) => `<button type="button" class="eq-add" data-eq-b="${esc(p)}|${esc(o.id)}" data-eq-gap>${esc(t('{p} con la build {b}', { p: nm(CHARS[p]), b: tx(o, 'name') }))}</button>`);
+      const fix = g.picks.length ? `<button type="button" class="eq-add" data-eq-fix="${esc(g.role)}" aria-haspopup="dialog" aria-label="${esc(t('Arreglar: {w}', { w: t(ROLE_WARN[g.role]) }))}">${t('Arreglar')}</button>` : '';
+      return `<li><b>${t(ROLE_WARN[g.role])}</b> ${fix}${bf.join('')}${!fix && !bf.length ? `<span class="mut">${t('nadie en esta ruta')}</span>` : ''}${sw ? ` <small class="mut">${sw}</small>` : ''}</li>`; });
     const clashes = plan.prio.map(x => x.pid).sort(bySerial).flatMap(p => Object.values(plan.mounts[p] || {}).filter(m => m.lost_to).map(m => [p, m]))
       .map(([p, m]) => li(t('{m} para {p}', { m: L('montura', m.want), p: L('personaje', m.lost_to) }), t('{p} lleva {m}.', { p: L('personaje', p), m: L('montura', m.rid) })));
-    const equipo = roleChips + (gapTxt.length ? `<h4>${t('Para cubrir huecos')}</h4><ul class="eq-gaps">${gapTxt.join('')}</ul>` : '') +
+    const equipo = roleChips + (gapTxt.length ? `<h4 id="eq-gaps-h" tabindex="-1">${t('Para cubrir huecos')}</h4><ul class="eq-gaps">${gapTxt.join('')}</ul>` : '') +
       (clashes.length ? `<h4>${t('Monturas en conflicto')}</h4>${ul(clashes)}` : '');
     const rank = Object.fromEntries(plan.prio.map(x => [x.pid, x.n])), gearOf = Object.fromEntries(plan.gear.map(g => [g.pid, g]));
     const stTag = p => { if (p === LORDS[route]) return ''; const s = st(p);
       return `<span class="cp-tag">${s === 'tengo' ? t('ya lo tienes') : s === 'llega' ? t('se une en {c}', { c: esc(capShort(CAPS[CHARS[p].routes[route].join_key])) }) : t('quieres reclutarlo')}</span>`; };
-    const builds = `<div class="eq-units">${[...plan.builds].sort((a, b) => bySerial(a.pid, b.pid)).map(b => `<section class="card eq-unit" id="eq-${esc(b.pid)}">` +
-      `<header>${face(b.pid, 'cp-face')}<div><h4>${L('personaje', b.pid)}</h4><span class="cp-tag">${t('prioridad {n}', { n: rank[b.pid] })}</span>${b.roles.length ? `<span class="cp-tag">${esc(roleNames(b.roles))}</span>` : ''}${stTag(b.pid)}</div></header>` +
-      `${buildSummary(b, plan)}${gearHtml(gearOf[b.pid], plan.forge)}</section>`).join('')}</div>`;
+    const tags = b => `<p>${rank[b.pid] ? `<span class="cp-tag">${t('prioridad {n}', { n: rank[b.pid] })}</span>` : ''}${b.roles.length ? `<span class="cp-tag">${esc(roleNames(b.roles))}</span>` : ''}${stTag(b.pid)}</p>`;
+    const builds = `<div class="eq-units" id="eq-equipamiento">${[...plan.builds].sort((a, b) => bySerial(a.pid, b.pid)).map(b => unitRow(b, plan, route, key,
+      { open: teamUi.open === b.pid, picks, tags: tags(b), extra: gearHtml(gearOf[b.pid], plan.forge) })).join('')}</div>`;
     const rules = RULES.filter(r => !WEEK_RULE.test(r));
-    // two tabs: the team (roles, builds, equipment) and recruitment; the rules folded at the foot (?sec=reglas opens it)
+    // three tabs: builds and equipment, gifts, recruitment; the rules folded at the foot (?sec=reglas opens it)
     return ficha(head, [
-      ['equipo', 'Equipo', equipo + `<h4 id="eq-equipamiento">${t('Builds y equipamiento')}</h4>${builds}`],
+      ['equipo', 'Builds y equipamiento', equipo + builds],
       ['regalos', 'Regalos', giftsTab(route, plan.prio.map(x => x.pid))],
       ['reclutamiento', 'Reclutamiento', `<section class="card eq-box">${recruitment(route, want) || `<p class="mut">${t('Nadie pendiente de reclutar.')}</p>`}` + `</section>` +
         (want.length ? `<section class="card eq-box eq-gifts"><h3>${t('Regalos para subir el apoyo')}</h3>${birthdays(plan.week)}` +
@@ -423,19 +504,49 @@
     if (say && typeof announce === 'function') announce(t('Equipo y equipamiento recalculados'));
   }
 
-  // selector buttons change ctx through teamApply and re-render in place (the page does not move)
+  /** the «Elegir equipo» dialog open again after a re-render, focus on `sel` inside it (the dialog keeps open while the team changes) */
+  const reopen = sel => { const d = document.getElementById('eq-pick'); if (!d) return; d.showModal(); (d.querySelector(sel) || d.querySelector('[data-eq]'))?.focus(); };
+  // every control changes ctx (teamApply, teamPickSet, teamDoAll) and re-renders in place (the page does not move)
   document.addEventListener('click', e => {
+    const dlg = document.getElementById('eq-pick'), route = ctxGet().route, key = ctxGet().key;
+    const fx = e.target.closest?.('main [data-eq-pick],main [data-eq-fix]');
+    if (fx) { const role = fx.dataset.eqFix || null;
+      if (role !== (teamUi.fix || null)) keepPlace(fx.dataset.eqFix ? `[data-eq-fix="${window.CSS.escape(role)}"]` : 'main [data-eq-pick]', () => { teamUi.fix = role; }, false);
+      reopen('h3 + .eq-faces [data-eq]'); return; }
+    if (dlg?.open) {  // a tap on the backdrop (outside the dialog box, not on its padding) or ✕ closes it
+      const r = dlg.getBoundingClientRect(), out = e.target === dlg && (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom);
+      if (out || e.target.closest?.('[data-eq-close]')) { dlg.close(); teamUi.fix = null; document.querySelector('main [data-eq-pick]')?.focus(); return; }
+      const f = e.target.closest?.('[data-eq]');
+      if (f) { const sel = `[data-eq="${window.CSS.escape(f.dataset.eq)}"]`; dlg.close(); keepPlace('main [data-eq-pick]', () => teamApply({ eq: f.dataset.eq })); reopen(sel); }
+      return;
+    }
+    const cp = e.target.closest?.('main [data-eq-copy]');
+    if (cp) { e.preventDefault(); const url = location.href.split('#')[0] + cp.getAttribute('href');
+      (navigator.clipboard?.writeText(url) ?? Promise.reject()).then(() => announce(t('Enlace copiado')), () => { prompt(t('Copia este texto:'), url); }); return; }
+    if (e.target.closest?.('main [data-eq-use]')) {
+      const qs = parseHash(location.hash).qs;
+      if (!confirm([t('¿Reemplazar tu equipo por este? Tu selección actual de esta ruta se pierde.'), teamUseNote(qs)].filter(Boolean).join(' '))) return;
+      teamUseLink(qs); location.hash = '#/equipo'; return; }
+    const op = e.target.closest?.('main [data-eq-open]');
+    if (op) { const pid = op.dataset.eqOpen; keepPlace(`[data-eq-open="${window.CSS.escape(pid)}"]`, () => { teamUi.open = teamUi.open === pid ? null : pid; }, false); return; }
+    const bp = e.target.closest?.('main [data-eq-b],main [data-eq-reset]');
+    if (bp) { const [pid, id] = (bp.dataset.eqB || bp.dataset.eqReset).split('|');
+      // from a gap: the gaps heading (the button goes away once the gap is covered); from a unit: the same control
+      const again = bp.dataset.eqGap != null ? 'main #eq-gaps-h, main .eq-roles' : bp.dataset.eqB ? `#eq-${window.CSS.escape(pid)} [data-eq-b="${window.CSS.escape(bp.dataset.eqB)}"]` : `#eq-${window.CSS.escape(pid)} [data-eq-s]`;
+      keepPlace(again, () => teamPickSet(route, pid, bp.dataset.eqB ? 'b' : 'reset', id)); return; }
+    if (e.target.closest?.('main [data-eq-fill]')) { keepPlace('main [data-eq-fill], main [data-eq-pick]', () => teamDoAll(route, key)); return; }
     const r = e.target.closest?.('[data-rg]');
     if (r) { teamUi.rg = r.dataset.rg; document.querySelectorAll('[data-rg]').forEach(x => x.setAttribute('aria-pressed', x === r));
-      document.querySelectorAll('.rg-u').forEach(x => { x.hidden = x.id !== 'rg-' + r.dataset.rg; }); return; }
-    const b = e.target.closest?.('[data-eq],[data-eq-fold]');
-    if (!b) return;
-    const d = b.dataset;
-    const again = d.eqFold != null ? `[data-eq-fold="${d.eqFold === '1' ? '0' : '1'}"]` : `[data-eq="${window.CSS.escape(d.eq)}"]`;
-    keepPlace(again, () => teamApply(d.eqFold != null ? { fold: d.eqFold === '1' } : { eq: d.eq }), d.eqFold == null);
+      document.querySelectorAll('.rg-u').forEach(x => { x.hidden = x.id !== 'rg-' + r.dataset.rg; }); }
+  });
+  // a slot select: the hand pick is stored (ctx.plan) and the page recomputes in place
+  document.addEventListener('change', e => {
+    const el = e.target.closest?.('main [data-eq-s]'); if (!el) return;
+    const [pid, f] = el.dataset.eqS.split('|');
+    keepPlace(`[data-eq-s="${window.CSS.escape(el.dataset.eqS)}"]`, () => teamPickSet(ctxGet().route, pid, f, el.value));
   });
   // leaving the page ends the edit: coming back with a selection shows it folded
-  if (typeof window.addEventListener === 'function') window.addEventListener('hashchange', () => { if (!/^#\/equipo\b/.test(location.hash)) teamLeave(); });
+  if (typeof window.addEventListener === 'function') window.addEventListener('hashchange', () => { if (!/^#\/equipo\b/.test(location.hash)) { teamLeave(); teamUi.open = null; teamUi.fix = null; } });
 
   // #/planificador?p= (the old recruit planner) is rewritten to #/equipo by core.js (OLD_ADDR) before it gets here
   const renderEquipo = (id, qs) => {
@@ -444,7 +555,7 @@
   register({ id: 'equipo', title: 'Equipo', render: renderEquipo, css: CSS,
     search: () => [
       // search.js translates label and sub with t()
-      { group: 'Secciones', label: 'Equipo', sub: 'Builds, equipamiento, reclutamiento', href: '#/equipo', aliases: ['team', 'reclutas'] },  // i18n-ignore (aliases)
+      { group: 'Secciones', label: 'Equipo', sub: 'Builds, equipamiento, reclutamiento', href: '#/equipo', aliases: ['team', 'reclutas', 'planificador', 'planner', 'team planner'] },  // i18n-ignore (aliases)
       { group: 'Secciones', label: 'Regalos del equipo', sub: 'Equipo · regalos y comidas por personaje', href: '#/equipo?sec=regalos', aliases: ['ronda', 'ronda de regalos', 'regalos de la semana', 'regalar', 'comidas', 'posada'] },  // i18n-ignore (aliases)
       { group: 'Secciones', label: 'Trueques y dinero fácil', sub: 'Capítulo · trueques de Vandahl y botín que se vende', href: '#/cap?ir=eq-consejos', aliases: ['consejos', 'trueques', 'vandahl', 'dinero', 'novedades'] },  // i18n-ignore (aliases)
       { group: 'Secciones', label: 'Herrería', sub: 'Capítulo · qué refinar', href: '#/cap?ir=eq-herreria', aliases: ['refinar', 'refinado', 'forja', 'reparar', 'compras'] },  // i18n-ignore (aliases)

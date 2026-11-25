@@ -95,7 +95,7 @@ const MORE_GROUP = { consulta: 'Personajes', combate: 'Combate', economia: 'Obje
 const minePages = () => (NAV.find(g => g.id === 'partida')?.pages || []).filter(p => p.nav !== false && p.id !== 'inicio');
 const MORE_SHORT = { apoyos: 'Apoyos', regalos: 'Regalos', habilidades: 'Habilidades', mecanicas: 'Tablas de combate', tiendas: 'Tiendas y trueques',
   misiones: 'Misiones', instalaciones: 'Dagsion', dioses: 'Templos', prestigio: 'Prestigio', sendas: 'Rutas y Ayudas', senores: 'Por señor',
-  partes23: 'Partes 2 y 3', dificultad: 'Dificultad y DLC', planificador: 'Planificador' };
+  partes23: 'Partes 2 y 3', dificultad: 'Dificultad y DLC' };
 function moreIndex(cur) {
   return NAV.filter(g => MORE_GROUP[g.id]).map(g => {
     // Mi partida: the bottom bar's tab already opens Capítulo, Equipo and Armas (its tabs); the rest is listed here
@@ -128,26 +128,27 @@ const NAV_ICON = {  // 24px stroke icons
   x: '<path d="M6 6l12 12M18 6 6 18"/>',
 };
 const navIcon = k => `<svg viewBox="0 0 24 24" aria-hidden="true">${NAV_ICON[k]}</svg>`;
-/* «Mi partida» (R-NAV-1): the last game page visited (fe2.partida), the weekend the first time. A chapter is stored as #/cap (the current
-   one): its own address would pull the context back to that chapter; ?ir= jumps are dropped so the tab never re-scrolls */
-const PARTIDA = ['cap', 'equipo', 'planificador', 'armas', 'perdibles', 'checklist'];
 /** Mi partida's three tabs, on top of each of its pages (phone and desktop alike) */
 const MINE_TABS = [['cap', '#/cap', 'Capítulo'], ['equipo', '#/equipo', 'Equipo'], ['armas', '#/armas', 'Armas']];
+/* «Mi partida» (R-NAV-1): the last of its tabs visited (fe2.partida), the chapter the first time. A chapter is stored as #/cap (the current
+   one): its own address would pull the context back to that chapter; ?ir= jumps are dropped so the tab never re-scrolls. Checklist,
+   Perdibles and Novedades light the tab but are not «the last game page» */
+const PARTIDA = MINE_TABS.map(([p]) => p);
 const mineTabs = pg => (MINE_TABS.some(([p]) => p === pg) ? `<nav class="tabs mine-tabs" aria-label="${t('Mi partida')}">${MINE_TABS.filter(([p]) => ROUTES[p] || P[p])
   .map(([p, h, lb]) => `<a href="${h}"${p === pg ? ' class="on" aria-current="page"' : ''}>${t(lb)}</a>`).join('')}</nav>` : '');
 const partidaHref = () => { const h = store.get('partida', null); return typeof h === 'string' && PARTIDA.includes(ROUTES[parseHash(h).sec]) ? h : '#/cap'; };
 function rememberPartida(hash) {
   const { sec, qs } = parseHash(hash), pg = ROUTES[sec];
-  // ?r= is dropped too: a listing's ?r= sets the context route (listRoute), so an old one would pull the context back. The planner
-  // keeps it: it never stores its route in the context, and its plan (?e=) belongs to that route
-  if (PARTIDA.includes(pg)) store.set('partida', pg === 'cap' ? '#/cap' : qsHref(String(hash).replace(/^#\/?/, '').split('?')[0], qs, pg === 'planificador' ? { ir: '' } : { ir: '', r: '' }));
+  // ?r= is dropped too: a listing's ?r= sets the context route (listRoute), so an old one would pull the context back; a shared plan
+  // (Equipo ?e=, with its ?pt=) is someone else's team, not the game to come back to
+  if (PARTIDA.includes(pg)) store.set('partida', pg === 'cap' ? '#/cap' : qsHref(String(hash).replace(/^#\/?/, '').split('?')[0], qs, { ir: '', r: '', e: '', pt: '', k: '' }));
 }
 const TABS = {  // inicio is not in TABBAR today: it is there so that putting it back is one line
   inicio: ['#/', 'home', 'Inicio', (sec) => sec === ''],
   guias: ['#/guias', 'book', 'Guías', (sec, pg) => ['guias', 'guia', 'tier-personajes', 'builds', 'mejores-armas', 'mejor-equipamiento', 'reclutas', 'trucos'].includes(pg)],
   personajes: ['#/personajes', 'pj', 'Personajes', (sec, pg) => ['personajes', 'comparar', 'apoyos', 'regalos'].includes(pg)],
   mapa: ['#/mapa', 'map', 'Mapa', (sec, pg) => pg === 'mapa'],
-  partida: [() => partidaHref(), 'cap', 'Mi partida', (sec, pg) => PARTIDA.includes(pg) || pg === 'novedades'],  // Novedades: in the menu group, not a game page to come back to
+  partida: [() => partidaHref(), 'cap', 'Mi partida', (sec, pg) => PARTIDA.includes(pg) || ['checklist', 'perdibles', 'novedades'].includes(pg)],  // lit, but not pages to come back to
 };
 function tabbar(sec) {
   const pg = ROUTES[sec];

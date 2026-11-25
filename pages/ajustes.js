@@ -24,7 +24,8 @@ function selParse(input) {
   const tabs = o.tabs == null ? {} : o.tabs;
   if (typeof tabs !== 'object' || Array.isArray(tabs) || Object.values(tabs).some(v => typeof v !== 'string')) return { ok: false, error: 'Las pestañas guardadas están dañadas.' };
   // only the known fields (unknown pids dropped); older copies with «quiero» and «tengo» lists read as one team
-  const ctx = c && { route: c.route, key: c.key, team: ctxTeamRaw(c), drop: ctxPids(c.drop), ...(typeof c.fold === 'boolean' ? { fold: c.fold } : {}) };
+  const ctx = c && { route: c.route, key: c.key, team: ctxTeamRaw(c), got: ctxGotRaw(c).filter(p => ctxTeamRaw(c).includes(p)), drop: ctxPids(c.drop), ...(typeof c.fold === 'boolean' ? { fold: c.fold } : {}),
+    ...(ctxObj(c.plan) ? { plan: ctxPlanAll(c) } : {}) };  // Equipo's hand picks, validated (ctxPicks)
   return { ok: true, sel: { ctx, tabs: Object.fromEntries(Object.entries(tabs).filter(([k, v]) => k.length < 40 && v.length < 40)) } };
 }
 const selSummary = ctx => (ctx ? `${t('Ruta {r}', { r: ROUTE_NAME[ctx.route] })} · ${capShort(CAPS[ctx.key])} · ${teamCountTxt(teamCounts(ctx.route, ctx.key, ctx))}` : t('Sin ruta ni reclutas elegidos'));

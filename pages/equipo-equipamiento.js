@@ -6,6 +6,8 @@ const RANK_OF = { espada: 'Sword', lanza: 'Lance', hacha: 'Axe', arco: 'Bow', pu
 /** shortcut: the wiki does not know each unit's weapon rank, so the chapter caps it (game scale 1 E, 3 D, 5 C, 7 B, 9 A): 3 (D, iron)
     in the prologue and before Part 1 chapter 6, 5 (C) for the rest of Part 1, 7 (B, silver) from Part 2. */
 const teamRankCap = key => { const c = CAPS[key]; return !c ? 5 : c.part >= 2 ? 7 : c.part === 0 || c.n < 6 ? 3 : 5; };
+/** a weapon's rating in Mejores armas for the chapter's part (S 0, A 1, B 2, unrated 9) */
+const teamTierN = (iid, key) => { const r = armsTier(iid, CAPS[key]?.part || 1); return r ? ARMS_RANK[r.tier] ?? 9 : 9; };
 /** the class `b` is in at chapter `key`: the last step of its build whose exam chapter is reached */
 const teamClassAt = (b, route, key) => { const i = chapIdx(route, key); let j = b.start; (b.steps || []).forEach(s => { if (s.key && chapIdx(route, s.key) <= i) j = s.jid; }); return j; };
 /** estimated Con (Fue ÷ 5) at the chapter's lowest recommended level: base + personal growth per level (shortcut: no class modifiers) */
@@ -63,17 +65,18 @@ function teamGear(route, key, have, builds) {
   const effective = iid => Object.values(EFF_ITEMS).some(a => a.includes(iid));  // the specialised effective weapons Compras also uses
   for (const { pid } of teamPriority(route, have, key)) {
     const b = builds.find(x => x.pid === pid); if (!b) continue;
-    const cls = teamClassAt(b, route, key), usable = (CLASSES[cls]?.weapons_usable || []).map(armaKey).filter(t => RANK_OF[t]);
+    const cls = teamSlotClass(b, route, key).c, usable = (CLASSES[cls]?.weapons_usable || []).map(armaKey).filter(t => RANK_OF[t]);
     const main = armaKey(b.weapon || ''), con = teamCon(pid, key);
     const build = new Set([b.start, ...(b.steps || []).map(s => s.jid)].flatMap(j => (CLASSES[j]?.weapons_usable || []).map(armaKey)));
-    const types = usable.includes(main) ? [main] : usable.filter(t => build.has(t));
+    const caster = /^magia-/.test(main);  // spells are each unit's own: a caster build never gets a physical weapon
+    const types = caster ? [] : usable.includes(main) ? [main] : usable.filter(t => build.has(t));
     const ok = iid => { const w = ITEMS[iid]?.weapon; return w && types.includes(armaKey(w.type || '')) && (w.rank?.[RANK_OF[armaKey(w.type)]] || 1) <= cap && !(CAPS[key]?.part === 1 && isSilver(iid)); };
     const heavy = iid => Math.max(0, ITEMS[iid].weapon.weight - con) >= 2;  // −2 attack speed or worse: a lighter option is worth showing
     const rank = teamWeaponCmp(teamFight(pid, cls, key, con), main);
     const own = (teamCombat(pid).start_items || []).map(n => ITEM_BY_ES[n]).filter(i => i && ok(i)).map(iid => ({ iid, src: { kind: 'inicial', where: '', once: false } }));
     const tag = (iid, s) => `${iid}|${s.kind}|${s.where}`, free = iid => s => !s.once || !taken.has(tag(iid, s));
     const cands = [...own, ...Object.entries(pool).filter(([iid]) => ok(iid)).flatMap(([iid, ss]) => { const s = ss.find(free(iid)); return s ? [{ iid, src: s }] : []; })];
-    cands.sort((x, y) => rank(x.iid, y.iid) || (x.src.price || 0) - (y.src.price || 0));
+    cands.sort((x, y) => rank(x.iid, y.iid) || teamTierN(x.iid, key) - teamTierN(y.iid, key) || (x.src.price || 0) - (y.src.price || 0));  // a tie: the one Mejores armas rates
     const best = cands[0] || null;
     if (best?.src.once) taken.add(tag(best.iid, best.src));
     const nowW = best ? ITEMS[best.iid].weapon : null;
@@ -97,7 +100,7 @@ function teamGear(route, key, have, builds) {
     const higher = hi ? (() => { const w = ITEMS[hi[0]].weapon, rk = w.rank[RANK_OF[armaKey(w.type)]], s = hi[1][0];
       return { iid: hi[0], rank: rk >= 9 ? 'A' : rk >= 7 ? 'B' : 'C', type: armaKey(w.type), where: s.where, spot: s.spot }; })() : null;
     // spells are each unit's own list (no tome is sold or found): a magic build gets no weapon to buy, never a fallback sword
-    const spells = !best && /^magia-/.test(main) && usable.includes(main) ? main : null;
+    const spells = caster ? main : null;
     out.push({ pid, cls, con, spells, higher, now: best && { iid: best.iid, ...best.src, heavy: heavy(best.iid), loss: Math.max(0, nowW.weight - con) }, options: opts,
       acc: accOffer ? { iid: accIid, where: accOffer.where, spot: accOffer.spot || accOffer.home, price: accOffer.price, why: rule.why } : null });
   }

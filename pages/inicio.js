@@ -28,7 +28,7 @@ function homeTips() {
     ['glosario', 'Glosario', () => (W.gloss || []).length, 'término', 'términos', 'gloss'],
   ];
   const GO = [['#/cap', 'cap', 'Capítulo'], ['#/equipo?sec=regalos', 'week', 'Regalos'], ['#/equipo', 'eq', 'Equipo'], ['#/equipo?ir=eq-equipamiento', 'build', 'Builds'],
-    ['#/planificador', 'swords', 'Planificador'], ['#/checklist', 'scroll', 'Checklist']];
+    ['#/armas', 'swords', 'Armas'], ['#/checklist', 'scroll', 'Checklist']];
   const pageOf = r => NAV.flatMap(g => g.pages).find(p => p.id === ROUTES[r]);
 
   function hero() {

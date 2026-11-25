@@ -211,9 +211,10 @@ const TEAM_ONE = new Set(['bailarin']);
 /** {pid: {pick, opts: [{id, score, why}]}} for the members with a valid community build. Each unit, by priority, takes the build that
     best fits what the others' current picks leave: the published order (first = main), +3 for a needed role nobody else covers,
     +2 or +3 for each «when» rule met, −4 for a one-per-team role someone else already has. Three passes, so later picks can move earlier ones. */
-function teamChoose(route, key, members) {
+function teamChoose(route, key, members, fixed = {}) {
   const prio = teamPriority(route, members, key).map(x => x.pid), opts = {}, pick = {};
-  prio.forEach(p => { const o = teamOptions(p, route, key).filter(x => x.ok); if (o.length) { opts[p] = o; pick[p] = o[0]; } });
+  prio.forEach(p => { const o = teamOptions(p, route, key).filter(x => x.ok); if (o.length) { opts[p] = o; pick[p] = o.find(x => x.id === fixed[p]) || o[0]; } });
+  const own = p => !!fixed[p] && pick[p].id === fixed[p];  // a build the player chose: it stays, and the others are chosen around it
   const rolesOf = p => opts[p] ? pick[p].roles : (teamBuild(p, route, key)?.roles || []);
   const base = Object.fromEntries(members.filter(p => !opts[p]).map(p => [p, rolesOf(p)]));  // units with no community build: computed roles
   const others = me => [...Object.entries(base).map(([, r]) => r), ...Object.keys(opts).filter(p => p !== me).map(p => pick[p].roles)].flat();
@@ -229,11 +230,10 @@ function teamChoose(route, key, members) {
     });
     return { id: o.id, score: s, why };
   };
-  for (let pass = 0; pass < 3; pass++) prio.filter(p => opts[p]).forEach(p => {
-    const sc = opts[p].map((o, i) => score(p, o, i));
-    pick[p] = opts[p][sc.reduce((b, x, i) => (x.score > sc[b].score ? i : b), 0)];
-  });
-  return Object.fromEntries(Object.keys(opts).map(p => [p, { pick: pick[p].id, opts: opts[p].map((o, i) => score(p, o, i)) }]));
+  const best = p => { const sc = opts[p].map((o, i) => score(p, o, i)); return opts[p][sc.reduce((b, x, i) => (x.score > sc[b].score ? i : b), 0)]; };
+  for (let pass = 0; pass < 3; pass++) prio.filter(p => opts[p] && !own(p)).forEach(p => { pick[p] = best(p); });
+  // pick: the build in use; rec: the one this rule recommends (for a chosen build, what it would pick around the others)
+  return Object.fromEntries(Object.keys(opts).map(p => [p, { pick: pick[p].id, rec: own(p) ? best(p).id : pick[p].id, opts: opts[p].map((o, i) => score(p, o, i)) }]));
 }
 const ROLE_EXTRA = { bailarin: 'Bailarín', golpe: 'Golpe físico', esquiva: 'Esquiva' };
 const roleName = r => t((ROLES.find(x => x[0] === r) || [r, ROLE_EXTRA[r] || r])[1]).toLowerCase();
@@ -402,22 +402,34 @@ const teamCountTxt = n => t('{n} en el equipo', { n: 1 + n.tengo.length + n.quie
 /* ---------------- selector edits: the list never folds mid-edit ---------------- */
 /** editing: the selector was touched since the page was entered (session only). Folded = a saved selection, not editing, and
     not stored as unfolded (ctx.fold === false). «Plegar» folds; entering the page again with a selection shows it folded. */
-const teamUi = { editing: false, all: false };  // all: «Ver todos» opened in this visit
+const teamUi = { editing: false, all: false, open: null, fix: null };  // all: «Ver todos» opened; open: the unit being edited; fix: the gap «Arreglar» opened the dialog for
 const teamLeave = () => { teamUi.editing = false; teamUi.all = false; };
-/** one selector action: {eq: pid} cycles a chip, {fold: bool} folds or unfolds the selector */
+/** one selector action: {eq: pid} cycles a chip, {fold: bool} folds or unfolds the selector, {add: [pid]} puts units that are out into the
+    team («Añadir unidad», «Completar equipo»: a recruit as «quiero», a story joiner taken out back in) without unfolding the selector */
 function teamApply(a) {
   if (a.fold != null) { teamUi.editing = !a.fold; if (a.fold) ctxSetFold(true); return; }
+  if (Array.isArray(a.add)) { const { route, key } = ctxGet(), out = teamOut(route, key); a.add.forEach(p => { if (typeof p === 'string' && out.includes(p)) ctxToggle(p, route); }); return; }
   teamUi.editing = true;
   if (a.eq) ctxToggle(a.eq);
 }
 
 /* ---------------- whole plan ---------------- */
-/** everything the page shows, for `route` at chapter `key` with the picked `recruits` («quiero» + «tengo»); gifts only for `want` */
-function teamPlan(route, key, recruits, drop = [], want = recruits) {
+/** everything the page shows, for `route` at chapter `key` with the picked `recruits` («quiero» + «tengo»); gifts only for `want`.
+    `picks` (ctxPicks of that route and part): a build the player chose stays and the others are chosen around it (choice[pid].rec is
+    the recommended one); the class, weapons and equipment of each unit (slots, teamSlots) honour the hand picks, and the build's main
+    weapon and the gear line follow weapon 1, so Equipo, Capítulo (shopping, refining) and the character page say the same */
+function teamPlan(route, key, recruits, drop = [], want = recruits, picks = ctxPicks(route, undefined, partBlk(key))) {
   const members = teamMembers(route, key, recruits, drop), prio = teamPriority(route, members, key);
-  const choice = teamChoose(route, key, members);
+  const choice = teamChoose(route, key, members, Object.fromEntries(Object.entries(picks).filter(([, x]) => x.b).map(([p, x]) => [p, x.b])));
   const pickOf = p => choice[p] && teamOptions(p, route, key).find(o => o.id === choice[p].pick);
   const builds = prio.map(x => teamBuild(x.pid, route, key, pickOf(x.pid)));
+  const gearAll = teamGear(route, key, members, builds), slots = {};
+  for (const b of builds) {
+    if (!b?.start) continue;
+    const g = gearAll.find(x => x.pid === b.pid), s = slots[b.pid] = teamSlots(b, g, route, key, picks[b.pid]);
+    if (b.weapon) b.weapons = [{ type: b.weapon, iid: s.w0 || null }];
+    if (g) teamGearSync(g, s, route, key);
+  }
   const team = new Set(members);
   const mounts = teamAssignMounts(builds.flatMap(b => teamMountStages(b).map(st => { const ranked = teamMountWants(b.pid, st.kind, b.final_growth, route, key, team);
     return { pid: b.pid, kind: st.kind, ranked, score: Object.fromEntries(ranked.map(r => [r, teamMountSc(MOUNTS[r], b.final_growth) * teamMountMul(st.classes)])) }; })));
@@ -426,7 +438,7 @@ function teamPlan(route, key, recruits, drop = [], want = recruits) {
   const shop = teamShopping(route, key, builds, mounts);
   // «tengo»: picked recruits not in «quiero», story joiners from their chapter, the lord
   const have = members.filter(p => !want.includes(p) && (p === LORDS[route] || !CHARS[p].routes[route].join_key || chapIdx(route, CHARS[p].routes[route].join_key) <= chapIdx(route, key)));
-  const gear = teamGear(route, key, have, builds);
-  return { route, key, prio, choice, builds, mounts, roles: teamRoles(builds, route), gifts, round: teamGiftRound(want.filter(p => members.includes(p) && CHARS[p]?.routes?.[route]?.recruit_key), route, key, members), week: teamWeek(route, key, want.filter(p => members.includes(p))), shop,
+  const gear = gearAll.filter(g => have.includes(g.pid));
+  return { route, key, prio, choice, slots, builds, mounts, roles: teamRoles(builds, route), gifts, round: teamGiftRound(want.filter(p => members.includes(p) && CHARS[p]?.routes?.[route]?.recruit_key), route, key, members), week: teamWeek(route, key, want.filter(p => members.includes(p))), shop,
     gear, forge: teamForge(route, key, builds, shop, gear) };
 }
