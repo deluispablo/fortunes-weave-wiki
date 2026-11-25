@@ -111,7 +111,11 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
     "parts": [
      2,
      3
-    ]
+    ],
+    "debate": {
+     "es": "También se le propone La Apsará (Espada A y Arco C), que es para una sola unidad: Leda o Dante.",
+     "en": "The Apsara (Sword A and Bow C) is also suggested for her; it goes to one unit only: Leda or Dante."
+    }
    }
   ],
   "PID_バッカニア": [
@@ -248,6 +252,32 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
     "parts": [
      2,
      3
+    ]
+   },
+   {
+    "id": "cuadriguero",
+    "name": "Cuadriguero",
+    "name_en": "Charioteer",
+    "path": [
+     "Cazador",
+     "Cuadriguero"
+    ],
+    "weapon": "Arco",
+    "roles": [
+     "arquero",
+     "montado"
+    ],
+    "when": [],
+    "why": "Cuadriguero va montado y su crecimiento oculto sube con el nivel.",
+    "why_en": "Charioteer is mounted and its hidden growth rises with level.",
+    "fits": "Si ya hay quien tanquee.",
+    "fits_en": "If someone else already tanks.",
+    "parts": [
+     0,
+     1
+    ],
+    "routes": [
+     "leda"
     ]
    }
   ],
@@ -572,7 +602,11 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
     "parts": [
      0,
      1
-    ]
+    ],
+    "debate": {
+     "es": "Hay quien la prefiere sanadora (Obispo o Trovador) antes que maga.",
+     "en": "Some prefer her as a healer (Bishop or Troubadour) rather than a mage."
+    }
    },
    {
     "id": "obispa",
@@ -628,7 +662,11 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
     "parts": [
      0,
      1
-    ]
+    ],
+    "debate": {
+     "es": "Hay quien la prefiere sanadora (Obispo o Trovador) antes que maga.",
+     "en": "Some prefer her as a healer (Bishop or Troubadour) rather than a mage."
+    }
    },
    {
     "id": "obispa",
@@ -714,7 +752,11 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
     "parts": [
      0,
      1
-    ]
+    ],
+    "debate": {
+     "es": "Hay quien la prefiere sanadora (Obispo o Trovador) antes que maga.",
+     "en": "Some prefer her as a healer (Bishop or Troubadour) rather than a mage."
+    }
    },
    {
     "id": "arquera",
@@ -797,7 +839,11 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
     "parts": [
      0,
      1
-    ]
+    ],
+    "debate": {
+     "es": "Hay quien la prefiere sanadora (Obispo o Trovador) antes que maga.",
+     "en": "Some prefer her as a healer (Bishop or Troubadour) rather than a mage."
+    }
    },
    {
     "id": "p3-druida",
@@ -846,7 +892,11 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
     "parts": [
      2,
      3
-    ]
+    ],
+    "debate": {
+     "es": "Hay quien la prefiere sanadora (Obispo o Trovador) antes que maga.",
+     "en": "Some prefer her as a healer (Bishop or Troubadour) rather than a mage."
+    }
    },
    {
     "id": "p3-valquiria",
@@ -1169,7 +1219,11 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
     "parts": [
      2,
      3
-    ]
+    ],
+    "debate": {
+     "es": "La Encarnación es para una sola unidad: Sirocco, Olympia u Orchel.",
+     "en": "The Avatar goes to one unit only: Sirocco, Olympia or Orchel."
+    }
    }
   ],
   "PID_カターニャ": [
@@ -1883,6 +1937,29 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
      2,
      3
     ]
+   },
+   {
+    "id": "p3-paladinbau",
+    "name": "Paladín bau",
+    "name_en": "Bau Lord",
+    "path": [
+     "Jinete de baus",
+     "Paladín bau"
+    ],
+    "weapon": "Lanza",
+    "roles": [
+     "volador",
+     "tanque"
+    ],
+    "when": [],
+    "why": "Paladín bau mantiene su Def alta y le da vuelo con lanza.",
+    "why_en": "Bau Lord keeps her high Def and gives her flight with a lance.",
+    "fits": "Si ya iba de Jinete de baus en la Parte 1.",
+    "fits_en": "If she was already a Bau Rider in Part 1.",
+    "parts": [
+     2,
+     3
+    ]
    }
   ],
   "PID_グザラン": [
@@ -2243,6 +2320,29 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
     "why_en": "In Cai's end-game squad he plays Castle Knight (Intercept) next to Centurio. Res 20: magic hurts him.",
     "fits": "Si falta tanque.",
     "fits_en": "If you lack a tank.",
+    "parts": [
+     2,
+     3
+    ]
+   },
+   {
+    "id": "p3-espadachin",
+    "name": "Espadachín",
+    "name_en": "Swordmaster",
+    "path": [
+     "Shido",
+     "Espadachín"
+    ],
+    "weapon": "Espada",
+    "roles": [
+     "golpe",
+     "esquiva"
+    ],
+    "when": [],
+    "why": "Espadachín aprovecha su Vel y su Fue con espada y crítico, sin gastar un objeto divino.",
+    "why_en": "Swordmaster uses his Spd and Str with swords and crits, without spending a Divine item.",
+    "fits": "Si La Calamidad va a otra unidad.",
+    "fits_en": "If The Calamity goes to another unit.",
     "parts": [
      2,
      3
@@ -4918,7 +5018,11 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
     "parts": [
      2,
      3
-    ]
+    ],
+    "debate": {
+     "es": "También se le propone Monje soldado (Guanteletes B y Magia blanca D), que cambia daño por curas.",
+     "en": "War Monk (Gauntlets B and White Magic D) is also suggested; it trades damage for healing."
+    }
    }
   ],
   "PID_ヌッツォ": [
@@ -5336,6 +5440,29 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
      2,
      3
     ]
+   },
+   {
+    "id": "p3-calamidad",
+    "name": "La Calamidad",
+    "name_en": "The Calamity",
+    "path": [
+     "Tirador",
+     "Buscasombras",
+     "La Calamidad"
+    ],
+    "weapon": "Arco",
+    "roles": [
+     "arquero"
+    ],
+    "when": [],
+    "why": "La Calamidad acepta Arco S: el arquero de la Parte 1 llega a una Divina sin cambiar de arma.",
+    "why_en": "The Calamity accepts Bow S: the Part 1 archer reaches a Divine class without changing weapon.",
+    "fits": "Si nadie más se queda el Cristal tiniebla.",
+    "fits_en": "If nobody else takes the Dark Crystal.",
+    "parts": [
+     2,
+     3
+    ]
    }
   ],
   "PID_アレキサンドラ": [
@@ -5665,7 +5792,11 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
     "parts": [
      0,
      1
-    ]
+    ],
+    "debate": {
+     "es": "Hay quien lo lleva a Guardián (lanza y magia blanca) y lo pone bajo en el tier.",
+     "en": "Some take him to Guardian (lance and white magic) and rate him low."
+    }
    },
    {
     "id": "trovadora",
@@ -5696,7 +5827,11 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
     "parts": [
      0,
      1
-    ]
+    ],
+    "debate": {
+     "es": "Hay quien lo lleva a Guardián (lanza y magia blanca) y lo pone bajo en el tier.",
+     "en": "Some take him to Guardian (lance and white magic) and rate him low."
+    }
    },
    {
     "id": "guardiana",
@@ -5897,7 +6032,11 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
     "parts": [
      2,
      3
-    ]
+    ],
+    "debate": {
+     "es": "El Tridente es para una sola unidad: Theodora, Eshmel o Ultand.",
+     "en": "The Trident goes to one unit only: Theodora, Eshmel or Ultand."
+    }
    },
    {
     "id": "p3-celeste",
@@ -7892,6 +8031,38 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
      2,
      3
     ]
+   },
+   {
+    "id": "punos",
+    "name": "Puños",
+    "name_en": "Fists",
+    "path": [
+     "Gladiador",
+     "Púgil",
+     "Guerrero"
+    ],
+    "weapon": "Guanteletes",
+    "roles": [
+     "golpe"
+    ],
+    "when": [],
+    "why": "Púgil y Guerrero con guanteletes: dos golpes por ataque con su Vel.",
+    "why_en": "Pugilist then Warrior with gauntlets: two hits per attack with his Spd.",
+    "fits": "Si prefieres daño a pie en lugar de caballería.",
+    "fits_en": "If you want foot damage instead of cavalry.",
+    "parts": [
+     0,
+     1
+    ],
+    "routes": [
+     "cai",
+     "dietrich",
+     "theodora"
+    ],
+    "debate": {
+     "es": "Unos lo ven de los mejores con puños; otros lo dejan en caballería y bajo en el tier.",
+     "en": "Some rate him among the best with fists; others keep him on cavalry and low in the tier."
+    }
    }
   ],
   "PID_ウーシュラ": [
@@ -8449,7 +8620,11 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
     "parts": [
      2,
      3
-    ]
+    ],
+    "debate": {
+     "es": "A La Hoja se llega desde Espadachín o desde Buscasombras; no hay acuerdo sobre cuál.",
+     "en": "The Blade is reached from Swordmaster or from Shadow Seeker; there is no agreement on which."
+    }
    },
    {
     "id": "p3-buscasombras",
@@ -8829,7 +9004,11 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
     "parts": [
      2,
      3
-    ]
+    ],
+    "debate": {
+     "es": "El Tridente es para una sola unidad: Theodora, Eshmel o Ultand.",
+     "en": "The Trident goes to one unit only: Theodora, Eshmel or Ultand."
+    }
    }
   ],
   "PID_トビヤス": [
@@ -9396,7 +9575,11 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
     "parts": [
      2,
      3
-    ]
+    ],
+    "debate": {
+     "es": "La Encarnación es para una sola unidad: Sirocco, Olympia u Orchel.",
+     "en": "The Avatar goes to one unit only: Sirocco, Olympia or Orchel."
+    }
    }
   ],
   "PID_タリムーン": [

@@ -6,7 +6,7 @@
   const MM = (window.WIKI_EXT || {}).minmax || {};
   const p = s => `<p>${s}</p>`;
   const ol = xs => `<ol class="mm-ol">${xs.map(x => `<li>${x}</li>`).join('')}</ol>`;
-  const bl = xs => `<ul class="mm-ol">${xs.map(x => `<li>${x}</li>`).join('')}</ul>`;
+  const bl = xs => `<ul class="mm-ol">${xs.filter(Boolean).map(x => `<li>${x}</li>`).join('')}</ul>`;
   // each cell carries its column name: a narrow phone shows one card per row (style.css .stack)
   const tbl = (head, rows) => `<div class="tw"><table class="stack"><tr>${head.map(h => `<th>${h}</th>`).join('')}</tr>${rows.map(r => `<tr>${r.map((x, i) => `<td data-th="${esc(String(head[i]).replace(/<[^>]*>/g, ''))}">${x}</td>`).join('')}</tr>`).join('')}</table></div>`;
   const C = id => L('clase', id), O = id => L('objeto', id), PJ = id => L('personaje', id);
@@ -16,6 +16,11 @@
   const growthLine = g => Object.keys(STAT_ES).filter(k => g && g[k]).map(k => `${statName(k)} ${sgn(g[k])}`).join(', ');
   const head = (title, intro) => `<h1>${esc(title)}</h1><p class="mut">${intro}</p>`;  // both already in the reader's language
   const CSS = `.mm-ol{margin:0;padding-left:1.3em}.mm-ol>li{margin:0 0 var(--s2)}
+.bd-ctx{display:flex;flex-wrap:wrap;gap:var(--s2);margin:0 0 var(--s3)}#bd-senor h2,#bd-plantel h2,#bd-divinas h2{font-size:var(--fs-row);margin:var(--s3) 0 var(--s2)}
+.bd-u{border-top:1px solid var(--line)}.bd-u>summary,.bd-u>.fold-h .fold-t{display:flex;align-items:center;gap:var(--s2);min-height:var(--tap);cursor:pointer;white-space:nowrap;overflow:hidden}
+.bd-f{flex:none;width:32px;height:32px;border-radius:50%;background:var(--surface2);object-fit:cover}.bd-n{font-weight:600;flex:none}.bd-ch{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;color:var(--tx2);font-size:var(--fs-small)}
+.bd-w{flex:none;font-size:var(--fs-small)}.bd-u .mm-tag{flex:none;margin-left:0}.bd-b{margin:var(--s2) 0 var(--s3) var(--s3)}.bd-b h4{margin:0 0 var(--s1)}.bd-now{color:var(--acc)}.bd-g>summary{min-height:var(--tap);font-weight:600;cursor:pointer}
+@media (max-width:480px){.bd-w{display:none}}
 .rc-cap h2{display:inline;margin:0 var(--s2) 0 0;font-size:var(--fs-row)}.rc-cap small.mut{display:block;font-weight:400}.rc-cap .mm-ol{margin-bottom:var(--s3)}.rc-go{margin:var(--s2) 0 0}
 .mm-tag{display:inline-block;margin-left:var(--s1);padding:0 var(--s2);border-radius:var(--r1);background:var(--surface2);color:var(--tx2);font-size:var(--fs-small);font-weight:500}
 .mm-hit{box-shadow:inset 3px 0 0 var(--focus);padding-left:var(--s3)}.mm-tr{border-top:1px solid var(--line);padding:var(--s3) 0}.mm-tr:first-of-type{border-top:0;padding-top:0}.mm-tr>h4{margin:0 0 var(--s1)}.mm-tr p{margin:var(--s1) 0}.mm-tr.mm-hit{padding-left:var(--s3)}`;
@@ -109,7 +114,7 @@
     ]) + p(t('Crecimiento, comida, habilidades y dónde se atrae cada montura: su ficha en <a href="#/monturas">Monturas</a>. La montura que conviene a cada unidad en cada etapa: <a href="#/equipo">Equipo</a>.'));  // i18n-ignore
   }
 
-  function builds() {
+  function builds(qs = {}) {
     const cls = x => (x ? C(x[0]) : '');
     const lines = (MM.lines || []).map(l => {
       const fin = l.path[l.path.length - 1];
@@ -129,7 +134,7 @@
     // one row per unit with its final class; the build itself (growths, alternatives, mounts) is in its ficha
     const chars = (MM.chars || []).filter(c => CHARS[c.pid]).map(c => [`<a href="${href('personaje', c.pid)}?sec=build">${esc(nm(CHARS[c.pid]))}</a>`, cls(c.best), cls(c.alt), (charLimits(c.pid) || []).filter(r => r[1]).map(r => r[1]).join(' · ')]);
     const teams = (MM.route_teams || []).map(([a, b]) => [esc(t(a)), esc(factOnly(t(b)))]);
-    return ficha(head(t('Builds'), t('Velocidad primero para atacar dos veces; después visitas cortas a otras clases para tomar sus maestrías y, al final, la clase de más nivel.')), [
+    const ref = [
       ['reglas', 'Reglas', bl([
         'Velocidad de ataque = Vel − máx(0, peso del arma − Con). Con 4 o más de ventaja se ataca dos veces.',
         'Los crecimientos de clase solo cuentan mientras la unidad está en esa clase; los de la montura, mientras va montada.',
@@ -145,7 +150,56 @@
       ['personajes', 'Por personaje', p(t('Clase final sugerida para cada unidad. Crecimientos, rutas de clase y monturas: su ficha; la build de tu equipo, en <a href="#/equipo">Equipo</a>.')) +
         tbl([t('Personaje'), t('Clase final'), t('Alternativa'), t('No puede ser')], chars)],
       ['equipos', 'Tamaño de equipo', tbl([t('Ruta o parte'), t('Equipo')], teams)],
-    ]);
+    ];
+    // the reference, folded under the catalog; ids kept (fi-*) so old links still land
+    const refHtml = ref.filter(x => x[2]).map(([id, ti, h]) => `<details class="card fi-sec" id="fi-${id}"><summary><h3>${esc(tl(ti))}</h3></summary>${h}</details>`).join('');
+    return head(t('Builds'), t('La clase que conviene a cada unidad en tu ruta y cuándo puede dar cada paso.')) + catalog(qs) + refHtml;
+  }
+
+  /* ---------------- Builds catalog (pages/builds.js) ---------------- */
+  const COM = () => `<span class="gu-com" title="${esc(t('Dato de la comunidad'))}"></span>`;
+  const face = pid => img(ico().face?.[pid], 'bd-f') || '<span class="bd-f"></span>';
+  function catalog(qs) {
+    const c = ctxGet(), cp = ctxChosen() ? CAPS[c.key]?.part : 1;
+    const part = qs.p === '3' ? 3 : qs.p === '1' ? 1 : cp >= 2 ? 3 : 1;
+    const r = qs.r === 'todas' ? '' : ROUTE_IDS.includes(qs.r) ? qs.r : ctxRoute(), papel = qs.papel || '', arma = qs.arma || '';
+    const rows = rt => buildsCatalog(rt, part);
+    const all = r || part === 3 ? rows(r) : ROUTE_IDS.flatMap(rows);
+    const roles = [...new Set(all.flatMap(u => u.builds.flatMap(b => b.roles || [])))].sort();
+    const fits = u => (!papel && !arma) || u.builds.some(b => (!papel || (b.roles || []).includes(papel)) && (!arma || armaKey(b.weapon) === arma));
+    const step = (rt, s) => `<li>${C(s.jid)} <span class="mut">· ${esc(tx(CLASSES[s.jid], 'tier'))}${s.req ? ' · ' + esc(dataTx(s.req)) : ''}</span>` +
+      (s.now ? ` <b class="bd-now">${t('ahora')}</b>` : s.idx >= 0 && rt ? ` <span class="mut">· ${t('desde el {c}', { c: chapLink(routeChapters(rt)[s.idx].key) })}</span>` : '') + '</li>';
+    const build = (rt, b) => `<div class="bd-b"><h4>${esc(tx(b, 'name'))} ${COM()}${b.debate ? `<span class="mm-tag bd-deb">${t('En disputa')}</span>` : ''}</h4>` +
+      (b.ok ? '' : p(`<b>${t('No disponible en esta ruta')}</b>: ${esc(b.issue)}`)) +
+      (tx(b, 'why') ? p(esc(tx(b, 'why'))) : '') + (tx(b, 'fits') ? p(t('Elígela si: {f}', { f: esc(tx(b, 'fits')) })) : '') +
+      (b.debate ? p(`<span class="mut">${esc(LANG === 'en' ? b.debate.en : b.debate.es)}</span>`) : '') +
+      `<ol class="mm-ol bd-steps">${b.steps.map(s => step(rt, s)).join('')}</ol></div>`;
+    const card = (rt, u, open) => { const b0 = u.builds[0];
+      if (!b0) { const best = (MM.chars || []).find(c => c.pid === u.pid)?.best;
+        return `<details class="bd-u"><summary>${face(u.pid)}<span class="bd-n">${esc(nm(CHARS[u.pid]))}</span>${u.tier ? `<span class="mm-tag">${esc(u.tier)}</span>` : ''}<span class="bd-ch">${t('Sin build propuesta')}</span>${u.team ? `<span class="mm-tag">${t('En tu equipo')}</span>` : ''}</summary>` +
+          p([best ? t('Clase final sugerida: {c}', { c: C(best[0]) }) : '', `<a href="${href('personaje', u.pid)}?sec=build">${t('Ficha de {p}', { p: esc(nm(CHARS[u.pid])) })}</a>`].filter(Boolean).join(' · ')) + '</details>'; }
+      return `<details class="bd-u"${open ? ' open' : ''}><summary>${face(u.pid)}<span class="bd-n">${esc(nm(CHARS[u.pid]))}</span>` +
+        (u.tier ? `<span class="mm-tag">${esc(u.tier)}</span>` : '') + `<span class="bd-ch">${b0.steps.map(s => esc(nm(CLASSES[s.jid]))).join(' → ')}</span>` +
+        `<span class="mut bd-w">${esc(t(b0.weapon || ''))}</span>${u.team ? `<span class="mm-tag">${t('En tu equipo')}</span>` : ''}</summary>` +
+        u.builds.map(b => build(rt, b)).join('') +
+        p([u.team ? `<a href="#/equipo">${t('Tu plan, en Equipo')}</a>` : '', `<a href="${href('personaje', u.pid)}?sec=build">${t('Ficha de {p}', { p: esc(nm(CHARS[u.pid])) })}</a>`].filter(Boolean).join(' · ')) + '</details>'; };
+    const list = (rt, us) => us.filter(fits).map(u => card(rt, u, false)).join('');
+    const empty = p(`<span class="mut">${t('Ninguna build con estos filtros.')}</span>`);
+    let body = '';
+    if (r) {
+      const us = rows(r), lord = part === 1 ? us.find(u => u.pid === LORDS[r]) : null, rest = us.filter(u => u !== lord);
+      if (lord && fits(lord)) body += `<section id="bd-senor"><h2>${t('Señor de la ruta')}</h2>${card(r, lord, true)}</section>`;
+      const l = list(r, rest);
+      body += `<section id="bd-plantel"><h2>${t('Plantel')}</h2>${l || empty}</section>`;
+    } else if (part === 1) {
+      const gs = ROUTE_IDS.map(rt => [rt, list(rt, rows(rt))]);
+      body += `<section id="bd-plantel">${gs.some(g => g[1]) ? gs.map(([rt, l]) => `<details class="card bd-g"><summary>${t('Ruta de {r}', { r: esc(ROUTE_NAME[rt]) })}</summary>${l || empty}</details>`).join('') : empty}</section>`;
+    } else body += `<section id="bd-plantel"><h2>${t('Plantel')}</h2>${list('', all) || empty}</section>`;
+    if (part === 3) body += `<section id="bd-divinas" class="card"><h2>${t('Clases divinas')}</h2>${p(t('Cada clase divina es para una sola unidad y pide su objeto.'))}<ul class="mm-ol">` +
+      buildsDivine().map(d => `<li class="bd-d">${C(d.jid)} · ${O(d.item)}${d.cands.length ? ': ' + d.cands.map(x => `${PJ(x.pid)} <span class="mut">(${x.alt ? t('si va a otra unidad: {b}', { b: esc(tx(x.alt, 'name')) }) : t('Sin alternativa propuesta')})</span>`).join(', ') : ''}</li>`).join('') + '</ul></section>';
+    const ctl = `<div id="bd-ctx" class="bd-ctx">${routeChips('builds', qs, r)}${chips('builds', qs, 'p', [['1', 'Parte 1'], ['3', 'Partes 2 y 3']], String(part), 'Parte')}` +
+      chips('builds', qs, 'papel', [['', 'Todos'], ...roles.map(x => [x, roleName(x)])], papel, 'Papel') + chips('builds', qs, 'arma', [['', 'Todas'], ...ARMAS], arma, 'Arma') + '</div>';
+    return ctl + body;
   }
 
   /* ---------------- Reclutas que valen la pena ---------------- */
@@ -219,7 +273,7 @@
     { id: 'secuencia', g: 'RNG fija', t: 'Secuencia fija de subidas de nivel', tag: RELOAD, h: p(t('Las subidas de nivel salen de una secuencia fija. Cada examen, apruebe o no, y cada clase nueva que se enseña la adelantan un paso. Se puede ver la próxima subida con Actividades auto. y recargar; si es mala, hacer antes un examen barato para saltarla. Rebobinar con Fortuna no la cambia: las mismas acciones dan los mismos resultados.')) },
     { id: 'examen', g: 'RNG fija', t: 'Resultado de examen fijado', tag: RESET, h: p(t('El resultado de cada examen queda fijado desde el inicio del capítulo. Si un intento aprueba, repetir los mismos pasos tras reiniciar vuelve a aprobar; hacer antes otro examen cambia qué intento aprueba.')) + p(t('Cómo averiguar el intento bueno: gasta licencias baratas en exámenes básicos para ver en qué intento sale el aprobado. Después recarga, haz antes los exámenes básicos necesarios con licencias baratas hasta llegar a ese intento y haz entonces el examen que importa.')) },
     { id: 'cajas', g: 'RNG fija', t: 'Cajas de armas', tag: RELOAD, h: p(t('El contenido de {a} (800 G) y {b} (2000 G), en la tienda de objetos de Megaira, se decide al comprarlas. Guardar antes y variar lo que se hace antes de comprar cambia el resultado; repetir exactamente los mismos pasos da lo mismo.', { a: O('IID_良質な武具箱'), b: O('IID_高級な武具箱') })) },
-    { id: 'cebo', g: 'RNG fija', t: 'Monturas: el animal se fija al poner el cebo (ruta de Cai)', tag: RELOAD, h: p(t('El animal y su habilidad se deciden al poner el Cebo, por el turno, la casilla y las acciones previas. Para cambiarlo: un turno más o menos, otra casilla, o una Búsqueda antes del cebo. Entrar en una mazmorra o chocar con enemigos del mapa crea un autoguardado que no se puede deshacer recargando.')) },
+    { id: 'cebo', cai: true, g: 'RNG fija', t: 'Monturas: el animal se fija al poner el cebo (ruta de Cai)', tag: RELOAD, h: p(t('El animal y su habilidad se deciden al poner el Cebo, por el turno, la casilla y las acciones previas. Para cambiarlo: un turno más o menos, otra casilla, o una Búsqueda antes del cebo. Entrar en una mazmorra o chocar con enemigos del mapa crea un autoguardado que no se puede deshacer recargando.')) },
     { id: 'retirada', g: 'EXP', t: 'Golpear y retirarse (bucle de mazmorra)', tag: '', h: p(t('En una Batalla rápida (mazmorras y enemigos del mapa) cada asalto en que la unidad hace al menos 1 de daño da EXP de competencia y de clase; atacar dos veces no da más. Retirarse antes de matar al último enemigo conserva lo ganado y el enemigo vuelve con toda la vida: se repite sin gastar turnos de historia ni EXP de nivel.')) + bl([
       t('Tope: 15 asaltos por combate (el botón de saltar avanza como mucho 15). Retírate y vuelve a entrar.'),
       t('Retírate con el enemigo a 3 PV o más: un crítico que lo mate te devuelve al mapa con autoguardado y el bucle se pierde hasta el siguiente capítulo. Entrar con dos grupos ayuda: si matas al primero, te retiras en el segundo.'),
@@ -227,10 +281,10 @@
       t('Equitación y Vuelo no suben aquí: dentro de una mazmorra las unidades montadas luchan a pie y suben Infantería. Coraza sí sube.'),
       t('Las magias se gastan: descansa en las zonas de recuperación de la mazmorra.'),
     ]) + p(t('Sitios probados por la comunidad:')) + bl([
-      t('{a} (junto a {m}; no está abierto para Cai en la Parte 1): un grupo de soldados. Con Atq 31 haces 1 de daño y con Def 24 no recibes nada. Atajos: {e} (Def +5, en {m}); {u} cura a los adyacentes cada turno; aprobar {k} sube la Fue al menos a 10; {f} (Pot 10, eficaz contra acorazados: 20) se vende en {c}. Sin Atq suficiente, {h}: las hachas quitan al menos 5 PV.',
-        { a: L('lugar', 'ハイン砦'), m: L('lugar', '城塞都市モンス'), e: O('IID_銀の盾'), u: PJ('PID_ウルタンド'), k: C('JID_重装歩兵'), f: O('IID_フリッサ'), c: L('lugar', 'カリアネイラの港'), h: O('IID_木製の斧') }),
-      t('Ruta de Cai: {a}. Cuatro grupos de piojos en la primera sala; no mates al último grupo y retírate: vuelven todos. No pide atributos altos, no gasta turnos y el templo (cambio de clase) y la posada (recuperar magia) quedan al lado.', { a: L('lugar', '帝都ダグシオン下水道', t('Alcantarillas de Dagsion')) }),
-      t('Ruta de Cai: {a}, un grupo de acorazados cerca de la entrada, junto al templo.', { a: L('lugar', '禁断の森') }),
+      t('{a} (junto a {m}{cai}): un grupo de soldados. Con Atq 31 haces 1 de daño y con Def 24 no recibes nada. Atajos: {e} (Def +5, en {m}); {u} cura a los adyacentes cada turno; aprobar {k} sube la Fue al menos a 10; {f} (Pot 10, eficaz contra acorazados: 20) se vende en {c}. Sin Atq suficiente, {h}: las hachas quitan al menos 5 PV.',
+        { a: L('lugar', 'ハイン砦'), m: L('lugar', '城塞都市モンス'), cai: caiHide() ? '' : t('; no está abierto para Cai en la Parte 1'), e: O('IID_銀の盾'), u: PJ('PID_ウルタンド'), k: C('JID_重装歩兵'), f: O('IID_フリッサ'), c: L('lugar', 'カリアネイラの港'), h: O('IID_木製の斧') }),
+      !caiHide() && t('Ruta de Cai: {a}. Cuatro grupos de piojos en la primera sala; no mates al último grupo y retírate: vuelven todos. No pide atributos altos, no gasta turnos y el templo (cambio de clase) y la posada (recuperar magia) quedan al lado.', { a: L('lugar', '帝都ダグシオン下水道', t('Alcantarillas de Dagsion')) }),
+      !caiHide() && t('Ruta de Cai: {a}, un grupo de acorazados cerca de la entrada, junto al templo.', { a: L('lugar', '禁断の森') }),
       t('{a}: dos combates con un gusano de arena que regenera unos 6–8 PV por turno; con un golpe que no lo supere se puede seguir sin retirarse. Cuidado con lo que lo acompaña.', { a: L('lugar', '異教徒の洞窟') }),
       t('Contra no muertos (el Favor infernal reduce el daño y se curan al herirte): un muro de unidades con {u} curando. Es una escaramuza normal, así que aquí las monturas sí suben.', { u: PJ('PID_ウルタンド') }),
     ]) + p(t('Las habilidades de formación del grupo activo también suman para llegar a los umbrales. Fórmula y tabla de rangos: <a href="#/mecanicas?ir=competencias">Competencias</a>. Fuentes: vídeo de LinkKing7 y sus comentarios (comunidad); los objetos, tiendas y accesos están comprobados con los datos.')) },
@@ -255,11 +309,11 @@
       t('Los apoyos se conservan: hacen falta menos comidas y los reclutamientos llegan antes.'),
       t('Las misiones secundarias hechas en otras rutas cuentan como hechas, con su recompensa.'),
       t('Cambio de clase temprano: un examen por debajo del nivel recomendado (18–32 %) se puede repetir reiniciando el capítulo (ver «Resultado de examen fijado»).'),
-      t('En la ruta de Cai, con el mapa desvelado, las monturas raras se capturan en cuanto se abre el Cebo, sin explorar antes.'),
-      t('Cai sigue sin poder ir al oeste: los fuertes de esa mitad no se abren y no hay Dátiles ni mazmorras del desierto en su Parte 1.'),
+      !caiHide() && t('En la ruta de Cai, con el mapa desvelado, las monturas raras se capturan en cuanto se abre el Cebo, sin explorar antes.'),
+      !caiHide() && t('Cai sigue sin poder ir al oeste: los fuertes de esa mitad no se abren y no hay Dátiles ni mazmorras del desierto en su Parte 1.'),
     ]) },
     { id: 'fusion', g: 'Parte 3', t: 'Fusión causal', tag: '', h: p(t('Cuesta 300 Esquirlas cau. y conserva el mayor de los dos valores de nivel, cada atributo y la EXP de competencias y de clase; suma habilidades, técnicas y certificaciones. No conserva clase, montura, objetos ni apoyos. Rejugar una sección de la Parte 3 deshace las fusiones sin devolver las esquirlas: rejugar primero y fusionar después.')) },
-  ];
+  ].filter(x => !(x.cai && caiHide(true)));  // a Cai-only trick: not in Part 1 of another route
 
   function trucos(qs) {
     const TR = TRUCOS(), hit = TR.find(x => x.id === qs.s);
@@ -276,7 +330,7 @@
   register({ id: 'guia', group: 'minmax', title: 'Recorrido de la Parte 1', order: 10, render: (id, qs) => (id ? guiaTema(id) : guia(qs || {})), css: CSS,  // #/guia/<id>: a topic guide (pages/guias.js)
     search: () => [S('Recorrido de la Parte 1 (cada ruta)', 'Capítulo a capítulo', '#/guia', ['guia de la parte 1', 'recorrido', 'prioridades', 'qué hacer en cada capítulo']),  // i18n-ignore
       ...ROUTE_IDS.map(r => S(`${t('Recorrido de la Parte 1')} · ${ROUTE_NAME[r]}`, 'Capítulo a capítulo', `#/guia?r=${r}`, [`ruta de ${ROUTE_NAME[r]}`, ROUTE_NAME[r]]))] });  // i18n-ignore
-  register({ id: 'builds', group: 'minmax', title: 'Builds', order: 20, render: () => builds(), css: CSS,
+  register({ id: 'builds', group: 'minmax', title: 'Builds', order: 20, render: (id, qs) => builds(qs || {}), css: CSS,
     search: () => [S('Builds', 'Por arma, papel y personaje', '#/builds', ['builds por arma y papel', 'build', 'maestrías']), S(gt('Senda de la cuadriga'), `${gt('Cuadriguero')} · ${t('crecimiento oculto')}`, '#/builds', ['cuadriguero', 'auriga']),  // i18n-ignore
       ...(MM.masteries || []).map(m => S(t('Maestría: {s}', { s: gt(m.skill) }), nm(CLASSES[m.cls[0]]), '#/builds', [m.skill]))] });  // i18n-ignore
   register({ id: 'reclutas', group: 'minmax', title: 'Reclutas recomendados', order: 30, render: (id, qs) => reclutas(qs || {}), css: CSS,

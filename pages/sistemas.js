@@ -73,8 +73,8 @@
     const HOURS = { 武器屋: 'Armería', 鍛冶屋: 'Herrería', 道具屋: 'Bazar', 市場: 'Mercado', 宿屋: 'Posada', 商会: 'Sociedad Mercantil Vandahl', 観劇: 'Teatro (ver)', 出演: 'Teatro (actuar)',
       闘技場: 'Torneo', 訓練: 'Plaza de armas', 資格試験官: 'Examinador', 手形屋: 'Licencias', 神殿: 'Templos', テルマエ: 'Termas', 止まり木: 'Percha', アンナの店: 'Tienda de Anna',
       厩舎: 'Establo', 酒場: 'Taberna', 飲み物係: 'Puesto de bebidas', 軍団兵舎: 'Cuartel' };
-    const hours = tw(H(['Local', 'Abierto']), (FA.opening_hours || []).filter(h => HOURS[h.id.replace('OPH_', '')]).map(h =>
-      [`${esc(gx(HOURS[h.id.replace('OPH_', '')]))}${h.cond.length ? ` (${esc(conds(h.cond))})` : ''}`, h.open.length === 4 ? t('todo el día') : spans(h.open)]));
+    const hours = tw(H(['Local', 'Abierto']), (FA.opening_hours || []).filter(h => HOURS[h.id.replace('OPH_', '')] && !(h.id === 'OPH_厩舎' && caiHide(true))).map(h =>
+      [`${esc(gx(HOURS[h.id.replace('OPH_', '')]) + (h.id === 'OPH_厩舎' ? caiTag() : ''))}${h.cond.length ? ` (${esc(conds(h.cond))})` : ''}`, h.open.length === 4 ? t('todo el día') : spans(h.open)]));
     const v = o => o?.value;
     const mo = FA.motivation_result_bonus || {}, fo = (FA.fortune || {}).vars || {};
     return `<h1>${t('Dagsion: actividades semanales')}</h1>${guiaLink('tiempo-libre', 'comidas')}<p class="mut">${t('Se reinician cada domingo a las 0:00 y al empezar cada capítulo; lo que no se usa se pierde. Cada actividad adelanta el reloj {m} minutos y no gasta turno salvo comprar; el reloj se para al final del turno en curso, así que se pueden hacer todas en el mismo turno. El Servicio divino está en <a href="#/dioses?ir=servicio-divino">Templos</a> y el Establo en <a href="#/monturas?ir=establo">Monturas</a>.', { m: v(FA.minutes_per_activity) || 20 })}</p>` +  // i18n-ignore
@@ -99,7 +99,7 @@
         ['Logros', t('«Perfecto» y estrechar lazos 10–50 veces: 150 + 150 Esquirlas cau.')],
         ['Otras opciones', t('Previsión (consejos de la batalla principal), Reiniciar capítulo y Sala de los obeliscos')],
         ['Gestos', list((W.gestures || []).map(g => esc(nm(g))))]]), 'percha') +
-      card(t('Formación (ruta de Cai)'), lessons + p(t('Una vez cada lección, abiertas por Prestigio.')), 'formacion') +
+      card(t('Formación (ruta de Cai)'), caiFold(lessons + p(t('Una vez cada lección, abiertas por Prestigio.'))), 'formacion') +
       card(t('Torneo: asistir'), arena + p(t('De 12:00 a 18:00 en el estadio, en la fecha indicada; las fechas son distintas en cada ruta.')), 'torneo') +
       card(t('Posada: actividades automáticas'), p(t('Gastan los turnos elegidos (en la Parte 3, todos hasta la fecha límite).')) + kv([['Buscar', t('oro y 25 % de materiales por turno')], ['Entrenar', t('EXP de clase y de competencia')],
         ['Combate', t('EXP base 5 y EXP de clase')], ['Dormir', t('{g} y 1 turno: recupera Motivación, PV y hechizos (500 G en las posadas del mapa)', { g: gold(v(FA.inn_price) || 400) })]]), 'actividades-automaticas') +
@@ -154,7 +154,7 @@
       card(t('Templos'), tw(H(['Dios', 'Día sagrado', 'Servicio divino', 'Mejor aptitud', 'Audiencia']), gods.map(g => [img(ico().temple?.[g.id], 'ico') + esc(nm(g)), wd(g.holy_weekday), esc(nm(g.service)), apt(g.service.es), AUD.includes(g.id) ? t('sí, +50 de Prestigio por etapa') : t('no')])) +
         p(t('Cada dios tiene un templo adjunto en el barrio de los templos de Dagsion y un templo principal en el mapa; en los dos se puede servir, elegir bendiciones y pedir audiencia. Audiencias: etapas con Prestigio 2, 4, 6, 8, 9 y 10, en el día sagrado del dios o el domingo, sin gastar turno ni servicio y sin dar tributo. Aurora y Credna no conceden audiencia: hasta 24 audiencias en la Parte 1 (4 dioses × 6 etapas).')) +
         tw(H(['Ruta', 'Portal de los Dioses', 'Se abre']), (R.portals || []).map(x => [ROUTE_NAME[x.route], t('Templo de {g}', { g: esc(x.god) }), `${t('cap. {n}', { n: x.chapter })} (${esc(x.date.split(' ')[0])})`])) +
-        p(t('El portal lleva al instante del templo adjunto al principal. En la Parte 3 cada Petición de un dios abre el portal de su templo. En la Parte 1 de Cai solo se llega al templo principal de Aurora (las regiones de los demás están cerradas), pero se sirve a los seis dioses desde Dagsion.')), 'templos') +
+        p(t('El portal lleva al instante del templo adjunto al principal. En la Parte 3 cada Petición de un dios abre el portal de su templo.') + (caiHide() ? '' : ' ' + t('En la Parte 1 de Cai solo se llega al templo principal de Aurora (las regiones de los demás están cerradas), pero se sirve a los seis dioses desde Dagsion.'))), 'templos') +
       card(t('Servicio divino'), p(t('Una vez por semana en total, entre todos los templos, dos unidades sirven a un dios: suben el apoyo entre ambas y el tributo de su bendición. Gratis; 1 barra de Motivación por participante, que no se gasta con resultado «Perfecto». Se abre en {w}; en la Parte 3, desde la sección 2.', { w: chByRoute(unl) })) +
         tw(H(['Resultado', 'Probabilidad base', 'Tributo base', 'Apoyo base']), ['Mejor', 'Bueno', 'Normal'].map((k, i) => [t(k), pct(sv.prob?.[i]), sv.tribute?.[i], sv.support?.[i]])) +
         kv([['Aptitud', t('de 0 a 2 por unidad y servicio; con 2 la probabilidad se desplaza {n} puntos a favor y con 0, en contra (cómo se aplica exactamente: sin confirmar).', { n: sv.shift ?? 20 })],
@@ -195,15 +195,15 @@
         ['8', num(1000), num(6800), t('Exámenes de clase avanzada; Termas; Teatro «Actuar»; lecciones (ruta de Cai)')],
         ['9', num(1000), num(7800), t('Más termas; comidas ×1,5; 7 campos de cultivo (ruta de Cai); batallones (ruta de Theodora)')],
         ['10', num(1000), num(8800), t('Armas +2; templo ×1,2; lecciones (ruta de Cai)')], ['11', num(1000), num(9800), gx('Lingote de oro enorme')], ['12', num(1000), num(10800), gx('Retrato de Yu Phas')],
-        ['13–21', t('{n} cada uno', { n: num(1000) }), '—', t('Solo en la Parte 3: libros secretos, Botas del viento, cofres de libros')]] }), 'rangos') +
+        ['13–21', t('{n} cada uno', { n: num(1000) }), '—', t('Solo en la Parte 3: libros secretos, Botas del viento, cofres de libros')]].map(r => [r[0], r[1], r[2], routeParts(r[3])]) }), 'rangos') +
       card(t('Multiplicadores de los locales'), docHtml({ head: H(['Local', 'Base', 'Mejora 1', 'Mejora 2', 'Parte 3 (misión 1)', 'Parte 3 (misión 2)']), rows: [
         [t('Plaza de armas'), pct(100), t('Prestigio {n}: {p}', { n: 4, p: pct(180) }), t('Prestigio {n}: {p}', { n: 7, p: pct(250) }), pct(300), pct(350)], [t('Comidas'), pct(100), t('Prestigio {n}: {p}', { n: 5, p: pct(130) }), t('Prestigio {n}: {p}', { n: 9, p: pct(150) }), pct(180), pct(200)],
         [t('Servicio divino'), pct(50), t('Prestigio {n}: {p}', { n: 6, p: pct(80) }), t('Prestigio {n}: {p}', { n: 10, p: pct(120) }), pct(150), pct(200)]] },
         t('En la Parte 3 los dos últimos escalones llegan con las misiones de reconstrucción del coliseo, el comedor y el templo.')), 'multiplicadores') +
       card(t('Fuentes de Prestigio'), docHtml({ kv: [
         [t('Audiencias'), t('+50 cada una, con etapas en los rangos 2, 4, 6, 8, 9 y 10 (6 por dios); no gastan turno ni servicio. Solo las conceden Mars, Smyrnos, Jurah y Kalla; Aurora y Credna nunca. Máximo en la Parte 1: 4 dioses × 6 etapas = 24 audiencias = 1200.')],
-        [t('Altruismo del cap. 8 (ruta de Cai)'), t('«Exterminio de Porcelios» (+50, plazo cap. 9) y «Verduras para los aragueses» (+200; 30 de Melara, Shaktoh o Usama). El Shaktoh se compra en el mercado de Aguiño (50 G, 5 por reposición): comprar 5 y plantar 2–3 (cada cosecha da 10 como mínimo) cubre las 30.')],
-        [t('Misiones'), t('normales 10–200; Altruismo de la ruta de Cai 100–200 (26 misiones); Desvíos 150 + 20.000 G; peticiones de los dioses (Parte 3) 100 + 10.000 G.')],
+        ...caiHide() ? [] : [[t('Altruismo del cap. 8 (ruta de Cai)'), t('«Exterminio de Porcelios» (+50, plazo cap. 9) y «Verduras para los aragueses» (+200; 30 de Melara, Shaktoh o Usama). El Shaktoh se compra en el mercado de Aguiño (50 G, 5 por reposición): comprar 5 y plantar 2–3 (cada cosecha da 10 como mínimo) cubre las 30.')]],
+        [t('Misiones'), routeParts(t('normales 10–200; Altruismo (ruta de Cai) 100–200 (26 misiones); Desvíos 150 + 20.000 G; peticiones de los dioses (Parte 3) 100 + 10.000 G.'))],
         [t('Teatro'), t('actuar (Prestigio 8): +10 con resultado normal o mejor, 0 con el peor.')],
         [t('Sin Prestigio'), t('exámenes y reclutamientos.')]] }), 'fuentes');
   }
@@ -218,7 +218,7 @@
         [t('Otros'), t('salir de la capital al mapa, descansar o un banquete: 1 turno cada uno.')], [t('Plazo'), t('al llegar en el mapa la historia avanza sola; si el destino no se visitó nunca, hay que repetir el capítulo.')]] }) +
         p(t('Motivación: <a href="#/instalaciones?ir=motivacion">Dagsion</a>.')), 'turnos') +
       card(t('Banquete'), docHtml(t('Desde Prestigio 2, 1 turno: de 1 a 10 ingredientes; apoyo base 20 por pareja; curación +10/30/50/100 % por puntos.')), 'banquete') +
-      card(t('Carruajes'), docHtml(t('Solo líneas que salen de la posta de partida activada; tarifa fija 100/200/300 G; el destino se activa al llegar. En la ruta de Cai necesitan «Fabricado en Megaira» (cap. 7).')), 'carruajes');
+      card(t('Carruajes'), docHtml(t('Solo líneas que salen de la posta de partida activada; tarifa fija 100/200/300 G; el destino se activa al llegar.') + (caiHide() ? '' : ' ' + t('En la ruta de Cai necesitan «Fabricado en Megaira» (cap. 7).'))), 'carruajes');
   }
 
   /* ================= Sistemas de cada señor (#/senores) ================= */
@@ -354,7 +354,7 @@
       const rows = (G.battalions || []).filter(b => (!r || b.rank === r) && (!k || b.kind === k));
       return head + chips('batallones', qs, 'rk', [['', 'Todos los rangos'], ...RANKS.map(x => [x, `Rango ${x}`])], r, 'Rango de mando') +
         chips('batallones', qs, 'k', [['', 'Todas las tácticas'], ['Ataque', 'Ataque'], ['Zona', 'Zona'], ['Apoyo', 'Apoyo']], k, 'Tipo de táctica') +
-        `<p class="mut">${t('{n} de {m} batallones.', { n: rows.length, m: (G.battalions || []).length })}</p>` +
+        `<p class="sr-only" data-count>${t('{n} de {m} batallones.', { n: rows.length, m: (G.battalions || []).length })}</p>` +
         tw(H(['Batallón', 'Mando', 'Táctica', 'Bonos', 'Dónde']), rows.map(b => [bl(b.id), b.rank,
           b.gambit ? `${SKILLS[b.gambit.id] ? L('habilidad', b.gambit.id, b.gambit.es) : esc(gx(b.gambit.es))}${b.gambit.uses ? ` ×${b.gambit.uses}` : ''}${gpow(b) ? ` <small class="mut">${esc(gpow(b))}</small>` : ''}` : '—', esc(bstats(b.stats)),
           b.where.length ? t(b.where.length > 1 ? '{n} pueblos' : '{n} pueblo', { n: b.where.length }) : b.p2 != null ? t('Parte {p}', { p: 2 }) : b.auto ? t('autocrecimiento') : '—']));

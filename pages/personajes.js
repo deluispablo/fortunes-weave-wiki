@@ -214,7 +214,7 @@ function charLimits(pid) {
 
   /** every community build of the unit (WIKI_EXT.builds), by route (Part 1) and end game (Parts 2-3); Mi partida picks one by roster */
   function communityBuilds(pid) {
-    const all = ((window.WIKI_EXT || {}).builds?.units || {})[pid] || [];
+    const r = ctxRoute(), all = (((window.WIKI_EXT || {}).builds?.units || {})[pid] || []).filter(o => !r || !o.routes || o.routes.includes(r));  // a chosen route: its own Part 1 builds only
     if (!all.length) return '';
     const where = o => (o.routes ? t('Parte 1 con {r}', { r: esc(o.routes.map(r => ROUTE_NAME[r]).join(', ')) }) : t('Partes 2 y 3'));
     const groups = [...new Set(all.map(where))];

@@ -2339,7 +2339,7 @@ window.WIKI.guias_en=[
    ],
    [
     "Hard recruitment items (Cai's route)",
-    "<ul>\n<li><a href=\"#/objeto/IID_カガヤキウオ\">Paradise Fish</a>: Search at fishing spots (<a href=\"#/lugar/ブロンテス湖\">Lake Brontes</a>) and fish crates; it also pays for the Giant's Ring and the Red Meganius bait.</li>\n<li><a href=\"#/objeto/IID_デーツ\">Dates</a>: 2 from the quest \"Huge, Hairy Beasts\", then farm them; barter at the <a href=\"#/lugar/黒翼の谷\">Valley of Black Wings</a> (2, not restocked).</li>\n<li><a href=\"#/objeto/IID_砂虫肉\">Sandworm Meat</a>: barter at <a href=\"#/lugar/海都アレクトー\">Alecto</a> (5, +3 per chapter).</li>\n<li><a href=\"#/objeto/IID_グルマオサ\">Glirmosa</a>: mutation of the plots at <a href=\"#/lugar/そよ風の丘\">Rolling Breeze Hill</a>, <a href=\"#/lugar/ムルキベル湿地帯\">Mulciber Marshlands</a> and <a href=\"#/lugar/ソナイ峠\">Sonai Pass</a>.</li>\n<li><a href=\"#/objeto/IID_巨大肉\">Giants' Meat</a>: barter at Alecto and at the Valley for 10 <a href=\"#/objeto/IID_煉獄草\">Torment Grass</a>, which in a first Cai playthrough only comes from the Luxury Veg. Crate.</li>\n</ul>"
+    "<ul>\n<li><a href=\"#/objeto/IID_カガヤキウオ\">Paradise Fish</a>: Search at fishing spots (<a href=\"#/lugar/ブロンテス湖\">Lake Brontes</a>) and fish crates; it also pays for the Giant's Ring and the Red Meganius bait.</li>\n<li><a href=\"#/objeto/IID_デーツ\">Dates</a>: 2 from the quest \"Huge, Hairy Beasts\", then farm them (Cai only); barter at the <a href=\"#/lugar/黒翼の谷\">Valley of Black Wings</a> (2, not restocked).</li>\n<li><a href=\"#/objeto/IID_砂虫肉\">Sandworm Meat</a>: barter at <a href=\"#/lugar/海都アレクトー\">Alecto</a> (5, +3 per chapter).</li>\n<li><a href=\"#/objeto/IID_グルマオサ\">Glirmosa</a>: mutation of the plots at <a href=\"#/lugar/そよ風の丘\">Rolling Breeze Hill</a>, <a href=\"#/lugar/ムルキベル湿地帯\">Mulciber Marshlands</a> and <a href=\"#/lugar/ソナイ峠\">Sonai Pass</a>.</li>\n<li><a href=\"#/objeto/IID_巨大肉\">Giants' Meat</a>: barter at Alecto and at the Valley for 10 <a href=\"#/objeto/IID_煉獄草\">Torment Grass</a>, which in a first Cai playthrough only comes from the Luxury Veg. Crate.</li>\n</ul>"
    ],
    [
     "Min-max tips",
@@ -2987,7 +2987,7 @@ window.WIKI.guias_en=[
    ],
    [
     "Min-max tips",
-    "<ul>\n<li>Plan one loop per trip: Search, farming and skirmishes along the way, and return to Dagsion close to Saturday.</li>\n<li>Use the carriage as soon as it is available, because it does not spend a turn.</li>\n<li>Before crossing into a high-level region, check its range: skirmishes there can far outmatch the army.</li>\n<li>If an interesting merchant is not around, moving or sleeping can bring them.</li>\n</ul>"
+    "<ul>\n<li>Plan one loop per trip: Search, farming (Cai only) and skirmishes along the way, and return to Dagsion close to Saturday.</li>\n<li>Use the carriage as soon as it is available, because it does not spend a turn.</li>\n<li>Before crossing into a high-level region, check its range: skirmishes there can far outmatch the army.</li>\n<li>If an interesting merchant is not around, moving or sleeping can bring them.</li>\n</ul>"
    ]
   ]
  },

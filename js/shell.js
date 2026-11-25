@@ -50,12 +50,12 @@ const pickChapter = key => { const c = CAPS[key]; if (c) setCtx(c.route === 'com
 
 /* ---------------- navigation ---------------- */
 const pageHref = p => '#/' + (p.routes || [p.id])[0];
-/* bottom bar (phone and tablet): the order is this one line. Keys of TABS; inTabbar() (pages «Todas las secciones» leaves out) follows it */
+/* bottom bar (phone and tablet): the order is this one line. Keys of TABS; inTabbar() (pages «Más» leaves out) follows it */
 const TABBAR = ['guias', 'personajes', 'mapa', 'partida', 'mas'];
 const TAB_PAGES = { inicio: ['inicio'], guias: ['guias'], personajes: ['personajes'], mapa: ['mapa'], partida: ['cap'] };
 const inTabbar = id => TABBAR.some(t => (TAB_PAGES[t] || []).includes(id));
 /** the menu (09-ia): search row, Inicio, the Guías panel (the home page has its own search and Guías block: the sidebar leaves them out there) (Empieza aquí, the 7 topics folded with only the current one open, all
-    guides), Consulta in groups, Mi partida as a folded footer. `more` (the phone's «Todas las secciones» sheet) leaves out what the
+    guides), Consulta in groups, Mi partida as a folded footer. `more` returns the phone's «Más» sheet (moreIndex), which leaves out what the
     bottom bar already has and prefixes its ids with m- (the sidebar uses s-) */
 function sectionIndex(sec, more, id = parseHash(location.hash).id, qs = parseHash(location.hash).qs) {
   const px = more ? 'm-' : 's-', pg = ROUTES[sec], skip = x => more && inTabbar(x);
@@ -85,10 +85,23 @@ function sectionIndex(sec, more, id = parseHash(location.hash).id, qs = parseHas
     `<div id="${px}mine"${open ? '' : ' hidden'}>${mine.join('')}</div></div>`;
   const consultaBlk = `<section class="nav-blk" aria-labelledby="${px}co-h"><h2 class="nav-blk-h" id="${px}co-h">${t('Consulta')}</h2>${consulta}</section>`;
   const homeA = `<a class="nav-home${sec === '' ? ' on' : ''}" href="#/"${sec === '' ? ' aria-current="page"' : ''}>${navIcon('home')}${t('Inicio')}</a>`;
-  // phone «Más»: Mi partida first and open (the game being played is what a phone is used for), then Consulta, the guides last
-  if (more) return homeA + mineBlk(true) + consultaBlk + panel;
+  if (more) return moreIndex(cur);
   return (home ? '' : `<button class="nav-q" type="button" data-pal aria-haspopup="dialog" aria-keyshortcuts="/ Control+K">${navIcon('q')}<span>${t('Buscar en la wiki')}</span><kbd aria-hidden="true">/</kbd></button>`) +
     homeA + (home ? '' : panel) + consultaBlk + mineBlk(mineOpen);
+}
+/** the phone's «Más» sheet: only what the bottom bar (Guías, Personajes, Mapa, Mi partida) and the logo (Inicio) do not open;
+    six groups of short two-column links (the sidebar keeps the long titles) */
+const MORE_GROUP = { consulta: 'Personajes', combate: 'Combate', economia: 'Objetos', mundo: 'Mundo', sistemas: 'Sistemas', historia: 'Historia' };
+const MORE_SHORT = { apoyos: 'Apoyos', regalos: 'Regalos', habilidades: 'Habilidades', mecanicas: 'Tablas de combate', tiendas: 'Tiendas y trueques',
+  misiones: 'Misiones', instalaciones: 'Dagsion', dioses: 'Templos', prestigio: 'Prestigio', sendas: 'Rutas y Ayudas', senores: 'Por señor',
+  partes23: 'Partes 2 y 3', dificultad: 'Dificultad y DLC' };
+function moreIndex(cur) {
+  return NAV.filter(g => MORE_GROUP[g.id]).map(g => {
+    const ps = g.pages.filter(p => p.nav !== false && !inTabbar(p.id));
+    if (!ps.length) return '';
+    const links = ps.map(p => `<a href="${pageHref(p)}"${cur === p.id ? ' class="on" aria-current="page"' : ''}>${esc(t(MORE_SHORT[p.id] || p.title))}</a>`).join('');
+    return `<section class="more-g" aria-labelledby="m-${g.id}"><h2 class="more-h" id="m-${g.id}">${esc(t(MORE_GROUP[g.id]))}</h2><div class="more-l">${links}</div></section>`;
+  }).join('');
 }
 const NAV_ICON = {  // 24px stroke icons
   cap: '<path d="M4 5h11a3 3 0 0 1 3 3v11H7a3 3 0 0 1-3-3z"/><path d="M8 9h6M8 13h6"/>',
@@ -136,7 +149,7 @@ const TABS = {  // inicio is not in TABBAR today: it is there so that putting it
 function tabbar(sec) {
   const pg = ROUTES[sec];
   return TABBAR.map(k => {
-    if (k === 'mas') return `<button type="button" data-sheet="mas" aria-haspopup="dialog" aria-label="${t('Más: todas las secciones')}">${navIcon('mas')}<span>${t('Más')}</span></button>`;
+    if (k === 'mas') return `<button type="button" data-sheet="mas" aria-haspopup="dialog" aria-label="${t('Más secciones')}">${navIcon('mas')}<span>${t('Más')}</span></button>`;
     const [h, ic, lb, isOn] = TABS[k], on = isOn(sec, pg);
     return `<a href="${esc(typeof h === 'function' ? h() : h)}"${on ? ' class="on" aria-current="page"' : ''}>${navIcon(ic)}<span>${t(lb)}</span></a>`;
   }).join('');
@@ -175,7 +188,7 @@ function modalHide(el, dismiss = false) {
 let sheetKind = null, keepSheet = false;
 function openSheet(kind) {
   sheetKind = kind;
-  $('#sheet-t').textContent = t(kind === 'ctx' ? 'Ruta y capítulo' : 'Todas las secciones');
+  $('#sheet-t').textContent = t(kind === 'ctx' ? 'Ruta y capítulo' : 'Más secciones');
   $('#sheet-body').innerHTML = kind === 'ctx' ? ctxSheet() : sectionIndex(parseHash(location.hash).sec, true);
   modalShow($('#sheet'));
   $('#ctx-btn')?.setAttribute('aria-expanded', String(kind === 'ctx'));

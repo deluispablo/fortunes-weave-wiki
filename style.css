@@ -693,3 +693,11 @@ a.eq-face{text-decoration:none}a.eq-face:hover{border-color:var(--line-strong)}
 /* a title focused after navigation (screen readers) shows no box */
 h1[tabindex="-1"]:focus, h1:focus:not(:focus-visible) { outline: none; }
 
+
+/* phone «Más»: six groups of short links in two columns, one screen */
+.more-g { margin: 0 0 var(--s3); }
+.more-h { margin: 0 0 var(--s1); padding: 0 2px; font: 600 var(--fs-small)/1.2 var(--font-body, inherit); text-transform: uppercase; letter-spacing: .06em; color: var(--mut); background: none; }
+.more-l { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.more-l > a { display: flex; align-items: center; min-height: var(--tap, 44px); padding: 6px 10px; border: 1px solid var(--line); border-radius: var(--r1); background: var(--surface2); color: var(--tx); line-height: 1.2; }
+.more-l > a:hover { border-color: var(--sel-line); text-decoration: none; }
+.more-l > a.on { background: var(--sel-bg); border-color: var(--sel-line); font-weight: 600; }

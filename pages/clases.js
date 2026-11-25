@@ -12,6 +12,8 @@
   /** nl() in the reader's language: an entity's own name (nm), else the text through dx (nl() shows the game table, which lacks most names) */
   const nlx = n => { if (n == null) return ''; const s = String(n), ex = NAME.get(norm(s)), h = ex || NAME.get(norm(s.replace(/\s*\(.*\)\s*$/, '')));
     return ex && LBL[ex[0]] ? L(ex[0], ex[1]) : h ? `<a href="${href(h[0], h[1])}">${esc(dx(s))}</a>` : esc(dx(s)); };
+  /** the licence note without Cai's Dagsion shop chapter (the data has only Cai's): for another chosen route */
+  const noCaiShop = s => (s || '').replace(/ en Dagsion desde el cap\. \d+ en la ruta de Cai y/, '').replace(/(?:;| y) (?:licencia \S+ en )?Dagsion desde el cap\. \d+ en la ruta de Cai(?: \([^)]*\))?/, '');
   const fo = s => { const f = factOnly(s); return !f || !isEn() ? f : EN_DICT().ui?.[f] != null ? t(f) : factOnly(dx(s)); };
   const skillLinks = a => list((a || []).filter(s => latin(s.es)).map(s => L('habilidad', s.id, s.es)));
   const routeOfName = n => ROUTE_IDS.find(r => ROUTE_NAME[r] === n);
@@ -50,7 +52,7 @@
     return `<h1>${t('Clases')}</h1>${guiaLink('clases', 'habilidades')}${routeChips('clases', qs, r)}${armaChips('clases', qs, arma)}` +
       chips('clases', qs, 'm', [['', 'A pie y montadas'], ['pie', 'A pie'], ...MOUNT_KINDS.map(x => [x, x])], m, 'Montura') +
       chips('clases', qs, 'u', [['', 'Todas'], ['1', 'Con desbloqueo especial']], u, 'Desbloqueo') +
-      `<p class="mut">${plural(rows.length, 'clase', 'clases')}</p>` +
+      `<p class="sr-only" data-count>${plural(rows.length, 'clase', 'clases')}</p>` +
       (rows.length ? tiers.map(tr => `<h2>${esc(META.tiers?.[tr] ? nm(META.tiers[tr]) : t('Rango {n}', { n: tr }))}</h2><div class="li-grid">${cards(tr)}</div>`).join('') : `<p class="mut">${t('Sin resultados con estos filtros.')}</p>`);
   }
 
@@ -107,7 +109,7 @@
         [t('Nivel recomendado'), c.recommended_level ? String(c.recommended_level) : ''],
         [t('Penalización por rango que falta'), c.exam_penalty_per_missing_rank ? t('−{n} % de probabilidad', { n: c.exam_penalty_per_missing_rank }) : ''],
         [t('EXP de clase para dominarla'), c.class_exp_to_master ? String(c.class_exp_to_master) : ''],
-        [t('Licencias y exámenes'), esc(sentence(fo(c.licence_note)))],
+        [t('Licencias y exámenes'), esc(sentence(fo(caiHide() ? noCaiShop(c.licence_note) : c.licence_note)))],
         [t('Clase previa'), c.tree_prev && CLASSES[c.tree_prev] ? L('clase', c.tree_prev) : ''],
         [t('Siguientes'), list((c.tree_next_all || []).filter(x => CLASSES[x]).map(x => L('clase', x)))],
         [t('No disponible para'), list((c.forbidden_persons || []).map(x => nlx(x)))],

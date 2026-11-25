@@ -57,8 +57,8 @@
     if (s.shops && Object.keys(s.shops).length) L.push('tie');
     if (s.vandahl?.length) L.push('van');
     if (s.search) L.push('bus');
-    if (s.farm) L.push('cul');
-    if (s.lure) L.push('ceb');
+    if (s.farm && !caiHide(true)) L.push('cul');  // Cai's farms and Lure: not in Part 1 of another route
+    if (s.lure && !caiHide(true)) L.push('ceb');
     if (M.dungeons?.[k]) L.push('maz');
     if (s.kind_es === 'templo') L.push('tem');
     if (s.kind_es === 'posta') L.push('pos');
@@ -87,7 +87,7 @@
   window.mapKinds = (route, c) => {
     const n = {};
     Object.entries(SPOTS).filter(([, s]) => s.xy && s.es).forEach(([k, s]) => spotLayers(k, s, route, c).forEach(l => { n[l] = (n[l] || 0) + 1; }));
-    return LAYERS.filter(([k]) => n[k]).map(([kind, label]) => ({ kind, label: t(label), n: n[kind] }));
+    return LAYERS.filter(([k]) => n[k]).map(([kind, label]) => ({ kind, label: t(label) + (kind === 'cul' || kind === 'ceb' ? caiTag() : ''), n: n[kind] }));
   };
   /** a tap on the type bar: with every default type shown, a type is isolated; after that a tap adds or removes it; * all, - none */
   window.mapKindTap = k => {
@@ -156,7 +156,7 @@
       `<g class="edges bg">${roads}</g><g class="edges">${roads}</g><g class="small">${small}</g><g class="regs">${regLbl}</g>${dots}</svg>` +
       `<div class="mzoom"><button type="button" data-mvz="1.5" aria-label="${t('Acercar')}">+</button><button type="button" data-mvz="0.667" aria-label="${t('Alejar')}">−</button><button type="button" data-mvz="0" aria-label="${t('Ver todo')}">⤢</button></div></div>` +
       `${sel ? panel(sel, route, c, caiP1, hits[sel]) : ''}</div>` +
-      `<p class="mut mhelp"><span data-count>${t('{n} en el mapa', { n: plural(shown, 'lugar', 'lugares') })}</span>. ${t('Arrastrar para desplazarlo; rueda, pellizco o +/− para el zoom; al tocar un punto se ve qué tiene. Con el teclado: flechas para desplazarlo e Intro para recorrer los lugares. Turnos en línea recta desde Dagsion (±1).')}</p>`;
+      `<p class="mut mhelp"><span class="sr-only" data-count>${t('{n} en el mapa', { n: plural(shown, 'lugar', 'lugares') })}. </span>${t('Arrastrar para desplazarlo; rueda, pellizco o +/− para el zoom; al tocar un punto se ve qué tiene. Con el teclado: flechas para desplazarlo e Intro para recorrer los lugares. Turnos en línea recta desde Dagsion (±1).')}</p>`;
   }
 
   function panel(k, route, c, caiP1, hit) {
@@ -167,8 +167,8 @@
       [t('Objeto buscado'), hit ? esc([...new Set(hit)].join(' / ')) : ''],
       [t('Misiones'), list(qs.map(q => L('mision', q.id)))],
       [t('Búsqueda'), dr.length ? dr.slice(0, 5).map(d => `${esc(nm(d.item))} ${pct(d.pct)}`).join(', ') + (dr.length > 5 ? ` <a href="${href('lugar', k)}">${t('+{n} más', { n: dr.length - 5 })}</a>` : '') : ''],
-      [t('Cultivo'), s.farm?.rare_plant ? `${t('planta rara: {x}', { x: esc(nm(s.farm.rare_plant)) })}${s.farm.plot_mutation_pct != null ? ` (${pct(s.farm.plot_mutation_pct)})` : ''}` : ''],
-      [t('Cebo'), s.lure ? list((s.lure.animals || []).map(x => `${esc(MOUNTS[x.id] ? nm(MOUNTS[x.id]) : gt(x.es))} ${pct(x.pct)}`)) + (s.lure.rare ? ` · ${t('raro: {x}', { x: esc(nm(s.lure.rare)) })} ${pct(s.lure.rare.pct)}` : '') : ''],
+      [t('Cultivo') + caiTag(), !caiHide(true) && s.farm?.rare_plant ? `${t('planta rara: {x}', { x: esc(nm(s.farm.rare_plant)) })}${s.farm.plot_mutation_pct != null ? ` (${pct(s.farm.plot_mutation_pct)})` : ''}` : ''],
+      [t('Cebo') + caiTag(), !caiHide(true) && s.lure ? list((s.lure.animals || []).map(x => `${esc(MOUNTS[x.id] ? nm(MOUNTS[x.id]) : gt(x.es))} ${pct(x.pct)}`)) + (s.lure.rare ? ` · ${t('raro: {x}', { x: esc(nm(s.lure.rare)) })} ${pct(s.lure.rare.pct)}` : '') : ''],
       [t('Mazmorra'), dg?.base_level_part?.['1'] ? t('nivel {n}', { n: dg.base_level_part['1'] }) : ''],
       [t('Tiendas'), esc(list(Object.keys(s.shops || {}).map(x => t(SHOP[x] || x))))],
       ['Vandahl', s.vandahl?.length ? t('trueques (<a href="{h}">ver lista</a>)', { h: `${href('lugar', k)}?ir=fi-tiendas` }) : ''],

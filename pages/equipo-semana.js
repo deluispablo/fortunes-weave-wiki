@@ -133,12 +133,11 @@ function teamWeekends(key) {
 }
 const isoOf = s => { const m = /(\d{4})\/(\d{1,2})\/(\d{1,2})/.exec(s); return m ? `${m[1]}-${m[2].padStart(2, '0')}-${m[3].padStart(2, '0')}` : null; };
 /** is recruit `pid` in Dagsion on `date` (chapter `key`)? From recruit.where («solo mar/mié», «mes 3», «desde…», «antes de…», «cap. N»).
-    Part 1 only (the rows say «toda la Parte 1»); no row, or another part → assumed there.
-    shortcut: the rows are Cai's route schedule; the other lords reuse it until each lord has its own rows. */
+    Part 1 of Cai only (the rows are Cai's route schedule); no row, another lord or another part → assumed there. */
 function teamHere(pid, date, key) {
   const c = CAPS[key] || {};
   const rows = (CHARS[pid]?.recruit?.where || []).filter(x => /^Dagsion:/.test(x));
-  if (c.part !== 1 || !rows.length) return true;
+  if (c.part !== 1 || c.route !== 'cai' || !rows.length) return true;
   return rows.some(x => {
     const cap = /cap\. (\d+)/.exec(x); if (cap && +cap[1] !== c.n) return false;
     const days = /solo ((?:lun|mar|mié|jue|vie|sáb|dom)(?:\/(?:lun|mar|mié|jue|vie|sáb|dom))*)/.exec(x); if (days && !days[1].split('/').includes(dowOf(date))) return false;

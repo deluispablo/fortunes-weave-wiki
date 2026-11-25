@@ -125,6 +125,7 @@
       if (!rr.some(r => srcOpen(r.conds, route, key))) return t('no en tu capítulo: {when}', { when: list(rr.map(r => span(r, route)).filter(Boolean)) || t('otra parte') });
     }
     if (!partOk(x, key)) return t('no en tu capítulo: {when}', { when: t('Parte {p}', { p: x.part }) });
+    if (!caiSrcOk(x, route, key)) return t('no está en la ruta de {r}', { r: rn });
     if (['mazmorra', 'expedición a mazmorra', 'cultivo (planta rara)'].includes(x.type)) {
       const codes = (x.conds || []).filter(Array.isArray).map(z => z[0]);
       if (c.part === 1 && !x.type.startsWith('cultivo') && !codes.length) return t('solo después de la Parte 1');
@@ -183,6 +184,7 @@
     if (x.unit && x.type !== 'botín enemigo') det.push(t('lo lleva {who}', { who: esc(dx(x.unit)) }));
     if ((x.animals || []).length) det.push(list(x.animals.map(esc)));
     if (x.note && fo(x.note)) det.push(esc(fo(x.note)));
+    if (!route && !caiSrcOk(x, '', 'cai-1-1')) det.push(t('solo Cai'));  // no route picked: farms and the Lure are Cai's in Part 1
     // a name left in Japanese is dropped on screen (jpHtml): fall back to the row's text, then to a plain label
     const named = h => h && !JP_ANY.test(h.replace(/<[^>]+>/g, '')) && h.replace(/<[^>]+>/g, '').trim();
     return [named(where) ? where : named(esc(dx(x.what))) ? esc(dx(x.what)) : t('Lugar sin datos'), det.filter(Boolean).join(' · ')];
@@ -265,7 +267,7 @@
   function objeto(k) {
     const it = ITEMS[k];
     if (!it) return notFound();
-    const route = ctxGet().route, groups = sources(it, k), [shardGot, shardPay] = shard(k);
+    const route = ctxRoute(), groups = sources(it, k), [shardGot, shardPay] = shard(k);
     // the summary carries what most visits want (what it does, weapon numbers, where to get it): no click; tabs only for the rest
     const head = fichaHead(img(ico().item?.[k], 'fi-pic'), `<a href="#/objetos">${t('Objetos')}</a>`, nm(it) || it.jp, dx(it.section),
       (tx(it, 'effect') ? `<p>${esc(clean(tx(it, 'effect')).replace(/\s+/g, ' '))}</p>` : '') + weaponRows(it, k) + useRules(it) + foodRows(it) + kvRows([

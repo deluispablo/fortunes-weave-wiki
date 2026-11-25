@@ -10,7 +10,7 @@
   const tabs = cur => `<nav class="tabs" aria-label="${t('Apartados')}">${TABS.map(([k, lb]) => `<a href="#/archivo${k === 'memorias' ? '' : '?t=' + k}"${cur === k ? ' class="on" aria-current="page"' : ''}>${esc(t(lb))}</a>`).join('')}</nav>`;
   const paras = a => (a || []).map(x => `<p>${esc(x)}</p>`).join('');
   const zone = d => LO.zonas_ex.find(z => z.dng === d);
-  const spot = s => (SPOTS[s] ? L('lugar', s) + (spotAccess(s, 'cai', 'cai-1-1', false).ok ? '' : ` <small>(${t('cerrado en la Parte 1 de Cai')})</small>`) : '');  // a fact about Cai, on every route
+  const spot = s => (SPOTS[s] ? L('lugar', s) + (caiHide() || spotAccess(s, 'cai', 'cai-1-1', false).ok ? '' : ` <small>(${t('cerrado en la Parte 1 de Cai')})</small>`) : '');  // a fact about Cai: with no route or on Cai
 
   function memorias() {
     const T = extText('lore_textos');

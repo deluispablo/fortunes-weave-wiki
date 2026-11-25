@@ -111,8 +111,8 @@
       p(t('Cada nivel sustituye al anterior (no se suman). Solo cuentan montado; el {cl} los dobla. Puntos de vínculo por nivel: {pts}.', { cl: CLASSES.JID_戦車兵 ? L('clase', 'JID_戦車兵') : t('Cuadriguero'), pts: (R.bond_thresholds || []).join(' / ') })), 'fi-bonos') : '';
     const lines = availLines(k, m), spots = m.lure_spots_detail || [];
     const where = card(t('Dónde y cómo se consigue'), ul(lines.map(x => `<li>${x}</li>`)) +
-      (spots.length ? `<h4>${t('Lugares de cebo')}</h4>${tw(['Lugar', 'Región', 'Probabilidad', 'Parte 1 (Cai)', 'Parte 3'], spots.map(s => [SPOTS[s.spot] ? L('lugar', s.spot) : nlx(s.es), esc(gt(s.region_es || '')), `${pct(s.pct)}${s.rare ? ` (${t('rara')})` : ''}`, t(s.cai_p1 ? 'sí' : 'no'), t(s.part3 ? 'sí' : 'no')]))}` +
-        p(t('El porcentaje es la probabilidad de que salga esta especie en ese lugar. Con un cebo de ★★★ del tipo que le gusta sale siempre un animal y la especie rara es mucho más probable. Reglas del cebo en {rec}.', { rec: `<a href="#/recoleccion?ir=cebo">${t('Recolección')}</a>` })) : ''), 'fi-donde');
+      (spots.length ? `<h4>${t('Lugares de cebo')}</h4>` + caiFold(tw(['Lugar', 'Región', 'Probabilidad', 'Parte 1 (Cai)', 'Parte 3'], spots.map(s => [SPOTS[s.spot] ? L('lugar', s.spot) : nlx(s.es), esc(gt(s.region_es || '')), `${pct(s.pct)}${s.rare ? ` (${t('rara')})` : ''}`, t(s.cai_p1 ? 'sí' : 'no'), t(s.part3 ? 'sí' : 'no')])) +
+        p(t('El porcentaje es la probabilidad de que salga esta especie en ese lugar. Con un cebo de ★★★ del tipo que le gusta sale siempre un animal y la especie rara es mucho más probable. Reglas del cebo en {rec}.', { rec: `<a href="#/recoleccion?ir=cebo">${t('Recolección')}</a>` }))) : ''), 'fi-donde');
     const rel = m.release_table || {};
     const release = Object.keys(rel).length ? card(t('Al liberarla'),
       p(t('El animal se va para siempre y deja un accesorio, que se sortea con el vínculo que tenga. Cada accesorio da los bonos de atributo de la montura en ese nivel.')) +
@@ -151,7 +151,7 @@
     const ty = KINDS.includes(qs.t) ? qs.t : '';
     const rows = Object.entries(MOUNTS).filter(([, m]) => !ty || m.kind === ty);
     const q = { ...qs, ir: '' };
-    return `<h1>${t('Monturas')}</h1>${guiaLink('monturas')}` +
+    return `<h1>${t('Monturas')}</h1>${guiaLink('monturas')}` + (caiHide(true) ? p(t('En la Parte 1 de esta ruta no se capturan monturas.')) : '') +
       p(t('Las monturas dan atributos, crecimientos y una habilidad al jinete, y todo crece con el vínculo entre los dos. Cada clase montada solo acepta su tipo. Se capturan con Cebo en la ruta de Cai (Parte 1) y en la Parte 3 de todas las rutas; las de clase no dan nada.')) +
       chips('monturas', q, 't', [['', 'Todos los tipos'], ...KINDS.map(x => [x, x])], ty, 'Tipo') + resultCount(rows.length, 'montura', 'monturas') +
       tw(['Montura', 'Tipo', 'Cómo se consigue', 'Habilidad de vínculo', 'Comida', 'Bonos con vínculo 5'], rows.map(([k, m]) => [L('montura', k), esc(gt(m.kind || '')), availShort(k, m),

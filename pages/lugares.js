@@ -19,7 +19,7 @@
     const shown = all.filter(([, s]) => spotIn(s, r) && (!kind || s.kind_es === kind)), rows = shown.filter(([, s]) => !caiClosed(s, r)).sort((a, b) => nm(a[1]).localeCompare(nm(b[1]), LANG));
     const hid = shown.length - rows.length, reg = s => W.map?.regions?.[s.region];
     return `<h1>${t('Lugares')}</h1>${routeChips('lugares', qs, r)}${chips('lugares', qs, 'k', [['', 'Todos los tipos'], ...kinds.map(k => [k, k])], kind, 'Tipo')}` +
-      `<p class="mut">${plural(rows.length, 'lugar', 'lugares')}${hid ? '. ' + t('Se ocultan {n} cerrados en la Parte 1 de Cai.', { n: hid }) : ''}</p>` +
+      `<p class="sr-only" data-count>${plural(rows.length, 'lugar', 'lugares')}</p>${hid ? `<p class="mut">${t('Se ocultan {n} cerrados en la Parte 1 de Cai.', { n: hid })}</p>` : ''}` +
       (rows.length ? `<div class="li-grid">${rows.map(([k, s]) => `<a class="li-card" href="${href('lugar', k)}">${img(s.thumb, 'li-pic li-thumb') || '<span class="li-pic"></span>'}` +
         `<span><b>${esc(nm(s))}</b><small>${esc(list([s.kind_es && t(s.kind_es), reg(s) && nm(reg(s))]))}</small></span></a>`).join('')}</div>`
         : `<p class="mut">${t('Sin resultados con estos filtros.')}</p>`);
@@ -80,12 +80,12 @@
     const dg = W.map?.dungeons?.[id];
     const drops = (s.search?.drops || []).map(x => li(itemL(x.item), list([pct(x.pct), x.rare && t('raro'), x.first_time_only && t('solo la primera vez')])));
     const loot = (dg?.loot_tables || []).flat().filter(x => x.item).map(x => li(itemL(x.item), `${x.n}× · ${pct(x.pct)}`));
-    const fm = s.farm, lu = s.lure;
+    const fm = !caiHide(true) && s.farm, lu = !caiHide(true) && s.lure;  // Cai's farms and Lure: not in Part 1 of another route
     const chests = ((window.WIKI_EXT || {}).detalle?.chests?.[id] || []).filter(r => ITEMS[r[0]]).map(r => li(itemL(ITEMS[r[0]] && { id: r[0], es: ITEMS[r[0]].es }),
       r[1] && ITEMS[r[1]] ? `${t('Parte {p}', { p: 3 })}: ${itemL({ id: r[1], es: ITEMS[r[1]].es })}` : ''));
     return (drops.length ? `<h4>${t('Búsqueda')}</h4>${ul(drops)}` : '') +
-      (fm ? `<h4>${t('Cultivo')}</h4>${kvRows([[t('Planta rara'), itemL(fm.rare_plant)], [t('Probabilidad de mutación'), fm.plot_mutation_pct != null ? pct(fm.plot_mutation_pct) : '']])}` : '') +
-      (lu ? `<h4>${t('Cebo')}</h4>${kvRows([[t('Animales'), list((lu.animals || []).map(a => L('montura', a.id, a.es) + ` <small>${pct(a.pct)}</small>`))],
+      (fm ? `<h4>${t('Cultivo')}${caiTag()}</h4>${kvRows([[t('Planta rara'), itemL(fm.rare_plant)], [t('Probabilidad de mutación'), fm.plot_mutation_pct != null ? pct(fm.plot_mutation_pct) : '']])}` : '') +
+      (lu ? `<h4>${t('Cebo')}${caiTag()}</h4>${kvRows([[t('Animales'), list((lu.animals || []).map(a => L('montura', a.id, a.es) + ` <small>${pct(a.pct)}</small>`))],
         [t('Si falla, deja'), itemL(lu.fertiliser)], [t('Misión'), lu.subquest && L('mision', lu.subquest.id, lu.subquest.es)]])}` : '') +
       (chests.length ? `<h4>${t('Cofres')}</h4><p class="mut">${t('Contenido en la Parte 1 y, debajo, en la Parte 3.')}</p>${ul(chests)}` : '') +
       (loot.length ? `<h4>${t('Mazmorra')}${dg.base_level_part?.['1'] ? ' · ' + t('nivel {n} en la Parte 1', { n: dg.base_level_part['1'] }) : ''}</h4>${ul(loot)}` : '');

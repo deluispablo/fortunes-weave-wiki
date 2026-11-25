@@ -110,6 +110,11 @@ function teamClassIdx(jid, route) {
   }
   return teamFirst(route, 0, c => c.part >= Math.max(from, 1));
 }
+/** first chapter index where `jid` can be taken on `route`: the class exists there, exams are open and its licence is on sale; -1 = never */
+function classFromIdx(jid, route) {
+  const c = teamClassIdx(jid, route); if (c < 0) return -1;
+  return Math.max(c, teamFirst(route, 0, ch => (ch.unlocks || []).includes('Examen de aptitud')), teamLicenceIdx(route, CLASSES[jid].licence));  // i18n-ignore (data value)
+}
 /** exam reachable with the trained skills: every fixed requirement trained, and one of the «o» group */
 const teamExamOk = (jid, trained) => {
   const req = CLASSES[jid]?.exam_requirements || [], fixed = req.filter(r => !r.choice_group), any = req.filter(r => r.choice_group);
@@ -272,7 +277,7 @@ function teamBuild(pid, route, key, pick) {
   const ch = routeChapters(route);
   const steps = path.map(jid => {
     const k = CLASSES[jid], g = teamGrowth(pid, jid), lv = k.recommended_level || null;
-    const floor = Math.max(from, examIdx, teamLicenceIdx(route, k.licence), teamClassIdx(jid, route));
+    const floor = Math.max(from, examIdx, teamLicenceIdx(route, k.licence), teamClassIdx(jid, route));  // = classFromIdx where the class exists; a start class missing on the route still waits for exams
     const at = lv ? teamFirst(route, floor, x => x.level && x.level[1] >= lv) : -1;
     if (at >= 0) from = at;
     const floors = STAT_KEYS.filter(s => (k.certification_floors?.[s] || 0) > (cb.base?.[s] || 0)).map(s => [s, k.certification_floors[s]]);

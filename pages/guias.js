@@ -51,7 +51,7 @@ function guiaTema(id) {
   const START = ['guia', 'builds', 'reclutas', 'trucos', 'perdibles'];
   function index() {
     const start = START.map(temaListing).filter(Boolean);
-    return `<h1>${t('Guías')}</h1><p class="mut">${t('{n} guías en {m} temas.', { n: (W.guias || []).length, m: (W.temas || []).length })}</p>` +
+    return `<h1>${t('Guías')}</h1>` +
       (start.length ? `<section class="gu-start" aria-labelledby="gu-st-t"><h2 id="gu-st-t">${t('Empieza aquí')}</h2><ul class="gu-rel">${start.map(l => `<li><a href="${l.href}">${esc(l.title)}</a></li>`).join('')}</ul></section>` : '') +
       `<nav class="chips gu-chips" aria-label="${t('Temas')}">${temasL().map(([tm, n]) => `<a class="chip" href="#/guias/${tm}">${esc(n)}</a>`).join('')}</nav>` +
       temasL().map(([tm, n]) => `<section class="gu-cat"><h2><a href="#/guias/${tm}">${esc(n)}</a></h2>${guideList(W.guias.filter(g => g.tema === tm))}</section>`).join('');

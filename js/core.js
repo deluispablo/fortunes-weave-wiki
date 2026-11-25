@@ -178,7 +178,7 @@ const notFound = () => `<h1>${t('Página no encontrada')}</h1><p class="mut">${t
 /** «1 personaje», «1.294 objetos»: the count with the noun in singular or plural (the Spanish nouns are t() keys) */
 const plural = (n, one, many = one + 's') => `${num(n)} ${t(n === 1 ? one : many)}`;
 /** a listing's result count; shell.js announces it (#live) when a filter re-renders the same page */
-const resultCount = (n, one, many, tail = '') => `<p class="mut" data-count>${plural(n, one, many)}${tail}</p>`;
+const resultCount = (n, one, many, tail = '') => `<p class="sr-only" data-count>${plural(n, one, many)}${tail}</p>`;  // a count-only line: read out on filter changes, not shown
 /** full recruit requirement: items (with icon), gold, support, Prestigio */
 const recruitCost = c => list([
   ...c.items.map(i => `${img(ico().item?.[i.id], 'ico')}${i.n > 1 ? i.n + '× ' : ''}${L('objeto', i.id, i.es)}`),
@@ -307,6 +307,16 @@ const ctxChosen = () => { const v = ctxStored(); return !!(v && ROUTE_IDS.includ
 /** the chosen route and chapter, '' while nothing is picked: pages that show route facts use these, never ctxGet()'s Cai default */
 const ctxRoute = () => (ctxChosen() ? ctxGet().route : '');
 const ctxKey = () => (ctxChosen() ? ctxGet().key : '');
+/** a Cai-only fact with the chosen game: true = hide it (another route chosen; with `p1`, only while that game is in Part 1: Cai's farms and Lure reopen in Part 3) */
+const caiHide = (p1 = false) => { const r = ctxRoute(); return !!r && r !== 'cai' && (!p1 || CAPS[ctxKey()]?.part === 1); };
+/** « (solo Cai)» after a Cai-only fact while no route is picked ('' once one is) */
+const caiTag = () => (ctxRoute() ? '' : ' ' + t('(solo Cai)'));
+/** a whole Cai-only block, folded under «no está en la Parte 1 de esta ruta» in Part 1 of another route */
+const caiFold = h => (caiHide(true) ? `<p class="mut">${t('No está en la Parte 1 de esta ruta.')}</p><details><summary>${t('Ver de todos modos')}</summary>${h}</details>` : h);
+/** drops the «; »-separated parts of a translated text that name another route than the chosen one («lecciones (ruta de Cai)»); no route: as is */
+const routeParts = s => { const r = ctxRoute(); if (!r) return s;
+  const other = ROUTE_IDS.filter(x => x !== r).map(x => `(${t('ruta de {r}', { r: ROUTE_NAME[x] })})`);
+  return s.split('; ').filter(x => !other.some(o => x.includes(o))).join('; '); };
 /** writes the context in the current shape ({route, key, team, got, drop, fold}) */
 const ctxSave = o => { const v = ctxStored() || {}, c = ctxGet();
   store.set('ctx', { route: c.route, key: c.key, team: ctxTeamRaw(v), got: c.have, drop: c.drop, ...(c.fold != null ? { fold: c.fold } : {}), ...o }); };
@@ -470,7 +480,7 @@ const facOk = (o, route, key, later = false) => { const i = facIdx(o, route), k 
     A barter counts one level deep. */
 function payOk(iid, route, key, depth = 1, noBox = false) {
   return (ITEMS[iid]?.obtain || []).some(o => {
-    if (!partOk(o, key) || (noBox && o.type === 'sorteo')) return false;  // refining materials: a random box is not a plan
+    if (!partOk(o, key) || !caiSrcOk(o, route, key) || (noBox && o.type === 'sorteo')) return false;  // refining materials: a random box is not a plan
     if (o.type === 'tienda' || o.type === 'ambulante') return facOk(o, route, key, true) && (o.rows || [{ conds: o.conds || [] }]).some(w => srcOpen(w.conds, route, key)) && spotAccess(sourceSpot(o), route, key).ok;
     if (o.type === 'barter') return depth > 0 && facOk(o, route, key, true) && (o.rows || [{ conds: [] }]).some(w => srcOpen(w.conds, route, key)) && spotAccess(sourceSpot(o), route, key).ok && (o.pay || []).every(x => payOk(x.id, route, key, depth - 1));
     if (o.type === 'búsqueda') return routeOk(o.condition || [], route) && spotAccess(o.spot, route, key).ok;
@@ -486,6 +496,8 @@ function payOk(iid, route, key, depth = 1, noBox = false) {
     return true;  // enemy loot, lured-animal manure…
   });
 }
+/** farm plants and lured-animal manure need Cai's farms and Lure: in Part 1 only on Cai's route (Part 3: as the data says) */
+const caiSrcOk = (o, route, key) => !(o.type?.startsWith('cultivo') || o.type === 'atraer animal (estiércol)') || CAPS[key]?.part !== 1 || route === 'cai';
 /** a barter whose payment cannot be had on this route and part is not a real offer */
 const barterOk = (o, route, key) => o.type !== 'barter' || (o.pay || []).every(x => payOk(x.id, route, key));
 const plPlace = s => (JP_ANY.test(s || '') ? t('otra ubicación') : esc(dataTx(s)));  // place names without a Spanish reading
@@ -498,7 +510,7 @@ function itemSources(iid, route, key) {
     const open = o.rows ? o.rows.some(w => ok(w.conds)) : !key || ok(o.conds || o.condition || []);
     if (!open || (key && (!partOk(o, key) || (o.type === 'recompensa' && !rewardOpen(o.when, route, key))))) continue;
     if (key) {  // places the party cannot reach on this route/part (Cai Part 1's closed regions) are not a source, nor a barter nobody can pay
-      if (!spotAccess(sourceSpot(o), route, key).ok || !barterOk(o, route, key) || !facOk(o, route, key, true)) continue;
+      if (!caiSrcOk(o, route, key) || !spotAccess(sourceSpot(o), route, key).ok || !barterOk(o, route, key) || !facOk(o, route, key, true)) continue;
     }
     // each shelf has its own discount: the price paid is the base price minus it (as the item ficha shows it)
     const row = o.rows?.find(w => ok(w.conds)) || o.rows?.[0] || {}, base = row.price ?? o.price ?? ITEMS[iid].price;

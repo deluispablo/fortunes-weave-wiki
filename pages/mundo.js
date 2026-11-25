@@ -70,7 +70,7 @@
       ['Captura', 'manjar favorito 100 %, calidad alta 40 / media 20 / baja 0, alimento preferido de uno 30 / de ambos 60, llamar con la mano 20; huida 40 %; 2 turnos como máximo.']]) +
       `<p>${t('Fichas de cada animal y cómo subir el vínculo: <a href="#/monturas">Monturas</a>.')}</p>`);
     const secs = [['busqueda', t('Búsqueda'), dry.length, searchRules + spotCards(dry)], ['pesca', t('Pesca'), fish.length, spotCards(fish)],
-      ['cultivo', t('Cultivo · ruta de Cai'), farms.length, card(t('Reglas del cultivo'), farmRules) + farmT], ['cebo', t('Cebo y monturas · ruta de Cai'), lures.length, lureRules + lureT]];
+      ['cultivo', t('Cultivo · ruta de Cai'), farms.length, caiFold(card(t('Reglas del cultivo'), farmRules) + farmT)], ['cebo', t('Cebo y monturas · ruta de Cai'), lures.length, caiFold(lureRules + lureT)]];
     return `<h1>${t('Recolección')}</h1>${guiaLink('busqueda', 'cultivo')}${chips('recoleccion', qs, 't', [['', t('Todo')], ...secs.map(([k, n, c]) => [k, `${n} (${c})`])], tp, 'Tipo')}` +
       secs.filter(([k]) => !tp || tp === k).map(([k, n, , h]) => `<h2 id="${k}">${esc(n)}</h2>${h}`).join('');
   }
@@ -79,7 +79,7 @@
   function mazmorras() {
     const rows = Object.entries(M.dungeons || {}).filter(([k, d]) => SPOTS[k]?.es || d.es).sort((a, b) => (a[1].base_level_part?.['1'] || 0) - (b[1].base_level_part?.['1'] || 0) || byName(a, b));
     const loot = d => [...new Map((d.loot_tables || []).flat().filter(x => x.item).map(x => [x.item.id, x.item])).values()];
-    return `<h1>${t('Mazmorras')}</h1>${guiaLink('mazmorras')}<p class="mut">${t('{n} mazmorras, ordenadas por nivel en la Parte 1.', { n: rows.length })}</p>` +
+    return `<h1>${t('Mazmorras')}</h1>${guiaLink('mazmorras')}<p class="mut">${t('Ordenadas por nivel en la Parte 1.')}</p>` +
       `<div class="tw"><table><tr><th>${t('Mazmorra')}</th><th>${t('Nivel (Parte 1)')}</th><th>${t('Bono de nivel (Parte 2)')}</th><th>${t('Botín')}</th></tr>${rows.map(([k, d]) =>
         `<tr><td>${SPOTS[k] ? L('lugar', k) : esc(nm(d))}</td><td>${d.base_level_part?.['1'] || ''}</td><td>${d.level_bonus_2 ? '+' + d.level_bonus_2 : ''}</td><td>${list(loot(d).map(itemL))}</td></tr>`).join('')}</table></div>`;
   }

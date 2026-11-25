@@ -529922,7 +529922,7 @@ window.WIKI={
     ],
     [
      "Objetos de reclutamiento difíciles (ruta de Cai)",
-     "<ul>\n<li><a href=\"#/objeto/IID_カガヤキウオ\">Pez del paraíso</a>: Buscar en puntos de pesca (<a href=\"#/lugar/ブロンテス湖\">Lago Brontes</a>) y cajas de pescado; también paga el Anillo de gigante y el cebo del Meganius rojo.</li>\n<li><a href=\"#/objeto/IID_デーツ\">Dátil</a>: 2 de la misión «Bestias enormes» y cultivarlos; trueque en el <a href=\"#/lugar/黒翼の谷\">Valle de las Alas Negras</a> (2, sin reponer).</li>\n<li><a href=\"#/objeto/IID_砂虫肉\">Carne de gusano</a>: trueque en <a href=\"#/lugar/海都アレクトー\">Alecto</a> (5, +3 por capítulo).</li>\n<li><a href=\"#/objeto/IID_グルマオサ\">Glirmosa</a>: mutación de las parcelas de <a href=\"#/lugar/そよ風の丘\">Colina de la Brisa</a>, <a href=\"#/lugar/ムルキベル湿地帯\">Humedal de Mulciber</a> y <a href=\"#/lugar/ソナイ峠\">Paso de Sonai</a>.</li>\n<li><a href=\"#/objeto/IID_巨大肉\">Comida de gigante</a>: trueque en Alecto y en el Valle por 10 <a href=\"#/objeto/IID_煉獄草\">Hierbas del tormento</a>, que en una primera partida de Cai solo salen de la Caja verdura deliciosa.</li>\n</ul>"
+     "<ul>\n<li><a href=\"#/objeto/IID_カガヤキウオ\">Pez del paraíso</a>: Buscar en puntos de pesca (<a href=\"#/lugar/ブロンテス湖\">Lago Brontes</a>) y cajas de pescado; también paga el Anillo de gigante y el cebo del Meganius rojo.</li>\n<li><a href=\"#/objeto/IID_デーツ\">Dátil</a>: 2 de la misión «Bestias enormes» y cultivarlos (solo Cai); trueque en el <a href=\"#/lugar/黒翼の谷\">Valle de las Alas Negras</a> (2, sin reponer).</li>\n<li><a href=\"#/objeto/IID_砂虫肉\">Carne de gusano</a>: trueque en <a href=\"#/lugar/海都アレクトー\">Alecto</a> (5, +3 por capítulo).</li>\n<li><a href=\"#/objeto/IID_グルマオサ\">Glirmosa</a>: mutación de las parcelas de <a href=\"#/lugar/そよ風の丘\">Colina de la Brisa</a>, <a href=\"#/lugar/ムルキベル湿地帯\">Humedal de Mulciber</a> y <a href=\"#/lugar/ソナイ峠\">Paso de Sonai</a>.</li>\n<li><a href=\"#/objeto/IID_巨大肉\">Comida de gigante</a>: trueque en Alecto y en el Valle por 10 <a href=\"#/objeto/IID_煉獄草\">Hierbas del tormento</a>, que en una primera partida de Cai solo salen de la Caja verdura deliciosa.</li>\n</ul>"
     ],
     [
      "Consejos de min-max",
@@ -530511,7 +530511,7 @@ window.WIKI={
     ],
     [
      "Consejos de min-max",
-     "<ul>\n<li>Planificar un bucle por salida: Buscar, cultivar y escaramuzas de camino, y volver a Dagsion cerca del sábado.</li>\n<li>Usar el carruaje en cuanto esté disponible, porque no gasta turno.</li>\n<li>Antes de cruzar a una región de nivel alto, mirar su rango: las escaramuzas de allí pueden superar con creces al ejército.</li>\n<li>Si un mercader interesante no está, moverse o dormir lo puede traer.</li>\n</ul>"
+     "<ul>\n<li>Planificar un bucle por salida: Buscar, cultivar (solo Cai) y escaramuzas de camino, y volver a Dagsion cerca del sábado.</li>\n<li>Usar el carruaje en cuanto esté disponible, porque no gasta turno.</li>\n<li>Antes de cruzar a una región de nivel alto, mirar su rango: las escaramuzas de allí pueden superar con creces al ejército.</li>\n<li>Si un mercader interesante no está, moverse o dormir lo puede traer.</li>\n</ul>"
     ]
    ]
   },

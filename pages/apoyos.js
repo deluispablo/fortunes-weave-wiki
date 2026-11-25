@@ -75,7 +75,7 @@
     function windowList(n, q) {
       const rows = Object.values(AV).filter(x => PAIR[x.id] && lostRanks(x.id, n).length && (!q || norm([cn(x.a), cn(x.b), CHARS[x.a]?.es, CHARS[x.b]?.es].join(' ')).includes(norm(q))))
         .sort((x, y) => `${cn(x.a)} ${cn(x.b)}`.localeCompare(`${cn(y.a)} ${cn(y.b)}`, LANG));
-      return resultCount(rows.length, 'pareja', 'parejas', ' ' + t('con conversaciones que ya no se pueden ver al acabar la Parte {n}.', { n })) + `<p class="mut">${t('Más cosas que se pierden: {a}.', { a: `<a href="#/perdibles">${t('Perdibles')}</a>` })}</p>` +
+      return resultCount(rows.length, 'pareja', 'parejas') + `<p class="mut">${t('Parejas con conversaciones que ya no se pueden ver al acabar la Parte {n}.', { n })} ${t('Más cosas que se pierden: {a}.', { a: `<a href="#/perdibles">${t('Perdibles')}</a>` })}</p>` +
         (rows.length ? `<div class="tw"><table><tr><th>${t('Pareja')}</th><th>${t('Se pierden')}</th><th>${t('Todas')}</th></tr>${rows.map(x =>
           `<tr><td>${pl(PAIR[x.id])}</td><td>${lostRanks(x.id, n).join(', ')}</td><td>${rankChips(PAIR[x.id])}</td></tr>`).join('')}</table></div>` : '');
     }
@@ -112,10 +112,9 @@
       const q = (qs.t || '').trim(), sp = qs.sp !== 'p1', v = ['p1', 'p2'].includes(qs.v) ? qs.v : '';
       const hit = p => !q || norm(cn(p) + ' ' + (CHARS[p]?.es || '')).includes(norm(q));
       const chars = Object.keys(A.by_char).filter(hit).sort((x, y) => cn(x).localeCompare(cn(y), LANG));
-      const nconv = A.pairs.reduce((s, p) => s + p.ranks.length, 0);
       const best = p => [...new Set(A.by_char[p].map(i => PAIR[i].max))].sort((a, b) => ORDER.indexOf(b) - ORDER.indexOf(a))[0];
       return `<h1>${t('Apoyos: parejas y finales')}</h1>${guiaLink('apoyos')}<nav class="tabs" aria-label="${t('Vista')}"><a href="#/apoyos" class="on" aria-current="page">${t('Apoyos')}</a><a href="#/finales">${t('Finales')}</a></nav>` +
-        `<p class="mut">${plural(A.pairs.length, 'pareja', 'parejas')} · ${plural(nconv, 'conversación', 'conversaciones')}</p>` +
+        `<p class="sr-only">${plural(A.pairs.length, 'pareja', 'parejas')}</p>` +
         `<div class="filters"><input type="search" name="t" data-qs="apoyos" value="${esc(q)}" placeholder="${t('Buscar personaje o frase')}" aria-label="${t('Buscar personaje o frase de las conversaciones')}">` +
         chips('apoyos', qs, 'sp', [['', 'Todas las partes'], ['p1', 'Sin spoilers (solo Parte 1)']], sp ? '' : 'p1', 'Partes') + '</div>' +
         chips('apoyos', qs, 'v', [['', 'Todas las parejas'], ['p1', 'Se pierden al acabar la Parte 1'], ['p2', 'Se pierden al acabar la Parte 2']], v, 'Ventana') +

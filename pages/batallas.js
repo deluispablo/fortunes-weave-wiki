@@ -58,7 +58,7 @@
     return `<h1>${t('Batallas')}</h1>${routeChips('batallas', qs, r)}` +
       chips('batallas', qs, 'p', [['', 'Todas las partes'], ...Object.entries(PARTS)], p, 'Parte') +
       chips('batallas', qs, 'k', [['', 'Todos los tipos'], ...KINDS.map(x => [x, x[0].toUpperCase() + x.slice(1)])], k, 'Tipo') +
-      `<p class="mut">${t('{n} de {all} batallas', { n: rows.length, all: D.b.length })}</p>` +
+      `<p class="sr-only" data-count>${t('{n} de {all} batallas', { n: rows.length, all: D.b.length })}</p>` +
       (rows.length ? `<div class="tw"><table><tr><th>${t('Batalla')}</th><th>${t('Tipo')}</th><th>${t('Enemigos')}</th></tr>${body}</table></div>` : `<p class="mut">${t('Sin resultados con estos filtros.')}</p>`);
   }
 
