@@ -156,6 +156,7 @@
       block('Antes de que termine', closing(c), 'ul') +
       // what to do in Dagsion this chapter (was Equipo › Semana): 0 taps from the front page
       (wr && dagsion(wr, key) ? `<section class="card" id="eq-dagsion"><h3>${t('En Dagsion')}</h3>${dagsion(wr, key)}</section>` : '') +
+      ((fb => (fb ? `<details class="card" id="cp-libre"><summary><h3>${t('Tiempo libre')}</h3></summary>${fb}</details>` : ''))(wr && typeof window.teamFreeBlock === 'function' ? window.teamFreeBlock(wr, key) : '')) +
       block('Prioridades de min-max', priorities(c) || (c.part >= 2 ? `<li class="mut">${t('Sin prioridades escritas aún para este capítulo. Guía de las Partes 2 y 3: <a href="#/guia/guerra-y-salvacion">Guerra y salvación</a>.')}</li>` : ''), 'ol') +
       block('Reclutables ahora', recruits(c), 'ul') +
       block('Batallas', battles(c)) +

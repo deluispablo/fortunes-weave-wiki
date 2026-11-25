@@ -364,6 +364,29 @@
     return lines.length ? ul(lines.map(x => `<li>${x}</li>`)) : '';
   };
 
+  /** Capítulo › Tiempo libre: 3–5 errands for the turns left once the chapter's important things are done */
+  const FREE_VERB = { buscar: 'Busca en {s}', mazmorra: 'Entra en {s}', entrenar: 'Entrena en {s}', oro: 'Busca en {s}', cebo: 'Pon un cebo en {s}', cultivo: 'Planta en {s}' };
+  window.teamFreeBlock = (route, key) => {
+    const plan = teamPlan(route, key, ctxRecruits(route), ctxDrop(route), ctxWant(route)), tasks = teamFreeTime(route, key, plan);
+    if (!tasks.length) return '';
+    const obj = g => `${g.some ? '≈' : ''}${g.n > 1 || g.some ? `${g.n}× ` : ''}${L('objeto', g.iid)}`;
+    const line = x => {
+      const items = x.gain.filter(g => g.iid), chests = items.filter(g => g.chest), rest = items.filter(g => !g.chest), sk = x.gain.filter(g => g.skill);
+      const bits = [
+        chests.length && t('cofre (si sigue cerrado): {a}', { a: list(chests.map(obj)) }),
+        rest.length && list(rest.map(g => obj(g) + (g.trade ? ' ' + t('para trocar por {a}', { a: L('objeto', g.trade) }) : g.gift ? ' ' + t('regalo favorito de {a}', { a: L('personaje', g.gift) }) : g.why === 'forja' ? ' ' + t('para la forja') : '') +
+          (g.gold ? ` (${gold(g.gold)})` : ''))),
+        x.gain.filter(g => g.mount).map(g => t('{m} para {p}', { m: L('montura', g.mount), p: L('personaje', g.pid) }))[0],
+        sk.length && t('competencias: {a}', { a: esc(list(sk.map(g => `${t(g.skill)} ${g.rank}`))) }) + (x.for?.length ? ` (${list(x.for.map(p => L('personaje', p)))})` : ''),
+        sk.length && t('sal a los 15 turnos de cada batalla rápida y vuelve a entrar; no acabes con el grupo.'),
+      ].filter(Boolean);
+      const where = t(FREE_VERB[x.kind], { s: L('lugar', x.spot) }), cost = t(x.turns === 1 ? '{n} turno' : '{n} turnos', { n: x.turns }),
+        trip = x.travel > 0 ? ' ' + t('(a ~{n} de Dagsion)', { n: x.travel }) : '';
+      return `<li>${where} · ${cost}${trip}: ${bits.join('; ')}</li>`;
+    };
+    return `<p class="mut">${t('Cuando ya hayas hecho lo importante del capítulo:')}</p><ol class="cp-list">${tasks.map(line).join('')}</ol>`;
+  };
+
   /** re-render in place keeping the page scroll and the focus on the pressed control (selector `again` finds it) */
   function keepPlace(again, change, say = true) {
     const y = window.scrollY;
