@@ -367,24 +367,39 @@
   /** Capítulo › Tiempo libre: 3–5 errands for the turns left once the chapter's important things are done */
   const FREE_VERB = { buscar: 'Busca en {s}', mazmorra: 'Entra en {s}', entrenar: 'Entrena en {s}', oro: 'Busca en {s}', cebo: 'Pon un cebo en {s}', cultivo: 'Planta en {s}' };
   window.teamFreeBlock = (route, key) => {
-    const plan = teamPlan(route, key, ctxRecruits(route), ctxDrop(route), ctxWant(route)), tasks = teamFreeTime(route, key, plan);
-    if (!tasks.length) return '';
+    const plan = teamPlan(route, key, ctxRecruits(route), ctxDrop(route), ctxWant(route)), S = teamFreeSections(route, key, plan);
+    if (!Object.values(S).some(l => l.length)) return '';
     const obj = g => `${g.some ? '≈' : ''}${g.n > 1 || g.some ? `${g.n}× ` : ''}${L('objeto', g.iid)}`;
+    const cost = x => t(x.turns === 1 ? '{n} turno' : '{n} turnos', { n: x.turns }) + (x.travel > 0 ? ' ' + t(x.travel === 1 ? '(a ~{n} turno de Dagsion)' : '(a ~{n} turnos de Dagsion)', { n: x.travel }) : '');
+    const recruit = p => t('para reclutar a {p} (desde el {c})', { p: L('personaje', p), c: esc((cs => (isEn() ? cs : cs.replace(/^C/, 'c')))(capShort(CAPS[CHARS[p].routes[route].recruit_key] || {}))) });
+    // a barter: what to collect (or buy) and where, then where to trade it and for what
+    const barter = x => {
+      const mats = list(x.gain.filter(g => g.iid).map(g => g.src ? t('{a} en {s}', { a: obj(g), s: L('lugar', g.src) }) : t('{a} (cómpralo, {g})', { a: obj(g), g: gold(g.buy) })));
+      const sold = x.gain.find(g => g.gold && !g.iid), end = x.kind === 'oro'
+        ? t('cámbialo en {s} por {w} y véndelo ({g})', { s: L('lugar', x.at), w: L('objeto', x.trade), g: gold(sold?.gold || 0) })
+        : x.only ? t('cámbialo en {s} por {w} (solo por trueque)', { s: L('lugar', x.at), w: L('objeto', x.trade) })
+        : t('cámbialo en {s} por {w} (ahorras {g})', { s: L('lugar', x.at), w: L('objeto', x.trade), g: gold(x.save || 0) });
+      const foe = x.foe ? ' ' + t('— eficaz contra {f} en {b}', { f: esc(t(FOE_ES[x.foe] || x.foe)), b: L('batalla', x.battle, x.battleEs) }) : '';
+      return `<li>${t('Junta {m}', { m: mats })} · ${cost(x)}: ${end}${foe}</li>`;
+    };
     const line = x => {
+      if (x.trade) return barter(x);
+      if (x.kind === 'comprar') { const g = x.gain[0]; return `<li>${t('Compra en {s}', { s: L('lugar', x.spot) })}: ${obj(g)} (${gold(g.buy)}) ${recruit(g.recruit)}</li>`; }
       const items = x.gain.filter(g => g.iid), chests = items.filter(g => g.chest), rest = items.filter(g => !g.chest), sk = x.gain.filter(g => g.skill);
       const bits = [
         chests.length && t('cofre (si sigue cerrado): {a}', { a: list(chests.map(obj)) }),
-        rest.length && list(rest.map(g => obj(g) + (g.trade ? ' ' + t('para trocar por {a}', { a: L('objeto', g.trade) }) : g.gift ? ' ' + t('regalo favorito de {a}', { a: L('personaje', g.gift) }) : g.why === 'forja' ? ' ' + t('para la forja') : '') +
-          (g.gold ? ` (${gold(g.gold)})` : ''))),
+        rest.length && list(rest.map(g => obj(g) + (g.trade ? ' ' + t('para trocar por {a}', { a: L('objeto', g.trade) }) : g.recruit ? ' ' + recruit(g.recruit) : g.gift ? ' ' + t('regalo favorito de {a}', { a: L('personaje', g.gift) }) : g.why === 'forja' ? ' ' + t('para la forja') : '') +
+          (g.gold ? ` (${t('vale {g}', { g: gold(g.gold) })})` : ''))),
         x.gain.filter(g => g.mount).map(g => t('{m} para {p}', { m: L('montura', g.mount), p: L('personaje', g.pid) }))[0],
         sk.length && t('competencias: {a}', { a: esc(list(sk.map(g => `${t(g.skill)} ${g.rank}`))) }) + (x.for?.length ? ` (${list(x.for.map(p => L('personaje', p)))})` : ''),
         sk.length && t('sal a los 15 turnos de cada batalla rápida y vuelve a entrar; no acabes con el grupo.'),
       ].filter(Boolean);
-      const where = t(FREE_VERB[x.kind], { s: L('lugar', x.spot) }), cost = t(x.turns === 1 ? '{n} turno' : '{n} turnos', { n: x.turns }),
-        trip = x.travel > 0 ? ' ' + t('(a ~{n} de Dagsion)', { n: x.travel }) : '';
-      return `<li>${where} · ${cost}${trip}: ${bits.join('; ')}</li>`;
+      const foe = x.foe ? ' ' + t('— eficaz contra {f} en {b}', { f: esc(t(FOE_ES[x.foe] || x.foe)), b: L('batalla', x.battle, x.battleEs) }) : '';
+      return `<li>${t(FREE_VERB[x.kind], { s: L('lugar', x.spot) })} · ${cost(x)}: ${bits.join('; ')}${foe}</li>`;
     };
-    return `<p class="mut">${t('Cuando ya hayas hecho lo importante del capítulo:')}</p><ol class="cp-list">${tasks.map(line).join('')}</ol>`;
+    const SEC = [['now', 'Ahora para tu equipo'], ['ahead', 'Adelanta'], ['weapons', 'Trueques por armas'], ['gold', 'Si necesitas dinero'], ['mats', 'Si necesitas materiales de forja']];
+    return `<p class="mut">${t('Cuando ya hayas hecho lo importante del capítulo:')}</p>` +
+      SEC.filter(([k]) => S[k].length).map(([k, h]) => `<h4>${t(h)}</h4><ul class="cp-list">${S[k].map(line).join('')}</ul>`).join('');
   };
 
   /** re-render in place keeping the page scroll and the focus on the pressed control (selector `again` finds it) */
