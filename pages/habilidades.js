@@ -62,7 +62,7 @@
 
   const DT = () => (window.WIKI_EXT || {}).detalle || {};
   const BATS = () => Object.fromEntries((((window.WIKI_EXT || {}).guerra || {}).battalions || []).map(b => [b.id, b]));
-  const obj = id => `${img(ico().item?.[id], 'ico')}${L('objeto', id)}`;
+  const obj = id => `${itemIco(id, 'ico')}${L('objeto', id)}`;
   /** area shape: rows from the facing side down; 1 = the unit, 2 = affected square, 3 = centre of the area (also affected) */
   const area = a => {
     const rows = a?.rows || [];

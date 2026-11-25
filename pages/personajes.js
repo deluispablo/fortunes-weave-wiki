@@ -198,7 +198,7 @@ function charLimits(pid) {
     return kvRows([
       [t('Halo'), list([...halos].map(([es, id]) => L('habilidad', id, es)))],
       [t('Habilidades fijas'), fixed],
-      [t('Objetos iniciales'), list((cb.start_items || []).map(n => { const id = Object.keys(ITEMS).find(k => ITEMS[k].es === n); return id ? img(ico().item?.[id], 'ico') + L('objeto', id) : esc(gt(n)); }))],
+      [t('Objetos iniciales'), list((cb.start_items || []).map(n => { const id = Object.keys(ITEMS).find(k => ITEMS[k].es === n); return id ? itemIco(id, 'ico') + L('objeto', id) : esc(gt(n)); }))],
       [t('Clase recomendada'), best && cls(best.best)], [t('Alternativa'), best?.alt && cls(best.alt)],
       [t('Crecimientos con la clase'), best?.eff && esc(dx(best.eff))],
       [t('Aviso'), best?.warn && esc(dx(best.warn))],

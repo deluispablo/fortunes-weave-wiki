@@ -150,6 +150,22 @@ const docHtml = (...bs) => bs.map(b => (typeof b === 'string' ? `<p>${esc(b)}</p
 const kvRows = rows => rows.filter(r => r && r[1] != null && r[1] !== '').map(([k, v]) => `<div class="kv"><span>${esc(k)}</span><b>${v}</b></div>`).join('');
 const ico = () => (window.WIKI_EXT || {}).iconos || {};
 const img = (src, cls) => (src ? `<img class="${cls}" src="${esc(src)}" alt="" loading="lazy">` : '');
+let REF_PREV = null;
+const REF_STEP = /＋[0-9０-９]+$/;  // a «+N» copy; an upgrade with its own name (Respondedora Fénix, Prototipo I (|)) is a weapon of its own
+/** the base weapon of a «+N» copy (walks weapon.forge back over «+N» steps); the iid itself when it is no «+N» */
+function refBase(iid) {
+  if (!REF_PREV) { REF_PREV = {}; for (const [k, i] of Object.entries(ITEMS)) if (i.weapon?.forge?.to) REF_PREV[i.weapon.forge.to] = k; }
+  let k = iid, n = 0;
+  while (REF_STEP.test(k) && REF_PREV[k] && n++ < 12) k = REF_PREV[k];
+  return k;
+}
+/** a weapon's «+N» copies, in order (the refine chain until the next weapon with its own name) */
+const refSteps = k => { const out = []; for (let f = ITEMS[k]?.weapon?.forge; f && REF_STEP.test(f.to) && ITEMS[f.to] && out.length < 12; f = ITEMS[f.to].weapon?.forge) out.push(f.to); return out; };
+let CURSED = null;
+/** cursed treasure (W.ignicion malditos), a refined copy included */
+const isCursed = iid => (CURSED ??= new Set((((window.WIKI_EXT || {}).ignicion || {}).malditos || []).map(m => m.iid))).has(iid) || CURSED.has(refBase(iid));
+/** an item's icon; cursed treasures sit on the game's purple square */
+const itemIco = (iid, cls) => img(ico().item?.[iid], isCursed(iid) ? cls + ' ico-curse' : cls);
 const list = xs => xs.filter(Boolean).join(', ');
 const num = n => { const [i, d] = String(n).split('.'), en = LANG === 'en'; return i.replace(/\B(?=(\d{3})+$)/g, en ? ',' : '.') + (d ? (en ? '.' : ',') + d : ''); };  // 8.000, 1.234,5 (es-ES toLocaleString skips 4-digit grouping); English 8,000, 1,234.5
 const gold = n => `${num(n)} G`;
@@ -181,7 +197,7 @@ const plural = (n, one, many = one + 's') => `${num(n)} ${t(n === 1 ? one : many
 const resultCount = (n, one, many, tail = '') => `<p class="sr-only" data-count>${plural(n, one, many)}${tail}</p>`;  // a count-only line: read out on filter changes, not shown
 /** full recruit requirement: items (with icon), gold, support, Prestigio */
 const recruitCost = c => list([
-  ...c.items.map(i => `${img(ico().item?.[i.id], 'ico')}${i.n > 1 ? i.n + '× ' : ''}${L('objeto', i.id, i.es)}`),
+  ...c.items.map(i => `${itemIco(i.id, 'ico')}${i.n > 1 ? i.n + '× ' : ''}${L('objeto', i.id, i.es)}`),
   c.gold ? gold(c.gold) : '', t('Apoyo {n}', { n: c.support }), t('Prestigio {n}', { n: c.renown })]);
 /** a stat's short name as the game shows it: Spanish PV/Fue…, English HP/Str… (the keys) */
 const statName = k => (LANG === 'en' ? k : STAT_ES[k]);
@@ -626,7 +642,7 @@ const P = {};  // id → render(arg) returning an HTML string
    Mi partida apart at the end. Every registered page is listed here: this list alone places it (a page's `group` is ignored).
    Ids not registered are skipped. Every menu item is a page, and every address highlights exactly one item (fichas their listing,
    topic guides in the Guías panel). Ajustes (nav: false) is behind the header gear */
-const MENU = [['guias', 'Guías', ['guia', 'builds', 'mejores-armas', 'reclutas', 'trucos', 'perdibles', 'guias']],
+const MENU = [['guias', 'Guías', ['guia', 'tier-personajes', 'builds', 'mejores-armas', 'reclutas', 'trucos', 'perdibles', 'guias']],
   ['consulta', 'Personajes', ['personajes', 'apoyos', 'regalos']],
   ['combate', 'Clases y combate', ['clases', 'habilidades', 'monturas', 'batallones', 'mecanicas']],
   ['economia', 'Objetos y economía', ['objetos', 'tiendas', 'recoleccion']],

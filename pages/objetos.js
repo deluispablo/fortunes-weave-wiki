@@ -43,19 +43,18 @@
     ]);
   }
   /** refining chain of a weapon (weapon.forge), folded: each «+N» with its numbers, what it adds and its cost; only on the base weapon */
-  function refining(it, k) {
-    const isStep = Object.values(ITEMS).some(x => x.weapon?.forge?.to === k);
-    if (isStep || !it.weapon?.forge) return '';
+  function refining(it, k, at) {  // at: the refine step the reader came for (its row marked, the fold open)
+    if (refBase(k) !== k || !it.weapon?.forge) return '';
     const rows = [];
-    for (let cur = it, n = 0; cur?.weapon?.forge && ITEMS[cur.weapon.forge.to] && n < 12; n++) {
+    for (let cur = it, n = 0; cur?.weapon?.forge && ITEMS[cur.weapon.forge.to] && refBase(cur.weapon.forge.to) === k && n < 12; n++) {
       const f = cur.weapon.forge, nx = ITEMS[f.to], w = nx.weapon || {};
       const adds = [...Object.entries(w.stat_bonus || {}).map(([s, v]) => `${statName(s) || esc(s)} ${v > 0 ? '+' : ''}${v}`),
         ...(w.equip_skills || []).filter(x => !(it.weapon.equip_skills || []).includes(x) && SKILLS[x]).map(x => L('habilidad', x))];
-      rows.push(`<tr><td>${L('objeto', f.to, '+' + (n + 1))}</td><td>${w.might} · ${w.hit} · ${w.crit}</td><td>${list(adds)}</td>` +
+      rows.push(`<tr${f.to === at ? ' class="on"' : ''}><td>${L('objeto', f.to, '+' + (n + 1))}</td><td>${w.might} · ${w.hit} · ${w.crit}</td><td>${list(adds)}</td>` +
         `<td>${list(f.mats.map(m => `${m.n}× ${L('objeto', m.iid)}`))}</td><td>${f.part3 || f.mats.some(m => m.iid === ARMS_SOUL) ? t('Parte {p}', { p: 3 }) + (n === armsCap(k).cap ? ' · ' + t('tope P1: +{n}', { n }) : '') : ''}</td></tr>`);
       cur = nx;
     }
-    return rows.length ? `<details><summary>${t('Refinado ({n} niveles)', { n: rows.length })}</summary><div class="tw"><table><tr><th>${t('Nivel')}</th><th>${t('Pot · Gol · Crít')}</th><th>${t('Efecto')}</th><th>${t('Material')}</th><th>${t('Solo en')}</th></tr>${rows.join('')}</table></div></details>` : '';
+    return rows.length ? `<details${at ? ' open' : ''}><summary>${t('Refinado ({n} niveles)', { n: rows.length })}</summary><div class="tw"><table><tr><th>${t('Nivel')}</th><th>${t('Pot · Gol · Crít')}</th><th>${t('Efecto')}</th><th>${t('Material')}</th><th>${t('Solo en')}</th></tr>${rows.join('')}</table></div></details>` : '';
   }
   /** battles whose enemies carry the weapon (or a refined copy), grouped by route; with a route chosen, only that one */
   function carriers(k) {
@@ -82,7 +81,7 @@
     const r = listRoute(qs), arma = qs.arma || '', sec = qs.s || '', sa = TASTES.includes(qs.sa) ? qs.sa : '', q = ['1', '2', '3'].includes(qs.q) ? +qs.q : 0;
     const all = Object.entries(ITEMS);  // items without an official Spanish name (enemy-only, cutscene props) are left out below
     const sections = [...new Set(all.map(([, i]) => i.section).filter(Boolean))];
-    const rows = all.filter(([, i]) => i.es && (!r || inRoute(i, r)) && (!arma || (i.weapon && armaKey(i.weapon.type) === arma)) && (!sec || i.section === sec) &&
+    const rows = all.filter(([k, i]) => i.es && refBase(k) === k && (!r || inRoute(i, r)) && (!arma || (i.weapon && armaKey(i.weapon.type) === arma)) && (!sec || i.section === sec) &&
       (!sa || i.food?.taste === sa) && (!q || i.food?.grade === q));
     const food = /^Ingredientes/.test(sec) || sa || q;  // flavour and quality chips only where they mean something
     return `<h1>${t('Objetos')}</h1>${guiaLink('armas', 'refinado')}${routeChips('objetos', qs, r)}${armaChips('objetos', qs, arma)}` +
@@ -90,7 +89,7 @@
       (food ? chips('objetos', qs, 'sa', [['', 'Todos los sabores'], ...TASTES.map(x => [x, x[0].toUpperCase() + x.slice(1)])], sa, 'Sabor') +
         chips('objetos', qs, 'q', [['', 'Toda calidad'], ['1', '★'], ['2', '★★'], ['3', '★★★']], q ? String(q) : '', 'Calidad') : '') +
       resultCount(rows.length, 'objeto', 'objetos', r ? ' ' + t('en tiendas o reclutamientos de la ruta de {r}', { r: ROUTE_NAME[r] }) : '') +
-      (rows.length ? `<div class="li-grid">${rows.map(([k, i], n) => `<a class="li-card" href="${href('objeto', k)}"${n >= STEP ? ' hidden' : ''}>${img(ico().item?.[k], 'li-pic') || '<span class="li-pic"></span>'}` +
+      (rows.length ? `<div class="li-grid">${rows.map(([k, i], n) => `<a class="li-card" href="${href('objeto', k)}"${n >= STEP ? ' hidden' : ''}>${itemIco(k, 'li-pic') || '<span class="li-pic"></span>'}` +
         `<span><b>${esc(nm(i) || i.jp)}</b><small>${esc(list([dx(i.section), i.food && `${dx(i.food.taste)} ${'★'.repeat(i.food.grade || 0)}`, i.price ? gold(i.price) : '']))}</small></span></a>`).join('')}</div>`
         : `<p class="mut">${t('Sin resultados con estos filtros.')}</p>`) +
       (rows.length > STEP ? `<button type="button" class="fi-btn li-more" data-more="${STEP}">${t('Mostrar más')}</button>` : '');
@@ -212,11 +211,13 @@
   /** all sources as [group title, [[off, html]]]; without a chosen route nothing is judged (the library view) */
   function sources(it, k) {
     const chosen = ctxChosen(), { route, key } = ctxGet();
-    const all = [...(it.obtain || []).filter(x => !isTest(x)), ...chests(k), ...(it.held_by || []).map(h => ({ type: 'equipo', ...h })), ...battleDrops(it, k)];
+    // the weapon and its «+N» copies (a copy's own shops and drops, tagged with its name)
+    const own = id => { const i = ITEMS[id]; return [...(i.obtain || []).filter(x => !isTest(x)), ...chests(id), ...(i.held_by || []).map(h => ({ type: 'equipo', ...h })), ...battleDrops(i, id)].map(x => ({ x, i, id })); };
+    const all = [k, ...refSteps(k)].flatMap(own);
     return GROUPS.map(([ti, types]) => {
       const seen = new Set();
-      const rows = all.filter(x => types.includes(x.type)).map(x => {
-        const why = chosen ? closed(x, route, key) : '', [w, d] = source(x, it, chosen ? route : '');
+      const rows = all.filter(({ x }) => types.includes(x.type)).map(({ x, i, id }) => {
+        const why = chosen ? closed(x, route, key) : '', [w0, d] = source(x, i, chosen ? route : ''), w = id === k ? w0 : `${w0} <span class="cp-tag">${esc(nm(i))}</span>`;
         return { off: why ? 1 : 0, w, d, html: `<li${why ? ' class="off"' : ''}><b>${w}</b>${d ? `<small>${d}</small>` : ''}${why ? `<small class="why">${esc(why)}</small>` : ''}</li>` };
       }).filter(r => !seen.has(r.html) && seen.add(r.html)).sort((a, b) => a.off - b.off);
       return [ti, rows];
@@ -277,12 +278,13 @@
   /** cursed treasures (W.ignicion malditos): their curse value, which moves a lord's ignition gauge */
   const cursed = k => { const m = (window.WIKI_EXT || {}).ignicion?.malditos.find(x => x.iid === k);
     return m ? `${t('Maldición {n}', { n: m.contaminacion })} · <a href="#/guia/objetos-malditos">${t('qué hace')}</a>` : ''; };
-  function objeto(k) {
+  function objeto(k, at) {
     const it = ITEMS[k];
     if (!it) return notFound();
+    if (refBase(k) !== k) return objeto(refBase(k), k);  // a «+N» is the same weapon, refined: its row in the base ficha
     const route = ctxRoute(), groups = sources(it, k), [shardGot, shardPay] = shard(k);
     // the summary carries what most visits want (what it does, weapon numbers, where to get it): no click; tabs only for the rest
-    const head = fichaHead(img(ico().item?.[k], 'fi-pic'), `<a href="#/objetos">${t('Objetos')}</a>`, nm(it) || it.jp, dx(it.section),
+    const head = fichaHead(itemIco(k, 'fi-pic'), `<a href="#/objetos">${t('Objetos')}</a>`, nm(it) || it.jp, dx(it.section),
       (tx(it, 'effect') ? `<p>${esc(clean(tx(it, 'effect')).replace(/\s+/g, ' '))}</p>` : '') + weaponRows(it, k) + useRules(it) + foodRows(it) + kvRows([
         [t('Tier'), (x => (x ? `<span class="cp-tag">${x.tier}</span> <a href="#/mejores-armas">${t('Mejores armas')}</a>` : ''))(it.weapon && armsTier(k, ctxChosen() ? CAPS[ctxGet().key]?.part || 1 : 1))],
         [t('Uso'), it.use_es && esc(dx(it.use_es))],
@@ -291,7 +293,7 @@
         [t('Lo piden para reclutar'), ctxChosen() ? recruitsHere(it, k, route) : ''],
         [t('Categorías de regalo'), list((it.gift_categories || []).map(x => esc(dx(x.es))))],
         [t('Tesoro maldito'), cursed(k)],
-      ]) + refining(it, k));
+      ]) + refining(it, k, at));
     return ficha(head, [
       ['conseguir', 'Dónde se consigue', shardGot + obtain(groups)],
       ['usos', 'Para qué sirve', shardPay + uses(it, route)],

@@ -6,7 +6,7 @@
   const M = W.map || {}, CH = W.chapters || {};
   /** data text: the game's English when the game has it, else the wiki's (i18n/en/data-*.json) */
   const dt = s => { const g = gt(s); return g !== s ? g : t(s); };
-  const itemL = it => (it ? `${img(ico().item?.[it.id], 'ico')}${L('objeto', it.id, it.es)}` : '');
+  const itemL = it => (it ? `${itemIco(it.id, 'ico')}${L('objeto', it.id, it.es)}` : '');
   const spotL = id => (SPOTS[id] ? L('lugar', id) : '');
   const byName = (a, b) => nm(a[1]).localeCompare(nm(b[1]), LANG);
   const md = s => fechaMD(s);  // called at render time (pages/perdibles.js loads later); "9/17" (month/day) → "17 sep" / "Sep 17" (pages/perdibles.js)

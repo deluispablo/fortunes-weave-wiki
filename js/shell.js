@@ -141,7 +141,7 @@ function rememberPartida(hash) {
 }
 const TABS = {  // inicio is not in TABBAR today: it is there so that putting it back is one line
   inicio: ['#/', 'home', 'Inicio', (sec) => sec === ''],
-  guias: ['#/guias', 'book', 'Guías', (sec, pg) => ['guias', 'guia', 'builds', 'mejores-armas', 'reclutas', 'trucos'].includes(pg)],
+  guias: ['#/guias', 'book', 'Guías', (sec, pg) => ['guias', 'guia', 'tier-personajes', 'builds', 'mejores-armas', 'reclutas', 'trucos'].includes(pg)],
   personajes: ['#/personajes', 'pj', 'Personajes', (sec, pg) => ['personajes', 'apoyos', 'regalos'].includes(pg)],
   mapa: ['#/mapa', 'map', 'Mapa', (sec, pg) => pg === 'mapa'],
   partida: [() => partidaHref(), 'cap', 'Mi partida', (sec, pg) => PARTIDA.includes(pg)],
@@ -153,6 +153,13 @@ function tabbar(sec) {
     const [h, ic, lb, isOn] = TABS[k], on = isOn(sec, pg);
     return `<a href="${esc(typeof h === 'function' ? h() : h)}"${on ? ' class="on" aria-current="page"' : ''}>${navIcon(ic)}<span>${t(lb)}</span></a>`;
   }).join('');
+}
+
+/* tier lists bar under the header, every page: [page id, label]; a page that does not exist yet (Equipamiento) is left out */
+const TIERBAR = [['tier-personajes', 'Personajes'], ['builds', 'Builds'], ['mejores-armas', 'Armas'], ['mejor-equipamiento', 'Equipamiento']];
+function tierbar(sec) {
+  const pg = ROUTES[sec];
+  return TIERBAR.filter(([id]) => P[id]).map(([id, lb]) => `<a href="#/${id}"${pg === id ? ' aria-current="page"' : ''}>${t(lb)}</a>`).join('');
 }
 
 /* ---------------- modals: background inert, page scroll locked, focus back to the trigger ---------------- */
@@ -344,6 +351,7 @@ function render(keepScroll) {
   $('#side').innerHTML = sectionIndex(now);
   $('#side .on')?.scrollIntoView?.({ block: 'center' });  // the current page in view in a long sidebar (centre: clear of the sticky search and footer)
   $('#tabbar').innerHTML = tabbar(now);
+  $('#tierbar').innerHTML = tierbar(now);
   // a route picked in the sheet keeps it open (refreshed); anything else closes the modals
   if (keepSheet && sheetKind === 'ctx' && !$('#sheet').hidden) { $('#sheet-body').innerHTML = ctxSheet(); $('#sheet-body [data-route].on')?.focus(); } else closeSheet();
   keepSheet = false;
@@ -435,7 +443,7 @@ document.addEventListener('click', e => {
 });
 /** index.html's fixed text (skip link, landmarks, dialogs, search box) in the reader's language; render() calls it */
 const STATIC_TEXT = [['.skip', null, 'Ir al contenido'], ['.brand', 'aria-label', "Fortune's Weave · Inicio"], ['.brand', 'title', 'Inicio'],
-  ['#side', 'aria-label', 'Secciones'], ['#tabbar', 'aria-label', 'Accesos rápidos'], ['#sheet .x', 'aria-label', 'Cerrar'],
+  ['#side', 'aria-label', 'Secciones'], ['#tabbar', 'aria-label', 'Accesos rápidos'], ['#tierbar', 'aria-label', 'Tier lists'], ['#sheet .x', 'aria-label', 'Cerrar'],
   ['.pal-box', 'aria-label', 'Buscar en la wiki'], ['#pal-q', 'placeholder', 'Secciones, personajes, objetos, lugares…'], ['#pal-q', 'aria-label', 'Buscar'],
   ['#pal .k-coarse', null, 'Cancelar']];
 function staticText() {

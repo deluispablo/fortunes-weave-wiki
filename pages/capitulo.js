@@ -102,7 +102,7 @@
     // a barter whose payment cannot be had on this route and part is dropped too
     const sellable = (where, i) => !r0 || !(ITEMS[i]?.obtain || []).some(o => o.type === 'barter' && o.where === where) || (ITEMS[i].obtain || []).some(o => o.type === 'barter' && o.where === where && barterOk(o, r0, c.key));
     const shop = Object.entries(c.news.shop).filter(([where]) => spotAccess(spotOfLabel(where), c.route, c.key).ok).map(([where, ids]) => [where, ids.filter(i => sellable(where, i))]).filter(([, ids]) => ids.length).map(([where, ids]) =>  // places closed on this route and part are left out
-      `<div class="cp-shop"><span>${esc(dt(where))}</span>${list(ids.map(i => img(ico().item?.[i], 'ico') + L('objeto', i)))}</div>`).join('');
+      `<div class="cp-shop"><span>${esc(dt(where))}</span>${list(ids.map(i => itemIco(i, 'ico') + L('objeto', i)))}</div>`).join('');
     return kvRows([
       [t('Se unen'), list(c.joins.map(n => nl(n) + esc(jr(n))))],
       [t('Se van'), list(c.leaves.map(nl))],
@@ -124,7 +124,7 @@
 
   // [[PID_…]] / [[IID_…]] / [[spot id]] in priority text → link with icon
   const refLink = id => (id.startsWith('PID_') ? img(ico().face?.[id], 'ico ico-personaje') + L('personaje', id)
-    : id.startsWith('IID_') ? img(ico().item?.[id], 'ico') + L('objeto', id) : L('lugar', id));
+    : id.startsWith('IID_') ? itemIco(id, 'ico') + L('objeto', id) : L('lugar', id));
   // a priority that only says «close these missions» (all of them already in «Antes de que termine», nothing else to do) is left out
   const restates = (c, s) => { const q = [...s.matchAll(/«([^»]+)»/g)].map(m => m[1]), ms = c.closing.filter(x => x.kind === 'mision').map(x => x.es);
     return /^Cerrar\b/.test(s) && q.length > 0 && q.every(n => ms.includes(n)) && !/\[\[/.test(s) && !/ y /.test(s.slice(s.lastIndexOf('»') + 1)); };

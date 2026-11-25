@@ -18,7 +18,7 @@ function homeTips() {
     ['personajes', 'Personajes', () => Object.keys(CHARS).length, 'personaje', 'personajes', 'IconPageTab_Unit'],
     ['clases', 'Clases', () => Object.keys(CLASSES).length, 'clase', 'clases', 'IconPageTab_Sword'],
     ['habilidades', 'Habilidades', () => Object.values(SKILLS).filter(s => s.es).length, 'habilidad', 'habilidades', 'IconBasicStatus_Technique'],
-    ['objetos', 'Objetos', () => Object.values(ITEMS).filter(i => i.es).length, 'objeto', 'objetos', 'IconPageTab_Equipment'],
+    ['objetos', 'Objetos', () => Object.entries(ITEMS).filter(([k, i]) => i.es && refBase(k) === k).length, 'objeto', 'objetos', 'IconPageTab_Equipment'],
     ['apoyos', 'Apoyos', () => (ext().apoyos?.pairs || []).length, 'pareja', 'parejas', 'IconPageTab_Reliance'],
     ['lugares', 'Lugares', () => Object.values(SPOTS).filter(s => s.es).length, 'lugar', 'lugares', 'pin'],
     ['mapa', 'Mapa', () => Object.keys(W.map?.regions || {}).length, 'región', 'regiones', 'map'],

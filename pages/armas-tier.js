@@ -82,7 +82,7 @@ function armsCatalog(route, part) {
       : x.routes.length ? esc(list(x.routes.map(k => ROUTE_NAME[k]))) : '');
     const row = x => { const it = ITEMS[x.iid], w = it.weapon, rk = rankOf(x.iid);
       const tags = [...x.marks.map(m => MARK[m](x.cap)), rk && t('Rango {r}', { r: rk })].filter(Boolean).map(s => `<span class="mm-tag">${esc(s)}</span>`).join('');
-      return `<details class="aw-u"><summary>${img(ico().item?.[x.iid], 'ico')}<span class="aw-n">${esc(nm(it))}</span><span class="mm-tag">${x.tier}</span><span class="aw-w">${when(x)}</span></summary><div class="aw-b">` + (tags ? `<p>${tags}</p>` : '') +
+      return `<details class="aw-u"><summary>${itemIco(x.iid, 'ico')}<span class="aw-n">${esc(nm(it))}</span><span class="mm-tag">${x.tier}</span><span class="aw-w">${when(x)}</span></summary><div class="aw-b">` + (tags ? `<p>${tags}</p>` : '') +
         `<p>${esc(LANG === 'en' ? x.why_en : x.why)} ${COM()}</p>` + (x.src ? `<p>${srcLine(x.src)}</p>` : '') +
         `<p class="mut">${t('Pot {m}, peso {w}', { m: w.might, w: w.weight })} · ${L('objeto', x.iid, t('Ficha'))}</p>` +
         (x.web ? `<p class="mut">${esc(LANG === 'en' ? x.web.en : x.web.es)}</p>` : '') + '</div></details>'; };

@@ -4,7 +4,7 @@
   const SHOP = SHOP_ES;
   /** data text: the game's English when the game has it, else the wiki's (i18n/en/data-map.json) */
   const dt = s => { const g = gt(s); return g !== s ? g : t(s); };
-  const itemL = it => (it ? `${img(ico().item?.[it.id], 'ico')}${L('objeto', it.id, it.es)}` : '');
+  const itemL = it => (it ? `${itemIco(it.id, 'ico')}${L('objeto', it.id, it.es)}` : '');
   const spotL = (id, label) => (SPOTS[id] ? L('lugar', id, label) : esc(gt(label || '')));
   const shopRows = s => [...Object.values(s.shops || {}).flat(), ...(s.vandahl || []).flatMap(v => W.map?.vandahl_fixed?.[v]?.rows || [])];
   /** shown for a route unless every shop row it has is locked to other routes */

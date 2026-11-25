@@ -145,7 +145,7 @@
   function giftRound(round) {
     if (!round.length) return '';
     // one short line per gift (name, level, price); where to get it is the item's ficha and the line's tooltip
-    const it = x => `<span class="eq-gi" title="${esc(list(x.src.slice(0, 3)).replace(/<[^>]*>/g, ''))}"><i class="tier tier-${x.t}" aria-hidden="true"></i>${img(ico().item?.[x.iid], 'ico')}${L('objeto', x.iid)} ${tierTag(x.t)}${x.price ? ` <span class="mut">${gold(x.price)}</span>` : ''}</span>`;
+    const it = x => `<span class="eq-gi" title="${esc(list(x.src.slice(0, 3)).replace(/<[^>]*>/g, ''))}"><i class="tier tier-${x.t}" aria-hidden="true"></i>${itemIco(x.iid, 'ico')}${L('objeto', x.iid)} ${tierTag(x.t)}${x.price ? ` <span class="mut">${gold(x.price)}</span>` : ''}</span>`;
     const row = r => `<li class="eq-rec">${face(r.pid, 'cp-face') || '<span class="cp-face"></span>'}<div><b>${L('personaje', r.pid)}</b>` +
       (r.none ? `<span class="eq-line mut">${t('Sin datos de regalos.')}</span>` : !r.items.length ? `<span class="eq-line mut">${t('Ningún regalo apreciado con fuente abierta en esta parte.')}</span>` :
         (() => { const route = ctxGet().route, key = ctxGet().key;
@@ -159,7 +159,7 @@
     const { steps, totals } = planRecruits(route, picked);
     if (!steps.length) return '';
     const need = [totals.gold ? `<li>${gold(totals.gold)}</li>` : '', ...Object.entries(totals.items).map(([iid, n]) =>
-      `<li>${img(ico().item?.[iid], 'ico')}<b>${n}×</b> ${L('objeto', iid)}<small class="mut">${(() => { const src = itemSources(iid, route, ctxGet().key); return src.length ? list(src.slice(0, 2)) + (src.length > 2 ? ' ' + t('y {n} más en su ficha', { n: src.length - 2 }) : '') : t('Sin fuente fija en esta ruta'); })()}</small></li>`)].filter(Boolean);
+      `<li>${itemIco(iid, 'ico')}<b>${n}×</b> ${L('objeto', iid)}<small class="mut">${(() => { const src = itemSources(iid, route, ctxGet().key); return src.length ? list(src.slice(0, 2)) + (src.length > 2 ? ' ' + t('y {n} más en su ficha', { n: src.length - 2 }) : '') : t('Sin fuente fija en esta ruta'); })()}</small></li>`)].filter(Boolean);
     return `<ul class="eq-recs">${[...steps].sort((a, b) => bySerial(a.pid, b.pid)).map(s => recruitStep(s, route)).join('')}</ul>` +
       (need.length ? `<h4>${t('Oro y objetos necesarios')}</h4><ul class="eq-need">${need.join('')}</ul>` : '');
   }
@@ -202,7 +202,7 @@
   window.teamTipsBlock = (route, key) => {
     const x = teamTips(route, key), c = CAPS[key] || {};
     const at = o => (o.spot ? L('lugar', o.spot) : esc(dataTx(o.where))) + (o.renown ? ` <small class="mut">(${t('Prestigio {n}', { n: o.renown })})</small>` : '');
-    const it = iid => `${img(ico().item?.[iid], 'ico')}${L('objeto', iid)}`;
+    const it = iid => `${itemIco(iid, 'ico')}${L('objeto', iid)}`;
     const fold = (rows, k, label) => ul(rows.slice(0, k)) + (rows.length > k ? `<details class="eq-more"><summary>${t(label, { n: rows.length - k })}</summary>${ul(rows.slice(k))}</details>` : '');
     const mat = m => `${m.n > 1 ? m.n + '× ' : ''}${L('objeto', m.id)} <span class="mut">(${m.src.shop ? `${at(m.src.shop)}, ${gold(m.src.shop.price)}` : t('Búsqueda en {p} ({n})', { p: L('lugar', m.src.search.spot), n: pct(m.src.search.pct) })})</span>`;
     const barters = x.barters.map(b => li(`${it(b.iid)} · ${at(b.offer)}`, `${t('por {l}', { l: b.mats.map(mat).join(' + ') })} · ${t('se vende por {g}', { g: gold(b.value) })}`));
@@ -237,9 +237,9 @@
   function gearHtml(g, forge) {
     if (!g) return '';
     const fr = g.now && forge?.rows.find(r => r.iid === g.now.iid && !r.repair);
-    const now = g.now ? `${img(ico().item?.[g.now.iid], 'ico')}${L('objeto', g.now.iid)} <span class="mut">· ${SRC_KIND[g.now.kind](g.now)}${g.now.loss ? ' · ' + t('pesa: −{n} de velocidad de ataque (peso {w} − Con ≈{c})', { n: g.now.loss, w: ITEMS[g.now.iid].weapon.weight, c: g.con }) : ''}</span>` +
+    const now = g.now ? `${itemIco(g.now.iid, 'ico')}${L('objeto', g.now.iid)} <span class="mut">· ${SRC_KIND[g.now.kind](g.now)}${g.now.loss ? ' · ' + t('pesa: −{n} de velocidad de ataque (peso {w} − Con ≈{c})', { n: g.now.loss, w: ITEMS[g.now.iid].weapon.weight, c: g.con }) : ''}</span>` +
       (fr ? ` · <a href="#/cap?ir=eq-herreria">${t('refínala a {n}', { n: plusN(fr.to) })}</a>` : '') : g.spells ? esc(t(g.spells === 'magia-blanca' ? 'Magia blanca' : 'Magia negra')) : `<span class="mut">${t('Sin arma de su build que pueda llevar ahora con su clase.')}</span>`;
-    const opts = g.options.map(o => li(`${img(ico().item?.[o.iid], 'ico')}${L('objeto', o.iid)} · ${L('lugar', o.spot, o.where.replace(/\s*\(.*\)$/, ''))}, ${gold(o.price)}`,
+    const opts = g.options.map(o => li(`${itemIco(o.iid, 'ico')}${L('objeto', o.iid)} · ${L('lugar', o.spot, o.where.replace(/\s*\(.*\)$/, ''))}, ${gold(o.price)}`,
       [t('Pot {m}, peso {w}', { m: ITEMS[o.iid].weapon.might, w: ITEMS[o.iid].weapon.weight }), o.effective && t('arma eficaz')].filter(Boolean).join(' · ')));
     const acc = g.acc ? li(`${L('objeto', g.acc.iid)} · ${g.acc.spot ? L('lugar', g.acc.spot, g.acc.where.replace(/\s*\(.*\)$/, '')) : esc(dataTx(g.acc.where))}${g.acc.price ? `, ${gold(g.acc.price)}` : ''}`, esc(t(g.acc.why))) : '';
     const hi = g.higher ? `<p class="mut">${t('Si llega a {a} {r}: {o} ({w})', { a: t(ARMAS.find(a => a[0] === g.higher.type)?.[1] || '').toLowerCase(), r: g.higher.rank, o: L('objeto', g.higher.iid),

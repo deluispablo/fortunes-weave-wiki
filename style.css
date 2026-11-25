@@ -170,6 +170,13 @@ td { font-variant-numeric: tabular-nums; }
 .txtbtn:disabled { opacity: .55; cursor: default; background: none; }
 
 /* ---------- layout + sidebar ---------- */
+/* tier lists bar under the header (shell.js tierbar): one line, scrolls sideways on a phone */
+.tierbar { display: flex; gap: var(--s2); overflow-x: auto; scrollbar-width: none; padding: var(--s2) var(--s4); border-bottom: 1px solid var(--line); background: var(--surface); }
+.tierbar::-webkit-scrollbar { display: none; }
+.tierbar:empty { display: none; }
+.tierbar a { flex: none; display: inline-flex; align-items: center; min-height: 36px; padding: 0 var(--s3); border-radius: 999px; background: var(--surface2); color: var(--tx); text-decoration: none; font-weight: 600; font-size: var(--fs-small); }
+.tierbar a:hover { background: var(--ghost-hover, var(--surface2)); }
+.tierbar a[aria-current] { background: var(--acc); color: var(--bg); }
 .app { display: grid; grid-template-columns: var(--side-w) minmax(0, 1fr); min-height: calc(100vh - var(--top-h)); }
 .side { position: sticky; top: var(--top-h); height: calc(100vh - var(--top-h)); overflow-y: auto; padding: var(--s3) var(--s3) 0; border-right: 1px solid var(--line);
   scroll-padding-block: 52px 64px; }  /* focus clears the sticky .nav-q and .nav-mine */
@@ -428,6 +435,9 @@ svg.map2 image { pointer-events: none; }
 /* iconos y retratos del juego */
 img.ico { width: 18px; height: 18px; object-fit: contain; vertical-align: -4px; margin-right: 4px; }
 img.ico.ico-personaje { width: 22px; height: 22px; border-radius: 50%; object-fit: cover; object-position: 50% 15%; vertical-align: -6px; background: var(--chip2); }
+/* cursed treasures: the game shows their icon's frame in purple (TUT_Bmap_CursedTreasure_001); the icon is opaque, so it is tinted */
+img.ico-curse { filter: hue-rotate(-75deg) saturate(2) brightness(.82); }
+tr.on > td { background: var(--surface2); font-weight: 600; }  /* the refine step a «+N» link came for */
 
 /* ---------- listing filters, gift chips, supports and battles (pages/apoyos.js, batallas.js, mundo.js, mapa.js) ---------- */
 .filters { display: flex; flex-wrap: wrap; gap: var(--s2); align-items: center; margin: 0 0 var(--s3); }

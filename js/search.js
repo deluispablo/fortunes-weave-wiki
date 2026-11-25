@@ -17,7 +17,7 @@ function searchIndex() {
   (W.guias || []).forEach(g0 => { const g = guiaL(g0), al = [...(g.alias || []), ...(g0 !== g ? [g0.titulo, ...(g0.alias || [])] : [])];
     add('Guía', g.titulo, g.resumen, '#/guia/' + g.id, [...al, ...(g.preguntas || [])]); IDX[IDX.length - 1].a = [g.titulo, ...al].map(norm); });
   Object.values(CHARS).forEach(c => add('Personajes', nm(c), gt(c.profile?.title), href('personaje', c.id), [c.es, c.en, c.jp, c.short], (ic.face || {})[c.id]));
-  Object.entries(ITEMS).forEach(([k, i]) => add('Objetos', i.es && nm(i), t(i.section), href('objeto', k), [i.es, i.en, i.jp], (ic.item || {})[k]));
+  Object.entries(ITEMS).forEach(([k, i]) => refBase(k) === k && add('Objetos', i.es && nm(i), t(i.section), href('objeto', k), [i.es, i.en, i.jp], (ic.item || {})[k]));
   Object.entries(CLASSES).forEach(([k, c]) => add('Clases', nm(c), tx(c, 'tier'), href('clase', k), [c.es, c.en, c.jp], (ic.job || {})[k]));
   Object.entries(MOUNTS).forEach(([k, c]) => add('Clases', nm(c), t('Montura'), href('montura', k), [c.es, c.en, c.jp]));
   Object.entries(SKILLS).forEach(([k, s]) => add('Clases', s.es && nm(s), t('Habilidad'), href('habilidad', k), [s.es, s.en], (ic.skill || {})[k]));

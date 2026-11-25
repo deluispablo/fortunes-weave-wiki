@@ -176,9 +176,9 @@
       `<ol class="mm-ol bd-steps">${b.steps.map(s => step(rt, s)).join('')}</ol></div>`;
     const card = (rt, u, open) => { const b0 = u.builds[0];
       if (!b0) { const best = (MM.chars || []).find(c => c.pid === u.pid)?.best;
-        return `<details class="bd-u"><summary>${face(u.pid)}<span class="bd-n">${esc(nm(CHARS[u.pid]))}</span>${u.tier ? `<span class="mm-tag">${esc(u.tier)}</span>` : ''}<span class="bd-ch">${t('Sin build propuesta')}</span>${u.team ? `<span class="mm-tag">${t('En tu equipo')}</span>` : ''}</summary>` +
+        return `<details class="bd-u" id="bd-u-${esc(u.pid)}"><summary>${face(u.pid)}<span class="bd-n">${esc(nm(CHARS[u.pid]))}</span>${u.tier ? `<span class="mm-tag">${esc(u.tier)}</span>` : ''}<span class="bd-ch">${t('Sin build propuesta')}</span>${u.team ? `<span class="mm-tag">${t('En tu equipo')}</span>` : ''}</summary>` +
           p([best ? t('Clase final sugerida: {c}', { c: C(best[0]) }) : '', `<a href="${href('personaje', u.pid)}?sec=build">${t('Ficha de {p}', { p: esc(nm(CHARS[u.pid])) })}</a>`].filter(Boolean).join(' · ')) + '</details>'; }
-      return `<details class="bd-u"${open ? ' open' : ''}><summary>${face(u.pid)}<span class="bd-n">${esc(nm(CHARS[u.pid]))}</span>` +
+      return `<details class="bd-u" id="bd-u-${esc(u.pid)}"${open ? ' open' : ''}><summary>${face(u.pid)}<span class="bd-n">${esc(nm(CHARS[u.pid]))}</span>` +
         (u.tier ? `<span class="mm-tag">${esc(u.tier)}</span>` : '') + `<span class="bd-ch">${b0.steps.map(s => esc(nm(CLASSES[s.jid]))).join(' → ')}</span>` +
         `<span class="mut bd-w">${esc(t(b0.weapon || ''))}</span>${u.team ? `<span class="mm-tag">${t('En tu equipo')}</span>` : ''}</summary>` +
         u.builds.map(b => build(rt, b)).join('') +

@@ -17,7 +17,7 @@
   const stars = g => '★'.repeat(g || 0);
   const statTxt = o => list(Object.entries(o || {}).map(([k, v]) => `${statName(k) || k} +${v}`));
   const food = f => `${esc(dx(f.type))} · ${esc(dx(f.taste))}`;
-  const obj = (iid, label) => `${img(ico().item?.[iid], 'ico')}${L('objeto', iid, label)}`;
+  const obj = (iid, label) => `${itemIco(iid, 'ico')}${L('objeto', iid, label)}`;
   const klass = name => nlx(name);  // a class named in the data (Spanish)
   /** bond points of one meal: base + quality + favourite type + favourite flavour (+ the animal's own «Favorito») */
   const feedPts = (grade, type, taste, fav) => (FE.base ?? 1) + ((FE.grade || {})[grade] ?? 0) + (type ? FE.fav_type ?? 6 : 0) + (taste ? FE.fav_taste ?? 3 : 0) + (fav ? FE.great_fav ?? 5 : 0);
