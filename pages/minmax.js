@@ -166,7 +166,8 @@
     const rows = rt => buildsCatalog(rt, part);
     const all = r || part === 3 ? rows(r) : ROUTE_IDS.flatMap(rows);
     const roles = [...new Set(all.flatMap(u => u.builds.flatMap(b => b.roles || [])))].sort();
-    const fits = u => (!papel && !arma) || u.builds.some(b => (!papel || (b.roles || []).includes(papel)) && (!arma || armaKey(b.weapon) === arma));
+    const bFits = b => (!papel || (b.roles || []).includes(papel)) && (!arma || armaKey(b.weapon) === arma);
+    const fits = u => (!papel && !arma) || u.builds.some(bFits);
     const step = (rt, s) => `<li>${C(s.jid)} <span class="mut">· ${esc(tx(CLASSES[s.jid], 'tier'))}${s.req ? ' · ' + esc(dataTx(s.req)) : ''}</span>` +
       (s.now ? ` <b class="bd-now">${t('ahora')}</b>` : s.idx >= 0 && rt ? ` <span class="mut">· ${t('desde el {c}', { c: chapLink(routeChapters(rt)[s.idx].key) })}</span>` : '') + '</li>';
     const build = (rt, b) => `<div class="bd-b"><h4>${esc(tx(b, 'name'))} ${COM()}${b.debate ? `<span class="mm-tag bd-deb">${t('En disputa')}</span>` : ''}</h4>` +
@@ -174,14 +175,14 @@
       (tx(b, 'why') ? p(esc(tx(b, 'why'))) : '') + (tx(b, 'fits') ? p(t('Elígela si: {f}', { f: esc(tx(b, 'fits')) })) : '') +
       (b.debate ? p(`<span class="mut">${esc(LANG === 'en' ? b.debate.en : b.debate.es)}</span>`) : '') +
       `<ol class="mm-ol bd-steps">${b.steps.map(s => step(rt, s)).join('')}</ol></div>`;
-    const card = (rt, u, open) => { const b0 = u.builds[0];
+    const card = (rt, u, open) => { const bs = u.builds.filter(bFits), b0 = bs[0];  // with a role or weapon filter, only the builds that match
       if (!b0) { const best = (MM.chars || []).find(c => c.pid === u.pid)?.best;
         return `<details class="bd-u" id="bd-u-${esc(u.pid)}"><summary>${face(u.pid)}<span class="bd-n">${esc(nm(CHARS[u.pid]))}</span>${u.tier ? `<span class="mm-tag">${esc(u.tier)}</span>` : ''}<span class="bd-ch">${t('Sin build propuesta')}</span>${u.team ? `<span class="mm-tag">${t('En tu equipo')}</span>` : ''}</summary>` +
           p([best ? t('Clase final sugerida: {c}', { c: C(best[0]) }) : '', `<a href="${href('personaje', u.pid)}?sec=build">${t('Ficha de {p}', { p: esc(nm(CHARS[u.pid])) })}</a>`].filter(Boolean).join(' · ')) + '</details>'; }
       return `<details class="bd-u" id="bd-u-${esc(u.pid)}"${open ? ' open' : ''}><summary>${face(u.pid)}<span class="bd-n">${esc(nm(CHARS[u.pid]))}</span>` +
         (u.tier ? `<span class="mm-tag">${esc(u.tier)}</span>` : '') + `<span class="bd-ch">${b0.steps.map(s => esc(nm(CLASSES[s.jid]))).join(' → ')}</span>` +
         `<span class="mut bd-w">${esc(t(b0.weapon || ''))}</span>${u.team ? `<span class="mm-tag">${t('En tu equipo')}</span>` : ''}</summary>` +
-        u.builds.map(b => build(rt, b)).join('') +
+        bs.map(b => build(rt, b)).join('') +
         p([u.team ? `<a href="#/equipo">${t('Tu plan, en Equipo')}</a>` : '', `<a href="${href('personaje', u.pid)}?sec=build">${t('Ficha de {p}', { p: esc(nm(CHARS[u.pid])) })}</a>`].filter(Boolean).join(' · ')) + '</details>'; };
     const list = (rt, us) => us.filter(fits).map(u => card(rt, u, false)).join('');
     const empty = p(`<span class="mut">${t('Ninguna build con estos filtros.')}</span>`);
@@ -280,16 +281,16 @@
       t('Quita las armas y magias a todo el ejército, también a la reserva: los ataques de apoyo desde el banquillo pueden matar al enemigo.'),
       t('Equitación y Vuelo no suben aquí: dentro de una mazmorra las unidades montadas luchan a pie y suben Infantería. Coraza sí sube.'),
       t('Las magias se gastan: descansa en las zonas de recuperación de la mazmorra.'),
-    ]) + p(t('Sitios probados por la comunidad:')) + bl([
+    ]) + p(`${t('Sitios probados:')} ${COM()}`) + bl([
       t('{a} (junto a {m}{cai}): un grupo de soldados. Con Atq 31 haces 1 de daño y con Def 24 no recibes nada. Atajos: {e} (Def +5, en {m}); {u} cura a los adyacentes cada turno; aprobar {k} sube la Fue al menos a 10; {f} (Pot 10, eficaz contra acorazados: 20) se vende en {c}. Sin Atq suficiente, {h}: las hachas quitan al menos 5 PV.',
         { a: L('lugar', 'ハイン砦'), m: L('lugar', '城塞都市モンス'), cai: caiHide() ? '' : t('; no está abierto para Cai en la Parte 1'), e: O('IID_銀の盾'), u: PJ('PID_ウルタンド'), k: C('JID_重装歩兵'), f: O('IID_フリッサ'), c: L('lugar', 'カリアネイラの港'), h: O('IID_木製の斧') }),
       !caiHide() && t('Ruta de Cai: {a}. Cuatro grupos de piojos en la primera sala; no mates al último grupo y retírate: vuelven todos. No pide atributos altos, no gasta turnos y el templo (cambio de clase) y la posada (recuperar magia) quedan al lado.', { a: L('lugar', '帝都ダグシオン下水道', t('Alcantarillas de Dagsion')) }),
       !caiHide() && t('Ruta de Cai: {a}, un grupo de acorazados cerca de la entrada, junto al templo.', { a: L('lugar', '禁断の森') }),
       t('{a}: dos combates con un gusano de arena que regenera unos 6–8 PV por turno; con un golpe que no lo supere se puede seguir sin retirarse. Cuidado con lo que lo acompaña.', { a: L('lugar', '異教徒の洞窟') }),
       t('Contra no muertos (el Favor infernal reduce el daño y se curan al herirte): un muro de unidades con {u} curando. Es una escaramuza normal, así que aquí las monturas sí suben.', { u: PJ('PID_ウルタンド') }),
-    ]) + p(t('Las habilidades de formación del grupo activo también suman para llegar a los umbrales. Fórmula y tabla de rangos: <a href="#/mecanicas?ir=competencias">Competencias</a>. Fuentes: vídeo de LinkKing7 y sus comentarios (comunidad); los objetos, tiendas y accesos están comprobados con los datos.')) },
-    { id: 'magia-senores', g: 'EXP', t: 'Magia de los señores sin gastar usos', tag: '', h: p(t('{a}, {b} y {c} pueden subir Magia negra o blanca en una mazmorra: equipa un hechizo de daño y lanza el ataque preventivo al enemigo. Lo lanza sin gastar usos y acierta siempre. Después, retirarse y repetir. No funciona con «golpe para saltar» activado en esa mazmorra (comunidad).', { a: PJ('PID_カイ'), b: PJ('PID_セオドラ'), c: PJ('PID_イシュマール') })) },
-    { id: 'casillas-curativas', g: 'EXP', t: 'Casillas de curación', tag: '', h: p(t('En los mapas con casillas que curan, una unidad y un enemigo sobre ellas pueden combatir sin fin. Sirve para cualquier competencia, también monturas, pero da EXP de nivel en la clase actual. Ejemplos: cap. 10 de Theodora y cap. 6 de Cai (comunidad).')) },
+    ]) + p(t('Las habilidades de formación del grupo activo también suman para llegar a los umbrales. Fórmula y tabla de rangos: <a href="#/mecanicas?ir=competencias">Competencias</a>. Los objetos, las tiendas y los accesos están comprobados con los datos del juego.')) },
+    { id: 'magia-senores', g: 'EXP', t: 'Magia de los señores sin gastar usos', tag: '', h: p(t('{a}, {b} y {c} pueden subir Magia negra o blanca en una mazmorra: equipa un hechizo de daño y lanza el ataque preventivo al enemigo. Lo lanza sin gastar usos y acierta siempre. Después, retirarse y repetir. No funciona con «golpe para saltar» activado en esa mazmorra.', { a: PJ('PID_カイ'), b: PJ('PID_セオドラ'), c: PJ('PID_イシュマール') }) + ' ' + COM()) },
+    { id: 'casillas-curativas', g: 'EXP', t: 'Casillas de curación', tag: '', h: p(t('En los mapas con casillas que curan, una unidad y un enemigo sobre ellas pueden combatir sin fin. Sirve para cualquier competencia, también monturas, pero da EXP de nivel en la clase actual. Ejemplos: cap. 10 de Theodora y cap. 6 de Cai.') + ' ' + COM()) },
     { id: 'derrota', g: 'EXP', t: 'Perder conserva la EXP', tag: '', h: p(t('Tras perder una batalla se puede reintentar conservando la EXP y las competencias ganadas: conviene luchar hasta la última unidad.')) },
     { id: 'reserva', g: 'EXP', t: 'Remate y reserva', tag: '', h: p(t('En la Batalla rápida, el golpe que remata da EXP ×3; las unidades en reserva reciben la mitad. Los jefes dan el doble.')) },
     { id: 'nivel-enemigo', g: 'Mecánicas ocultas', t: 'Nivel de los enemigos', tag: '', h: p(t('Al empezar cada capítulo, el nivel base es la media de los 10 aliados de mayor nivel, limitada al rango del capítulo. Enemigos normales +2, oficiales +3, jefes +5. Subir mucho a pocas unidades sube a todos los enemigos.')) },

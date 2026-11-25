@@ -6,9 +6,9 @@ const FREE_PER_SEARCH = 0.25 * 1 + 0.7 * 3 + 0.05 * 6;  // items per search turn
 const FREE_MANUAL = { 'Equitación': 'IID_馬術書', 'Vuelo': 'IID_飛行術書', 'Coraza': 'IID_重装術書', 'Magia negra': 'IID_黒魔術書', 'Magia blanca': 'IID_白魔術書' };
 const freeTravel = spot => Math.round(teamDist(spot) / 47);  // the map's straight-line turns from Dagsion
 const FREE_MAX = 6;  // a free-time task is a short errand: a bigger need shows what 6 turns give
-/** n wanted at pct % per search → {turns, n, some} (some: only part of the need in 6 turns) */
+/** n wanted at pct % per search → {turns, n, some} (some: only part of the need in 6 turns: n is then the expected count, one decimal, of `of`) */
 const freeSearchCost = (n, pct) => { const rate = FREE_PER_SEARCH * pct / 100, turns = Math.max(1, Math.ceil(n / rate));
-  return turns <= FREE_MAX ? { turns, n, some: false } : { turns: FREE_MAX, n: Math.max(1, Math.floor(FREE_MAX * rate)), some: true }; };
+  return turns <= FREE_MAX ? { turns, n, some: false } : { turns: FREE_MAX, n: Math.round(FREE_MAX * rate * 10) / 10, of: n, some: true }; };
 /** best search without a quest condition, reachable now → {spot, pct} | null */
 const freeSearch = (iid, route, key) => teamSearches(iid, route, key).find(s => s.pct > 0 && !s.cond.length) || null;
 /** dungeons reachable now (Part 1: base level up to the chapter's top level + 3) → [{spot, d, lv}] nearest first */
@@ -23,7 +23,7 @@ function freeDungeons(route, key) {
 function freeCandidates(route, key, plan) {
   const c = CAPS[key] || {}, p3 = c.part === 3, out = [];
   const add = (x, score) => { const travel = freeTravel(x.spot);
-    if ((x.kind === 'buscar' || x.kind === 'oro') && x.turns + travel > 12) return;  // a search errand with the trip stays under 12 turns
+    if (['buscar', 'oro', 'cebo', 'cultivo'].includes(x.kind) && x.turns + travel > 12) return;  // an errand with the trip stays under 12 turns
     out.push({ ...x, travel, score: score - travel * 5 }); };  // nearer first among equals
   // 1 · materials the forge plan needs and no shop sells now: the scarcest first, at the best plain search
   const need = {};
@@ -31,25 +31,25 @@ function freeCandidates(route, key, plan) {
   Object.entries(need).filter(([m]) => !teamOffers(m, route, key).some(o => o.type !== 'barter')).forEach(([m, n]) => {
     const s = freeSearch(m, route, key); if (!s) return;
     const k = freeSearchCost(n, s.pct);
-    add({ tier: 1, kind: 'buscar', spot: s.spot, turns: k.turns, gain: [{ iid: m, n: k.n, some: k.some, why: 'forja' }] }, (teamMatScarce(m, route, key) ? 1000 : 0) + 100 - s.pct);
+    add({ tier: 1, kind: 'buscar', spot: s.spot, turns: k.turns, gain: [{ iid: m, n: k.n, of: k.of, some: k.some, why: 'forja' }] }, (teamMatScarce(m, route, key) ? 1000 : 0) + 100 - s.pct);
   });
   // 1 · barter chains whose payment comes from a plain search
   (plan.shop?.chains || []).filter(ch => ch.search && !(ch.search.cond || []).length && spotAccess(ch.search.spot, route, key).ok).forEach(ch =>
-    { const k = freeSearchCost(ch.pay.n, ch.search.pct); add({ tier: 1, kind: 'buscar', spot: ch.search.spot, turns: k.turns, gain: [{ iid: ch.pay.id, n: k.n, some: k.some, trade: ch.get }] }, 500); });
+    { const k = freeSearchCost(ch.pay.n, ch.search.pct); add({ tier: 1, kind: 'buscar', spot: ch.search.spot, turns: k.turns, gain: [{ iid: ch.pay.id, n: k.n, of: k.of, some: k.some, trade: ch.get }] }, 500); });
   // 1 · favourite gifts of a «quiero» that a plain search gives
   Object.entries(plan.gifts || {}).forEach(([pid, g]) => (g.picks || []).forEach(pk => { const s = freeSearch(pk.iid, route, key);
     if (s) { const k = freeSearchCost(1, s.pct); if (!k.some) add({ tier: 1, kind: 'buscar', spot: s.spot, turns: k.turns, gain: [{ iid: pk.iid, n: 1, gift: pid }] }, 300); } }));
   // 2 · a dungeon whose chest of this part the team uses (a manual for an exam skill, a weapon of a build) or whose minerals the forge needs
   const builds = plan.builds || [], focus = builds.flatMap(b => teamFocus(b).map(f => ({ ...f, pid: b.pid })));
   const manuals = new Set(focus.map(f => FREE_MANUAL[f.skill]).filter(Boolean).concat('IID_戦術書'));
-  const wtypes = new Set(builds.map(b => String(b.weapon || '').toLowerCase()).filter(Boolean));  // a build with no weapon adds nothing
-  const useful = iid => { const w = String(ITEMS[iid]?.weapon?.type || '').toLowerCase(); return manuals.has(iid) || (!!w && wtypes.has(w)); };
+  const wtypes = new Set(builds.map(b => armaKey(b.weapon)).filter(Boolean));  // a build with no weapon adds nothing; «Magia blanca» = magia blanca (bastón)
+  const useful = iid => { const w = armaKey(ITEMS[iid]?.weapon?.type); return manuals.has(iid) || (!!w && wtypes.has(w)); };
   const dungeons = freeDungeons(route, key);
   dungeons.forEach(x => {
     const chest = [...new Set((WIKI_EXT?.detalle?.chests?.[x.spot] || []).map(r => r[p3 ? 1 : 0]).filter(i => ITEMS[i] && useful(i)))];
     const ore = ((x.d.loot_tables || [])[p3 ? 3 : 2] || []).filter(y => y.item && need[y.item.id] && !teamOffers(y.item.id, route, key).some(o => o.type !== 'barter')).map(y => y.item.id);
     const gain = [...chest.map(iid => ({ iid, chest: true })), ...[...new Set(ore)].map(iid => ({ iid, why: 'forja' }))];
-    if (gain.length) add({ tier: 2, kind: 'mazmorra', spot: x.spot, turns: route === 'cai' && x.spot === DAGSION ? 0 : 2, gain }, chest.length * 10 + ore.length);
+    if (gain.length) add({ tier: 2, kind: 'mazmorra', spot: x.spot, turns: 2, gain }, chest.length * 10 + ore.length);
   });
   // 3 · skill EXP for the build exams in the nearest dungeon at the chapter level (15 turns per quick battle, then leave and come back)
   const skills = [...new Map(focus.map(f => [f.skill, f])).values()].slice(0, 3);
@@ -58,7 +58,8 @@ function freeCandidates(route, key, plan) {
   // 4 · gold: the best barter, else the best loot to sell
   const tips = teamTips(route, key), b = tips.barters[0], l = tips.loot.find(x => !freeSearchCost(1, x.pct).some && !(ITEMS[x.iid]?.obtain || []).some(o => o.type === 'búsqueda' && o.spot === x.spot && (o.condition || []).length));
   if (b) { const m = b.mats.find(z => z.src.search && !z.src.search.cond.length), k = m && freeSearchCost(m.n, m.src.search.pct);
-    if (k && !k.some) add({ tier: 4, kind: 'oro', spot: m.src.search.spot, turns: k.turns, gain: [{ iid: m.id, n: m.n, trade: b.iid, gold: b.value - b.cost }] }, b.value - b.cost); }
+    const g = b.value - b.cost + (m?.src.shop ? m.src.shop.price * m.n : 0);  // the collected material is not bought
+    if (k && !k.some) add({ tier: 4, kind: 'oro', spot: m.src.search.spot, turns: k.turns, gain: [{ iid: m.id, n: m.n, trade: b.iid, gold: g }] }, g); }
   if (l) { const k = freeSearchCost(1, l.pct); if (!k.some) add({ tier: 4, kind: 'oro', spot: l.spot, turns: k.turns, gain: [{ iid: l.iid, gold: l.sell }] }, l.sell * l.pct / 100); }
   // 4 · gold anywhere: near searches whose best drop sells, one item on average within the errand (fills early chapters too)
   Object.entries(SPOTS).filter(([sp, v]) => (v.search?.drops || []).length && freeTravel(sp) <= 4 && spotAccess(sp, route, key).ok).map(([sp, v]) => {
@@ -77,7 +78,9 @@ function freeCandidates(route, key, plan) {
   // one task per place (gains merged), best first, ties by place id
   const by = new Map();
   out.sort((a, b) => a.tier - b.tier || b.score - a.score || (a.spot < b.spot ? -1 : a.spot > b.spot ? 1 : 0)).forEach(x => {
-    const y = by.get(x.spot); if (!y) by.set(x.spot, x); else { y.gain.push(...x.gain.filter(g => !y.gain.some(h => h.iid && h.iid === g.iid))); y.turns = Math.max(y.turns, x.turns); }
+    const y = by.get(x.spot); if (!y) { by.set(x.spot, x); return; }
+    y.gain.push(...x.gain.filter(g => !y.gain.some(h => h.iid && h.iid === g.iid))); y.turns = Math.max(y.turns, x.turns);
+    if (x.for) y.for = [...new Set([...(y.for || []), ...x.for])];  // training merged into a dungeon line keeps who it is for
   });
   return { all: [...by.values()], need, wtypes };
 }
@@ -85,10 +88,11 @@ function freeCandidates(route, key, plan) {
 /** → [{tier, kind, spot, turns, travel, gain: [{iid?, n?, why?…}], for?: [pid]}], at most 5, by tier then score */
 function teamFreeTime(route, key, plan) {
   if (!CAPS[key]?.free_start) return [];  // a chapter with no free days has no free time
-  // a mix: up to 2 of tiers 1 and 2, 1 of tiers 3 and 4, then fill to 5 in rank order
+  // a mix: up to 2 of tiers 1 and 2, 1 of tiers 3 and 4, then fill to 5 in rank order, 3 of a tier at most
   const CAP = { 1: 2, 2: 2, 3: 1, 4: 1 }, all = freeCandidates(route, key, plan).all, pick = [], n = {};
-  all.forEach(x => { if (pick.length < 5 && (n[x.tier] || 0) < CAP[x.tier]) { pick.push(x); n[x.tier] = (n[x.tier] || 0) + 1; } });
-  all.forEach(x => { if (pick.length < 5 && !pick.includes(x)) pick.push(x); });
+  const take = (x, max) => { if (pick.length < 5 && !pick.includes(x) && (n[x.tier] || 0) < max) { pick.push(x); n[x.tier] = (n[x.tier] || 0) + 1; } };
+  all.forEach(x => take(x, CAP[x.tier]));
+  all.forEach(x => take(x, 3));
   return pick.sort((a, b) => a.tier - b.tier || b.score - a.score).map(({ score, ...x }) => x);
 }
 
@@ -101,8 +105,8 @@ function freeMatSource(iid, n, route, key) {
 }
 /** barters open now that give a weapon of `types` by collecting instead of paying → tasks (kind 'trueque', save = gold saved), strongest first */
 function freeWeaponBarters(route, key, types, only = null) {
-  const out = [];
-  Object.keys(ITEMS).filter(i => ITEMS[i].weapon && types.has(String(ITEMS[i].weapon.type).toLowerCase()) && (!only || only.includes(i))).forEach(i => {
+  const out = [], ty = new Set([...types].map(armaKey));  // weapon types in any spelling («Guanteletes», «magia blanca (bastón)»)
+  Object.keys(ITEMS).filter(i => ITEMS[i].weapon && ty.has(armaKey(ITEMS[i].weapon.type)) && (!only || only.includes(i))).forEach(i => {
     const offers = teamOffers(i, route, key), o = offers.find(x => x.type === 'barter'); if (!o || !o.pay.length) return;
     const mats = o.pay.map(p => ({ iid: p.id, n: p.n, ...(freeMatSource(p.id, p.n, route, key) || { none: true }) }));
     if (mats.some(m => m.none) || !mats.some(m => m.src)) return;  // at least one material to collect: buying them all is shopping
@@ -151,28 +155,32 @@ function teamFreeSections(route, key, plan) {
   foes.forEach(f => f.kinds.forEach(([kind]) => freeWeaponBarters(route, key, wtypes, EFF_ITEMS[kind] || []).slice(0, 1)
     .forEach(x => ahead.push({ ...x, foe: kind, battle: f.id, battleEs: f.es }))));
   put('ahead', ahead);
-  put('weapons', freeWeaponBarters(route, key, wtypes).filter((x, i, a) => a.findIndex(y => ITEMS[y.trade].weapon.type === ITEMS[x.trade].weapon.type) === i));
+  // one weapon per type, picked among those not listed yet (a lance already in «Adelanta» does not hide the next lance)
+  put('weapons', freeWeaponBarters(route, key, wtypes).filter(x => !keys(x).some(y => seen.has(y))).filter((x, i, a) => a.findIndex(y => ITEMS[y.trade].weapon.type === ITEMS[x.trade].weapon.type) === i));
   put('gold', freeGold(route, key));
   // forge materials no shop sells: one task each, the scarcest first (a search, else a dungeon with the mineral)
   const mats = Object.keys(need).filter(m => !teamOffers(m, route, key).some(o => o.type !== 'barter')).map(m => {
     const s = freeSearch(m, route, key), k = s && freeSearchCost(need[m], s.pct);
-    if (k && k.turns + freeTravel(s.spot) <= 12) return { tier: 1, kind: 'buscar', spot: s.spot, turns: k.turns, travel: freeTravel(s.spot), gain: [{ iid: m, n: k.n, some: k.some, why: 'forja' }], sc: teamMatScarce(m, route, key) };
-    const d = freeDungeons(route, key).map(x => ({ x, pct: Math.max(0, ...((x.d.loot_tables || [])[c.part === 3 ? 3 : 2] || []).filter(y => y.item?.id === m).map(y => y.pct)) })).filter(y => y.pct > 0).sort((a, b) => b.pct - a.pct)[0];
+    if (k && k.turns + freeTravel(s.spot) <= 12) return { tier: 1, kind: 'buscar', spot: s.spot, turns: k.turns, travel: freeTravel(s.spot), gain: [{ iid: m, n: k.n, of: k.of, some: k.some, why: 'forja' }], sc: teamMatScarce(m, route, key) };
+    const d = freeDungeons(route, key).filter(x => 2 + freeTravel(x.spot) <= 12).map(x => ({ x, pct: Math.max(0, ...((x.d.loot_tables || [])[c.part === 3 ? 3 : 2] || []).filter(y => y.item?.id === m).map(y => y.pct)) })).filter(y => y.pct > 0).sort((a, b) => b.pct - a.pct)[0];
     return d && { tier: 2, kind: 'mazmorra', spot: d.x.spot, turns: 2, travel: freeTravel(d.x.spot), gain: [{ iid: m, why: 'forja' }], sc: teamMatScarce(m, route, key) };
   }).filter(Boolean).sort((a, b) => b.sc - a.sc || (a.gain[0].iid < b.gain[0].iid ? -1 : 1)).map(({ sc, ...x }) => x);
-  put('mats', mats);
+  // a place once: two materials of the same dungeon (or search spot) share one line
+  put('mats', mats.filter((x, i) => { const y = mats.find(z => z.spot === x.spot); if (y === x) return true; y.gain.push(...x.gain); y.turns = Math.max(y.turns, x.turns); return false; }));
   return S;
 }
 
 /** money errands: profitable barters with collected materials, valuable loot, the best near searches; 100 G per turn or more, trip included */
 function freeGold(route, key) {
   const out = [], tips = teamTips(route, key);
-  const push = x => { x.travel = freeTravel(x.spot); if (x.turns + x.travel <= 12) out.push(x); };
+  // shortcut: the trip is the farthest of the collecting place and the trade place from Dagsion, not the real path between them
+  const push = x => { x.travel = Math.max(freeTravel(x.spot), x.at ? freeTravel(x.at) : 0); if (x.turns + x.travel <= 12) out.push(x); };
   tips.barters.forEach(b => { const m = b.mats.filter(z => z.src.search && !z.src.search.cond.length);
     if (!m.length || b.mats.some(z => !(z.src.search && !z.src.search.cond.length) && !z.src.shop)) return;
     const ks = m.map(z => freeSearchCost(z.n, z.src.search.pct)); if (ks.some(k => k.some)) return;
     push({ tier: 4, kind: 'oro', spot: m[0].src.search.spot, turns: ks.reduce((a, k) => a + k.turns, 0), trade: b.iid, at: b.offer.spot,
-      gain: b.mats.map(z => ({ iid: z.id, n: z.n, ...(z.src.search && !z.src.search.cond.length ? { src: z.src.search.spot } : { buy: z.src.shop.price * z.n }) })).concat([{ gold: b.value - b.cost }]) }); });
+      gain: (g => g.concat([{ gold: b.value - g.reduce((a, z) => a + (z.buy || 0), 0) }]))(  // only the bought materials cost money
+        b.mats.map(z => ({ iid: z.id, n: z.n, ...(z.src.search && !z.src.search.cond.length ? { src: z.src.search.spot } : { buy: z.src.shop.price * z.n }) }))) }); });
   tips.loot.forEach(l => { const s = teamSearches(l.iid, route, key).find(x => x.spot === l.spot && !x.cond.length), k = s && freeSearchCost(1, s.pct);
     if (k && !k.some) push({ tier: 4, kind: 'oro', spot: l.spot, turns: k.turns, gain: [{ iid: l.iid, gold: l.sell }] }); });
   const goldOf = x => x.gain.reduce((a, g) => a + (g.gold || 0), 0), per = x => goldOf(x) / (x.turns + x.travel || 1);

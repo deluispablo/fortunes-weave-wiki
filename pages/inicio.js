@@ -27,7 +27,8 @@ function homeTips() {
     ['tutoriales', 'Tutoriales', () => (ext().tutoriales?.tutorials || []).length, 'tutorial', 'tutoriales', 'tut'],
     ['glosario', 'Glosario', () => (W.gloss || []).length, 'término', 'términos', 'gloss'],
   ];
-  const GO = [['#/cap', 'cap', 'Capítulo'], ['#/equipo?sec=regalos', 'week', 'Regalos'], ['#/equipo', 'eq', 'Equipo'], ['#/equipo?ir=eq-equipamiento', 'build', 'Builds']];
+  const GO = [['#/cap', 'cap', 'Capítulo'], ['#/equipo?sec=regalos', 'week', 'Regalos'], ['#/equipo', 'eq', 'Equipo'], ['#/equipo?ir=eq-equipamiento', 'build', 'Builds'],
+    ['#/planificador', 'swords', 'Planificador'], ['#/checklist', 'scroll', 'Checklist']];
   const pageOf = r => NAV.flatMap(g => g.pages).find(p => p.id === ROUTES[r]);
 
   function hero() {
@@ -62,7 +63,7 @@ function homeTips() {
     const where = `${c.route === 'comun' ? t('Común') : ROUTE_NAME[route]}, ${cs[0].toLowerCase()}${cs.slice(1)}`;
     return `<section class="hm-mine" aria-labelledby="hm-mine-t"><div class="hm-mine-h"><p><b id="hm-mine-t">${t('Tu partida')}</b> <span class="hm-where">${esc(where)}<i> · ${esc(gt(c.es))}</i></span></p>` +
       `<button class="txtbtn" type="button" data-sheet="ctx" aria-haspopup="dialog" aria-label="${t('Cambiar ruta y capítulo')}">${t('Cambiar')}</button></div>` +
-      `<ul class="hm-go">${GO.map(([h, k, lb]) => `<li><a href="${h}">${navIcon(k)}<span>${t(lb)}</span></a></li>`).join('')}</ul></section>`;
+      `<ul class="hm-go">${GO.filter(([h]) => ROUTES[parseHash(h).sec]).map(([h, k, lb]) => `<li><a href="${h}">${navIcon(k)}<span>${t(lb)}</span></a></li>`).join('')}</ul></section>`;
   }
   /** Guías (09-ia): Empieza aquí as a line of links, then the 7 topics with their guide count; the block the user wants first */
   function guides() {
@@ -83,7 +84,7 @@ function homeTips() {
   function foot() {
     const [y, m, d] = String(W.meta?.built || '').split('-').map(Number);
     const off = { on: 'Funciona sin conexión.', next: 'Funcionará sin conexión desde la próxima visita.' }[offlineState()];
-    return `<p class="hm-foot">${t('Datos del juego contrastados con guías de la comunidad.')}${y ? ' ' + t('Actualizada el {d}.', { d: dateTx(y, m, d) }) : ''}${off ? ' ' + t(off) : ''}</p><p class="hm-foot hm-legal">${LEGAL()}</p>`;  // the same reading as Ajustes
+    return `<p class="hm-foot">${t('Datos extraídos del juego y contrastados con guías.')}${y ? ' ' + t('Actualizada el {d}.', { d: `<a href="#/novedades">${dateTx(y, m, d)}</a>` }) : ''}${off ? ' ' + t(off) : ''}</p><p class="hm-foot hm-legal">${LEGAL()}</p>`;  // the same reading as Ajustes
   }
   const home = () => `${hero()}<div class="hm-cols">${recommended()}${guides()}${mine()}${library()}${tip()}</div>${foot()}`;
 
@@ -131,7 +132,7 @@ function homeTips() {
 .hm-mine-h .txtbtn { margin-right: calc(-1 * var(--s2)); }
 .hm-where { margin-left: 6px; font-size: 13px; }
 .hm-where i { font-style: normal; color: var(--mut); }
-.hm-go { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s1); margin: 0 calc(-1 * var(--s2)); padding: 0; list-style: none; }
+.hm-go { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s1); margin: 0 calc(-1 * var(--s2)); padding: 0; list-style: none; }
 .hm-go a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 52px; padding: 2px; border-radius: var(--r2); color: var(--tx2); font-size: 12px; text-align: center; }
 .hm-go a:hover { background: var(--ghost-hover); color: var(--tx); text-decoration: none; }
 .hm-go svg { width: 22px; height: 22px; color: var(--acc); }

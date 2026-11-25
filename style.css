@@ -171,10 +171,15 @@ td { font-variant-numeric: tabular-nums; }
 
 /* ---------- layout + sidebar ---------- */
 /* tier lists bar under the header (shell.js tierbar): one line, scrolls sideways on a phone */
-.tierbar { display: flex; gap: var(--s2); overflow-x: auto; scrollbar-width: none; padding: var(--s2) var(--s4); border-bottom: 1px solid var(--line); background: var(--surface); }
-.tierbar::-webkit-scrollbar { display: none; }
+/* pills a full tap high (the bar keeps its height: less padding); the right edge fades so a cut pill reads as «scrolls», and the end
+   padding lets the last pill clear the fade */
+.tierbar { border-bottom: 1px solid var(--line); background: var(--surface); }
 .tierbar:empty { display: none; }
-.tierbar a { flex: none; display: inline-flex; align-items: center; min-height: 36px; padding: 0 var(--s3); border-radius: 999px; background: var(--surface2); color: var(--tx); text-decoration: none; font-weight: 600; font-size: var(--fs-small); }
+.tierbar-l { display: flex; align-items: center; gap: var(--s2); overflow-x: auto; scrollbar-width: none; padding: var(--s1) 40px var(--s1) var(--s4);
+  -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 32px), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 32px), transparent); }
+.tierbar-l::-webkit-scrollbar { display: none; }
+.tierbar-k { flex: none; color: var(--mut); font-size: var(--fs-small); font-weight: 600; white-space: nowrap; }
+.tierbar a { flex: none; display: inline-flex; align-items: center; min-height: var(--tap); padding: 0 var(--s3); border-radius: 999px; background: var(--surface2); color: var(--tx); text-decoration: none; font-weight: 600; font-size: var(--fs-small); }
 .tierbar a:hover { background: var(--ghost-hover, var(--surface2)); }
 .tierbar a[aria-current] { background: var(--acc); color: var(--bg); }
 .app { display: grid; grid-template-columns: var(--side-w) minmax(0, 1fr); min-height: calc(100vh - var(--top-h)); }
@@ -585,26 +590,6 @@ a.gchip.t-fav::before, a.gchip.t-love::before, a.gchip.t-like::before { width: 2
   .ctx-btn svg { width: 14px; height: 14px; }
 }
 
-/* «Este fin de semana»: selector, summary and checklists; the whole row is the tap target */
-.fin-sel { display: flex; align-items: center; gap: var(--s2); margin: 0 0 var(--s2); }
-.fin-nav { width: var(--tap); height: var(--tap); flex: none; border: 1px solid var(--line-strong); border-radius: 50%; background: var(--surface); color: var(--tx); font-size: 1.375rem; line-height: 1; cursor: pointer; }
-.fin-nav:disabled { opacity: .35; cursor: default; }
-.fin-lbl { flex: 1; text-align: center; font: 600 var(--fs-sec)/1.2 var(--font-display); }
-.fin-sum { margin: 0 0 var(--s1); font-weight: 600; }
-.fin-prog { color: var(--acc); white-space: nowrap; }
-.fin-blk h4 { margin: var(--s3) 0 var(--s1); }
-.fin-list { list-style: none; margin: 0; padding: 0; }
-.fin-ck { display: flex; align-items: center; gap: var(--s3); min-height: var(--tap); padding: 2px 0; border-top: 1px dashed var(--line); cursor: pointer; }
-.fin-list > li:first-child .fin-ck { border-top: 0; }
-.fin-ck input, .fin-day input { width: 22px; height: 22px; flex: none; margin: 0; accent-color: var(--acc); }
-.fin-ck:has(input:checked) > span { color: var(--mut); text-decoration: line-through; text-decoration-color: var(--line-strong); }
-.fin-gift { display: flex; gap: var(--s3); align-items: flex-start; padding: var(--s2) 0; border-top: 1px dashed var(--line); }
-.fin-gift:first-child { border-top: 0; }
-.fin-gift > div { flex: 1; min-width: 0; }
-.fin-gift > div > small { display: block; }
-.fin-days { display: flex; flex-direction: column; gap: 2px; flex: none; }
-.fin-day { display: inline-flex; align-items: center; gap: 6px; min-height: var(--tap); padding: 0 var(--s1); cursor: pointer; font-weight: 600; }
-
 /* 200 % zoom on a phone (≈190 px wide): the header and the bottom bar keep inside the screen */
 @media (max-width: 320px) {
   .brand { font-size: 15px; letter-spacing: .02em; }
@@ -613,7 +598,6 @@ a.gchip.t-fav::before, a.gchip.t-love::before, a.gchip.t-like::before { width: 2
   .ctx-btn .r { display: none; }
   .top .ib { width: 36px; }
   .tabbar span { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .fin-lbl { font-size: var(--fs-row); }
   .toast { flex-wrap: wrap; }
 }
 @media (max-width: 240px) {

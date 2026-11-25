@@ -11,8 +11,8 @@ function tierChars(route) {
 
 (() => {
   const CSS = `.tc-g h2{font-size:var(--fs-row);margin:0 0 var(--s2)}.tc-u{display:flex;align-items:center;gap:var(--s2);min-height:var(--tap);border-top:1px solid var(--line)}
-.tc-u .bd-f{flex:none;width:32px;height:32px;border-radius:50%;object-fit:cover;object-position:50% 15%;background:var(--surface2)}.tc-n{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.tc-u .mm-tag{flex:none;display:inline-block;padding:0 var(--s2);border-radius:var(--r1);background:var(--surface2);color:var(--tx2);font-size:var(--fs-small)}.tc-b{flex:none;font-size:var(--fs-small)}`;
+.tc-u .bd-f{flex:none;width:32px;height:32px;border-radius:50%;object-fit:cover;object-position:50% 15%;background:var(--surface2)}.tc-n{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.tc-n a{display:block;min-height:var(--tap);line-height:var(--tap);overflow:hidden;text-overflow:ellipsis}
+.tc-u .mm-tag{flex:none;display:inline-block;padding:0 var(--s2);border-radius:var(--r1);background:var(--surface2);color:var(--tx2);font-size:var(--fs-small)}.tc-b{flex:none;display:inline-flex;align-items:center;min-height:var(--tap);font-size:var(--fs-small)}`;
   const COM = () => `<span class="gu-com" title="${esc(t('Dato de la comunidad'))}"></span>`;
   function page(qs = {}) {
     const B = (window.WIKI_EXT || {}).builds || {}, c = ctxGet(), late = ctxChosen() && CAPS[c.key]?.part >= 2;
@@ -26,8 +26,8 @@ function tierChars(route) {
     const body = groups.length ? groups.map(g => `<section class="card tc-g"><h2>${esc(g.tier)}</h2>${g.pids.map(row).join('')}</section>`).join('')
       : `<p class="mut">${t('Ningún personaje con estos filtros.')}</p>`;
     const ctl = `<div class="aw-ctx">${chips('tier-personajes', qs, 'r', [...ROUTE_IDS.map(x => [x, ROUTE_NAME[x]]), ['final', 'Partes 2 y 3']], r, 'Ruta')}</div>`;
-    return `<h1>${t('Tier list de personajes')}</h1><p class="mut">${end ? t('Quién rinde más en las Partes 2 y 3.') : t('Quién rinde más en la Parte 1 de la ruta de {r}.', { r: esc(ROUTE_NAME[r]) })} ${COM()}</p>` +
-      ctl + body + `<p class="mut">${t('El tier es de la comunidad; las clases y cuándo se abren, en <a href="#/builds">Builds</a>.')}</p>`;
+    return `<h1>${t('Tier list de personajes')}</h1><p class="mut">${end ? t('Quién rinde más al final del juego.') : t('Quién rinde más en la Parte 1 de la ruta de {r}.', { r: esc(ROUTE_NAME[r]) })} ${COM()}</p>` +
+      ctl + body + `<p class="mut">${t('El tier es una valoración, no un dato del juego; las clases y cuándo se abren, en <a href="#/builds">Builds</a>.')}</p>`;
   }
   register({ id: 'tier-personajes', group: 'minmax', title: 'Tier list de personajes', order: 15, render: (id, qs) => page(qs || {}), css: CSS,
     search: () => [{ group: 'Mecánicas', label: tl('Tier list de personajes'), sub: tl('Quién rinde más por ruta y en las Partes 2 y 3'), href: '#/tier-personajes', aliases: ['tier list personajes', 'mejores personajes', 'tier list unidades'], pre: true }] });  // i18n-ignore

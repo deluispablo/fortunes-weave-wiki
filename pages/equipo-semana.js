@@ -261,17 +261,8 @@ function teamTips(route, key) {
   return { news, barters, loot };
 }
 
-/* enemy types of a battle, read from the enemy classes: armoured = the class exam asks Coraza, riders = trains Equitación (not Vuelo),
-   fliers = trains Vuelo; beasts and undead = monster classes (bears, wolves, birds, sea beasts… / skeletons, zombies, mummies) */
-const FOE_BEAST = /ベア|オオカミ|ルフ|海獣|ヴィーグル|ハルピア|魔獣|ケートゥス|ヒュドラ/, FOE_UNDEAD = /スケルトン|ゾンビ|マミー/;
-function teamFoeKinds(cls) {
-  const j = CLASSES[cls];
-  if (!j) return FOE_UNDEAD.test(cls) ? ['nomuerto'] : FOE_BEAST.test(cls) ? ['bestia'] : [];
-  const t = j.skills_trainable_q || {}, out = [];
-  if ((j.exam_requirements || []).some(r => r.skill === 'Armor')) out.push('acorazado');
-  if (t['Vuelo'] > 0) out.push('volador'); else if (t['Equitación'] > 0) out.push('jinete');
-  return out;
-}
+/* enemy types of a battle: the wiki's one table of unit types (core.js unitTypes, also the combat calculator's) */
+const teamFoeKinds = unitTypes;
 const FOE_ES = { acorazado: 'acorazados', jinete: 'jinetes', volador: 'voladores', bestia: 'bestias', nomuerto: 'no muertos' };
 const FOE_EFF = { acorazado: /SID_重装(有効|特効)/, jinete: /SID_騎兵(有効|特効)/, bestia: /SID_獣有効/, nomuerto: /SID_(冥魔有効|清めの剣効果)/ };  // fliers: every bow already hits them
 /** the battles ahead from chapter `key`: the chapter's own story battle (it closes the chapter) and the next chapter's, with the enemy types (2 or more) */
@@ -291,10 +282,10 @@ const ROUTINE_ITEMS = ['IID_白魔術書', 'IID_黒魔術書', 'IID_上級資格
 const ACC_USE = jid => CLASSES[jid]?.weapons_usable || [];
 const ACC_RULES = [
   { name: 'Anillo de gigante', cls: 'Cuadriguero', test: j => CLASSES[j]?.es === 'Cuadriguero', why: 'Con +4 compensa el peso; el Cuadriguero no depende de la esquiva' },  // i18n-ignore
+  { name: 'Anillo vendaval', test: (j, c) => c && c.gap >= 1 && c.gap <= 3, why: 'Vel +3: le faltan 1–3 puntos para atacar dos veces' },  // i18n-ignore — before the shield: a double attack it unlocks beats Res +5
   { name: 'Escudo antimagia', test: j => (CLASSES[j]?.skills_trainable_q?.Coraza || 0) > 0, why: 'Res +5: tapa el punto débil de los acorazados' },  // i18n-ignore
   { name: 'Bastón de sanación', test: j => ACC_USE(j).includes('Magia blanca') && !ACC_USE(j).includes('Magia negra'), why: 'Cura más con cada bastón' },  // i18n-ignore
   { name: 'Bastón de hechicero', test: j => ACC_USE(j).includes('Magia negra'), why: 'Mag +3 para los hechizos' },  // i18n-ignore
-  { name: 'Anillo vendaval', test: (j, c) => c && c.gap >= 1 && c.gap <= 3, why: 'Vel +3: le faltan 1–3 puntos para atacar dos veces' },  // i18n-ignore
 ];
 
 /** what to buy, search and barter in chapter `key` for the team `builds` (+ the mounts plan):
@@ -341,8 +332,9 @@ function teamShopping(route, key, builds, mounts = {}) {
     (j?.exam_requirements || []).forEach(r => { const m = MANUAL_OF[r.es]; if (m && !(prev?.skills_trainable_q?.[r.es] > 0)) add(m, t('{p} necesita {s} {r} para {c}', { p: nm(CHARS[b.pid]), s: t(r.es), r: r.rank, c: nm(j) }), 3); });
   });
   // the main weapon of each unit is in «Equipamiento» (Equipo), not repeated here
+  const once = teamAnnaOnce(route, key, builds);  // Anna's one-chapter window lists its own accessories
   for (const r of ACC_RULES.filter(x => x.cls)) { const iid = Object.keys(ITEMS).find(k => ITEMS[k].es === r.name), users = builds.filter(b => (b.steps || []).some(s => CLASSES[s.jid]?.es === r.cls)).map(b => b.pid);
-    if (iid && users.length) add(iid, `${t(r.why)}: ${list(users.map(p => nm(CHARS[p])))}`, 3); }
+    if (iid && users.length && !once.some(o => o.iid === iid)) add(iid, `${t(r.why)}: ${list(users.map(p => nm(CHARS[p])))}`, 3); }
   // 3 · Vandahl barters whose payment comes from a search at a reachable place: needed items first
   const chains = [];
   for (const w of want.filter(x => x.offer.type === 'barter')) for (const p of w.offer.pay) { const sr = teamSearches(p.id, route, key)[0]; if (sr) chains.push({ get: w.iid, why: w.why, pay: p, search: sr, offer: w.offer }); }
@@ -354,7 +346,7 @@ function teamShopping(route, key, builds, mounts = {}) {
   const top = want.sort((a, b) => a.prio - b.prio), groups = [];
   for (const w of top) { const k = w.offer.spot || w.offer.where; let g = groups.find(x => x.k === k); if (!g) groups.push(g = { k, spot: w.offer.spot, where: w.offer.where, renown: w.offer.renown, items: [] }); if (!g.items.some(x => x.iid === w.iid)) g.items.push(w); }
   groups.sort((a, b) => Math.min(...a.items.map(x => x.prio)) - Math.min(...b.items.map(x => x.prio)) || a.renown - b.renown || b.items.length - a.items.length);
-  return { buy: groups, chains, routine, lures, foes: teamFoesAhead(route, key), once: teamAnnaOnce(route, key, builds) };
+  return { buy: groups, chains, routine, lures, foes: teamFoesAhead(route, key), once };
 }
 
 /* ---------------- refining at the Herrería («Herrería» in Esta semana) ---------------- */

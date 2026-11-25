@@ -297,6 +297,7 @@ function charLimits(pid) {
         [t('Clases por nivel'), pathTxt(c)]] : [[t('Clase inicial'), cb.class && L('clase', cb.class, cb.class_es)]]),
       [t('Cumpleaños'), idn.birthday && esc(isEn() ? bday(idn.birthday) : idn.birthday) + (idn.birth_year ? ` (${idn.birth_year})` : '') + (idn.birthday_when ? ` <small>· ${esc(dx(idn.birthday_when))}</small>` : '')],
       isEn() ? [t('Nombre en español'), c.es && c.es !== c.en ? esc(c.es) : ''] : [t('Nombre en inglés'), c.en && c.en !== c.es ? esc(c.en) : ''],
+      [t('Comparar'), `<a href="${esc(qsHref('comparar', {}, { a: c.id }))}">${t('Comparar con otro personaje')}</a>`],
     ]) + stats(c, p) + here(c, route));
     const team = teamNow(route), plan = team?.has(c.id) ? teamPlan(route, ctxGet().key, ctxRecruits(route), ctxDrop(route)) : null;
     const mine = plan && plan.builds.find(b => b.pid === c.id);

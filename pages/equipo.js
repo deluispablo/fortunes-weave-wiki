@@ -1,4 +1,4 @@
-/* Fortune's Weave · Equipo (#/equipo?r=<ruta>; core.js sends the old #/planificador here): the selector of recruits, roles, builds and
+/* Fortune's Weave · Equipo (#/equipo?r=<ruta>; core.js sends the old #/planificador?p= here): the selector of recruits, roles, builds and
    equipment, recruitment, and the «Esta semana» block that Capítulo shows. The model lives in equipo-*.js, loaded before this file. */
 'use strict';
 
@@ -338,11 +338,10 @@
     const builds = `<div class="eq-units">${[...plan.builds].sort((a, b) => bySerial(a.pid, b.pid)).map(b => `<section class="card eq-unit" id="eq-${esc(b.pid)}">` +
       `<header>${face(b.pid, 'cp-face')}<div><h4>${L('personaje', b.pid)}</h4><span class="cp-tag">${t('prioridad {n}', { n: rank[b.pid] })}</span>${b.roles.length ? `<span class="cp-tag">${esc(roleNames(b.roles))}</span>` : ''}${stTag(b.pid)}</div></header>` +
       `${buildSummary(b, plan)}${gearHtml(gearOf[b.pid], plan.forge)}</section>`).join('')}</div>`;
-    const gearOfTxt = '';
     const rules = RULES.filter(r => !WEEK_RULE.test(r));
     // two tabs: the team (roles, builds, equipment) and recruitment; the rules folded at the foot (?sec=reglas opens it)
     return ficha(head, [
-      ['equipo', 'Equipo', equipo + `<h4 id="eq-equipamiento">${t('Builds y equipamiento')}</h4>${gearOfTxt}${builds}`],
+      ['equipo', 'Equipo', equipo + `<h4 id="eq-equipamiento">${t('Builds y equipamiento')}</h4>${builds}`],
       ['regalos', 'Regalos', giftsTab(route, plan.prio.map(x => x.pid))],
       ['reclutamiento', 'Reclutamiento', `<section class="card eq-box">${recruitment(route, want) || `<p class="mut">${t('Nadie pendiente de reclutar.')}</p>`}` + `</section>` +
         (want.length ? `<section class="card eq-box eq-gifts"><h3>${t('Regalos para subir el apoyo')}</h3>${birthdays(plan.week)}` +
@@ -353,7 +352,9 @@
   /** Capítulo › «Esta semana»: the week checklist for the context team at `key` (the «quiero» recruits), with its rules folded */
   const weekBody = plan => { const rules = RULES.filter(r => WEEK_RULE.test(r));
     return weekHtml(plan.week, plan.round, plan.shop, plan.forge) + `<details class="eq-more"><summary>${t('Cómo se calcula ({n})', { n: rules.length })}</summary>${ul(rules.map(r => `<li>${esc(t(r))}</li>`))}</details>`; };
-  window.teamWeekBlock = (route, key) => weekBody(teamPlan(route, key, ctxRecruits(route), ctxDrop(route), ctxWant(route)));
+  /** the plan of the context team (Mi partida) on `route` at `key`: Capítulo computes it once and hands it to its blocks */
+  window.teamCtxPlan = (route, key) => teamPlan(route, key, ctxRecruits(route), ctxDrop(route), ctxWant(route));
+  window.teamWeekBlock = (route, key, plan = window.teamCtxPlan(route, key)) => weekBody(plan);
   /** Capítulo › En Dagsion: who eats with the lord and who goes to the Servicio divino this weekend (gifts live in Equipo › Regalos) */
   window.teamWeekendSummary = (route, key) => {
     const army = ctxTeam(route).filter(p => p !== LORDS[route] && teamState(p, route, key) === 'tengo');  // the Servicio divino pairs the lord with a recruited unit
@@ -369,19 +370,20 @@
 
   /** Capítulo › Tiempo libre: 3–5 errands for the turns left once the chapter's important things are done */
   const FREE_VERB = { buscar: 'Busca en {s}', mazmorra: 'Entra en {s}', entrenar: 'Entrena en {s}', oro: 'Busca en {s}', cebo: 'Pon un cebo en {s}', cultivo: 'Planta en {s}' };
-  window.teamFreeBlock = (route, key) => {
-    const plan = teamPlan(route, key, ctxRecruits(route), ctxDrop(route), ctxWant(route)), S = teamFreeSections(route, key, plan);
+  window.teamFreeBlock = (route, key, plan = window.teamCtxPlan(route, key)) => {
+    const S = teamFreeSections(route, key, plan);
     if (!Object.values(S).some(l => l.length)) return '';
-    const obj = g => `${g.some ? '≈' : ''}${g.n > 1 || g.some ? `${g.n}× ` : ''}${L('objeto', g.iid)}`;
+    // more than 6 turns of searching: the expected count of the total («≈0,3 de 10»)
+    const obj = g => (g.some ? t('≈{n} de {m} {a}', { n: num(g.n), m: g.of, a: L('objeto', g.iid) }) : `${g.n > 1 ? `${g.n}× ` : ''}${L('objeto', g.iid)}`);
     const cost = x => t(x.turns === 1 ? '{n} turno' : '{n} turnos', { n: x.turns }) + (x.travel > 0 ? ' ' + t(x.travel === 1 ? '(a ~{n} turno de Dagsion)' : '(a ~{n} turnos de Dagsion)', { n: x.travel }) : '');
     const recruit = p => t('para reclutar a {p} (desde el {c})', { p: L('personaje', p), c: esc((cs => (isEn() ? cs : cs.replace(/^C/, 'c')))(capShort(CAPS[CHARS[p].routes[route].recruit_key] || {}))) });
     // a barter: what to collect (or buy) and where, then where to trade it and for what
     const barter = x => {
       const mats = list(x.gain.filter(g => g.iid).map(g => g.src ? t('{a} en {s}', { a: obj(g), s: L('lugar', g.src) }) : t('{a} (cómpralo, {g})', { a: obj(g), g: gold(g.buy) })));
-      const sold = x.gain.find(g => g.gold && !g.iid), end = x.kind === 'oro'
-        ? t('cámbialo en {s} por {w} y véndelo ({g})', { s: L('lugar', x.at), w: L('objeto', x.trade), g: gold(sold?.gold || 0) })
-        : x.only ? t('cámbialo en {s} por {w} (solo por trueque)', { s: L('lugar', x.at), w: L('objeto', x.trade) })
-        : t('cámbialo en {s} por {w} (ahorras {g})', { s: L('lugar', x.at), w: L('objeto', x.trade), g: gold(x.save || 0) });
+      const sold = x.gain.find(g => g.gold && !g.iid), many = x.gain.filter(g => g.iid).reduce((a, g) => a + (g.n || 1), 0) > 1, v = { s: L('lugar', x.at), w: L('objeto', x.trade) };
+      const end = x.kind === 'oro' ? t(many ? 'cámbialos en {s} por {w} y véndelo ({g})' : 'cámbialo en {s} por {w} y véndelo ({g})', { ...v, g: gold(sold?.gold || 0) })
+        : x.only ? t(many ? 'cámbialos en {s} por {w} (solo por trueque)' : 'cámbialo en {s} por {w} (solo por trueque)', v)
+        : t(many ? 'cámbialos en {s} por {w} (ahorras {g})' : 'cámbialo en {s} por {w} (ahorras {g})', { ...v, g: gold(x.save || 0) });
       const foe = x.foe ? ' ' + t('— eficaz contra {f} en {b}', { f: esc(t(FOE_ES[x.foe] || x.foe)), b: L('batalla', x.battle, x.battleEs) }) : '';
       return `<li>${t('Junta {m}', { m: mats })} · ${cost(x)}: ${end}${foe}</li>`;
     };
@@ -435,14 +437,14 @@
   // leaving the page ends the edit: coming back with a selection shows it folded
   if (typeof window.addEventListener === 'function') window.addEventListener('hashchange', () => { if (!/^#\/equipo\b/.test(location.hash)) teamLeave(); });
 
-  // #/planificador is rewritten to #/equipo by core.js (OLD_ADDR) before it gets here
+  // #/planificador?p= (the old recruit planner) is rewritten to #/equipo by core.js (OLD_ADDR) before it gets here
   const renderEquipo = (id, qs) => {
     return page(qs || {});
   };
-  register({ id: 'equipo', title: 'Equipo', routes: ['equipo', 'planificador'], render: renderEquipo, css: CSS,
+  register({ id: 'equipo', title: 'Equipo', render: renderEquipo, css: CSS,
     search: () => [
       // search.js translates label and sub with t()
-      { group: 'Secciones', label: 'Equipo', sub: 'Builds, equipamiento, reclutamiento', href: '#/equipo', aliases: ['team', 'planner', 'planificador', 'reclutas'] },  // i18n-ignore (aliases)
+      { group: 'Secciones', label: 'Equipo', sub: 'Builds, equipamiento, reclutamiento', href: '#/equipo', aliases: ['team', 'reclutas'] },  // i18n-ignore (aliases)
       { group: 'Secciones', label: 'Regalos del equipo', sub: 'Equipo · regalos y comidas por personaje', href: '#/equipo?sec=regalos', aliases: ['ronda', 'ronda de regalos', 'regalos de la semana', 'regalar', 'comidas', 'posada'] },  // i18n-ignore (aliases)
       { group: 'Secciones', label: 'Trueques y dinero fácil', sub: 'Capítulo · trueques de Vandahl y botín que se vende', href: '#/cap?ir=eq-consejos', aliases: ['consejos', 'trueques', 'vandahl', 'dinero', 'novedades'] },  // i18n-ignore (aliases)
       { group: 'Secciones', label: 'Herrería', sub: 'Capítulo · qué refinar', href: '#/cap?ir=eq-herreria', aliases: ['refinar', 'refinado', 'forja', 'reparar', 'compras'] },  // i18n-ignore (aliases)

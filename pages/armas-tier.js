@@ -47,7 +47,7 @@ function armsCatalog(route, part) {
     if (/^Prototipo/.test(it.es)) marks.push('dlc');
     if (!(av || routes.length) && (it.obtain || []).some(o => o.type === 'sorteo')) marks.push('cajas');
     const ty = armaKey(w.type);
-    (out[ty] ??= []).push({ iid: r.iid, tier: r.tier, why: r.why, why_en: r.why_en, web: r.web || null, score: Math.round(armsScore(w) * 10) / 10,
+    (out[ty] ??= []).push({ iid: r.iid, tier: r.tier, why: r.why, why_en: r.why_en, web: r.extra || r.web || null, score: Math.round(armsScore(w) * 10) / 10,
       idx: av ? av.idx : -1, routes, marks, cap, src: src || null, lvl: armsDungeonLv(src, part) });
   }
   const order = ARMAS.map(a => a[0]);
@@ -55,23 +55,29 @@ function armsCatalog(route, part) {
     .map(ty => [ty, out[ty].sort((a, b) => ARMS_RANK[a.tier] - ARMS_RANK[b.tier] || b.score - a.score || a.iid.localeCompare(b.iid))]));
 }
 
+/** the visible tag of a cursed treasure in a closed row (shared with #/mejor-equipamiento): not colour only */
+const armsCurseTag = iid => (isCursed(iid) ? `<span class="mm-tag">${t('Tesoro maldito')}</span>` : '');
+/** where a pool source is, one line (shared with #/mejor-equipamiento) */
+function armsSrcLine(s) {
+  if (!s) return '';
+  // a barter names its place: «Vandahl 007 en Alecto» carries the merchant's internal number
+  const at = s.spot ? L('lugar', s.spot, s.kind === 'barter' ? undefined : dataTx(s.where).replace(/\s*\(.*\)$/, '')) : esc(dataTx(s.where || '').replace(/\s*\([A-Z]+\d+_\d+\)$/, ''));  // «(SC30_03)»: the game's map id
+  if (s.kind === 'barter') return t('Trueque en {w}: {p}', { w: at, p: list((s.pay || []).map(p => `${p.n > 1 ? p.n + '× ' : ''}${L('objeto', p.id, p.es)}`)) });
+  if (s.kind === 'tienda') return t('Tienda: {w}', { w: at }) + (s.price ? ' · ' + gold(s.price) : '');
+  if (s.kind === 'cofre') return t('Cofre: {w}', { w: at });
+  return s.kind === 'recompensa' || s.kind === 'mision' ? t('Misión: {w}', { w: at }) : s.kind === 'botín enemigo' ? t('Botín enemigo: {w}', { w: at }) : at;
+}
+
 (() => {
   const ARMS_H = { espada: 'Espadas', lanza: 'Lanzas', hacha: 'Hachas', arco: 'Arcos', punos: 'Guanteletes' };
   const MARK = { tope: c => t('tope P1: +{n}', { n: c }), nocai: () => t('no en Cai P1'), dlc: () => t('DLC'), cajas: () => t('solo cajas') };
   const COM = () => `<span class="gu-com" title="${esc(t('Dato de la comunidad'))}"></span>`;
   const CSS = `.aw-ctx{display:flex;flex-wrap:wrap;gap:var(--s2);margin:0 0 var(--s3)}.aw-g h2{font-size:var(--fs-row);margin:0 0 var(--s2)}
-.aw-u{border-top:1px solid var(--line)}.aw-u>summary,.aw-u>.fold-h .fold-t{display:flex;align-items:center;gap:var(--s2);min-height:var(--tap);white-space:nowrap;overflow:hidden}
-.aw-u .ico{flex:none;width:28px;height:28px}.aw-n{font-weight:600;flex:none}.aw-w{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;color:var(--tx2);font-size:var(--fs-small)}
+.aw-u{border-top:1px solid var(--line)}.aw-u>summary,.aw-u>.fold-h .fold-t{display:flex;flex-wrap:wrap;align-items:center;gap:0 var(--s2);min-height:var(--tap)}
+.aw-u .ico{flex:none;width:28px;height:28px}.aw-n{font-weight:600;flex:0 1 auto;min-width:0}.aw-w{flex:1 1 10em;min-width:0;color:var(--tx2);font-size:var(--fs-small)}
 .mm-tag{display:inline-block;padding:0 var(--s2);border-radius:var(--r1);background:var(--surface2);color:var(--tx2);font-size:var(--fs-small);font-weight:500}.aw-u .mm-tag{flex:none}.bd-now{color:var(--acc)}.aw-b{margin:var(--s2) 0 var(--s3) var(--s3)}.aw-b p{margin:0 0 var(--s2)}`;
-  const rankOf = iid => { const r = Math.max(...Object.values(ITEMS[iid].weapon.rank || {}), 0); return r >= 9 ? 'A' : r > 5 ? 'B' : ''; };
-  function srcLine(s) {
-    if (!s) return '';
-    const at = s.spot ? L('lugar', s.spot, dataTx(s.where).replace(/\s*\(.*\)$/, '')) : esc(dataTx(s.where || ''));
-    if (s.kind === 'barter') return t('Trueque en {w}: {p}', { w: at, p: list((s.pay || []).map(p => `${p.n > 1 ? p.n + '× ' : ''}${L('objeto', p.id, p.es)}`)) });
-    if (s.kind === 'tienda') return t('Tienda: {w}', { w: at }) + (s.price ? ' · ' + gold(s.price) : '');
-    if (s.kind === 'cofre') return t('Cofre: {w}', { w: at });
-    return s.kind === 'recompensa' || s.kind === 'mision' ? t('Misión: {w}', { w: at }) : at;
-  }
+  // the game's weapon rank scale: 1 E, 3 D, 5 C, 7 B, 9 A, 11 S; only B and above get a tag
+  const rankOf = iid => { const r = Math.max(...Object.values(ITEMS[iid].weapon.rank || {}), 0); return r >= 7 ? 'EDCBAS'[Math.min(5, (r - 1) >> 1)] : ''; };
   function page(qs = {}) {
     const c = ctxGet(), cp = ctxChosen() ? CAPS[c.key]?.part : 1;
     const part = qs.p === '3' ? 3 : qs.p === '1' ? 1 : cp >= 2 ? 3 : 1;
@@ -79,11 +85,11 @@ function armsCatalog(route, part) {
     const here = r && ctxChosen() && c.route === r && armsBlock(CAPS[c.key]?.part) === armsBlock(part) ? chapIdx(r, c.key) : -1;
     const cat = armsCatalog(r, part);
     const when = x => (x.lvl ? t('Cofre · Nv {n}', { n: x.lvl }) : r ? (x.idx <= here && here >= 0 ? `<b class="bd-now">${t('ahora')}</b>` : t('desde el {c}', { c: chapLink(routeChapters(r)[x.idx].key) }))
-      : x.routes.length ? esc(list(x.routes.map(k => ROUTE_NAME[k]))) : '');
+      : x.routes.length ? esc(list(x.routes.map(k => ROUTE_NAME[k]))) : '') || '—';
     const row = x => { const it = ITEMS[x.iid], w = it.weapon, rk = rankOf(x.iid);
       const tags = [...x.marks.map(m => MARK[m](x.cap)), rk && t('Rango {r}', { r: rk })].filter(Boolean).map(s => `<span class="mm-tag">${esc(s)}</span>`).join('');
-      return `<details class="aw-u"><summary>${itemIco(x.iid, 'ico')}<span class="aw-n">${esc(nm(it))}</span><span class="mm-tag">${x.tier}</span><span class="aw-w">${when(x)}</span></summary><div class="aw-b">` + (tags ? `<p>${tags}</p>` : '') +
-        `<p>${esc(LANG === 'en' ? x.why_en : x.why)} ${COM()}</p>` + (x.src ? `<p>${srcLine(x.src)}</p>` : '') +
+      return `<details class="aw-u"><summary>${itemIco(x.iid, 'ico')}<span class="aw-n">${esc(nm(it))}</span><span class="mm-tag">${x.tier}</span>${armsCurseTag(x.iid)}<span class="aw-w">${when(x)}</span></summary><div class="aw-b">` + (tags ? `<p>${tags}</p>` : '') +
+        `<p>${esc(LANG === 'en' ? x.why_en : x.why)} ${COM()}</p>` + (x.src ? `<p>${armsSrcLine(x.src)}</p>` : '') +
         `<p class="mut">${t('Pot {m}, peso {w}', { m: w.might, w: w.weight })} · ${L('objeto', x.iid, t('Ficha'))}</p>` +
         (x.web ? `<p class="mut">${esc(LANG === 'en' ? x.web.en : x.web.es)}</p>` : '') + '</div></details>'; };
     const types = Object.keys(cat).filter(ty => !arma || ty === arma);
@@ -96,7 +102,7 @@ function armsCatalog(route, part) {
       t('En la Parte 1 no se puede pagar el refinado que pide Marcialito: cada arma se queda en su «tope P1».'),
       t('Ningún arma sale de búsquedas ni de los minerales de las mazmorras: tiendas, trueques, cofres, misiones y cajas.'),
       t('Si el peso del arma pasa de la Con, cada punto de más resta Vel de ataque.'),
-      t('El tier es de la comunidad; la disponibilidad, los precios y el refinado salen de los datos del juego.'),
+      t('El tier es una valoración, no un dato del juego; la disponibilidad, los precios y el refinado sí salen de los datos.'),
     ].map(s => `<li>${s}</li>`).join('')}</ul></details>`;
     return `<h1>${t('Mejores armas')}</h1><p class="mut">${t('Las armas que más rinden por tipo, y dónde y desde cuándo las tienes en tu ruta.')}</p>` + ctl + body + rules;
   }

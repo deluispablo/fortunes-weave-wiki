@@ -43,7 +43,8 @@ function searchIndex() {
 }
 const PAGE_WORDS = { inicio: ['inicio', 'portada', 'home', 'biblioteca'], cap: ['capitulo'], mapa: ['map', 'mundo'], tiendas: ['tienda', 'trueque', 'vandahl', 'comprar', 'mercado'], regalos: ['regalo', 'gustos', 'favoritos'],
   perdibles: ['perdible', 'missable'], personajes: ['unidades', 'reclutas'], objetos: ['items', 'armas'], clases: ['clase', 'examen'], recoleccion: ['busqueda', 'cultivo', 'pesca'],
-  mazmorras: ['mazmorra'], misiones: ['mision', 'desvio', 'encargo'], batallas: ['batalla', 'combate'], apoyos: ['apoyo', 'finales'], glosario: ['terminos'], guia: ['parte 1', 'min-max'] };
+  mazmorras: ['mazmorra'], misiones: ['mision', 'desvio', 'encargo'], batallas: ['batalla', 'combate'], apoyos: ['apoyo', 'finales'], glosario: ['terminos'], guia: ['parte 1', 'min-max'],
+  checklist: ['lista de completado', 'coleccionables', 'completar'] };  // i18n-ignore (search words)
 /* place ids carry what tells same-named places apart (a city, its sewers, its netherworld copy) */
 const SPOT_HINT = [['下水道', 'cloacas'], ['(冥)', 'inframundo'], ['神殿', 'templo'], ['総督府', 'palacio del gobernador']];
 /** one result per thing: internal copies of an item or skill (enemy, tutorial) fold into the first; same-named places and battles get a telling subtitle */

@@ -399,8 +399,8 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["armas"]={
    "parts": [
     1
    ],
-   "why": "Guanteletes de fuego del paralogo de la ruta de Dietrich.",
-   "why_en": "Fire gauntlets from the Dietrich route paralogue.",
+   "why": "Guanteletes de fuego: ataques mágicos a 1–2 de distancia y la técnica Proyectil de luz.",
+   "why_en": "Fire gauntlets: magic attacks at range 1–2 and the Compressed Laser combat art.",
    "refs": [
     "https://www.youtube.com/watch?v=ZPZsLR25eMk"
    ]

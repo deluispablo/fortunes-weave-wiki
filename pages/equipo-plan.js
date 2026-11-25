@@ -60,10 +60,7 @@ const STAT_KEYS = Object.keys(STAT_ES).filter(s => s !== 'Mov');  // Mov has no 
 const teamCombat = pid => CHARS[pid]?.p?.combat || CHARS[pid]?.combat || {};
 const teamJid = es => Object.keys(CLASSES).find(k => CLASSES[k].es === es);
 /** false when the class bans this unit (forbidden list or women-only) */
-const teamCan = (pid, jid) => {
-  const k = CLASSES[jid], c = CHARS[pid];
-  return !!k && !(k.forbidden_persons || []).includes(c.es) && !(String(k.gender_q || '').startsWith('solo mujeres') && c.gender === 'm');
-};
+const teamCan = (pid, jid) => !!CLASSES[jid] && classBan(pid, jid) !== true;  // the shared rule (core.js classBan)
 /** growth while in the class: personal (class base when 0) + class modifier */
 const teamGrowth = (pid, jid) => {
   const g = teamCombat(pid).growth || {}, k = CLASSES[jid] || {};
@@ -407,7 +404,7 @@ const teamCountTxt = n => t('{n} en el equipo', { n: 1 + n.tengo.length + n.quie
     not stored as unfolded (ctx.fold === false). «Plegar» folds; entering the page again with a selection shows it folded. */
 const teamUi = { editing: false, all: false };  // all: «Ver todos» opened in this visit
 const teamLeave = () => { teamUi.editing = false; teamUi.all = false; };
-/** one selector action: {eq: pid} cycles a chip, {all: '1'|'0'} marks every recruit «quiero» / clears them, {fold: bool}, {rerun: bool} */
+/** one selector action: {eq: pid} cycles a chip, {fold: bool} folds or unfolds the selector */
 function teamApply(a) {
   if (a.fold != null) { teamUi.editing = !a.fold; if (a.fold) ctxSetFold(true); return; }
   teamUi.editing = true;

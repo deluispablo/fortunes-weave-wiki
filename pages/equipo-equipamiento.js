@@ -3,8 +3,8 @@
 
 /* ---------------- equipment per unit («Equipamiento» in Equipo) ---------------- */
 const RANK_OF = { espada: 'Sword', lanza: 'Lance', hacha: 'Axe', arco: 'Bow', punos: 'Brawl', 'magia-negra': 'BlackMagic', 'magia-blanca': 'WhiteMagic' };
-/** shortcut: the data has no unit proficiency, so the weapon rank a unit can wield is capped by the chapter: rank 3 (iron) before Part 1
-    chapter 6, rank 5 (Flyssa, Antijinetes…) for the rest of Part 1, rank 7 (silver) from Part 2. Upgrade when the save's proficiency is read. */
+/** shortcut: the wiki does not know each unit's weapon rank, so the chapter caps it (game scale 1 E, 3 D, 5 C, 7 B, 9 A): 3 (D, iron)
+    in the prologue and before Part 1 chapter 6, 5 (C) for the rest of Part 1, 7 (B, silver) from Part 2. */
 const teamRankCap = key => { const c = CAPS[key]; return !c ? 5 : c.part >= 2 ? 7 : c.part === 0 || c.n < 6 ? 3 : 5; };
 /** the class `b` is in at chapter `key`: the last step of its build whose exam chapter is reached */
 const teamClassAt = (b, route, key) => { const i = chapIdx(route, key); let j = b.start; (b.steps || []).forEach(s => { if (s.key && chapIdx(route, s.key) <= i) j = s.jid; }); return j; };

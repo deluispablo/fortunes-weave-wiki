@@ -78,9 +78,8 @@ function sectionIndex(sec, more, id = parseHash(location.hash).id, qs = parseHas
   const consulta = NAV.filter(g => g.id !== 'guias' && g.id !== 'partida').map(g => { const l = pages(g); return l.length ? `<div class="nav-g"><b>${esc(t(g.title))}</b>${l.join('')}</div>` : ''; }).join('');
   // Perdibles is listed once, in Empieza aquí; the order is the tabs' (the weekend first)
   const mineOpen = MINE_TABS.some(([p]) => p === pg) || store.get('navMine', false) === true;
-  // all three always, also in the phone's «Más» sheet
-  const mine = [a('#/cap', t('Capítulo actual'), pg === 'cap'),
-    ...['equipo'].filter(x => ROUTES[x]).map(x => a('#/' + x, t(NAV.flatMap(g => g.pages).find(p => p.id === x).title), pg === x))];
+  // every Mi partida page of MENU but the home page (the logo) and Ajustes (nav: false, the header gear), with the title it registers
+  const mine = [a('#/cap', t('Capítulo actual'), pg === 'cap'), ...minePages().filter(p => p.id !== 'cap').map(p => a(pageHref(p), t(p.title), pg === p.id))];
   const mineBlk = open => `<div class="nav-mine"><button type="button" class="nav-mb" aria-expanded="${open}" aria-controls="${px}mine">${navIcon('cap')}<span>${t('Mi partida')}</span>${navIcon('chev')}</button>` +
     `<div id="${px}mine"${open ? '' : ' hidden'}>${mine.join('')}</div></div>`;
   const consultaBlk = `<section class="nav-blk" aria-labelledby="${px}co-h"><h2 class="nav-blk-h" id="${px}co-h">${t('Consulta')}</h2>${consulta}</section>`;
@@ -91,13 +90,16 @@ function sectionIndex(sec, more, id = parseHash(location.hash).id, qs = parseHas
 }
 /** the phone's «Más» sheet: only what the bottom bar (Guías, Personajes, Mapa, Mi partida) and the logo (Inicio) do not open;
     six groups of short two-column links (the sidebar keeps the long titles) */
-const MORE_GROUP = { consulta: 'Personajes', combate: 'Combate', economia: 'Objetos', mundo: 'Mundo', sistemas: 'Sistemas', historia: 'Historia' };
+const MORE_GROUP = { consulta: 'Personajes', combate: 'Combate', economia: 'Objetos', mundo: 'Mundo', sistemas: 'Sistemas', historia: 'Historia', partida: 'Mi partida' };
+/** the Mi partida menu group's pages, in MENU order, without the home page and pages out of the menu */
+const minePages = () => (NAV.find(g => g.id === 'partida')?.pages || []).filter(p => p.nav !== false && p.id !== 'inicio');
 const MORE_SHORT = { apoyos: 'Apoyos', regalos: 'Regalos', habilidades: 'Habilidades', mecanicas: 'Tablas de combate', tiendas: 'Tiendas y trueques',
   misiones: 'Misiones', instalaciones: 'Dagsion', dioses: 'Templos', prestigio: 'Prestigio', sendas: 'Rutas y Ayudas', senores: 'Por señor',
-  partes23: 'Partes 2 y 3', dificultad: 'Dificultad y DLC' };
+  partes23: 'Partes 2 y 3', dificultad: 'Dificultad y DLC', planificador: 'Planificador' };
 function moreIndex(cur) {
   return NAV.filter(g => MORE_GROUP[g.id]).map(g => {
-    const ps = g.pages.filter(p => p.nav !== false && !inTabbar(p.id));
+    // Mi partida: the bottom bar's tab already opens Capítulo, Equipo and Armas (its tabs); the rest is listed here
+    const ps = g.pages.filter(p => p.nav !== false && !inTabbar(p.id) && p.id !== 'inicio' && !(g.id === 'partida' && MINE_TABS.some(([x]) => x === p.id)));
     if (!ps.length) return '';
     const links = ps.map(p => `<a href="${pageHref(p)}"${cur === p.id ? ' class="on" aria-current="page"' : ''}>${esc(t(MORE_SHORT[p.id] || p.title))}</a>`).join('');
     return `<section class="more-g" aria-labelledby="m-${g.id}"><h2 class="more-h" id="m-${g.id}">${esc(t(MORE_GROUP[g.id]))}</h2><div class="more-l">${links}</div></section>`;
@@ -128,7 +130,7 @@ const NAV_ICON = {  // 24px stroke icons
 const navIcon = k => `<svg viewBox="0 0 24 24" aria-hidden="true">${NAV_ICON[k]}</svg>`;
 /* «Mi partida» (R-NAV-1): the last game page visited (fe2.partida), the weekend the first time. A chapter is stored as #/cap (the current
    one): its own address would pull the context back to that chapter; ?ir= jumps are dropped so the tab never re-scrolls */
-const PARTIDA = ['cap', 'equipo', 'armas', 'perdibles'];
+const PARTIDA = ['cap', 'equipo', 'planificador', 'armas', 'perdibles', 'checklist'];
 /** Mi partida's three tabs, on top of each of its pages (phone and desktop alike) */
 const MINE_TABS = [['cap', '#/cap', 'Capítulo'], ['equipo', '#/equipo', 'Equipo'], ['armas', '#/armas', 'Armas']];
 const mineTabs = pg => (MINE_TABS.some(([p]) => p === pg) ? `<nav class="tabs mine-tabs" aria-label="${t('Mi partida')}">${MINE_TABS.filter(([p]) => ROUTES[p] || P[p])
@@ -136,15 +138,16 @@ const mineTabs = pg => (MINE_TABS.some(([p]) => p === pg) ? `<nav class="tabs mi
 const partidaHref = () => { const h = store.get('partida', null); return typeof h === 'string' && PARTIDA.includes(ROUTES[parseHash(h).sec]) ? h : '#/cap'; };
 function rememberPartida(hash) {
   const { sec, qs } = parseHash(hash), pg = ROUTES[sec];
-  // ?r= is dropped too: a listing's ?r= sets the context route (listRoute), so an old one would pull the context back
-  if (PARTIDA.includes(pg)) store.set('partida', pg === 'cap' ? '#/cap' : qsHref(String(hash).replace(/^#\/?/, '').split('?')[0], qs, { ir: '', r: '' }));
+  // ?r= is dropped too: a listing's ?r= sets the context route (listRoute), so an old one would pull the context back. The planner
+  // keeps it: it never stores its route in the context, and its plan (?e=) belongs to that route
+  if (PARTIDA.includes(pg)) store.set('partida', pg === 'cap' ? '#/cap' : qsHref(String(hash).replace(/^#\/?/, '').split('?')[0], qs, pg === 'planificador' ? { ir: '' } : { ir: '', r: '' }));
 }
 const TABS = {  // inicio is not in TABBAR today: it is there so that putting it back is one line
   inicio: ['#/', 'home', 'Inicio', (sec) => sec === ''],
-  guias: ['#/guias', 'book', 'Guías', (sec, pg) => ['guias', 'guia', 'tier-personajes', 'builds', 'mejores-armas', 'reclutas', 'trucos'].includes(pg)],
-  personajes: ['#/personajes', 'pj', 'Personajes', (sec, pg) => ['personajes', 'apoyos', 'regalos'].includes(pg)],
+  guias: ['#/guias', 'book', 'Guías', (sec, pg) => ['guias', 'guia', 'tier-personajes', 'builds', 'mejores-armas', 'mejor-equipamiento', 'reclutas', 'trucos'].includes(pg)],
+  personajes: ['#/personajes', 'pj', 'Personajes', (sec, pg) => ['personajes', 'comparar', 'apoyos', 'regalos'].includes(pg)],
   mapa: ['#/mapa', 'map', 'Mapa', (sec, pg) => pg === 'mapa'],
-  partida: [() => partidaHref(), 'cap', 'Mi partida', (sec, pg) => PARTIDA.includes(pg)],
+  partida: [() => partidaHref(), 'cap', 'Mi partida', (sec, pg) => PARTIDA.includes(pg) || pg === 'novedades'],  // Novedades: in the menu group, not a game page to come back to
 };
 function tabbar(sec) {
   const pg = ROUTES[sec];
@@ -155,11 +158,13 @@ function tabbar(sec) {
   }).join('');
 }
 
-/* tier lists bar under the header, every page: [page id, label]; a page that does not exist yet (Equipamiento) is left out */
+/* tier lists bar under the header, every page: [page id, label]; a page that does not exist is left out. A visible lead «Tier list:»
+   tells its «Personajes» from the bottom bar's (the nav's aria-label already names it for screen readers) */
 const TIERBAR = [['tier-personajes', 'Personajes'], ['builds', 'Builds'], ['mejores-armas', 'Armas'], ['mejor-equipamiento', 'Equipamiento']];
 function tierbar(sec) {
-  const pg = ROUTES[sec];
-  return TIERBAR.filter(([id]) => P[id]).map(([id, lb]) => `<a href="#/${id}"${pg === id ? ' aria-current="page"' : ''}>${t(lb)}</a>`).join('');
+  const pg = ROUTES[sec], ls = TIERBAR.filter(([id]) => P[id]);
+  return ls.length ? `<div class="tierbar-l"><span class="tierbar-k" aria-hidden="true">${t('Tier list:')}</span>` +
+    ls.map(([id, lb]) => `<a href="#/${id}"${pg === id ? ' aria-current="page"' : ''}>${t(lb)}</a>`).join('') + '</div>' : '';
 }
 
 /* ---------------- modals: background inert, page scroll locked, focus back to the trigger ---------------- */
@@ -304,6 +309,18 @@ function foldify(root) {
 const foldToggle = (b, open = b.getAttribute('aria-expanded') !== 'true') => { const p = document.getElementById(b.getAttribute('aria-controls')); if (p) p.hidden = !open; foldSay(b, open); };
 /** an element inside folded panels (a deep link): open them */
 const revealFold = el => { for (let p = el?.closest?.('.fold-p[hidden]'); p; p = p.parentElement?.closest('.fold-p[hidden]')) { const b = document.querySelector(`[aria-controls="${p.id}"]`); if (b) foldToggle(b, true); } };
+/** fold buttons by title (and nth of that title), to carry the reader's open and closed folds over a re-render of the same page */
+const foldMap = root => { const n = {}, m = new Map();
+  root.querySelectorAll('.fold-b:not([data-eq-fold])').forEach(b => { const k = b.dataset.t; n[k] = (n[k] || 0) + 1; m.set(k + '#' + n[k], b); }); return m; };
+/** a selector that finds the focused page control again in the new HTML (render's focus contract), or null */
+function focusKey(el) {
+  if (!el?.tagName || !el.closest?.('main')) return null;
+  const q = (k, v) => `[${k}="${String(v).replace(/["\\]/g, '\\$&')}"]`;
+  if (el.id) return q('id', el.id);
+  if (el.dataset?.keep != null) return q('data-keep', el.dataset.keep);
+  const at = [...(el.attributes || [])].filter(a => /^(data-.+|name|aria-label|href)$/.test(a.name));
+  return at.length ? el.tagName.toLowerCase() + at.map(a => q(a.name, a.value)).join('') : null;
+}
 const focusH1 = () => { const h = $('#main h1'); if (h) { h.tabIndex = -1; h.focus({ preventScroll: true }); } return h; };
 
 /* ---------------- render ---------------- */
@@ -324,27 +341,36 @@ function filterBars(root) {
   });
 }
 let lastPath = null, lastCount = null;
+/* Focus contract (for pages; no page-specific code here). On a re-render of the same page (same section and id, any query: a filter,
+   a planner or calculator edit that rewrites the address, or a page calling render(true)):
+   - the control that had focus inside <main> gets it back when the new HTML has the same control. «Same» is, in this order: the same
+     id; else the same data-keep="…"; else the same tag with the same data-* attributes, name, aria-label and href. Give a control an
+     id or data-keep when those change between renders (or are shared by two controls);
+   - it stays at the same height on screen (the page scrolls by however much the content above it grew or shrank), unless Back/Forward
+     brings a saved position;
+   - folds keep the reader's open/closed state (matched by their title).
+   With no such control, a navigation goes to the top and focuses the h1 (or the ?ir= section), and render(true) leaves the scroll alone. */
 function render(keepScroll) {
   const old = legacyHash(location.hash);  // old bookmarks and links (core.js: OLD_ADDR)
   if (old) { history.replaceState(history.state, '', old); return render(keepScroll); }
   const { sec, id, qs } = parseHash(location.hash);
   const path = sec + '/' + id, first = lastPath === null, samePage = path === lastPath;
   lastPath = path;
-  const was = document.activeElement?.closest?.('main') ? document.activeElement.getAttribute('href') : null;
   const fn = P[ROUTES[sec] ?? sec];  // viewing a chapter never changes the context: only the header's selector does
   let html = notFound();
   if (fn) try { html = mineTabs(ROUTES[sec] ?? sec) + autoLink(fn(id, qs, sec), id ? href(sec, id) : ''); } catch (e) { console.error(e); html = `<h1>${t('No se pudo mostrar la página')}</h1><p><a href="#/">${t('Ir a la portada')}</a></p>`; }
-  const ir = qs.ir;
-  const typing = document.activeElement?.closest?.('main') && document.activeElement.dataset.qs != null ? document.activeElement.name : null;
-  const picking = document.activeElement?.closest?.('main') && document.activeElement.matches?.('select[data-nav]') ? document.activeElement.getAttribute('aria-label') : null;
-  const main = $('#main');
+  const ir = qs.ir, main = $('#main');
+  const keep = samePage && !first ? focusKey(document.activeElement) : null, keepTop = keep ? document.activeElement.getBoundingClientRect().top : 0;
+  const folds = samePage && !first ? new Map([...foldMap(main)].map(([k, b]) => [k, b.getAttribute('aria-expanded') === 'true'])) : null;
   main.innerHTML = html; main.removeAttribute('aria-busy'); foldify(main); stackTables(main); filterBars(main);
+  if (folds) foldMap(main).forEach((b, k) => { if (folds.has(k) && folds.get(k) !== (b.getAttribute('aria-expanded') === 'true')) foldToggle(b, folds.get(k)); });
   document.title = docTitle(html);
   staticText();
-  const f = typing && $(`main [data-qs][name="${typing}"]`);  // a filter field being typed in keeps focus across re-renders
-  if (f) { f.focus(); f.setSelectionRange?.(f.value.length, f.value.length); }
-  const g = picking && [...document.querySelectorAll('main select[data-nav][aria-label]')].find(x => x.getAttribute('aria-label') === picking);  // a filter dropdown keeps focus too
-  if (g) g.focus();
+  const kept = keep && main.querySelector(keep);
+  if (kept) {
+    revealFold(kept); kept.focus({ preventScroll: true });
+    if (/^(text|search)$/.test(kept.type) || kept.tagName === 'TEXTAREA') kept.setSelectionRange?.(kept.value.length, kept.value.length);  // typing goes on at the end
+  }
   $('#ctx').innerHTML = ctxControls();
   const now = parseHash(location.hash).sec;  // the section shown, after any alias redirect
   rememberPartida(location.hash);
@@ -358,19 +384,15 @@ function render(keepScroll) {
   closePal();
   const irNow = parseHash(location.hash).qs.ir || ir;  // a page may have moved the address (old #/equipo?sec=semana → #/semana)
   const to = irNow && document.getElementById(irNow);  // ?ir=<id>: deep link to a section (its tab and folds open first)
-  if (keepScroll !== true) {
-    window.scrollTo(0, history.state?.y > 0 ? history.state.y : 0);  // back/forward (and reload) land where the page was left; a new page at the top
-    // after a navigation the focus goes to the new page title, or to the ?ir= section (a filter change on the same page keeps it on the chip just used)
-    if (!first && !f && !g) {
-      const again = samePage && was && [...document.querySelectorAll('main [href]')].find(a => a.getAttribute('href') === was);
-      if (again) again.focus({ preventScroll: true });
-      else if ((to || !focusH1()) && !samePage) announce(document.title.replace(/ · Fortune's Weave$/, ''));  // a focused h1 already says the title
-    }
-  }
+  const saved = keepScroll !== true && history.state?.y > 0;  // back/forward (and reload) land where the page was left
+  if (kept && !saved) window.scrollBy(0, kept.getBoundingClientRect().top - keepTop);  // the control just used stays where it was on screen
+  else if (keepScroll !== true) window.scrollTo(0, saved ? history.state.y : 0);  // a new page at the top
+  // after a navigation the focus goes to the new page title, or to the ?ir= section
+  if (keepScroll !== true && !first && !kept && (to || !focusH1()) && !samePage) announce(document.title.replace(/ · Fortune's Weave$/, ''));  // a focused h1 already says the title
   if (to) {
     revealTab(to); revealFold(to); if (to.classList.contains('fold')) { const b = to.querySelector(':scope > .fold-h .fold-b'); if (b) foldToggle(b, true); }
     to.scrollIntoView();
-    if (!first && keepScroll !== true && !f && !g) { if (!to.matches('a,button,input,select,textarea,[tabindex]')) to.tabIndex = -1; to.focus({ preventScroll: true }); }
+    if (!first && keepScroll !== true && !kept) { if (!to.matches('a,button,input,select,textarea,[tabindex]')) to.tabIndex = -1; to.focus({ preventScroll: true }); }
   }
   const cnt = $('#main [data-count]')?.textContent || null;  // a filter changed the listing: say how many results are left
   if (samePage && !first && cnt && cnt !== lastCount) announce(cnt);
@@ -481,6 +503,7 @@ document.addEventListener('keydown', e => {
   else if (palOpen && e.key === 'ArrowDown') { e.preventDefault(); palMove(1); }
   else if (palOpen && e.key === 'ArrowUp') { e.preventDefault(); palMove(-1); }
   else if (palOpen && e.key === 'Enter' && e.target.id === 'pal-q') { e.preventDefault(); palGo(palSel); }
+  else if (e.key === ' ' && e.target.matches?.('a[role="switch"]')) { e.preventDefault(); e.target.click(); }  // a switch toggles on Space, like a native one
   else if (e.target.getAttribute?.('role') === 'tab' && ['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) {  // tabs: arrows move and open
     const ts = [...e.target.closest('[role="tablist"]').querySelectorAll('[role="tab"]')], i = ts.indexOf(e.target);
     const j = e.key === 'Home' ? 0 : e.key === 'End' ? ts.length - 1 : (i + (e.key === 'ArrowRight' ? 1 : -1) + ts.length) % ts.length;

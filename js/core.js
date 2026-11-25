@@ -341,8 +341,6 @@ const ctxSet = (route, key) => ctxSave({ route, key });
 const ctxSetRecruits = (pids, drop = ctxGet().drop, have = ctxGet().have) => ctxSave({ team: ctxPids([...pids, ...have]), got: ctxPids(have), drop: [...new Set(drop)] });
 /** team page selector folded (true), unfolded (false) or never touched (null) */
 const ctxSetFold = fold => ctxSave({ fold });
-/** «nueva vuelta» was removed: kept so older callers do not break */
-const ctxSetRerun = () => {};
 /** one tap on a face: a story joiner goes in or out of `drop` (the lord never leaves); a recruit cycles no → quiero (team) → tengo (got) → no */
 const ctxToggle = (pid, route = ctxGet().route) => {
   const r = CHARS[pid]?.routes?.[route]; if (!r) return;
@@ -364,7 +362,6 @@ const ctxTeam = (route = ctxGet().route) => { const d = ctxDrop(route);
   return [...Object.keys(CHARS).filter(p => CHARS[p].routes?.[route]?.join_key && (p === LORDS[route] || !d.includes(p))), ...ctxRecruits(route)]; };
 /** team recruits on `route` not yet recruited: the recruitment cards, gifts, meals and the week plan are for them */
 const ctxWant = (route = ctxGet().route) => ctxRec(ctxGet().recruits)(route);
-const ctxPending = ctxWant;
 /** team recruits already recruited on `route` */
 const ctxHave = (route = ctxGet().route) => ctxRec(ctxGet().have)(route);
 /* ---------------- reachability: the single rule every page uses ---------------- */
@@ -426,6 +423,25 @@ function questAvail(qid, route = ctxGet().route, key, rerun = ctxGet().rerun) {
 }
 /** routes a Desvío happens on, in route order (`routes`: the acceptance window of each) */
 const paraRoutes = p => ROUTE_IDS.filter(r => p.routes?.[r]);
+
+/* ---------------- class eligibility: one rule for Planificador, Comparar and Árbol de clases ---------------- */
+/** why unit `pid` cannot be class `jid` in `part` ('1' = Part 1, '3' = Parts 2–3, omitted = at any point of the game).
+    null = it can; true = it cannot: the class's forbidden_persons, a women-only class (Job gender 2) for a man, an extras.json limit
+    with no part, and in Part 1 the Suprema and Divina tiers (Licencia magistral and the divine items only come in Part 3).
+    With no part, a limit that holds only in some parts comes back as its text («en la Parte 3», «fuera de la Parte 3»). */
+function classBan(pid, jid, part) {
+  const c = Object.hasOwn(CLASSES, jid) && CLASSES[jid], ch = Object.hasOwn(CHARS, pid) && CHARS[pid];
+  if (!c || !ch) return null;
+  if ((c.forbidden_persons || []).includes(ch.es) || (String(c.gender_q || '').startsWith('solo mujeres') && ch.gender === 'm')) return true;
+  if (part === '1' && +c.tier >= 4) return true;
+  const x = ((window.WIKI_EXT || {}).extras?.limites?.[pid]?.clases || []).find(r => r[0] === jid);
+  if (!x) return null;
+  if (!x[2]) return true;
+  if (!part) return x[2];
+  return (x[2] === 'en la Parte 3' ? part === '3' : x[2] === 'fuera de la Parte 3' ? part !== '3' : true) || null;  // i18n-ignore (data values)
+}
+/** joins or can be recruited on `route` in Part 1 (the Builds catalog, the planner and Comparar) */
+const joinsP1 = (pid, route) => { const x = Object.hasOwn(CHARS, pid) && CHARS[pid].routes?.[route], k = x && (x.join_key || x.recruit_key); return !!k && CAPS[k]?.part === 1; };
 
 /* ---------------- item sources and access: one rule for Equipo, Capítulo, the item ficha and q.mjs ---------------- */
 const LORDS = { cai: 'PID_カイ', dietrich: 'PID_ディートリヒ', theodora: 'PID_セオドラ', leda: 'PID_レダ' };
@@ -586,11 +602,27 @@ const filterCtl = (path, qs, key, opts, cur, label, tr) => {
   if (opts.length === 2) { const on = cur === opts[1][0];
     return `<a class="ftog${on ? ' on' : ''}" href="${esc(go(on ? opts[0][0] : opts[1][0]))}" role="switch" aria-checked="${on}"><i class="ftog-i" aria-hidden="true"></i>${esc(tr(opts[1][1]))}</a>`; }
   const sel = opts.find(([v]) => v === cur) || opts[0];
-  return `<label class="fsel"><span class="fsel-k">${esc(t(label))}</span><span class="fsel-v">${esc(tr(sel[1]))}</span><select data-nav aria-label="${esc(t(label))}">` +
-    opts.map(([v, lb]) => `<option value="${esc(go(v))}"${v === sel[0] ? ' selected' : ''}>${esc(tr(lb))}</option>`).join('') + '</select></label>';
+  return fselHtml(t(label), `data-nav aria-label="${esc(t(label))}"`, opts.map(([v, lb]) => [go(v), tr(lb)]), go(sel[0]));
+};
+/** the filter pill markup: «Label  Value ▾» over a native select with `attrs`; opts [[value, text]] or {g: group label, o: [[value, text]…]} (an optgroup) */
+const fselHtml = (label, attrs, opts, cur) => {
+  const flat = opts.flatMap(o => o.o || [o]), s = flat.find(([v]) => v === cur) || flat[0] || ['', ''];
+  const op = ([v, lb]) => `<option value="${esc(v)}"${v === s[0] ? ' selected' : ''}>${esc(lb)}</option>`;
+  return `<label class="fsel"><span class="fsel-k">${esc(label)}</span><span class="fsel-v">${esc(s[1])}</span><select ${attrs}>` +
+    opts.map(o => (o.o ? `<optgroup label="${esc(o.g)}">${o.o.map(op).join('')}</optgroup>` : op(o))).join('') + '</select></label>';
 };
 const chips = (path, qs, key, opts, cur, label) => filterCtl(path, qs, key, opts, cur, label, tl);
 const routeChips = (path, qs, r) => chips(path, qs, 'r', [['todas', 'Todas las rutas'], ...ROUTE_IDS.map(x => [x, ROUTE_NAME[x]])], r || 'todas', 'Ruta');  // chips() translates keys; route names pass as they are
+/** unit types of a class, as the guide «Tipos de unidad» has them, from the game data move type: 3 armour, 6 armoured horse, 8 flier,
+    5/7/9/10/11 other mounts (the Ornius walk: cavalry, not fliers). A dismounted rider (…下馬) is infantry. Monsters (no class entry) by name:
+    beasts, flying beasts (Ruc, Guivre, Harpy), undead. Vocabulary of the week plan (FOE_ES, FOE_EFF) and the calculator. */
+const UNIT_BEAST = /ベア|オオカミ|ルフ|海獣|ヴィーグル|ハルピア|魔獣|ケートゥス|ヒュドラ/, UNIT_BFLY = /ルフ|ヴィーグル|ハルピア/, UNIT_UNDEAD = /スケルトン|ゾンビ|マミー/;
+function unitTypes(jid) {
+  const s = String(jid || ''), m = CLASSES[s]?.move_type_q;
+  if (/下馬$/.test(s)) return [];
+  if (!CLASSES[s]) return UNIT_UNDEAD.test(s) ? ['nomuerto'] : UNIT_BEAST.test(s) ? ['bestia', ...(UNIT_BFLY.test(s) ? ['volador'] : [])] : [];
+  return [...(m === 3 || m === 6 ? ['acorazado'] : []), ...(m === 8 ? ['volador'] : [5, 6, 7, 9, 10, 11].includes(m) ? ['jinete'] : [])];
+}
 const ARMAS = [['espada', 'Espada'], ['lanza', 'Lanza'], ['hacha', 'Hacha'], ['arco', 'Arco'], ['punos', 'Guanteletes'], ['magia-negra', 'Magia negra'], ['magia-blanca', 'Magia blanca']];
 /** weapon name (class or item "Guanteletes", "magia blanca (bastón)") → ?arma= value */
 const armaKey = s => norm(String(s || '').replace(/\s*\(.*\)$/, '')).replace('guanteletes', 'punos').replace(/ /g, '-');
@@ -606,7 +638,7 @@ function parseHash(hash) {
 }
 
 /* ---------------- old addresses and stored state: the only place that knows them ---------------- */
-/** old addresses → their page now. Keys: '<section>' (the query is kept: #/planificador?p= feeds the team page), '<section>/<id>'
+/** old addresses → their page now. Keys: '<section>' (the query is kept), '<section>?p' (only with ?p=: the old recruit planner #/planificador?p=<pids> feeds the team page), '<section>/<id>'
     (the positional mechanics pages #/mecanicas/hN, now sections of the page each topic belongs to) or '<section>?ir=<id>' or '<section>?t=<tab>' (a tab that became its own page) */
 const MECH_OLD = { h1: 'mecanicas?ir=experiencia', h2: 'mecanicas?ir=formula-de-exp', h3: 'mecanicas?ir=niveles-y-crecimiento',
   h4: 'apoyos?ir=como-funcionan', h5: 'apoyos?ir=como-funcionan', h6: 'apoyos?ir=como-funcionan', h7: 'apoyos?ir=puntos-por-actividad', h8: 'apoyos?ir=bonos-de-combate',
@@ -615,14 +647,15 @@ const MECH_OLD = { h1: 'mecanicas?ir=experiencia', h2: 'mecanicas?ir=formula-de-
   h18: 'instalaciones?ir=teatro', h19: 'instalaciones?ir=torneo', h20: 'instalaciones?ir=adivinacion', h21: 'instalaciones?ir=percha', h22: 'instalaciones?ir=formacion',
   h23: 'instalaciones?ir=actividades-automaticas', h24: 'monturas?ir=establo', h25: 'instalaciones?ir=horario', h26: 'turnos', h27: 'recoleccion',
   h28: 'mecanicas?ir=nivel-de-los-enemigos', h29: 'ayudas?ir=esquirlas', h30: 'sendas?ir=fin-de-la-parte-1', h31: 'sendas?ir=reiniciar-capitulo' };
-const OLD_ADDR = { minmax: '#/guia', unidades: '#/personajes', sistemas: '#/instalaciones', mundo: '#/mapa', planificador: '#/equipo',
+const OLD_ADDR = { minmax: '#/guia', unidades: '#/personajes', sistemas: '#/instalaciones', mundo: '#/mapa', 'planificador?p': '#/equipo',
   semana: '#/cap', 'semana?ir=eq-ronda': '#/equipo?sec=regalos', 'equipo?ir=eq-ronda': '#/equipo?sec=regalos',
+  ...Object.fromEntries(['eq-semana', 'eq-consejos', 'eq-herreria'].map(id => [`equipo?ir=${id}`, `#/cap?ir=${id}`])),  // the week blocks moved to Capítulo
   'clases?ir=monturas': '#/monturas', 'sendas?t=senores': '#/senores',
   ...Object.fromEntries(Object.entries(MECH_OLD).flatMap(([h, to]) => [[`mecanicas/${h}`, '#/' + to], [`mecanicas/${h}-t`, '#/' + to]])) };
 /** an old address → the current one, null when current. Also ?ir=<id> on the bare #/ (the chapter used to live there) → #/cap?ir=<id> */
 const legacyHash = hash => {
   const { sec, id, qs } = parseHash(hash), byT = OLD_ADDR[`${sec}?t=${qs.t}`], byIr = byT || OLD_ADDR[`${sec}?ir=${qs.ir}`];
-  const to = (id && OLD_ADDR[`${sec}/${id}`]) || byIr || (!sec && qs.ir ? '#/cap' : OLD_ADDR[sec]);
+  const to = (id && OLD_ADDR[`${sec}/${id}`]) || byIr || (!sec && qs.ir ? '#/cap' : (qs.p && OLD_ADDR[`${sec}?p`]) || OLD_ADDR[sec]);
   if (!to) return null;
   const rest = { ...qs }; if (byT) delete rest.t; else if (byIr) delete rest.ir;
   const q = new URLSearchParams(rest).toString();
@@ -642,14 +675,14 @@ const P = {};  // id → render(arg) returning an HTML string
    Mi partida apart at the end. Every registered page is listed here: this list alone places it (a page's `group` is ignored).
    Ids not registered are skipped. Every menu item is a page, and every address highlights exactly one item (fichas their listing,
    topic guides in the Guías panel). Ajustes (nav: false) is behind the header gear */
-const MENU = [['guias', 'Guías', ['guia', 'tier-personajes', 'builds', 'mejores-armas', 'reclutas', 'trucos', 'perdibles', 'guias']],
-  ['consulta', 'Personajes', ['personajes', 'apoyos', 'regalos']],
-  ['combate', 'Clases y combate', ['clases', 'habilidades', 'monturas', 'batallones', 'mecanicas']],
+const MENU = [['guias', 'Guías', ['guia', 'tier-personajes', 'builds', 'mejores-armas', 'mejor-equipamiento', 'reclutas', 'trucos', 'perdibles', 'guias']],
+  ['consulta', 'Personajes', ['personajes', 'comparar', 'apoyos', 'regalos']],
+  ['combate', 'Clases y combate', ['clases', 'arbol-clases', 'habilidades', 'monturas', 'batallones', 'mecanicas', 'calculadora']],
   ['economia', 'Objetos y economía', ['objetos', 'tiendas', 'recoleccion']],
   ['mundo', 'Mundo y misiones', ['mapa', 'lugares', 'mazmorras', 'misiones', 'batallas']],
   ['sistemas', 'Sistemas', ['instalaciones', 'dioses', 'prestigio', 'turnos', 'sendas', 'senores', 'partes23', 'dificultad']],
   ['historia', 'Historia y textos', ['archivo', 'guion', 'tutoriales', 'glosario']],
-  ['partida', 'Mi partida', ['inicio', 'cap', 'equipo', 'armas', 'ajustes']]];
+  ['partida', 'Mi partida', ['inicio', 'cap', 'equipo', 'planificador', 'armas', 'checklist', 'ajustes', 'novedades']]];
 const NAV = MENU.map(([id, title]) => ({ id, title, pages: [] }));
 const ROUTES = {};  // hash section → page id
 /* Japanese never reaches the screen: names left in text nodes become their official Spanish name, the rest is dropped */

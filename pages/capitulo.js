@@ -152,11 +152,14 @@
     if (r && !ROUTE_IDS.includes(r) && !(r === 'comun' && Number(p) !== 1)) return notFound();  // a hand-typed route never lands on Cai
     const route = ROUTE_IDS.includes(r) ? r : ctxRoute(), key = r ? chapterFromPath(route || 'cai', p, n) : ctxGet().key, c = CAPS[key];
     const wr = c.route === 'comun' ? ctxRoute() : c.route;  // the week needs a route: a shared chapter uses the chosen one
+    const fn = f => (wr && typeof window[f] === 'function' ? window[f] : null);
+    // each team block once per render: the plan is shared by «Tiempo libre» and «Compras, herrería y plazos»
+    const plan = fn('teamCtxPlan')?.(wr, key), dag = fn('teamWeekendSummary')?.(wr, key) || '', free = fn('teamFreeBlock')?.(wr, key, plan) || '', tips = fn('teamTipsBlock')?.(wr, key) || '';
     return header(c, chapNav(key, route)) + mine(c) +
       block('Antes de que termine', closing(c), 'ul') +
       // what to do in Dagsion this chapter (was Equipo › Semana): 0 taps from the front page
-      (wr && dagsion(wr, key) ? `<section class="card" id="eq-dagsion"><h3>${t('En Dagsion')}</h3>${dagsion(wr, key)}</section>` : '') +
-      ((fb => (fb ? `<details class="card" id="cp-libre"><summary><h3>${t('Tiempo libre')}</h3></summary>${fb}</details>` : ''))(wr && typeof window.teamFreeBlock === 'function' ? window.teamFreeBlock(wr, key) : '')) +
+      (dag ? `<section class="card" id="eq-dagsion"><h3>${t('En Dagsion')}</h3>${dag}</section>` : '') +
+      (free ? `<details class="card" id="cp-libre"><summary><h3>${t('Tiempo libre')}</h3></summary>${free}</details>` : '') +
       block('Prioridades de min-max', priorities(c) || (c.part >= 2 ? `<li class="mut">${t('Sin prioridades escritas aún para este capítulo. Guía de las Partes 2 y 3: <a href="#/guia/guerra-y-salvacion">Guerra y salvación</a>.')}</li>` : ''), 'ol') +
       block('Reclutables ahora', recruits(c), 'ul') +
       block('Batallas', battles(c)) +
@@ -165,10 +168,9 @@
       folded('Preparar para lo siguiente', prepare(c), 'ul') +
       folded('Prestigio', renown(c), 'ul') +
       travel(wr, c) +
-      (wr && typeof window.teamWeekBlock === 'function' ? `<details class="card" id="eq-semana"><summary><h3>${t('Compras, herrería y plazos')}</h3></summary>${window.teamWeekBlock(wr, key)}</details>` : '') +
-      (wr && typeof window.teamTipsBlock === 'function' && window.teamTipsBlock(wr, key) ? `<details class="card" id="eq-consejos"><summary><h3>${t('Trueques y dinero fácil')}</h3></summary>${window.teamTipsBlock(wr, key)}</details>` : '');
+      (fn('teamWeekBlock') ? `<details class="card" id="eq-semana"><summary><h3>${t('Compras, herrería y plazos')}</h3></summary>${window.teamWeekBlock(wr, key, plan)}</details>` : '') +
+      (tips ? `<details class="card" id="eq-consejos"><summary><h3>${t('Trueques y dinero fácil')}</h3></summary>${tips}</details>` : '');
   }
-  const dagsion = (wr, key) => (typeof window.teamWeekendSummary === 'function' ? window.teamWeekendSummary(wr, key) : '');
 
   register({ id: 'cap', title: 'Capítulo', routes: ['cap'], render: page });  // #/ is the home page (pages/inicio.js)
 })();

@@ -1,7 +1,7 @@
 /* Fortune's Weave · wiki2 · Builds catalog: every unit with community builds for a route and part, each class step with the chapter
    it opens on that route (classFromIdx), sorted by the route's tier. Rendered by builds() in minmax.js. */
 'use strict';
-const BUILD_RANK = ['S+', 'S', 'A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D'];
+const BUILD_RANK = ['S+', 'S', 'S-', 'A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'F'];  // every grade the tiers use: an unknown one sorts last
 /** «S/A+» → mean index of its parts; no tier → last */
 const buildRank = t => { const xs = t ? String(t).split('/').map(x => BUILD_RANK.indexOf(x.trim())).filter(i => i >= 0) : []; return xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : 99; };
 const buildPart = p => (p >= 2 ? 2 : 1);
@@ -19,11 +19,12 @@ function buildsCatalog(route, part) {
   const key = buildsKey(route, part), mine = ctxChosen() && key === ctxGet().key, here = route ? chapIdx(route, key) : -1;
   const tiers = (end ? B.tiers?.final : B.tiers?.[route]) || {}, team = route ? teamNow(route) : null;
   const pp = end ? [2, 3] : [1];
+  const p2 = route && end ? routeChapters(route).findIndex(c => c.part >= 2) : -1;  // Parts 2–3: a class step never opens in a Part 1 chapter
   const out = [];
   const inPart1 = p => { const x = CHARS[p].routes?.[route], k = x && (x.join_key || x.recruit_key); return !!k && CAPS[k]?.part === 1; };
   const pids = [...new Set([...Object.keys(B.units || {}), ...(route && !end ? Object.keys(CHARS).filter(inPart1) : [])])].filter(p => CHARS[p]).sort();
   for (const pid of pids) {
-    const x = route ? CHARS[pid].routes?.[route] || {} : {}, arrive = route ? Math.max(0, chapIdx(route, x.join_key || x.recruit_key)) : -1;
+    const x = route ? CHARS[pid].routes?.[route] || {} : {}, arrive = route ? Math.max(0, p2, chapIdx(route, x.join_key || x.recruit_key)) : -1;
     const rows = route ? teamOptions(pid, route, key)
       : (B.units[pid] || []).filter(o => !o.routes && (!o.parts || o.parts.some(n => pp.includes(n)))).map(o => ({ ...o, jids: o.path.map(es => teamJid(es) || null), ok: true, issue: '' }));
     if (!rows.length && !(route && !end && inPart1(pid))) continue;  // a Part 1 unit of the route stays, «no build proposed»
