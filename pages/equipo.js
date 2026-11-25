@@ -5,7 +5,9 @@
 (() => {
   const TL = { fav: '★ Favorito', love: '♥ Le encanta', like: 'Le gusta' };  // shown through t()
   // tokens and components of style.css only: cards between units, a softer rule between stages, a tinted block for the extras
-  const CSS = `.fi-sec:has(> .eq-box){background:none;border:0;box-shadow:none;padding:0}.eq-box+.eq-box{margin-top:var(--s3)}\n@media (max-width:600px){.eq-gifts .eq-gi{display:flex;align-items:center;gap:6px;padding:2px 0}.eq-gifts .eq-gi>a{flex:1;min-width:0}.eq-gifts .eq-tw{display:none}.eq-gifts .eq-rec{gap:var(--s2)}}\n.eq-pick{font:inherit;cursor:pointer;padding-right:28px}.eq-pick.on::after{background:url(img/ui/IconCheck.png) right 8px center/14px no-repeat,var(--cf)}.eq-st{font-weight:650;color:var(--tx)}.eq-pickb{margin:var(--s2) 0}.eq-pickb p{margin:var(--s1) 0}.eq-pickb details{margin-top:var(--s1)}
+  const CSS = `.fi-sec:has(> .eq-box){background:none;border:0;box-shadow:none;padding:0}.eq-box+.eq-box{margin-top:var(--s3)}\n@media (max-width:600px){.eq-gifts .eq-gi{display:flex;align-items:center;gap:6px;padding:2px 0}.eq-gifts .eq-gi>a{flex:1;min-width:0}.eq-gifts .eq-tw{display:none}.eq-gifts .eq-rec{gap:var(--s2)}}\n
+.eq-roles{margin:0 0 var(--s2);font-size:var(--fs-small);color:var(--mut)}.eq-role b{color:var(--tx)}.eq-gapc,.eq-gapc b{color:var(--red)}.eq-gaps{list-style:none;padding:0;margin:0}.eq-gaps li{padding:4px 0;display:flex;flex-wrap:wrap;align-items:center;gap:6px}.eq-add{padding-left:6px}.eq-add small{color:var(--mut)}.eq-aimg{width:24px;height:24px;border-radius:50%}.rg-pick{margin-bottom:var(--s3)}.rg-pick .eq-face[aria-pressed=false]{opacity:.5}.rg-pick .eq-face[aria-pressed=true]{outline:2px solid var(--focus);outline-offset:1px}.rg-u h3{font-size:var(--fs-row);margin:0 0 var(--s1)}.rg-l{list-style:none;padding:0;margin:0;columns:2;column-gap:var(--s3)}.rg-l li{padding:3px 0;break-inside:avoid;font-size:var(--fs-small);line-height:1.2}.rg-l a{color:var(--tx)}.rg-l li.rg-fav a,.rg-l li.rg-love a{font-weight:650}.rg-t{color:var(--acc)}.rg-meal{margin:0 0 var(--s1);font-size:var(--fs-small)}.rg-no{margin-top:var(--s1);font-size:var(--fs-small)}.eq-rec{position:relative}.eq-got{align-self:center;white-space:nowrap}
+.eq-pick{font:inherit;cursor:pointer;padding-right:28px}.eq-pick.on::after{background:url(img/ui/IconCheck.png) right 8px center/14px no-repeat,var(--cf)}.eq-st{font-weight:650;color:var(--tx)}.eq-pickb{margin:var(--s2) 0}.eq-pickb p{margin:var(--s1) 0}.eq-pickb details{margin-top:var(--s1)}
 .eq-units{display:grid;gap:var(--s4)}.eq-unit{margin:0;padding:var(--s3) var(--s4)}
 .eq-unit>header{display:flex;align-items:center;gap:var(--s3);margin:0 0 var(--s2)}.eq-unit>header h4{margin:0}.eq-unit>header .cp-tag{margin:0 var(--s1) 0 0}
 .eq-steps{list-style:none;margin:0;padding:0}.eq-steps>li{padding:var(--s2) 0;border-top:1px dashed var(--line)}.eq-steps>li:first-child{border-top:0;padding-top:0}
@@ -61,9 +63,9 @@
     const alt = o => li(`<b>${esc(tx(o, 'name'))}</b> <span class="mut">${o.ok ? o.jids.map(j => esc(nm(CLASSES[j]))).join(' → ') : esc(o.issue)}</span>`,
       [o.ok && tx(o, 'fits') && t('Elígela: {f}', { f: tx(o, 'fits') }), full && o.ok && tx(o, 'why')].filter(Boolean).map(esc).join(' '));
     return `<div class="eq-pickb"><p><span class="cp-tag">${t('Build para tu equipo')}</span> <b>${esc(tx(me, 'name'))}</b></p>` +
-      (why.length ? `<p class="mut">${esc(t('Por tu equipo: {w}.', { w: list(why) }))}</p>` : `<p class="mut">${t('La build principal: el resto del equipo no pide otra.')}</p>`) +
+      (why.length ? `<p class="mut">${esc(t('Por tu equipo: {w}.', { w: list(why) }))}</p>` : '') +
       (full && tx(me, 'why') ? `<p>${esc(tx(me, 'why'))}</p>` : '') +
-      (needs.length ? `<p class="mut">${esc(t('Sube {s} con manuales o en la Plaza de armas para su examen.', { s: list(needs.map(x => t(x))) }))}</p>` : '') +
+      (teamFocus(b).length ? `<p class="eq-focus"><span class="cp-tag">${t('Sube')}</span> ${teamFocus(b).map(f => `<b>${esc(t(f.skill))} ${esc(f.rank)}</b>`).join(' · ')}</p>` : '') +
       (others.length ? `<details><summary>${t('Otras builds ({n})', { n: others.length })}</summary>${ul(others.map(alt))}</details>` : '') + '</div>';
   }
   window.teamPickHtml = pickHtml;
@@ -107,7 +109,6 @@
     'Monturas: una por cada tipo de montura de la ruta de clases (el vínculo es de cada pareja y sirve en todas las clases de ese tipo). Gana la que más suma su crecimiento con vínculo 5 con los crecimientos de la unidad en la clase objetivo. Solo se proponen monturas que existen en la ruta y parte: capturarlas es cosa de Cai (en la Parte 1, y en la Parte 3 si Cai está en el ejército) en la Parte 1, desde el capítulo que abre el Cebo. Las raras (solo salen en el hueco raro de un campo) van a una sola unidad, por prioridad; las propias (Rocinán, Bucephalus) se pueden dar a otra unidad si su dueño está en el equipo, y van a quien más gana con ellas (a su dueño si empatan); las comunes y la de la clase se repiten.',
     'Arma: la de más poder del arma principal que se vende en una tienda abierta en esta parte, desde el capítulo elegido.',
     'Compras: armas eficaces contra los tipos de enemigo (2 o más) de la batalla del capítulo y la del siguiente, para quien del equipo usa ese tipo de arma (una por tipo de arma: la que pide menos Prestigio y está más cerca; los voladores no cuentan porque cualquier arco ya es eficaz); la licencia y los manuales del próximo examen de cada build; el arma principal; y accesorios con regla (Anillo de gigante para el Cuadriguero). El tipo de enemigo sale de su clase: acorazado si su examen pide Coraza, jinete si entrena Equitación, volador si entrena Vuelo. Solo lugares abiertos en esta ruta, parte y capítulo; en la Parte 1 de Cai, con el Prestigio que piden sus puestos fronterizos. Se agrupan por lugar.',
-    'Nueva vuelta: el mapa sale desvelado (no hace falta descubrir los lugares, pero los puestos fronterizos y el Prestigio siguen igual), los apoyos se conservan y las misiones de otras rutas ya están hechas. Lo que está cerrado a Cai en la Parte 1 sigue cerrado.',
     'Trueques de Vandahl: si lo que piden se consigue con Búsqueda en un lugar accesible, se propone la cadena búsqueda y trueque.',
     'El nivel enemigo sigue la media de las 10 unidades de más nivel: conviene repartir la EXP entre todo el equipo.',
     'Regalos: el favorito de un «quiero» no se propone a otro (si dos comparten favorito, lo recibe el de más prioridad). Orden: favorito (el más caro da más apoyo), le encanta (el más barato primero) y le gusta (en el orden del juego, para encontrarlos en la lista de regalos). Solo se proponen regalos con alguna fuente abierta en esta ruta y parte.',
@@ -137,7 +138,8 @@
     return `<li class="eq-rec">${face(s.pid, 'cp-face') || '<span class="cp-face"></span>'}<div><b>${L('personaje', s.pid)}</b><span class="eq-line">${asks}</span>${llega}${plazo}</div></li>`;
   }
   /** «★ Favorito»: the symbol and the word apart, so a narrow screen can keep only the symbol */
-  const tierTag = k => { const m = t(TL[k]).match(/^([★♥])\s*(.*)$/);
+  const tierTag = k => { if (k === 'like') return '';  // being on the list already says it is liked
+    const m = t(TL[k]).match(/^([★♥])\s*(.*)$/);
     return `<span class="eq-tag">${m ? `<span aria-hidden="true">${m[1]}</span><span class="eq-tw"> ${esc(m[2])}</span>` : esc(t(TL[k]))}</span>`; };
   /** the gift round: one compact row per «quiero» (serial order), the next gift inline and the rest folded */
   function giftRound(round) {
@@ -162,8 +164,6 @@
       (need.length ? `<h4>${t('Oro y objetos necesarios')}</h4><ul class="eq-need">${need.join('')}</ul>` : '');
   }
 
-  const STATE_LONG = { no: 'no está en el equipo', quiero: 'quiero reclutarlo', tengo: 'ya lo tengo', llega: 'se une por la historia más tarde' };  // shown through t()
-  const STATE_SHORT = { quiero: 'quiero', tengo: 'tengo', llega: 'llega' };  // the chip's state word, through t()
   const day = d => (d ? fechaDia(d) : '');
   const who = ps => list(ps.map(p => L('personaje', p)));
 
@@ -174,7 +174,7 @@
       buy, meals, gifts (the gift round), Servicio divino, deadlines due this chapter; explanations live in «Cómo se calcula» */
   function weekHtml(w, round, shop, forge) {
     const lordN = L('personaje', w.lord), compras = shopHtml(shop, w.route) + forgeHtml(forge);
-    if (!w.need.length) return compras + `<p class="mut">${t('Ningún recluta marcado como «quiero reclutarlo» en esta ruta: no hay regalos ni comidas que preparar.')}</p>`;
+    if (!w.need.length) return compras + `<p class="mut">${t('Ningún «quiero» en esta ruta.')}</p>`;
     const live = w.need.filter(n => !n.late && n.pts > 0);
     // deadlines: the ones due this chapter, the rest folded
     const dl = n => n.deadline ? (n.deadline.part ? t('antes del final de la Parte 1') : t('antes del {d} ({c})', { d: day(n.deadline.date), c: chapLink(n.deadline.key) })) : '';
@@ -187,7 +187,6 @@
     const other = [
       w.play.length && li(t('Teatro (Prestigio 7)'), w.play.map(pl => `«${esc(gt(pl.es))}»${pl.fans.length ? t(': les gusta a {p}', { p: who(pl.fans) }) : ''}`).join(' · ')),
       w.renown >= 8 && li(t('Termas (Prestigio 8)'), t('{l} con un «quiero»; el domingo da más apoyo.', { l: lordN })),
-      w.rerun && li(t('Nueva vuelta'), t('las misiones de otras rutas ya están hechas.')),
       w.renown && li(t('Prestigio'), t('el más alto que piden tus «quiero»: {n}.', { n: w.renown })),
     ].filter(Boolean);
     const detours = w.detours?.length ? `<p>${t('Desvíos de este capítulo que quizá perdiste en la vuelta anterior: {l}.', { l: list(w.detours.map(d => `<a href="${href('batalla', d.id)}">${esc(gt(d.es))}</a>`)) })}</p>` : '';
@@ -198,68 +197,6 @@
     return dueLine + compras + percha + plazos + detours + (other.length ? `<details class="eq-more"><summary>${t('Otras actividades ({n})', { n: other.length })}</summary>${ul(other)}</details>` : '');
   }
 
-  /* ---------------- «Este fin de semana»: the Saturday + Sunday visit to Dagsion as a checklist ---------------- */
-  const DAY_NAME = { 'sáb': 'Sábado', dom: 'Domingo' };  // i18n-ignore (keys: data weekdays; the names go through t())
-  const dayName = d => t(DAY_NAME[d.dow] || d.dow);
-  /** «Día de Dagda: Servicio divino potenciado en todos los templos…» / «Día sagrado del Templo de Credna: …» → a short line */
-  const holyTxt = s => { const g = /Templo de ([^:]+)/.exec(s || '');
-    return /Día de Dagda/.test(s || '') ? t('Día de Dagda: todos los templos') : g ? t('Día sagrado de {g}', { g: esc(gt(g[1])) }) : ''; };
-  const WEEKDAY = { lun: 'lunes', mar: 'martes', 'mié': 'miércoles', jue: 'jueves', vie: 'viernes', 'sáb': 'sábado', dom: 'domingo' };  // i18n-ignore (keys: data weekdays; the names go through t())
-  const weekdays = w => w.split('/').map(d => t(WEEKDAY[d] || d)).join('/');
-  const finKey = (key, we) => `finde.${key}.${we.sat || we.sun}`;
-  const finDone = (key, we) => { const v = store.get(finKey(key, we), []); return Array.isArray(v) ? v : []; };
-  /** one checkbox row: the whole row is the tap target */
-  const plain = ps => esc(list(ps.map(p => nm(CHARS[p]))));  // names inside a checkbox row are text: a link there would steal the tap
-  const ck = (id, html, done) => `<li><label class="fin-ck"><input type="checkbox" data-fin-ck="${esc(id)}"${done.includes(id) ? ' checked' : ''}><span>${html}</span></label></li>`;
-  /** the weekend page body for plan `w` (teamWeekend) */
-  function weekendHtml(w, wk) {
-    const lordN = L('personaje', w.lord), done = finDone(w.key, w), ids = [];
-    const box = (id, html) => { ids.push(id); return ck(id, html, done); };
-    const we = w.weekends.length ? w.weekends[w.n] : null;
-    if (!we) return `<p class="mut">${t('Este capítulo no tiene días libres en fin de semana.')}</p>`;
-    const label = [w.sat && `${t('Sáb')} ${fechaDia(w.sat)}`, w.sun && `${t('Dom')} ${fechaDia(w.sun)}`].filter(Boolean).join(' – ');
-    const sel = `<div class="fin-sel" role="group" aria-label="${t('Fin de semana')}"><button type="button" class="fin-nav fin-prev" data-fin-n="${w.n - 1}"${w.n ? '' : ' disabled'} aria-label="${t('Fin de semana anterior')}">‹</button>` +
-      `<b class="fin-lbl">${label}</b><button type="button" class="fin-nav fin-next" data-fin-n="${w.n + 1}"${w.n < w.weekends.length - 1 ? '' : ' disabled'} aria-label="${t('Fin de semana siguiente')}">›</button></div>`;
-    const lv = n => t('apoyo {a} ({p} puntos)', { a: n.support, p: num(n.pts) });
-    // gifts
-    const giftRow = g => {
-      const it = x => `${img(ico().item?.[x.iid], 'ico')}${L('objeto', x.iid)} ${tierTag(x.t)}`;
-      const off = o => o.type === 'barter' ? t('trueque en {p}', { p: o.spot ? L('lugar', o.spot) : esc(dataTx(o.where)) }) : `${o.spot ? L('lugar', o.spot) : esc(dataTx(o.where))}, ${gold(o.price)}`;
-      const what = g.pick ? `${it(g.pick)} <span class="mut">· ${off(g.pick.offer)}</span>` : g.other ? `${it(g.other)} <span class="mut">· ${t('no se vende ahora')}: ${list(g.other.src.slice(0, 2))}</span>` : `<span class="mut">${t('Sin regalo apreciado con fuente abierta.')}</span>`;
-      const alts = g.alts.length ? `<details class="eq-more"><summary>${t('Otras opciones ({n})', { n: g.alts.length })}</summary>${ul(g.alts.map(x => `<li>${it(x)} <span class="mut">· ${off(x.offer)}</span></li>`))}</details>` : '';
-      const daysCk = w.days.filter(d => g.days.includes(d.date)).map(d => { const id = `g:${g.pid}:${d.date}`; ids.push(id);
-        return `<label class="fin-day"><input type="checkbox" data-fin-ck="${esc(id)}" aria-label="${esc(t('Regalo a {p}, {d}', { p: nm(CHARS[g.pid]), d: dayName(d) }))}"${done.includes(id) ? ' checked' : ''}>${d.dow === 'dom' ? t('Dom') : t('Sáb')}</label>`; }).join('');
-      return `<li class="fin-gift">${face(g.pid, 'cp-face') || '<span class="cp-face"></span>'}<div><b>${L('personaje', g.pid)}</b><span class="eq-line">${what}</span>` +
-        (g.birthday ? `<small class="mut">${t('Cumpleaños el {d}: un regalo más, que no gasta el de la semana.', { d: fechaDia(g.birthday) })}</small>` : '') + alts + `</div><span class="fin-days">${daysCk}</span></li>`;
-    };
-    const wd = w.away.filter(a => a.when), gone = w.away.filter(a => !a.when);
-    const away = (wd.length ? `<p class="mut">${t('Solo entre semana (regálales otro día): {l}.', { l: list(wd.map(a => `${L('personaje', a.pid)} (${esc(weekdays(a.when))})`)) })}</p>` : '') +
-      (gone.length ? `<p class="mut">${t('No están en Dagsion este fin de semana: {l}.', { l: who(gone.map(a => a.pid)) })}</p>` : '') +
-      (w.away.length && w.route !== 'cai' ? `<p class="mut">${t('Días de presencia según la ruta de Cai; en otras rutas pueden cambiar.')}</p>` : '');
-    const regalos = `<section class="card fin-blk" id="eq-ronda"><h3>${t('Regalos')}</h3><p class="mut">${t('Antes de comer: el primer regalo abre las comidas. Uno por persona el sábado y otro el domingo.')}</p>` +
-      (w.gifts.length ? `<ul class="eq-recs">${w.gifts.map(giftRow).join('')}</ul>` : `<p class="mut">${t('Ningún «quiero» en Dagsion este fin de semana.')}</p>`) + away + '</section>';
-    // meals
-    const comidas = `<section class="card fin-blk"><h3>${t('Comidas en la Posada')}</h3>` + (!w.inn ? `<p class="mut">${t('La Posada abre en el {c}.', { c: chapLink(w.innAt) })}</p>` :
-      w.meals.map(m => `<h4>${dayName(m)} · ${t('{g} por plato', { g: gold(m.price) })}</h4>` + (!m.guests.length ? `<p class="mut">${t('Nadie a quien invitar este día.')}</p>` :
-        `<p>${t('{a} con {b}', { a: lordN, b: who(m.guests) })}</p><ul class="fin-list">${m.dishes.map(d => box(`m:${m.date}:${d.es}`, esc(gt(d.es)))).join('')}</ul>` +
-        (m.more.length ? `<p class="mut">${t('Con Prestigio 3: {l}.', { l: esc(list(m.more.map(d => gt(d.es)))) })}</p>` : ''))).join('') +
-      (w.rerun ? `<p class="mut">${t('Nueva vuelta: salta las parejas que ya tengan el apoyo.')}</p>` : '')) + '</section>';
-    // Plaza de armas
-    const plaza = `<section class="card fin-blk"><h3>${gt('Plaza de armas')}</h3>` + (!w.training ? `<p class="mut">${w.trainingAt ? t('Abre en el {c}.', { c: chapLink(w.trainingAt) }) : t('No hay Plaza de armas en esta parte.')}</p>` :
-      w.training.map(d => `<h4>${dayName(d)} · ${t('{g} por sesión', { g: gold(d.price) })}${d.missing.length ? ` <small class="mut">· ${t('esta semana no hay {l}', { l: esc(list(d.missing.map(gt))) })}</small>` : ''}</h4>` +
-        `<ul class="fin-list">${d.options.map((o, i) => box(`t:${d.date}:${i}`, `${esc(gt(o.es))}${o.pair.length ? ` <span class="mut">· ${plain(o.pair)}</span>` : ''}`)).join('')}</ul>`).join('') +
-      `<p class="mut">${t('Sube el apoyo entre los dos de cada pareja, solo con unidades de tu ejército (no con reclutas pendientes). Cada unidad, 3 sesiones como mucho por la motivación. El domingo abre a las 6:00.')}</p>`) + '</section>';
-    // Servicio divino
-    const servicio = `<section class="card fin-blk"><h3>${t('Servicio divino')}</h3>` + (!w.service ? `<p class="mut">${t('Todavía no está abierto en este capítulo.')}</p>` :
-      `<ul class="fin-list">${w.service.map(s => box(`s:${s.date}`, `<b>${dayName(s)}</b>: ${s.with ? t('{a} con {b}', { a: plain([w.lord]), b: plain([s.with]) }) : plain([w.lord])}${s.holy ? ` <span class="mut">· ${holyTxt(s.holy)}</span>` : ''}`)).join('')}</ul>` +
-      `<p class="mut">${t('Uno al día en total. En día sagrado el resultado alto está garantizado: el sábado en Credna, el domingo en cualquier templo.')}</p>`) + '</section>';
-    // how many weekends like this one each recruit needs, from zero
-    const est = w.need.filter(n => n.weekend).map(n => li(L('personaje', n.pid), `${lv(n)} · ${t('≈ {n} fines de semana como este', { n: n.visits })}`));
-    const head = `${sel}<p class="fin-sum">${t('Dagsion · {r} · ≈ {g}', { r: t(w.gifts.length === 1 ? '1 recluta' : '{n} reclutas', { n: w.gifts.length }), g: gold(w.gold) })} · <span class="fin-prog" data-fin-total="${ids.length}">${t('{a}/{b} hecho', { a: ids.filter(id => done.includes(id)).length, b: ids.length })}</span></p>` +
-      `<p class="mut">${t('El sábado y el domingo cuentan como dos semanas: lo que hagas el sábado vuelve a estar libre el domingo a las 0:00.')}</p>` +
-      (est.length ? `<details class="eq-more"><summary>${t('Apoyo con {l}: cuántos fines de semana', { l: lordN })}</summary>${ul(est)}<p class="mut">${t('Desde cero, sin el bono del Prestigio ni la afinidad.')}</p></details>` : '');
-    return `<div class="fin" data-fin-store="${esc(finKey(w.key, we))}">${head}${regalos}${comidas}${plaza}${servicio}</div>`;
-  }
 
   /** «En este capítulo»: shop novelties, barters that pay off (with where the material comes from), free loot that sells, deadlines */
   window.teamTipsBlock = (route, key) => {
@@ -267,17 +204,12 @@
     const at = o => (o.spot ? L('lugar', o.spot) : esc(dataTx(o.where))) + (o.renown ? ` <small class="mut">(${t('Prestigio {n}', { n: o.renown })})</small>` : '');
     const it = iid => `${img(ico().item?.[iid], 'ico')}${L('objeto', iid)}`;
     const fold = (rows, k, label) => ul(rows.slice(0, k)) + (rows.length > k ? `<details class="eq-more"><summary>${t(label, { n: rows.length - k })}</summary>${ul(rows.slice(k))}</details>` : '');
-    const news = x.news.map(n => li(it(n.iid), `${at(n.offer)}, ${gold(n.offer.price)}`));
     const mat = m => `${m.n > 1 ? m.n + '× ' : ''}${L('objeto', m.id)} <span class="mut">(${m.src.shop ? `${at(m.src.shop)}, ${gold(m.src.shop.price)}` : t('Búsqueda en {p} ({n})', { p: L('lugar', m.src.search.spot), n: pct(m.src.search.pct) })})</span>`;
     const barters = x.barters.map(b => li(`${it(b.iid)} · ${at(b.offer)}`, `${t('por {l}', { l: b.mats.map(mat).join(' + ') })} · ${t('se vende por {g}', { g: gold(b.value) })}`));
     const loot = x.loot.map(l => li(it(l.iid), `${t('Búsqueda en {p} ({n})', { p: L('lugar', l.spot), n: pct(l.pct) })} · ${t('se vende por {g}', { g: gold(l.sell) })}`));
-    const due = (c.closing || []).length;
-    return `<section class="card fin-blk" id="eq-consejos"><h3>${t('En este capítulo')}</h3>` +
-      (news.length ? `<h4>${t('Novedades en las tiendas')}</h4>` + fold(news, 4, 'Más novedades ({n})') : '') +
-      (barters.length ? `<h4>${t('Trueques de Vandahl que salen a cuenta')}</h4>` + fold(barters, 3, 'Más trueques ({n})') : '') +
+    return (barters.length ? `<h4>${t('Trueques de Vandahl que salen a cuenta')}</h4>` + fold(barters, 3, 'Más trueques ({n})') : '') +
       (loot.length ? `<h4>${t('Dinero fácil')}</h4>` + fold(loot, 3, 'Más botín ({n})') : '') +
-      (!news.length && !barters.length && !loot.length ? `<p class="mut">${t('Nada nuevo en tiendas ni trueques en este capítulo.')}</p>` : '') +
-      `<p class="mut">${due ? `<a href="#/cap">${t('Lo que cierra en este capítulo ({n})', { n: due })}</a> · ` : ''}<a href="#/semana?ir=eq-semana">${t('Compras completas y herrería')}</a></p></section>`;
+      '';
   };
 
   const matTxt = m => list(Object.entries(m).map(([iid, n]) => `${n}× ${L('objeto', iid)}`));
@@ -306,7 +238,7 @@
     if (!g) return '';
     const fr = g.now && forge?.rows.find(r => r.iid === g.now.iid && !r.repair);
     const now = g.now ? `${img(ico().item?.[g.now.iid], 'ico')}${L('objeto', g.now.iid)} <span class="mut">· ${SRC_KIND[g.now.kind](g.now)}${g.now.loss ? ' · ' + t('pesa: −{n} de velocidad de ataque (peso {w} − Con ≈{c})', { n: g.now.loss, w: ITEMS[g.now.iid].weapon.weight, c: g.con }) : ''}</span>` +
-      (fr ? ` · <a href="#/semana?ir=eq-herreria">${t('refínala a {n}', { n: plusN(fr.to) })}</a>` : '') : g.spells ? `<span class="mut">${t('{m}: sus hechizos son propios de la unidad; no hay arma que comprar.', { m: t(g.spells === 'magia-blanca' ? 'Magia blanca' : 'Magia negra') })}</span>` : `<span class="mut">${t('Sin arma de su build que pueda llevar ahora con su clase.')}</span>`;
+      (fr ? ` · <a href="#/cap?ir=eq-herreria">${t('refínala a {n}', { n: plusN(fr.to) })}</a>` : '') : g.spells ? esc(t(g.spells === 'magia-blanca' ? 'Magia blanca' : 'Magia negra')) : `<span class="mut">${t('Sin arma de su build que pueda llevar ahora con su clase.')}</span>`;
     const opts = g.options.map(o => li(`${img(ico().item?.[o.iid], 'ico')}${L('objeto', o.iid)} · ${L('lugar', o.spot, o.where.replace(/\s*\(.*\)$/, ''))}, ${gold(o.price)}`,
       [t('Pot {m}, peso {w}', { m: ITEMS[o.iid].weapon.might, w: ITEMS[o.iid].weapon.weight }), o.effective && t('arma eficaz')].filter(Boolean).join(' · ')));
     const acc = g.acc ? li(`${L('objeto', g.acc.iid)} · ${g.acc.spot ? L('lugar', g.acc.spot, g.acc.where.replace(/\s*\(.*\)$/, '')) : esc(dataTx(g.acc.where))}${g.acc.price ? `, ${gold(g.acc.price)}` : ''}`, esc(t(g.acc.why))) : '';
@@ -326,10 +258,32 @@
     const routine = sh.routine.map(r => t('{i} en {p}', { i: L('objeto', r.iid), p: list(r.offers.slice(0, 4).map(o => o.spot ? L('lugar', o.spot) : esc(dataTx(o.where)))) }));
     const lures = sh.lures.slice(0, 3).map(m => t('{m} para {p} en {s} ({n})', { m: L('montura', m.rid), p: L('personaje', m.pid), s: L('lugar', m.spot.spot, m.spot.es), n: pct(m.spot.pct) }));
     return `<h4>${t('Compras y búsquedas')}</h4>` + (top.length ? ul(top.map(row)) : `<p class="mut">${t('Nada urgente que comprar para este capítulo.')}</p>`) +
-      `<p class="mut">${t('El arma de cada unidad y dónde comprar otra: <a href="#/equipo?ir=eq-equipamiento">Equipamiento</a>.')}</p>` +
       (rest.length ? `<details class="eq-more"><summary>${t('Más sitios ({n})', { n: rest.length })}</summary>${ul(rest.map(row))}</details>` : '') +
       (chains.length ? `<details class="eq-more"><summary>${t('Búsqueda y trueque con Vandahl ({n})', { n: chains.length })}</summary>${ul(chains)}</details>` : '') +
       ((routine.length || lures.length) ? `<p class="mut">${t('Cada capítulo: {l}. Los manuales se conservan para la Parte 3.', { l: [...routine, ...(lures.length ? [t('cebo para {l}', { l: list(lures) })] : [])].join('; ') })}</p>` : '');
+  }
+
+  /** Equipo › Regalos: per team member, what they like in the order of the game's gift menu (to read both lists side by side), stars for
+      the tier, and what they dislike folded; those still to recruit first */
+  const MARK = { fav: '★', love: '♥' };
+  /** the dishes to invite them to: the favourite ones, else the best score (up to 2) */
+  const meal = p => { const ms = (GIFT_BY_PID[p]?.meals || []).filter(m => !m.hate), fav = ms.filter(m => m.fav), top = Math.max(0, ...ms.map(m => m.score || 0));
+    const pick = (fav.length ? fav : ms.filter(m => m.score === top)).slice(0, 2);
+    return pick.length ? `<p class="rg-meal"><b>${t('Comida')}</b> ${esc(list(pick.map(m => dataTx(m.es))))}</p>` : ''; };  // plain likes carry no mark: being on the list says it
+  /** Equipo › Regalos: the member's face picks the list (as when you talk to them in the game); one list at a time, in the
+      game menu order, two columns (every gift shares one icon in the game, so none here); a teammate's favourite never shows as someone else's plain like */
+  function giftsTab(route, members) {
+    const want = ctxWant(route), ms = members.filter(p => GIFT_BY_PID[p] && p !== LORDS[route]);
+    const order = [...ms.filter(p => want.includes(p)), ...ms.filter(p => !want.includes(p))];
+    if (!order.length) return '';
+    const sel = order.includes(teamUi.rg) ? teamUi.rg : order[0];
+    const pick = `<div class="eq-faces rg-pick" role="group" aria-label="${t('Regalos')}">${order.map(p => `<button type="button" class="eq-face on st-${want.includes(p) ? 'quiero' : 'tengo'}" data-rg="${esc(p)}" aria-pressed="${p === sel}">` +
+      `${face(p, 'eq-fimg')}<span>${esc(nm(CHARS[p]))}</span></button>`).join('')}</div>`;
+    return pick + order.map(p => { const g = giftList(p, members);
+      return `<section class="card rg-u" id="rg-${esc(p)}"${p === sel ? '' : ' hidden'}><h3>${L('personaje', p)}${want.includes(p) ? ` <small class="mut">${t('por reclutar')}</small>` : ''}</h3>` +
+        meal(p) +
+        `<ul class="rg-l">${g.good.map(x => `<li${MARK[x.t] ? ` class="rg-${x.t}"` : ''}>${L('objeto', x.iid)}${MARK[x.t] ? ` <span class="rg-t" aria-label="${esc(t(TL[x.t]))}">${MARK[x.t]}</span>` : ''}</li>`).join('')}</ul>` +
+        (g.bad.length ? `<details class="rg-no"><summary>${t('No le gustan ({n})', { n: g.bad.length })}</summary><p>${list(g.bad.map(i => L('objeto', i)))}</p></details>` : '') + '</section>'; }).join('');
   }
 
   function page(qs) {
@@ -341,41 +295,39 @@
     if (ROUTE_IDS.includes(qs.r) && (!ctxChosen() || qs.r !== ctxGet().route)) { const c0 = CAPS[ctxGet().key]; ctxSet(qs.r, c0.route === 'comun' ? c0.key : chapterFromPath(qs.r, 1, c0.n)); }
     const route = ctxGet().route, key = ctxGet().key;
     // old recruit planner links (#/planificador?r=&p=pid,pid): their picks join the selection as «quiero»
-    if (qs.p) { const add = String(qs.p).split(',').filter(p => CHARS[p]?.routes?.[route]?.recruit_key && !ctxGet().have.includes(p)); if (add.length) ctxSetRecruits([...ctxGet().recruits, ...add]); }
+    if (qs.p) { const add = String(qs.p).split(',').filter(p => CHARS[p]?.routes?.[route]?.recruit_key && !ctxTeamRaw().includes(p)); if (add.length) ctxSetRecruits([...ctxTeamRaw(), ...add]); }
+    // ?r= and ?p= are applied once: out of the address, so a later header route or a tap that takes a unit out is not undone
+    if ((qs.r || qs.p) && typeof history !== 'undefined' && history.replaceState) { const { r: _r, p: _p, ...rest } = qs; history.replaceState(history.state, '', qsHref('equipo', rest, {})); }
     const c = ctxGet(), all = teamChips(route, key), picked = ctxRecruits(route), want = ctxWant(route), drop = ctxDrop(route), fold = c.fold;
     const story = p => !!CHARS[p].routes[route].join_key, st = p => teamState(p, route, key, c);
     const n = teamCounts(route, key, c), counts = teamCountTxt(n), marked = all.filter(p => st(p) !== 'no'), rest = all.filter(p => st(p) === 'no');
-    const pick = p => { const s = st(p), x = CHARS[p].routes[route];
-      return `<button type="button" class="chip eq-pick${s === 'tengo' ? ' on' : s === 'quiero' ? ' want' : ''}" data-eq="${esc(p)}" aria-label="${esc(nm(CHARS[p]))}: ${t(STATE_LONG[s])}">${face(p)}${esc(nm(CHARS[p]))} ` +
-        `<small>${esc(capShort(CAPS[x.join_key || x.recruit_key]))}</small>${s !== 'no' ? ` <small class="eq-st">${t(STATE_SHORT[s])}</small>` : ''}${story(p) ? ` <small class="eq-tag">${t('historia')}</small>` : ''}</button>`; };
-    const folded = picked.length > 0 && !teamUi.editing && fold !== false;
-    const summary = `${esc(ROUTE_NAME[route])}${c.rerun ? ' · ' + t('Nueva vuelta') : ''} · ${counts} · ${esc(capShort(CAPS[key]))}`;
-    // the route is the header's (one place to change it); the page only reflects it
-    const editor = `<p class="eq-route">${t('Ruta de {r}', { r: esc(ROUTE_NAME[route]) })} · ${chapLink(key)} <small class="mut">${t('(se cambian arriba)')}</small></p>` +
-      `<div class="seg seg2" role="group" aria-label="${t('Partida')}"><button type="button"${c.rerun ? '' : ' class="on"'} data-eq-rerun="0" aria-pressed="${!c.rerun}">${t('Primera partida')}</button>` +
-      `<button type="button"${c.rerun ? ' class="on"' : ''} data-eq-rerun="1" aria-pressed="${c.rerun}">${t('Nueva vuelta')}</button></div>` +
-      (c.rerun && route === 'cai' ? `<p class="mut">${t('En una nueva vuelta el mapa sale desvelado y los apoyos se conservan, pero Cai sigue sin poder ir al oeste en la Parte 1.')}</p>` : '') +
-      `<h2>${t('Reclutas')} <small class="mut">${counts}</small></h2>` +
-      `<p class="mut">${t('Toca un recluta para cambiar su estado: no → quiero reclutarlo → ya lo tengo.')}</p>` +
-      // the marked chips always; the rest folded (open while nothing is marked, or once opened in this visit)
-      (marked.length ? `<div class="chips pl-picks" role="group" aria-label="${t('Reclutas marcados')}">${marked.map(pick).join('')}</div>` : '') +
-      (rest.length ? `<details class="eq-grid"${!marked.length || teamUi.all ? ' open' : ''}><summary>${t('Ver todos ({n} sin marcar)', { n: rest.length })}</summary>` +
-        `<div class="chips pl-picks" role="group" aria-label="${t('Reclutas sin marcar')}">${rest.map(pick).join('')}</div></details>` : '') +
-      `<p class="eq-acts"><button type="button" class="txtbtn" data-eq-all="1">${t('Marcar todos como «quiero»')}</button> <button type="button" class="txtbtn" data-eq-all="0"${marked.length ? '' : ' disabled'}>${t('Quitar todos')}</button>` +
-      '</p>' +
-      `<p class="mut">${t('{l} siempre cuenta en el equipo. Los de «historia» se unen solos: «llega» antes de su capítulo y «tengo» desde él; se pueden desmarcar.', { l: L('personaje', LORDS[route]) })}</p>`;
-    // the selection is a fold box: chevron top right (the whole header toggles it); folding is stored in ctx, so it goes through teamApply
+    // faces grid: one tap puts a unit in or out of the team (the lord is always in); a unit still to come shows its chapter
+    const inTeam = p => st(p) !== 'no', lord = LORDS[route], STW = { quiero: 'quiero', tengo: 'tengo', llega: 'llega' };
+    const at = capPos(route, key), from = p => { const x = CHARS[p].routes[route]; return x.join_key || x.recruit_key; };
+    const cell = p => { const soon = capPos(route, from(p)) > at, x = CHARS[p].routes[route];
+      const s = st(p), label = s === 'no' ? (soon ? esc(capShort(CAPS[from(p)])) : '') : t(STW[s]);
+      return `<button type="button" class="eq-face st-${s}${inTeam(p) ? ' on' : ''}" data-eq="${esc(p)}" aria-pressed="${inTeam(p)}" aria-label="${esc(nm(CHARS[p]))}: ${esc(t(STW[s] || 'no está en el equipo'))}">${face(p, 'eq-fimg')}<span>${esc(nm(CHARS[p]))}</span>` +
+        `${label ? `<small>${label}</small>` : ''}</button>`; };
+    const size = 1 + marked.length, folded = picked.length > 0 && !teamUi.editing && fold !== false;
+    const summary = `${esc(ROUTE_NAME[route])} · ${esc(capShort(CAPS[key]))} · ${t('{n} en el equipo', { n: size })}`;
+    const grid = `<div class="eq-faces" role="group" aria-label="${t('Equipo')}"><span class="eq-face on lord">${face(lord, 'eq-fimg')}<span>${esc(nm(CHARS[lord]))}</span></span>${[...all].sort((a, b) => !!CHARS[b].routes[route].join_key - !!CHARS[a].routes[route].join_key || capPos(route, from(a)) - capPos(route, from(b)) || bySerial(a, b)).map(cell).join('')}</div>`;
     const chev = picked.length ? `<button type="button" class="fold-b" data-eq-fold="${folded ? 0 : 1}" aria-expanded="${!folded}" aria-controls="eq-sel-p" aria-label="${folded ? t('Desplegar') : t('Plegar')}"><i class="fold-i" aria-hidden="true"></i></button>` : '';
-    const head = `<h1>${t('Equipo')}</h1><section class="card eq-sel fold"><div class="fold-h"><h2 class="eq-sel-t">${t('Tu selección')} <small class="mut">${marked.length ? summary : t('sin reclutas marcados')}</small></h2>${chev}</div>` +
-      `<div class="fold-p" id="eq-sel-p"${folded ? ' hidden' : ''}>${folded ? '' : `<p class="mut">${t('Marca qué reclutas ya tienes y cuáles quieres reclutar. La selección se guarda y las fichas, los regalos y los reclutas la tienen en cuenta.')}</p>${editor}`}</div></section>`;
-    if (!marked.length) return head + `<p class="mut">${t('Marca los reclutas que tienes o quieres reclutar para calcular el equipo.')}</p>`;
+    const head = `<h1>${t('Equipo')}</h1><section class="card eq-sel fold"><div class="fold-h"><h2 class="eq-sel-t">${t('Tu equipo')} <small class="mut">${summary}</small></h2>${chev}</div>` +
+      `<div class="fold-p" id="eq-sel-p"${folded ? ' hidden' : ''}>${folded ? '' : grid}</div></section>`;
+    if (!picked.length && !marked.length) return head;
     const plan = teamPlan(route, key, picked, drop, want), { roles } = plan;
-    const roleRows = ROLES.map(([r, rn]) => [t(rn), roles.cover[r].length ? list([...roles.cover[r]].sort(bySerial).map(p => L('personaje', p))) : `<span class="eq-gap">${t('Sin cubrir')}</span>`]);
-    const gapTxt = roles.gaps.map(r => { const rn = ROLES.find(x => x[0] === r)[1], f = roles.fix[r];
-      return li(t('Falta {r}', { r: t(rn).toLowerCase() }), f.length ? t('Lo cubriría {l}.', { l: list([...f].sort((a, b) => bySerial(a[0], b[0])).map(([p, j]) => t('{p} como {c}', { p: L('personaje', p), c: cls(j) }))) }) : t('Ninguna unidad del equipo lo cubre con su alternativa: conviene reclutar a alguien para este papel.')); });
+    // roles in one line of chips; each gap: who in the team could switch to it, and up to 3 recruits who fill it (+ adds them)
+    const roleChips = `<p class="eq-roles">${ROLES.map(([r, rn]) => { const n = roles.cover[r].length;
+      const gap = !n && ROLE_NEEDED.includes(r);
+      return `<span class="eq-role${gap ? ' eq-gapc' : ''}" title="${esc(list([...roles.cover[r]].sort(bySerial).map(p => nm(CHARS[p]))))}">${t(rn)} <b>${n}</b>${gap ? ' ⚠' : ''}</span>`; }).join('<span aria-hidden="true"> · </span>')}</p>`;
+    const gaps = teamGaps(route, key, plan.prio.map(x => x.pid), plan.builds);
+    const gapTxt = gaps.map(g => { const rn = ROLES.find(x => x[0] === g.role)[1], f = roles.fix[g.role] || [];
+      const recs = g.picks.map(x => `<button type="button" class="eq-add" data-eq="${esc(x.pid)}" aria-label="${esc(t('Añadir a {p} al equipo', { p: nm(CHARS[x.pid]) }))}">+ ${face(x.pid, 'eq-aimg')}${esc(nm(CHARS[x.pid]))} <small>${esc(capShort(CAPS[x.ch]))}</small></button>`);
+      const sw = f.length ? t('o {l}', { l: list([...f].sort((a, b) => bySerial(a[0], b[0])).map(([p, j]) => t('{p} como {c}', { p: L('personaje', p), c: cls(j) }))) }) : '';
+      return `<li><b>${t(rn)}</b> ${recs.length ? recs.join('') : `<span class="mut">${t('nadie en esta ruta')}</span>`}${sw ? ` <small class="mut">${sw}</small>` : ''}</li>`; });
     const clashes = plan.prio.map(x => x.pid).sort(bySerial).flatMap(p => Object.values(plan.mounts[p] || {}).filter(m => m.lost_to).map(m => [p, m]))
       .map(([p, m]) => li(t('{m} para {p}', { m: L('montura', m.want), p: L('personaje', m.lost_to) }), t('{p} lleva {m}.', { p: L('personaje', p), m: L('montura', m.rid) })));
-    const equipo = kvRows(roleRows) + (gapTxt.length ? `<h4>${t('Huecos')}</h4>${ul(gapTxt)}` : `<p>${t('Todos los papeles básicos están cubiertos.')}</p>`) +
+    const equipo = roleChips + (gapTxt.length ? `<h4>${t('Para cubrir huecos')}</h4><ul class="eq-gaps">${gapTxt.join('')}</ul>` : '') +
       (clashes.length ? `<h4>${t('Monturas en conflicto')}</h4>${ul(clashes)}` : '');
     const rank = Object.fromEntries(plan.prio.map(x => [x.pid, x.n])), gearOf = Object.fromEntries(plan.gear.map(g => [g.pid, g]));
     const stTag = p => { if (p === LORDS[route]) return ''; const s = st(p);
@@ -383,14 +335,15 @@
     const builds = `<div class="eq-units">${[...plan.builds].sort((a, b) => bySerial(a.pid, b.pid)).map(b => `<section class="card eq-unit" id="eq-${esc(b.pid)}">` +
       `<header>${face(b.pid, 'cp-face')}<div><h4>${L('personaje', b.pid)}</h4><span class="cp-tag">${t('prioridad {n}', { n: rank[b.pid] })}</span>${b.roles.length ? `<span class="cp-tag">${esc(roleNames(b.roles))}</span>` : ''}${stTag(b.pid)}</div></header>` +
       `${buildSummary(b, plan)}${gearHtml(gearOf[b.pid], plan.forge)}</section>`).join('')}</div>`;
-    const gearOfTxt = plan.gear.length ? `<p class="mut">${t('Arma de cada unidad que ya tienes, con lo que se consigue en este capítulo; se recalcula al cambiar de capítulo o de reclutas.')}</p>` : '';
+    const gearOfTxt = '';
     const rules = RULES.filter(r => !WEEK_RULE.test(r));
     // two tabs: the team (roles, builds, equipment) and recruitment; the rules folded at the foot (?sec=reglas opens it)
     return ficha(head, [
       ['equipo', 'Equipo', equipo + `<h4 id="eq-equipamiento">${t('Builds y equipamiento')}</h4>${gearOfTxt}${builds}`],
-      ['reclutamiento', 'Reclutamiento', `<section class="card eq-box">${recruitment(route, want) || `<p class="mut">${t('Ningún recluta marcado como «quiero reclutarlo».')}</p>`}</section>` +
+      ['regalos', 'Regalos', giftsTab(route, plan.prio.map(x => x.pid))],
+      ['reclutamiento', 'Reclutamiento', `<section class="card eq-box">${recruitment(route, want) || `<p class="mut">${t('Nadie pendiente de reclutar.')}</p>`}` + `</section>` +
         (want.length ? `<section class="card eq-box eq-gifts"><h3>${t('Regalos para subir el apoyo')}</h3>${birthdays(plan.week)}` +
-          (giftRound(plan.round) || `<p class="mut">${t('Ningún «quiero» con regalos que preparar.')}</p>`) + `<p class="mut"><a href="#/semana">${t('Este fin de semana: regalos, comidas y Servicio divino')} →</a></p></section>` : '')],
+          (giftRound(plan.round) || `<p class="mut">${t('Ningún «quiero» con regalos que preparar.')}</p>`) + '</section>' : '')],
     ]) + `<details class="card eq-reglas" id="eq-reglas"${qs.sec === 'reglas' ? ' open' : ''}><summary>${t('Cómo se calcula ({n})', { n: rules.length })}</summary>${ul(rules.map(r => `<li>${esc(t(r))}</li>`))}</details>`;
   }
 
@@ -398,18 +351,16 @@
   const weekBody = plan => { const rules = RULES.filter(r => WEEK_RULE.test(r));
     return weekHtml(plan.week, plan.round, plan.shop, plan.forge) + `<details class="eq-more"><summary>${t('Cómo se calcula ({n})', { n: rules.length })}</summary>${ul(rules.map(r => `<li>${esc(t(r))}</li>`))}</details>`; };
   window.teamWeekBlock = (route, key) => weekBody(teamPlan(route, key, ctxRecruits(route), ctxDrop(route), ctxWant(route)));
-  const finN = key => { const m = store.get('findeN', {}); return m && Number.isInteger(m[key]) ? m[key] : 0; };
-  /** Capítulo's three lines about the weekend (the whole plan is #/semana) */
+  /** Capítulo › En Dagsion: who eats with the lord and who goes to the Servicio divino this weekend (gifts live in Equipo › Regalos) */
   window.teamWeekendSummary = (route, key) => {
-    const w = teamWeekend(route, key, ctxWant(route), finN(key)), lordN = L('personaje', w.lord);
+    const w = teamWeekend(route, key, ctxWant(route), 0), lordN = L('personaje', w.lord);
     if (!w.weekends.length) return `<p class="mut">${t('Este capítulo no tiene días libres en fin de semana.')}</p>`;
     const meal = w.meals.find(m => m.guests.length), svc = (w.service || []).find(s => s.with);
     const lines = [
-      w.gifts.length ? t('Regalos para {l}.', { l: who(w.gifts.map(g => g.pid)) }) : t('Ningún «quiero» en Dagsion este fin de semana.'),
       meal && t('Comidas: {a} con {b}.', { a: lordN, b: who(meal.guests) }),
       svc && t('Servicio divino: {a} con {b}.', { a: lordN, b: L('personaje', svc.with) }),
     ].filter(Boolean);
-    return ul(lines.map(x => `<li>${x}</li>`)) + `<p><a href="#/semana">${t('Ver el fin de semana')} →</a></p>`;
+    return lines.length ? ul(lines.map(x => `<li>${x}</li>`)) : '';
   };
 
   /** re-render in place keeping the page scroll and the focus on the pressed control (selector `again` finds it) */
@@ -430,67 +381,29 @@
 
   // selector buttons change ctx through teamApply and re-render in place (the page does not move)
   document.addEventListener('click', e => {
-    // «Ver todos» is a plain fold (shell.js toggles it); remember it so a re-render keeps it open
-    const gb = e.target.closest?.('.eq-grid > .fold-h .fold-b');
-    if (gb) { setTimeout(() => { teamUi.all = gb.getAttribute('aria-expanded') === 'true'; }); return; }
-    const b = e.target.closest?.('[data-eq],[data-eq-all],[data-eq-fold],[data-eq-rerun]');
+    const r = e.target.closest?.('[data-rg]');
+    if (r) { teamUi.rg = r.dataset.rg; document.querySelectorAll('[data-rg]').forEach(x => x.setAttribute('aria-pressed', x === r));
+      document.querySelectorAll('.rg-u').forEach(x => { x.hidden = x.id !== 'rg-' + r.dataset.rg; }); return; }
+    const b = e.target.closest?.('[data-eq],[data-eq-fold]');
     if (!b) return;
     const d = b.dataset;
-    const again = d.eqRerun != null ? `[data-eq-rerun="${d.eqRerun}"]` : d.eqFold != null ? `[data-eq-fold="${d.eqFold === '1' ? '0' : '1'}"]`
-      : d.eqAll != null ? `[data-eq-all="${d.eqAll}"]` : `[data-eq="${window.CSS.escape(d.eq)}"]`;
-    keepPlace(again, () => teamApply(d.eqRerun != null ? { rerun: d.eqRerun === '1' } : d.eqFold != null ? { fold: d.eqFold === '1' } : d.eqAll != null ? { all: d.eqAll } : { eq: d.eq }), d.eqFold == null);
+    const again = d.eqFold != null ? `[data-eq-fold="${d.eqFold === '1' ? '0' : '1'}"]` : `[data-eq="${window.CSS.escape(d.eq)}"]`;
+    keepPlace(again, () => teamApply(d.eqFold != null ? { fold: d.eqFold === '1' } : { eq: d.eq }), d.eqFold == null);
   });
   // leaving the page ends the edit: coming back with a selection shows it folded
   if (typeof window.addEventListener === 'function') window.addEventListener('hashchange', () => { if (!/^#\/equipo\b/.test(location.hash)) teamLeave(); });
 
   // #/planificador is rewritten to #/equipo by core.js (OLD_ADDR) before it gets here
   const renderEquipo = (id, qs) => {
-    // the week lives in Este fin de semana: #/equipo?sec=semana and …&ir=eq-ronda land there
-    if (qs && (qs.sec === 'semana' || qs.ir === 'eq-ronda')) {
-      const h = qs.ir === 'eq-ronda' ? '#/semana?ir=eq-ronda' : '#/semana';
-      if (typeof history !== 'undefined' && history.replaceState) history.replaceState(null, '', h);
-      if (typeof render === 'function' && typeof document.querySelector === 'function' && document.querySelector('main')) setTimeout(() => render());  // tabs and title of the weekend page
-      return P.semana('', {});
-    }
     return page(qs || {});
   };
-  /** «Este fin de semana» (Mi partida's first tab): the Saturday + Sunday checklist, the chapter's tips, then shopping, forge and deadlines */
-  register({ id: 'semana', title: 'Este fin de semana', routes: ['semana'], render: (id, qs) => {
-    if (!ctxChosen()) return `<h1>${t('Este fin de semana')}</h1><section class="card"><p>${t('Elige ruta y capítulo para ver qué hacer este fin de semana, a quién reclutar y qué no perderte.')}</p>` +
-      `<p><button class="txtbtn" type="button" data-sheet="ctx" aria-haspopup="dialog">${t('Elegir ruta y capítulo')}</button></p></section>`;
-    if (CAPS[qs?.c] && CAPS[qs.c].key !== ctxGet().key) { const c0 = CAPS[qs.c]; ctxSet(c0.route === 'comun' ? ctxRoute() : c0.route, c0.key); }  // a min-max chapter link
-    const key = ctxGet().key, c = CAPS[key], wr = c.route === 'comun' ? ctxRoute() : c.route, idx = chapIdx(wr, key);
-    const want = ctxWant(wr), plan = teamPlan(wr, key, ctxRecruits(wr), ctxDrop(wr), want), mem = new Set(plan.prio.map(x => x.pid));
-    const joined = p => p === LORDS[wr] || !CHARS[p]?.routes?.[wr]?.join_key || chapIdx(wr, CHARS[p].routes[wr].join_key) <= idx;  // as teamPlan's «tengo»
-    const w = teamWeekend(wr, key, want.filter(p => mem.has(p)), finN(key), plan.prio.map(x => x.pid).filter(p => !want.includes(p) && joined(p)));
-    return `<h1>${t('Este fin de semana')}</h1><p class="mut">${esc(ROUTE_NAME[wr] || '')} · ${chapLink(key)}</p>` + weekendHtml(w) +
-      (typeof window.teamTipsBlock === 'function' ? window.teamTipsBlock(wr, key) : '') +
-      `<section class="card" id="eq-semana"><h3>${t('Compras, herrería y plazos')}</h3>${weekBody(plan)}</section>`;
-  } });
-  // weekend selector and checkboxes: the choice per chapter, the ticks per weekend (fe2.finde.<chapter>.<first day>)
-  document.addEventListener('click', e => {
-    const b = e.target.closest?.('[data-fin-n]');
-    if (!b || b.disabled) return;
-    const key = ctxGet().key, m = store.get('findeN', {}) || {};
-    keepPlace(b.classList.contains('fin-prev') ? '.fin-prev:not([disabled])' : '.fin-next:not([disabled])', () => store.set('findeN', { ...m, [key]: +b.dataset.finN }), false);
-  });
-  document.addEventListener('change', e => {
-    const c = e.target.closest?.('[data-fin-ck]'), box = c?.closest('[data-fin-store]');
-    if (!box) return;
-    const k = box.dataset.finStore.replace(/^fe2\./, ''), v = new Set(store.get(k, []) || []);
-    c.checked ? v.add(c.dataset.finCk) : v.delete(c.dataset.finCk);
-    store.set(k, [...v]);
-    const p = box.querySelector('.fin-prog'), all = box.querySelectorAll('[data-fin-ck]');
-    if (p) p.textContent = t('{a}/{b} hecho', { a: [...all].filter(x => x.checked).length, b: all.length });
-  });
   register({ id: 'equipo', title: 'Equipo', routes: ['equipo', 'planificador'], render: renderEquipo, css: CSS,
     search: () => [
       // search.js translates label and sub with t()
       { group: 'Secciones', label: 'Equipo', sub: 'Builds, equipamiento, reclutamiento', href: '#/equipo', aliases: ['team', 'planner', 'planificador', 'reclutas'] },  // i18n-ignore (aliases)
-      { group: 'Secciones', label: 'Este fin de semana', sub: 'Mi partida · regalos, comidas, Plaza de armas y Servicio divino', href: '#/semana', aliases: ['semana', 'esta semana', 'fin de semana', 'sábado', 'domingo', 'comidas', 'posada', 'servicio divino', 'coliseo', 'checklist'] },  // i18n-ignore (aliases)
-      { group: 'Secciones', label: 'Regalos del fin de semana', sub: 'Mi partida · Este fin de semana', href: '#/semana?ir=eq-ronda', aliases: ['ronda', 'ronda de regalos', 'regalos de la semana', 'regalar'] },  // i18n-ignore (aliases)
-      { group: 'Secciones', label: 'Consejos del capítulo', sub: 'Mi partida · novedades, trueques de Vandahl y dinero fácil', href: '#/semana?ir=eq-consejos', aliases: ['consejos', 'trueques', 'vandahl', 'dinero', 'novedades'] },  // i18n-ignore (aliases)
-      { group: 'Secciones', label: 'Herrería', sub: 'Mi partida · Este fin de semana · qué refinar', href: '#/semana?ir=eq-herreria', aliases: ['refinar', 'refinado', 'forja', 'reparar', 'compras'] },  // i18n-ignore (aliases)
+      { group: 'Secciones', label: 'Regalos del equipo', sub: 'Equipo · regalos y comidas por personaje', href: '#/equipo?sec=regalos', aliases: ['ronda', 'ronda de regalos', 'regalos de la semana', 'regalar', 'comidas', 'posada'] },  // i18n-ignore (aliases)
+      { group: 'Secciones', label: 'Trueques y dinero fácil', sub: 'Capítulo · trueques de Vandahl y botín que se vende', href: '#/cap?ir=eq-consejos', aliases: ['consejos', 'trueques', 'vandahl', 'dinero', 'novedades'] },  // i18n-ignore (aliases)
+      { group: 'Secciones', label: 'Herrería', sub: 'Capítulo · qué refinar', href: '#/cap?ir=eq-herreria', aliases: ['refinar', 'refinado', 'forja', 'reparar', 'compras'] },  // i18n-ignore (aliases)
       { group: 'Secciones', label: 'Builds del equipo', sub: 'Equipo', href: '#/equipo?ir=eq-equipamiento', aliases: ['build', 'clases del equipo', 'monturas', 'equipamiento', 'armas del equipo'] },  // i18n-ignore (aliases)
       { group: 'Secciones', label: 'Reclutamiento', sub: 'Equipo · condiciones, oro y objetos', href: '#/equipo?sec=reclutamiento', aliases: ['reclutar', 'requisitos'] },  // i18n-ignore (aliases)
     ] });

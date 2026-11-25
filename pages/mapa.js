@@ -1,15 +1,15 @@
 /* Fortune's Weave · wiki2 · interactive world map (#/mapa?sel=&it=&q=), ported from wiki/app.js.
    State lives in the URL (replaceState, no scroll jump); the view box only in memory. Fixed layers (everything but minor points),
-   the context chapter for quests and the map picture: there are no layer controls. */
+   the context chapter for quests and the map picture. Point types filter with a chip bar (count per type, kept in fe2.mapf); no checkboxes. */
 'use strict';
 (() => {
   const M = W.map || {};
   if (!M.spots) return;
   const MV = { vb: null, full: null, bounds: null, hi: false, focus: null, ptrs: new Map(), drag: null, moved: false };
-  // i18n-ignore-next: layer names (not shown: the map has no layer controls)
   const LAYERS = [['pob', 'Ciudades y pueblos'], ['tie', 'Tiendas'], ['van', 'Trueque Vandahl'], ['bus', 'Búsqueda'], ['cul', 'Cultivo'],
     ['ceb', 'Cebo (monturas)'], ['maz', 'Mazmorras'], ['tem', 'Templos'], ['pos', 'Postas'], ['for', 'Fortalezas'], ['mis', 'Misiones'], ['otr', 'Otros puntos']];
   const LAY_DEF = LAYERS.filter(l => l[0] !== 'otr').map(l => l[0]);
+  const layOn = () => { const v = store.get('mapf', null); return new Set(Array.isArray(v) ? v : LAY_DEF); };
   const SHOP = SHOP_ES;
   const ANIMAL_ICON = { Caballo: 'Horse', Pegaso: 'Pegasus', Ornius: 'Ornius', Magonius: 'Ornius', Meganius: 'Ornius', Bau: 'Elephant', Halicornio: 'Dragon' };
 
@@ -83,11 +83,28 @@
   const match = (q, names) => { const n = norm(String(q || '').trim()); if (n.length < 2) return []; const ex = names.filter(x => norm(x) === n); return ex.length ? ex : names.filter(x => norm(x).includes(n)); };
   const accessTxt = a => (!a ? '' : !a.reachable ? t('Sin acceso en la Parte 1 de Cai') : (a.via_checkpoints || []).length ? t('Prestigio {n} para cruzar la fortaleza', { n: a.via_checkpoints.map(v => v.renown_rank ?? '?').join('/') }) : t('Libre'));
 
+  /** point types of the map with how many places each has on `route` (chapter `c` for quests); empty types left out */
+  window.mapKinds = (route, c) => {
+    const n = {};
+    Object.entries(SPOTS).filter(([, s]) => s.xy && s.es).forEach(([k, s]) => spotLayers(k, s, route, c).forEach(l => { n[l] = (n[l] || 0) + 1; }));
+    return LAYERS.filter(([k]) => n[k]).map(([kind, label]) => ({ kind, label: t(label), n: n[kind] }));
+  };
+  /** a tap on the type bar: with every default type shown, a type is isolated; after that a tap adds or removes it; * all, - none */
+  window.mapKindTap = k => {
+    let on = layOn();
+    if (k === '*') on = new Set(LAYERS.map(([x]) => x)); else if (k === '-') on.clear();
+    else if (LAY_DEF.every(x => on.has(x))) on = new Set([k]); else on.has(k) ? on.delete(k) : on.add(k);
+    store.set('mapf', [...on]); return [...on];
+  };
+  const kindsBar = (route, c, on) => `<div class="mkinds" role="group" aria-label="${t('Tipos de punto')}">` +
+    `<button type="button" class="mkind mk-all" data-mvk="*" aria-pressed="false">${t('Todo')}</button><button type="button" class="mkind mk-all" data-mvk="-" aria-pressed="false">${t('Nada')}</button>` +
+    mapKinds(route, c).map(x => `<button type="button" class="mkind" data-mvk="${x.kind}" aria-pressed="${on.has(x.kind)}">${esc(x.label)} <small>${x.n}</small></button>`).join('') + '</div>';
+
   /* ---------------- page ---------------- */
   function mapa(qs) {
     const IX = index(), route = ctxRoute(), c = ctxChosen() ? ctxChapter() : null;  // nothing picked: every route, no chapter
     const caiP1 = route === 'cai' && c.part <= 1;  // reachability is computed for Cai's Part 1 only
-    const on = new Set(LAY_DEF), sel = SPOTS[qs.sel] ? qs.sel : '';
+    const on = layOn(), sel = SPOTS[qs.sel] ? qs.sel : '';
     // item finder: one item, or a choice when several names match; sources locked to other routes are left out
     const itemNames = [...new Set(Object.keys(IX.src).map(id => nm(ITEMS[id])))];
     const itM = match(qs.it, itemNames);
@@ -133,7 +150,7 @@
       `<input type="search" data-mv="q" list="mvsl" value="${esc(qs.q || '')}" placeholder="${t('Buscar lugar')}" aria-label="${t('Buscar lugar')}"><datalist id="mvsl">${Object.keys(IX.byName).sort((a, b) => a.localeCompare(b, LANG)).map(o => `<option value="${esc(o)}">`).join('')}</datalist>` +
       `<input type="search" data-mv="it" list="mvil" value="${esc(qs.it || '')}" placeholder="${t('Dónde se consigue un objeto')}" aria-label="${t('Dónde se consigue un objeto')}"><datalist id="mvil">${itemNames.sort((a, b) => a.localeCompare(b, LANG)).map(o => `<option value="${esc(o)}">`).join('')}</datalist>` +
       `${filtered ? `<button type="button" data-mvclear class="chip">${t('Quitar filtros')}</button>` : ''}</div>` +
-      res +
+      kindsBar(route, c, on) + res +
       `<div class="mapwrap"><div class="mapbox2"><svg viewBox="${(MV.vb || MV.bounds).join(' ')}" class="map2${mi ? ' pic' : ''}" id="mapsvg" tabindex="0" role="group" aria-roledescription="${t('mapa')}" aria-label="${t('Mapa del mundo. Flechas: desplazar; + y −: zoom; Intro: recorrer los lugares con las flechas; Escape: volver al mapa.')}">` +
       `${mi ? `<image href="${MV.hi ? mi.files['4096'] : mi.files['2048']}" data-hi="${MV.hi ? '' : mi.files['4096']}" x="${mi.x}" y="${mi.y}" width="${mi.w}" height="${mi.h}" preserveAspectRatio="none"/>` : ''}` +
       `<g class="edges bg">${roads}</g><g class="edges">${roads}</g><g class="small">${small}</g><g class="regs">${regLbl}</g>${dots}</svg>` +
@@ -283,10 +300,11 @@
       if (st) { e.preventDefault(); MV.vb[0] += st[0] * MV.vb[2] * 0.15; MV.vb[1] += st[1] * MV.vb[3] * 0.15; applyVB(svg); } else if (e.key === '+' || e.key === '=') { e.preventDefault(); zoom(svg, 1.5); } else if (e.key === '-') { e.preventDefault(); zoom(svg, 0.667); }
     });
     document.addEventListener('click', e => {
-      const el = e.target.closest?.('[data-mvz],[data-mvsel],[data-mvclear],[data-mvit]');
+      const el = e.target.closest?.('[data-mvz],[data-mvsel],[data-mvclear],[data-mvit],[data-mvk]');
       if (!el) return;
       e.preventDefault();
       const d = el.dataset, qs = parseHash(location.hash).qs;
+      if (d.mvk) { mapKindTap(d.mvk); render(true); return; }
       if (d.mvz) { const svg = document.getElementById('mapsvg'); if (+d.mvz === 0) { MV.vb = MV.full.slice(); applyVB(svg); } else zoom(svg, +d.mvz); }
       else if (d.mvsel != null) select(d.mvsel);
       else if (d.mvit) go({ it: d.mvit });

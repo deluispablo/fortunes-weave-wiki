@@ -5,6 +5,16 @@
 /* ---------------- gifts ---------------- */
 const GIFT_RANK = { fav: 0, love: 1, like: 2 };
 const GIFT_BY_PID = Object.fromEntries(Object.values((W.gifts || {}).chars || {}).map(g => [g.pid, g]));
+const ITEM_ORD = Object.fromEntries(Object.keys(ITEMS).map((k, i) => [k, i]));  // W.items keeps the game's game data order: the gift menu order
+/** one unit's gifts as the game menu lists them: {good: [{iid, t}] (fav, love, like, in menu order), bad: [iid] (dislikes and hates)} */
+/** the favourites of `team` other than `pid`: a gift kept for them is never a plain like/love for `pid` */
+const favOfOthers = (pid, team) => new Set(team.filter(p => p !== pid).flatMap(p => Object.entries(GIFT_BY_PID[p]?.gifts || {}).filter(([, g]) => g.t === 'fav').map(([iid]) => iid)));
+function giftList(pid, team = []) {
+  const kept = favOfOthers(pid, team);
+  const e = Object.entries(GIFT_BY_PID[pid]?.gifts || {}).filter(([iid, g]) => g.t === 'fav' || !kept.has(iid)), ord = ([a], [b]) => (ITEM_ORD[a] ?? 1e9) - (ITEM_ORD[b] ?? 1e9);
+  return { good: e.filter(([, g]) => ['fav', 'love', 'like'].includes(g.t)).sort(ord).map(([iid, g]) => ({ iid, t: g.t })),
+    bad: e.filter(([, g]) => ['dis', 'hate'].includes(g.t)).sort(ord).map(([iid]) => iid) };
+}
 const giftPrice = iid => W.gifts.items[iid]?.price ?? ITEMS[iid]?.price ?? 0;
 /** pids (priority order) → {pid: {picks, weekly, blocked, none}}.
     A favourite of a teammate is kept for the first of them in priority and never offered to anyone else.
@@ -39,10 +49,10 @@ function teamGifts(pids, route, key, n = 3, w = 6) {
 
 /** the weekly gift round («Ronda de regalos»): the «quiero» recruits in the game's roster order (serial, as the in-town teleport list),
     each with every favourite, loved and liked gift that has an open source, favourite first (then the priciest favourite, the cheapest of the rest).
-    An item that is the favourite of another «quiero» is left out of everyone else's loved/liked lists. */
-function teamGiftRound(want, route, key) {
+    An item that is the favourite of another team member (`team`: «quiero» or recruited) is left out of everyone else's loved/liked lists. */
+function teamGiftRound(want, route, key, team = want) {
   const favOf = {};
-  want.forEach(p => Object.entries(GIFT_BY_PID[p]?.gifts || {}).forEach(([iid, g]) => { if (g.t === 'fav') (favOf[iid] ??= new Set()).add(p); }));
+  [...new Set([...want, ...team])].forEach(p => Object.entries(GIFT_BY_PID[p]?.gifts || {}).forEach(([iid, g]) => { if (g.t === 'fav') (favOf[iid] ??= new Set()).add(p); }));
   return [...new Set(want)].filter(p => CHARS[p]).sort(bySerial).map(p => {
     const g = GIFT_BY_PID[p];
     if (!g) return { pid: p, none: true, items: [] };
@@ -157,7 +167,7 @@ function teamWeekend(route, key, want, n = 0, army = []) {
     holy: (weekOf(d)?.discounts || []).find(x => x.date === d && /Día sagrado|Día de Dagda/.test(x.es))?.es || null }));
   const hereAny = new Set(days.flatMap(d => d.here));
   // gifts: one per present day, the best gift sold or bartered in this chapter (favourite first); birthdays add one that day
-  const round = teamGiftRound(live.map(x => x.pid), route, key);
+  const round = teamGiftRound(live.map(x => x.pid), route, key, ctxTeam(route));
   const gifts = round.filter(r => hereAny.has(r.pid)).map(r => {
     const buy = r.items.map(x => ({ ...x, offer: teamOffers(x.iid, route, key)[0] || null })).filter(x => x.offer);
     const pick = buy[0] || null, on2 = days.filter(d => d.here.includes(r.pid)).map(d => d.date);

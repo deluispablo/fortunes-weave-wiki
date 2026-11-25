@@ -23,7 +23,7 @@ const temaListing = id => { const p = NAV.flatMap(g => g.pages).find(x => x.id =
 /** «Guía: Habilidades →» under a list page title; unknown ids are skipped */
 const guiaLink = (...ids) => {
   const gs = ids.map(i => GUIAS[i]).filter(Boolean).map(guiaL);
-  return gs.length ? `<p class="gu-ver">${gs.map(g => `<a href="#/guia/${g.id}"${langEs(g)}>${t('Guía: {t}', { t: esc(g.titulo) })} <span aria-hidden="true">→</span></a>`).join('')}</p>` : '';
+  return gs.length ? `<p class="gu-ver">${gs.map(g => `<a href="#/guia/${g.id}"${langEs(g)}>${navIcon('book')}${t('Guía: {t}', { t: esc(g.titulo) })}</a>`).join('')}</p>` : '';
 };
 /** one guide page (not found when the id is unknown) */
 function guiaTema(id) {
@@ -51,7 +51,7 @@ function guiaTema(id) {
   const START = ['guia', 'builds', 'reclutas', 'trucos', 'perdibles'];
   function index() {
     const start = START.map(temaListing).filter(Boolean);
-    return `<h1>${t('Guías')}</h1><p class="mut">${t('Qué es cada sistema del juego, cómo funciona y cómo sacarle partido.')} ${t('{n} guías en {m} temas.', { n: (W.guias || []).length, m: (W.temas || []).length })}</p>` +
+    return `<h1>${t('Guías')}</h1><p class="mut">${t('{n} guías en {m} temas.', { n: (W.guias || []).length, m: (W.temas || []).length })}</p>` +
       (start.length ? `<section class="gu-start" aria-labelledby="gu-st-t"><h2 id="gu-st-t">${t('Empieza aquí')}</h2><ul class="gu-rel">${start.map(l => `<li><a href="${l.href}">${esc(l.title)}</a></li>`).join('')}</ul></section>` : '') +
       `<nav class="chips gu-chips" aria-label="${t('Temas')}">${temasL().map(([tm, n]) => `<a class="chip" href="#/guias/${tm}">${esc(n)}</a>`).join('')}</nav>` +
       temasL().map(([tm, n]) => `<section class="gu-cat"><h2><a href="#/guias/${tm}">${esc(n)}</a></h2>${guideList(W.guias.filter(g => g.tema === tm))}</section>`).join('');
@@ -65,8 +65,6 @@ function guiaTema(id) {
       (ls.length ? `<section class="gu-cat"><h2>${t('Datos y listados')}</h2><ul class="gu-rel">${ls.map(l => `<li><a href="${l.href}">${esc(l.title)}</a></li>`).join('')}</ul></section>` : '');
   }
   const CSS = `
-.gu-ver { margin: 0 0 var(--s2); font-size: var(--fs-small); display: flex; flex-wrap: wrap; column-gap: var(--s4); }
-.gu-ver a { display: inline-flex; align-items: center; min-height: 32px; color: var(--acc); }
 .gu-lead { font-size: var(--fs-row); color: var(--tx2); max-width: 70ch; }
 .gu-res { border-left: 3px solid var(--acc-mark); background: var(--acc-soft); }
 .gu-sec h2, .gu-res h2, .gu-foot h2 { font-size: var(--fs-sec); margin: 0 0 var(--s2); }
@@ -77,8 +75,9 @@ function guiaTema(id) {
 .gu-notr { margin: 0 0 var(--s2); padding: var(--s2) var(--s3); border-left: 2px solid var(--line-strong); background: var(--surface2); color: var(--tx2); font-size: var(--fs-small); }
 .gu-foot h2 { font-size: var(--fs-row); margin-top: var(--s3); }
 .gu-foot h2:first-child { margin-top: 0; }
-.gu-rel { display: flex; flex-wrap: wrap; gap: var(--s2) var(--s4); margin: 0; padding: 0; list-style: none; }
-.gu-rel a { display: inline-flex; align-items: center; min-height: var(--tap); }
+.gu-rel { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.gu-start .gu-rel { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
+.gu-start .gu-rel li { flex: none; }
 .gu-cat h2 { font-size: var(--fs-sec); margin: var(--s5) 0 var(--s2); }
 .gu-start h2 { font-size: var(--fs-sec); margin: var(--s4) 0 var(--s1); }
 .gu-chips { margin: var(--s4) 0 0; }

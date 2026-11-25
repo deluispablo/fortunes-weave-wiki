@@ -77,9 +77,9 @@ function sectionIndex(sec, more, id = parseHash(location.hash).id, qs = parseHas
     (ROUTES.guias && !skip('guias') ? `<a class="nav-all${cur === 'guias' ? ' on' : ''}" href="#/guias"${cur === 'guias' ? ' aria-current="page"' : ''}>${t('Todas las guías ({n})', { n: all })}</a>` : '') + '</section>';
   const consulta = NAV.filter(g => g.id !== 'guias' && g.id !== 'partida').map(g => { const l = pages(g); return l.length ? `<div class="nav-g"><b>${esc(t(g.title))}</b>${l.join('')}</div>` : ''; }).join('');
   // Perdibles is listed once, in Empieza aquí; the order is the tabs' (the weekend first)
-  const week = pg === 'semana' || (pg === 'cap' && qs.ir === 'eq-semana'), mineOpen = MINE_TABS.some(([p]) => p === pg) || store.get('navMine', false) === true;
+  const mineOpen = MINE_TABS.some(([p]) => p === pg) || store.get('navMine', false) === true;
   // all three always, also in the phone's «Más» sheet
-  const mine = [...(ROUTES.semana ? [a('#/semana', t('Este fin de semana'), week)] : []), a('#/cap', t('Capítulo actual'), pg === 'cap' && !week),
+  const mine = [a('#/cap', t('Capítulo actual'), pg === 'cap'),
     ...['equipo'].filter(x => ROUTES[x]).map(x => a('#/' + x, t(NAV.flatMap(g => g.pages).find(p => p.id === x).title), pg === x))];
   const mineBlk = open => `<div class="nav-mine"><button type="button" class="nav-mb" aria-expanded="${open}" aria-controls="${px}mine">${navIcon('cap')}<span>${t('Mi partida')}</span>${navIcon('chev')}</button>` +
     `<div id="${px}mine"${open ? '' : ' hidden'}>${mine.join('')}</div></div>`;
@@ -115,12 +115,12 @@ const NAV_ICON = {  // 24px stroke icons
 const navIcon = k => `<svg viewBox="0 0 24 24" aria-hidden="true">${NAV_ICON[k]}</svg>`;
 /* «Mi partida» (R-NAV-1): the last game page visited (fe2.partida), the weekend the first time. A chapter is stored as #/cap (the current
    one): its own address would pull the context back to that chapter; ?ir= jumps are dropped so the tab never re-scrolls */
-const PARTIDA = ['cap', 'semana', 'equipo', 'perdibles'];
+const PARTIDA = ['cap', 'equipo', 'armas', 'perdibles'];
 /** Mi partida's three tabs, on top of each of its pages (phone and desktop alike) */
-const MINE_TABS = [['semana', '#/semana', 'Fin de semana'], ['cap', '#/cap', 'Capítulo'], ['equipo', '#/equipo', 'Equipo']];
+const MINE_TABS = [['cap', '#/cap', 'Capítulo'], ['equipo', '#/equipo', 'Equipo'], ['armas', '#/armas', 'Armas']];
 const mineTabs = pg => (MINE_TABS.some(([p]) => p === pg) ? `<nav class="tabs mine-tabs" aria-label="${t('Mi partida')}">${MINE_TABS.filter(([p]) => ROUTES[p] || P[p])
   .map(([p, h, lb]) => `<a href="${h}"${p === pg ? ' class="on" aria-current="page"' : ''}>${t(lb)}</a>`).join('')}</nav>` : '');
-const partidaHref = () => { const h = store.get('partida', null); return typeof h === 'string' && PARTIDA.includes(ROUTES[parseHash(h).sec]) ? h : '#/semana'; };
+const partidaHref = () => { const h = store.get('partida', null); return typeof h === 'string' && PARTIDA.includes(ROUTES[parseHash(h).sec]) ? h : '#/cap'; };
 function rememberPartida(hash) {
   const { sec, qs } = parseHash(hash), pg = ROUTES[sec];
   // ?r= is dropped too: a listing's ?r= sets the context route (listRoute), so an old one would pull the context back
@@ -259,6 +259,16 @@ let foldN = 0;
 /** the button says what it folds: «Plegar: <title>» / «Desplegar: <title>» (the title is kept in data-t) */
 const foldSay = (b, open) => { b.setAttribute('aria-expanded', String(open)); b.setAttribute('aria-label', `${t(open ? 'Plegar' : 'Desplegar')}${b.dataset.t ? ': ' + b.dataset.t : ''}`); };
 /** <details><summary>X</summary>…</details> → <div class="fold"><div class="fold-h">X<button class="fold-b" aria-expanded aria-controls aria-label></div><div class="fold-p">…</div></div> */
+/** tables of 4+ columns become stacked cards on phones (CSS .stk): each cell carries its column name in data-l */
+function stackTables(root) {
+  for (const tb of root.querySelectorAll('.tw > table:not(.stt)')) {
+    const rows = [...tb.rows], head = rows[0];
+    if (!head || head.cells.length < 4 || [...head.cells].some(c => c.tagName !== 'TH') || tb.querySelector('[rowspan],[colspan]')) continue;
+    const ls = [...head.cells].map(c => c.textContent.trim());
+    tb.classList.add('stk');
+    for (const r of rows.slice(1)) [...r.cells].forEach((c, i) => { if (ls[i]) c.dataset.l = ls[i]; });
+  }
+}
 function foldify(root) {
   root.querySelectorAll('details').forEach(d => {
     const box = document.createElement('div'), head = document.createElement('div'), btn = document.createElement('button'), panel = document.createElement('div');
@@ -285,6 +295,14 @@ document.addEventListener('error', e => {
   if (i?.tagName !== 'IMG' || !i.getAttribute('src')) return;
   if (!i.dataset.retry) { i.dataset.retry = '1'; const src = i.getAttribute('src'); setTimeout(() => { if (i.isConnected) i.src = src; }, 500); } else i.removeAttribute('src');
 }, true);
+/** consecutive filter pills (filterCtl) share one scrolling row instead of wrapping */
+function filterBars(root) {
+  root.querySelectorAll?.('.fsel, .ftog').forEach(el => {
+    if (el.parentElement?.classList.contains('fbar')) return;
+    const bar = document.createElement('div'); bar.className = 'fbar'; el.before(bar);
+    let n = el; while (n && n.matches?.('.fsel, .ftog')) { const next = n.nextElementSibling; bar.append(n); n = next; }
+  });
+}
 let lastPath = null, lastCount = null;
 function render(keepScroll) {
   const old = legacyHash(location.hash);  // old bookmarks and links (core.js: OLD_ADDR)
@@ -298,12 +316,15 @@ function render(keepScroll) {
   if (fn) try { html = mineTabs(ROUTES[sec] ?? sec) + autoLink(fn(id, qs, sec), id ? href(sec, id) : ''); } catch (e) { console.error(e); html = `<h1>${t('No se pudo mostrar la página')}</h1><p><a href="#/">${t('Ir a la portada')}</a></p>`; }
   const ir = qs.ir;
   const typing = document.activeElement?.closest?.('main') && document.activeElement.dataset.qs != null ? document.activeElement.name : null;
+  const picking = document.activeElement?.closest?.('main') && document.activeElement.matches?.('select[data-nav]') ? document.activeElement.getAttribute('aria-label') : null;
   const main = $('#main');
-  main.innerHTML = html; main.removeAttribute('aria-busy'); foldify(main);
+  main.innerHTML = html; main.removeAttribute('aria-busy'); foldify(main); stackTables(main); filterBars(main);
   document.title = docTitle(html);
   staticText();
   const f = typing && $(`main [data-qs][name="${typing}"]`);  // a filter field being typed in keeps focus across re-renders
   if (f) { f.focus(); f.setSelectionRange?.(f.value.length, f.value.length); }
+  const g = picking && [...document.querySelectorAll('main select[data-nav][aria-label]')].find(x => x.getAttribute('aria-label') === picking);  // a filter dropdown keeps focus too
+  if (g) g.focus();
   $('#ctx').innerHTML = ctxControls();
   const now = parseHash(location.hash).sec;  // the section shown, after any alias redirect
   rememberPartida(location.hash);
@@ -319,7 +340,7 @@ function render(keepScroll) {
   if (keepScroll !== true) {
     window.scrollTo(0, history.state?.y > 0 ? history.state.y : 0);  // back/forward (and reload) land where the page was left; a new page at the top
     // after a navigation the focus goes to the new page title, or to the ?ir= section (a filter change on the same page keeps it on the chip just used)
-    if (!first && !f) {
+    if (!first && !f && !g) {
       const again = samePage && was && [...document.querySelectorAll('main [href]')].find(a => a.getAttribute('href') === was);
       if (again) again.focus({ preventScroll: true });
       else if ((to || !focusH1()) && !samePage) announce(document.title.replace(/ · Fortune's Weave$/, ''));  // a focused h1 already says the title
@@ -328,7 +349,7 @@ function render(keepScroll) {
   if (to) {
     revealTab(to); revealFold(to); if (to.classList.contains('fold')) { const b = to.querySelector(':scope > .fold-h .fold-b'); if (b) foldToggle(b, true); }
     to.scrollIntoView();
-    if (!first && keepScroll !== true && !f) { if (!to.matches('a,button,input,select,textarea,[tabindex]')) to.tabIndex = -1; to.focus({ preventScroll: true }); }
+    if (!first && keepScroll !== true && !f && !g) { if (!to.matches('a,button,input,select,textarea,[tabindex]')) to.tabIndex = -1; to.focus({ preventScroll: true }); }
   }
   const cnt = $('#main [data-count]')?.textContent || null;  // a filter changed the listing: say how many results are left
   if (samePage && !first && cnt && cnt !== lastCount) announce(cnt);
@@ -348,6 +369,7 @@ document.addEventListener('click', e => { if (e.target.closest?.('a[href^="#"]')
 // after pages/*.js have registered: the sequential loader of index.html says so with «wiki:ready»
 document.addEventListener('wiki:ready', () => render());
 document.addEventListener('change', e => {
+  if (e.target.matches?.('select[data-nav]')) { location.hash = e.target.value; return; }  // filter pills (filterCtl)
   if (e.target.dataset.qs != null) location.hash = qsHref(e.target.dataset.qs, parseHash(location.hash).qs, { [e.target.name]: e.target.value });  // listing filter controls: <select|input data-qs="path" name="param">
 });
 document.addEventListener('click', e => {

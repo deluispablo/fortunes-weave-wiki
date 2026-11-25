@@ -78,20 +78,28 @@ function charLimits(pid) {
 
   function listing(qs) {
     const r = listRoute(qs), arma = qs.arma || '', team = r ? teamNow(r) : null, onlyTeam = team && qs.eq === '1';
-    const rows = Object.values(CHARS).sort((a, b) => rank(a) - rank(b))
+    // with a route: lord, then by the chapter they join or can be recruited (story joiners first on a tie), as in the Equipo grid
+    const lordFirst = c => (r && LORDS[r] === c.id ? 0 : 1), story = c => (r && c.routes?.[r]?.join_key ? 0 : 1);
+    const chap = c => { const x = r && c.routes?.[r]; return x ? capPos(r, x.join_key || x.recruit_key) : 0; };
+    const rows = Object.values(CHARS).sort((a, b) => lordFirst(a) - lordFirst(b) || chap(a) - chap(b) || story(a) - story(b) || rank(a) - rank(b))
       .filter(c => (!r || c.routes?.[r]) && (!arma || weapons(c).includes(arma)) && (!onlyTeam || team.has(c.id)));
+    // the faces grid of Mi partida › Equipo (same tile and colours: green «quiero», gold «tengo»); a tap opens the ficha
+    const key = ctxGet().key, mine = r && r === ctxGet().route;
+    const state = c => (mine && team?.has(c.id) ? teamState(c.id, r, key) : '');
+    const label = c => { const s = state(c); if (s === 'quiero' || s === 'tengo') return t(s);
+      if (r) { const x = c.routes[r]; return esc(capShort(CAPS[x.join_key || x.recruit_key]) || ''); }
+      return hasRoutes(c) ? '' : guestBattles(c).length ? t('Aliado temporal') : t('No jugable'); };
+    // the route line and its recruit requirement stay as the tile's tooltip; the ficha has them in full
     const cost = x => x?.recruit_key && !x.join_key && x.cost ? x.cost : null;
-    const sub = c => (r ? routeTxt(c.routes[r], true) + (cost(c.routes[r]) ? ` · ${t('Apoyo {a} · Prestigio {p}', { a: cost(c.routes[r]).support, p: cost(c.routes[r]).renown })}` : '')
-      : hasRoutes(c) ? ROUTE_IDS.filter(x => c.routes?.[x]).map(x => ROUTE_NAME[x]).join(' · ') : guestBattles(c).length ? t('Aliado temporal') : t('No jugable'));
-    /** without a route: the recruit requirement of every route in one short line («Apoyo/Prestigio: Cai 3/10 · Leda 1/2») */
+    const tip = c => (r ? routeTxt(c.routes[r], true) + (cost(c.routes[r]) ? ` · ${t('Apoyo {a} · Prestigio {p}', { a: cost(c.routes[r]).support, p: cost(c.routes[r]).renown })}` : '') : reqs(c)).replace(/<[^>]*>/g, '');
     const reqs = c => { const l = ROUTE_IDS.filter(x => cost(c.routes?.[x])).map(x => `${ROUTE_NAME[x]} ${cost(c.routes[x]).support}/${cost(c.routes[x]).renown}`);
-      return !r && l.length ? t('Apoyo/Prestigio: {l}', { l: l.join(' · ') }) : ''; };
+      return l.length ? t('Apoyo/Prestigio: {l}', { l: l.join(' · ') }) : ''; };
+    const tile = c => { const s = state(c), l = label(c), tp = tip(c);
+      return `<a class="eq-face on${s === 'quiero' || s === 'tengo' ? ` st-${s}` : ''}" href="${href('personaje', c.id)}"${tp ? ` title="${esc(tp)}"` : ''}>${face(c.id, 'eq-fimg')}<span>${esc(nm(c))}</span>${l ? `<small>${l}</small>` : ''}</a>`; };
     return `<h1>${t('Personajes')}</h1>${routeChips('personajes', qs, r)}${armaChips('personajes', qs, arma)}` +
       (team ? chips('personajes', qs, 'eq', [['', 'Todos'], ['1', 'Solo mi equipo']], onlyTeam ? '1' : '', 'Equipo') : '') +
       resultCount(rows.length, 'personaje', 'personajes') +
-      (rows.length ? `<div class="li-grid">${rows.map(c => `<a class="li-card${team?.has(c.id) ? ' eq-on' : ''}" href="${href('personaje', c.id)}">${face(c.id, 'li-pic li-face')}` +
-        `<span><b>${esc(nm(c))}</b>${c.p?.identity?.title ? `<small>${esc(dx(c.p.identity.title))}</small>` : ''}${sub(c) ? `<small>${sub(c)}</small>` : ''}${reqs(c) ? `<small>${reqs(c)}</small>` : ''}` +
-        `${team?.has(c.id) ? `<small class="eq-tag">${t('En tu equipo')}</small>` : ''}</span></a>`).join('')}</div>`
+      (rows.length ? `<div class="eq-faces">${rows.map(tile).join('')}</div>`
         : `<p class="mut">${t('Sin resultados con estos filtros.')}</p>`);
   }
 
@@ -140,9 +148,9 @@ function charLimits(pid) {
     // lords (W.gifts_ui `lords`, adult profile) take gifts only in Parts 2–3, so a Part 1 context leaves them out
     const lord = (!ctxChosen() || CAPS[ctxGet().key]?.part !== 1) && Object.values(W.gifts?.lords || {}).some(g => g.pid === c.id);
     const inGifts = lord || Object.values(W.gifts?.chars || {}).some(g => g.pid === c.id), want = ctxWant().includes(c.id);
-    // gifts have one weekly list (Capítulo › Esta semana) and one reference page (Regalos): link, never copy
+    // gifts have one team list (Equipo › Regalos) and one reference page (Regalos): link, never copy
     const dishes = list((p.meals?.best_dishes || []).map(d => `<a href="#/instalaciones?ir=comidas">${esc(dx(d.es))}</a>`));
-    return (inGifts ? `<p>${lord ? t('Solo se le puede regalar en las Partes 2 y 3.') + ' ' : ''}${want ? t('Qué regalarle esta semana: {a}.', { a: `<a href="#/semana?ir=eq-ronda">${t('ronda de regalos')}</a>` }) + ' ' : ''}` +
+    return (inGifts ? `<p>${lord ? t('Solo se le puede regalar en las Partes 2 y 3.') + ' ' : ''}${want ? t('Qué regalarle: {a}.', { a: `<a href="#/equipo?sec=regalos">${t('Equipo › Regalos')}</a>` }) + ' ' : ''}` +
       `${t('Todos sus gustos y comidas: {a}.', { a: `<a href="#/regalos?q=${encodeURIComponent(c.es)}&amp;eq=todos">${t('Regalos de {c}', { c: esc(nm(c)) })}</a>` })}</p>` : '') + kvRows([
       [t('Comidas que más le gustan'), dishes],
       [t('Obras que le gustan'), plays('le gusta')], [t('Obras que no le gustan'), plays('no le gusta')],
@@ -210,7 +218,7 @@ function charLimits(pid) {
     if (!all.length) return '';
     const where = o => (o.routes ? t('Parte 1 con {r}', { r: esc(o.routes.map(r => ROUTE_NAME[r]).join(', ')) }) : t('Partes 2 y 3'));
     const groups = [...new Set(all.map(where))];
-    return `<h4>${t('Builds propuestas')} ${COM()}</h4><p class="mut">${t('En <a href="#/equipo?ir=eq-equipamiento">Mi partida › Equipo</a> se elige una a partir del resto de tu equipo.')}</p>` +
+    return `<h4>${t('Builds propuestas')} ${COM()}</h4>` +
       groups.map(g => `<details><summary>${g} (${all.filter(o => where(o) === g).length})</summary>${ul(all.filter(o => where(o) === g).map(o =>
         li(`<b>${esc(tx(o, 'name'))}</b> <span class="mut">${o.path.map(es => { const j = teamJid(es); return j ? L('clase', j) : esc(es); }).join(' → ')} · ${esc(t(o.weapon))}</span>`,
           [tx(o, 'why'), tx(o, 'fits') && t('Elígela: {f}', { f: tx(o, 'fits') })].filter(Boolean).map(esc).join(' '))))}</details>`).join('');

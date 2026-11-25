@@ -132,15 +132,18 @@
     return header(c, chapNav(key, route)) + mine(c) +
       block('Antes de que termine', closing(c), 'ul') +
       // what to do in Dagsion this chapter (was Equipo › Semana): 0 taps from the front page
-      (wr && typeof window.teamWeekendSummary === 'function' ? `<section class="card" id="eq-semana"><h3>${t('Este fin de semana')}</h3>${window.teamWeekendSummary(wr, key)}</section>` : '') +
+      (wr && dagsion(wr, key) ? `<section class="card" id="eq-dagsion"><h3>${t('En Dagsion')}</h3>${dagsion(wr, key)}</section>` : '') +
       block('Prioridades de min-max', priorities(c) || (c.part >= 2 ? `<li class="mut">${t('Sin prioridades escritas aún para este capítulo. Guía de las Partes 2 y 3: <a href="#/guia/guerra-y-salvacion">Guerra y salvación</a>.')}</li>` : ''), 'ol') +
       block('Reclutables ahora', recruits(c), 'ul') +
       block('Batallas', battles(c)) +
       folded('Novedades', news(c)) +
       folded('Calendario', calendar(c)) +
       folded('Preparar para lo siguiente', prepare(c), 'ul') +
-      folded('Prestigio', renown(c), 'ul');
+      folded('Prestigio', renown(c), 'ul') +
+      (wr && typeof window.teamWeekBlock === 'function' ? `<details class="card" id="eq-semana"><summary><h3>${t('Compras, herrería y plazos')}</h3></summary>${window.teamWeekBlock(wr, key)}</details>` : '') +
+      (wr && typeof window.teamTipsBlock === 'function' && window.teamTipsBlock(wr, key) ? `<details class="card" id="eq-consejos"><summary><h3>${t('Trueques y dinero fácil')}</h3></summary>${window.teamTipsBlock(wr, key)}</details>` : '');
   }
+  const dagsion = (wr, key) => (typeof window.teamWeekendSummary === 'function' ? window.teamWeekendSummary(wr, key) : '');
 
   register({ id: 'cap', title: 'Capítulo', routes: ['cap'], render: page });  // #/ is the home page (pages/inicio.js)
 })();

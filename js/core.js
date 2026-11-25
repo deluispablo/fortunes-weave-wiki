@@ -194,8 +194,8 @@ const STAT_DESC = { HP: 'Puntos de vida. Si llegan a 0, la unidad cae.', Str: 'F
   Mov: 'Movimiento. Casillas que recorre en un turno.' };
 let statN = 0;
 /** a stat header: the short name as <abbr> (focusable) described by a tooltip that only sighted users need to see (CSS shows it on hover and focus) */
-const statAbbr = k => { const id = `st-${++statN}-${k}`;
-  return `<abbr class="st-ab" tabindex="0" aria-describedby="${id}">${statName(k)}</abbr><span class="st-tip" role="tooltip" id="${id}" aria-hidden="true">${esc(t(STAT_DESC[k]))}</span>`; };
+const statAbbr = (k, icon = '') => { const id = `st-${++statN}-${k}`;
+  return `<abbr class="st-ab" tabindex="0" aria-describedby="${id}">${icon}<span class="st-nm">${statName(k)}</span></abbr><span class="st-tip" role="tooltip" id="${id}" aria-hidden="true">${esc(t(STAT_DESC[k]))}</span>`; };
 /** the game's white mask icons (img/ui/), tinted by CSS: stats in stat tables, page tabs on ficha tabs; decorative, the label is always written */
 const STAT_ICON = { HP: 'HP', Str: 'Strength', Mag: 'Magic', Dex: 'Technique', Spd: 'Speed', Lck: 'Luck', Def: 'Defense', Res: 'MagicDefense', Cha: 'Charm' };
 const TAB_ICON = { equipo: 'Unit', builds: 'Sword', build: 'Sword', apoyos: 'Reliance', regalos: 'Present', objetos: 'Equipment' };
@@ -205,8 +205,11 @@ const gi = f => `<img class="gi" src="img/ui/${f}.png" alt="" width="18" height=
 function statTable(objs, labels) {
   const keys = Object.keys(STAT_ES).filter(k => objs.some(o => o && o[k] != null));
   if (!keys.length) return '';
-  return `<div class="tw"><table><tr><th><span class="sr-only">${t('Valor')}</span></th>${keys.map(k => `<th>${STAT_ICON[k] ? gi('IconBasicStatus_' + STAT_ICON[k]) : ''}${statAbbr(k)}</th>`).join('')}</tr>${objs.map((o, i) => (o ?
-    `<tr><th>${esc(tl(labels[i]))}</th>${keys.map(k => `<td>${o[k] ?? ''}</td>`).join('')}</tr>` : '')).join('')}</table></div>`;
+  // phones (CSS): icon-only headers (the abbr tooltip names the stat) and «%» for the growth rows
+  const lab = l => { const f = tl(l), sh = f.replace(/^(Crecimiento|Growth)\s*%\s*/i, '% ').replace(/[()]/g, '').trim();
+    return sh === f ? esc(f) : `<span class="st-long">${esc(f)}</span><span class="st-short" aria-hidden="true">${esc(sh)}</span>`; };
+  return `<div class="tw"><table class="stt"><tr><th><span class="sr-only">${t('Valor')}</span></th>${keys.map(k => `<th>${statAbbr(k, STAT_ICON[k] ? gi('IconBasicStatus_' + STAT_ICON[k]) : '')}</th>`).join('')}</tr>${objs.map((o, i) => (o ?
+    `<tr><th>${lab(labels[i])}</th>${keys.map(k => `<td>${o[k] ?? ''}</td>`).join('')}</tr>` : '')).join('')}</table></div>`;
 }
 /** the last tab opened on each page (ficha kinds share one: every character ficha opens on the same tab) */
 const tabRemember = (page, id) => store.set('tabs', { ...(store.get('tabs', {}) || {}), [page]: id });
@@ -283,37 +286,60 @@ function chapNav(key, route) {
   const r = ROUTE_IDS.includes(route) ? route : null;  // no route: the split has no neighbour (never a silent Cai)
   return { prev: c.prev || (r && key === 'comun-2-1' ? `${r}-1-12` : null), next: c.next || (r && key === 'comun-0-3' ? `${r}-1-1` : null) };
 }
-/** {route, key, recruits, have, drop, fold}: recruits are the pids marked «quiero reclutarlo» in the team page, have the ones marked
-    «ya lo tengo» (never also in recruits), drop the story joiners unticked there (any route; pages filter them by route).
-    Older contexts had only `recruits`: they read as «quiero» with an empty `have`. */
+/** {route, key, recruits, have, drop, fold, rerun}. Stored: `team` (recruits in the team, «quiero» or «tengo»: the faces grid of the team
+    page cycles no → quiero → tengo), `got` (team recruits already recruited, «tengo»), `drop` (story joiners taken out, any route; pages
+    filter them by route) and `fold`. Older contexts had `recruits` («quiero») and `have` («tengo»): both join the team, and `have` is
+    also `got`. Derived: `recruits` = team − got (still to recruit), `have` = team ∩ got. «Nueva vuelta» is gone: rerun is always false. */
 const ctxPids = a => (Array.isArray(a) ? [...new Set(a.filter(p => CHARS[p]))] : []);
+const ctxStored = () => store.get('ctx', null);
+const arr = x => (Array.isArray(x) ? x : []);  // stored lists may be corrupt: anything else reads as empty
+const ctxTeamRaw = (v = ctxStored()) => ctxPids([...arr(v?.team), ...arr(v?.have), ...arr(v?.recruits)]);
+const ctxGotRaw = (v = ctxStored()) => ctxPids([...arr(v?.got), ...(v?.team ? [] : arr(v?.have))]);
+/** position of chapter `key` on `route` (-1 if not on it) */
+const capPos = (route, key) => routeChapters(route).findIndex(c => c.key === key);
 const ctxGet = () => {
-  const v = store.get('ctx', null), have = ctxPids(v?.have), recruits = ctxPids(v?.recruits).filter(p => !have.includes(p)), drop = ctxPids(v?.drop), fold = typeof v?.fold === 'boolean' ? v.fold : null;
-  const rerun = v?.rerun === true;  // «nueva vuelta» (older contexts: first run)
-  return v && ROUTE_IDS.includes(v.route) && CAPS[v.key] ? { route: v.route, key: v.key, recruits, have, drop, fold, rerun } : { route: 'cai', key: DEFAULT_KEY, recruits, have, drop, fold, rerun };
+  const v = ctxStored(), ok = v && ROUTE_IDS.includes(v.route) && CAPS[v.key];
+  const team = ctxTeamRaw(v), got = ctxGotRaw(v).filter(p => team.includes(p)), drop = ctxPids(v?.drop), fold = typeof v?.fold === 'boolean' ? v.fold : null;
+  return { route: ok ? v.route : 'cai', key: ok ? v.key : DEFAULT_KEY, recruits: team.filter(p => !got.includes(p)), have: got, drop, fold, rerun: false };
 };
 /** has the player picked a route and chapter (the header says «Elegir ruta» until then; pages still use the default above) */
-const ctxChosen = () => { const v = store.get('ctx', null); return !!(v && ROUTE_IDS.includes(v.route) && CAPS[v.key]); };
+const ctxChosen = () => { const v = ctxStored(); return !!(v && ROUTE_IDS.includes(v.route) && CAPS[v.key]); };
 /** the chosen route and chapter, '' while nothing is picked: pages that show route facts use these, never ctxGet()'s Cai default */
 const ctxRoute = () => (ctxChosen() ? ctxGet().route : '');
 const ctxKey = () => (ctxChosen() ? ctxGet().key : '');
-const ctxSet = (route, key) => store.set('ctx', { ...ctxGet(), route, key });
-const ctxSetRecruits = (pids, drop = ctxGet().drop, have = ctxGet().have) => {
-  const h = [...new Set(have)];
-  store.set('ctx', { ...ctxGet(), recruits: [...new Set(pids)].filter(p => !h.includes(p)), have: h, drop: [...new Set(drop)] });
-};
+/** writes the context in the current shape ({route, key, team, got, drop, fold}) */
+const ctxSave = o => { const v = ctxStored() || {}, c = ctxGet();
+  store.set('ctx', { route: c.route, key: c.key, team: ctxTeamRaw(v), got: c.have, drop: c.drop, ...(c.fold != null ? { fold: c.fold } : {}), ...o }); };
+const ctxSet = (route, key) => ctxSave({ route, key });
+/** the old two lists: `pids` («quiero») and `have` («tengo») both go into the team, `have` also into got */
+const ctxSetRecruits = (pids, drop = ctxGet().drop, have = ctxGet().have) => ctxSave({ team: ctxPids([...pids, ...have]), got: ctxPids(have), drop: [...new Set(drop)] });
 /** team page selector folded (true), unfolded (false) or never touched (null) */
-const ctxSetFold = fold => store.set('ctx', { ...ctxGet(), fold });
-/** first run (false) or «nueva vuelta» (true) */
-const ctxSetRerun = rerun => store.set('ctx', { ...ctxGet(), rerun: !!rerun });
-/** story joiners unticked for `route` */
+const ctxSetFold = fold => ctxSave({ fold });
+/** «nueva vuelta» was removed: kept so older callers do not break */
+const ctxSetRerun = () => {};
+/** one tap on a face: a story joiner goes in or out of `drop` (the lord never leaves); a recruit cycles no → quiero (team) → tengo (got) → no */
+const ctxToggle = (pid, route = ctxGet().route) => {
+  const r = CHARS[pid]?.routes?.[route]; if (!r) return;
+  if (r.join_key) { if (pid === LORDS[route]) return; const d = ctxGet().drop; return ctxSave({ drop: d.includes(pid) ? d.filter(x => x !== pid) : [...d, pid] }); }
+  const t = ctxTeamRaw(), g = ctxGet().have;
+  if (!t.includes(pid)) return ctxSave({ team: [...t, pid], got: g.filter(x => x !== pid) });
+  if (!g.includes(pid)) return ctxSave({ got: [...g, pid] });
+  ctxSave({ team: t.filter(x => x !== pid), got: g.filter(x => x !== pid) });
+};
+/** marks a team recruit as recruited («tengo») or not («quiero») */
+const ctxSetGot = (pid, on) => { const g = ctxGet().have.filter(x => x !== pid); ctxSave({ got: on ? [...g, pid] : g }); };
+/** story joiners taken out for `route` */
 const ctxDrop = (route = ctxGet().route) => ctxGet().drop.filter(p => CHARS[p]?.routes?.[route]?.join_key);
 const ctxRec = p => (route) => p.filter(x => CHARS[x]?.routes?.[route]?.recruit_key);
-/** recruits of the target team on `route`, «quiero» and «tengo» (those not recruitable there are kept in storage but ignored) */
-const ctxRecruits = (route = ctxGet().route) => { const c = ctxGet(); return ctxRec([...c.recruits, ...c.have])(route); };
-/** only the «quiero reclutarlo» recruits on `route`: gifts, meals and the week plan are for them */
+/** recruits of the team on `route` (those not recruitable there are kept in storage but ignored) */
+const ctxRecruits = (route = ctxGet().route) => ctxRec(ctxTeamRaw())(route);
+/** the whole team on `route`: story joiners not taken out (the lord always), then the recruits */
+const ctxTeam = (route = ctxGet().route) => { const d = ctxDrop(route);
+  return [...Object.keys(CHARS).filter(p => CHARS[p].routes?.[route]?.join_key && (p === LORDS[route] || !d.includes(p))), ...ctxRecruits(route)]; };
+/** team recruits on `route` not yet recruited: the recruitment cards, gifts, meals and the week plan are for them */
 const ctxWant = (route = ctxGet().route) => ctxRec(ctxGet().recruits)(route);
-/** only the «ya lo tengo» recruits on `route` */
+const ctxPending = ctxWant;
+/** team recruits already recruited on `route` */
 const ctxHave = (route = ctxGet().route) => ctxRec(ctxGet().have)(route);
 /* ---------------- reachability: the single rule every page uses ---------------- */
 /** can the party reach map place `spot` on `route` at chapter `key`? Only Cai's Part 1 has closed places (cai_p1_access: path search
@@ -525,9 +551,17 @@ function listRoute(qs) {
   return r;
 }
 const qsHref = (path, qs, patch) => { const s = new URLSearchParams(Object.entries({ ...qs, ...patch }).filter(([, v]) => v)).toString(); return `#/${path}${s ? '?' + s : ''}`; };
-/** a row of link chips setting URL param `key`; opts [[value, label]], '' clears the param */
-const chips = (path, qs, key, opts, cur, label) => `<div class="chips" role="group" aria-label="${esc(t(label))}">${opts.map(([v, lb]) =>
-  `<a class="chip${v === cur ? ' on' : ''}" href="${esc(qsHref(path, qs, { [key]: v }))}"${v === cur ? ' aria-current="true"' : ''}>${esc(tl(lb))}</a>`).join('')}</div>`;
+/** a listing filter setting URL param `key`; opts [[value, label]], '' clears the param. Inline, so consecutive filters share one line:
+    two options → a small switch (on = the second option); more → a pill «Label  Value ▾» over a native select (shell.js navigates on change) */
+const filterCtl = (path, qs, key, opts, cur, label, tr) => {
+  const go = v => qsHref(path, qs, { [key]: v });
+  if (opts.length === 2) { const on = cur === opts[1][0];
+    return `<a class="ftog${on ? ' on' : ''}" href="${esc(go(on ? opts[0][0] : opts[1][0]))}" role="switch" aria-checked="${on}"><i class="ftog-i" aria-hidden="true"></i>${esc(tr(opts[1][1]))}</a>`; }
+  const sel = opts.find(([v]) => v === cur) || opts[0];
+  return `<label class="fsel"><span class="fsel-k">${esc(t(label))}</span><span class="fsel-v">${esc(tr(sel[1]))}</span><select data-nav aria-label="${esc(t(label))}">` +
+    opts.map(([v, lb]) => `<option value="${esc(go(v))}"${v === sel[0] ? ' selected' : ''}>${esc(tr(lb))}</option>`).join('') + '</select></label>';
+};
+const chips = (path, qs, key, opts, cur, label) => filterCtl(path, qs, key, opts, cur, label, tl);
 const routeChips = (path, qs, r) => chips(path, qs, 'r', [['todas', 'Todas las rutas'], ...ROUTE_IDS.map(x => [x, ROUTE_NAME[x]])], r || 'todas', 'Ruta');  // chips() translates keys; route names pass as they are
 const ARMAS = [['espada', 'Espada'], ['lanza', 'Lanza'], ['hacha', 'Hacha'], ['arco', 'Arco'], ['punos', 'Guanteletes'], ['magia-negra', 'Magia negra'], ['magia-blanca', 'Magia blanca']];
 /** weapon name (class or item "Guanteletes", "magia blanca (bastón)") → ?arma= value */
@@ -554,6 +588,7 @@ const MECH_OLD = { h1: 'mecanicas?ir=experiencia', h2: 'mecanicas?ir=formula-de-
   h23: 'instalaciones?ir=actividades-automaticas', h24: 'monturas?ir=establo', h25: 'instalaciones?ir=horario', h26: 'turnos', h27: 'recoleccion',
   h28: 'mecanicas?ir=nivel-de-los-enemigos', h29: 'ayudas?ir=esquirlas', h30: 'sendas?ir=fin-de-la-parte-1', h31: 'sendas?ir=reiniciar-capitulo' };
 const OLD_ADDR = { minmax: '#/guia', unidades: '#/personajes', sistemas: '#/instalaciones', mundo: '#/mapa', planificador: '#/equipo',
+  semana: '#/cap', 'semana?ir=eq-ronda': '#/equipo?sec=regalos', 'equipo?ir=eq-ronda': '#/equipo?sec=regalos',
   'clases?ir=monturas': '#/monturas', 'sendas?t=senores': '#/senores',
   ...Object.fromEntries(Object.entries(MECH_OLD).flatMap(([h, to]) => [[`mecanicas/${h}`, '#/' + to], [`mecanicas/${h}-t`, '#/' + to]])) };
 /** an old address → the current one, null when current. Also ?ir=<id> on the bare #/ (the chapter used to live there) → #/cap?ir=<id> */
@@ -586,7 +621,7 @@ const MENU = [['guias', 'Guías', ['guia', 'builds', 'reclutas', 'trucos', 'perd
   ['mundo', 'Mundo y misiones', ['mapa', 'lugares', 'mazmorras', 'misiones', 'batallas']],
   ['sistemas', 'Sistemas', ['instalaciones', 'dioses', 'prestigio', 'turnos', 'sendas', 'senores', 'partes23', 'dificultad']],
   ['historia', 'Historia y textos', ['archivo', 'guion', 'tutoriales', 'glosario']],
-  ['partida', 'Mi partida', ['inicio', 'semana', 'cap', 'equipo', 'ajustes']]];
+  ['partida', 'Mi partida', ['inicio', 'cap', 'equipo', 'armas', 'ajustes']]];
 const NAV = MENU.map(([id, title]) => ({ id, title, pages: [] }));
 const ROUTES = {};  // hash section → page id
 /* Japanese never reaches the screen: names left in text nodes become their official Spanish name, the rest is dropped */

@@ -51,8 +51,8 @@
         [t('Reclutas'), c.recruits.map(x => `${PJ(x.pid)} <small class="mut">(${recruitCost(x.cost)})</small>`).join('<br>')],
         [t('Se unen'), list(c.joins.map(nl))],
         [t('Perdibles'), lost.filter(Boolean).join(' · ')],
-        [t('Comprar'), buy.length ? `${upTo(buy, 3, `#/semana?c=${c.key}&ir=eq-semana`)} <a href="#/semana?c=${c.key}&ir=eq-semana">${t('(por qué)')}</a>` : ''],
-        [t('Refinar'), forge.length ? upTo(forge, 3, `#/semana?c=${c.key}&ir=eq-herreria`) : ''],
+        [t('Comprar'), buy.length ? `${upTo(buy, 3, `${capHash(c.key)}?ir=eq-semana`)} <a href="${capHash(c.key)}?ir=eq-semana">${t('(por qué)')}</a>` : ''],
+        [t('Refinar'), forge.length ? upTo(forge, 3, `${capHash(c.key)}?ir=eq-herreria`) : ''],
         // battles of the same name (the four practice fights) once, with how many
         [t('Batallas'), c.battles.filter((b, i) => c.battles.findIndex(x => x.es === b.es) === i).map(b => { const n = c.battles.filter(x => x.es === b.es).length;
           return `<a href="${href('batalla', b.id)}">${esc(gt(b.es))}</a>${n > 1 ? ` ×${n}` : ''}${b.boss ? ` <small class="mut">${t('(jefe: {b})', { b: esc(dataTx(b.boss)) })}</small>` : ''}`; }).join(' · ')],

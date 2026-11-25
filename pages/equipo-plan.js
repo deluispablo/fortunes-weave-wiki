@@ -316,6 +316,52 @@ function teamRoles(builds, route) {
   return { cover, gaps, fix };
 }
 
+/** what to train for the exams of a build (teamBuild result): per skill the highest rank any exam on its steps asks, with the class that
+    asks it. In a choice group («Espada C o Lanza C») only one side counts: the build weapon when it is one, else the first. [{skill, rank, rank_n, for}] */
+function teamFocus(b) {
+  const best = {};
+  for (const st of b?.steps || []) {
+    const req = CLASSES[st.jid]?.exam_requirements || [], grp = req.filter(r => r.choice_group);
+    const pick = grp.find(r => r.es === b.weapon) || grp[0];
+    for (const r of req.filter(x => !x.choice_group || x === pick))
+      if (!best[r.es] || r.rank_n > best[r.es].rank_n) best[r.es] = { skill: r.es, rank: r.rank, rank_n: r.rank_n, for: st.jid };
+  }
+  return Object.values(best).sort((a, b) => b.rank_n - a.rank_n);
+}
+/** «Armas y equipo»: the weapons worth having for the team builds, by weapon type (ARMAS order), from the plan's gear (what each unit
+    can carry now and the alternatives), its shopping list and its forge rows. [{type, items: [{iid, why, where, spot, price, pay, who, note, refine}]}];
+    why: «comprar» (shop or barter), «conseguir» (chest, quest, starting gear) or «refinar» (only the forge step is new) */
+function teamArms(plan) {
+  const by = new Map(), add = (iid, o) => { const w = ITEMS[iid]?.weapon; if (!w) return;
+    const cur = by.get(iid) || { iid, type: w.type, who: [], why: o.why, where: o.where || '', spot: o.spot || null, price: o.price || 0, pay: o.pay || [], note: o.note || '', refine: null };
+    cur.who = [...new Set([...cur.who, ...(o.who || [])])]; if (!cur.note && o.note) cur.note = o.note; if (!cur.where && o.where) Object.assign(cur, { where: o.where, spot: o.spot, price: o.price || 0, why: o.why });
+    by.set(iid, cur); return cur; };
+  const how = k => (k === 'tienda' || k === 'ambulante' || k === 'barter' ? 'comprar' : 'conseguir');
+  for (const g of plan.gear || []) {
+    if (g.now) add(g.now.iid, { why: how(g.now.kind), where: g.now.where, spot: g.now.spot, price: g.now.price, pay: g.now.pay, who: [g.pid] });
+    (g.options || []).forEach(o => add(o.iid, { why: 'comprar', where: o.where, spot: o.spot, price: o.price, who: [g.pid], note: o.effective ? 'arma eficaz' : '' }));
+  }
+  for (const sp of plan.shop?.buy || []) for (const x of sp.items) add(x.iid, { why: 'comprar', where: x.offer.where, spot: x.offer.spot, price: x.offer.price, pay: x.offer.pay, who: [], note: x.why });
+  for (const r of plan.forge?.rows || []) if (!r.repair) { const c = add(r.iid, { why: 'refinar', who: r.users || [] }); if (c) c.refine = { to: r.to, n: r.n, gold: r.gold, mats: r.mats }; }
+  const order = ARMAS.map(a => a[0]);
+  return order.map(type => ({ type, items: [...by.values()].filter(i => i.type === type && i.who.length).sort((a, b) => (b.refine ? 1 : 0) - (a.refine ? 1 : 0) || b.who.length - a.who.length || (ITEMS[b.iid].weapon.might - ITEMS[a.iid].weapon.might)) }))
+    .filter(g => g.items.length);
+}
+/** roles a unit gives on `route` at `key`: its valid builds' roles, or the computed build's when it has none */
+function teamUnitRoles(pid, route, key) {
+  const o = teamOptions(pid, route, key).filter(x => x.ok);
+  return [...new Set(o.length ? o.flatMap(x => x.roles || []) : teamBuild(pid, route, key)?.roles || [])];
+}
+/** basic roles with nobody in `members` (pids, lord included) and up to 3 recruits of the route who could fill each, best first
+    (route or part rating, then the chapter they can join): [{role, count, picks: [{pid, ch}]}]. `builds`: the plan's, so the roles agree */
+function teamGaps(route, key, members, builds = teamPlan(route, key, members.filter(p => CHARS[p]?.routes?.[route]?.recruit_key)).builds) {
+  const roleOf = p => builds.find(b => b.pid === p)?.roles || [];
+  const count = Object.fromEntries(ROLE_NEEDED.map(r => [r, members.filter(p => roleOf(p).includes(r)).length]));
+  const pool = teamChips(route, key).filter(p => CHARS[p].routes[route].recruit_key && !members.includes(p));
+  const order = teamPriority(route, pool, key).map(x => x.pid);
+  return ROLE_NEEDED.filter(r => !count[r]).map(r => ({ role: r, count: 0,
+    picks: order.filter(p => teamUnitRoles(p, route, key).includes(r)).slice(0, 3).map(p => ({ pid: p, ch: CHARS[p].routes[route].recruit_key })) }));
+}
 
 /* ---------------- recruitment timeline (was the recruit planner) ---------------- */
 /** plan for `route`: one step per pid recruitable there (automatic joins and unknown pids are skipped), sorted by chapter */
@@ -333,13 +379,14 @@ function planRecruits(route, pids) {
 const teamNow = (route = ctxGet().route) => { const rec = ctxRecruits(route); return ROUTE_IDS.includes(route) && rec.length ? new Set(teamMembers(route, ctxGet().key, rec, ctxDrop(route))) : null; };
 
 /* ---------------- recruit states ---------------- */
-/** «no», «quiero» (quiero reclutarlo), «tengo» (ya lo tengo) or «llega» for a chip of `route` at chapter `key`.
-    Story joiners: «tengo» from their chapter, «llega» before it (they join alone: never «quiero»), «no» when unticked; recruits: what ctx stores.
-    `c` is ctxGet() or any stored ctx ({recruits, have, drop}). */
+/** «no», «quiero» (in the team, still to recruit), «tengo» (in the team, recruited) or «llega» for a unit
+    of `route` at chapter `key`. Story joiners: «tengo» from their chapter, «llega» before it, «no» when taken out.
+    `c` is ctxGet() or any stored ctx ({team | recruits, have, drop}). */
 function teamState(pid, route, key, c = ctxGet()) {
   const x = CHARS[pid]?.routes?.[route]; if (!x) return 'no';
   if (x.join_key) return (c.drop || []).includes(pid) ? 'no' : chapIdx(route, x.join_key) <= chapIdx(route, key) ? 'tengo' : 'llega';
-  return (c.have || []).includes(pid) ? 'tengo' : (c.recruits || []).includes(pid) ? 'quiero' : 'no';
+  if (!ctxTeamRaw(c).includes(pid)) return 'no';
+  return (c.team ? ctxGotRaw(c) : c.have || []).includes(pid) ? 'tengo' : 'quiero';
 }
 /** the one count of the selection: the chips of `route` at `key` by state (the lord is no chip). Equipo and Ajustes read it. */
 function teamCounts(route, key, c = ctxGet()) {
@@ -347,10 +394,8 @@ function teamCounts(route, key, c = ctxGet()) {
   teamChips(route, key).forEach(p => out[teamState(p, route, key, c)].push(p));
   return out;
 }
-/** «2 tengo · 1 quiero · 1 llega más tarde» (the last part only when someone is on the way) */
-const teamCountTxt = n => t('{a} tengo · {b} quiero', { a: n.tengo.length, b: n.quiero.length }) +
-  (n.llega.length ? ' · ' + t(n.llega.length === 1 ? '{n} llega más tarde' : '{n} llegan más tarde', { n: n.llega.length }) : '');
-const TEAM_NEXT = { no: 'quiero', quiero: 'tengo', tengo: 'no' };  // a recruit chip rotates through the three states
+/** «9 en el equipo» (the lord counts) */
+const teamCountTxt = n => t('{n} en el equipo', { n: 1 + n.tengo.length + n.quiero.length + n.llega.length });
 
 /* ---------------- selector edits: the list never folds mid-edit ---------------- */
 /** editing: the selector was touched since the page was entered (session only). Folded = a saved selection, not editing, and
@@ -359,21 +404,9 @@ const teamUi = { editing: false, all: false };  // all: «Ver todos» opened in 
 const teamLeave = () => { teamUi.editing = false; teamUi.all = false; };
 /** one selector action: {eq: pid} cycles a chip, {all: '1'|'0'} marks every recruit «quiero» / clears them, {fold: bool}, {rerun: bool} */
 function teamApply(a) {
-  const route = ctxGet().route, key = ctxGet().key, { recruits: cur, have, drop } = ctxGet();
   if (a.fold != null) { teamUi.editing = !a.fold; if (a.fold) ctxSetFold(true); return; }
   teamUi.editing = true;
-  if (a.rerun != null) { ctxSetRerun(a.rerun); return; }
-  const chips = teamChips(route, key), story = chips.filter(p => CHARS[p].routes[route].join_key), here = chips.filter(p => !story.includes(p));
-  let next = cur, nextDrop = drop, nextHave = have;
-  if (a.all === '1') { next = [...new Set([...cur, ...here.filter(p => !have.includes(p))])]; nextDrop = drop.filter(p => !story.includes(p)); }
-  else if (a.all === '0') { next = cur.filter(p => !here.includes(p)); nextHave = have.filter(p => !here.includes(p)); nextDrop = [...new Set([...drop, ...story])]; }
-  else if (story.includes(a.eq)) nextDrop = drop.includes(a.eq) ? drop.filter(p => p !== a.eq) : [...drop, a.eq];
-  else if (a.eq) {
-    const to = TEAM_NEXT[teamState(a.eq, route, key)];
-    next = to === 'quiero' ? [...cur, a.eq] : cur.filter(x => x !== a.eq);
-    nextHave = to === 'tengo' ? [...have, a.eq] : have.filter(x => x !== a.eq);
-  }
-  ctxSetRecruits(next, nextDrop, nextHave);
+  if (a.eq) ctxToggle(a.eq);
 }
 
 /* ---------------- whole plan ---------------- */
@@ -392,6 +425,6 @@ function teamPlan(route, key, recruits, drop = [], want = recruits) {
   // «tengo»: picked recruits not in «quiero», story joiners from their chapter, the lord
   const have = members.filter(p => !want.includes(p) && (p === LORDS[route] || !CHARS[p].routes[route].join_key || chapIdx(route, CHARS[p].routes[route].join_key) <= chapIdx(route, key)));
   const gear = teamGear(route, key, have, builds);
-  return { route, key, prio, choice, builds, mounts, roles: teamRoles(builds, route), gifts, round: teamGiftRound(want.filter(p => members.includes(p) && CHARS[p]?.routes?.[route]?.recruit_key), route, key), week: teamWeek(route, key, want.filter(p => members.includes(p))), shop,
+  return { route, key, prio, choice, builds, mounts, roles: teamRoles(builds, route), gifts, round: teamGiftRound(want.filter(p => members.includes(p) && CHARS[p]?.routes?.[route]?.recruit_key), route, key, members), week: teamWeek(route, key, want.filter(p => members.includes(p))), shop,
     gear, forge: teamForge(route, key, builds, shop, gear) };
 }

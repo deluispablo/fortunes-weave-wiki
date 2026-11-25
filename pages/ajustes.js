@@ -19,14 +19,12 @@ function selParse(input) {
   const c = o.ctx;
   if (c != null && (typeof c !== 'object' || Array.isArray(c))) return { ok: false, error: 'La selección está dañada.' };
   if (c && (!ROUTE_IDS.includes(c.route) || !CAPS[c.key])) return { ok: false, error: 'La ruta o el capítulo no existen.' };
-  if (c && ['recruits', 'have', 'drop'].some(k => c[k] != null && !(Array.isArray(c[k]) && c[k].every(p => typeof p === 'string'))))
+  if (c && ['team', 'recruits', 'have', 'drop'].some(k => c[k] != null && !(Array.isArray(c[k]) && c[k].every(p => typeof p === 'string'))))
     return { ok: false, error: 'La lista de reclutas está dañada.' };
   const tabs = o.tabs == null ? {} : o.tabs;
   if (typeof tabs !== 'object' || Array.isArray(tabs) || Object.values(tabs).some(v => typeof v !== 'string')) return { ok: false, error: 'Las pestañas guardadas están dañadas.' };
-  // only the known fields, with the same rules as ctxSetRecruits (a pid never in both lists; unknown pids dropped)
-  const have = c ? ctxPids(c.have) : [];
-  const ctx = c && { route: c.route, key: c.key, recruits: ctxPids(c.recruits).filter(p => !have.includes(p)), have, drop: ctxPids(c.drop),
-    ...(typeof c.fold === 'boolean' ? { fold: c.fold } : {}), ...(c.rerun === true ? { rerun: true } : {}) };
+  // only the known fields (unknown pids dropped); older copies with «quiero» and «tengo» lists read as one team
+  const ctx = c && { route: c.route, key: c.key, team: ctxTeamRaw(c), drop: ctxPids(c.drop), ...(typeof c.fold === 'boolean' ? { fold: c.fold } : {}) };
   return { ok: true, sel: { ctx, tabs: Object.fromEntries(Object.entries(tabs).filter(([k, v]) => k.length < 40 && v.length < 40)) } };
 }
 const selSummary = ctx => (ctx ? `${t('Ruta {r}', { r: ROUTE_NAME[ctx.route] })} · ${capShort(CAPS[ctx.key])} · ${teamCountTxt(teamCounts(ctx.route, ctx.key, ctx))}` : t('Sin ruta ni reclutas elegidos'));

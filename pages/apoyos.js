@@ -263,9 +263,9 @@
       `<datalist id="rgl">${opts.map(o => `<option value="${esc(o)}">`).join('')}</datalist>` +
       `<select name="c" data-qs="regalos" aria-label="${t('Categoría')}"><option value="">${t('Todas las categorías')}</option>${cats.map(x => `<option value="${esc(x)}"${x === c ? ' selected' : ''}>${esc(dx(x))} (${GD.cats[x]})</option>`).join('')}</select></div>` +
       chips('regalos', qs, 'n', [['', 'Cualquier reacción'], ...TIERS.map(tier => [tier, TL[tier]])], n, 'Reacción') +
-      (team && m === 'p' ? chips('regalos', qs, 'eq', [['', 'Solo mi equipo'], ['todos', 'Todos']], onlyTeam ? '' : 'todos', 'Equipo') +
-        `<p class="mut">${t('Qué regalar esta semana a cada recluta que quieres: {a}.', { a: `<a href="#/semana?ir=eq-ronda">${t('ronda de regalos')}</a>` })}</p>` : '') +
-      resultCount(count, m === 'p' ? 'personaje' : 'regalo', m === 'p' ? 'personajes' : 'regalos') + `<p class="mut">${t('Al pasar el cursor (o mantener pulsado) un regalo se ve el motivo; un nombre o un regalo lleva a la otra vista.')}</p>` +
+      (team && m === 'p' ? chips('regalos', qs, 'eq', [['todos', 'Todos'], ['', 'Solo mi equipo']], onlyTeam ? '' : 'todos', 'Equipo') +
+        `<p class="mut"><a href="#/equipo?sec=regalos">${t('Regalos de tu equipo, personaje a personaje')} →</a></p>` : '') +
+      resultCount(count, m === 'p' ? 'personaje' : 'regalo', m === 'p' ? 'personajes' : 'regalos') +
       (body ? `<div class="ggrid">${body}</div>` : `<p class="mut">${t('Nada coincide con la búsqueda.')}</p>`) +
       card(t('Cómo se calcula'), ul(notes().map(x => li(esc(x)))));
   }

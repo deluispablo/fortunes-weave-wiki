@@ -2,7 +2,7 @@
    Tokens first; components below; the map keeps its game look (at the end). */
 @font-face { font-family: "Crimson Pro"; src: url(fonts/CrimsonPro-latin-var.woff2) format("woff2"); font-weight: 400 700; font-style: normal; font-display: swap;
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
-:root {
+:root { --pill: 36px;
   color-scheme: light;
   --bg: #f6efe2; --surface: #fffaf1; --surface2: #f1e6d3;
   --line: #e2d5bf;          /* decorative separators */
@@ -98,17 +98,16 @@ summary { min-height: var(--tap); padding-block: 11px; cursor: pointer; }
 .kv:first-of-type { border-top: 0; }
 .kv > span { color: var(--mut); }
 .kv > b { font-weight: 500; text-align: right; }
-/* chips: the game's base-menu buttons, pointed on the left (UI_SpotFrm_*_L). The shape lives on two layers (rim, fill), so the
-   element itself is never clipped and its focus ring stays whole */
-.chip { --cb: var(--line-strong); --cf: var(--surface2); position: relative; isolation: isolate; display: inline-flex; align-items: center; gap: var(--s1); min-height: var(--tap);
-  padding: 4px 12px 4px calc(var(--chev) + 8px); border: 0; background: none; color: var(--tx2); }
-.chip::before, .chip::after { content: ""; position: absolute; z-index: -1; clip-path: polygon(var(--chev) 0, 100% 0, 100% 100%, var(--chev) 100%, 0 50%); }
-.chip::before { inset: 4px 0; background: var(--cb); }  /* 36 px visible inside the 44 px target */
-.chip::after { inset: 5px 1px 5px 1.5px; background: var(--cf); }
-.chip:hover { --cb: var(--focus); color: var(--tx); text-decoration: none; }
-.chip.on { --cb: var(--sel-line); --cf: var(--sel-bg); color: var(--tx); font-weight: 600; }
-.chip.want { --cf: color-mix(in srgb, var(--acc-mark) 22%, var(--surface)); color: var(--tx); }
+/* the one pill: chips, filter pills, map types, «+ add», guide links and link lists share size, shape and states */
+.chip, .mkind, .fsel, .ftog, .eq-add, .gu-rel a, .gu-ver a { display: inline-flex; align-items: center; gap: 6px; min-height: var(--pill); padding: 0 14px;
+  border: 1px solid var(--line-strong); border-radius: 999px; background: var(--surface2); color: var(--tx2); font: 500 var(--fs-small)/1.2 var(--font);
+  white-space: nowrap; text-decoration: none; cursor: pointer; }
+.chip:hover, .mkind:hover, .ftog:hover, .eq-add:hover, .gu-rel a:hover, .gu-ver a:hover, .fsel:hover { border-color: var(--focus); color: var(--tx); text-decoration: none; }
+.chip.on, .mkind[aria-pressed=true], .ftog.on { background: var(--sel-bg); border-color: var(--sel-line); color: var(--tx); font-weight: 600; }
+.chip.want { background: color-mix(in srgb, var(--acc-mark) 22%, var(--surface)); color: var(--tx); }
 .chip:disabled { opacity: .55; cursor: default; }
+.chip, .mkind, .ftog, .eq-add, .gu-rel a, .gu-ver a { position: relative; }
+.chip::before, .mkind::before, .ftog::before, .eq-add::before, .gu-rel a::before, .gu-ver a::before { content: ""; position: absolute; inset: -4px 0; }  /* 36 px pill, 44 px to tap */
 .tw { overflow-x: auto; }
 table { border-collapse: collapse; width: 100%; font-size: var(--fs-row); }
 th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
@@ -116,16 +115,13 @@ th { font-size: var(--fs-small); font-weight: 600; color: var(--mut); text-trans
 td { font-variant-numeric: tabular-nums; }
 .tabs { display: flex; gap: var(--s1); border-bottom: 1px solid var(--line); margin: 0 0 var(--s4); overflow-x: auto; scrollbar-width: none; }
 .tabs a, .tabs button { position: relative; display: inline-flex; align-items: center; gap: 6px; padding: 0 12px; min-height: var(--tap); white-space: nowrap; color: var(--tx2); border-bottom: 2px solid transparent; font: 500 16px/1 var(--font-display); letter-spacing: .03em; }
-.mine-tabs { gap: 0; margin: 0 0 var(--s3); border: 1px solid var(--line); border-radius: 999px; padding: 3px; width: fit-content; max-width: 100%; }  /* Mi partida: Capítulo · Semana · Equipo, a segmented switch above each page's own tabs */
-.mine-tabs a { min-height: 40px; padding: 0 16px; border: 0; border-radius: 999px; font: 600 .875rem/1 var(--font); letter-spacing: 0; }
-.tabs.mine-tabs a.on { background: var(--acc); color: var(--bg); }   /* .tabs a.on would set the text colour back to --tx */
-.tabs.mine-tabs a.on::before { content: none; }
-.mine-tabs a:focus-visible { outline-offset: 2px; }
 .tabs button { background: none; border: 0; border-bottom: 2px solid transparent; cursor: pointer; }
 .tabs a.on, .tabs [aria-selected="true"] { color: var(--tx); font-weight: 600; border-bottom-color: var(--focus); }
 /* the game's L ◂ ▸ R marker, calm: a small diamond on the active tab's bar */
 .tabs a.on::before, .tabs [aria-selected="true"]::before { content: "◆" / ""; position: absolute; left: 50%; bottom: -3px; transform: translateX(-50%); font-size: 8px; line-height: 1; color: var(--focus); }
 .tabs { padding-bottom: 4px; }
+.mine-tabs a { flex: 1; justify-content: center; }
+.mine-tabs + h1 { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }  /* the tab already names the page */  /* Mi partida's tabs: the same underline tabs as a ficha, sharing the width */
 .tabs img.gi { width: 18px; height: 18px; }
 .tabs a:hover, .tabs button:hover { text-decoration: none; color: var(--tx); }
 
@@ -274,8 +270,12 @@ html.modal { overflow: hidden; }
 .sr-empty { padding: var(--s4); margin: 0; }
 
 /* ---------- chapter page (pages/capitulo.js) ---------- */
-.cp-head { display: flex; align-items: center; gap: var(--s2); margin: 0 0 var(--s3); }
-.cp-t { flex: 1; min-width: 0; }
+.cp-head { display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; align-items: center; column-gap: var(--s1); margin: 0 0 var(--s3); text-align: center; }
+.cp-t { display: contents; }
+.cp-eye { grid-column: 1 / -1; grid-row: 1; }
+.cp-t h1 { grid-column: 2; grid-row: 2; }
+.cp-head > .cp-nav:first-child { grid-column: 1; grid-row: 2; }
+.cp-head > .cp-nav:last-child { grid-column: 3; grid-row: 2; }
 .cp-t h1 { margin: 0; }
 .cp-eye { margin: 0 0 2px; font-size: var(--fs-small); color: var(--mut); }
 .cp-nav:hover { text-decoration: none; }  /* .cp-nav.ib: a bare 44 px icon with the chevron, no box */
@@ -298,7 +298,9 @@ ol.cp-list { padding-left: 1.4em; list-style: decimal; }
 .cp-shop > span { display: block; color: var(--mut); font-size: var(--fs-small); }
 
 /* ---------- listings and fichas (pages/personajes, objetos, clases, lugares) ---------- */
-.chips { display: flex; gap: var(--s2); margin: 0 0 var(--s2); overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
+.chips, .fbar, .mkinds, .gu-ver { display: flex; gap: 6px; margin: 0 0 var(--s2); overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
+.fbar > *, .mkinds > *, .gu-ver > * { flex: none; margin: 0; }
+.gu-ver svg { width: 16px; height: 16px; flex: none; color: var(--acc); fill: none; stroke: currentColor; stroke-width: 1.8; }
 .chips .chip { flex: none; white-space: nowrap; color: var(--tx2); }
 .chips .chip:hover { text-decoration: none; color: var(--tx); }
 
@@ -619,3 +621,75 @@ a.gchip.t-fav::before, a.gchip.t-love::before, a.gchip.t-like::before { width: 2
   table.stack td + td::before { content: attr(data-th) ": "; color: var(--mut); font-size: var(--fs-small); }
   table.stack td:empty { display: none; }
 }
+
+/* stat tables on phones: icon-only headers, «%» row labels, tight centred cells so 9 stats fit without scrolling */
+.st-short { display: none; }
+@media (max-width: 600px) {
+  .stt th, .stt td { padding: 6px 2px; text-align: center; }
+  .stt tr > th:first-child { text-align: left; text-transform: none; letter-spacing: 0; padding-left: 4px; }
+  .stt .gi + .st-nm { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .stt .st-long { display: none; }
+  .stt .st-short { display: inline; }
+  .stt th img.gi { width: 20px; height: 20px; margin: 0; vertical-align: middle; }
+  .stt .st-ab { min-width: 0; text-decoration: none; }
+}
+/* wide tables on phones: one card per row, each cell with its column name (shell.js stackTables) */
+@media (max-width: 600px) {
+  .tw > table.stk, .stk tbody, .stk tr, .stk td, .stk th { display: block; width: auto; }
+  .stk tr:first-child { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .stk tr { padding: var(--s2) 0; border-bottom: 1px solid var(--line); }
+  .stk td, .stk tr > th { border: 0; padding: 2px 0; text-transform: none; letter-spacing: 0; }
+  .stk tr > :first-child { font-weight: 600; color: var(--tx); font-size: var(--fs-row); }
+  .stk td[data-l]:not(:first-child) { position: relative; padding-left: calc(38% + var(--s2)); min-height: 1.4em; }
+  .stk td[data-l]:not(:first-child)::before { content: attr(data-l); position: absolute; left: 0; width: 38%; color: var(--mut); font-size: var(--fs-small); }
+  .stk td:empty { display: none; }
+}
+@media (max-width: 600px) { .tw table:not(.stt) td { overflow-wrap: anywhere; } .stt td { white-space: nowrap; } .stt tr > th:first-child { font-size: var(--fs-small); hyphens: auto; } }  /* «1/2/3/…/50» and similar unbroken runs */
+
+/* faces grid: Mi partida › Equipo (a tap cycles the state) and Personajes (a tap opens the ficha) */
+.eq-faces{display:grid;grid-template-columns:repeat(auto-fill,minmax(68px,1fr));gap:var(--s2)}
+.eq-face{font:inherit;color:inherit;background:none;border:1px solid var(--line);border-radius:var(--r2,10px);padding:6px 2px;display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;min-height:var(--tap);text-align:center;line-height:1.15}
+.eq-face .eq-fimg{width:48px;height:48px;border-radius:50%;object-fit:cover}
+.eq-face span{font-size:var(--fs-small);overflow-wrap:anywhere}
+.eq-face small{font-size:11px;color:var(--mut)}
+.eq-face:not(.on) img{filter:grayscale(1);opacity:.45}
+.eq-face:not(.on) span{color:var(--mut)}
+.eq-face.st-quiero{border-color:var(--green);background:color-mix(in srgb,var(--green) 22%,transparent)}
+.eq-face.st-quiero small{color:var(--green);font-weight:650}
+.eq-face.st-tengo,.eq-face.st-llega,.eq-face.lord{border-color:var(--acc);background:var(--acc-soft)}
+.eq-face.st-tengo small,.eq-face.st-llega small{color:var(--acc);font-weight:650}
+.eq-face.lord{cursor:default}
+a.eq-face{text-decoration:none}a.eq-face:hover{border-color:var(--line-strong)}
+
+/* listing filters (filterCtl): inline pills over a native select, and a small switch; consecutive ones share a line */
+.fsel { position: relative; padding-right: 28px; max-width: 80vw; }
+.fsel::after { content: ""; position: absolute; right: 12px; top: 50%; width: 6px; height: 6px; border: solid var(--tx2); border-width: 0 1.5px 1.5px 0; transform: translateY(-70%) rotate(45deg); pointer-events: none; }
+.fsel-k { color: var(--mut); }
+.fsel-v { min-width: 0; font-weight: 600; color: var(--tx); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fsel select { position: absolute; inset: -4px 0; width: 100%; opacity: 0; cursor: pointer; font-size: 16px; }
+.fsel:focus-within { outline: 2px solid var(--focus); outline-offset: 1px; }
+.ftog-i { width: 26px; height: 15px; border-radius: 999px; background: var(--line-strong); position: relative; flex: none; transition: background .15s; }
+.ftog-i::after { content: ""; position: absolute; top: 2px; left: 2px; width: 11px; height: 11px; border-radius: 50%; background: var(--tx); transition: transform .15s; }
+.ftog.on .ftog-i { background: var(--acc); }
+.ftog.on .ftog-i::after { transform: translateX(11px); }
+
+/* map point types (mapa.js kindsBar): one scrollable row of toggles with their count */
+.mkind small { color: var(--mut); font-variant-numeric: tabular-nums; }
+.mkind.mk-all { color: var(--acc); background: none; border-style: dashed; }
+
+/* navigation tiles: home (Recomendadas, topic blocks, guide topics) and Guías; one grid, rows of equal height */
+.tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: var(--s2); margin: 0; padding: 0; list-style: none; }
+.tiles > li { display: flex; }
+.tiles a { flex: 1; display: flex; align-items: center; gap: var(--s2); min-height: 52px; padding: 8px 12px; border: 1px solid var(--line); border-left: 3px solid var(--acc-mark);
+  border-radius: var(--r1); background: var(--surface); color: var(--tx); line-height: 1.2; }
+.tiles a:hover { border-color: var(--line-strong); border-left-color: var(--acc-mark); text-decoration: none; }
+.tiles a:hover b { color: var(--acc); }
+.tiles a > span { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.tiles b { font: 600 15px/1.25 var(--font-display); letter-spacing: .02em; }
+.tiles small { color: var(--mut); font-size: var(--fs-small); font-variant-numeric: tabular-nums; }
+.tiles svg { width: 22px; height: 22px; flex: none; color: var(--acc); fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+@media (max-width: 600px) { .tiles { grid-template-columns: 1fr 1fr; } }
+
+/* a title focused after navigation (screen readers) shows no box */
+h1[tabindex="-1"]:focus, h1:focus:not(:focus-visible) { outline: none; }
+

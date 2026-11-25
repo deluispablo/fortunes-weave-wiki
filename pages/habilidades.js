@@ -40,8 +40,7 @@
     `<img class="li-pic gi" src="img/ui/${TYPE_ICON[r.t]}.png" alt="" loading="lazy">`;
   const clip = s => { const c = String(s || '').replace(/\s+/g, ' '); return c.length > 90 ? c.slice(0, 88).replace(/\s\S*$/, '') + '…' : c; };
   /** chips() translates its labels; these carry a count, so they arrive translated and are shown as they are */
-  const chipsN = (qs, key, opts, cur, label) => `<div class="chips" role="group" aria-label="${esc(t(label))}">${opts.map(([v, lb]) =>
-    `<a class="chip${v === cur ? ' on' : ''}" href="${esc(qsHref('habilidades', qs, { [key]: v }))}"${v === cur ? ' aria-current="true"' : ''}>${esc(lb)}</a>`).join('')}</div>`;
+  const chipsN = (qs, key, opts, cur, label) => filterCtl('habilidades', qs, key, opts, cur, label, x => x);
 
   /** extra filter ?f=: skills with an area, with limited uses per battle, with a duration in turns */
   const FEAT = [['area', 'Con área', s => s.area && s.area.rows.join('') !== '1'], ['usos', 'Usos por batalla', s => s.uses_per_battle], ['turnos', 'Dura varios turnos', s => s.duration]];

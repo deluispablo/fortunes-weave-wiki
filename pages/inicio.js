@@ -27,10 +27,7 @@ function homeTips() {
     ['tutoriales', 'Tutoriales', () => (ext().tutoriales?.tutorials || []).length, 'tutorial', 'tutoriales', 'tut'],
     ['glosario', 'Glosario', () => (W.gloss || []).length, 'término', 'términos', 'gloss'],
   ];
-  const START = ['guia', 'builds', 'reclutas', 'trucos', 'perdibles'];  // Empieza aquí, as in the sidebar's Guías panel
-  const GO = [['#/cap', 'cap', 'Capítulo'], ['#/semana', 'week', 'Esta semana'], ['#/equipo', 'eq', 'Equipo'], ['#/equipo?ir=eq-equipamiento', 'build', 'Builds']];
-  const svg = k => navIcon(k).replace('<svg ', '<svg class="hm-ic" ');
-  const icon = k => (/^Icon/.test(k) ? `<i class="hm-ic" style="--m: url(img/ui/${k}.png)" aria-hidden="true"></i>` : svg(k));
+  const GO = [['#/cap', 'cap', 'Capítulo'], ['#/equipo?sec=regalos', 'week', 'Regalos'], ['#/equipo', 'eq', 'Equipo'], ['#/equipo?ir=eq-equipamiento', 'build', 'Builds']];
   const pageOf = r => NAV.flatMap(g => g.pages).find(p => p.id === ROUTES[r]);
 
   function hero() {
@@ -39,14 +36,23 @@ function homeTips() {
       `<button class="hm-q" type="button" data-pal aria-haspopup="dialog" aria-keyshortcuts="/ Control+K">${navIcon('q')}<span>${t('Busca un personaje, objeto, lugar…')}</span><kbd aria-hidden="true">/</kbd></button>` +
       (rec.length ? `<p class="hm-rec"><span>${t('Recientes:')}</span>${rec.map(r => `<a href="${esc(r.href)}">${esc(r.label)}</a>`).join('')}</p>` : '') + '</div>';
   }
+  /** Recomendadas (game8 style): what most visits come for, first; the min-max guide of the chosen route */
+  function recommended() {
+    const r = ctxChosen() ? ctxGet().route : '', mm = r && (W.guias || []).some(g => g.id === `minmax-${r}`) ? `minmax-${r}` : 'minmax';
+    const items = [[`#/guia/${mm}`, 'cap', r && mm !== 'minmax' ? t('Min-max de {r}', { r: ROUTE_NAME[r] }) : t('Min-max por ruta')],
+      ['#/builds', 'build', t('Builds')], ['#/reclutas', 'eq', t('Reclutas recomendados')],
+      ['#/perdibles', 'scroll', t('Perdibles')], ['#/trucos', 'book', t('Trucos')], ['#/guia', 'map', t('Recorrido')]].filter(([h]) => ROUTES[parseHash(h).sec]);
+    return `<section class="hm-top" aria-labelledby="hm-top-t"><h2 id="hm-top-t">${t('Recomendadas')}</h2><ul class="hm-tops tiles">` +
+      items.map(([h, k, lb]) => `<li><a href="${h}">${navIcon(k)}<span><b>${esc(lb)}</b></span></a></li>`).join('') + '</ul></section>';
+  }
+  /** the menu's topic blocks (Personajes, Clases y combate, …), each page with its count when the library knows it */
   function library() {
-    const rows = LIB.filter(([r]) => ROUTES[r]).map(([r, name, n0, one, many, ic]) => {
-      const p = pageOf(r), n = typeof p?.count === 'function' ? p.count() : n0();
-      return `<li><a href="#/${r}">${icon(ic)}<span><b>${esc(t(name))}</b><small>${plural(n, one, many)}</small></span></a></li>`;
-    });
-    const all = NAV.filter(g => g.id !== 'partida').reduce((n, g) => n + g.pages.filter(p => p.nav !== false).length, 0);
-    return `<section class="hm-libs" aria-labelledby="hm-lib-t"><div class="hm-h"><h2 id="hm-lib-t">${t('Consulta')}</h2>` +
-      `<button class="txtbtn" type="button" data-allsec>${t('Todas las secciones ({n})', { n: all })}</button></div><ul class="hm-lib">${rows.join('')}</ul></section>`;
+    const byR = Object.fromEntries(LIB.map(x => [x[0], x])), routeOf = p => Object.keys(ROUTES).find(r => ROUTES[r] === p.id);
+    const row = p => { const r = routeOf(p), x = byR[r], n = x ? (typeof p.count === 'function' ? p.count() : x[2]()) : null;
+      return `<li><a href="#/${r}"><span><b>${esc(t(p.title))}</b>${n != null ? `<small>${plural(n, x[3], x[4])}</small>` : ''}</span></a></li>`; };
+    const blocks = NAV.filter(g => g.id !== 'guias' && g.id !== 'partida').map(g => { const ps = g.pages.filter(p => p.nav !== false && routeOf(p));
+      return ps.length ? `<section class="hm-blk" aria-labelledby="hm-b-${g.id}"><h2 id="hm-b-${g.id}">${esc(t(g.title))}</h2><ul class="hm-lib tiles">${ps.map(row).join('')}</ul></section>` : ''; }).join('');
+    return `<div class="hm-libs">${blocks}</div>`;
   }
   function mine() {
     if (!ctxChosen()) return `<section class="hm-mine empty" aria-labelledby="hm-mine-t"><b id="hm-mine-t">${t('Tu partida')}</b>` +
@@ -60,12 +66,11 @@ function homeTips() {
   }
   /** Guías (09-ia): Empieza aquí as a line of links, then the 7 topics with their guide count; the block the user wants first */
   function guides() {
-    const gs = W.guias || [], st = START.map(temaListing).filter(Boolean);
+    const gs = W.guias || [];
     if (!gs.length) return '';
     return `<section class="hm-gu" aria-labelledby="hm-gu-t"><div class="hm-h"><h2 id="hm-gu-t">${t('Guías')}</h2><a class="txtbtn" href="#/guias">${t('Todas las guías ({n})', { n: gs.length })}</a></div>` +
-      (st.length ? `<p class="hm-gst"><span>${t('Empieza aquí:')}</span>${st.map(l => `<a href="${l.href}">${esc(l.title)}</a>`).join('')}</p>` : '') +
-      `<ul class="hm-temas">${temasL().map(([tm, n]) => { const k = gs.filter(g => g.tema === tm).length;
-        return `<li><a href="#/guias/${tm}"><b>${esc(n)}</b><small>${plural(k, 'guía')}</small></a></li>`; }).join('')}</ul></section>`;
+      `<ul class="hm-temas tiles">${temasL().map(([tm, n]) => { const k = gs.filter(g => g.tema === tm).length;
+        return `<li><a href="#/guias/${tm}"><span><b>${esc(n)}</b><small>${plural(k, 'guía')}</small></span></a></li>`; }).join('')}</ul></section>`;
   }
   const tipParts = x => [esc(tx(x, 'text')), `${t('Consejo del juego')} · ${x.route ? t('ruta de {r}', { r: esc(ROUTE_NAME[x.route]) }) + ', ' : ''}${t('cap. {n}', { n: x.ch_from })}${x.spot && SPOTS[x.spot] ? ' · ' + L('lugar', x.spot) : ''}`];
   function tip() {
@@ -80,7 +85,7 @@ function homeTips() {
     const off = { on: 'Funciona sin conexión.', next: 'Funcionará sin conexión desde la próxima visita.' }[offlineState()];
     return `<p class="hm-foot">${t('Datos del juego contrastados con guías de la comunidad.')}${y ? ' ' + t('Actualizada el {d}.', { d: dateTx(y, m, d) }) : ''}${off ? ' ' + t(off) : ''}</p><p class="hm-foot hm-legal">${LEGAL()}</p>`;  // the same reading as Ajustes
   }
-  const home = () => `${hero()}<div class="hm-cols">${guides()}${mine()}${library()}${tip()}</div>${foot()}`;
+  const home = () => `${hero()}<div class="hm-cols">${recommended()}${guides()}${mine()}${library()}${tip()}</div>${foot()}`;
 
   // «Otro dato» swaps the tip in place; «Todas las secciones» opens «Más» on a phone and moves to the sidebar on a wide screen
   document.addEventListener('click', e => {
@@ -112,18 +117,10 @@ function homeTips() {
 .hm-h { display: flex; align-items: center; justify-content: space-between; gap: var(--s3); margin: 20px 0 var(--s1);
   background: linear-gradient(90deg, var(--line-strong), transparent 80%) left bottom / 100% 1px no-repeat; }
 .hm-h h2 { margin: 0; background: none; }
+.hm-h h2, .hm-top h2, .hm-blk h2 { font: 600 var(--fs-small)/1.2 var(--font); text-transform: uppercase; letter-spacing: .08em; color: var(--mut); }
 .hm-h .txtbtn { margin-right: calc(-1 * var(--s2)); font-weight: 500; font-size: 13px; white-space: nowrap; }
-.hm-lib { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); column-gap: var(--s5); margin: 0; padding: 0; list-style: none; }
-.hm-lib a { display: flex; align-items: center; gap: var(--s3); min-height: 48px; padding: 2px 4px 2px 2px; border-radius: var(--r1); color: var(--tx);
-  background: linear-gradient(90deg, var(--line), transparent 90%) left bottom / 100% 1px no-repeat; }
-.hm-lib a:hover { background-color: var(--ghost-hover); text-decoration: none; }
-.hm-lib a:hover b { color: var(--acc); }
-.hm-ic { flex: none; width: 26px; height: 26px; color: var(--tx2); }
-i.hm-ic { display: block; background: currentColor; -webkit-mask: var(--m) center / contain no-repeat; mask: var(--m) center / contain no-repeat; }
-svg.hm-ic { padding: 1px; }
-.hm-lib span { display: flex; flex-direction: column; min-width: 0; }
-.hm-lib b { font: 600 16px/1.2 var(--font-display); letter-spacing: .02em; }
-.hm-lib small { color: var(--mut); font-variant-numeric: tabular-nums; }
+.hm-top h2, .hm-blk h2 { margin: var(--s4) 0 var(--s2); }
+.hm-blk + .hm-blk { margin-top: var(--s2); }
 .hm-mine { margin-top: var(--s4); padding: var(--s1) var(--s4); background: var(--surface); border: 1px solid var(--line); border-radius: var(--r2); box-shadow: inset 0 1px 0 var(--panel-hi); }
 .hm-mine b { font: 600 16px/1.3 var(--font-display); letter-spacing: .02em; }
 .hm-mine.empty > b { display: block; margin-top: var(--s2); }
@@ -138,15 +135,6 @@ svg.hm-ic { padding: 1px; }
 .hm-go a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 52px; padding: 2px; border-radius: var(--r2); color: var(--tx2); font-size: 12px; text-align: center; }
 .hm-go a:hover { background: var(--ghost-hover); color: var(--tx); text-decoration: none; }
 .hm-go svg { width: 22px; height: 22px; color: var(--acc); }
-.hm-gst { display: flex; flex-wrap: wrap; align-items: center; gap: 0 var(--s3); margin: var(--s1) 0 var(--s2); color: var(--mut); font-size: var(--fs-small); }
-.hm-gst a { display: inline-flex; align-items: center; min-height: var(--tap); margin-block: -6px; font-size: 14px; }
-.hm-temas { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: var(--s2); margin: 0; padding: 0; list-style: none; }
-.hm-temas a { display: flex; flex-direction: column; justify-content: center; min-height: 56px; padding: var(--s2) var(--s3); background: var(--surface); border: 1px solid var(--line);
-  border-left: 3px solid var(--acc-mark); border-radius: var(--r2); color: var(--tx); }
-.hm-temas a:hover { border-color: var(--line-strong); border-left-color: var(--acc-mark); text-decoration: none; }
-.hm-temas a:hover b { color: var(--acc); }
-.hm-temas b { font: 600 16px/1.25 var(--font-display); letter-spacing: .02em; }
-.hm-temas small { color: var(--mut); font-variant-numeric: tabular-nums; }
 .hm-tip { margin-top: var(--s5); padding: var(--s3) var(--s4); border-left: 2px solid var(--acc-mark); border-radius: 0 var(--r2) var(--r2) 0; background: var(--surface2); }
 .hm-tip b { display: block; font: 600 16px/1.3 var(--font-display); letter-spacing: .02em; }
 .hm-tip p { margin: 4px 0 0; color: var(--tx2); }
@@ -154,14 +142,15 @@ svg.hm-ic { padding: 1px; }
 .hm-tip-f .txtbtn { margin-right: calc(-1 * var(--s2)); font-size: 13px; }
 .hm-foot { margin: var(--s5) 0 0; padding-top: var(--s3); border-top: 1px solid var(--line); color: var(--mut); font-size: var(--fs-small); }
 .hm-legal { margin-top: var(--s2); padding-top: 0; border-top: 0; }
-@media (prefers-reduced-motion: no-preference) { .hm-lib a, .hm-go a, .hm-temas a { transition: background-color .12s; } }
+@media (prefers-reduced-motion: no-preference) { .hm-go a { transition: background-color .12s; } }
 /* wide: two columns like Wikipedia's front page; the library and Empieza aquí on the left, Tu partida and the tip on the right */
 @media (min-width: 1000px) {
-  .hm-cols { display: grid; grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr); grid-template-rows: auto 1fr auto; column-gap: 40px; }
-  .hm-gu { grid-area: 1 / 1; }
-  .hm-libs { grid-area: 2 / 1 / 4; }
+  .hm-cols { display: grid; grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr); grid-template-rows: auto auto 1fr auto; column-gap: 40px; }
+  .hm-top { grid-area: 1 / 1; }
+  .hm-gu { grid-area: 2 / 1; }
+  .hm-libs { grid-area: 3 / 1 / 5; }
   .hm-mine { grid-area: 1 / 2; align-self: start; margin-top: 30px; }
-  .hm-tip { grid-area: 2 / 2 / 4; align-self: start; }
+  .hm-tip { grid-area: 2 / 2 / 5; align-self: start; }
   .hm-mine-h p { white-space: normal; }
   .hm-where { display: block; margin: 0; }
   .hm-go { grid-template-columns: 1fr 1fr; margin-top: var(--s1); }
@@ -173,9 +162,6 @@ svg.hm-ic { padding: 1px; }
   .hm-hero h1 { font-size: var(--fs-title); }
   .hm-q { min-height: 48px; font-size: 15px; }
   .hm-q kbd { display: none; }
-  .hm-lib { grid-template-columns: 1fr 1fr; column-gap: var(--s4); }
-  .hm-temas { grid-template-columns: 1fr 1fr; }
-  .hm-temas a { min-height: 52px; padding: var(--s1) var(--s2); }
   .hm-where i { display: none; }
 }`;
   register({ id: 'inicio', title: 'Inicio', routes: [''], render: () => `<div class="hm">${home()}</div>`, css: CSS });  // title: a t() key (the menu translates it)
