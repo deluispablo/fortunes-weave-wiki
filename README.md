@@ -4,6 +4,10 @@ A community wiki for *Fire Emblem: Fortune's Weave*, in English and Spanish: cha
 
 It runs in the browser, on phones too, and works offline once opened.
 
+**Open the wiki: <https://deluispablo.github.io/fortunes-weave-wiki/>**
+
+No install needed. On a phone, use your browser's *Add to Home screen* to keep it like an app.
+
 ## Run it locally
 
 All you need is a static file server. From the repository folder:
