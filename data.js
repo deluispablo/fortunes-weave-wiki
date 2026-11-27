@@ -1,6 +1,6 @@
 window.WIKI={
  "meta": {
-  "built": "2026-11-25",
+  "built": "2026-11-27",
   "profiles_json": true,
   "route_codes": {
    "0": "todas",
@@ -1175,7 +1175,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 2,
      "怒": 1,
@@ -1429,7 +1428,23 @@ window.WIKI={
       "55": "El Cabalgador"
      },
      "join_level": "Sin reclutar sube de nivel solo, con el 80 % de su crecimiento personal y sin el de clase",
-     "recommended": {},
+     "recommended": {
+      "jid": "JID_オリハルディア",
+      "class_es": "Auricalcado",
+      "tier": 4,
+      "growth_in_class": {
+       "HP": 60,
+       "Str": 60,
+       "Mag": 35,
+       "Dex": 45,
+       "Spd": 50,
+       "Lck": 45,
+       "Def": 40,
+       "Res": 40,
+       "Cha": 50
+      },
+      "growth_total": 425
+     },
      "community_paths": [
       {
        "role": "Cai",
@@ -4131,7 +4146,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 1,
      "怒": 1,
@@ -6055,7 +6069,6 @@ window.WIKI={
       "Mantener estatuas": 0
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 1,
      "怒": 0,
@@ -7773,7 +7786,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 1,
      "怒": 2,
@@ -9571,7 +9583,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 1,
      "怒": 3,
@@ -11424,7 +11435,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 1,
      "怒": 1,
@@ -13488,7 +13498,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 2,
      "怒": 1,
@@ -15424,7 +15433,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 1,
      "怒": 1,
@@ -17299,7 +17307,6 @@ window.WIKI={
       "Mantener estatuas": 2
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 2,
      "怒": 2,
@@ -18976,7 +18983,6 @@ window.WIKI={
       "Mantener estatuas": 0
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 0,
      "怒": 1,
@@ -20970,7 +20976,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 1,
      "怒": 1,
@@ -23342,7 +23347,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 2,
      "怒": 1,
@@ -25388,7 +25392,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 2,
      "怒": 1,
@@ -27229,7 +27232,6 @@ window.WIKI={
       "Mantener estatuas": 2
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 1,
      "怒": 1,
@@ -28725,7 +28727,6 @@ window.WIKI={
       "Mantener estatuas": 2
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 0,
      "怒": 1,
@@ -30474,7 +30475,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 1,
      "怒": 2,
@@ -32219,7 +32219,6 @@ window.WIKI={
       "Mantener estatuas": 2
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 1,
      "怒": 1,
@@ -32382,7 +32381,23 @@ window.WIKI={
       "45": "Paladín bau"
      },
      "join_level": "Sin reclutar sube de nivel solo, con el 80 % de su crecimiento personal y sin el de clase",
-     "recommended": {},
+     "recommended": {
+      "jid": "JID_ドラゴンマスター",
+      "class_es": "Paladín bau",
+      "tier": 4,
+      "growth_in_class": {
+       "HP": 60,
+       "Str": 50,
+       "Mag": 30,
+       "Dex": 45,
+       "Spd": 45,
+       "Lck": 40,
+       "Def": 50,
+       "Res": 45,
+       "Cha": 55
+      },
+      "growth_total": 420
+     },
      "community_paths": [],
      "mount": null
     },
@@ -33431,7 +33446,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 0,
      "怒": 0,
@@ -34838,7 +34852,6 @@ window.WIKI={
       "Mantener estatuas": 2
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 1,
      "怒": 2,
@@ -37374,7 +37387,6 @@ window.WIKI={
       "Mantener estatuas": 2
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 2,
      "怒": 2,
@@ -37533,7 +37545,23 @@ window.WIKI={
       "45": "Prodigio"
      },
      "join_level": "Sin reclutar sube de nivel solo, con el 80 % de su crecimiento personal y sin el de clase",
-     "recommended": {},
+     "recommended": {
+      "jid": "JID_ハイエピタフ",
+      "class_es": "Prodigio",
+      "tier": 4,
+      "growth_in_class": {
+       "HP": 45,
+       "Str": 50,
+       "Mag": 60,
+       "Dex": 55,
+       "Spd": 50,
+       "Lck": 40,
+       "Def": 35,
+       "Res": 45,
+       "Cha": 45
+      },
+      "growth_total": 425
+     },
      "community_paths": [],
      "mount": null
     },
@@ -39347,7 +39375,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 2,
      "怒": 1,
@@ -41249,7 +41276,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 3,
      "怒": 1,
@@ -42909,7 +42935,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 2,
      "怒": 3,
@@ -43068,7 +43093,23 @@ window.WIKI={
       "45": "Paladín bau"
      },
      "join_level": "Sin reclutar sube de nivel solo, con el 80 % de su crecimiento personal y sin el de clase",
-     "recommended": {},
+     "recommended": {
+      "jid": "JID_オリハルディア",
+      "class_es": "Auricalcado",
+      "tier": 4,
+      "growth_in_class": {
+       "HP": 60,
+       "Str": 55,
+       "Mag": 20,
+       "Dex": 35,
+       "Spd": 55,
+       "Lck": 35,
+       "Def": 45,
+       "Res": 30,
+       "Cha": 40
+      },
+      "growth_total": 375
+     },
      "community_paths": [],
      "mount": null
     },
@@ -44802,7 +44843,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 2,
      "怒": 1,
@@ -46268,7 +46308,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 1,
      "怒": 1,
@@ -48288,7 +48327,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 2,
      "怒": 1,
@@ -49766,7 +49804,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 1,
      "怒": 1,
@@ -51705,7 +51742,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 2,
      "怒": 1,
@@ -53642,7 +53678,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 2,
      "怒": 3,
@@ -56284,7 +56319,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 1,
      "怒": 2,
@@ -58448,7 +58482,6 @@ window.WIKI={
       "Mantener estatuas": 0
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 2,
      "怒": 2,
@@ -58607,7 +58640,23 @@ window.WIKI={
       "45": "Prodigio"
      },
      "join_level": "Sin reclutar sube de nivel solo, con el 80 % de su crecimiento personal y sin el de clase",
-     "recommended": {},
+     "recommended": {
+      "jid": "JID_ハイエピタフ",
+      "class_es": "Prodigio",
+      "tier": 4,
+      "growth_in_class": {
+       "HP": 50,
+       "Str": 55,
+       "Mag": 55,
+       "Dex": 55,
+       "Spd": 55,
+       "Lck": 55,
+       "Def": 40,
+       "Res": 40,
+       "Cha": 50
+      },
+      "growth_total": 455
+     },
      "community_paths": [],
      "mount": null
     },
@@ -60551,7 +60600,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 3,
      "怒": 2,
@@ -62562,7 +62610,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 1,
      "怒": 0,
@@ -64188,7 +64235,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 1,
      "怒": 1,
@@ -65689,7 +65735,6 @@ window.WIKI={
       "Mantener estatuas": 0
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 2,
      "怒": 2,
@@ -67645,7 +67690,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 0,
      "怒": 0,
@@ -69697,7 +69741,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 3,
      "怒": 0,
@@ -71785,7 +71828,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 1,
      "怒": 1,
@@ -72951,7 +72993,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 1,
      "怒": 1,
@@ -75303,7 +75344,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 1,
      "怒": 1,
@@ -76600,7 +76640,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 2,
      "怒": 1,
@@ -78105,7 +78144,6 @@ window.WIKI={
       "Mantener estatuas": 0
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 2,
      "怒": 2,
@@ -79947,7 +79985,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 2,
      "怒": 1,
@@ -81442,7 +81479,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 1,
      "怒": 2,
@@ -81600,7 +81636,23 @@ window.WIKI={
       "45": "Auricalcado"
      },
      "join_level": "Sin reclutar sube de nivel solo, con el 80 % de su crecimiento personal y sin el de clase",
-     "recommended": {},
+     "recommended": {
+      "jid": "JID_グレートナイト",
+      "class_es": "Jinete pesado",
+      "tier": 4,
+      "growth_in_class": {
+       "HP": 65,
+       "Str": 60,
+       "Mag": 20,
+       "Dex": 45,
+       "Spd": 25,
+       "Lck": 35,
+       "Def": 55,
+       "Res": 15,
+       "Cha": 40
+      },
+      "growth_total": 360
+     },
      "community_paths": [],
      "mount": null
     },
@@ -83196,7 +83248,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 1,
      "怒": 1,
@@ -83353,7 +83404,23 @@ window.WIKI={
       "45": "Buscasombras"
      },
      "join_level": "Sin reclutar sube de nivel solo, con el 80 % de su crecimiento personal y sin el de clase",
-     "recommended": {},
+     "recommended": {
+      "jid": "JID_ボウナイト",
+      "class_es": "Caballero arco",
+      "tier": 4,
+      "growth_in_class": {
+       "HP": 40,
+       "Str": 40,
+       "Mag": 25,
+       "Dex": 55,
+       "Spd": 75,
+       "Lck": 50,
+       "Def": 35,
+       "Res": 30,
+       "Cha": 35
+      },
+      "growth_total": 385
+     },
      "community_paths": [],
      "mount": null
     },
@@ -84384,7 +84451,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 2,
      "怒": 1,
@@ -86212,7 +86278,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 2,
      "怒": 1,
@@ -87835,7 +87900,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 1,
      "怒": 1,
@@ -89130,7 +89194,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 1,
      "怒": 1,
@@ -89285,7 +89348,23 @@ window.WIKI={
       "45": "Badb Catha"
      },
      "join_level": "Sin reclutar sube de nivel solo, con el 80 % de su crecimiento personal y sin el de clase",
-     "recommended": {},
+     "recommended": {
+      "jid": "JID_聖天翼兵",
+      "class_es": "Jinete celeste",
+      "tier": 4,
+      "growth_in_class": {
+       "HP": 60,
+       "Str": 45,
+       "Mag": 25,
+       "Dex": 45,
+       "Spd": 55,
+       "Lck": 50,
+       "Def": 35,
+       "Res": 40,
+       "Cha": 45
+      },
+      "growth_total": 400
+     },
      "community_paths": [],
      "mount": null
     },
@@ -90605,7 +90684,6 @@ window.WIKI={
       "Mantener estatuas": 0
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 1,
      "怒": 1,
@@ -92253,7 +92331,6 @@ window.WIKI={
       "Mantener estatuas": 0
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 0,
      "怒": 2,
@@ -93655,7 +93732,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 1,
      "怒": 1,
@@ -93810,7 +93886,23 @@ window.WIKI={
       "20": "Cuadriguero"
      },
      "join_level": "Sin reclutar sube de nivel solo, con el 80 % de su crecimiento personal y sin el de clase",
-     "recommended": {},
+     "recommended": {
+      "jid": "JID_ボウナイト",
+      "class_es": "Caballero arco",
+      "tier": 4,
+      "growth_in_class": {
+       "HP": 60,
+       "Str": 45,
+       "Mag": 20,
+       "Dex": 60,
+       "Spd": 50,
+       "Lck": 35,
+       "Def": 40,
+       "Res": 25,
+       "Cha": 40
+      },
+      "growth_total": 375
+     },
      "community_paths": [],
      "mount": null
     },
@@ -95012,7 +95104,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 1,
      "怒": 1,
@@ -96760,7 +96851,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 1,
      "怒": 0,
@@ -98500,7 +98590,6 @@ window.WIKI={
       "Mantener estatuas": 0
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 2,
      "怒": 0,
@@ -98664,7 +98753,23 @@ window.WIKI={
       "45": "Jinete celeste"
      },
      "join_level": "Sin reclutar sube de nivel solo, con el 80 % de su crecimiento personal y sin el de clase",
-     "recommended": {},
+     "recommended": {
+      "jid": "JID_聖天翼兵",
+      "class_es": "Jinete celeste",
+      "tier": 4,
+      "growth_in_class": {
+       "HP": 45,
+       "Str": 40,
+       "Mag": 30,
+       "Dex": 50,
+       "Spd": 65,
+       "Lck": 65,
+       "Def": 35,
+       "Res": 55,
+       "Cha": 60
+      },
+      "growth_total": 445
+     },
      "community_paths": [],
      "mount": null
     },
@@ -100245,7 +100350,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 0,
      "怒": 1,
@@ -101704,7 +101808,6 @@ window.WIKI={
       "Mantener estatuas": 2
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 0,
      "怒": 0,
@@ -103149,7 +103252,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 1,
      "怒": 1,
@@ -104354,7 +104456,6 @@ window.WIKI={
       "Mantener estatuas": 0
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 2,
      "怒": 1,
@@ -105311,7 +105412,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 1,
      "怒": 2,
@@ -106671,7 +106771,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 0,
      "怒": 1,
@@ -106821,7 +106920,23 @@ window.WIKI={
       "45": "Jinete pesado"
      },
      "join_level": "Sin reclutar sube de nivel solo, con el 80 % de su crecimiento personal y sin el de clase",
-     "recommended": {},
+     "recommended": {
+      "jid": "JID_グレートナイト",
+      "class_es": "Jinete pesado",
+      "tier": 4,
+      "growth_in_class": {
+       "HP": 75,
+       "Str": 80,
+       "Mag": 10,
+       "Dex": 60,
+       "Spd": 15,
+       "Lck": 25,
+       "Def": 60,
+       "Res": 5,
+       "Cha": 35
+      },
+      "growth_total": 365
+     },
      "community_paths": [],
      "mount": null
     },
@@ -108355,7 +108470,6 @@ window.WIKI={
       "Mantener estatuas": 0
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 2,
      "怒": 1,
@@ -108505,7 +108619,23 @@ window.WIKI={
       "45": "Auricalcado"
      },
      "join_level": "Sin reclutar sube de nivel solo, con el 80 % de su crecimiento personal y sin el de clase",
-     "recommended": {},
+     "recommended": {
+      "jid": "JID_グレートナイト",
+      "class_es": "Jinete pesado",
+      "tier": 4,
+      "growth_in_class": {
+       "HP": 65,
+       "Str": 70,
+       "Mag": 10,
+       "Dex": 50,
+       "Spd": 50,
+       "Lck": 30,
+       "Def": 50,
+       "Res": 10,
+       "Cha": 40
+      },
+      "growth_total": 375
+     },
      "community_paths": [],
      "mount": null
     },
@@ -110179,7 +110309,6 @@ window.WIKI={
       "Mantener estatuas": 0
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 2,
      "怒": 1,
@@ -111392,7 +111521,6 @@ window.WIKI={
       "Mantener estatuas": 2
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 2,
      "怒": 2,
@@ -112591,7 +112719,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 1,
      "怒": 1,
@@ -113720,7 +113847,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 2,
      "怒": 2,
@@ -115293,7 +115419,6 @@ window.WIKI={
       "Mantener estatuas": 1
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 1,
      "怒": 2,
@@ -116374,7 +116499,6 @@ window.WIKI={
       "Mantener estatuas": 2
      }
     },
-    "training": "sin datos (Profile no trae preferencia de entrenamiento)",
     "emotions": {
      "喜": 3,
      "怒": 1,
@@ -230223,6 +230347,7 @@ window.WIKI={
     "grade_es": "baja",
     "hp_pct": 2
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -230578,6 +230703,7 @@ window.WIKI={
     "grade_es": "baja",
     "hp_pct": 2
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -230867,6 +230993,7 @@ window.WIKI={
     "grade_es": "baja",
     "hp_pct": 2
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -231138,6 +231265,7 @@ window.WIKI={
     "grade_es": "baja",
     "hp_pct": 2
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -231557,6 +231685,7 @@ window.WIKI={
     "grade_es": "baja",
     "hp_pct": 2
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -231979,6 +232108,7 @@ window.WIKI={
     "grade_es": "baja",
     "hp_pct": 2
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -232069,6 +232199,7 @@ window.WIKI={
     "grade_es": "baja",
     "hp_pct": 2
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -232405,6 +232536,7 @@ window.WIKI={
     "grade_es": "baja",
     "hp_pct": 2
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -232752,6 +232884,7 @@ window.WIKI={
     "grade_es": "baja",
     "hp_pct": 2
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -233413,6 +233546,7 @@ window.WIKI={
     "grade_es": "baja",
     "hp_pct": 2
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -233659,6 +233793,7 @@ window.WIKI={
     "grade_es": "baja",
     "hp_pct": 2
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -233847,6 +233982,7 @@ window.WIKI={
     "grade_es": "baja",
     "hp_pct": 2
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -233913,6 +234049,7 @@ window.WIKI={
     "grade_es": "baja",
     "hp_pct": 2
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -234140,6 +234277,7 @@ window.WIKI={
     "grade_es": "baja",
     "hp_pct": 2
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -234318,6 +234456,7 @@ window.WIKI={
     "grade_es": "baja",
     "hp_pct": 2
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -234474,6 +234613,7 @@ window.WIKI={
     "grade_es": "media",
     "hp_pct": 4
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -234706,6 +234846,7 @@ window.WIKI={
     "grade_es": "media",
     "hp_pct": 4
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -234920,6 +235061,7 @@ window.WIKI={
     "grade_es": "media",
     "hp_pct": 4
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -235153,6 +235295,7 @@ window.WIKI={
     "grade_es": "media",
     "hp_pct": 4
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -235285,6 +235428,7 @@ window.WIKI={
     "grade_es": "media",
     "hp_pct": 4
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -235427,6 +235571,7 @@ window.WIKI={
     "grade_es": "media",
     "hp_pct": 4
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -235631,6 +235776,7 @@ window.WIKI={
     "grade_es": "media",
     "hp_pct": 4
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -235772,6 +235918,7 @@ window.WIKI={
     "grade_es": "media",
     "hp_pct": 4
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -236101,6 +236248,7 @@ window.WIKI={
     "grade_es": "media",
     "hp_pct": 4
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -236254,6 +236402,7 @@ window.WIKI={
     "grade_es": "media",
     "hp_pct": 4
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -236420,6 +236569,7 @@ window.WIKI={
     "grade_es": "media",
     "hp_pct": 4
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -236613,6 +236763,7 @@ window.WIKI={
     "grade_es": "media",
     "hp_pct": 4
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -236766,6 +236917,7 @@ window.WIKI={
     "grade_es": "media",
     "hp_pct": 4
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -236848,6 +237000,7 @@ window.WIKI={
     "grade_es": "media",
     "hp_pct": 4
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -236998,6 +237151,7 @@ window.WIKI={
     "grade_es": "media",
     "hp_pct": 4
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -237152,6 +237306,7 @@ window.WIKI={
     "grade_es": "media",
     "hp_pct": 4
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -237309,6 +237464,7 @@ window.WIKI={
     "grade_es": "alta",
     "hp_pct": 10
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -237499,6 +237655,7 @@ window.WIKI={
     "grade_es": "alta",
     "hp_pct": 10
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -237614,6 +237771,7 @@ window.WIKI={
     "grade_es": "alta",
     "hp_pct": 10
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -237769,6 +237927,7 @@ window.WIKI={
     "grade_es": "alta",
     "hp_pct": 10
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -237960,6 +238119,7 @@ window.WIKI={
     "grade_es": "alta",
     "hp_pct": 10
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -238117,6 +238277,7 @@ window.WIKI={
     "grade_es": "alta",
     "hp_pct": 10
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -238203,6 +238364,7 @@ window.WIKI={
     "grade_es": "alta",
     "hp_pct": 10
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -238311,6 +238473,7 @@ window.WIKI={
     "grade_es": "alta",
     "hp_pct": 10
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -238445,6 +238608,7 @@ window.WIKI={
     "grade_es": "alta",
     "hp_pct": 10
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -238510,6 +238674,7 @@ window.WIKI={
     "grade_es": "alta",
     "hp_pct": 10
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -238634,6 +238799,7 @@ window.WIKI={
     "grade_es": "alta",
     "hp_pct": 10
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -238753,6 +238919,7 @@ window.WIKI={
     "grade_es": "alta",
     "hp_pct": 10
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -238959,6 +239126,7 @@ window.WIKI={
     "grade_es": "alta",
     "hp_pct": 10
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -239040,6 +239208,7 @@ window.WIKI={
     "grade_es": "alta",
     "hp_pct": 10
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -239153,6 +239322,7 @@ window.WIKI={
     "grade_es": "alta",
     "hp_pct": 10
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -239348,6 +239518,7 @@ window.WIKI={
     "grade_es": "alta",
     "hp_pct": 10
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -239433,6 +239604,7 @@ window.WIKI={
     "grade_es": "alta",
     "hp_pct": 10
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -239683,6 +239855,7 @@ window.WIKI={
     "grade_es": "alta",
     "hp_pct": 10
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -239760,6 +239933,7 @@ window.WIKI={
     "grade_es": "alta",
     "hp_pct": 10
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -239915,6 +240089,7 @@ window.WIKI={
     "grade_es": "alta",
     "hp_pct": 10
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -239996,6 +240171,7 @@ window.WIKI={
     "grade_es": "alta",
     "hp_pct": 10
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -240102,6 +240278,7 @@ window.WIKI={
     "grade_es": "alta",
     "hp_pct": 10
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -240213,6 +240390,7 @@ window.WIKI={
     "grade_es": "alta",
     "hp_pct": 10
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -240361,6 +240539,7 @@ window.WIKI={
     "grade_es": "alta",
     "hp_pct": 10
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -240522,6 +240701,7 @@ window.WIKI={
     "grade_es": "alta",
     "hp_pct": 10
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -240752,6 +240932,7 @@ window.WIKI={
     "grade_es": "alta",
     "hp_pct": 10
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -240827,6 +241008,7 @@ window.WIKI={
     "grade_es": "alta",
     "hp_pct": 10
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -240882,6 +241064,7 @@ window.WIKI={
     "grade_es": "alta",
     "hp_pct": 10
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -240956,6 +241139,7 @@ window.WIKI={
     "grade_es": "alta",
     "hp_pct": 10
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -241042,6 +241226,7 @@ window.WIKI={
     "grade_es": "alta",
     "hp_pct": 10
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -241131,6 +241316,7 @@ window.WIKI={
     "grade_es": "baja",
     "hp_pct": 1
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -241302,6 +241488,7 @@ window.WIKI={
     "grade_es": "baja",
     "hp_pct": 1
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -241479,6 +241666,7 @@ window.WIKI={
     "grade_es": "baja",
     "hp_pct": 1
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -241663,6 +241851,7 @@ window.WIKI={
     "grade_es": "baja",
     "hp_pct": 1
    },
+   "plantable": true,
    "bait_q": "cebo para caballo/pegaso (verduras)",
    "obtain": [
     {
@@ -527758,7 +527947,7 @@ window.WIKI={
     ],
     [
      "Percha: qué responder",
-     "<p>El Cuervo Blanco visita a un aliado y le hace preguntas; cada personaje tiene sus 10 respuestas correctas (gestos). Están en la ficha de cada personaje en <a href=\"#/personajes\">Personajes</a>. Los aciertos suben el apoyo con Eshmel; la afinidad óptima lo duplica, como en las demás actividades. La cantidad exacta por acierto está sin confirmar.</p>"
+     "<p>Una vez por semana eliges a qué aliado llevar a la Percha (no viene nadie por su cuenta) y el Cuervo Blanco le hace preguntas. Si un personaje tiene dos juegos de respuestas, su ficha dice cuál vale en cada parte; cada personaje tiene sus 10 respuestas correctas (gestos). Están en la ficha de cada personaje en <a href=\"#/personajes\">Personajes</a>. Los aciertos suben el apoyo con Eshmel; la afinidad óptima lo duplica, como en las demás actividades. La cantidad exacta por acierto está sin confirmar.</p>"
     ],
     [
      "Conversaciones que no salen o se pierden",
@@ -527879,7 +528068,11 @@ window.WIKI={
     ],
     [
      "Quién no se recluta en cada ruta",
-     "<div class=\"tw\"><table class=\"md\"><tr><th>Personaje</th><th>Situación</th></tr><tr><td><a href=\"#/personaje/PID_ゲイツ\">Gaitz</a></td><td>Solo en la ruta de Dietrich</td></tr><tr><td><a href=\"#/personaje/PID_ボナパルテ\">Bonaventure</a>, <a href=\"#/personaje/PID_トビヤス\">Tobias</a></td><td>Solo en la ruta de Theodora (se unen solos)</td></tr><tr><td><a href=\"#/personaje/PID_ファビオ\">Fabio</a>, <a href=\"#/personaje/PID_サラン\">Sha Lan</a></td><td>Solo en las rutas de Dietrich y Leda</td></tr><tr><td><a href=\"#/personaje/PID_バッカニア\">Buccar</a></td><td>No en la ruta de Cai (en la de Leda se une solo)</td></tr><tr><td><a href=\"#/personaje/PID_ペペ\">Peppe</a>, <a href=\"#/personaje/PID_ウーシュラ\">Ursula</a></td><td>No en la ruta de Leda</td></tr><tr><td><a href=\"#/personaje/PID_セテス\">Seteth</a></td><td>No en la ruta de Dietrich</td></tr></table></div>\n<p><a href=\"#/personaje/PID_キリーク\">Creek</a> y <a href=\"#/personaje/PID_ネイサン\">Nathan</a> se unen en la Parte 2 solo si la ruta tiene la misión «<a href=\"#/mision/SQID_妹の形見\">El broche de mi difunta hermana</a>» (Dietrich y Leda) y la completaste en la Parte 1. <a href=\"#/personaje/PID_セントリオン\">Centurio</a> se une en la Parte 3 con la misión «<a href=\"#/mision/SQID_救援サブクエ1\">Socorre a Centurio</a>» (secciones 2–6), si completaste la Parte 2 de Cai. No son reclutas. <a href=\"#/personaje/PID_ペペ\">Peppe</a>, <a href=\"#/personaje/PID_ウーシュラ\">Ursula</a> y <a href=\"#/personaje/PID_ディエゴ\">Diego</a> dependen de los Desvíos de Bertrand, Talimun y Orchel.</p>"
+     "<div class=\"tw\"><table class=\"md\"><tr><th>Personaje</th><th>Situación</th></tr><tr><td><a href=\"#/personaje/PID_ゲイツ\">Gaitz</a></td><td>Solo en la ruta de Dietrich</td></tr><tr><td><a href=\"#/personaje/PID_ボナパルテ\">Bonaventure</a>, <a href=\"#/personaje/PID_トビヤス\">Tobias</a></td><td>Solo en la ruta de Theodora (se unen solos)</td></tr><tr><td><a href=\"#/personaje/PID_ファビオ\">Fabio</a>, <a href=\"#/personaje/PID_サラン\">Sha Lan</a></td><td>Solo en las rutas de Dietrich y Leda</td></tr><tr><td><a href=\"#/personaje/PID_バッカニア\">Buccar</a></td><td>No en la ruta de Cai (en la de Leda se une solo)</td></tr><tr><td><a href=\"#/personaje/PID_ペペ\">Peppe</a>, <a href=\"#/personaje/PID_ウーシュラ\">Ursula</a></td><td>No en la ruta de Leda</td></tr><tr><td><a href=\"#/personaje/PID_セテス\">Seteth</a></td><td>No en la ruta de Dietrich</td></tr></table></div>\n<p><a href=\"#/personaje/PID_キリーク\">Creek</a> y <a href=\"#/personaje/PID_ネイサン\">Nathan</a> se unen en la Parte 2 solo si la ruta tiene la misión «<a href=\"#/mision/SQID_妹の形見\">El broche de mi difunta hermana</a>» (Dietrich y Leda) y la completaste en la Parte 1. <a href=\"#/personaje/PID_セントリオン\">Centurio</a> se une en la Parte 3 con la misión «<a href=\"#/mision/SQID_救援サブクエ1\">Socorre a Centurio</a>» (secciones 2–6), si completaste la Parte 2 de Cai. No son reclutas. <a href=\"#/personaje/PID_ペペ\">Peppe</a>, <a href=\"#/personaje/PID_ウーシュラ\">Ursula</a> y <a href=\"#/personaje/PID_ディエゴ\">Diego</a> dependen de los Desvíos de Bertrand, Talimun y Orchel.</p>\n<p>Los compañeros de otro señor (<a href=\"#/personaje/PID_ティアラ\">Tialla</a>, <a href=\"#/personaje/PID_ファビオ\">Fabio</a>, <a href=\"#/personaje/PID_ボナパルテ\">Bonaventure</a>, <a href=\"#/personaje/PID_トビヤス\">Tobias</a>, <a href=\"#/personaje/PID_バッカニア\">Buccar</a>, <a href=\"#/personaje/PID_ゲイツ\">Gaitz</a>, <a href=\"#/personaje/PID_ウーシュラ\">Ursula</a>, <a href=\"#/personaje/PID_ディエゴ\">Diego</a> y <a href=\"#/personaje/PID_サラン\">Sha Lan</a>) solo se reclutan tras terminar el Desvío de su señor y cuando ese señor queda eliminado del Gran Torneo. Fechas en la ruta de Cai: Leda 1/9, Talimun 16/9, Orchel 27/9, Anatolia 4/10, Theodora 15/10, Dietrich 3/11 y Bertrand 27/11. En la ruta de Theodora, Dietrich y Bertrand nunca quedan eliminados: por eso Fabio y Gaitz no se reclutan allí. La fecha de cada ruta está en la ficha del personaje.</p>"
+    ],
+    [
+     "Reclutas de evento",
+     "<p>Algunos reclutas no piden un pago fijo, sino superar una conversación al reclutarles. Detalle por ruta en su ficha.</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Recluta</th><th>Qué pide</th></tr><tr><td><a href=\"#/personaje/PID_ティアラ\">Tialla</a></td><td>Preguntarle para qué quiere el dinero y darle 3000 G</td></tr><tr><td><a href=\"#/personaje/PID_ファビオ\">Fabio</a></td><td>Un objeto con precio de compra entre 3000 y 5999 G; al unirse lo devuelve</td></tr><tr><td><a href=\"#/personaje/PID_トビヤス\">Tobias</a></td><td>Una bebida: ghosh, shosh, leches, cervi o la bebida medicinal; el garo falla. Se puede repetir</td></tr><tr><td><a href=\"#/personaje/PID_ボナパルテ\">Bonaventure</a></td><td>Aceptar tres veces. Solo se recluta a uno de los dos: él o Tobias</td></tr><tr><td><a href=\"#/personaje/PID_ゲイツ\">Gaitz</a>, <a href=\"#/personaje/PID_ディエゴ\">Diego</a>, <a href=\"#/personaje/PID_バッカニア\">Buccar</a></td><td>Basta con aceptar</td></tr><tr><td><a href=\"#/personaje/PID_ウーシュラ\">Ursula</a></td><td>Aceptar sus tres condiciones</td></tr><tr><td><a href=\"#/personaje/PID_シモン\">Simon</a></td><td>Una apuesta de 500 G por intento: elegir cruz, que sale siempre</td></tr><tr><td><a href=\"#/personaje/PID_サラン\">Sha Lan</a>, <a href=\"#/personaje/PID_ヨーカイ\">Yang Jie</a></td><td>Acertar sus preguntas (respuestas en su ficha); un fallo corta la conversación y se puede repetir</td></tr><tr><td><a href=\"#/personaje/PID_ザーコネ\">Zarcone</a></td><td>Pide 10 000 G: rechazar tres veces hasta que baje a 10 G y pagar</td></tr><tr><td><a href=\"#/personaje/PID_マジーデ\">Majide</a></td><td>Hablar con él tres veces; a la tercera, pedirle ayuda de corazón</td></tr><tr><td><a href=\"#/personaje/PID_ベンディッツ\">Benditz</a></td><td>Aliarse con él; si se rechaza, insiste y se puede aceptar después</td></tr></table></div>"
     ],
     [
      "Cómo se consigue",
@@ -528006,7 +528199,7 @@ window.WIKI={
    "secs": [
     [
      "En resumen",
-     "<ul>\n<li>Seis dioses tienen bendición: <a href=\"#/personaje/PID_アウロラ\">Aurora</a>, Mars, Smyrnos, Jurah, Kalla y Credna. Yu Phas, Dagda y Solel no. Ficha de cada uno en <a href=\"#/dioses\">Dioses</a>.</li>\n<li>Una bendición mejora a todo el ejército durante 1 turno y cuesta Arena divina (reserva de 100, que se rellena antes de cada batalla de historia y de Desvío). Solo una activa por turno.</li>\n<li>Cada bendición tiene 3 niveles; cada nivel añade un efecto. Se suben con el <b>tributo</b> del Servicio divino.</li>\n<li>El Servicio es una vez por semana en total, entre todos los templos. Da tributo y apoyo entre las dos unidades, no EXP.</li>\n<li>El tributo por servicio se multiplica por el Prestigio: ×0,5 al principio, ×0,8 con Prestigio 6, ×1,2 con Prestigio 10; en la Parte 3, ×1,5 y ×2 (multiplicadores del local; que afecten igual al tributo que al apoyo es inferido).</li>\n<li>Tabla completa con efectos, tributo y costes: <a href=\"#/dioses?ir=tabla-bendiciones\">Las seis bendiciones</a>.</li>\n</ul>"
+     "<ul>\n<li>Seis dioses tienen bendición: <a href=\"#/personaje/PID_アウロラ\">Aurora</a>, Mars, Smyrnos, Jurah, Kalla y Credna. Yu Phas, Dagda y Solel no. Ficha de cada uno en <a href=\"#/dioses\">Dioses</a>.</li>\n<li>Una bendición mejora a todo el ejército durante 1 turno y cuesta Arena divina (reserva de 100, que se rellena antes de cada batalla de historia y de Desvío). Solo una activa por turno.</li>\n<li>Cada bendición tiene 3 niveles; cada nivel añade un efecto. Se suben con el <b>tributo</b> del Servicio divino.</li>\n<li>El Servicio es una vez por semana en total, entre todos los templos. Da tributo y apoyo entre las dos unidades, no EXP.</li>\n<li>El tributo por servicio se multiplica por el Prestigio: ×0,5 al principio, ×0,8 con Prestigio 6, ×1,2 con Prestigio 10; en la Parte 3, ×1,5 y ×2 (multiplicadores del local; que afecten igual al tributo que al apoyo es inferido).</li>\n<li>Al empezar otra ruta desde el cap. 1, las bendiciones heredan el tributo más alto de una sola ruta, no la suma de todas<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Tabla completa con efectos, tributo y costes: <a href=\"#/dioses?ir=tabla-bendiciones\">Las seis bendiciones</a>.</li>\n</ul>"
     ],
     [
      "Cómo funciona",
@@ -530315,7 +530508,7 @@ window.WIKI={
     ],
     [
      "Cómo funciona",
-     "<p><b>Invitados.</b> La EXP de sus bajas se reparte entre los miembros fijos (×1,5 en total, más para los de menor nivel); los objetos que consigan en el mapa van al Carro<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Si cae un personaje nombrado en la condición de derrota, se pierde la batalla.</p>\n<p><b>Combate de orbes</b> (Theodora, cap. 10, cuartos contra Talimun): gana quien tenga más orbes al final de la fase del jugador del turno 12; llevar un orbe deja la Def a 0<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</p>\n<p><b>Espectador.</b> De 12:00 a 18:00 en el coliseo, el día del combate. Qué combates se pueden ver depende de la ruta:</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Ruta</th><th>Combates que se pueden ver</th></tr><tr><td>Cai</td><td>21/3, 7/5, 15/6, 16/9, 27/9, 4/10</td></tr><tr><td>Dietrich</td><td>7/5, 9/7, 10/7 (exhibición), 1/9, 16/9, 15/10</td></tr><tr><td>Theodora</td><td>10/4, 7/5, 15/6, 9/7, 10/7 (exhibición), 1/9, 27/9, 4/10</td></tr><tr><td>Leda</td><td>10/4, 15/6, 4/10, 3/11</td></tr></table></div>\n<p>EXP en la ruta de Cai: 21/3 Lanza 15 y Arco 10; 7/5 Arco 15 y Coraza 10; 15/6 Hacha 25 y Equitación 20; 16/9, 27/9 y 4/10, entre 25 y 30 en dos competencias<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</p>"
+     "<p><b>Invitados.</b> La EXP de sus bajas se reparte entre los miembros fijos (×1,5 en total, más para los de menor nivel); los objetos que consigan en el mapa van al Carro<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Si cae un personaje nombrado en la condición de derrota, se pierde la batalla.</p>\n<p><b>Combate de orbes</b> (Theodora, cap. 10, cuartos contra Talimun): gana quien tenga más orbes al final de la fase del jugador del turno 12; llevar un orbe deja la Def a 0<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</p>\n<p><b>Espectador.</b> De 12:00 a 18:00 en el coliseo, el día del combate. Qué combates se pueden ver depende de la ruta:</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Ruta</th><th>Combates que se pueden ver</th></tr><tr><td>Cai</td><td>21/3, 7/5, 15/6, 16/9, 27/9, 4/10</td></tr><tr><td>Dietrich</td><td>7/5, 9/7, 10/7 (exhibición), 1/9, 16/9, 15/10</td></tr><tr><td>Theodora</td><td>10/4, 7/5, 15/6, 9/7, 10/7 (exhibición), 1/9, 27/9, 4/10</td></tr><tr><td>Leda</td><td>10/4, 15/6, 4/10, 3/11</td></tr></table></div>\n<p>EXP en la ruta de Cai: 21/3 Lanza 15 y Arco 10; 7/5 Arco 15 y Coraza 10; 15/6 Hacha 25 y Equitación 20; 16/9 Coraza 30 y Magia negra 25; 27/9 Hacha 30 y Magia blanca 25; 4/10 Espada 30 y Guanteletes 25<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</p>"
     ],
     [
      "Consejos de min-max",

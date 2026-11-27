@@ -35,9 +35,16 @@
     const fav = d => Object.values(CHARS).filter(c => (c.relations?.dish_fav || []).some(x => x.es === d.es)).map(c => L('personaje', c.id));
     const dishes = ((W.mech || {}).facilities?.meals?.dishes || []).filter(d => d.material === f.type && d.taste === f.taste)
       .map(d => `<a href="#/instalaciones?ir=comidas">${esc(nm(d))}</a>${fav(d).length ? ` <small>(${t('favorito de {who}', { who: list(fav(d)) })})</small>` : ''}`);
+    // the Cebo only needs the right food type for the animal to come (mount_rules.lure: «tipo que le gusta»); flavour only helps the capture
+    const lures = caiHide(true) ? [] : Object.entries(SPOTS).filter(([, s]) => s.lure).map(([k, s]) => [k, [...(s.lure.animals || []), ...(s.lure.rare ? [s.lure.rare] : [])]
+      .filter(a => MOUNTS[a.id]?.food?.type === f.type)]).filter(([, a]) => a.length).map(([k, a]) => `<li>${L('lugar', k)} <small>${list(a.map(x => `${L('montura', x.id)} ${pct(x.pct)}`))}` +
+      `${(MOUNTS[a[0].id].lure_spots_detail || []).find(d => d.spot === k)?.cai_p1 === false ? ' · ' + t('solo Parte 3') : ''}</small></li>`);
     return kvRows([
       [t('Ingrediente'), t('{type} · sabor {taste} · {stars} <small>(calidad {n} de 3)</small>', { type: esc(dx(f.type)), taste: esc(dx(f.taste)), stars: '★'.repeat(f.grade || 0), n: f.grade })],
+      // the field tutorial asks only for «al menos una planta»: any plant item starts a field (items_build.py plantable)
+      [t('Cultivo') + caiTag(), it.plantable ? `${t('Se puede plantar: con una unidad empieza un cultivo, que da 10 a los 6 turnos.')} <small><a href="#/guia/cultivo">${t('Guía: Cultivo')}</a></small>` : ''],
       [t('Banquete'), f.hp_pct != null ? `<a href="#/turnos?ir=banquete">${t('cura un {n} % de PV', { n: f.hp_pct })}</a>` : ''],
+      [t('Atrae como cebo') + caiTag(), lures.length ? `<ul>${lures.join('')}</ul><small><a href="#/monturas?ir=cebo">${t('Cebo')}</a></small>` : ''],
       [t('Tipo y sabor favoritos de'), mounts.length ? `${list(mounts)} <small>(<a href="#/monturas?ir=establo">${t('Establo')}</a>)</small>` : ''],
       [t('Platos de la Posada del mismo tipo y sabor'), list(dishes)],
     ]);
@@ -171,7 +178,7 @@
       where = t('Cofre en {where}', { where }); if (x.part) det.push(t('Parte {p}', { p: x.part }));
     } else if (x.type === 'sorteo') {
       const box = /^abrir (.+)$/.exec(x.what || '')?.[1];
-      where = box ? nlx(box) : x.what ? esc(dx(x.what)) : t('Caja'); det.push(t('al abrirla, {pct}', { pct: pct(x.pct) }));
+      where = box ? nlx(box) : x.what ? nlText(dx(x.what)) : t('Caja'); det.push(t('al abrirla, {pct}', { pct: pct(x.pct) }));
     } else if (x.type === 'mazmorra' || x.type === 'expedición a mazmorra') {
       if (unnamed(x.where)) where = t('Mazmorra sin nombre en el mapa');
       else if (x.type === 'expedición a mazmorra') where = t('Expedición a {where}', { where });
@@ -191,7 +198,7 @@
       if (x.pct != null) det.push(pct(x.pct));
       if (x.rare) det.push(t('raro')); if (x.first_time_only) det.push(t('solo la primera vez'));
       if (x.condition?.length) det.push(esc(conds(x.condition)));
-      if (x.type === 'recompensa' && !x.quest && x.what) where = esc(dx(x.what));
+      if (x.type === 'recompensa' && !x.quest && x.what) where = nlText(dx(x.what));
     }
     if (x.unit && x.type !== 'botín enemigo') det.push(t('lo lleva {who}', { who: esc(dx(x.unit)) }));
     if ((x.animals || []).length) det.push(list(x.animals.map(esc)));
@@ -224,15 +231,15 @@
     }).filter(g => g[1].length);
   }
   const obtain = groups => groups.map(([ti, rows]) => `<h4>${esc(t(ti))}</h4><ul class="fi-list">${rows.map(r => r.html).join('')}</ul>`).join('');
-  const plain = h => h.replace(/<[^>]+>/g, '');  // a place inside the summary line: text, the links are in the tab
+  const plain = h => h.replace(/<[^>]+>/g, '');  // the detail inside the summary line: text (a price), the place keeps its link
   /** the summary line: the first sources still open from the context chapter (same rule as Equipo's itemSources), or each group's first places */
   function mainSources(groups) {
     if (ctxChosen()) {
       const open = groups.flatMap(([, rows]) => rows.filter(r => !r.off));
-      return [t('Dónde conseguirlo en tu partida'), open.length ? esc(list(open.slice(0, 3).map(r => plain(r.w) + (r.d ? ` · ${plain(r.d.split(' · ')[0]).replace(/ \(−[\d.,]+ ?%\)/, '')}` : '')))) +
+      return [t('Dónde conseguirlo en tu partida'), open.length ? list(open.slice(0, 3).map(r => r.w + (r.d ? ` · ${esc(plain(r.d.split(' · ')[0]).replace(/ \(−[\d.,]+ ?%\)/, ''))}` : ''))) +
         (open.length > 3 ? ' ' + t('y {n} más', { n: open.length - 3 }) : '') : t('Ninguna fuente abierta desde tu capítulo')];
     }
-    return [t('Dónde conseguirlo'), groups.map(([ti, rows]) => esc(`${t(ti)}: ${list(rows.slice(0, 2).map(r => plain(r.w)))}${rows.length > 2 ? ' ' + t('y {n} más', { n: rows.length - 2 }) : ''}`)).join('<br>')];
+    return [t('Dónde conseguirlo'), groups.map(([ti, rows]) => `${esc(t(ti))}: ${list(rows.slice(0, 2).map(r => r.w))}${rows.length > 2 ? ' ' + esc(t('y {n} más', { n: rows.length - 2 })) : ''}`).join('<br>')];
   }
   const recruitsHere = (it, k, route) => list((it.used_by?.recruits || []).filter(x => x.route === route).map(x => {
     const n = CHARS[x.pid]?.routes?.[route]?.cost?.items?.find(i => i.id === k)?.n;
@@ -245,8 +252,13 @@
     (u.recruits || []).forEach(x => (byPid[x.pid] = byPid[x.pid] || []).push(x.route));
     const rec = Object.entries(byPid).sort((a, b) => b[1].includes(route) - a[1].includes(route))
       .map(([pid, rs]) => `${L('personaje', pid)} <small>(${routesFirst(route).filter(r => rs.includes(r)).map(r => ROUTE_NAME[r]).join(', ')})</small>`);
-    const forge = (u.forge || []).map(f => `<li>${esc(dx(f.what).replace(/^(forjar|Forge) /, ''))} <small>×${f.n}</small></li>`);
-    const other = (it.needed_for || []).filter(n => !/reclutamiento|trueque|\(web\)/.test(n.type || '')).map(n => `${esc(dx(n.what))}${n.n ? ` ×${n.n}` : ''}`);
+    const forge = (u.forge || []).map(f => `<li>${nlText(dx(f.what).replace(/^(forjar|Forge) /, ''))} <small>×${f.n}</small></li>`);
+    // a quest delivery: the quest name in the text becomes its link, and its window follows
+    const other = (it.needed_for || []).filter(n => !/reclutamiento|trueque|\(web\)/.test(n.type || '')).map(n => {
+      const q = n.quest && QUEST[n.quest], w = esc(dx(n.what));
+      return (q ? (/[«“][^»”]+[»”]/.test(w) ? w.replace(/[«“][^»”]+[»”]/, L('mision', n.quest)) : `${w} · ${L('mision', n.quest)}`) : w) +
+        `${n.n ? ` ×${n.n}` : ''}${q && questWhenEs(q) ? ` <small>(${esc(questWhenEs(q))})</small>` : ''}`;
+    });
     return kvRows([
       [t('Reclutamiento'), list(rec)],
       [t('Trueque'), list((u.barters || []).map(b => `${t('{n}× por {item}', { n: b.n, item: L('objeto', b.item) })}${b.where ? ` <small>(${esc(dx(b.where))})</small>` : ''}`))],
@@ -255,6 +267,7 @@
       [t('Regalo favorito de'), list((u.gift_fav || []).map(p => L('personaje', p)))],
       [t('Gusta a'), list((u.gift_like || []).map(p => L('personaje', p)))],
       [t('No gusta a'), list((g.dislikes || []).map(x => nlx(x)))],
+      [t('Lo odia'), list((g.hates_item || []).map(x => nlx(x)))],
     ]) + (forge.length ? `<details><summary>${t('Forja ({n})', { n: forge.length })}</summary><ul class="fi-list">${forge.join('')}</ul></details>` : '');
   }
 

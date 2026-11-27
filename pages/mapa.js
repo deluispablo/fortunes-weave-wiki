@@ -159,16 +159,23 @@
       `<p class="mut mhelp"><span class="sr-only" data-count>${t('{n} en el mapa', { n: plural(shown, 'lugar', 'lugares') })}. </span>${t('Arrastrar para desplazarlo; rueda, pellizco o +/− para el zoom; al tocar un punto se ve qué tiene. Con el teclado: flechas para desplazarlo e Intro para recorrer los lugares. Turnos en línea recta desde Dagsion (±1).')}</p>`;
   }
 
+  /** link an entity named in the data ({id, es}); plain text when it has no page */
+  const lnk = (kind, x) => (x?.id && ROUTES[kind] ? L(kind, x.id, x.es) : esc(nm(x)));
+  /** «~2 turnos desde Dagsion» with Dagsion linked (the panel only: the result chips are links already) */
+  const dagL = s => s.replace(nm(SPOTS['帝都ダグシオン']), L('lugar', '帝都ダグシオン'));
   function panel(k, route, c, caiP1, hit) {
-    const s = SPOTS[k], reg = M.regions[s.region], dg = M.dungeons?.[k], qs = spotQuests(s, route, c), dr = (s.search?.drops || []).filter(d => d.item), a = caiP1 || !route ? s.cai_p1_access : null;  // nothing picked: Cai's reachability as a labelled fact
-    const verdict = list([turnsTxt(s), a ? (a.reachable ? ((a.via_checkpoints || []).length ? t('Prestigio {n}', { n: a.via_checkpoints.map(v => v.renown_rank ?? '?').join('/') }) : t('libre')) : t('sin acceso en la Parte 1 de Cai')) : '',
+    const s = SPOTS[k], reg = M.regions[s.region], dg = M.dungeons?.[k], cp = M.checkpoints?.[k], qs = spotQuests(s, route, c), dr = (s.search?.drops || []).filter(d => d.item), a = caiP1 || !route ? s.cai_p1_access : null;  // nothing picked: Cai's reachability as a labelled fact
+    const verdict = list([dagL(turnsTxt(s)), a ? (a.reachable ? ((a.via_checkpoints || []).length ? t('Prestigio {n}', { n: a.via_checkpoints.map(v => v.renown_rank ?? '?').join('/') }) : t('libre')) : t('sin acceso en la Parte 1 de Cai')) : '',
       qs.length ? plural(qs.length, 'misión', 'misiones') + (c ? ' ' + t('en este capítulo') : '') : '']);
     const rows = kvRows([
       [t('Objeto buscado'), hit ? esc([...new Set(hit)].join(' / ')) : ''],
       [t('Misiones'), list(qs.map(q => L('mision', q.id)))],
-      [t('Búsqueda'), dr.length ? dr.slice(0, 5).map(d => `${esc(nm(d.item))} ${pct(d.pct)}`).join(', ') + (dr.length > 5 ? ` <a href="${href('lugar', k)}">${t('+{n} más', { n: dr.length - 5 })}</a>` : '') : ''],
-      [t('Cultivo') + caiTag(), !caiHide(true) && s.farm?.rare_plant ? `${t('planta rara: {x}', { x: esc(nm(s.farm.rare_plant)) })}${s.farm.plot_mutation_pct != null ? ` (${pct(s.farm.plot_mutation_pct)})` : ''}` : ''],
-      [t('Cebo') + caiTag(), !caiHide(true) && s.lure ? list((s.lure.animals || []).map(x => `${esc(MOUNTS[x.id] ? nm(MOUNTS[x.id]) : gt(x.es))} ${pct(x.pct)}`)) + (s.lure.rare ? ` · ${t('raro: {x}', { x: esc(nm(s.lure.rare)) })} ${pct(s.lure.rare.pct)}` : '') : ''],
+      [t('Búsqueda'), dr.length ? dr.slice(0, 5).map(d => { const q = searchQuests(s, d);  // lugares.js: the quest that must be accepted for this item
+        return `${lnk('objeto', d.item)} ${q ? `(${t('con la misión {q} aceptada', { q: q.map(x => lnk('mision', x)).join(` ${t('o')} `) })})` : pct(d.pct)}`; }).join(', ') + (dr.length > 5 ? ` <a href="${href('lugar', k)}">${t('+{n} más', { n: dr.length - 5 })}</a>` : '') : ''],
+      [t('Cultivo') + caiTag(), !caiHide(true) && s.farm?.rare_plant ? `${t('planta rara: {x}', { x: lnk('objeto', s.farm.rare_plant) })}${s.farm.plot_mutation_pct != null ? ` (${pct(s.farm.plot_mutation_pct)})` : ''}` : ''],
+      [t('Cebo') + caiTag(), !caiHide(true) && s.lure ? list((s.lure.animals || []).map(x => `${lnk('montura', x)} ${pct(x.pct)}`)) + (s.lure.rare ? ` · ${t('raro: {x}', { x: lnk('montura', s.lure.rare) })} ${pct(s.lure.rare.pct)}` : '') : ''],
+      [t('Prestigio para cruzar'), cp && !cp.closed_all && cp.renown_rank ? String(cp.renown_rank) : ''],
+      [t('Carruaje'), list((M.carriage_lines || []).filter(l => l.from === k).map(l => `${SPOTS[l.to] ? L('lugar', l.to) : esc(gt(l.to_es))} ${gold(l.price)}`))],
       [t('Mazmorra'), dg?.base_level_part?.['1'] ? t('nivel {n}', { n: dg.base_level_part['1'] }) : ''],
       [t('Tiendas'), esc(list(Object.keys(s.shops || {}).map(x => t(SHOP[x] || x))))],
       ['Vandahl', s.vandahl?.length ? t('trueques (<a href="{h}">ver lista</a>)', { h: `${href('lugar', k)}?ir=fi-tiendas` }) : ''],

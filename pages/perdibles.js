@@ -54,7 +54,7 @@ const fechaMD = s => { const m = String(s || '').match(/^(\d{1,2})\/(\d{1,2})$/)
       `<p class="pd-count">${t('<b>{n} de {all}</b> completados. Las marcas se guardan en este navegador.', { n: num(n), all: num(all.length) })}</p>` +
       `<p class="mut">${t('Conversaciones de apoyo que dejan de verse:')} <a href="#/apoyos?v=p1">${t('al acabar la Parte 1')}</a> · <a href="#/apoyos?v=p2">${t('al acabar la Parte 2')}</a>.</p>` +
       (parts.length > 1 ? `<nav class="tabs" aria-label="${t('Partes')}">${parts.map(([p, pt]) => `<button type="button" data-to="pd-p${p}">${pt}</button>`).join('')}</nav>` : '') +
-      (parts.map(([p, pt, xs]) => `<section class="card" id="pd-p${p}"><h3>${pt} <small class="mut">(${xs.length})</small></h3><ul class="cp-list pd-list">${xs.map(m => row(m, r, ok)).join('')}</ul></section>`).join('') ||
+      (autoLink(parts.map(([p, pt, xs]) => `<section class="card" id="pd-p${p}"><h3>${pt} <small class="mut">(${xs.length})</small></h3><ul class="cp-list pd-list">${xs.map(m => row(m, r, ok)).join('')}</ul></section>`).join(''), '', true) ||
         `<p class="mut">${t('Nada pendiente con estos filtros.')}</p>`);
   }
 

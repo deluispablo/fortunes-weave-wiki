@@ -9,6 +9,7 @@
   const itemL = it => (it ? `${itemIco(it.id, 'ico')}${L('objeto', it.id, it.es)}` : '');
   const spotL = id => (SPOTS[id] ? L('lugar', id) : '');
   const byName = (a, b) => nm(a[1]).localeCompare(nm(b[1]), LANG);
+  const dx = s => (s && isEn() && EN_DICT().ui?.[s] != null ? t(s) : gt(s));
   const md = s => fechaMD(s);  // called at render time (pages/perdibles.js loads later); "9/17" (month/day) → "17 sep" / "Sep 17" (pages/perdibles.js)
 
   /* ---------------- shops and barter ---------------- */
@@ -18,19 +19,19 @@
     if (!rs.length) return '';
     return `<div class="tw"><table><tr><th>${t('Objeto')}</th><th>${t('Precio')}</th><th>${t('Existencias')}</th><th>${t('Condiciones')}</th></tr>${rs.map(x => `<tr><td>${itemL(x.item)}</td>` +
       `<td>${x.barter?.length ? list(x.barter.map(b => `${b.n}× ${itemL(b.item)}`)) : x.price != null ? gold(x.price) : ''}</td>` +
-      `<td>${x.stock == null ? '∞' : x.stock}${x.restock_per_chapter ? ' ' + t('(+{n} por capítulo)', { n: x.restock_per_chapter }) : ''}</td><td>${esc(conds(x.conds))}</td></tr>`).join('')}</table></div>`;
+      `<td>${x.stock == null ? '∞' : x.stock}${x.restock_per_chapter ? ' ' + t('(+{n} por capítulo)', { n: x.restock_per_chapter }) : ''}</td><td>${condsH(x.conds)}</td></tr>`).join('')}</table></div>`;
   }
   function tiendas(qs) {
     const r = listRoute(qs), tp = qs.t || '';
     const show = k => !tp || tp === k;
     const towns = Object.entries(SPOTS).filter(([, s]) => s.es && s.shops && Object.keys(s.shops).length).sort(byName).map(([k, s]) => {
       const body = Object.entries(s.shops).map(([n, rows]) => { const tb = shopTable(rows, r); return tb && `<h4>${esc(t(SHOP[n] || n))}</h4>${tb}`; }).join('');
-      return body && `<details class="card"><summary><b>${L('lugar', k)}</b> <small class="mut">${esc(Object.keys(s.shops).map(n => t(SHOP[n] || n)).join(', '))}</small></summary>${body}</details>`;
+      return body && `<details class="card"><summary><b>${esc(nm(SPOTS[k]))}</b> <small class="mut">${esc(Object.keys(s.shops).map(n => t(SHOP[n] || n)).join(', '))}</small></summary><p>${L('lugar', k)}</p>${body}</details>`;
     }).filter(Boolean);
-    const vandahl = Object.values(M.vandahl_fixed || {}).map(v => { const tb = shopTable(v.rows, r); return tb && `<details class="card"><summary><b>${spotL(v.spot) || t('Sociedad Mercantil Vandahl')}</b></summary>${tb}</details>`; }).filter(Boolean);
+    const vandahl = Object.values(M.vandahl_fixed || {}).map(v => { const tb = shopTable(v.rows, r); return tb && `<details class="card"><summary><b>${SPOTS[v.spot] ? esc(nm(SPOTS[v.spot])) : t('Sociedad Mercantil Vandahl')}</b></summary>${SPOTS[v.spot] ? `<p>${spotL(v.spot)}</p>` : ''}${tb}</details>`; }).filter(Boolean);
     const roaming = Object.values(M.roaming_merchants || {}).map(m => {
       const tb = shopTable(m.rows, r), at = list((m.spawn_spots || []).map(spotL));
-      return tb && `<details class="card"><summary><b>${esc(nm(m))}</b>${at ? ` <small class="mut">${t('aparece en {p}', { p: at })}</small>` : ''}</summary>${tb}</details>`;
+      return tb && `<details class="card"><summary><b>${esc(nm(m))}</b></summary>${at ? `<p class="mut">${t('aparece en {p}', { p: at })}</p>` : ''}${tb}</details>`;
     }).filter(Boolean);
     return `<h1>${t('Tiendas y trueques')}</h1>${guiaLink('tiendas', 'vandahl')}${routeChips('tiendas', qs, r)}` +
       chips('tiendas', qs, 't', [['', t('Todo')], ['tiendas', `${t('Tiendas')} (${towns.length})`], ['vandahl', `${t('Trueque Vandahl')} (${vandahl.length})`], ['ambulantes', `${t('Mercaderes itinerantes')} (${roaming.length})`]], tp, 'Tipo') +
@@ -41,7 +42,23 @@
 
   /* ---------------- gathering ---------------- */
   const isFish = it => /pescado/i.test(ITEMS[it?.id]?.section || '');
-  const drops = s => ul((s.search?.drops || []).filter(x => x.item).map(x => li(itemL(x.item), list([pct(x.pct), x.rare && t('raro'), x.first_time_only && t('solo la primera vez')]))));
+  const qBase = id => id.replace(/^SQID_/, '').replace(/_(カイ|ディートリヒ|セオドラ|レダ)$/, '');
+  /** quests to accept for a spot's quest-only Search drop (0 %, first time): its «サブクエ_X_受注中» flag (every route variant), else the quests that ask for the item */
+  const dropQuests = (s, x) => {
+    if (!x.first_time_only || x.pct || !s.search?.first_time_conds?.length) return [];
+    const bs = s.search.first_time_conds.map(f => (/^サブクエ_(.+)_受注中$/.exec(f) || [])[1]).filter(Boolean).map(qBase);
+    const qs = Object.values(QUEST).filter(q => bs.includes(qBase(q.id)));
+    return qs.length ? qs : Object.values(QUEST).filter(q => (q.deliver || []).some(v => String(v?.es ?? v).replace(/ ×\d+$/, '') === x.item.es));
+  };
+  const dropQuestTx = qs => t('solo con la misión {q} aceptada', { q: [...new Map(qs.map(q => [nm(q), L('mision', q.id)])).values()].join(` ${t('o')} `) });
+  const drops = s => ul((s.search?.drops || []).filter(x => x.item).map(x => { const qs = dropQuests(s, x);
+    return li(itemL(x.item), qs.length ? dropQuestTx(qs) : list([pct(x.pct), x.rare && t('raro'), x.first_time_only && t('solo la primera vez')])); }));
+  /** one lured animal: chance (rare slot marked), the food type · taste it likes and the best baits that match both (as on the place page) */
+  const lureAnimal = a => {
+    const m = MOUNTS[a.id], f = m?.food, best = (m?.matching_foods || []).filter(x => x.grade === 3 && ITEMS[x.iid]).slice(0, 3);
+    return `<li>${L('montura', a.id, a.es)} <small>${pct(a.pct)}${a.rare ? ' · ' + t('raro') : ''}</small>` +
+      (f ? `<br><small>${t('Cebo favorito')}: ${esc(dx(f.type))} · ${esc(dx(f.taste))}${best.length ? ' (' + best.map(x => itemL({ id: x.iid, es: x.es })).join(', ') + ')' : ''}</small>` : '') + '</li>';
+  };
   const nth = n => (!isEn() ? `${n}.ª` : n % 10 === 1 && n % 100 !== 11 ? `${n}st` : n % 10 === 2 && n % 100 !== 12 ? `${n}nd` : n % 10 === 3 && n % 100 !== 13 ? `${n}rd` : `${n}th`);
   function recoleccion(qs) {
     const tp = qs.t || '';
@@ -59,9 +76,9 @@
       [t('Mutación con abono'), list(Object.values(fr.fertiliser_mutation_pct || {}).map(f => `${itemL(f.item)} ${pct(f.pct)}`))],
     ]);
     const farmT = `<div class="tw"><table><tr><th>${t('Lugar')}</th><th>${t('Planta rara')}</th><th>${t('Mutación')}</th></tr>${farms.map(([k, s]) =>
-      `<tr><td>${L('lugar', k)}</td><td>${itemL(s.farm.rare_plant)}</td><td>${s.farm.plot_mutation_pct != null ? pct(s.farm.plot_mutation_pct) : ''}</td></tr>`).join('')}</table></div>`;
+      `<tr><td>${L('lugar', k)}</td><td>${itemL(s.farm.rare_plant)}</td><td>${s.farm.plot_mutation_pct != null ? pct(s.farm.plot_mutation_pct) : ''}${s.farm.faerghast?.note ? `<br><small>${esc(dt(s.farm.faerghast.note))}</small>` : ''}</td></tr>`).join('')}</table></div>`;
     const lureT = `<div class="tw"><table><tr><th>${t('Lugar')}</th><th>${t('Animales')}</th><th>${t('Si falla, deja')}</th><th>${t('Misión')}</th></tr>${lures.map(([k, s]) =>
-      `<tr><td>${L('lugar', k)}</td><td>${list((s.lure.animals || []).map(a => L('montura', a.id, a.es) + ` <small>${pct(a.pct)}</small>`))}</td>` +
+      `<tr><td>${L('lugar', k)}</td><td><ul>${[...(s.lure.animals || []), ...(s.lure.rare ? [{ ...s.lure.rare, rare: 1 }] : [])].map(lureAnimal).join('')}</ul></td>` +
       `<td>${itemL(s.lure.fertiliser)}</td><td>${s.lure.subquest ? L('mision', s.lure.subquest.id, s.lure.subquest.es) : ''}</td></tr>`).join('')}</table></div>`;
     const kv = rows => docHtml({ kv: rows.map(([k, v]) => [t(k), t(v)]) });
     const searchRules = card(t('Reglas de la búsqueda'), kv([['Resultado', 'malo 25 % → 1 objeto; bueno 70 % → 3; perfecto 5 % → 6.'], ['Búsquedas de evento', 'siempre perfectas, con 10 objetos.']]));
@@ -78,10 +95,13 @@
   /* ---------------- dungeons ---------------- */
   function mazmorras() {
     const rows = Object.entries(M.dungeons || {}).filter(([k, d]) => SPOTS[k]?.es || d.es).sort((a, b) => (a[1].base_level_part?.['1'] || 0) - (b[1].base_level_part?.['1'] || 0) || byName(a, b));
-    const loot = d => [...new Map((d.loot_tables || []).flat().filter(x => x.item).map(x => [x.item.id, x.item])).values()];
+    /** one line per loot table (the game's four tables; which is which is not decoded), each item once with every quantity · chance */
+    const loot = d => (d.loot_tables || []).map(tb => { const m = new Map();
+      tb.filter(x => x.item).forEach(x => m.set(x.item.id, [...(m.get(x.item.id) || [x.item]), `${x.n}× ${pct(x.pct)}`]));
+      return [...m.values()].map(([it, ...c]) => `${itemL(it)} <small>${c.join(', ')}</small>`).join(' · '); }).filter(Boolean);
     return `<h1>${t('Mazmorras')}</h1>${guiaLink('mazmorras')}<p class="mut">${t('Ordenadas por nivel en la Parte 1.')}</p>` +
       `<div class="tw"><table><tr><th>${t('Mazmorra')}</th><th>${t('Nivel (Parte 1)')}</th><th>${t('Bono de nivel (Parte 2)')}</th><th>${t('Botín')}</th></tr>${rows.map(([k, d]) =>
-        `<tr><td>${SPOTS[k] ? L('lugar', k) : esc(nm(d))}</td><td>${d.base_level_part?.['1'] || ''}</td><td>${d.level_bonus_2 ? '+' + d.level_bonus_2 : ''}</td><td>${list(loot(d).map(itemL))}</td></tr>`).join('')}</table></div>`;
+        `<tr><td>${SPOTS[k] ? L('lugar', k) : esc(nm(d))}</td><td>${d.base_level_part?.['1'] || ''}</td><td>${d.level_bonus_2 ? '+' + d.level_bonus_2 : ''}</td><td>${loot(d).join('<br>')}</td></tr>`).join('')}</table></div>`;
   }
 
   /* ---------------- quests and side stories ---------------- */
@@ -101,7 +121,10 @@
   const PARTS = [['', 'Todas las partes'], ['1', 'Prólogo y Parte 1'], ['3', 'Parte 3']];
   const inPart = (q, p) => !p || (p === '3' ? q.part === 3 : (q.part ?? 1) <= 1);
   /** a Desvío's acceptance window on route r: «17 sep – 25 sep», with the last day to fight when the game sets one */
-  const paraWin = (p, r) => { const w = p.routes?.[r]; return w ? `${md(w.accept_from)} – ${md(w.accept_to)}${w.fight_to ? ` <small>${t('(combate hasta el {d})', { d: md(w.fight_to) })}</small>` : ''}` : ''; };
+  const RP = id => ((window.WIKI_EXT || {}).rutas?.paralogues || []).find(x => x.id === id);
+  /** «(la ruta acaba el 24 oct)» when the route's Part 1 ends before the Desvío's window closes */
+  const clip = (p, r) => { const c = RP(p.id)?.routes?.[r]?.clipped_to; return c ? ` <small>${t('(la ruta acaba el {d})', { d: md(c.slice(5).split('-').map(Number).join('/')) })}</small>` : ''; };
+  const paraWin = (p, r) => { const w = p.routes?.[r]; return w ? `${md(w.accept_from)} – ${md(w.accept_to)}${w.fight_to ? ` <small>${t('(combate hasta el {d})', { d: md(w.fight_to) })}</small>` : ''}${clip(p, r)}` : ''; };
 
   function misiones(qs) {
     const r = listRoute(qs), k = qs.k || '', pt = PARTS.some(x => x[0] === qs.p) ? qs.p : '';
@@ -124,6 +147,19 @@
         `<div class="tw"><table><tr><th>${t('Desvío')}</th><th>${t('Señor')}</th><th>${t('Lugar')}</th><th>${t('Aceptar')}</th><th>${t('Recompensa')}</th></tr>${paras}</table></div>` : '') + lessons;
   }
 
+  const ROUTE_JP = { カイ: 'cai', ディートリヒ: 'dietrich', セオドラ: 'theodora', レダ: 'leda' };
+  /** a quest's unlock flag in plain words; flags that only say «the quest can be accepted» are left out */
+  const flagTx = f => {
+    let m;
+    if (f === '対応済_追加コンテンツ') return t('Contenido descargable');
+    if ((m = /^(\d)部クリア_(.+)篇$/.exec(f))) return t('Parte {p} completada', { p: m[1] });
+    if ((m = /^共有_兵種解放_(.+)$/.exec(f)) && CLASSES['JID_' + m[1]]) return t('clase {c} desbloqueada', { c: L('clase', 'JID_' + m[1]) });
+    const sp = /_スポット復興済$/.test(f) && Object.keys(SPOTS).filter(k => f.startsWith(k)).sort((a, b) => b.length - a.length)[0];
+    return sp ? t('{p} reconstruido', { p: L('lugar', sp) }) : '';
+  };
+  /** where to Search for the item the quest needs: the spots whose quest-only drop it unlocks */
+  const searchFor = id => Object.entries(SPOTS).flatMap(([k, s]) => (s.search?.drops || []).filter(x => x.item && dropQuests(s, x).some(q => q.id === id)).map(x => `${L('lugar', k)}: ${itemL(x.item)}`));
+
   function mision(id) {
     const q = QUEST[id];
     if (!q) return notFound();
@@ -134,10 +170,12 @@
     const variants = Object.values(QUEST).filter(x => x.id !== id && x.es === q.es && x.giver === q.giver).map(x => `${L('mision', x.id)} <small>(${esc(questRoutesEs(x))})</small>`);
     return ficha(head, [
       ['aqui', 'En esta ruta', route ? kvRows([[t('Ruta de {r}', { r: ROUTE_NAME[route] }), on(route)], [t('Solo en una nueva vuelta'), (q.nth_route || 1) >= 2 ? t('Sí') : '']]) : ''],
-      ['resumen', 'Misión', kvRows([[t('Objetivo'), esc(dt(q.goal))], [t('Encarga'), nl(q.giver)], [t('Se cobra en'), nlx(String(q.cash_in || q.giver || '').replace(/\s*\(Dng_[^)]*\)/, ''))], [t('Lugar'), list((q.where || []).map(nl))],
+      ['resumen', 'Misión', kvRows([[t('Objetivo'), esc(dt(q.goal))], [t('Encarga'), nl(q.giver)], [t('Se cobra en'), nlx(String((!/^Hub_/.test(q.cash_in || '') && q.cash_in) || q.giver || '').replace(/\s*\(Dng_[^)]*\)/, ''))], [t('Lugar'), list((q.where || []).map(nl))],
         [t('Rutas'), esc(questRoutesEs(q))], [t('Cuándo'), esc(questWhenEs(q))],
         [t('Nueva vuelta'), (q.nth_route || 1) >= 2 ? t('Solo al repetir la ruta (nueva vuelta)') : ''],
         [t('Entregar'), list(deliver)], [t('Prestigio necesario'), q.renown_req ? String(q.renown_req) : ''],
+        [t('Se desbloquea con'), list((q.flags_req || []).map(flagTx).filter(Boolean))],
+        [t('Dónde buscar'), list(searchFor(id))],
         [t('Requisitos'), (q.prereq || []).map(x => (QUEST[x] ? L('mision', x) : nl(x))).filter(Boolean).join(q.prereq_any ? ` ${t('o')} ` : ', ')],
         [t('Nivel recomendado'), q.recommended_lv != null ? String(q.recommended_lv) : ''], [t('Recompensa'), reward(q)],
         [t('Abre el paso'), list(Object.values(W.map?.checkpoints || {}).filter(g => g.cai_subquest?.id === id).map(g => L('lugar', g.spot, g.es) + ` <small>${t('(ruta de Cai)')}</small>`))],
@@ -152,14 +190,20 @@
     if (!p) return notFound();
     const bat = ((window.WIKI_EXT || {}).batallas?.b || []).find(b => b.id === p.battle), route = ctxRoute();
     const head = fichaHead('', `<a href="#/misiones">${t('Misiones y desvíos')}</a>`, nm(p), t('Desvío'));
-    const rs = paraRoutes(p);
+    const rs = paraRoutes(p), rp = RP(id);
+    // recruits this Desvío lets you sign, with the routes where its window counts for them (rutas.recruits) and the answers it needs
+    const recs = ((window.WIKI_EXT || {}).rutas?.recruits || []).filter(c => (c.paralogue || []).some(x => x.id === id)).map(c => [c, ROUTE_IDS.filter(r => c.routes?.[r]?.window?.some(w => w.es === rp?.es))])
+      .filter(([, r]) => r.length).map(([c, r]) => `${L('personaje', c.pid, c.es)} <small>(${esc(list(r.map(x => ROUTE_NAME[x])))})</small>`);
+    const answers = (/\(([^)]*«[^)]*)\)/.exec(rp?.recruit || '') || [])[1];
     const here = route ? (p.routes?.[route] ? paraWin(p, route) : t('No sale en la ruta de {r}', { r: esc(ROUTE_NAME[route]) })) : '';
     const byRoute = `<div class="tw"><table><tr><th>${t('Ruta')}</th><th>${t('Aceptar')}</th><th>${t('Combate hasta')}</th></tr>${ROUTE_IDS.map(r => { const w = p.routes?.[r];
-      return `<tr><td>${esc(ROUTE_NAME[r])}</td><td>${w ? `${md(w.accept_from)} – ${md(w.accept_to)}` : `<span class="mut">${t('No sale')}</span>`}</td><td>${w?.fight_to ? md(w.fight_to) : ''}</td></tr>`; }).join('')}</table></div>`;
+      return `<tr><td>${esc(ROUTE_NAME[r])}</td><td>${w ? `${md(w.accept_from)} – ${md(w.accept_to)}${clip(p, r)}` : `<span class="mut">${t('No sale')}</span>`}</td><td>${w?.fight_to ? md(w.fight_to) : ''}</td></tr>`; }).join('')}</table></div>`;
     return ficha(head, [['resumen', 'Desvío', kvRows([[t('Señor'), nl(p.lord)], [t('Hablar con'), nl(p.talk_to)], [t('Lugar'), nl(p.spot)],
       [t('Rutas'), esc(list(rs.map(r => ROUTE_NAME[r])))],
       [t('Aceptar (ruta de {r})', { r: ROUTE_NAME[route] }), here], [t('Hora del evento'), p.event_time && esc(p.event_time)],
-      [t('Objetivo'), esc(dt(p.goal))], [t('Batalla'), bat ? `<a href="${href('batalla', bat.id)}">${esc(dt(bat.t))}</a>` : ''],
+      [t('Objetivo'), esc(dt(p.goal))],
+      [t('Recluta'), list(recs) + (answers ? ` · ${esc(dt(answers))}` : '')], [t('Se une en la Parte 3'), rp?.part3_join ? nl(rp.part3_join) : ''],
+      [t('Batalla'), bat ? `<a href="${href('batalla', bat.id)}">${esc(dt(bat.t))}</a>` : ''],
       [t('Guion'), list(guionLinks.para(id).map(([h, tl]) => `<a href="${h}">${esc(tl)}</a>`))],
       [t('Recompensa'), list([p.gold ? gold(p.gold) : '', renownTx(p.renown), ...(p.items || []).map(nl)])]]) +
       `<h4>${t('Plazo en cada ruta')}</h4>${byRoute}`]]);

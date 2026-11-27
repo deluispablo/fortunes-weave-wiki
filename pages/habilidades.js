@@ -72,6 +72,19 @@
       rows.map(r => `<span>${[...r].map(cell).join('')}</span>`).join('') + '</span>';
   };
   const cap = s => (s ? s.charAt(0).toUpperCase() + s.slice(1) : '');
+  /** game data (duration) counts in the unit its cycle code names: 3, 4 and 9 turns (Silencio «1 turno», Arreón «hasta el final del turno siguiente» = 2),
+      2 phases (Confusión «hasta el final de la fase»), 6 combats (Barrera; [6,4] = «1 combate o 1 turno»).
+      Codes with no count: 1 lasts the battle (juices), 8 until the unit ends its action (Hiperactividad's extra action), 10 is permanent (thermae and equipment boons) */
+  const UNIT = { 2: ['fase', 'fases'], 3: ['turno', 'turnos'], 4: ['turno', 'turnos'], 6: ['combate', 'combates'], 9: ['turno', 'turnos'] };
+  const END = { 1: 'Hasta el final de la batalla', 8: 'Hasta que la unidad termina su acción', 10: 'Permanente' };
+  const durTxt = s => { const n = [...new Set((s.cycle || [3]).filter(c => UNIT[c]).map(c => plural(s.duration, ...UNIT[c])))];
+    return s.duration && n.length ? n.join(` ${t('o')} `) : t(END[(s.cycle || []).find(c => END[c])] || ''); };
+  /** game data numbers the game fills in at run time that the text leaves blank (halo chances and bonuses; huecos.json) */
+  const FILL = () => (window.WIKI_EXT || {}).huecos?.habilidades || {};
+  /** the description, with the number the game fills in at run time («…durante.», «for 寿命 .») put back from the duration */
+  const descTx = (s, k) => { const f = FILL()[k]; if (f) return isEn() ? f.en : f.es;
+    const d = s.duration && (s.cycle || [3]).some(c => UNIT[c]) ? durTxt(s) : '', x = tx(s, 'desc');
+    return !d ? x : isEn() ? x.replace(/\b(for|after)\s+(?:寿命)?\s*\./, `$1 ${d}.`) : x.replace(/durante([.,])/, `durante ${d}$1`); };
   function habilidad(k) {
     const s = SKILLS[k];
     if (!s) return notFound();
@@ -99,9 +112,9 @@
       : l.how === 'Transmitir secreto' ? [t('{a} a otra unidad: {n} × {item}', { a: `<a href="#/senores?ir=dietrich">${esc(t('Transmitir secreto'))}</a>`, n: l.cost, item: ITEMS[l.item] ? L('objeto', l.item, l.item_es) : esc(gt(l.item_es)) }) +
         ` <small>(${t('ruta de Dietrich; en la Parte 3, en Dagsion')})</small>`] : []);
     return ficha(fichaHead(img(ico().skill?.[k], 'fi-pic'), `<a href="#/habilidades">${t('Habilidades')}</a> · <a href="#/guia/habilidades">${t('Guía')}</a>`, nm(s) || k, /\?|sin datos/.test(s.kind_es || '') ? '' : cap(dx(s.kind_es)),
-      (tx(s, 'desc') ? `<p>${esc(tx(s, 'desc'))}</p>` : '') + kvRows([
+      (descTx(s, k) ? `<p>${esc(descTx(s, k))}</p>` : '') + kvRows([
         [t('Alcance'), s.range && s.range[1] ? s.range.join('–') : ''], [t('Área'), area(s.area)],
-        [t('Usos por batalla'), uses ? String(uses) : ''], [t('Duración'), s.duration ? plural(s.duration, 'turno', 'turnos') : ''],
+        [t('Usos por batalla'), uses ? String(uses) : ''], [t('Duración'), durTxt(s)],
         [t('Poder · Golpe'), gam && (gam.might || gam.hit) ? `${gam.might ?? '—'} · ${gam.hit ?? '—'}` : ''],
         [t('Coste de PV'), s.hp_cost ? String(s.hp_cost) : ''], [t('Coste de usos'), s.durability_cost ? String(s.durability_cost) : ''],
         [t('Mejora'), up && `${L('habilidad', up[0])} · ${up[2]}× ${L('objeto', up[1])}`], [t('Mejora de'), from && L('habilidad', from)],

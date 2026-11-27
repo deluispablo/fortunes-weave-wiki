@@ -44,7 +44,7 @@
         `<tr><th>${esc(dx(r.n))}</th>${r.rate.map(v => `<td>${pct(v)}</td>`).join('')}</tr>`).join('')}</table></div><p class="mut">${esc(dx(A.assist.note))}</p>`;
       const aff = `<p>${t('Afinidad de la pareja (multiplica los puntos ganados):')} ${Object.keys(A.aff.mult).map(k => `<span class="rk">${'★'.repeat(+k)} ×${mult(k)}</span>`).join(' ')}</p>`;
       const groups = `<div class="tw"><table><tr><th>${t('Grupo de clase')}</th>${lvH}<th>${t('Clases')}</th></tr>${Object.values(A.class_groups).map(g =>
-        `<tr><th>${esc(dx(g.es))}</th>${[2, 3, 4, 5].map(l => `<td>${bon(g.lv[l])}</td>`).join('')}<td class="mut">${esc(g.classes.map(gt).join(', '))}</td></tr>`).join('')}</table></div>`;
+        `<tr><th>${esc(dx(g.es))}</th>${[2, 3, 4, 5].map(l => `<td>${bon(g.lv[l])}</td>`).join('')}<td class="mut">${g.classes.map(nl).join(', ')}</td></tr>`).join('')}</table></div>`;
       const facts = [...A.rules.map(r => factOnly(noJp(dx(r.t)))).filter(Boolean),
         t('Puntos para subir del nivel 1 al 5: 400, 1000, 1000 y 800. Los puntos por encima del nivel 5 se pierden; los apoyos se conservan al reiniciar el capítulo.'),
         t('Un regalo previo abre las comidas con ese personaje. La Comida semanal es la fuente principal; la Percha, el Teatro y las Termas suman encima.')];
@@ -128,7 +128,7 @@
       const p = PAIR[id], T = TX(), open = qs.r;
       const clsBonus = pid => {
         const j = CHARS[pid]?.combat?.class, G = A.class_groups[CLASSES[j]?.support_effect_q];
-        return G ? esc(t('{c}: {j} → {g} (nivel 5: {b})', { c: cn(pid), j: nm(CLASSES[j]), g: dx(G.es), b: bon(G.lv[5]) })) : '';
+        return G ? t('{c}: {j} → {g} (nivel 5: {b})', { c: L('personaje', pid), j: L('clase', j), g: esc(dx(G.es)), b: esc(bon(G.lv[5])) }) : '';
       };
       const info = kvRows([
         [t('Rangos'), rankChips(p)],

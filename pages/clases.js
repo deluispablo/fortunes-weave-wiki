@@ -107,12 +107,13 @@
       ['req', 'Requisitos', kvRows([
         [t('Examen'), c.exam_requirements_es && esc(dx(c.exam_requirements_es))],
         [t('Nivel recomendado'), c.recommended_level ? String(c.recommended_level) : ''],
-        [t('Penalización por rango que falta'), c.exam_penalty_per_missing_rank ? t('−{n} % de probabilidad', { n: c.exam_penalty_per_missing_rank }) : ''],
+        [t('Penalización por rango que falta'), c.exam_penalty_per_missing_rank > 0 ? t('−{n} % de probabilidad', { n: c.exam_penalty_per_missing_rank }) : ''],
         [t('EXP de clase para dominarla'), c.class_exp_to_master ? String(c.class_exp_to_master) : ''],
         [t('Licencias y exámenes'), esc(sentence(fo(caiHide() ? noCaiShop(c.licence_note) : c.licence_note)))],
         [t('Clase previa'), c.tree_prev && CLASSES[c.tree_prev] ? L('clase', c.tree_prev) : ''],
         [t('Siguientes'), list((c.tree_next_all || []).filter(x => CLASSES[x]).map(x => L('clase', x)))],
         [t('No disponible para'), list((c.forbidden_persons || []).map(x => nlx(x)))],
+        [t('Solo para'), String(c.gender_q || '').startsWith('solo mujeres') ? t('mujeres') : ''],  // Job gender 2, the rule classBan() applies
       ])],
       ['habilidades', 'Habilidades', charge + kvRows([[t('Habilidades'), skillLinks(c.skills)], [t('Técnicas'), skillLinks(c.arts)], [t('De apoyo'), skillLinks(c.ally_skills)]]) +
         (mastery.length ? `<h4>${t('Habilidad maestra')}</h4>${ul(mastery)}${fo(c.mastery_note) ? `<p class="mut">${esc(sentence(fo(c.mastery_note)))}</p>` : ''}` : '')],

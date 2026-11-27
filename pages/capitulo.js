@@ -7,6 +7,17 @@
   const dt = s => { const g = gt(s); return g !== s ? g : t(s); };
   const days = (a, b) => { const [y1, m1, d1] = ymd(a), [y2, m2, d2] = ymd(b); return Math.round((Date.UTC(y2, m2 - 1, d2) - Date.UTC(y1, m1 - 1, d1)) / 864e5) + 1; };
   const range = ([a, b]) => (a === b ? `${a}` : `${a}–${b}`);
+  /** a data name → a link when it names an entity of one of `kinds` (core.js NAME: Spanish and English names), else plain text */
+  const nk = (s, kinds) => { const h = NAME.get(norm(s)); return h && kinds.includes(h[0]) ? L(h[0], h[1]) : esc(s); };
+  const names = (s, kinds) => String(s).split(', ').map(x => nk(x, kinds)).join(', ');
+  /** a label that holds a place («Dagsion (armería)») → the same text, linked to that place */
+  const spotA = (spot, text) => (SPOTS[spot] ? `<a href="${href('lugar', spot)}">${esc(text)}</a>` : esc(text));
+  /** «600 G, 30 de Prestigio, 3× Poción.» → the item names linked */
+  const rewards = s => String(s).replace(/\.$/, '').split(', ').map(x => { const m = /^(\d+× )?(.+)$/.exec(x); return esc(m[1] || '') + nk(m[2], ['objeto', 'montura']); }).join(', ') + (/\.$/.test(s) ? '.' : '');
+  /** «Cumpleaños: Esmeralda» → the character linked */
+  const event = s => { const m = /^(.+?: )(.+)$/.exec(s); return m ? esc(m[1]) + nk(m[2], ['personaje']) : esc(s); };
+  /** «Derrota a Zarcone» → the character linked */
+  const objective = s => { const m = /^(Derrota a |Defeat )(.+)$/.exec(s); return m ? esc(m[1]) + names(m[2], ['personaje']) : esc(s); };
   const KIND = { mision: ['Misión', 'mision'], desvio: ['Desvío', 'desvio'], recluta: ['Recluta', 'personaje'], perdible: ['Perdible', null] };
 
 
@@ -35,8 +46,8 @@
       const by = new Map(); CL.filter(l => l.cai_subquest).forEach(l => by.set(l.cai_subquest.id, new Set([...(by.get(l.cai_subquest.id) || []), l.from_es, l.to_es].filter(x => !free.has(x)))));
       const closed = [...new Set(CL.filter(l => l.closed_cai).flatMap(l => [l.from_es, l.to_es]))].filter(x => !free.has(x) && ![...by.values()].some(v => v.has(x)));
       out.push(t('En la ruta de Cai el cochero pide antes {q} (desde el cap. 7).', { q: L('mision', 'SQID_カイ篇_使い慣れたもの') }));
-      by.forEach((v, q) => out.push(t('{a}: hace falta además {q}.', { a: esc(list([...v])), q: L('mision', q) })));
-      if (closed.length) out.push(t('Sin carruaje en la Parte 1 de Cai: {a}.', { a: esc(list(closed)) }));
+      by.forEach((v, q) => out.push(t('{a}: hace falta además {q}.', { a: list([...v].map(x => nk(x, ['lugar']))), q: L('mision', q) })));
+      if (closed.length) out.push(t('Sin carruaje en la Parte 1 de Cai: {a}.', { a: list(closed.map(x => nk(x, ['lugar']))) }));
     }
     out.push(`<a href="#/turnos">${t('Turnos y viajes')}</a>`);
     return `<details class="card" id="cp-viaje"><summary><h3>${t('Moverse rápido')}</h3></summary><ul class="cp-list">${out.map(x => `<li>${x}</li>`).join('')}</ul></details>`;
@@ -44,7 +55,7 @@
   /** what the calendar holds this chapter (Part 1): events by day, plays on stage, Sundays */
   function calendar(c) {
     const x = line(c); if (!x) return '';
-    const ev = (x.calendar || []).filter(d => (d.what || []).length).map(d => `<li><b>${esc(day(d.date))}</b> <small>${esc(t(d.weekday || ''))}</small><small>${esc(list(d.what.map(dt)))}</small></li>`).join('');
+    const ev = (x.calendar || []).filter(d => (d.what || []).length).map(d => `<li><b>${esc(day(d.date))}</b> <small>${esc(t(d.weekday || ''))}</small><small>${list(d.what.map(w => event(dt(w))))}</small></li>`).join('');
     const plays = list((x.plays || []).map(p => `${esc(gt(p.es))} <small>(${esc(dt(p.genre))}, ${esc(day(p.start))} – ${esc(day(p.end))})</small>`));
     const sun = (x.sundays || []).length;
     return kvRows([[t('En cartel'), plays], [t('Domingos'), sun ? `${sun}: ${esc(list(x.sundays.map(day)))}` : '']]) + (ev ? `<ul class="cp-list">${ev}</ul>` : '');
@@ -73,7 +84,7 @@
   const closing = c => closingRows(c).map(x => {
     const [lbl, kind] = KIND[x.kind] || [x.kind, null];
     return `<li><span class="cp-tag">${esc(t(lbl))}</span><b>${kind ? L(kind, x.id, x.es) : esc(dt(x.es))}</b>${x.deadline ? `<span class="cp-dl">${t('hasta el {d}', { d: day(x.deadline) })}</span>` : ''}` +
-      `<small>${t('Si se pierde: {x}', { x: esc(dt(x.if_missed)) })}</small></li>`;
+      `<small>${t('Si se pierde: {x}', { x: rewards(dt(x.if_missed)) })}</small></li>`;
   }).join('');
 
   const recruits = c => c.recruits.map(r => `<li class="cp-rec">${img(ico().face?.[r.pid], 'cp-face') || '<span class="cp-face"></span>'}` +
@@ -86,14 +97,14 @@
     const b = ((window.WIKI_EXT || {}).batallas?.b || []).find(x => x.id === id);
     if (!b || !b.e?.length) return [null, null];
     const n = {};
-    b.e.forEach(e => { const k = CLASSES[e.c]?.es ? nm(CLASSES[e.c]) : ''; if (k) n[k] = (n[k] || 0) + 1; });
-    const top = Object.entries(n).sort((x, y) => y[1] - x[1]).slice(0, 4).map(([k, v]) => `${esc(k)} ×${v}`);
+    b.e.forEach(e => { if (CLASSES[e.c]?.es) n[e.c] = (n[e.c] || 0) + 1; });
+    const top = Object.entries(n).sort((x, y) => y[1] - x[1]).slice(0, 4).map(([k, v]) => `${L('clase', k)} ×${v}`);
     return [`${b.e.length}${top.length ? ' · ' + top.join(', ') : ''}`, b.lv && range(b.lv)];
   }
   const battles = c => c.battles.map(b => {
     const [en, lv] = enemies(b.id);
-    return `<div class="cp-bat"><b><a href="${href('batalla', b.id)}">${esc(dt(b.es))}</a></b>${b.place ? `<small>${esc(gt(b.place))}</small>` : ''}` +
-      kvRows([[t('Objetivo'), b.objective && esc(dt(b.objective))], [t('Jefe'), b.boss && esc(dt(b.boss))], [t('Enemigos'), en], [t('Nivel'), lv]]) + '</div>';
+    return `<div class="cp-bat"><b><a href="${href('batalla', b.id)}">${esc(dt(b.es))}</a></b>${b.place ? `<small>${nk(gt(b.place), ['lugar'])}</small>` : ''}` +
+      kvRows([[t('Objetivo'), b.objective && objective(dt(b.objective))], [t('Jefe'), b.boss && names(dt(b.boss), ['personaje'])], [t('Enemigos'), en], [t('Nivel'), lv]]) + '</div>';
   }).join('');
 
   function news(c) {
@@ -102,11 +113,12 @@
     // a barter whose payment cannot be had on this route and part is dropped too
     const sellable = (where, i) => !r0 || !(ITEMS[i]?.obtain || []).some(o => o.type === 'barter' && o.where === where) || (ITEMS[i].obtain || []).some(o => o.type === 'barter' && o.where === where && barterOk(o, r0, c.key));
     const shop = Object.entries(c.news.shop).filter(([where]) => spotAccess(spotOfLabel(where), c.route, c.key).ok).map(([where, ids]) => [where, ids.filter(i => sellable(where, i))]).filter(([, ids]) => ids.length).map(([where, ids]) =>  // places closed on this route and part are left out
-      `<div class="cp-shop"><span>${esc(dt(where))}</span>${list(ids.map(i => itemIco(i, 'ico') + L('objeto', i)))}</div>`).join('');
+      `<div class="cp-shop"><span>${spotA(spotOfLabel(where), dt(where))}</span>${list(ids.map(i => itemIco(i, 'ico') + L('objeto', i)))}</div>`).join('');
     return kvRows([
       [t('Se unen'), list(c.joins.map(n => nl(n) + esc(jr(n))))],
       [t('Se van'), list(c.leaves.map(nl))],
       [t('Desbloqueos'), list(unlocks(c).map(esc))],
+      [t('La historia te da'), storyItems(c)],
       [t('Misiones nuevas'), list(c.news.quests.filter(q => questAvail(q.id, r0, c.key) && !c.closing.some(x => x.kind === 'mision' && x.id === q.id))
         .map(q => L('mision', q.id, q.es)))],  // the ones that also close this chapter are already in «Antes de que termine»
     ]) + (shop ? `<h4>${t('En tiendas y trueques')}</h4>${shop}` : '');
@@ -115,8 +127,9 @@
   const prepare = c => c.prepare.map(p => {
     const x = CAPS[p.key];
     return `<li><b><a href="${capHash(p.key)}">${esc(capShort(x))} · ${esc(nm(x))}</a></b>` +
-      kvRows([[t('Nivel'), x.level && range(x.level)], ...x.recruits.map(r => [t('Reclutar a {n}', { n: CHARS[r.pid] ? nm(CHARS[r.pid]) : r.pid }), recruitCost(r.cost)]),
-        ...(x.closing.length ? [[t('Cierra en ese capítulo'), `${x.closing.length}`]] : [])]) + '</li>';
+      kvRows([[t('Nivel'), x.level && range(x.level)]]) +  // the recruit's name links, so these rows are built here (kvRows escapes its labels)
+      x.recruits.map(r => { const v = recruitCost(r.cost); return v ? `<div class="kv"><span>${t('Reclutar a {n}', { n: L('personaje', r.pid) })}</span><b>${v}</b></div>` : ''; }).join('') +
+      kvRows(x.closing.length ? [[t('Cierra en ese capítulo'), `${x.closing.length}`]] : []) + '</li>';
   }).join('');
 
   const renown = c => c.renown_next.filter(r => r.unlocks.length).slice(0, 3).map(r =>
@@ -130,6 +143,10 @@
     return /^Cerrar\b/.test(s) && q.length > 0 && q.every(n => ms.includes(n)) && !/\[\[/.test(s) && !/ y /.test(s.slice(s.lastIndexOf('»') + 1)); };
   const priorities = c => c.priorities.filter(x => !restates(c, typeof x === 'string' ? x : x.es)).map(x => `<li>${esc(dt(typeof x === 'string' ? x : x.es)).replace(/\[\[([^\]]+)\]\]/g, (_, id) => refLink(id))}</li>`).join('');
 
+  /** the game's own step list for the chapter and the items the story hands over (rutas.json, from the chapter scripts) */
+  const RC = key => (window.WIKI_EXT || {}).rutas?.chapters?.[key] || {};
+  const objectives = c => (RC(c.key).objectives || []).map(x => `<li>${esc(dt(x))}</li>`).join('');
+  const storyItems = c => list((RC(c.key).items_got || []).map(nl));
   const block = (title, inner, tag = 'div') => (inner ? card(t(title), `<${tag} class="cp-list">${inner}</${tag}>`) : '');
   /** reference blocks folded (one tap, same page): the chevron pattern comes from shell.js */
   const folded = (title, inner, tag = 'div') => (inner ? `<details class="card"><summary><h3>${esc(t(title))}</h3></summary><${tag} class="cp-list">${inner}</${tag}></details>` : '');
@@ -162,6 +179,7 @@
       (free ? `<details class="card" id="cp-libre"><summary><h3>${t('Tiempo libre')}</h3></summary>${free}</details>` : '') +
       block('Prioridades de min-max', priorities(c) || (c.part >= 2 ? `<li class="mut">${t('Sin prioridades escritas aún para este capítulo. Guía de las Partes 2 y 3: <a href="#/guia/guerra-y-salvacion">Guerra y salvación</a>.')}</li>` : ''), 'ol') +
       block('Reclutables ahora', recruits(c), 'ul') +
+      folded('Objetivos del juego', objectives(c), 'ol') +
       block('Batallas', battles(c)) +
       folded('Novedades', news(c)) +
       folded('Calendario', calendar(c)) +

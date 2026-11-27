@@ -12,6 +12,8 @@
   const C = id => L('clase', id), O = id => L('objeto', id), PJ = id => L('personaje', id);
   const CN = es => C(Object.keys(CLASSES).find(k => CLASSES[k].es === es) || es);  // class link by official name
   const pid = es => (Object.values(CHARS).find(c => c.es === es) || {}).id;
+  /** «Lind, Hong Hua» (data names) → each character linked (core.js NAME: Spanish and English names), the rest plain */
+  const chars = s => String(s).split(', ').map(x => { const h = NAME.get(norm(x)); return h?.[0] === 'personaje' ? PJ(h[1]) : esc(x); }).join(', ');
   const sgn = n => (n > 0 ? `+${n}` : String(n));
   const growthLine = g => Object.keys(STAT_ES).filter(k => g && g[k]).map(k => `${statName(k)} ${sgn(g[k])}`).join(', ');
   const head = (title, intro) => `<h1>${esc(title)}</h1><p class="mut">${intro}</p>`;  // both already in the reader's language
@@ -47,7 +49,7 @@
     const lost = [ms.length && `<a href="${h}">${plural(ms.length, 'misión', 'misiones')}</a>${first ? ' ' + t('(la primera vence el {d})', { d: fechaDia(first) }) : ''}`,
       ...close.filter(x => x.kind !== 'mision').map(x => (x.kind === 'desvio' ? t('Desvío {d}', { d: L('desvio', x.id, x.es) }) : x.kind === 'recluta' ? t('reclutar a {p}', { p: L('personaje', x.id, x.es) }) : esc(t(x.es.replace(/\.$/, '')))))];
     const plan = c.part === 1 && typeof teamPlan === 'function' ? teamPlan(r, c.key, ctxRecruits(r), ctxDrop(r), ctxWant(r)) : null;
-    const buy = (plan?.shop.buy || []).filter(b => spotAccess(b.spot, r, c.key).ok).flatMap(b => b.items.map(i => t('{i} en {p}', { i: O(i.iid), p: esc(dataTx(b.where)) })));
+    const buy = (plan?.shop.buy || []).filter(b => spotAccess(b.spot, r, c.key).ok).flatMap(b => b.items.map(i => t('{i} en {p}', { i: O(i.iid), p: SPOTS[b.spot] ? `<a href="${href('lugar', b.spot)}">${esc(dataTx(b.where))}</a>` : esc(dataTx(b.where)) })));
     const forge = (plan?.forge.rows || []).map(x => t('{i} a {n}', { i: O(x.iid), n: plusN(x.to) }));
     const meta = [c.start && `${fechaDia(c.start)} – ${fechaDia(c.end)}`, c.level && t('Nv {n}', { n: range(c.level) })].filter(Boolean).join(' · ');
     return `<details class="card rc-cap"${open ? ' open' : ''} id="rc-${esc(c.key)}"><summary><h2>${esc(capShort(c))} · ${esc(gt(c.es))}</h2>` +
@@ -60,7 +62,7 @@
         [t('Refinar'), forge.length ? upTo(forge, 3, `${capHash(c.key)}?ir=eq-herreria`) : ''],
         // battles of the same name (the four practice fights) once, with how many
         [t('Batallas'), c.battles.filter((b, i) => c.battles.findIndex(x => x.es === b.es) === i).map(b => { const n = c.battles.filter(x => x.es === b.es).length;
-          return `<a href="${href('batalla', b.id)}">${esc(gt(b.es))}</a>${n > 1 ? ` ×${n}` : ''}${b.boss ? ` <small class="mut">${t('(jefe: {b})', { b: esc(dataTx(b.boss)) })}</small>` : ''}`; }).join(' · ')],
+          return `<a href="${href('batalla', b.id)}">${esc(gt(b.es))}</a>${n > 1 ? ` ×${n}` : ''}${b.boss ? ` <small class="mut">${t('(jefe: {b})', { b: chars(dataTx(b.boss)) })}</small>` : ''}`; }).join(' · ')],
       ])}</div><p class="rc-go"><a href="${h}">${t('Capítulo completo')} <span aria-hidden="true">→</span></a></p></details>`;
   }
 
@@ -180,7 +182,7 @@
         return `<details class="bd-u" id="bd-u-${esc(u.pid)}"><summary>${face(u.pid)}<span class="bd-n">${esc(nm(CHARS[u.pid]))}</span>${u.tier ? `<span class="mm-tag">${esc(u.tier)}</span>` : ''}<span class="bd-ch">${t('Sin build propuesta')}</span>${u.team ? `<span class="mm-tag">${t('En tu equipo')}</span>` : ''}</summary>` +
           p([best ? t('Clase final sugerida: {c}', { c: C(best[0]) }) : '', `<a href="${href('personaje', u.pid)}?sec=build">${t('Ficha de {p}', { p: esc(nm(CHARS[u.pid])) })}</a>`].filter(Boolean).join(' · ')) + '</details>'; }
       return `<details class="bd-u" id="bd-u-${esc(u.pid)}"${open ? ' open' : ''}><summary>${face(u.pid)}<span class="bd-n">${esc(nm(CHARS[u.pid]))}</span>` +
-        (u.tier ? `<span class="mm-tag">${esc(u.tier)}</span>` : '') + `<span class="bd-ch">${b0.steps.map(s => esc(nm(CLASSES[s.jid]))).join(' → ')}</span>` +
+        (u.tier ? `<span class="mm-tag">${esc(u.tier)}</span>` : '') + `<span class="bd-ch">${b0.steps.map(s => esc(nm(CLASSES[s.jid]) || '')).join(' → ')}</span>`  /* plain: a link inside <summary> would leave instead of opening the card; build() links them */ +
         `<span class="mut bd-w">${esc(t(b0.weapon || ''))}</span>${u.team ? `<span class="mm-tag">${t('En tu equipo')}</span>` : ''}</summary>` +
         bs.map(b => build(rt, b)).join('') +
         p([u.team ? `<a href="#/equipo">${t('Tu plan, en Equipo')}</a>` : '', `<a href="${href('personaje', u.pid)}?sec=build">${t('Ficha de {p}', { p: esc(nm(CHARS[u.pid])) })}</a>`].filter(Boolean).join(' · ')) + '</details>'; };
@@ -230,7 +232,8 @@
       return row ? (list([row.item ? `${row.count_or_gold > 1 ? row.count_or_gold + '× ' : ''}${L('objeto', row.item, row.item_es)}` : row.count_or_gold ? gold(row.count_or_gold) : '', t('Apoyo {n}', { n: row.support }), t('Prestigio {n}', { n: row.renown })])) : `<span class="mut">${t('No se recluta en esta ruta')}</span>`;
     }
     if (!x.cost) return `${t('Se une sola')}${x.join_key && CAPS[x.join_key] ? ` (${chapLink(x.join_key)})` : ''}`;
-    return `${recruitCost(x.cost)}${x.recruit_key && CAPS[x.recruit_key] ? ' · ' + t('desde el {c}', { c: chapLink(x.recruit_key) }) : ''}`;
+    const deal = recruitDeal(id, r);
+    return `${recruitCost(x.cost)}${x.recruit_key && CAPS[x.recruit_key] ? ' · ' + t('desde el {c}', { c: chapLink(x.recruit_key) }) : ''}${deal ? `<br><small>${deal}.</small>` : ''}`;
   }
 
   function reclutas(qs) {

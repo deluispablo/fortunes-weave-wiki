@@ -32,6 +32,12 @@
   const CHAR_BY_NAME = Object.fromEntries(Object.values(CHARS).map(c => [c.es, c.id]));
   /** unit name, linked to the character page when a recruit or named character carries it */
   const unit = u => (CHARS[u.p] ? L('personaje', u.p, un(u)) : CHAR_BY_NAME[u.n] ? L('personaje', CHAR_BY_NAME[u.n], un(u)) : esc(un(u)));
+  /** a victory line (escaped) → each named character in it linked once, in text outside tags only */
+  const winLinks = (html, us) => us.filter(u => CHARS[u.p] || CHAR_BY_NAME[u.n]).reduce((h, u) => {
+    const n = esc(un(u)), rx = new RegExp(`(?<![\\p{L}])${n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![\\p{L}])`, 'u');
+    let done = false;
+    return h.replace(/(<a\b.*?<\/a>|<[^>]*>)|([^<]+)/g, (m, tag, tx) => (tag || done || !rx.test(tx) ? m : (done = true, tx.replace(rx, unit(u)))));
+  }, html);
   /** random loot group (game data) → «item 50 %, item 25 %»; IID_無し is «nothing» */
   const loot = g => list((D.loot?.[g] || []).filter(([i]) => i !== 'IID_無し' && nmEs(i)).map(([i, p]) => `${item(i)} ${pct(p)}`));
   const chapKey = c => KEY_OF[c[0]] && KEY_OF[c[0]](c[1]);
@@ -51,7 +57,7 @@
     const body = rows.map(b => {
       const head = b.p !== last ? `<tr><th colspan="3">${t(b.p == null ? 'Encuentros en el mapa del mundo' : PARTS[b.p])}</th></tr>` : '';
       last = b.p;
-      const bs = [...new Set(bosses(b).map(u => esc(un(u))))].slice(0, 4);
+      const bs = [...new Set(bosses(b).map(unit))].slice(0, 4);
       return head + `<tr><td><a href="${href('batalla', b.id)}">${esc(dt(b.t))}</a><br><small class="mut">${esc(where(b))}${bs.length ? ' · ' + t('jefes: {x}', { x: bs.join(', ') }) : ''}</small></td>` +
         `<td>${esc(t(b.k))}</td><td>${nFoes(b)}</td></tr>`;
     }).join('');
@@ -128,7 +134,7 @@
   function statRows(us) {
     const add = (a, d) => a.map((v, i) => v + (d ? d[i] : 0)), rows = [];
     us.filter(u => u.st).forEach(u => {
-      rows.push([esc(un(u)) + (u.sn || u.sh ? ` <span class="mut">${t('base')}</span>` : ''), u.st]);
+      rows.push([unit(u) + (u.sn || u.sh ? ` <span class="mut">${t('base')}</span>` : ''), u.st]);
       if (!u.sn && !u.sh) return;
       if (JSON.stringify(u.sn || 0) === JSON.stringify(u.sh || 0)) rows.push([`<span class="mut">${t('Normal y Difícil')}</span>`, add(u.st, u.sn)]);
       else rows.push([`<span class="mut">${t('Normal')}</span>`, add(u.st, u.sn)], [`<span class="mut">${t('Difícil')}</span>`, add(u.st, u.sh)]);
@@ -159,7 +165,7 @@
       [t('Desvío'), b.ss && PARA[b.ss] ? L('desvio', b.ss) : ''],
       [t('Misión'), b.sq && QUEST[b.sq] ? L('mision', b.sq) : ''],
       // objective texts name units by their internal name: Spanish names first (the dictionary's keys), then the reader's language
-      [t('Victoria'), (b.win || []).map(w => esc(dt(b.e.reduce((x, u) => x.replace(u.n, unEs(u)), w)))).join('<br>')],
+      [t('Victoria'), (b.win || []).map(w => winLinks(esc(dt(b.e.reduce((x, u) => x.replace(u.n, unEs(u)), w))), b.e)).join('<br>')],
       [t('Derrota'), (b.lose || []).map(w => esc(dt(w))).join('<br>')],
       [t('Nivel de los enemigos'), b.lv ? `${b.lv[0]}–${b.lv[1]}` : ''],
       [t('Enemigos'), `${nFoes(b)}${b.rnd ? ' ' + t('(aleatorios, dependen de la zona)') : ''}`],

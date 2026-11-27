@@ -102,7 +102,7 @@
     const foodCard = f ? card(t('Comida'),
       kvRows([[t('Le gusta'), `${esc(dx(f.type))} <small>(${list(Object.entries(m.food_scores || {}).map(([ty, v]) => `${esc(dx(ty))} ${v}`))})</small>`], [t('Sabor'), esc(dx(f.taste))],
         [t('Favorito'), t('uno concreto por animal, sorteado al crearse; se ve en el Establo')]]) +
-      p(t('Cada animal tiene su propio «Favorito»: un ingrediente que varía de un ejemplar a otro, así que no hay uno fijo por especie. Seguramente es uno de los ingredientes de {type} con sabor {taste} de esta lista (sin confirmar). Cualquiera de ellos ya da el bono de tipo y sabor; si además es su Favorito, suma {n} puntos y al capturar asegura el 100 %.', { type: esc(dx(f.type)), taste: esc(dx(f.taste)), n: FE.great_fav ?? 5 })) +
+      p(t('Cada animal tiene su propio «Favorito»: se sortea al crearse el animal, con la misma semilla que su habilidad de vínculo, y se ve en el Establo; no hay uno fijo por especie. Los ingredientes de {type} con sabor {taste} de esta lista dan el bono de tipo y sabor; si el que le das es además su Favorito, suma {n} puntos y al capturar asegura el 100 %.', { type: esc(dx(f.type)), taste: esc(dx(f.taste)), n: FE.great_fav ?? 5 })) +
       tw(['Ingrediente', 'Calidad', 'Vínculo por comida', 'Si es su Favorito'], foods.map(x => [obj(x.iid, x.es), stars(x.grade), feedPts(x.grade, 1, 1, 0), feedPts(x.grade, 1, 1, 1)])) +
       p(t('Una comida por animal y día. Vínculo 5 pide {n} puntos. Fórmula completa en {establo}.', { n: R.bond_thresholds?.[4] ?? 140, establo: `<a href="#/monturas?ir=establo">${t('Establo')}</a>` })), 'fi-comida') : '';
     const lv = [1, 2, 3, 4, 5], labels = lv.map(n => `Vínculo ${n}`);  // statTable() translates the labels

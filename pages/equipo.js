@@ -28,13 +28,13 @@
     const head = t('Montura {k}', { k: t(st.kind) });
     if (!got?.rid) return [head, `<span class="mut">${t('Sin montura en esta ruta y parte')}</span>`];
     const m = MOUNTS[got.rid], spot = teamMountSpots(got.rid, key)[0], p3 = CAPS[key]?.part === 3;
-    const tag = m.default_class_mount ? (teamCatchOpen(route, key) ? t('de la clase') : t('de la clase; aquí no se capturan')) : m.unique_q ? (ownerOf(m) === b.pid ? t('propia') : t('de {p}', { p: esc(nm(CHARS[ownerOf(m)])) })) : teamMountRare(got.rid) ? t('rara') : t('común');
+    const tag = m.default_class_mount ? (teamCatchOpen(route, key) ? t('de la clase') : t('de la clase; aquí no se capturan')) : m.unique_q ? (ownerOf(m) === b.pid ? t('propia') : t('de {p}', { p: L('personaje', ownerOf(m)) })) : teamMountRare(got.rid) ? t('rara') : t('común');
     const step = st.at >= 0 ? b.steps[st.at] : null;
     const dbl = teamMountMul(st.classes) > 1;
     const bits = [statLine(m.growth_by_bond?.['5']) && t(dbl ? '{g} con vínculo 5 (doble en Cuadriguero)' : '{g} con vínculo 5', { g: statLine(m.growth_by_bond['5']) }),
       !m.default_class_mount && !m.unique_q && spot && `${L('lugar', spot.spot, spot.es)} ${pct(spot.pct)}`,
       !m.default_class_mount && !m.unique_q && spot && (() => { const rv = spotAccess(spot.spot, 'cai', key).reveal; return rv.length ? t('antes hay que descubrirlo ({how})', { how: esc(rv.slice(0, 2).join(t(' o '))) }) : ''; })(),
-      st.early && step && !m.default_class_mount && (capOf(step.key) ? t('capturarla y alimentarla antes del {c}', { c: capOf(step.key) }) : t('capturarla y alimentarla antes del examen de {c}', { c: esc(nm(CLASSES[step.jid])) })),
+      st.early && step && !m.default_class_mount && (capOf(step.key) ? t('capturarla y alimentarla antes del {c}', { c: capOf(step.key) }) : t('capturarla y alimentarla antes del examen de {c}', { c: L('clase', step.jid) })),
       p3 && !m.default_class_mount && !m.unique_q && t('en la Parte 3 se captura si Cai está en el ejército'),
       got.lost_to && t('{m} va a {p}', { m: L('montura', got.want), p: L('personaje', got.lost_to) })].filter(Boolean);
     return [head, `${L('montura', got.rid)} <span class="eq-tag">${tag}</span>${bits.length ? `<br><small class="mut">${bits.join(' · ')}</small>` : ''}`];
@@ -62,7 +62,7 @@
     const opts = teamOptions(b.pid, route, key), me = opts.find(o => o.id === b.pick), sc = Object.fromEntries(ch.opts.map(o => [o.id, o]));
     const why = sc[b.pick]?.why || [], needs = b.pick_needs || [];
     const others = opts.filter(o => o.id !== b.pick);
-    const alt = o => li(`<b>${esc(tx(o, 'name'))}</b> <span class="mut">${o.ok ? o.jids.map(j => esc(nm(CLASSES[j]))).join(' → ') : esc(o.issue)}</span>`,
+    const alt = o => li(`<b>${esc(tx(o, 'name'))}</b> <span class="mut">${o.ok ? o.jids.map(j => L('clase', j)).join(' → ') : esc(o.issue)}</span>`,
       [o.ok && tx(o, 'fits') && t('Elígela: {f}', { f: tx(o, 'fits') }), full && o.ok && tx(o, 'why')].filter(Boolean).map(esc).join(' '));
     return `<div class="eq-pickb"><p><span class="cp-tag">${t('Build para tu equipo')}</span> <b>${esc(tx(me, 'name'))}</b></p>` +
       (why.length ? `<p class="mut">${esc(t('Por tu equipo: {w}.', { w: list(why) }))}</p>` : '') +
@@ -123,7 +123,7 @@
     });
     const base = rows.find(r => r.rec)?.total;
     if (!rows.some(r => r.st.length)) return '';
-    return `<h4>${t('Montura por build')}</h4>${ul(rows.map(r => li(`${esc(r.label)}: ${r.path.map(j => esc(nm(CLASSES[j]))).join(' → ')}`,
+    return `<h4>${t('Montura por build')}</h4>${ul(rows.map(r => li(`${esc(r.label)}: ${r.path.map(j => L('clase', j)).join(' → ')}`,
       r.st.length ? `${r.st.map(x => `${esc(t(x.kind))}: ${x.rid ? L('montura', x.rid) : '—'}${statLine(x.g5) ? ` (${statLine(x.g5)})` : ''}`).join(' · ')} · ${t('total +{n}', { n: r.total })}` +
         (base != null && !r.rec ? ` (${r.total === base ? t('igual que la recomendada') : t('{d} frente a la recomendada', { d: `${r.total > base ? '+' : '−'}${Math.abs(r.total - base)}` })})` : '') : t('a pie'))))}` +
       `<p class="mut">${t('Crecimiento que añade cada montura con vínculo 5, solo mientras la clase la monta. En Cuadriguero el bono de la montura cuenta doble.')}</p>`;
@@ -229,7 +229,7 @@
     const detours = w.detours?.length ? `<p>${t('Desvíos de este capítulo que quizá perdiste en la vuelta anterior: {l}.', { l: list(w.detours.map(d => `<a href="${href('batalla', d.id)}">${esc(gt(d.es))}</a>`)) })}</p>` : '';
     // Percha: who to take and the answers, in their ficha
     const raven = live.filter(n => CHARS[n.pid]?.p?.pale_raven?.sets?.length).map(n => `<a href="${href('personaje', n.pid)}?sec=partida">${esc(nm(CHARS[n.pid]))}</a>`);
-    const percha = w.perch ? `<h4>${t('Percha')}</h4><p>${t('Sube el apoyo con Eshmel, no con {l}.', { l: lordN })}${raven.length ? ' ' + t('Respuestas: {l}.', { l: list(raven) }) : ''}</p>` : '';
+    const percha = w.perch ? `<h4>${t('Percha')}</h4><p>${t('Sube el apoyo con Eshmel, no con {l}.', { l: lordN })}${raven.length ? ' ' + t('A quién elegir: {l} (sus respuestas, en su ficha).', { l: list(raven) }) : ''}</p>` : '';
     const dueLine = due.length ? `<p class="eq-due">${t('Cierran en este capítulo: {l}. Detalle en Plazos.', { l: list(due.map(n => L('personaje', n.pid))) })}</p>` : '';
     return dueLine + compras + percha + plazos + detours + (other.length ? `<details class="eq-more"><summary>${t('Otras actividades ({n})', { n: other.length })}</summary>${ul(other)}</details>` : '');
   }
@@ -330,10 +330,10 @@
   /** one unit as a compact row: face, name, build, then class · weapon 1 · weapon 2 · equipment in a line; `open`: the editor below
       (tags, build choices, path, the four selects, where the weapon comes from). `ro` (a shared plan): the row only */
   function unitRow(b, plan, route, key, { open = false, ro = false, picks = {}, extra = '', tags = '' } = {}) {
-    const s = plan.slots[b.pid], name = k => (k ? nm(ITEMS[k]) + demon(k) : '');
+    const s = plan.slots[b.pid], name = k => (k ? L('objeto', k) + esc(demon(k)) : '');
     const o = b.pick && teamOptions(b.pid, route, key).find(x => x.id === b.pick);
-    const line = s ? [esc(nm(CLASSES[s.c])) + (s.next ? ` <small class="mut">(${t('siguiente')})</small>` : ''),
-      s.magic && !s.w0 ? esc(t('Hechizos propios') + (s.spells.length ? ': ' + list(s.spellIds.map((id, i) => (SKILLS[id] ? nm(SKILLS[id]) : gt(s.spells[i]))).slice(-3)) : '')) : esc(name(s.w0)), esc(name(s.w1)), esc(name(s.g))].filter(Boolean).join(' · ') : '';
+    const line = s ? [L('clase', s.c) + (s.next ? ` <small class="mut">(${t('siguiente')})</small>` : ''),
+      s.magic && !s.w0 ? esc(t('Hechizos propios')) + (s.spells.length ? ': ' + list(s.spellIds.map((id, i) => (SKILLS[id] ? L('habilidad', id) : esc(gt(s.spells[i])))).slice(-3)) : '') : name(s.w0), name(s.w1), name(s.g)].filter(Boolean).join(' · ') : '';
     const who = nm(CHARS[b.pid]);
     return `<section class="card eq-unit${open ? ' eq-open' : ''}" id="eq-${esc(b.pid)}"><div class="eq-row">${face(b.pid, 'cp-face') || '<span class="cp-face"></span>'}<div class="eq-rowt">` +
       `<b>${L('personaje', b.pid)}</b>${o ? ` <span class="eq-tag">${esc(tx(o, 'name'))}</span>` : ''}<span class="eq-line">${line}</span></div>` +
@@ -392,7 +392,7 @@
     // «Hazlo todo»: completes the team and fixes the recommended build where none is chosen; hand picks stay
     const unfixed = plan.builds.filter(b => plan.choice[b?.pid] && !picks[b.pid]?.b);
     const todo = fill.length || unfixed.length ? `<button type="button" class="txtbtn" data-eq-fill="${esc(fill.map(x => x.pid).join(','))}" aria-describedby="eq-todo-d">${t('Hazlo todo')}</button>` : '';
-    const todoD = todo ? `<p class="mut" id="eq-todo-d">${fill.length ? t('Completa el equipo con {l} y fija la build recomendada de quien no tiene una elegida; lo que cambiaste a mano se queda.', { l: esc(list(fill.map(x => nm(CHARS[x.pid])))) })
+    const todoD = todo ? `<p class="mut" id="eq-todo-d">${fill.length ? t('Completa el equipo con {l} y fija la build recomendada de quien no tiene una elegida; lo que cambiaste a mano se queda.', { l: list(fill.map(x => L('personaje', x.pid))) })
       : t('Fija la build recomendada de quien no tiene una elegida; lo que cambiaste a mano se queda.')}</p>` : '';
     const sizeTxt = t(size > cap ? '{n} en el equipo; en cada batalla caben {m}' : '{n} de {m} en el equipo', { n: size, m: cap }) + (later.length ? ' ' + t(later.length === 1 ? '({n} se une más adelante)' : '({n} se unen más adelante)', { n: later.length }) : '') +
       (pt === '3' ? ' ' + t('(hasta {f} en la batalla final)', { f: planFinal(route) }) : '');

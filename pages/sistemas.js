@@ -74,7 +74,7 @@
       闘技場: 'Torneo', 訓練: 'Plaza de armas', 資格試験官: 'Examinador', 手形屋: 'Licencias', 神殿: 'Templos', テルマエ: 'Termas', 止まり木: 'Percha', アンナの店: 'Tienda de Anna',
       厩舎: 'Establo', 酒場: 'Taberna', 飲み物係: 'Puesto de bebidas', 軍団兵舎: 'Cuartel' };
     const hours = tw(H(['Local', 'Abierto']), (FA.opening_hours || []).filter(h => HOURS[h.id.replace('OPH_', '')] && !(h.id === 'OPH_厩舎' && caiHide(true))).map(h =>
-      [`${esc(gx(HOURS[h.id.replace('OPH_', '')]) + (h.id === 'OPH_厩舎' ? caiTag() : ''))}${h.cond.length ? ` (${esc(conds(h.cond))})` : ''}`, h.open.length === 4 ? t('todo el día') : spans(h.open)]));
+      [`${esc(gx(HOURS[h.id.replace('OPH_', '')]) + (h.id === 'OPH_厩舎' ? caiTag() : ''))}${h.cond.length ? ` (${condsH(h.cond)})` : ''}`, h.open.length === 4 ? t('todo el día') : spans(h.open)]));
     const v = o => o?.value;
     const mo = FA.motivation_result_bonus || {}, fo = (FA.fortune || {}).vars || {};
     return `<h1>${t('Dagsion: actividades semanales')}</h1>${guiaLink('tiempo-libre', 'comidas')}<p class="mut">${t('Se reinician cada domingo a las 0:00 y al empezar cada capítulo; lo que no se usa se pierde. Cada actividad adelanta el reloj {m} minutos y no gasta turno salvo comprar; el reloj se para al final del turno en curso, así que se pueden hacer todas en el mismo turno. El Servicio divino está en <a href="#/dioses?ir=servicio-divino">Templos</a> y el Establo en <a href="#/monturas?ir=establo">Monturas</a>.', { m: v(FA.minutes_per_activity) || 20 })}</p>` +  // i18n-ignore
@@ -91,7 +91,7 @@
         t('Puntuación: momento lucido 70/40/20/0 por aptitud, «sin riesgo» 60; umbrales de resultado 300/180/50 (normal) y 500/300/80 (especial); 5 segundos para elegir.')) + roles(), 'teatro') +
       drinks() +
       card(t('Termas'), therm + p(t('Desde Prestigio {a}; más baños con Prestigio {b}. 500 G. Dos unidades recuperan Motivación, PV y usos de hechizos y aprenden al azar una de las 7 habilidades del baño elegido. Los baños especiales salen los domingos y festivos y dan más apoyo. Probabilidad de resultado perfecto: 10 %.', { a: th.unlock_rank || 8, b: th.more_springs_rank || 9 })), 'termas') +
-      card(t('Percha · Cuervo Blanco'), p(t('Una vez por semana Eshmel, en forma de Cuervo Blanco, visita a un aliado y responde con gestos; cada respuesta correcta sube el apoyo entre Eshmel y ese aliado, nunca con el señor de la ruta. Más apoyo con Eshmel da más rescates de apoyo. No gasta turno.')) + kv([
+      card(t('Percha · Cuervo Blanco'), p(t('Una vez por semana, mientras el Cuervo Blanco (Eshmel) está posado, eliges a qué aliado llevar y qué comida darle; no viene nadie por su cuenta. Respondes con gestos y cada respuesta correcta sube el apoyo entre Eshmel y ese aliado, nunca con el señor de la ruta. Más apoyo con Eshmel da más rescates de apoyo. No gasta turno.')) + kv([
         ['Puntos', t('0/1/2/3 aciertos = 50/70/80/100 de apoyo; con afinidad óptima (×200 %), 100/140/160/200')],
         ['Preguntas', t('68 juegos de 10 respuestas (uno por personaje, con variantes para la Parte 3); las respuestas están en cada ficha de personaje')],
         ['Dónde', t('Menú de acceso rápido → «Percha Cuervo Blanco»; en Dagsion hay perchas en la zona central, el puerto, el barrio de los templos, la zona alta y la zona subterránea; abierta todo el día')],
@@ -279,8 +279,8 @@
         ['Bebidas', t('Se pagan con materiales y dan mejoras durante una batalla; las existencias se reponen cada capítulo: <a href="#/instalaciones?ir=bebidas">Taberna · Bebidas</a>.')],
         ['Bailarín', QUEST[dancer] ? t('{q}: entregar Hingosh da la Licencia de bailarín y la clase, hasta el cap. 10.', { q: qlink(dancer) }) : ''],
         ['Templo de Kalla', t('Portal desde el cap. 4; desde el cap. 10, la Prueba de Kalla (nivel 30) da el Arco de Kalla.')]]) +
-        `<h4>${t('Taberna')}</h4>` + tw(H(['Misión', 'Prestigio', 'Entregar', 'Canción', 'Clases']), (Ld.tavern || []).map(x => [qlink(x.id) + (/復興/.test(x.id) ? ` <small class="mut">${t('Parte {p}', { p: 3 })}</small>` : ''),
-          x.renown, its(x.deliver) || '—', x.skill ? L('habilidad', x.skill.id, x.skill.es) : '—', list((QUEST[x.id]?.class_unlock || []).map(c => L('clase', c.id, c.es))) || '—'])) +
+        `<h4>${t('Taberna')}</h4>` + tw(H(['Misión', 'Prestigio', 'Prestigio que da', 'Entregar', 'Canción', 'Clases']), (Ld.tavern || []).map(x => [qlink(x.id) + (/復興/.test(x.id) ? ` <small class="mut">${t('Parte {p}', { p: 3 })}</small>` : ''),
+          x.renown, x.renown_gain ? `+${num(x.renown_gain)}` : '—', its(x.deliver) || '—', x.skill ? L('habilidad', x.skill.id, x.skill.es) : '—', list((QUEST[x.id]?.class_unlock || []).map(c => L('clase', c.id, c.es))) || '—'])) +
         `<h4>${t('Actuaciones por población')}</h4>` + tw(H(['Población', 'Parte 1', 'Parte 3', 'Lugar secreto']), (Ld.shows || []).map(s => [
           SPOT(s.spot, s.es) + (s.quest ? `<br><small>${qlink(s.quest)}</small>` : ''),
           s.gold1 ? `${gold(s.gold1)}; ${its(s.items1)}` : '—', s.gold3 ? `${gold(s.gold3)}; ${its(s.items3)}` : '—',
@@ -517,7 +517,7 @@
   const fmt = s => (s || '').split('\n\n').map(x => `<p>${esc(x).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>').replace(/\*\*/g, '')}</p>`).join('');
   const plain = s => (s || '').replace(/\*\*/g, '');
   /** when a tutorial or tip shows up; internal flags without a Spanish reading are left out */
-  const when = w => { const ws = [...new Set((w || []).filter(x => /[a-záéíóúñ]/i.test(x)).map(x => (JP_ANY.test(x) ? cond(x) : gx(x))).filter(x => !JP_ANY.test(x) && !x.includes('_')))]; return ws.length ? ` <small class="mut">${esc(ws.join(' · '))}</small>` : ''; };
+  const when = w => { const ws = [...new Set((w || []).filter(x => /[a-záéíóúñ]/i.test(x)).map(x => (JP_ANY.test(x) ? cond(x) : gx(x))).filter(x => !JP_ANY.test(x) && !x.includes('_')))]; return ws.length ? ` <small class="mut">${esc(ws.join(' · '))}</small>` : ''; };  // plain text: it also sits inside tutorial <summary> titles, where links are not allowed
   /** a tutorial page's or tip's text in the reader's language (game text; the ** bold marks are kept when the game table has the text) */
   const txt = s => gx(s || '');
   const pagesHtml = u => u.pages.filter(pg => pg.text || pg.img).map((pg, i, a) => `<div class="tu-pg">${pg.img ? `<img src="${esc(pg.img)}" loading="lazy" alt="${esc(t('Captura {n} de «{t}»', { n: i + 1, t: gx(u.title) }))}">` : ''}` +
@@ -541,7 +541,7 @@
       `<div class="filters"><input type="search" data-qs="tutoriales" name="q" value="${esc(qs.q || '')}" placeholder="${t('Buscar en títulos y textos')}" aria-label="${t('Buscar en los tutoriales')}" autocomplete="off"></div>` +
       chips('tutoriales', qs, 'k', [['', 'Tutoriales y consejos'], ['tuto', 'Solo tutoriales'], ['tips', 'Solo consejos']], k, 'Tipo') + sel +
       [...d.cats, 'Otros'].map(cat => { const l = tutos.filter(u => u.cat === cat); return l.length ? card(`${gx(cat)} (${l.length})`, l.map(u =>
-        `<details class="tu-d"${open}><summary><b>${esc(gx(u.title))}</b>${when(u.when)}</summary>${pagesHtml(u)}<p><a href="${href('tutorial', u.id)}">${t('Abrir en su página')}</a></p></details>`).join('')) : ''; }).join('') +
+        `<details class="tu-d"${open}><summary><b>${esc(gx(u.title))}</b>${when(u.when)}</summary>${pagesHtml(u)}<p><a href="${href('tutorial', u.id)}">${t('Abrir en su página')}</a>${autoHref(gx(u.title)) ? ` · <a href="${autoHref(gx(u.title))}">${esc(gx(u.title))}</a>` : ''}</p></details>`).join('')) : ''; }).join('') +
       tipCats.map(cat => { const l = tips.filter(u => u.cat === cat); return l.length ? card(t('Consejos: {c} ({n})', { c: gx(cat), n: l.length }), `<ul class="tu-tips">${l.map(tipHtml).join('')}</ul>`) : ''; }).join('') +
       (!tutos.length && !tips.length ? `<p class="mut">${t('Sin resultados.')}</p>` : '');
   }

@@ -97,23 +97,34 @@ function nl(name) {
 }
 
 /* entity names left as plain text in authored prose (guides, page copy, tables) → a link the first time each appears on a page.
-   Skills, items, classes, mounts, quests, Desvíos and battalions; a name two different pages share, a generic word or one under 6
-   letters stays plain, and so does text inside a link, heading, button, summary, table header, label, option or code */
+   Characters, places, battles, skills, items, classes, mounts, quests, Desvíos and battalions; a name two different pages share, a
+   generic word, a stat bonus (Def+2) or a name under 5 letters (4 for characters and places) stays plain (but see AUTO_WIN), and so does text inside
+   a link, heading, button, summary, table header, label, select, datalist or code */
 // i18n-ignore-next: Spanish entity names the auto-linker leaves alone (not shown)
 const AUTO_STOP = new Set(['Batallón', 'Búsqueda', 'Guanteletes', 'Espadas', 'Control', 'Barrera', 'Refuerzos', 'Soldado', 'Caballo', 'Ignición',
   'Constitución', 'Comprensión', 'Silencio', 'Derribar', 'Bloqueo', 'Antorcha', 'Transportar', 'Elizabeth', 'Sin clase', 'Rescatar', 'Recuperar',
   'Restaurar', 'Regenerar', 'Fortalecer', 'Antídoto', 'Talismán', 'Brebaje', 'Martillo', 'Tridente', 'Catapulta', 'Balista', 'Confusión', 'Inmovilidad',
   'Parálisis', 'Entumecimiento', 'Plegaria', 'Guardaespaldas', 'Crescendo', 'Puntería', 'Arquero', 'Guerrero', 'Cazador', 'Tirador',
-  'Hachas', 'Lanzas', 'Arcos', 'Tanque', 'Asedio', 'Asalto', 'Precisión', 'Lluvia', 'Miasma', 'Bailar', 'Ornius', 'Pegaso']);
+  'Hachas', 'Lanzas', 'Arcos', 'Tanque', 'Asedio', 'Asalto', 'Precisión', 'Lluvia', 'Miasma', 'Bailar', 'Ornius', 'Pegaso',
+  'Aurora', 'Whill', 'Obstáculo', 'Veneno', 'Reducción',  // the goddess, a boss named like the place, a terrain type, a status, «Reducción de coste»
+  'Carga', 'Cerco', 'Finta', 'Fuego', 'Garra', 'Pasar', 'Pesas', 'Purga', 'Rayos', 'Furor']);
+// i18n-ignore-next: longer Spanish phrases that hold an entity name but are something else: matched and left plain
+const AUTO_BLOCK = ['Herrero ornamental', 'Advenimiento de Dagda'];
+// a name two kinds share that still links: a staff and its spell → the staff; a Desvío and its battle → the Desvío
+const AUTO_WIN = { habilidad: 'objeto', batalla: 'desvio' };
 let AUTO = null;
 LANG_RESET.push(() => { AUTO = null; });
 /** names in the reader's language (nm), so English prose links English names */
 function autoIndex() {
-  const by = new Map(), add = (n, h, es = n) => { if (!n || n.length < 6 || AUTO_STOP.has(es) || NAME.has(norm(n)) && !['clase', 'montura', 'objeto', 'mision', 'desvio'].includes(NAME.get(norm(n))[0])) return;
+  const by = new Map(), add = (n, h, es = n, min = 5) => { if (!n || n.length < min || AUTO_STOP.has(es) || /^\p{L}{3}\+\d$/u.test(n)) return;
     const x = by.get(n);
-    if (x === undefined) by.set(n, h);
+    if (x === undefined || x && AUTO_WIN[x.split('/')[1]] === h.split('/')[1]) by.set(n, h);
     else if (x && x.split('/')[1] !== h.split('/')[1]) by.set(n, null);  // two kinds of page: ambiguous
-    else if (x && h.length < x.length) by.set(n, h); };  // same kind: the plain id over scene copies (SID_SC00_05_…)
+    else if (x && h.length < x.length && !h.startsWith('#/lugar/')) by.set(n, h); };  // same kind: the plain id over scene copies (SID_SC00_05_…); places: the first (帝都ダグシオン, not its temple)
+  AUTO_BLOCK.forEach(n => by.set(n, ''));
+  Object.values(CHARS).forEach(c => add(c.es && nm(c), href('personaje', c.id), c.es, 4));  // Anna, Troy, Leda; Fina, Mons
+  Object.entries(SPOTS).forEach(([k, c]) => add(c.es && nm(c), href('lugar', k), c.es, 4));
+  ((window.WIKI_EXT || {}).batallas?.b || []).forEach(b => add(gt(b.t), href('batalla', b.id)));
   Object.entries(CLASSES).forEach(([k, c]) => add(c.es && nm(c), href('clase', k), c.es));
   Object.entries(MOUNTS).forEach(([k, c]) => add(c.es && nm(c), href('montura', k), c.es));
   Object.values(QUEST).forEach(q => add(q.es && nm(q), href('mision', q.id), q.es));
@@ -121,24 +132,37 @@ function autoIndex() {
   ((window.WIKI_EXT || {}).guerra?.battalions || []).forEach(b => add(b.es && nm(b), href('batallon', b.id), b.es));
   Object.entries(SKILLS).forEach(([k, c]) => add(c.es && nm(c), href('habilidad', k), c.es));
   Object.entries(ITEMS).forEach(([k, c]) => add(c.es && nm(c), href('objeto', k), c.es));
-  const names = [...by].filter(([, h]) => h).map(([n]) => n).sort((a, b) => b.length - a.length);
+  const names = [...by].filter(([, h]) => h != null).map(([n]) => n).sort((a, b) => b.length - a.length);
   const rx = names.length ? new RegExp(`(?<![\\p{L}\\p{N}])(?:${names.map(n => esc(n).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})(?![\\p{L}\\p{N}+])`, 'gu') : null;
-  return { by, rx };
+  // the four lords also name their route («ruta de Leda», «Parte 1 de Cai», «Cai · cap. 2», «Cai, Leda…»): those mentions stay plain
+  const ln = Object.values(LORDS).map(p => CHARS[p] && nm(CHARS[p])).filter(Boolean).join('|');
+  const lords = new Set(Object.values(LORDS).map(p => href('personaje', p)));
+  const before = new RegExp(`(?:\\b(?:rutas?|routes?|Parte|Part)(?: \\d)?(?: de| of)?|(?:${ln})(?:,| y| o| and| or| /)) $`, 'i');
+  const after = new RegExp(`^(?:(?:,| y| o| and| or| /) (?:${ln})|'s route| route| ·| \\d)`);
+  return { by, rx, lords, before, after };
 }
-/** html → the same html with the first plain mention of each known name linked; `self` (the page's own address) is never linked */
-function autoLink(html, self = '') {
+/** the page a display name (reader's language) opens, from autoLink's index; null when none or ambiguous */
+const autoHref = n => (AUTO ??= autoIndex()).by.get(n) || null;
+// <option> is left out: datalist options are often unclosed, and select/datalist already skip their content
+const AUTO_SKIP = /^<(\/?)(a|h[1-6]|button|summary|th|code|script|style|textarea|select|datalist|label|abbr|caption|svg)\b/i,
+  AUTO_SKIP_NL = new RegExp(AUTO_SKIP.source.replace('|label', ''), 'i');
+/** html → the same html with the first plain mention of each known name linked; `self` (the page's own address) is never linked.
+    `inLabels`: also inside <label> (a list whose rows are checkbox labels; a link there opens, it does not toggle) */
+function autoLink(html, self = '', inLabels = false) {
   AUTO ??= autoIndex();
   if (!AUTO.rx) return html;
   const seen = new Set([...String(html).matchAll(/href="([^"]*)"/g)].map(m => m[1]).concat(self));  // already linked on the page: leave it
   let skip = 0;
   return String(html).replace(/(<[^>]*>)|([^<]+)/g, (m, tag, text) => {
     if (tag) {
-      const t = /^<(\/?)(a|h[1-6]|button|summary|th|option|code|script|style|textarea|select|label|abbr|caption|svg)\b/i.exec(tag);
+      const t = (inLabels ? AUTO_SKIP_NL : AUTO_SKIP).exec(tag);
       if (t && !/\/>$/.test(tag)) skip = Math.max(0, skip + (t[1] ? -1 : 1));
       return tag;
     }
     if (skip) return text;
-    return text.replace(AUTO.rx, n => { const h = AUTO.by.get(n.replace(/&amp;/g, '&')); if (!h || seen.has(h)) return n; seen.add(h); return `<a href="${h}">${n}</a>`; });
+    return text.replace(AUTO.rx, (n, off, s) => { const h = AUTO.by.get(n.replace(/&amp;/g, '&')); if (!h || seen.has(h)) return n;
+      if (AUTO.lords.has(h) && (AUTO.before.test(s.slice(Math.max(0, off - 24), off)) || AUTO.after.test(s.slice(off + n.length, off + n.length + 16)))) return n;
+      seen.add(h); return `<a href="${h}">${n}</a>`; });
   });
 }
 
@@ -386,9 +410,12 @@ const ctxHave = (route = ctxGet().route) => ctxRec(ctxGet().have)(route);
     map revealed, so it is empty then. Closed places stay closed on a rerun: border forts and Prestigio do not change. */
 function spotAccess(spot, route = ctxGet().route, key = ctxGet().key, rerun = ctxGet().rerun) {
   const s = SPOTS[spot], reveal = rerun || !s ? [] : (s.revealed_by || []).map(r => r.how === 'llegar a' ? r.spot_es && t('llegar a {p}', { p: gt(r.spot_es) }) : r.how === 'obtener el mapa' ? r.item?.es && t('conseguir el {i}', { i: gt(r.item.es) }) : r.how === 'hablar con un lugareño' ? r.where_es && t('hablar con un lugareño de {p}', { p: gt(r.where_es) }) : '').filter(Boolean);  // i18n-ignore (r.how: data values)  // unnamed waypoints (中スポット…) are left out
+  // revealH: the same list as HTML, the place or map a link (the caller does not escape it)
+  const pl = (id, es) => (SPOTS[id] ? L('lugar', id) : nl(gt(es)));
+  const revealH = rerun || !s ? [] : (s.revealed_by || []).map(r => r.how === 'llegar a' ? r.spot_es && t('llegar a {p}', { p: pl(r.spot, r.spot_es) }) : r.how === 'obtener el mapa' ? r.item?.es && t('conseguir el {i}', { i: ITEMS[r.item.id] ? L('objeto', r.item.id) : esc(gt(r.item.es)) }) : r.how === 'hablar con un lugareño' ? r.where_es && t('hablar con un lugareño de {p}', { p: pl(r.where, r.where_es) }) : '').filter(Boolean);  // i18n-ignore (r.how: data values)
   const a = s?.cai_p1_access;
-  if (!spot || route !== 'cai' || CAPS[key]?.part !== 1 || !a) return { ok: true, renown: 0, gates: [], reveal };
-  return { ok: !!a.reachable, renown: Math.max(0, ...(a.via_checkpoints || []).map(v => v.renown_rank || 0)), gates: (a.via_checkpoints || []).map(v => v.es), reveal };
+  if (!spot || route !== 'cai' || CAPS[key]?.part !== 1 || !a) return { ok: true, renown: 0, gates: [], reveal, revealH };
+  return { ok: !!a.reachable, renown: Math.max(0, ...(a.via_checkpoints || []).map(v => v.renown_rank || 0)), gates: (a.via_checkpoints || []).map(v => v.es), reveal, revealH };
 }
 /** the map place of a shop id, or of a Vandahl merchant (by the place that lists it) */
 const shopSpot = id => { id = String(id || ''); if (SPOTS[id]) return id;
@@ -564,7 +591,7 @@ function itemSources(iid, route, key) {
     const price = row.discount ? Math.round(base * (100 - row.discount) / 100) : base;
     if (o.type === 'tienda' || o.type === 'ambulante') out.push(`${plPlace(o.where)}${price ? ` · ${gold(price)}` : ''}`);
     else if (o.type === 'barter') out.push(t('Trueque en {w}', { w: plPlace(o.where) }) + (o.pay?.length ? ` ${t('por')} ${list(o.pay.map(p => `${p.n > 1 ? p.n + '× ' : ''}${L('objeto', p.id, p.es)}`))}` : ''));
-    else if (o.type === 'búsqueda') out.push(`${t('Búsqueda en {w}', { w: o.spot && SPOTS[o.spot] ? L('lugar', o.spot) : plPlace(o.where) })} (${pct(o.pct)}${o.condition?.length ? ', ' + esc(conds(o.condition)) : ''})`);
+    else if (o.type === 'búsqueda') out.push(`${t('Búsqueda en {w}', { w: o.spot && SPOTS[o.spot] ? L('lugar', o.spot) : plPlace(o.where) })} (${pct(o.pct)}${o.condition?.length ? ', ' + condsH(o.condition) : ''})`);
     else if (o.type?.startsWith('cultivo')) out.push(`${t('Cultivo en {w}', { w: plPlace(o.where) })} (${pct(o.pct)})`);
     else if (o.type === 'recompensa' && o.quest) out.push(t('Recompensa de la misión {q}', { q: L('mision', o.quest) }));
     else if (o.type === 'sorteo' && !JP_ANY.test(o.what)) out.push(`${t('Al {w}', { w: esc(dataTx(o.what)) })} (${pct(o.pct)})`);
@@ -595,6 +622,13 @@ const cond = c => String(c).replace(/^(\d+)章以降$/, (m, n) => t('desde el ca
   .replace(/^共有_兵種解放_(.+)$/, (m, j) => (CLASSES['JID_' + j] ? t('con la clase {c} desbloqueada', { c: nm(CLASSES['JID_' + j]) }) : t('con una clase desbloqueada')));
 /** readable conditions; internal flags without a Spanish reading show as «condición especial» */
 const conds = a => [...new Set((a || []).map(cond).map(x => (JP_ANY.test(x) ? t('condición especial') : x)))].join(' · ');
+/** cond() as HTML: the quest or class it names is a link, the rest escaped text */
+const condH = c => { const s = String(c), q = s.match(/^サブクエ_(.+)_(受注中|クリア済)$/), j = s.match(/^共有_兵種解放_(.+)$/);
+  if (q && QUEST['SQID_' + q[1]]) return t(q[2] === '受注中' ? 'con la misión «{q}» en curso' : 'tras completar la misión «{q}»', { q: L('mision', 'SQID_' + q[1]) });
+  if (j && CLASSES['JID_' + j[1]]) return t('con la clase {c} desbloqueada', { c: L('clase', 'JID_' + j[1]) });
+  const x = cond(c); return esc(JP_ANY.test(x) ? t('condición especial') : x); };
+/** conds() as HTML (condH): the caller does not escape it */
+const condsH = a => [...new Set((a || []).map(condH))].join(' · ');
 /** false when a condition list (`カイ篇`, `!カイ篇`) rules out `route` */
 const routeOk = (cs, route) => (cs || []).every(c => {
   const m = String(c).match(/^(!?)(.+)篇$/);
