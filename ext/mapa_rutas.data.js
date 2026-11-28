@@ -56664,15 +56664,6 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
      "extra_windows": null
     },
     "away_groups": {
-     "PID_クレオブロス": [
-      [
-       "1449-02-20",
-       "1449-02-28",
-       [
-        "行方不明"
-       ]
-      ]
-     ],
      "PID_ディートリヒ": [
       [
        "1449-02-20",
@@ -56682,16 +56673,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
        ]
       ]
      ],
-     "PID_アスワン": [
-      [
-       "1449-02-20",
-       "1449-02-28",
-       [
-        "行方不明"
-       ]
-      ]
-     ],
-     "PID_タリムーン": [
+     "PID_アナトリア": [
       [
        "1449-02-20",
        "1449-02-28",
@@ -56709,7 +56691,25 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
        ]
       ]
      ],
-     "PID_アナトリア": [
+     "PID_アスワン": [
+      [
+       "1449-02-20",
+       "1449-02-28",
+       [
+        "行方不明"
+       ]
+      ]
+     ],
+     "PID_クレオブロス": [
+      [
+       "1449-02-20",
+       "1449-02-28",
+       [
+        "行方不明"
+       ]
+      ]
+     ],
+     "PID_タリムーン": [
       [
        "1449-02-20",
        "1449-02-28",
@@ -60053,7 +60053,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
      "extra_windows": null
     },
     "away_groups": {
-     "PID_クレオブロス": [
+     "PID_ディートリヒ": [
       [
        "1449-03-01",
        "1449-03-07",
@@ -60062,7 +60062,16 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
        ]
       ]
      ],
-     "PID_ディートリヒ": [
+     "PID_アナトリア": [
+      [
+       "1449-03-01",
+       "1449-03-05",
+       [
+        "行方不明"
+       ]
+      ]
+     ],
+     "PID_クレオブロス": [
       [
        "1449-03-01",
        "1449-03-07",
@@ -60075,15 +60084,6 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
       [
        "1449-03-01",
        "1449-03-01",
-       [
-        "行方不明"
-       ]
-      ]
-     ],
-     "PID_アナトリア": [
-      [
-       "1449-03-01",
-       "1449-03-05",
        [
         "行方不明"
        ]
@@ -85310,12 +85310,13 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
      "extra_windows": null
     },
     "away_groups": {
-     "PID_クレオブロス": [
+     "PID_アナトリア": [
       [
        "1449-10-16",
        "1449-10-23",
        [
-        "リベイラ村"
+        "オシリスの村",
+        "行方不明"
        ]
       ]
      ],
@@ -85328,13 +85329,12 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
        ]
       ]
      ],
-     "PID_アナトリア": [
+     "PID_クレオブロス": [
       [
        "1449-10-16",
        "1449-10-23",
        [
-        "オシリスの村",
-        "行方不明"
+        "リベイラ村"
        ]
       ]
      ]
@@ -88988,6 +88988,15 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
      "extra_windows": null
     },
     "away_groups": {
+     "PID_アナトリア": [
+      [
+       "1449-11-04",
+       "1449-11-27",
+       [
+        "行方不明"
+       ]
+      ]
+     ],
      "PID_クレオブロス": [
       [
        "1449-11-04",
@@ -88998,15 +89007,6 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
       ]
      ],
      "PID_セオドラ": [
-      [
-       "1449-11-04",
-       "1449-11-27",
-       [
-        "行方不明"
-       ]
-      ]
-     ],
-     "PID_アナトリア": [
       [
        "1449-11-04",
        "1449-11-27",
@@ -113485,15 +113485,6 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
      "extra_windows": null
     },
     "away_groups": {
-     "PID_クレオブロス": [
-      [
-       "1449-05-30",
-       "1449-06-15",
-       [
-        "行方不明"
-       ]
-      ]
-     ],
      "PID_アナトリア": [
       [
        "1449-05-30",
@@ -113503,6 +113494,15 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
         "暗がりの洞窟",
         "ザスタの集落",
         "女神の門"
+       ]
+      ]
+     ],
+     "PID_クレオブロス": [
+      [
+       "1449-05-30",
+       "1449-06-15",
+       [
+        "行方不明"
        ]
       ]
      ]
@@ -124820,6 +124820,15 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
      "extra_windows": null
     },
     "away_groups": {
+     "PID_オルヘル": [
+      [
+       "1449-09-29",
+       "1449-10-04",
+       [
+        "行方不明"
+       ]
+      ]
+     ],
      "PID_クレオブロス": [
       [
        "1449-09-29",
@@ -124837,15 +124846,6 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
        [
         "エンデの小渦",
         "カリアネイラの港"
-       ]
-      ]
-     ],
-     "PID_オルヘル": [
-      [
-       "1449-09-29",
-       "1449-10-04",
-       [
-        "行方不明"
        ]
       ]
      ]
@@ -128608,16 +128608,6 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
      "extra_windows": null
     },
     "away_groups": {
-     "PID_クレオブロス": [
-      [
-       "1449-10-05",
-       "1449-11-03",
-       [
-        "リベイラ村",
-        "フィーナの漁村"
-       ]
-      ]
-     ],
      "PID_オルヘル": [
       [
        "1449-10-05",
@@ -128632,6 +128622,16 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
        [
         "陽だまり峠",
         "行方不明"
+       ]
+      ]
+     ],
+     "PID_クレオブロス": [
+      [
+       "1449-10-05",
+       "1449-11-03",
+       [
+        "リベイラ村",
+        "フィーナの漁村"
        ]
       ]
      ],
@@ -132434,6 +132434,15 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
      "extra_windows": null
     },
     "away_groups": {
+     "PID_アナトリア": [
+      [
+       "1449-11-04",
+       "1449-11-27",
+       [
+        "行方不明"
+       ]
+      ]
+     ],
      "PID_クレオブロス": [
       [
        "1449-11-04",
@@ -132444,15 +132453,6 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
       ]
      ],
      "PID_セオドラ": [
-      [
-       "1449-11-04",
-       "1449-11-27",
-       [
-        "行方不明"
-       ]
-      ]
-     ],
-     "PID_アナトリア": [
       [
        "1449-11-04",
        "1449-11-27",
@@ -145967,7 +145967,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
      "extra_windows": null
     },
     "away_groups": {
-     "PID_クレオブロス": [
+     "PID_ディートリヒ": [
       [
        "1449-03-01",
        "1449-03-07",
@@ -145976,7 +145976,16 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
        ]
       ]
      ],
-     "PID_ディートリヒ": [
+     "PID_アナトリア": [
+      [
+       "1449-03-01",
+       "1449-03-05",
+       [
+        "行方不明"
+       ]
+      ]
+     ],
+     "PID_クレオブロス": [
       [
        "1449-03-01",
        "1449-03-07",
@@ -145989,15 +145998,6 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
       [
        "1449-03-01",
        "1449-03-01",
-       [
-        "行方不明"
-       ]
-      ]
-     ],
-     "PID_アナトリア": [
-      [
-       "1449-03-01",
-       "1449-03-05",
        [
         "行方不明"
        ]
@@ -160446,15 +160446,6 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
      "extra_windows": null
     },
     "away_groups": {
-     "PID_クレオブロス": [
-      [
-       "1449-06-01",
-       "1449-06-30",
-       [
-        "行方不明"
-       ]
-      ]
-     ],
      "PID_アナトリア": [
       [
        "1449-06-01",
@@ -160462,6 +160453,15 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
        [
         "ザスタの集落",
         "女神の門"
+       ]
+      ]
+     ],
+     "PID_クレオブロス": [
+      [
+       "1449-06-01",
+       "1449-06-30",
+       [
+        "行方不明"
        ]
       ]
      ],
@@ -164162,7 +164162,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
      "extra_windows": null
     },
     "away_groups": {
-     "PID_クレオブロス": [
+     "PID_オルヘル": [
       [
        "1449-07-01",
        "1449-07-31",
@@ -164171,7 +164171,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
        ]
       ]
      ],
-     "PID_オルヘル": [
+     "PID_クレオブロス": [
       [
        "1449-07-01",
        "1449-07-31",
@@ -167967,6 +167967,15 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
      "extra_windows": null
     },
     "away_groups": {
+     "PID_オルヘル": [
+      [
+       "1449-08-25",
+       "1449-09-15",
+       [
+        "行方不明"
+       ]
+      ]
+     ],
      "PID_クレオブロス": [
       [
        "1449-08-25",
@@ -167983,15 +167992,6 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
        [
         "カリアネイラの港",
         "フェロニア駅"
-       ]
-      ]
-     ],
-     "PID_オルヘル": [
-      [
-       "1449-08-25",
-       "1449-09-15",
-       [
-        "行方不明"
        ]
       ]
      ],
@@ -171768,16 +171768,6 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
      "extra_windows": null
     },
     "away_groups": {
-     "PID_クレオブロス": [
-      [
-       "1449-09-17",
-       "1449-10-15",
-       [
-        "行方不明",
-        "リベイラ村"
-       ]
-      ]
-     ],
      "PID_ディートリヒ": [
       [
        "1449-09-17",
@@ -171806,6 +171796,16 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
         "行方不明",
         "ヴォーダン峠",
         "行方不明"
+       ]
+      ]
+     ],
+     "PID_クレオブロス": [
+      [
+       "1449-09-17",
+       "1449-10-15",
+       [
+        "行方不明",
+        "リベイラ村"
        ]
       ]
      ],
@@ -175624,12 +175624,13 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
      "extra_windows": null
     },
     "away_groups": {
-     "PID_クレオブロス": [
+     "PID_アナトリア": [
       [
        "1449-10-16",
        "1449-10-24",
        [
-        "リベイラ村"
+        "オシリスの村",
+        "行方不明"
        ]
       ]
      ],
@@ -175642,13 +175643,12 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
        ]
       ]
      ],
-     "PID_アナトリア": [
+     "PID_クレオブロス": [
       [
        "1449-10-16",
        "1449-10-24",
        [
-        "オシリスの村",
-        "行方不明"
+        "リベイラ村"
        ]
       ]
      ]
@@ -199770,15 +199770,6 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
      "extra_windows": null
     },
     "away_groups": {
-     "PID_クレオブロス": [
-      [
-       "1449-05-29",
-       "1449-06-28",
-       [
-        "行方不明"
-       ]
-      ]
-     ],
      "PID_アナトリア": [
       [
        "1449-05-29",
@@ -199789,6 +199780,15 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
         "暗がりの洞窟",
         "ザスタの集落",
         "女神の門"
+       ]
+      ]
+     ],
+     "PID_クレオブロス": [
+      [
+       "1449-05-29",
+       "1449-06-28",
+       [
+        "行方不明"
        ]
       ]
      ],
@@ -210976,6 +210976,15 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
      "extra_windows": null
     },
     "away_groups": {
+     "PID_オルヘル": [
+      [
+       "1449-09-28",
+       "1449-10-15",
+       [
+        "行方不明"
+       ]
+      ]
+     ],
      "PID_クレオブロス": [
       [
        "1449-09-28",
@@ -211001,15 +211010,6 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
        "1449-10-12",
        [
         "ヤーマン村",
-        "行方不明"
-       ]
-      ]
-     ],
-     "PID_オルヘル": [
-      [
-       "1449-09-28",
-       "1449-10-15",
-       [
         "行方不明"
        ]
       ]
@@ -214731,13 +214731,13 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
      "extra_windows": null
     },
     "away_groups": {
-     "PID_クレオブロス": [
+     "PID_アナトリア": [
       [
        "1449-10-16",
        "1449-11-06",
        [
-        "リベイラ村",
-        "フィーナの漁村"
+        "オシリスの村",
+        "行方不明"
        ]
       ]
      ],
@@ -214758,13 +214758,13 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
        ]
       ]
      ],
-     "PID_アナトリア": [
+     "PID_クレオブロス": [
       [
        "1449-10-16",
        "1449-11-06",
        [
-        "オシリスの村",
-        "行方不明"
+        "リベイラ村",
+        "フィーナの漁村"
        ]
       ]
      ],
@@ -218482,6 +218482,15 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
      "extra_windows": null
     },
     "away_groups": {
+     "PID_アナトリア": [
+      [
+       "1449-11-07",
+       "1449-11-27",
+       [
+        "行方不明"
+       ]
+      ]
+     ],
      "PID_クレオブロス": [
       [
        "1449-11-07",
@@ -218492,15 +218501,6 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
       ]
      ],
      "PID_セオドラ": [
-      [
-       "1449-11-07",
-       "1449-11-27",
-       [
-        "行方不明"
-       ]
-      ]
-     ],
-     "PID_アナトリア": [
       [
        "1449-11-07",
        "1449-11-27",
@@ -222194,9 +222194,9 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
     "chapter": 1,
     "es": "La batalla de la llanura de Klytius",
     "window": {
-     "start": null,
+     "start": "1450-01-18 12:00",
      "deadline": "1450-01-30 18:00",
-     "turns": null,
+     "turns": 49,
      "extra_windows": null
     },
     "away_groups": null,
@@ -223101,7 +223101,15 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
       }
      ],
      "special": null,
-     "calendar": [],
+     "calendar": [
+      {
+       "date": "1450-01-26",
+       "events": [
+        "Cosecha de la Luna Negra (CDID_収穫祭り)",
+        "Marea Viva (CDID_大漁祭り)"
+       ]
+      }
+     ],
      "auto_quests": null
     },
     "recruits": [
@@ -224368,9 +224376,9 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
     "chapter": 2,
     "es": "Duelo en la fortaleza de Agris",
     "window": {
-     "start": null,
+     "start": "1450-02-02 12:00",
      "deadline": "1450-03-01 16:00",
-     "turns": null,
+     "turns": 108,
      "extra_windows": null
     },
     "away_groups": null,
@@ -225275,7 +225283,32 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
       }
      ],
      "special": null,
-     "calendar": [],
+     "calendar": [
+      {
+       "date": "1450-02-10",
+       "events": [
+        "Brillo Cristalino (CDID_採掘祭り)",
+        "Marea Viva (CDID_大漁祭り)"
+       ]
+      },
+      {
+       "date": "1450-02-14",
+       "events": [
+        "Tributo Estelar a Aurora",
+        "obra especial",
+        "Plaza de armas a mitad de precio",
+        "comida a mitad de precio",
+        "baño especial"
+       ]
+      },
+      {
+       "date": "1450-02-25",
+       "events": [
+        "Cosecha de la Luna Negra (CDID_収穫祭り)",
+        "Marea Viva (CDID_大漁祭り)"
+       ]
+      }
+     ],
      "auto_quests": null
     },
     "recruits": [
@@ -228741,9 +228774,9 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
     "chapter": 4,
     "es": "Asalto a Dagsion",
     "window": {
-     "start": null,
+     "start": "1450-04-05 12:00",
      "deadline": "1450-04-30 06:00",
-     "turns": null,
+     "turns": 99,
      "extra_windows": null
     },
     "away_groups": null,
@@ -229648,7 +229681,32 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["mapa_rutas"]={
       }
      ],
      "special": null,
-     "calendar": [],
+     "calendar": [
+      {
+       "date": "1450-04-10",
+       "events": [
+        "Brillo Cristalino (CDID_採掘祭り)",
+        "Marea Viva (CDID_大漁祭り)"
+       ]
+      },
+      {
+       "date": "1450-04-24",
+       "events": [
+        "Tributo Mágico a Smyrnos",
+        "obra especial (cantante Cohen)",
+        "Plaza de armas a mitad de precio",
+        "comida a mitad de precio",
+        "baño especial"
+       ]
+      },
+      {
+       "date": "1450-04-25",
+       "events": [
+        "Cosecha de la Luna Negra (CDID_収穫祭り)",
+        "Marea Viva (CDID_大漁祭り)"
+       ]
+      }
+     ],
      "auto_quests": null
     },
     "recruits": [

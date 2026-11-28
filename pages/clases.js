@@ -73,12 +73,16 @@
 
   function users(k, c) {
     const mm = MM();
-    const best = (mm.chars || []).filter(x => x.best?.[0] === k || x.alt?.[0] === k)
-      .map(x => `${L('personaje', x.pid, x.es)} <small>(${t(x.best?.[0] === k ? 'recomendada' : 'alternativa')})</small>`);
+    // units whose published builds go through this class (the same builds as the catalog and the ficha): «final» when it ends there
+    const B = (window.WIKI_EXT || {}).builds?.units || {};
+    const best = Object.keys(B).filter(pid => CHARS[pid]).sort(bySerial).flatMap(pid => {
+      const js = B[pid].map(o => o.path.map(es => teamJid(es))), fin = js.some(j => j.at(-1) === k);
+      return fin || js.some(j => j.includes(k)) ? [`${L('personaje', pid)} <small>(${t(fin ? 'clase final' : 'de paso')})</small>`] : [];
+    });
     const lines = (mm.lines || []).filter(l => (l.path || []).some(p => p[0] === k) || l.divine?.[0] === k)
       .map(l => li(esc(dx(l.line)), list((l.units || []).map(u => L('personaje', u[0], u[1])))));
     const defaults = Object.values(CHARS).filter(ch => (ch.p?.combat?.default_classes_p1 || []).includes(c.es) || ch.p?.combat?.class === k).map(ch => L('personaje', ch.id));
-    return kvRows([[t('Mejor clase para'), list(best)], [t('La llevan de serie'), list(defaults)]]) + (lines.length ? `<h4>${t('Líneas de clase')}</h4>${ul(lines)}` : '');
+    return kvRows([[t('En las builds de'), list(best)], [t('La llevan de serie'), list(defaults)]]) + (lines.length ? `<h4>${t('Líneas de clase')}</h4>${ul(lines)}` : '');
   }
 
   function clase(k) {

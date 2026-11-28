@@ -1,5 +1,5 @@
 /* Fortune's Weave · characters: listing (#/personajes?r=&arma=) and ficha (#/personaje/<pid>): a summary with the route line and the stat table,
-   then tabs (your run, build, supports). Uses teamNow, teamPlan, teamBuildHtml, teamMountsByBuild (equipo-*.js) and frasesBlock (guion.js). */
+   then tabs (your run, build, supports). Uses teamNow, teamPlan, teamBuildHtml (equipo-*.js), buildsUnit and buildCardHtml (builds.js) and frasesBlock (guion.js). */
 'use strict';
 /** a short data label with entity names linked: each «, »/« + »/« → » part links its longest entity name («8000 G + clase Caladrio
     (Prestigio 7)», «disipar miasma en Foso de Krove»); the rest stays text. objetos.js uses it too */
@@ -214,7 +214,7 @@ function recruitDeal(pid, route) {
       (late ? `<p class="mut">${esc(sentence(late))} <a href="#/guia/experiencia-y-niveles">${t('Experiencia y niveles')}</a>.</p>` : '') : '';
   }
 
-  function build(c, p, mounts) {
+  function build(c, p) {
     const mm = MM(), cb = p.combat || {};
     const fixed = list((cb.forced_skills || []).filter(s => s.es && !/^Halo/.test(s.es)).map(s => L('habilidad', s.id, s.es)));
     const best = (mm.chars || []).find(x => x.pid === c.id);
@@ -235,24 +235,30 @@ function recruitDeal(pid, route) {
     (DT().learn?.[c.id] || []).forEach(([prof, rk, sid, es]) => (learn[prof] ||= []).push(`${rk} ${L('habilidad', sid, es)}`));
     const defs = (cb.default_classes_p1 || []).filter((x, i, a) => x !== a[i - 1]);
     const p1 = Object.values(c.routes || {}).some(x => CAPS[x.join_key || x.recruit_key]?.part === 1);
-    const alt = [...(cb.community_paths || []).filter(x => factOnly(x.path)).map(x => li(esc(factOnly(dx(x.role))) || esc(nm(c)), nlText(factOnly(dx(x.path))))),
-      ...(mm.alt_paths || []).filter(a => a[0] === c.es && factOnly(a[1])).map(a => `<li>${nlText(factOnly(dx(a[1])))}</li>`)];
+    // what the web lists say, as cited opinion: only paths whose every class this unit can take (classBan), never as «the» recommendation
+    const okPath = txt => teamClassesIn(factOnly(txt)).every(j => classBan(c.id, j) !== true);
+    const alt = [...(cb.community_paths || []).filter(x => factOnly(x.path) && okPath(x.path)).map(x => li(esc(factOnly(dx(x.role))) || esc(nm(c)), nlText(factOnly(dx(x.path))))),
+      ...(mm.alt_paths || []).filter(a => a[0] === c.es && factOnly(a[1]) && okPath(a[1])).map(a => `<li>${nlText(factOnly(dx(a[1])))}</li>`)];
+    const okCls = x => x && CLASSES[x[0]] && classBan(c.id, x[0]) !== true;
+    const otherSites = [okCls(best?.best) && li(t('Clase final'), cls(best.best) + (best.eff ? ` · ${esc(dx(best.eff))}` : '')), okCls(best?.alt) && li(t('Alternativa'), cls(best.alt)),
+      !best && rec?.jid && CLASSES[rec.jid] && classBan(c.id, rec.jid) !== true && li(t('Clase avanzada'), cls([rec.jid, rec.class_es])), best?.warn && li(t('Aviso'), esc(dx(best.warn)))].filter(Boolean);
+    const tiers = (window.WIKI_EXT || {}).builds?.tiers || {};
+    const grades = [...ROUTE_IDS.filter(r => tiers[r]?.[c.id]).map(r => `${esc(ROUTE_NAME[r])} <b>${esc(tiers[r][c.id])}</b>`), tiers.final?.[c.id] && `${t('Partes 2 y 3')} <b>${esc(tiers.final[c.id])}</b>`].filter(Boolean);
     return kvRows([
       [t('Halo'), list([...halos].map(([es, id]) => L('habilidad', id, es)))],
       [t('Habilidades fijas'), fixed],
       ...profRows(c.id),
       [t('Objetos iniciales'), list((cb.start_items || []).map(n => { const id = Object.keys(ITEMS).find(k => ITEMS[k].es === n); return id ? itemIco(id, 'ico') + L('objeto', id) : esc(gt(n)); }))],
-      [t('Clase recomendada'), best && cls(best.best)], [t('Alternativa'), best?.alt && cls(best.alt)],
-      [t('Crecimientos con la clase'), best?.eff && esc(dx(best.eff))],
-      [t('Aviso'), best?.warn && esc(dx(best.warn))],
-      [t('Clase avanzada recomendada'), !best && rec?.jid && CLASSES[rec.jid] ? cls([rec.jid, rec.class_es]) : ''],
+      [t('Tier'), grades.length ? grades.join(' · ') + ` <a href="#/tier-personajes">${t('Tier list')}</a>` + COM() : ''],
       [t('Valoración'), p.why?.text && esc(dx(p.why.text)) + (p.why.community ? COM() : '')],
       [t(p1 ? 'Clases por defecto (Parte 1)' : 'Clases por defecto'), defs.map(nl).join(' → ')],
       ...(charLimits(c.id) || [[t('Clases vetadas'), list((p.class_bans || []).map(nl))]]),
-    ]) + communityBuilds(c.id) + ignition(c.id) + (rec?.growth_in_class && rec.jid && CLASSES[rec.jid] ? `<h4>${t('Crecimientos en {c}', { c: L('clase', rec.jid) })}</h4>${statTable([rec.growth_in_class], ['Crecimiento %'])}` : '') +
-      (lines.length ? `<h4>${t('Líneas de clase')}</h4>${ul(lines)}` : '') + (alt.length ? `<h4>${t('Rutas alternativas')} ${COM()}</h4>${ul(alt)}` : '') + (arch.length ? `<h4>${t('Arquetipos')}</h4>${ul(arch)}` : '') +
+    ]) + unitBuilds(c.id) + ignition(c.id) +
+      (otherSites.length || alt.length || lines.length || arch.length ? `<details><summary>${t('Qué dicen otras guías')} ${COM()}</summary>` + (otherSites.length ? ul(otherSites) : '') +
+        (alt.length ? `<h4>${t('Rutas alternativas')}</h4>${ul(alt)}` : '') + (lines.length ? `<h4>${t('Líneas de clase')}</h4>${ul(lines)}` : '') + (arch.length ? `<h4>${t('Arquetipos')}</h4>${ul(arch)}` : '') +
+        `<p class="mut">${t('Opiniones publicadas en otras webs; las builds de arriba son las que la wiki comprueba con los datos del juego.')}</p></details>` : '') +
       (skills.length ? `<h4>${t('Habilidades personales')}</h4>${ul(skills)}` : '') +
-      (Object.keys(learn).length ? `<details><summary>${t('Aprendizaje por competencia')}</summary>${kvRows(Object.entries(learn).map(([k, v]) => [dx(k), v.join(' · ')]))}</details>` : '') + (mounts || '');
+      (Object.keys(learn).length ? `<details><summary>${t('Aprendizaje por competencia')}</summary>${kvRows(Object.entries(learn).map(([k, v]) => [dx(k), v.join(' · ')]))}</details>` : '');
   }
 
   /** game data (+1 / −1) and 剣…指揮 (starting rank), huecos.json; the in-game tip says what proficient means */
@@ -262,16 +268,17 @@ function recruitDeal(pid, route) {
     return [[t('Destaca en'), x.destaca.length ? list(x.destaca.map(esEn)) + `<br><small>${esEn(C.nota)}</small>` : ''], [t('Flojea en'), list(x.flojea.map(esEn))],
       [t('Rangos iniciales'), x.rango.map(([es, en, r]) => `${esEn([es, en])} ${r}`).join(' · ')]];
   }
-  /** every community build of the unit (WIKI_EXT.builds), by route (Part 1) and end game (Parts 2-3); Mi partida picks one by roster */
-  function communityBuilds(pid) {
-    const r = ctxRoute(), all = (((window.WIKI_EXT || {}).builds?.units || {})[pid] || []).filter(o => !r || !o.routes || o.routes.includes(r));  // a chosen route: its own Part 1 builds only
-    if (!all.length) return '';
-    const where = o => (o.routes ? t('Parte 1 con {r}', { r: esc(o.routes.map(r => ROUTE_NAME[r]).join(', ')) }) : t('Partes 2 y 3'));
-    const groups = [...new Set(all.map(where))];
-    return `<h4>${t('Builds propuestas')} ${COM()}</h4>` +
-      groups.map(g => `<details><summary>${g} (${all.filter(o => where(o) === g).length})</summary>${ul(all.filter(o => where(o) === g).map(o =>
-        li(`<b>${esc(tx(o, 'name'))}</b> <span class="mut">${o.path.map(es => { const j = teamJid(es); return j ? L('clase', j) : esc(es); }).join(' → ')} · ${esc(t(o.weapon))}</span>`,
-          [tx(o, 'why'), tx(o, 'fits') && t('Elígela: {f}', { f: tx(o, 'fits') })].filter(Boolean).map(esc).join(' '))))}</details>`).join('');
+  /** the unit's builds as the Builds catalog draws them (buildsUnit + buildCardHtml: tier, availability, class steps with their chapter,
+      mounts): the chosen route's Part 1 and the end game, or every route with builds when none is chosen */
+  function unitBuilds(pid) {
+    const r = ctxRoute(), groups = [];
+    const none = `<p class="mut">${t('Sin build propuesta: el plan de <a href="#/equipo">Equipo</a> le calcula una con sus crecimientos.')}</p>`;
+    // a Part 1 unit of the chosen route with no build keeps its heading, «no build proposed», as in the Builds catalog
+    for (const rt of r ? [r] : ROUTE_IDS) { const u = buildsUnit(pid, rt, 1); if (u.builds.length || (r && joinsP1(pid, rt))) groups.push([t('Parte 1 con {r}', { r: esc(ROUTE_NAME[rt]) }), rt, u]); }
+    const fin = buildsUnit(pid, r || '', 3); if (fin.builds.length) groups.push([t('Partes 2 y 3'), r || '', fin]);
+    if (!groups.length) return none;
+    return `<h4>${t('Builds')}</h4>` + groups.map(([lb, rt, u], i) => `<details${i === 0 ? ' open' : ''}><summary>${lb}${u.tier ? ` · ${t('tier {t}', { t: esc(u.tier) })}` : ''} (${u.builds.length})</summary>` +
+      (u.builds.length ? u.builds.map(b => buildCardHtml(rt, b, pid, u.key)).join('') : none) + '</details>').join('');
   }
 
   /** Burst lords: ignition type and technique chains (W.ignicion) */
@@ -362,8 +369,7 @@ function recruitDeal(pid, route) {
       dagsion(c, route) + gifts(c, p) + perch(p) + (window.frasesBlock ? frasesBlock(c.id) : '') + (res ? `<details><summary>${t('Resumen y misiones')}</summary>${res}</details>` : '');
     return ficha(head, [
       ['partida', 'En tu partida', partida],
-      ['build', 'Build', build(c, p, teamMountsByBuild(c.id, route, ctxGet().key, plan) +
-        (route ? '' : `<p class="mut">${t('Sin ruta elegida se cuentan todas las monturas; las capturadas solo las consigue Cai (en la Parte 1, y en la Parte 3 con Cai en el ejército).')}</p>`))],
+      ['build', 'Build', build(c, p)],
       ['apoyos', 'Apoyos', supportWindow(c) + supports(c, p) + (fin ? `<details id="fi-finales"><summary>${t('Finales')} <span class="ap-sp">spoiler</span></summary>${fin}</details>` : '')],
     ]);
   }

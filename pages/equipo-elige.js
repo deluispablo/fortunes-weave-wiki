@@ -75,9 +75,9 @@ function teamFill(route, key, c = ctxGet()) {
 }
 
 /* ---------------- a unit's build and gear: auto unless picked by hand ---------------- */
-const PICK_F = ['b', 'c', 'w0', 'w1', 'g'];
+const PICK_F = ['b', 'c', 'w0', 'w1', 'g', ...MOUNT_KINDS.map(k => 'm' + k)];
 /** one hand pick in Equipo for block `pt` (default: the game's): f 'b' (build id), 'c' (class: hand-picked weapons it cannot use go),
-    'w0', 'w1', 'g' (an item id, '' = none); 'reset' clears the unit (back to auto). Unknown units, fields and ids are ignored */
+    'w0', 'w1', 'g' (an item id, '' = none), 'm<Kind>' (the mount for that mount type, '' = automatic); 'reset' clears the unit (back to auto). Unknown units, fields and ids are ignored */
 function teamPickSet(route, pid, f, v, pt = partBlk(ctxGet().key)) {
   if (!Object.hasOwn(CHARS, pid) || (f !== 'reset' && !PICK_F.includes(f)) || (f !== 'reset' && f !== 'b' && !CTX_PICK[f](String(v)))) return;
   const all = ctxPicks(route, undefined, pt), u = { ...all[pid] };

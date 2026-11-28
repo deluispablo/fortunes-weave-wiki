@@ -32,8 +32,8 @@
     ['Aptitud', 'competencia en dorado: +1 por asalto; en negro: 0; en azul: −1'],
     ['Bono de clase', 'cada clase suma a las competencias que entrena (se ve al cambiar de clase): Gladiador, a Espada, Hacha y Guanteletes, no a Lanza'],
     ['Mazmorras', 'las unidades montadas luchan a pie: suben Infantería, no Equitación ni Vuelo'],
-    ['Ayudas de salvación', 'suman en cada combate; una prueba de la comunidad no las vio sumar en la Batalla rápida (sin confirmar)'],
-    ['Batalla rápida', 'solo cuentan los primeros 15 asaltos para la EXP de competencia, de clase y de movimiento; el botón + salta 15 asaltos. Para subir sin gastar turnos: Trucos › Golpear y retirarse'],
+    ['Ayudas de salvación', 'suman en cada combate; en la Batalla rápida, «Exp adicional» se aplica una sola vez sobre el total'],
+    ['Batalla rápida', 'solo cuentan los primeros 15 asaltos para la EXP de competencia; el botón + salta 15 asaltos. Para subir sin gastar turnos: Trucos › Golpear y retirarse'],
     ['Manuales', 'manual +20, tratado +100; solo Mando, Equitación, Coraza, Vuelo, Magia negra y Magia blanca'],
   ];
 
@@ -58,7 +58,7 @@
           [t('Competencias'), t('EXP para subir a Nv2…12: 20, 15, 45, 140, 220, 250, 220, 305, 295, 450, 600.')],
           [t('Vínculo de montura'), t('20, 30, 40 y 50 para Nv2–5.')],
           [t('Nivel de referencia por rango de clase'), t('Inicial 5, Intermedia 20, Avanzada 35, Suprema 45 (lo usa el autocrecimiento).')],
-          [t('Reclutas no reclutados'), t('suben solos con el 80 % de su crecimiento personal, con un nivel menos. Nivel al unirse en la Parte 2: 35; en la Parte 3: 40; saltar la Parte 2 suma 5 niveles.')],
+          [t('Reclutas no reclutados'), t('suben solos, sin azar: el 80 % de su crecimiento personal más el modificador de su clase prevista, y llegan un nivel por debajo del de reclutamiento del capítulo. Nivel al unirse en la Parte 2: 35; en la Parte 3: 40; saltar la Parte 2 suma 5 niveles.')],
           [t('Turnos de mapa'), t('base 5 ×1 y EXP de clase 1 por turno.')],
           [t('Miasma'), t('daño 100, EXP base 20, ×150 %.')],
           [t('Mínimo por subida'), t('en las Partes 1 y 2 cada nivel sube al menos 2 atributos (hasta 4 tiradas y luego relleno); en la Parte 3 no hay mínimo. Conviene subir en las Partes 1 y 2 a las unidades de crecimiento bajo.')],

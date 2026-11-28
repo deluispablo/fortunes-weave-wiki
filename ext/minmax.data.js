@@ -103,8 +103,12 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["minmax"]={
    "page": "builds",
    "sec": "Fórmulas",
    "title": "Tope de +10 en bonificaciones",
-   "extra": "Las bonificaciones fijas (clase, arma, batallón) comparten un tope de +10 por atributo: con un arma de Fue +6, El Tridente solo suma +4.",
-   "alt": []
+   "alt": [
+    [
+     "Web: la clase cuenta para el tope",
+     "web refutada (el modificador de clase es parte del valor propio)"
+    ]
+   ]
   },
   {
    "id": "manuales",
@@ -166,11 +170,11 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["minmax"]={
    "alt": [
     [
      "AN: solo crecimiento ×2",
-     ""
+     "web refutada (también dobla los fijos)"
     ],
     [
      "CujoeTV: crecimiento y fijos ×2",
-     ""
+     "web, coincide con el código"
     ]
    ]
   },
@@ -688,12 +692,12 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["minmax"]={
      "Esmeralda"
     ],
     [
-     "PID_ゴライアス",
-     "Goliath"
-    ],
-    [
      "PID_バッカニア",
      "Buccar"
+    ],
+    [
+     "PID_ジャスミン",
+     "Jasmine"
     ]
    ],
    "final_growth": "Caballero bastión: PV +25, Fue +20, Mag -5, Hab +5, Vel -15, Def +30, Res -10, Car +5"
@@ -910,10 +914,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["minmax"]={
     "JID_オリハルディア",
     "Auricalcado"
    ],
-   "alt": [
-    "JID_聖天翼兵",
-    "Jinete celeste"
-   ],
+   "alt": null,
    "personal": "PV 45 · Fue 45 · Hab 45",
    "eff": "PV 60 · Fue 60 · Vel 50 · Car 50",
    "warn": ""
@@ -1045,10 +1046,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["minmax"]={
     "JID_フォートレス",
     "Caballero bastión"
    ],
-   "alt": [
-    "JID_グレートナイト",
-    "Jinete pesado"
-   ],
+   "alt": null,
    "personal": "Fue 60 · PV 55 · Def 50",
    "eff": "PV 80 · Fue 80 · Def 80 · Hab 35",
    "warn": ""
@@ -1165,10 +1163,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["minmax"]={
     "JID_ドラゴンマスター",
     "Paladín bau"
    ],
-   "alt": [
-    "JID_聖天翼兵",
-    "Jinete celeste"
-   ],
+   "alt": null,
    "personal": "Car 50 · PV 45 · Fue 45",
    "eff": "PV 60 · Car 55 · Fue 50 · Def 50",
    "warn": ""

@@ -41,7 +41,7 @@
     if (a.how === 'cebo') {
       out.push(a.p1_cai ? t('<b>Parte 1:</b> solo en la ruta de Cai, desde el cap. {n}, con Cebo. En las otras rutas no se capturan animales.', { n: a.p1_from_chapter })
         : t('<b>Parte 1:</b> no se puede conseguir en ninguna ruta (sus lugares de cebo están cerrados para Cai).'));
-      out.push(`${t('<b>Parte 2:</b> el Establo sigue abierto con Cai aliado (alimentar y asignar), sin Cebo.')} ${COM()}`);
+      out.push(t('<b>Parte 2:</b> no hay monturas en ninguna Guerra; los animales pasan al arcón de la memoria al acabar la Parte 2.'));
       out.push(t('<b>Parte 3:</b> en todas las rutas, desde el cap. {n}, con Cai en el ejército (la milicia de Cai pone el Cebo; capturan todos).', { n: a.p3_from_chapter || 2 }));
     }
     if (a.how === 'misión') questsOf(k).forEach(q => out.push(t('<b>Parte 3:</b> recompensa de la misión {q} (entregar {n}× {items}); da {c} ejemplares. Pide haber terminado la Parte 2 de Cai y tener desbloqueado el {cl}. Es la única forma de conseguirlo.',
@@ -102,7 +102,7 @@
     const foodCard = f ? card(t('Comida'),
       kvRows([[t('Le gusta'), `${esc(dx(f.type))} <small>(${list(Object.entries(m.food_scores || {}).map(([ty, v]) => `${esc(dx(ty))} ${v}`))})</small>`], [t('Sabor'), esc(dx(f.taste))],
         [t('Favorito'), t('uno concreto por animal, sorteado al crearse; se ve en el Establo')]]) +
-      p(t('Cada animal tiene su propio «Favorito»: se sortea al crearse el animal, con la misma semilla que su habilidad de vínculo, y se ve en el Establo; no hay uno fijo por especie. Los ingredientes de {type} con sabor {taste} de esta lista dan el bono de tipo y sabor; si el que le das es además su Favorito, suma {n} puntos y al capturar asegura el 100 %.', { type: esc(dx(f.type)), taste: esc(dx(f.taste)), n: FE.great_fav ?? 5 })) +
+      p(t('Cada animal tiene su propio «Favorito»: se sortea al crearse el animal, con la misma semilla que su habilidad de vínculo, y se ve en el Establo; no hay uno fijo por especie. Los ingredientes de {type} con sabor {taste} de esta lista dan el bono de tipo y sabor; si el que le das es además su Favorito, suma {n} puntos.', { type: esc(dx(f.type)), taste: esc(dx(f.taste)), n: FE.great_fav ?? 5 })) +
       tw(['Ingrediente', 'Calidad', 'Vínculo por comida', 'Si es su Favorito'], foods.map(x => [obj(x.iid, x.es), stars(x.grade), feedPts(x.grade, 1, 1, 0), feedPts(x.grade, 1, 1, 1)])) +
       p(t('Una comida por animal y día. Vínculo 5 pide {n} puntos. Fórmula completa en {establo}.', { n: R.bond_thresholds?.[4] ?? 140, establo: `<a href="#/monturas?ir=establo">${t('Establo')}</a>` })), 'fi-comida') : '';
     const lv = [1, 2, 3, 4, 5], labels = lv.map(n => `Vínculo ${n}`);  // statTable() translates the labels
@@ -127,13 +127,13 @@
     const th = R.bond_thresholds || [0, 20, 50, 90, 140];
     const out = R.lure?.outcomes || [];
     const h4 = x => `<h4>${t(x)}</h4>`;
-    return card(t('Establo'), p(t('{h} Parte 1: solo en la ruta de Cai, desde el cap. 5 (las otras rutas no tienen Cebo ni Establo; {io} y {alex} llevan su montura propia en cualquier ruta). Parte 2: sigue abierto con Cai aliado, sin Cebo {com}. Al acabar la Parte 2 los animales pasan al arcón de la memoria. Parte 3: todas las rutas, desde el cap. 2, con Cai en el ejército. Caben {n} animales.',
-      { h: `<b>${t('Cuándo se abre.')}</b>`, io: L('personaje', 'PID_イオ'), alex: L('personaje', 'PID_アレキサンドラ'), com: COM(), n: R.stable_cap ?? 200 })) +
+    return card(t('Establo'), p(t('{h} Parte 1: solo en la ruta de Cai, desde el cap. 5 (las otras rutas no tienen Cebo ni Establo; {io} y {alex} llevan su montura propia en cualquier ruta). Parte 2: no hay monturas en ninguna Guerra; al acabar la Parte 2 los animales pasan al arcón de la memoria. Parte 3: todas las rutas, desde el cap. 2, con Cai en el ejército. Caben {n} animales.',
+      { h: `<b>${t('Cuándo se abre.')}</b>`, io: L('personaje', 'PID_イオ'), alex: L('personaje', 'PID_アレキサンドラ'), n: R.stable_cap ?? 200 })) +
       h4('Vínculo') + tw(['Nivel', ...th.map((_, i) => String(i + 1))], [[t('Puntos'), ...th.map(String)]]) +
-      p(t('Es de cada pareja jinete–animal: cada animal recuerda hasta 5 jinetes, y si pasa a otra unidad, esa unidad sigue desde su propio vínculo. Se puede subir antes de tener la clase. La habilidad de vínculo llega con vínculo {a} y su versión «+» con {b}. También sube combatiendo montado; la cantidad exacta no se conoce {com}.',
-        { a: R.bond_skill_levels?.base ?? 3, b: R.bond_skill_levels?.plus ?? 5, com: COM() })) +
-      h4('Alimentar') + p(t('Se elige qué aliado da de comer; el vínculo sube para ese aliado. Puntos = {base} + calidad (★ {g1}, ★★ {g2}, ★★★ {g3}) + tipo que le gusta {ty} + sabor {ta} + su Favorito {fav}. Una comida por animal y día {com}.',
-        { base: FE.base ?? 1, g1: G[1] ?? 0, g2: G[2] ?? 2, g3: G[3] ?? 5, ty: FE.fav_type ?? 6, ta: FE.fav_taste ?? 3, fav: FE.great_fav ?? 5, com: COM() })) +
+      p(t('Es de cada pareja jinete–animal: cada animal recuerda hasta 5 jinetes, y si pasa a otra unidad, esa unidad sigue desde su propio vínculo. Se puede subir antes de tener la clase. La habilidad de vínculo llega con vínculo {a} y su versión «+» con {b}. Además suma 1 por cada combate en que el jinete actúa montado en ese animal.',
+        { a: R.bond_skill_levels?.base ?? 3, b: R.bond_skill_levels?.plus ?? 5 })) +
+      h4('Alimentar') + p(t('Se elige qué aliado da de comer; el vínculo sube para ese aliado. Puntos = {base} + calidad (★ {g1}, ★★ {g2}, ★★★ {g3}) + tipo que le gusta {ty} + sabor {ta} + su Favorito {fav}. Una comida por animal y día.',
+        { base: FE.base ?? 1, g1: G[1] ?? 0, g2: G[2] ?? 2, g3: G[3] ?? 5, ty: FE.fav_type ?? 6, ta: FE.fav_taste ?? 3, fav: FE.great_fav ?? 5 })) +
       tw(['Ingrediente', '★', '★★', '★★★'], rows.map(([l, ty, s, fv]) => [t(l), ...[1, 2, 3].map(g => feedPts(g, ty, s, fv))])) +
       p(t('El tipo y el sabor de cada especie y sus ingredientes están en su ficha. El Favorito cambia de un animal a otro y se ve en el Establo.')) +
       h4('Capturar') + p(t('Tras el Cebo aparece el animal y se puede intentar Capturar. Si el animal se quedó en el campo, la captura es segura: el resultado se decide al poner el Cebo. Si se fue deja boñiga, abono que sube la mutación de los cultivos:')) +

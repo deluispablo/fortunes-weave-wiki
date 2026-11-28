@@ -3554,7 +3554,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["rutas"]={
     "Examen de aptitud",
     "Servicio divino"
    ],
-   "end": "1449-03-06",
+   "end": "1449-03-07",
    "quests_open": [
     {
      "id": "SQID_神殿でお待ちしております",
@@ -3661,7 +3661,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["rutas"]={
     "Enviar tropas",
     "Enviar suministros"
    ],
-   "end": "1449-03-20",
+   "end": "1449-03-21",
    "quests_open": [
     {
      "id": "SQID_贈り物はどこで買えば？_セオドラ",
@@ -5273,7 +5273,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["rutas"]={
     "Herrería",
     "Sociedad Mercantil Vandahl"
    ],
-   "end": "1449-05-27",
+   "end": "1449-05-28",
    "quests_open": [
     {
      "id": "SQID_鍛冶屋開店キャンペーン！",
@@ -6449,7 +6449,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["rutas"]={
     41
    ],
    "unlocks": [],
-   "end": "1450-04-29",
+   "end": "1450-04-30",
    "quests_open": [],
    "quests_close": []
   },

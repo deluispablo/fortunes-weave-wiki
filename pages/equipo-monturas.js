@@ -44,13 +44,14 @@ function teamMountWants(pid, kind, growth, route, key, team = null) {
 }
 /** the Cuadriguero doubles the mount bonus (growth and flat): ×2 for a mount stage that includes it */
 const teamMountMul = classes => ((classes || []).includes(CUADRI) ? 2 : 1);
-/** a mount that only one unit can have: personal mounts and rare catches */
-const teamMountScarce = rid => !!MOUNTS[rid]?.unique_q || teamMountRare(rid);
+/** a mount that only one unit can have: personal mounts. Rare catches repeat (the spot's rare roll runs again on every lure; no caught flag or stable cap) */
+const teamMountScarce = rid => !!MOUNTS[rid]?.unique_q;
 /** wants: [{pid, kind, ranked: [rid]}] in priority order → {pid: {kind: {rid, first, want, lost_to}}}; common and default mounts repeat */
 function teamAssignMounts(wants) {
   const taken = {}, out = {};
+  wants.filter(w => w.pick && teamMountScarce(w.pick)).forEach(w => { taken[w.pick] ??= w.pid; });  // a hand-picked rare or personal mount is that unit's
   // a personal mount goes to whoever gains most from it (score = Σ bond-5 growth × unit growth, ×2 in Cuadriguero), its owner on ties
-  const uniq = [...new Set(wants.flatMap(w => w.ranked.filter(r => MOUNTS[r]?.unique_q)))];
+  const uniq = [...new Set(wants.flatMap(w => w.ranked.filter(r => MOUNTS[r]?.unique_q && !taken[r])))];
   for (const rid of uniq) {
     const cand = wants.map((w, i) => ({ w, i, sc: w.score?.[rid] ?? (w.ranked[0] === rid ? 1 : 0) })).filter(x => x.w.ranked.includes(rid))
       .sort((a, b) => b.sc - a.sc || (ownerOf(MOUNTS[rid]) === b.w.pid) - (ownerOf(MOUNTS[rid]) === a.w.pid) || a.i - b.i);
@@ -101,16 +102,41 @@ function teamMountsFor(pid, path, route, key) {
     return { kind: st.kind, classes: st.classes, rid, g5, double: mul > 1, total: Object.values(g5).reduce((a, v) => a + v, 0) };
   });
 }
-/** builds of a unit for the ficha: [{label, path}] — the planner's recommended build, published alternatives and the game's default classes */
-function teamBuildOptions(pid, route, key) {
-  const cb = teamCombat(pid), out = [], seen = new Set();
-  const add = (label, path, rec = false) => { const p = path.filter(j => CLASSES[j]); const k = p.join('>'); if (p.length && !seen.has(k)) { seen.add(k); out.push({ label, path: p, rec }); } };
-  const rec = teamBuild(pid, route, key);
-  if (rec?.target) add(t('Recomendada'), [rec.start, ...rec.steps.map(s => s.jid)], true);
-  const rising = js => js.filter(j => CLASSES[j].tier > 0).reduce((a, j) => (!a.length || CLASSES[j].tier > CLASSES[a[a.length - 1]].tier ? [...a, j] : a), []);  // one class per tier, as written
-  (cb.community_paths || []).forEach(x => add(factOnly(dataTx(x.role)) || t('Alternativa'), rising(teamClassesIn(factOnly(x.path)))));  // the path is read for Spanish class names: never translated
-  const auto = Object.entries(cb.autolevel_classes || {}).sort((a, b) => +a[0] - +b[0])
-    .map(([, v]) => teamJid(v) || Object.keys(CLASSES).find(k => CLASSES[k].jp === v)).filter(j => j && CLASSES[j].tier > 0);
-  add(t('Clases por defecto del juego'), [...new Set(auto)]);
+
+/* ---------------- one mount plan per build: the same on the builds catalog, the character ficha, the tier list and Equipo ---------------- */
+/** how to feed mount `rid`: its liked type and flavour, the ★★★ ingredients of both, points per ★★★ meal (with and without the animal's own
+    favourite dish) and meals to bond 5 at one meal a day (mount_rules.feed_exp; bond 5 at bond_thresholds[4]) */
+function teamMountFeed(rid) {
+  const m = MOUNTS[rid], R = (W.classes || {}).mount_rules || {}, F = R.feed_exp || {}, need = (R.bond_thresholds || [])[4] ?? 140;
+  if (!m?.food?.type || m.default_class_mount) return null;
+  const meal = (F.base ?? 1) + (F.grade?.['3'] ?? 5) + (F.fav_type ?? 6) + (F.fav_taste ?? 3), fav = meal + (F.great_fav ?? 5);
+  return { type: m.food.type, taste: m.food.taste, foods: (m.matching_foods || []).filter(f => f.grade === 3).slice(0, 4), meal, fav,
+    days: Math.ceil(need / meal), days_fav: Math.ceil(need / fav) };
+}
+/** mount stages of class path `jids` for `pid` on `route` from chapter `key`: per mount type, the mounts the unit can have there (best
+    first: Σ bond-5 growth × the target class's growth, ×2 in Cuadriguero; class mounts left out) with the player's pick (ctx m<Kind>) in use,
+    what it adds at bond 5 and how to feed it. [] when the path never rides */
+/** mounts a build's own text names, first mention per mount type ({kind: rid}); longer names win where one contains another (Magonius negro) */
+const MOUNT_BY_NAME = Object.keys(MOUNTS).filter(r => !MOUNTS[r].default_class_mount && MOUNTS[r].es).sort((a, b) => MOUNTS[b].es.length - MOUNTS[a].es.length);
+function teamBuildMounts(o) {
+  let rest = `${o?.name || ''} ${o?.why || ''}`; const hits = [];
+  for (const r of MOUNT_BY_NAME) { const n = MOUNTS[r].es; let i; while ((i = rest.indexOf(n)) >= 0) { hits.push([i, r]); rest = rest.slice(0, i) + ' '.repeat(n.length) + rest.slice(i + n.length); } }
+  const out = {};
+  hits.sort((a, b) => a[0] - b[0]).forEach(([, r]) => { out[MOUNTS[r].kind] ??= r; });
   return out;
+}
+function teamMountPlan(pid, jids, route, key, pick = route ? ctxPicks(route, undefined, partBlk(key))[pid] || {} : {}, prefer = {}) {
+  const seq = (jids || []).filter(j => CLASSES[j]);
+  if (!seq.length) return [];
+  const growth = teamGrowth(pid, seq.at(-1)), team = route ? teamNow(route) : null;
+  return teamMountStages({ start: seq[0], steps: seq.slice(1).map(jid => ({ jid })) }).map(st => {
+    const mul = teamMountMul(st.classes);
+    const opts = teamMountWants(pid, st.kind, growth, route, key, team).filter(rid => !MOUNTS[rid].default_class_mount).map(rid => {
+      const g5 = Object.fromEntries(Object.entries(MOUNTS[rid].growth_by_bond?.['5'] || {}).map(([k, v]) => [k, v * mul]));
+      return { rid, g5, total: Object.values(g5).reduce((a, v) => a + v, 0), rare: teamMountRare(rid), owner: ownerOf(MOUNTS[rid]), spot: teamMountSpots(rid, key)[0] || null };
+    });
+    const want = pick['m' + st.kind], def = opts.find(o => o.rid === prefer[st.kind]) || opts[0] || null, cur = opts.find(o => o.rid === want) || def;
+    return { kind: st.kind, classes: st.classes, at: st.at, early: st.early, double: mul > 1, opts, def: def?.rid || null, rid: cur?.rid || null, picked: !!cur && cur.rid === want,
+      g5: cur?.g5 || {}, total: cur?.total || 0, feed: cur ? teamMountFeed(cur.rid) : null };
+  });
 }

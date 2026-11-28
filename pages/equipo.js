@@ -111,24 +111,6 @@
     pickHtml(b, plan) + buildChoices(b, plan, route, key, ro) + `<p class="eq-path">${[b.start, ...b.steps.map(x => x.jid)].map(cls).join(' → ')}</p>` +
     `<p><a href="${href('personaje', b.pid)}?sec=partida">${t('Build completa, armas y monturas')}</a></p>`);
 
-  /** character ficha: the mount of each stage for every build of the unit, with what it adds at bond 5 and the difference with the recommended one */
-  function mountsByBuild(pid, route, key, plan) {
-    const opts = teamBuildOptions(pid, route, key), mine = plan?.builds.find(x => x.pid === pid);
-    if (mine?.target) opts.unshift({ label: t('En tu equipo'), path: [mine.start, ...mine.steps.map(s => s.jid)], team: true });
-    const rows = opts.map(o => {
-      const st = o.team ? teamMountStages(mine).map(x => { const g = plan.mounts[pid]?.[x.kind], mul = teamMountMul(x.classes);
-        const g5 = Object.fromEntries(Object.entries(MOUNTS[g?.rid]?.growth_by_bond?.['5'] || {}).map(([k, v]) => [k, v * mul]));
-        return { kind: x.kind, rid: g?.rid, g5, double: mul > 1, total: Object.values(g5).reduce((a, v) => a + v, 0) }; }) : teamMountsFor(pid, o.path, route, key);
-      return { ...o, st, total: st.reduce((a, x) => a + x.total, 0) };
-    });
-    const base = rows.find(r => r.rec)?.total;
-    if (!rows.some(r => r.st.length)) return '';
-    return `<h4>${t('Montura por build')}</h4>${ul(rows.map(r => li(`${esc(r.label)}: ${r.path.map(j => L('clase', j)).join(' → ')}`,
-      r.st.length ? `${r.st.map(x => `${esc(t(x.kind))}: ${x.rid ? L('montura', x.rid) : '—'}${statLine(x.g5) ? ` (${statLine(x.g5)})` : ''}`).join(' · ')} · ${t('total +{n}', { n: r.total })}` +
-        (base != null && !r.rec ? ` (${r.total === base ? t('igual que la recomendada') : t('{d} frente a la recomendada', { d: `${r.total > base ? '+' : '−'}${Math.abs(r.total - base)}` })})` : '') : t('a pie'))))}` +
-      `<p class="mut">${t('Crecimiento que añade cada montura con vínculo 5, solo mientras la clase la monta. En Cuadriguero el bono de la montura cuenta doble.')}</p>`;
-  }
-  window.teamMountsByBuild = mountsByBuild;
 
   const RULES = [  // Spanish keys: WEEK_RULE reads them; shown through t()
     'Equipo: el señor de la ruta, los que se unen por la historia y no se han desmarcado (hasta el final de la Parte 1; los del prólogo solo en el prólogo; los de las Partes 2 y 3 desde su capítulo) y los reclutas marcados como «quiero reclutarlo» o «ya lo tengo»: builds y papeles cuentan los dos grupos. Los señores de la llama no salen en la lista.',
@@ -138,12 +120,12 @@
     'Clase objetivo: la recomendada para la unidad; si no tiene una ruta válida en esta ruta, la alternativa; si tampoco, la clase avanzada recomendada; si ninguna es alcanzable, la clase magistral alcanzable con el arma principal que más crece en sus atributos principales.',
     'Ruta de clases: una clase por nivel de clase. Cada una debe existir en esta ruta y parte (las que piden desbloqueo solo donde se desbloquean), usar el arma principal y tener un examen alcanzable con lo que la unidad ya entrena (el arma principal y la equitación, el vuelo o la coraza que enseñan sus clases anteriores). Entre las válidas gana la que menos cambia de tipo de montura y conserva más tiempo la actual; después, la que reúne más habilidades maestras útiles, la que sigue el árbol del juego y la de más crecimiento en los atributos principales.',
     'El crecimiento de una clase solo cuenta mientras se está en ella: cada paso indica los tres atributos que más suben en esa clase.',
-    'Examen en el nivel recomendado de la clase: por cada nivel por debajo, la probabilidad se multiplica por 50, 32, 18, 8 y 2 %. El capítulo es el primero, desde que la unidad está en el grupo y hay licencia y examen, cuyo nivel enemigo alcanza ese nivel.',
+    'Examen en el nivel recomendado de la clase: a 1, 2, 3, 4 y 5 niveles por debajo, la probabilidad se multiplica por 50, 32, 18, 8 y 2 %. El capítulo es el primero, desde que la unidad está en el grupo y hay licencia y examen, cuyo nivel enemigo alcanza ese nivel.',
     'El examen sube los atributos que falten hasta los mínimos de la clase (en la ficha de cada clase).',
     'Clase puente: la primera habilidad maestra útil (Crescendo, Técnica entrenada, Siempre alerta, Contra mayor) de una clase disponible en la ruta que use el arma principal y cuyo examen se alcance con lo ya entrenado; si no hay ninguna, no hay puente. Dominar la clase la deja para siempre.',
     'El vínculo con la montura es de cada pareja unidad-montura y se conserva mientras la clase use el mismo tipo de montura. Si la etapa siguiente usa otro tipo, conviene capturar y alimentar la nueva antes: el vínculo sube aunque la clase actual no la monte.',
     'En Cuadriguero el bono de la montura cuenta doble (crecimientos y bonos fijos); la búsqueda de ruta lo tiene en cuenta y, desde el nivel 35, la Senda de la cuadriga suma crecimiento.',
-    'Monturas: una por cada tipo de montura de la ruta de clases (el vínculo es de cada pareja y sirve en todas las clases de ese tipo). Gana la que más suma su crecimiento con vínculo 5 con los crecimientos de la unidad en la clase objetivo. Solo se proponen monturas que existen en la ruta y parte: capturarlas es cosa de Cai: en la Parte 1, desde el capítulo que abre el Cebo, y en la Parte 3 si Cai está en el ejército. Las raras (solo salen en el hueco raro de un campo) van a una sola unidad, por prioridad; las propias (Rocinán, Bucephalus) se pueden dar a otra unidad si su dueño está en el equipo, y van a quien más gana con ellas (a su dueño si empatan); las comunes y la de la clase se repiten.',
+    'Monturas: una por cada tipo de montura de la ruta de clases (el vínculo es de cada pareja y sirve en todas las clases de ese tipo). Gana la que más suma su crecimiento con vínculo 5 con los crecimientos de la unidad en la clase objetivo. Solo se proponen monturas que existen en la ruta y parte: capturarlas es cosa de Cai: en la Parte 1, desde el capítulo que abre el Cebo, y en la Parte 3 si Cai está en el ejército. Las propias (Rocinán, Bucephalus) son una sola: se pueden dar a otra unidad si su dueño está en el equipo, y van a quien más gana con ellas (a su dueño si empatan). Las demás se repiten, también las raras (salen en el hueco raro de un campo, y cada cebo vuelve a tirarlo).',
     'Arma: la de más poder del arma principal que se vende en una tienda abierta en esta parte, desde el capítulo elegido.',
     'Compras: armas eficaces contra los tipos de enemigo (2 o más) de la batalla del capítulo y la del siguiente, para quien del equipo usa ese tipo de arma (una por tipo de arma: la que pide menos Prestigio y está más cerca; los voladores no cuentan porque cualquier arco ya es eficaz); la licencia y los manuales del próximo examen de cada build; el arma principal; y accesorios con regla (Anillo de gigante para el Cuadriguero). El tipo de enemigo sale de su clase: acorazado si su examen pide Coraza, jinete si entrena Equitación, volador si entrena Vuelo. Solo lugares abiertos en esta ruta, parte y capítulo; en la Parte 1 de Cai, con el Prestigio que piden sus puestos fronterizos. Se agrupan por lugar.',
     'Trueques de Vandahl: si lo que piden se consigue con Búsqueda en un lugar accesible, se propone la cadena búsqueda y trueque.',

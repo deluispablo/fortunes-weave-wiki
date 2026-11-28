@@ -45,7 +45,7 @@
       const CL = W.map?.carriage_lines || [], free = new Set(CL.filter(l => !l.closed_cai && !l.cai_subquest).flatMap(l => [l.from_es, l.to_es]));
       const by = new Map(); CL.filter(l => l.cai_subquest).forEach(l => by.set(l.cai_subquest.id, new Set([...(by.get(l.cai_subquest.id) || []), l.from_es, l.to_es].filter(x => !free.has(x)))));
       const closed = [...new Set(CL.filter(l => l.closed_cai).flatMap(l => [l.from_es, l.to_es]))].filter(x => !free.has(x) && ![...by.values()].some(v => v.has(x)));
-      out.push(t('En la ruta de Cai el cochero pide antes {q} (desde el cap. 7).', { q: L('mision', 'SQID_カイ篇_使い慣れたもの') }));
+      out.push(t('En la ruta de Cai no hay ningún carruaje hasta cobrar {q} (se puede hacer en los caps. 7–12).', { q: L('mision', 'SQID_カイ篇_使い慣れたもの') }));
       by.forEach((v, q) => out.push(t('{a}: hace falta además {q}.', { a: list([...v].map(x => nk(x, ['lugar']))), q: L('mision', q) })));
       if (closed.length) out.push(t('Sin carruaje en la Parte 1 de Cai: {a}.', { a: list(closed.map(x => nk(x, ['lugar']))) }));
     }
@@ -81,9 +81,14 @@
   const routeOf = c => (c.route === 'comun' ? ctxRoute() : c.route);  // a shared chapter is read for the chosen route, or for every route
   const closingRows = c => c.closing.filter(x => (x.kind !== 'mision' || questAvail(x.id, routeOf(c), c.key)) &&
     !(x.kind === 'perdible' && /^Misiones\b/.test(x.es) && c.closing.some(y => y.kind === 'mision')));
+  /** a Paralogue's deadline is its combat date when it has one: the acceptance date goes first, as on the other Paralogue rows */
+  const accepted = (x, c) => { const w = x.kind === 'desvio' && x.deadline && PARA[x.id]?.routes?.[routeOf(c)];
+    const a = w?.fight_to && w.accept_to ? `${x.deadline.slice(0, 4)}-${w.accept_to.split('/').map(n => n.padStart(2, '0')).join('-')}` : '';
+    return a && a < x.deadline ? a : ''; };
   const closing = c => closingRows(c).map(x => {
-    const [lbl, kind] = KIND[x.kind] || [x.kind, null];
-    return `<li><span class="cp-tag">${esc(t(lbl))}</span><b>${kind ? L(kind, x.id, x.es) : esc(dt(x.es))}</b>${x.deadline ? `<span class="cp-dl">${t('hasta el {d}', { d: day(x.deadline) })}</span>` : ''}` +
+    const [lbl, kind] = KIND[x.kind] || [x.kind, null], a = accepted(x, c);
+    const dl = a ? t('aceptar hasta el {a}, combatir hasta el {d}', { a: day(a), d: day(x.deadline) }) : x.deadline ? t('hasta el {d}', { d: day(x.deadline) }) : '';
+    return `<li><span class="cp-tag">${esc(t(lbl))}</span><b>${kind ? L(kind, x.id, x.es) : esc(dt(x.es))}</b>${dl ? `<span class="cp-dl">${dl}</span>` : ''}` +
       `<small>${t('Si se pierde: {x}', { x: rewards(dt(x.if_missed)) })}</small></li>`;
   }).join('');
 

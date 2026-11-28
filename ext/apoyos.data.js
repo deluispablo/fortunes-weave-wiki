@@ -98,7 +98,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["apoyos"]={
     ]
    }
   ],
-  "note": "Probabilidad de que un aliado con apoyo intervenga, por orden de intervención en el mismo combate y nivel de apoyo 2–5."
+  "note": "Probabilidad de que Eshmel se interponga ante un golpe letal en batalla normal: depende de cuántos rescates ha hecho ya esa unidad y de su nivel de apoyo (2–5)."
  },
  "chain_cost": {
   "攻撃": [

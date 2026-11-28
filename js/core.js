@@ -367,7 +367,10 @@ const partBlk = key => (CAPS[key]?.part >= 2 ? '3' : '1');
 const pickKey = (route, pt) => (pt === '3' ? route + '@3' : route);
 /** Equipo's hand picks on `route` in block `pt` (default: the game's): {pid: {b, c, w0, w1, g}} (build id, class, weapon 1 and 2, equipment;
     '' = none on purpose, a missing field = auto). Stored as ctx.plan[pickKey]; anything corrupt reads as no pick */
-const CTX_PICK = { b: () => true, c: k => Object.hasOwn(CLASSES, k), w0: k => k === '' || Object.hasOwn(ITEMS, k), w1: k => k === '' || Object.hasOwn(ITEMS, k), g: k => k === '' || Object.hasOwn(ITEMS, k) };
+/** mount types (game data): one hand-picked mount per type and unit (ctx pick m<Kind>) */
+const MOUNT_KINDS = ['Caballo', 'Ornius', 'Pegaso', 'Bau', 'Elefante'];
+const CTX_PICK = { b: () => true, c: k => Object.hasOwn(CLASSES, k), w0: k => k === '' || Object.hasOwn(ITEMS, k), w1: k => k === '' || Object.hasOwn(ITEMS, k), g: k => k === '' || Object.hasOwn(ITEMS, k),
+  ...Object.fromEntries(MOUNT_KINDS.map(kd => ['m' + kd, k => k === '' || MOUNTS[k]?.kind === kd])) };  // m<Kind>: the mount chosen for that mount type
 const ctxPicks = (route = ctxGet().route, v = ctxStored(), pt = partBlk(ctxGet().key)) => { const k = pickKey(route, pt), o = ctxObj(v?.plan) && Object.hasOwn(v.plan, k) && v.plan[k];
   return Object.fromEntries(Object.entries(ctxObj(o) ? o : {}).filter(([p, x]) => Object.hasOwn(CHARS, p) && ctxObj(x))
     .map(([p, x]) => [p, Object.fromEntries(Object.entries(x).filter(([f, k]) => Object.hasOwn(CTX_PICK, f) && typeof k === 'string' && CTX_PICK[f](k)))])); };

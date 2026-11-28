@@ -38,9 +38,9 @@
       const levels = `<div class="tw"><table><tr><th>${t('Nivel')}</th>${lv.points.map((_, i) => `<th>${i + 1}</th>`).join('')}</tr>` +
         `<tr><th>${t('Puntos acumulados')}</th>${lv.points.map(p => `<td>${num(p)}</td>`).join('')}</tr>` +
         `<tr><th>${t('Conversación')}</th>${lv.points.map((_, i) => `<td>${Object.entries(lv.conv_need).filter(([, n]) => n === i + 1).map(([r]) => r).join('') || '—'}</td>`).join('')}</tr>` +
-        `<tr><th>${t('Ayuda de Eshmel')}</th>${A.eshmel_reinforce.map(v => `<td>${v == null ? '—' : pct(v)}</td>`).join('')}</tr></table></div>`;
+        `<tr><th>${t('Rescate de Eshmel en Batalla rápida')}</th>${A.eshmel_reinforce.map(v => `<td>${v == null ? '—' : pct(v)}</td>`).join('')}</tr></table></div>`;
       const lvH = [2, 3, 4, 5].map(n => `<th>${t('Nv {n}', { n })}</th>`).join('');
-      const assist = `<div class="tw"><table><tr><th>${t('Intervención')}</th>${lvH}</tr>${A.assist.rows.map(r =>
+      const assist = `<div class="tw"><table><tr><th>${t('Rescate')}</th>${lvH}</tr>${A.assist.rows.map(r =>
         `<tr><th>${esc(dx(r.n))}</th>${r.rate.map(v => `<td>${pct(v)}</td>`).join('')}</tr>`).join('')}</table></div><p class="mut">${esc(dx(A.assist.note))}</p>`;
       const aff = `<p>${t('Afinidad de la pareja (multiplica los puntos ganados):')} ${Object.keys(A.aff.mult).map(k => `<span class="rk">${'★'.repeat(+k)} ×${mult(k)}</span>`).join(' ')}</p>`;
       const groups = `<div class="tw"><table><tr><th>${t('Grupo de clase')}</th>${lvH}<th>${t('Clases')}</th></tr>${Object.values(A.class_groups).map(g =>
@@ -51,7 +51,7 @@
       const doc = bs => docHtml(...bs.map(b => (typeof b === 'string' ? t(b) : b.kv ? { kv: b.kv.map(([k, v]) => [t(k), t(v)]) } : { head: b.head.map(tc), rows: b.rows.map(r => r.map(tc)) })));
       return card(t('Cómo funcionan los apoyos'), ul(facts.map(x => li(esc(x)))) + levels + aff + `<p>${t('La afinidad multiplica todos los puntos salvo los de los regalos.')}</p>`, 'como-funcionan') +
         card(t('Puntos por actividad'), doc(ACTIVITY), 'puntos-por-actividad') +
-        card(t('Probabilidad de ayuda en combate'), assist, 'ayuda-en-combate') +
+        card(t('Rescate de Eshmel en batalla normal'), assist, 'ayuda-en-combate') +
         card(t('Bonos de combate por nivel de apoyo'), groups + doc(['Cuentan hasta 4 aliados adyacentes, y cada pareja suma además su bono propio.',
           'Coste del medidor de acción combinada por nivel de apoyo 1 → 5: ataque 14/12/10/9/8; curación 18/16/14/12/10; ataque y defensa —/—/36/24/18 (no disponible con nivel 1–2).']), 'bonos-de-combate');
     }
@@ -61,7 +61,7 @@
         ['Plaza de armas (pareja)', '5', '10', '10', '20'], ['Servicio divino', '—', '5', '10', '20'], ['Termas normales', '—', '20', '—', '40'], ['Termas especiales', '—', '30', '—', '60'],
         ['Percha (0/1/2/3 aciertos)', '50', '70', '80', '100'], ['Adivina (cliente, 100 G)', '10', '15', '—', '20'], ['Banquete en el mapa', '20', '', '', ''],
         ['Conversación: opción elegida', '−10/−5/−3', '0', '+3/+5', '+10'], ['Órdenes en combate: atacar / combinado / apoyo', '2 / 16 / 10', '', '', '']] },
-      { kv: [['Percha', 'con afinidad óptima los valores se doblan: 100/140/160/200.'], ['Conversaciones', 'ver una conversación C, B o A por primera vez: +50.'],
+      { kv: [['Percha', 'la afinidad de Eshmel es óptima (×2) con todos, así que siempre suma el doble: 100/140/160/200.'], ['Conversaciones', 'ver una conversación C, B o A por primera vez: +50.'],
         ['Regalos', 'cumpleaños 70 · le gusta 65 · normal 40 · lo odia 0, × (1 + rareza %), redondeo hacia arriba, sin afinidad (65 → 98 con rareza 50, 130 con rareza 100); el cumpleaños sustituye a la base. Regalo favorito +82 (+98 si cuesta 300 G); categoría preferida +65.'],
         ['Comidas', 'base 80/60/40 por los gustos de la pareja × multiplicador del comedor por Prestigio (×1; ×1,3 desde Prestigio 5; ×1,5 desde 9; ×1,8 y ×2 en la Parte 3 tras sus misiones) × afinidad: 104 por invitado con Prestigio 7 (80 × 1,3).'],
         ['Termas, Plaza de armas y templo', 'se multiplican también por el multiplicador del local: Plaza 10 × 250 % = +25 y Servicio divino 20 × 80 % = +16 con Prestigio 7.']] },

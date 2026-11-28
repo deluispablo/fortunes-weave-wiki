@@ -85,8 +85,7 @@
     const kv = rows => docHtml({ kv: rows.map(([k, v]) => [t(k), t(v)]) });
     const searchRules = card(t('Reglas de la búsqueda'), kv([['Resultado', 'malo 25 % → 1 objeto; bueno 70 % → 3; perfecto 5 % → 6.'], ['Búsquedas de evento', 'siempre perfectas, con 10 objetos.']]));
     const lureRules = card(t('Reglas del cebo'), kv([['Ruta', 'en la Parte 1, solo en la ruta de Cai (Prestigio 1; el Cebo y el Establo se abren en el cap. 5); en la Parte 3, en todas las rutas desde el cap. 2 con Cai en el ejército.'],
-      ['Espera', 'con cebo, el animal espera 5 turnos a ser capturado.'],
-      ['Captura', 'manjar favorito 100 %, calidad alta 40 / media 20 / baja 0, alimento preferido de uno 30 / de ambos 60, llamar con la mano 20; huida 40 %; 2 turnos como máximo.']]) +
+      ['Espera', 'con cebo, el animal llega a los 5 turnos.']]) +
       `<p>${t('Fichas de cada animal y cómo subir el vínculo: <a href="#/monturas">Monturas</a>.')}</p>`);
     const secs = [['busqueda', t('Búsqueda'), dry.length, searchRules + spotCards(dry)], ['pesca', t('Pesca'), fish.length, spotCards(fish)],
       ['cultivo', t('Cultivo · ruta de Cai'), farms.length, caiFold(card(t('Reglas del cultivo'), farmRules) + farmT)], ['cebo', t('Cebo y monturas · ruta de Cai'), lures.length, caiFold(lureRules + lureT)]];

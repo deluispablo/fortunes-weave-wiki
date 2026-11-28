@@ -47,10 +47,10 @@ const teamPartOf = key => (key ? +String(key).split('-')[1] : 1);
 /** priority order: the route's lord, then tier (S > A > B > C), then who joins first, then name; each with its reason */
 function teamPriority(route, pids, key) {
   const tb = (window.WIKI_EXT || {}).builds?.tiers || {}, rt = (teamPartOf(key) >= 2 ? tb.final : tb[route]) || {};  // Part 1: the route's own community consensus; Parts 2-3: the end-game one
-  const tierOf = p => (p === LORDS[route] ? 'Señor' : (rt[p] || '')[0] || TEAM_TIER[CHARS[p].es] || 'B');
-  const rank = { Señor: 0, S: 1, A: 2, B: 3, C: 4 };
+  const tierOf = p => (p === LORDS[route] ? 'Señor' : rt[p] || TEAM_TIER[CHARS[p].es] || 'B');
+  const rank = p => (tierOf(p) === 'Señor' ? -1 : buildRank(tierOf(p)));  // the same order as the tier list and Builds (split grades, D and F included)
   const at = p => chapIdx(route, CHARS[p].routes?.[route]?.join_key || CHARS[p].routes?.[route]?.recruit_key);
-  return [...pids].sort((a, b) => rank[tierOf(a)] - rank[tierOf(b)] || at(a) - at(b) || CHARS[a].es.localeCompare(CHARS[b].es, 'es'))
+  return [...pids].sort((a, b) => rank(a) - rank(b) || at(a) - at(b) || CHARS[a].es.localeCompare(CHARS[b].es, 'es'))
     .map((pid, i) => ({ pid, n: i + 1, why: tierOf(pid) === 'Señor' ? t('señor de la ruta') : t('valoración {t}', { t: tierOf(pid) }) }));  // i18n-ignore ('Señor': the rank key)
 }
 
@@ -60,7 +60,7 @@ const STAT_KEYS = Object.keys(STAT_ES).filter(s => s !== 'Mov');  // Mov has no 
 const teamCombat = pid => CHARS[pid]?.p?.combat || CHARS[pid]?.combat || {};
 const teamJid = es => Object.keys(CLASSES).find(k => CLASSES[k].es === es);
 /** false when the class bans this unit (forbidden list or women-only) */
-const teamCan = (pid, jid) => !!CLASSES[jid] && classBan(pid, jid) !== true;  // the shared rule (core.js classBan)
+const teamCan = (pid, jid, part) => !!CLASSES[jid] && classBan(pid, jid, part) !== true;  // the shared rule (core.js classBan); part '1' also bans tier ≥ 4
 /** growth while in the class: personal (class base when 0) + class modifier */
 const teamGrowth = (pid, jid) => {
   const g = teamCombat(pid).growth || {}, k = CLASSES[jid] || {};
@@ -68,10 +68,16 @@ const teamGrowth = (pid, jid) => {
 };
 const teamTop = (g, n = 3) => STAT_KEYS.filter(s => s !== 'Lck' && s !== 'Cha').sort((a, b) => g[b] - g[a] || STAT_KEYS.indexOf(a) - STAT_KEYS.indexOf(b)).slice(0, n);
 /** target class options in order: published best class → its alternative → the unit's recommended advanced class */
-function teamTargets(pid) {
+function teamTargets(pid, route, key) {
+  // the published builds first (this route and part, then the end game), the web's suggestion last: one source with Builds and the ficha
+  const units = (window.WIKI_EXT || {}).builds?.units?.[pid] || [], part = teamPartOf(key);
+  const own = units.filter(o => (!o.routes || o.routes.includes(route)) && (!o.parts || o.parts.includes(part >= 2 ? 2 : 1) || o.parts.includes(part)) && o.routes);
+  const end = units.filter(o => !o.routes);
+  const fin = o => teamJid(o.path?.at(-1));
   const mm = ((window.WIKI_EXT || {}).minmax?.chars || []).find(x => x.pid === pid), rec = teamCombat(pid).recommended;
-  return [[mm?.best?.[0], t('clase recomendada')], [mm?.alt?.[0], t('alternativa a la recomendada')], [rec?.jid, t('clase avanzada recomendada')]]
-    .filter(([j], i, a) => j && CLASSES[j] && a.findIndex(x => x[0] === j) === i);
+  return [...own.map(o => [fin(o), t('de la build «{n}»', { n: tx(o, 'name') })]), ...(part >= 2 ? end : []).map(o => [fin(o), t('de la build «{n}»', { n: tx(o, 'name') })]),
+    [mm?.best?.[0], t('clase recomendada')], [mm?.alt?.[0], t('alternativa a la recomendada')], [rec?.jid, t('clase avanzada recomendada')]]
+    .filter(([j], i, a) => j && CLASSES[j] && teamCan(pid, j, partBlk(key)) && a.findIndex(x => x[0] === j) === i);
 }
 /** starting class: a recruit's class at the level they join with (core.js joinAt, upper end of the chapter's range); otherwise
     the last of the game's default Part 1 classes (or the data class when it is higher) */
@@ -118,11 +124,15 @@ const teamExamOk = (jid, trained) => {
   return fixed.every(r => trained.has(r.es)) && (!any.length || any.some(r => trained.has(r.es)));
 };
 const supportOf = jid => SUPPORT_SKILLS.filter(sk => (CLASSES[jid]?.skills_trainable_q?.[sk] || 0) > 0);
+const trainsOf = jid => Object.keys(CLASSES[jid]?.skills_trainable_q || {}).filter(sk => CLASSES[jid].skills_trainable_q[sk] > 0);
+/** exam skills of `jid` the unit can still raise before the exam: Riding, Flying and Armor (manuals and the drill ground, as in teamChain)
+    and a fixed (not «o») second weapon the start or an earlier class trains (Monje soldado, La Mano Divina, La Apsará) */
+const examExtra = (jid, trained, canTrain) => (CLASSES[jid]?.exam_requirements || []).filter(r => !trained.has(r.es) && (SUPPORT_SKILLS.includes(r.es) || (!r.choice_group && canTrain.has(r.es)))).map(r => r.es);
 const MAST_LIST = Object.fromEntries(((window.WIKI_EXT || {}).minmax?.masteries || []).map(m => [m.skill, m.rec ? 2 : 1]));
 const MAST_REC = new Set(Object.keys(MAST_LIST).filter(k => MAST_LIST[k] === 2));
 const masteryOf = jid => CLASSES[jid]?.mastery_skill?.[0]?.es || '';
 /** a class the unit can take on `route` with its main weapon `w` and trained skills */
-const teamUsable = (pid, jid, route, w, trained) => teamCan(pid, jid) && teamClassIdx(jid, route) >= 0 &&
+const teamUsable = (pid, jid, route, w, trained, part) => teamCan(pid, jid, part) && teamClassIdx(jid, route) >= 0 &&
   (CLASSES[jid].weapons_usable || []).includes(w) && teamExamOk(jid, trained);
 /** the Cuadriguero class: its mount bonus (growth and flat) counts twice */
 const CUADRI = Object.keys(CLASSES).find(k => CLASSES[k].es === 'Cuadriguero');
@@ -151,14 +161,16 @@ function teamPath(pid, target, route, weapon, key) {
     return [-changes, kept, mast, tree, grow];
   };
   const better = (a, b) => { for (let i = 0; i < a.length; i++) if (a[i] !== b[i]) return a[i] > b[i]; return false; };
+  const canAll = trainsOf(start);
+  const plus = (j, path, trained) => { const can = new Set([...canAll, ...path.flatMap(trainsOf)]); return new Set([...trained, ...examExtra(j, trained, can)]); };  // trained before the exam: the start and the classes already taken
   const walk = (t, path, trained) => {
     if (t === tT) {
-      if (!teamUsable(pid, target, route, w, trained)) return;
+      if (!teamUsable(pid, target, route, w, plus(target, path, trained), partBlk(key))) return;
       const full = [...path, target], sc = score(full);
       if (!best || better(sc, best.sc)) best = { path: full, sc };
       return;
     }
-    for (const j of byTier(t)) if (teamUsable(pid, j, route, w, trained)) walk(t + 1, [...path, j], new Set([...trained, ...supportOf(j)]));
+    for (const j of byTier(t)) if (teamUsable(pid, j, route, w, plus(j, path, trained), partBlk(key))) walk(t + 1, [...path, j], new Set([...plus(j, path, trained), ...supportOf(j)]));
   };
   walk(t0 + 1, [], base);
   return best ? { path: best.path, weapon: w } : null;
@@ -183,9 +195,12 @@ function teamChain(pid, jids, route, w, key) {
   const start = teamStart(pid, route, key), t0 = CLASSES[start]?.tier || 0, chain = jids.filter(j => CLASSES[j].tier > t0);
   let trained = new Set([w, ...supportOf(start)]);
   const needs = new Set();
+  // a second weapon skill an exam asks for (Monje soldado, La Mano Divina, La Apsará) counts when the start or an earlier class trains it
   for (let i = 0; i < chain.length; i++) {
-    (CLASSES[chain[i]].exam_requirements || []).filter(r => SUPPORT_SKILLS.includes(r.es) && !trained.has(r.es)).forEach(r => needs.add(r.es));
-    if (CLASSES[chain[i]].tier !== t0 + 1 + i || !teamUsable(pid, chain[i], route, w, new Set([...trained, ...SUPPORT_SKILLS]))) return null;
+    const canTrain = new Set([start, ...chain.slice(0, i)].flatMap(trainsOf));  // trained before this exam
+    const extra = (CLASSES[chain[i]].exam_requirements || []).filter(r => !trained.has(r.es) && (SUPPORT_SKILLS.includes(r.es) || (!r.choice_group && canTrain.has(r.es)))).map(r => r.es);
+    extra.forEach(sk => needs.add(sk));
+    if (CLASSES[chain[i]].tier !== t0 + 1 + i || !teamUsable(pid, chain[i], route, w, new Set([...trained, ...SUPPORT_SKILLS, ...extra]), partBlk(key))) return null;
     trained = new Set([...trained, ...supportOf(chain[i])]);
   }
   return chain.length || jids.includes(start) ? { chain, needs: [...needs] } : null;  // joining already in the build's class: nothing left to climb
@@ -198,7 +213,8 @@ function teamOptions(pid, route, key) {
     const jids = (o.path || []).map(es => teamJid(es) || null), bad = (o.path || []).filter((es, i) => !jids[i]);
     const target = bad.length ? null : jids.at(-1);
     const issue = bad.length ? t('clase desconocida: {c}', { c: bad.join(', ') }) :
-      !target || !teamCan(pid, target) ? t('no puede ser {c}', { c: nm(CLASSES[target] || {}) }) :
+      !target || !teamCan(pid, target, partBlk(key)) ? t('no puede ser {c}', { c: nm(CLASSES[target] || {}) }) :
+      jids.find(j => !teamCan(pid, j, partBlk(key))) ? t('no puede ser {c}', { c: nm(CLASSES[jids.find(j => !teamCan(pid, j, partBlk(key)))]) }) :  // every class of the path, not only the target
       teamClassIdx(target, route) < 0 && target !== teamStart(pid, route, key) ? t('{c} no existe en esta ruta', { c: nm(CLASSES[target]) }) :  // joining in it counts
       !(CLASSES[target].weapons_usable || []).includes(o.weapon) ? t('{c} no usa {w}', { c: nm(CLASSES[target]), w: t(o.weapon || '?').toLowerCase() }) :
       !teamChain(pid, jids, route, o.weapon, key) && !teamPath(pid, target, route, o.weapon, key) ? t('ningún camino de clases llega a {c} con {w}', { c: nm(CLASSES[target]), w: t(o.weapon).toLowerCase() }) : '';
@@ -244,7 +260,7 @@ function teamBuild(pid, route, key, pick) {
   const c = CHARS[pid], cb = teamCombat(pid), r = c?.routes?.[route];
   if (!c) return null;
   let target = null, found = null;
-  const opts = teamTargets(pid);
+  const opts = teamTargets(pid, route, key);
   if (pick?.ok) {
     const chain = teamChain(pid, pick.jids, route, pick.weapon, key);
     found = chain ? { path: chain.chain, weapon: pick.weapon } : teamPath(pid, pick.target, route, pick.weapon, key);
@@ -267,7 +283,7 @@ function teamBuild(pid, route, key, pick) {
   // bridge: first listed mastery not on the path, from a class the unit can take with the build's weapon and trained skills, below the target
   const trained = new Set([w, ...supportOf(start), ...chain.flatMap(supportOf)]);
   const bridge = target && BRIDGES.map(sk => [sk, Object.keys(CLASSES).find(j => masteryOf(j) === sk)])
-    .find(([, j]) => j && !chain.includes(j) && j !== start && CLASSES[j].tier < CLASSES[target.jid].tier && CLASSES[j].tier > 1 && teamUsable(pid, j, route, w, trained));
+    .find(([, j]) => j && !chain.includes(j) && j !== start && CLASSES[j].tier < CLASSES[target.jid].tier && CLASSES[j].tier > 1 && teamUsable(pid, j, route, w, trained, partBlk(key)));
   const path = [...chain];
   if (bridge) { const at = path.findIndex(j => CLASSES[j].tier > CLASSES[bridge[1]].tier); path.splice(at < 0 ? path.length : at, 0, bridge[1]); }
   let prevKind = CLASSES[start]?.mount_kind || null, from = joinIdx;
@@ -295,7 +311,7 @@ function teamBuild(pid, route, key, pick) {
     skills: masteries,  // personal skills are always on; only masteries need a slot
     kind: fin.mount_kind || null, weapon: w, weapons: w ? [{ type: w, iid: teamWeapon(w, route, key) }] : [], roles: picked ? pick.roles : teamRolesOf(target?.jid),
     late: !!(r?.recruit_key && !r?.join_key), final_growth: target ? teamGrowth(pid, target.jid) : null,
-    ...(picked ? { pick: pick.id, pick_needs: pick.needs || [] } : {}),
+    ...(picked ? { pick: pick.id, pick_needs: pick.needs || [], mounts_pref: teamBuildMounts(pick) } : {}),
   };
 }
 
@@ -431,8 +447,9 @@ function teamPlan(route, key, recruits, drop = [], want = recruits, picks = ctxP
     if (g) teamGearSync(g, s, route, key);
   }
   const team = new Set(members);
-  const mounts = teamAssignMounts(builds.flatMap(b => teamMountStages(b).map(st => { const ranked = teamMountWants(b.pid, st.kind, b.final_growth, route, key, team);
-    return { pid: b.pid, kind: st.kind, ranked, score: Object.fromEntries(ranked.map(r => [r, teamMountSc(MOUNTS[r], b.final_growth) * teamMountMul(st.classes)])) }; })));
+  const mounts = teamAssignMounts(builds.flatMap(b => teamMountStages(b).map(st => { const auto = teamMountWants(b.pid, st.kind, b.final_growth, route, key, team), want = picks[b.pid]?.['m' + st.kind], pref = b.mounts_pref?.[st.kind];
+    const ranked = [...new Set([want, pref].filter(r => r && auto.includes(r)).concat(auto))];  // the player's pick (ctx m<Kind>) first, then the build's own mount
+    return { pid: b.pid, kind: st.kind, ranked, pick: ranked[0] === want ? want : null, score: Object.fromEntries(ranked.map(r => [r, teamMountSc(MOUNTS[r], b.final_growth) * teamMountMul(st.classes)])) }; })));
   const wantP = prio.map(x => x.pid).filter(p => want.includes(p) && GIFT_BY_PID[p]);
   const gifts = teamGifts(wantP, route, key);
   const shop = teamShopping(route, key, builds, mounts);

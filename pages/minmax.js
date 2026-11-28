@@ -110,8 +110,8 @@
 
   function monturas() {
     return bl([
-      t('Una unidad montada suma el crecimiento de su montura, que sube con el vínculo (1–5). En la Parte 1 solo Cai captura monturas con bonos (en la Parte 3, cualquier ruta si Cai está en el ejército); las otras rutas en la Parte 1 reciben un {def} sin bonos, salvo {ros}, que trae {io}.', { def: L('montura', 'RID_デフォルト騎馬'), ros: L('montura', 'RID_ロシナン'), io: PJ('PID_イオ') }),
-      t('Captura (ruta de Cai desde el cap. 5 de la Parte 1; en la Parte 3 desde el cap. 2, con Cai en el ejército): poner un Cebo en una zona de animales e intentar capturarlo; la probabilidad de captura no se conoce.'),
+      t('Una unidad montada suma el crecimiento de su montura, que sube con el vínculo (1–5). En la Parte 1 solo Cai captura monturas con bonos (en la Parte 3, cualquier ruta si Cai está en el ejército); las otras rutas en la Parte 1 reciben un {def} sin bonos, salvo {ros} de {io} y {buc} de {ale}.', { def: L('montura', 'RID_デフォルト騎馬'), ros: L('montura', 'RID_ロシナン'), io: PJ('PID_イオ'), buc: L('montura', 'RID_ブーケパラス'), ale: PJ('PID_アレキサンドラ') }),
+      t('Captura (ruta de Cai desde el cap. 5 de la Parte 1; en la Parte 3 desde el cap. 2, con Cai en el ejército): poner un Cebo en una zona de animales y capturarlo. Con comida del tipo que le gusta, el animal se queda el 80/90/100 % de las veces con calidad ★/★★/★★★, y si se queda la captura es segura.'),
       t('Vínculo: alimentar en el Establo una vez al día, hasta 20 puntos por comida (alimento de calidad alta, alimento y sabor preferidos, manjar favorito). Vínculo 2 a 20 puntos, 3 a 50, 4 a 90, 5 a 140. El vínculo es de cada pareja jinete–montura.'),
     ]) + p(t('Crecimiento, comida, habilidades y dónde se atrae cada montura: su ficha en <a href="#/monturas">Monturas</a>. La montura que conviene a cada unidad en cada etapa: <a href="#/equipo">Equipo</a>.'));  // i18n-ignore
   }
@@ -128,13 +128,18 @@
       ]) + p((x => (typeof x === 'function' ? x() : x ? t(x) : ''))(LINE_TIPS[l.line]) || esc(factOnly(t(l.tips)))) + '</section>';
     }).join('');
     const q = CLASSES['JID_戦車兵'], qg = q?.growth_modifiers;
-    const cuadri = q ? p(t('{c} (clase {tier}, {req}, Mov {mov}) tiene un crecimiento oculto que depende del nivel, la habilidad Senda de la cuadriga, y va montado: a su crecimiento se suma el de la montura (hasta +25 con un caballo capturado a vínculo 5, +30 con {ros}; el {def} de serie no da nada). La Vel de la clase no mejora: no arregla unidades lentas.',
-      { c: C('JID_戦車兵'), tier: esc(tx(q, 'tier').toLowerCase()), req: esc(dataTx(q.exam_requirements_es)), mov: q.mov, ros: L('montura', 'RID_ロシナン'), def: L('montura', 'RID_デフォルト騎馬') })) +
+    // vínculo 5 de la montura, sumado sobre todos los atributos; qx = Job.補正率 del Cuadriguero
+    const qx = (W.classes || {}).mount_rules?.charioteer_factor ?? 2, bsum = (rid, k) => Object.values(MOUNTS[rid]?.[k + '_by_bond']?.['5'] || {}).reduce((a, v) => a + v, 0);
+    const cuadri = q ? p(t('{c} (clase {tier}, {req}, Mov {mov}) tiene un crecimiento oculto que depende del nivel, la habilidad Senda de la cuadriga, y va montado: la clase cuenta dos veces los atributos fijos y el crecimiento de la montura. A vínculo 5, un caballo capturado da +{f} de atributos fijos y +{g} de crecimiento en total ({f1} y {g1} sin el doble); {ros}, +{fr} y +{gr}. El crecimiento solo se suma montado en un caballo, la especie de la montura de serie de la clase; el {def} de serie no da nada. La Vel de la clase no mejora: no arregla unidades lentas.',
+      { c: C('JID_戦車兵'), tier: esc(tx(q, 'tier').toLowerCase()), req: esc(dataTx(q.exam_requirements_es)), mov: q.mov, ros: L('montura', 'RID_ロシナン'), def: L('montura', 'RID_デフォルト騎馬'),
+        f1: bsum('RID_馬', 'flat'), g1: bsum('RID_馬', 'growth'), f: bsum('RID_馬', 'flat') * qx, g: bsum('RID_馬', 'growth') * qx, fr: bsum('RID_ロシナン', 'flat') * qx, gr: bsum('RID_ロシナン', 'growth') * qx })) +
       statTable([qg, add(qg, SENDA[35]), add(qg, SENDA[45])], [t('Nv 20–34'), t('Nv 35–44'), t('Nv 45 o más')]) : '';
     const arch = (MM.archetypes || []).map(a => [esc(t(a.name)), esc(factOnly(t(a.how))), a.units.map(u => PJ(u[0])).join(', ')]);
     const mast = (MM.masteries || []).map(m => [C(m.cls[0]), `<b>${esc(gt(m.skill))}</b>${m.rec ? `<span class="mm-tag">${t('Recomendada')}</span>` : ''}`, esc(gt(m.desc)), esc(MASTERY_NOTE[m.skill] ? t(MASTERY_NOTE[m.skill]) : '')]);
-    // one row per unit with its final class; the build itself (growths, alternatives, mounts) is in its ficha
-    const chars = (MM.chars || []).filter(c => CHARS[c.pid]).map(c => [`<a href="${href('personaje', c.pid)}?sec=build">${esc(nm(CHARS[c.pid]))}</a>`, cls(c.best), cls(c.alt), (charLimits(c.pid) || []).filter(r => r[1]).map(r => r[1]).join(' · ')]);
+    // one row per unit: its end-game builds (the same data as the Builds catalog and the ficha), sorted by the end tier
+    const chars = buildsCatalog('', 2).filter(u => CHARS[u.pid] && u.builds.length).map(u => [`<a href="${href('personaje', u.pid)}?sec=build">${esc(nm(CHARS[u.pid]))}</a>`, esc(u.tier || '—'),
+      u.builds.map(b => `${esc(LANG === 'en' && b.name_en ? b.name_en : b.name)} <small class="mut">(${cls([b.jids.filter(Boolean).at(-1)])})</small>`).join('<br>'),
+      (charLimits(u.pid) || []).filter(r => r[1]).map(r => r[1]).join(' · ')]);
     const teams = (MM.route_teams || []).map(([a, b]) => [esc(t(a)), esc(factOnly(t(b)))]);
     const ref = [
       ['reglas', 'Reglas', bl([
@@ -149,8 +154,8 @@
       ['monturas', 'Monturas', monturas()],
       ['papeles', 'Por papel', tbl([t('Papel'), t('Cómo'), t('Unidades')], arch)],
       ['maestrias', 'Maestrías', tbl([t('Clase'), t('Maestría'), t('Efecto'), t('Nota')], mast)],
-      ['personajes', 'Por personaje', p(t('Clase final sugerida para cada unidad. Crecimientos, rutas de clase y monturas: su ficha; la build de tu equipo, en <a href="#/equipo">Equipo</a>.')) +
-        tbl([t('Personaje'), t('Clase final'), t('Alternativa'), t('No puede ser')], chars)],
+      ['personajes', 'Por personaje', p(t('Builds del final (Partes 2 y 3) de cada unidad, ordenadas por su tier; son las mismas que en el catálogo y en su ficha. La build de tu equipo, en <a href="#/equipo">Equipo</a>.')) +
+        tbl([t('Personaje'), t('Tier'), t('Builds (clase final)'), t('No puede ser')], chars)],
       ['equipos', 'Tamaño de equipo', tbl([t('Ruta o parte'), t('Equipo')], teams)],
     ];
     // the reference, folded under the catalog; ids kept (fi-*) so old links still land
@@ -170,13 +175,7 @@
     const roles = [...new Set(all.flatMap(u => u.builds.flatMap(b => b.roles || [])))].sort();
     const bFits = b => (!papel || (b.roles || []).includes(papel)) && (!arma || armaKey(b.weapon) === arma);
     const fits = u => (!papel && !arma) || u.builds.some(bFits);
-    const step = (rt, s) => `<li>${C(s.jid)} <span class="mut">· ${esc(tx(CLASSES[s.jid], 'tier'))}${s.req ? ' · ' + esc(dataTx(s.req)) : ''}</span>` +
-      (s.now ? ` <b class="bd-now">${t('ahora')}</b>` : s.idx >= 0 && rt ? ` <span class="mut">· ${t('desde el {c}', { c: chapLink(routeChapters(rt)[s.idx].key) })}</span>` : '') + '</li>';
-    const build = (rt, b) => `<div class="bd-b"><h4>${esc(tx(b, 'name'))} ${COM()}${b.debate ? `<span class="mm-tag bd-deb">${t('En disputa')}</span>` : ''}</h4>` +
-      (b.ok ? '' : p(`<b>${t('No disponible en esta ruta')}</b>: ${esc(b.issue)}`)) +
-      (tx(b, 'why') ? p(esc(tx(b, 'why'))) : '') + (tx(b, 'fits') ? p(t('Elígela si: {f}', { f: esc(tx(b, 'fits')) })) : '') +
-      (b.debate ? p(`<span class="mut">${esc(LANG === 'en' ? b.debate.en : b.debate.es)}</span>`) : '') +
-      `<ol class="mm-ol bd-steps">${b.steps.map(s => step(rt, s)).join('')}</ol></div>`;
+    const build = (rt, b, pid) => buildCardHtml(rt, b, pid, buildsKey(rt, part));
     const card = (rt, u, open) => { const bs = u.builds.filter(bFits), b0 = bs[0];  // with a role or weapon filter, only the builds that match
       if (!b0) { const best = (MM.chars || []).find(c => c.pid === u.pid)?.best;
         return `<details class="bd-u" id="bd-u-${esc(u.pid)}"><summary>${face(u.pid)}<span class="bd-n">${esc(nm(CHARS[u.pid]))}</span>${u.tier ? `<span class="mm-tag">${esc(u.tier)}</span>` : ''}<span class="bd-ch">${t('Sin build propuesta')}</span>${u.team ? `<span class="mm-tag">${t('En tu equipo')}</span>` : ''}</summary>` +
@@ -184,7 +183,7 @@
       return `<details class="bd-u" id="bd-u-${esc(u.pid)}"${open ? ' open' : ''}><summary>${face(u.pid)}<span class="bd-n">${esc(nm(CHARS[u.pid]))}</span>` +
         (u.tier ? `<span class="mm-tag">${esc(u.tier)}</span>` : '') + `<span class="bd-ch">${b0.steps.map(s => esc(nm(CLASSES[s.jid]) || '')).join(' → ')}</span>`  /* plain: a link inside <summary> would leave instead of opening the card; build() links them */ +
         `<span class="mut bd-w">${esc(t(b0.weapon || ''))}</span>${u.team ? `<span class="mm-tag">${t('En tu equipo')}</span>` : ''}</summary>` +
-        bs.map(b => build(rt, b)).join('') +
+        bs.map(b => build(rt, b, u.pid)).join('') +
         p([u.team ? `<a href="#/equipo">${t('Tu plan, en Equipo')}</a>` : '', `<a href="${href('personaje', u.pid)}?sec=build">${t('Ficha de {p}', { p: esc(nm(CHARS[u.pid])) })}</a>`].filter(Boolean).join(' · ')) + '</details>'; };
     const list = (rt, us) => us.filter(fits).map(u => card(rt, u, false)).join('');
     const empty = p(`<span class="mut">${t('Ninguna build con estos filtros.')}</span>`);
@@ -206,14 +205,13 @@
   }
 
   /* ---------------- Reclutas que valen la pena ---------------- */
-  const TOP = [
+  // why each unit is worth it (or not): text only; who goes in each list comes from the route's tier (builds.tiers), like the Builds catalog
+  const WHY = [
     ['Sirocco', 'Crecimientos altos y equilibrados; esquiva y magia.'], ['Esmeralda', 'Fue 55 y Def 45: tanque que vuela.'],
     ['Guzran', 'Vel 50 y Fue 45: daño físico y crítico.'], ['Mu', 'Signos de madurez suma +20 a todos sus crecimientos; mejor en clases físicas.'],
     ['Olympia', 'Mag 50: maga y sanadora.'], ['Fabio', 'Mag 50 y Res 45.'], ['Sofia', 'Sanadora de Mag 45 y Res 40.'],
     ['Catania', 'Vel 55 y Hab 50: tanque de esquiva.'], ['Ultand', 'De los crecimientos totales más altos; Res 45.'],
     ['Alexandra', 'Vel 55: voladora rápida.'], ['Ninae', () => t('Fue 45 y Res 45; cuesta 1 {i}.', { i: O('IID_カガヤキウオ') })], ['Noctula', 'Requisitos muy bajos en tres rutas; Fue y Vel 45.'],
-  ];
-  const LOW = [
     ['Majide', 'Los crecimientos totales más bajos del elenco de la Parte 1.'], ['Zarcone', 'Crecimientos bajos salvo Hab.'],
     ['Peppe', () => t('Llega tarde y pide haber hecho el Desvío {d}; no se recluta en la ruta de Leda.', { d: L('desvio', 'SSID_ベルトラン外伝') })],
     ['Benditz', 'Crecimientos modestos y llega tarde en varias rutas.'],
@@ -240,7 +238,14 @@
     // ?r= or the chosen route; none (or «Todas las rutas»): one cost column per route
     const r = qs.r === 'todas' ? '' : ROUTE_IDS.includes(qs.r) ? listRoute(qs) : ctxRoute(), rs = r ? [r] : ROUTE_IDS;
     const team = teamNow(r), PJ = id => L('personaje', id) + (team?.has(id) ? `<span class="mm-tag">${t('En tu equipo')}</span>` : '');
-    const rows = xs => xs.map(([es, why]) => [pid(es), typeof why === 'function' ? why() : t(why)]).filter(([id]) => id).map(([id, why]) => [PJ(id), why, ...rs.map(x => costOn(id, x))]);  // why is authored HTML; growths are in each ficha
+    const T = (window.WIKI_EXT || {}).builds?.tiers || {}, why = new Map(WHY.map(([es, w]) => [pid(es), w]));
+    // Part 1 recruits (they cost something on the route) graded on the route's tier; best grade across the routes shown
+    const graded = Object.keys(CHARS).filter(id => !Object.values(LORDS).includes(id) && rs.some(x => CHARS[id].routes?.[x]?.cost && T[x]?.[id]))
+      .map(id => ({ id, g: Math.min(...rs.filter(x => CHARS[id].routes?.[x]?.cost && T[x]?.[id]).map(x => buildRank(T[x][id]))) }));
+    const tierCell = id => rs.filter(x => T[x]?.[id] && CHARS[id].routes?.[x]?.cost).map(x => (rs.length > 1 ? esc(ROUTE_NAME[x]) + ' ' : '') + `<b>${esc(T[x][id])}</b>`).join(' · ');
+    const pick = f => graded.filter(f).sort((a, b) => a.g - b.g || bySerial(a.id, b.id)).map(x => x.id);
+    const TOP = pick(x => x.g <= BUILD_RANK.indexOf('A-')), LOW = pick(x => x.g >= BUILD_RANK.indexOf('C+'));
+    const rows = ids => ids.map(id => { const w = why.get(id); return [PJ(id), tierCell(id), w ? (typeof w === 'function' ? w() : t(w)) : '', ...rs.map(x => costOn(id, x))]; });  // why is authored HTML; growths are in each ficha
     const isCheap = (c, x) => c.routes?.[x]?.cost && c.routes[x].cost.support <= 2 && c.routes[x].cost.renown <= 6;
     const cheap = Object.values(CHARS).filter(c => rs.some(x => isCheap(c, x)))
       .sort((a, b) => Math.min(...rs.map(x => CAPS[a.routes?.[x]?.recruit_key]?.n ?? 99)) - Math.min(...rs.map(x => CAPS[b.routes?.[x]?.recruit_key]?.n ?? 99)) || a.es.localeCompare(b.es, 'es'));
@@ -254,10 +259,10 @@
         'El Prestigio que se pide es el de la ruta en curso.',
         'En la Parte 3 hacen falta muchas unidades: repartir los reclutas entre las cuatro rutas compensa más que repetirlos.',
       ].map(s => t(s)))],
-      ['alta', 'Prioridad alta', tbl([t('Personaje'), t('Por qué'), ...costH], rows(TOP))],
+      ['alta', 'Prioridad alta', p(t('Tier S o A en la Parte 1 de la ruta (la misma tier list que Builds).')) + tbl([t('Personaje'), t('Tier'), t('Por qué'), ...costH], rows(TOP))],
       ['baratos', r ? 'Baratos y tempranos en esta ruta' : 'Baratos y tempranos', p(r ? t('Apoyo 2 o menos y Prestigio 6 o menos.') : t('Apoyo 2 o menos y Prestigio 6 o menos en alguna ruta.')) +
         tbl([t('Personaje'), ...costH], cheap.map(c => [PJ(c.id), ...rs.map(x => costOn(c.id, x))]))],
-      ['baja', 'Poco rentables', tbl([t('Personaje'), t('Por qué'), ...costH], rows(LOW))],
+      ['baja', 'Poco rentables', p(t('Tier C o menos en la Parte 1 de la ruta.')) + tbl([t('Personaje'), t('Tier'), t('Por qué'), ...costH], rows(LOW))],
       ['tarde', 'Se unen en las Partes 2 y 3', tbl([t('Personaje'), t('Cómo')], late)],
     ]) + p(t('Crecimientos y build de cada uno: su ficha. Orden de reclutamiento con totales, builds, monturas y regalos de los elegidos: <a href="{h}">Equipo</a>.', { h: `#/equipo${r ? `?r=${r}` : ''}` }));
   }

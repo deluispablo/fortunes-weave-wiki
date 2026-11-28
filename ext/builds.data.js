@@ -116,6 +116,34 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
      "es": "También se le propone La Apsará (Espada A y Arco C), que es para una sola unidad: Leda o Dante.",
      "en": "The Apsara (Sword A and Bow C) is also suggested for her; it goes to one unit only: Leda or Dante."
     }
+   },
+   {
+    "id": "p3-apsara",
+    "name": "La Apsará bailarina",
+    "name_en": "Dancing Apsara",
+    "path": [
+     "Bailarín",
+     "Buscasombras",
+     "La Apsará"
+    ],
+    "weapon": "Arco",
+    "roles": [
+     "bailarin",
+     "esquiva"
+    ],
+    "when": [],
+    "why": "La Apsará pide Espada A y Arco C, y Leda tiene aptitud en las dos. Sigue bailando con Vel +25 y Car +30 de clase; Buscasombras (Vel +25) es el paso de nivel 4 y Paso bendito (Car +10) se queda al dominarla.",
+    "why_en": "The Apsara needs Sword A and Bow C, and Leda has talents in both. She keeps dancing with class Spd +25 and Cha +30; Shadow Seeker (Spd +25) is the tier-4 step and Divine Step (Cha +10) stays once mastered.",
+    "fits": "Si nadie más baila; si Lilian o Dante llevan La Apsará, Leda rinde más de La Calamidad.",
+    "fits_en": "If nobody else dances; if Lilian or Dante takes the Apsara, Leda does more as the Calamity.",
+    "parts": [
+     2,
+     3
+    ],
+    "debate": {
+     "es": "La Apsará es para una sola unidad: Leda, Lilian o Dante.",
+     "en": "The Apsara goes to one unit only: Leda, Lilian or Dante."
+    }
    }
   ],
   "PID_バッカニア": [
@@ -4191,6 +4219,33 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
      0,
      1
     ]
+   },
+   {
+    "id": "p3-apsara",
+    "name": "La Apsará de apoyo",
+    "name_en": "Support Apsara",
+    "path": [
+     "Vate",
+     "Druida",
+     "La Apsará"
+    ],
+    "weapon": "Espada",
+    "roles": [
+     "bailarin"
+    ],
+    "when": [],
+    "why": "Dirección escénica (Evit +10 en radio 2; Gol y Crí +10 a nv 35) sigue activa mientras baila. Chamán, Vate y Druida usan espada, así que la sube por el camino; parte de Espada sin aptitud, lo que la hace la candidata más cara.",
+    "why_en": "Stage Direction (Avo +10 in radius 2; Hit and Crit +10 at lv 35) stays active while she dances. Shaman, Ovate and Druid all use swords, so she trains it on the way; she starts with no sword talent, which makes her the costliest candidate.",
+    "fits": "Si Leda va de La Calamidad y el equipo pega con críticos.",
+    "fits_en": "If Leda goes Calamity and the team relies on crits.",
+    "parts": [
+     2,
+     3
+    ],
+    "debate": {
+     "es": "La Apsará es para una sola unidad: Leda, Lilian o Dante.",
+     "en": "The Apsara goes to one unit only: Leda, Lilian or Dante."
+    }
    }
   ],
   "PID_ザーコネ": [
@@ -5162,6 +5217,33 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
      "es": "También se le propone Monje soldado (Guanteletes B y Magia blanca D), que cambia daño por curas.",
      "en": "War Monk (Gauntlets B and White Magic D) is also suggested; it trades damage for healing."
     }
+   },
+   {
+    "id": "pugil-leda",
+    "name": "Cebo de esquiva con puños",
+    "name_en": "Dodge-bait brawler",
+    "path": [
+     "Gladiador",
+     "Púgil",
+     "Guerrero"
+    ],
+    "weapon": "Guanteletes",
+    "roles": [
+     "golpe",
+     "esquiva"
+    ],
+    "when": [],
+    "why": "Lucidez guerrera da Esq +3 tras cada combate y Meditación puede sumar +10: aguanta como cebo. Púgil da Def +10 y Vel +10; Guerrero (Fue +20) es su techo en la Parte 1. Res 20: lejos de los magos.",
+    "why_en": "Warrior Clarity gives Avo +3 after each combat and Meditation can add +10: she holds as bait. Brawler gives Def +10 and Spd +10; Warrior (Str +20) is her Part 1 ceiling. Res 20: keep her away from mages.",
+    "fits": "Si falta frente físico; Mu ya ocupa los guanteletes.",
+    "fits_en": "If you lack a physical frontliner; Mu already uses gauntlets.",
+    "routes": [
+     "leda"
+    ],
+    "parts": [
+     0,
+     1
+    ]
    }
   ],
   "PID_ヌッツォ": [
@@ -5387,6 +5469,31 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
      2,
      3
     ]
+   },
+   {
+    "id": "tirador-leda",
+    "name": "Tirador antiaéreo",
+    "name_en": "Anti-air sniper",
+    "path": [
+     "Pícaro",
+     "Tirador"
+    ],
+    "weapon": "Arco",
+    "roles": [
+     "arquero"
+    ],
+    "when": [],
+    "why": "Se une en el cap. 8 de Pícaro. Tirador da Hab +20 y Puntería (Gol +15 con arco). Sabiduría har hali suma Ata +3 y Impacto certero Gol +10/+20 cuando es eficaz: con arco, contra voladores.",
+    "why_en": "Joins in ch. 8 as a Rogue. Sniper gives Dex +20 and Deadeye (Hit +15 with bows). Har Hali Wisdom adds Atk +3 and Sure Strike Hit +10/+20 when effective: with a bow, against fliers.",
+    "fits": "Si falta un arquero contra voladores; Leda ya tira con arco.",
+    "fits_en": "If you lack an archer against fliers; Leda already shoots.",
+    "routes": [
+     "leda"
+    ],
+    "parts": [
+     0,
+     1
+    ]
    }
   ],
   "PID_ピーテル": [
@@ -5602,6 +5709,32 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
      2,
      3
     ]
+   },
+   {
+    "id": "tirador-leda",
+    "name": "Tirador de alcance",
+    "name_en": "Long-range sniper",
+    "path": [
+     "Cazador",
+     "Arquero",
+     "Tirador"
+    ],
+    "weapon": "Arco",
+    "roles": [
+     "arquero"
+    ],
+    "when": [],
+    "why": "Hab 60; Puntería certera da +1 de alcance a las técnicas de arco y Antierrores Gol +10/+20. Arquero deja Crescendo y Tirador da Hab +20 y Puntería.",
+    "why_en": "Dex 60; Sure Aim gives +1 range to bow arts and No Misses Hit +10/+20. Archer leaves Crescendo and Sniper gives Dex +20 and Deadeye.",
+    "fits": "Solo si falta arquero: llega con prestigio 10 y Leda ya tira con arco.",
+    "fits_en": "Only if you lack an archer: he needs renown 10 and Leda already shoots.",
+    "routes": [
+     "leda"
+    ],
+    "parts": [
+     0,
+     1
+    ]
    }
   ],
   "PID_アレキサンドラ": [
@@ -5736,6 +5869,35 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
     "parts": [
      2,
      3
+    ]
+   },
+   {
+    "id": "alaceleste-leda",
+    "name": "Ala Celeste cazamagos",
+    "name_en": "Mage-hunting pegasus",
+    "path": [
+     "Jinete de ornius",
+     "Ala Celeste"
+    ],
+    "weapon": "Lanza",
+    "roles": [
+     "volador"
+    ],
+    "when": [
+     {
+      "lacks_role": "volador"
+     }
+    ],
+    "why": "Trae su propia montura. Res 40 y Vel 55 para cazar magos; Dama argéntea da Gol y Esq +5 por aliado adyacente. Se queda en Ala Celeste: Jinete de baus no se abre en esta ruta.",
+    "why_en": "Brings her own mount. Res 40 and Spd 55 to hunt mages; Silver Lady gives Hit and Avo +5 per adjacent ally. She stays a Wing Soldier: Bau Rider doesn't open on this route.",
+    "fits": "Si falta volador; llega en el cap. 7 con prestigio 10.",
+    "fits_en": "If you lack a flier; she arrives in ch. 7 and needs renown 10.",
+    "routes": [
+     "leda"
+    ],
+    "parts": [
+     0,
+     1
     ]
    }
   ],
@@ -5898,6 +6060,34 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
     "parts": [
      2,
      3
+    ]
+   },
+   {
+    "id": "obispa-leda",
+    "name": "Obispa tardía",
+    "name_en": "Late bishop",
+    "path": [
+     "Obispo"
+    ],
+    "weapon": "Magia blanca",
+    "roles": [
+     "sanador"
+    ],
+    "when": [
+     {
+      "lacks_role": "sanador"
+     }
+    ],
+    "why": "Se une en el cap. 11 ya de Obispo (Mag +15, Res +20). Dotes de estratega da +1 de alcance a las técnicas sobre aliados.",
+    "why_en": "Joins in ch. 11 already as a Bishop (Mag +15, Res +20). Strategist gives +1 range to arts used on allies.",
+    "fits": "Solo si falta otra sanadora: Olympia, Sirocco y Sofia ya curan.",
+    "fits_en": "Only if you need another healer: Olympia, Sirocco and Sofia already heal.",
+    "routes": [
+     "leda"
+    ],
+    "parts": [
+     0,
+     1
     ]
    }
   ],
@@ -6204,6 +6394,37 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
      2,
      3
     ]
+   },
+   {
+    "id": "trovadora-leda",
+    "name": "Trovadora de Plegaria",
+    "name_en": "Prayer troubadour",
+    "path": [
+     "Augur",
+     "Sacerdote",
+     "Trovador"
+    ],
+    "weapon": "Magia blanca",
+    "roles": [
+     "sanador",
+     "montado"
+    ],
+    "when": [
+     {
+      "lacks_role": "sanador"
+     }
+    ],
+    "why": "Guardián no se abre en esta ruta. Trovador (Mag, Sue y Res +15) la deja de curandera a caballo; Primeros auxilios cura al aliado de al lado tras su combate y Plegaria da Evit +10/+20 a los de al lado.",
+    "why_en": "Sentinel doesn't open on this route. Troubadour (Mag, Lck and Res +15) makes her a mounted healer; First Aid heals an adjacent ally after their combat and Prayer gives adjacent allies Avo +10/+20.",
+    "fits": "Si falta un sanador móvil.",
+    "fits_en": "If you lack a mobile healer.",
+    "routes": [
+     "leda"
+    ],
+    "parts": [
+     0,
+     1
+    ]
    }
   ],
   "PID_ニネ": [
@@ -6509,6 +6730,63 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
      2,
      3
     ]
+   },
+   {
+    "id": "bardada-leda",
+    "name": "Jinete bardada contra magos",
+    "name_en": "Anti-mage barded rider",
+    "path": [
+     "Soldado",
+     "Jinete ligero",
+     "Jinete bardado"
+    ],
+    "weapon": "Lanza",
+    "roles": [
+     "montado",
+     "tanque"
+    ],
+    "when": [],
+    "why": "Jinete bardado sube Res +10 (55 con su Res 45) y deja Égida. Voz de los espíritus da Gol y Esq +10 contra magia, y Guía espiritual lo pasa a los de al lado (radio 2 a nv 35). Va con el caballo de la clase.",
+    "why_en": "Barded Rider gives Res +10 (55 with her Res 45) and leaves Aegis. Voice of the Spirits gives Hit and Avo +10 against magic, and Spirit Guide passes it to adjacent allies (radius 2 at lv 35). She rides the class horse.",
+    "fits": "En mapas con magos enemigos, al lado de Mu o Buccar.",
+    "fits_en": "On maps with enemy mages, next to Mu or Buccar.",
+    "routes": [
+     "leda"
+    ],
+    "parts": [
+     0,
+     1
+    ]
+   },
+   {
+    "id": "hoplita-leda",
+    "name": "Hoplita resistente",
+    "name_en": "Resistant hoplite",
+    "path": [
+     "Soldado",
+     "Soldado acorazado",
+     "Hoplita"
+    ],
+    "weapon": "Lanza",
+    "roles": [
+     "tanque"
+    ],
+    "when": [
+     {
+      "lacks_role": "tanque"
+     }
+    ],
+    "why": "Guardián no se abre en esta ruta. Hoplita (Def +30) con su Res 45 la deja de muro contra físicos y magos.",
+    "why_en": "Sentinel doesn't open on this route. Hoplite (Def +30) with her Res 45 makes her a wall against both physical and magic attackers.",
+    "fits": "Si falta tanque.",
+    "fits_en": "If you lack a tank.",
+    "routes": [
+     "leda"
+    ],
+    "parts": [
+     0,
+     1
+    ]
    }
   ],
   "PID_ナジャ": [
@@ -6718,6 +6996,39 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
      0,
      1
     ]
+   },
+   {
+    "id": "shido-leda",
+    "name": "Shido de Primer impacto",
+    "name_en": "First Strike swordmaster",
+    "path": [
+     "Gladiador",
+     "Mirmidón",
+     "Shido"
+    ],
+    "weapon": "Espada",
+    "roles": [
+     "golpe"
+    ],
+    "when": [
+     {
+      "has": "PID_ダンテ"
+     },
+     {
+      "has": "PID_サラン"
+     }
+    ],
+    "why": "Primer impacto (50 % de Ata +3 al atacar primero) e Imparable (+5 encima) premian atacar en la fase propia. Mirmidón deja Técnica devastadora y Shido sube Vel +15 (Siempre alerta). Trae una Salamandra.",
+    "why_en": "First Strike (50% for Atk +3 when attacking first) and Unstoppable (+5 more) reward attacking on the player phase. Myrmidon leaves Devastating Technique and Swordmaster adds Spd +15 (Ever Vigilant). Brings a Salamander.",
+    "fits": "Equipo de críticos con Dante o Sha Lan, si sobra un puesto: llega con prestigio 9.",
+    "fits_en": "Crit team with Dante or Sha Lan, if a slot is free: he needs renown 9.",
+    "routes": [
+     "leda"
+    ],
+    "parts": [
+     0,
+     1
+    ]
    }
   ],
   "PID_セテス": [
@@ -6825,6 +7136,59 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
      0,
      1
     ]
+   },
+   {
+    "id": "bardado",
+    "name": "Jinete bardado con Lanza de Assal",
+    "name_en": "Barded rider with the Assal Spear",
+    "path": [
+     "Soldado",
+     "Jinete ligero",
+     "Jinete bardado"
+    ],
+    "weapon": "Lanza",
+    "roles": [
+     "montado",
+     "golpe"
+    ],
+    "when": [],
+    "why": "Presto para luchar: 50 % de atacar primero en el primer combate de la fase enemiga. Trae su Lanza de Assal. Jinete ligero (Car +10) y Jinete bardado (Fue y Res +10, Égida). Jinete de baus no se abre en esta ruta.",
+    "why_en": "Ready for Battle: 50% to strike first in the first combat of the enemy phase. Brings his Assal Spear. Cavalier (Cha +10) and Barded Rider (Str and Res +10, Aegis). Bau Rider doesn't open on this route.",
+    "fits": "Si falta un jinete; llega con prestigio 10.",
+    "fits_en": "If you lack a rider; he needs renown 10.",
+    "routes": [
+     "leda"
+    ],
+    "parts": [
+     0,
+     1
+    ]
+   },
+   {
+    "id": "shido",
+    "name": "Shido con Lanza de Assal",
+    "name_en": "Swordmaster with the Assal Spear",
+    "path": [
+     "Soldado",
+     "Mirmidón",
+     "Shido"
+    ],
+    "weapon": "Espada",
+    "roles": [
+     "golpe"
+    ],
+    "when": [],
+    "why": "Mirmidón pide Espada C y Shido Espada B; las dos usan también lanza, así que la Lanza de Assal sigue sirviendo. Shido sube Vel +15 (de 40 a 55) y deja Siempre alerta.",
+    "why_en": "Myrmidon needs Sword C and Swordmaster Sword B; both also use spears, so the Assal Spear still works. Swordmaster raises Spd +15 (40 to 55) and leaves Ever Vigilant.",
+    "fits": "Equipo de críticos que no necesita jinete.",
+    "fits_en": "Crit team that doesn't need a rider.",
+    "routes": [
+     "leda"
+    ],
+    "parts": [
+     0,
+     1
+    ]
    }
   ],
   "PID_ヨーカイ": [
@@ -6912,6 +7276,81 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
     "parts": [
      0,
      1
+    ]
+   },
+   {
+    "id": "obispo-leda",
+    "name": "Obispo resistente",
+    "name_en": "Sturdy bishop",
+    "path": [
+     "Augur",
+     "Sacerdote",
+     "Obispo"
+    ],
+    "weapon": "Magia blanca",
+    "roles": [
+     "sanador"
+    ],
+    "when": [
+     {
+      "lacks_role": "sanador"
+     }
+    ],
+    "why": "PV 50 de crecimiento: aguanta más que otros sanadores. Monje hereje puede devolverle toda la vida al derrotar a un enemigo y Salud de hierro da Def y Res +3/+5.",
+    "why_en": "HP growth 50: sturdier than other healers. Heretic Monk can restore all his HP on a kill and Iron Health gives Def and Res +3/+5.",
+    "fits": "Solo si falta sanador: Olympia, Sirocco y Sofia ya curan.",
+    "fits_en": "Only if you lack a healer: Olympia, Sirocco and Sofia already heal.",
+    "routes": [
+     "leda"
+    ],
+    "parts": [
+     0,
+     1
+    ]
+   },
+   {
+    "id": "p3-docto",
+    "name": "Docto resistente",
+    "name_en": "Sturdy sage",
+    "path": [
+     "Obispo",
+     "Docto"
+    ],
+    "weapon": "Magia blanca",
+    "roles": [
+     "sanador"
+    ],
+    "when": [],
+    "why": "Docto (Mag +20, Res +25; Óbice de la magia) sigue a Obispo en el árbol de clases. Con su PV 50 aguanta más que otros sanadores y Monje hereje puede devolverle toda la vida al derrotar.",
+    "why_en": "Sage (Mag +20, Res +25; Magic Barrier) follows Bishop in the class tree. With his HP 50 he outlasts other healers and Heretic Monk can restore all his HP on a kill.",
+    "fits": "Sanador de reserva con PV altos.",
+    "fits_en": "Backup healer with high HP.",
+    "parts": [
+     2,
+     3
+    ]
+   },
+   {
+    "id": "p3-monje",
+    "name": "Monje soldado sanador",
+    "name_en": "Healing war monk",
+    "path": [
+     "Obispo",
+     "Monje soldado"
+    ],
+    "weapon": "Magia blanca",
+    "roles": [
+     "sanador",
+     "golpe"
+    ],
+    "when": [],
+    "why": "Monje soldado (petición de Aurora) da PV +15 y Vel +15: con su PV 50 cura y pega con puños. Golpe y cura le deja usar magia de apoyo tras el combate y Monje hereje puede devolverle toda la vida al derrotar.",
+    "why_en": "War Monk (Aurora's request) gives HP +15 and Spd +15: with his HP 50 he heals and punches. Strike and Heal lets him cast support magic after combat and Heretic Monk can restore all his HP on a kill.",
+    "fits": "Sanador de reserva con PV altos.",
+    "fits_en": "Backup healer with high HP.",
+    "parts": [
+     2,
+     3
     ]
    }
   ],
@@ -7018,6 +7457,36 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
     "parts": [
      2,
      3
+    ]
+   },
+   {
+    "id": "hoplita-leda",
+    "name": "Hoplita de hacha",
+    "name_en": "Axe hoplite",
+    "path": [
+     "Soldado",
+     "Soldado acorazado",
+     "Hoplita"
+    ],
+    "weapon": "Hacha",
+    "roles": [
+     "tanque"
+    ],
+    "when": [
+     {
+      "lacks_role": "tanque"
+     }
+    ],
+    "why": "PV 55, Fue 60 y Def 50; Peso pesado le impide montar. Hoplita (Fue +15, Def +30) con hacha. Arrinconamiento quita Mov −3 a los enemigos de al lado (−5 a nv 35).",
+    "why_en": "HP 55, Str 60 and Def 50; Heavyweight stops him from riding. Hoplite (Str +15, Def +30) with an axe. Corner gives adjacent enemies Mov −3 (−5 at lv 35).",
+    "fits": "Si falta tanque; llega con prestigio 10.",
+    "fits_en": "If you lack a tank; he needs renown 10.",
+    "routes": [
+     "leda"
+    ],
+    "parts": [
+     0,
+     1
     ]
    }
   ],
@@ -7151,6 +7620,36 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
      2,
      3
     ]
+   },
+   {
+    "id": "hoplita-leda",
+    "name": "Hoplita de PV",
+    "name_en": "HP hoplite",
+    "path": [
+     "Gladiador",
+     "Soldado acorazado",
+     "Hoplita"
+    ],
+    "weapon": "Hacha",
+    "roles": [
+     "tanque"
+    ],
+    "when": [
+     {
+      "lacks_role": "tanque"
+     }
+    ],
+    "why": "PV 65 de crecimiento y Hacha indómita (Fue +3 con hacha). Hoplita (Def +30). Res 10: lejos de los magos.",
+    "why_en": "HP growth 65 and Indomitable Axe (Str +3 with axes). Hoplite (Def +30). Res 10: keep him away from mages.",
+    "fits": "Solo si falta tanque: Buccar lo cubre mejor.",
+    "fits_en": "Only if you lack a tank: Buccar covers it better.",
+    "routes": [
+     "leda"
+    ],
+    "parts": [
+     0,
+     1
+    ]
    }
   ],
   "PID_ベンディッツ": [
@@ -7255,6 +7754,32 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
     "parts": [
      2,
      3
+    ]
+   },
+   {
+    "id": "cuadriguero-leda",
+    "name": "Cuadriguero fijo",
+    "name_en": "Chariot archer",
+    "path": [
+     "Soldado",
+     "Cuadriguero"
+    ],
+    "weapon": "Arco",
+    "roles": [
+     "arquero",
+     "montado"
+    ],
+    "when": [],
+    "why": "Sobre ruedas (Gol +20) y Tanque (golpes demoledores) solo funcionan de Cuadriguero: se queda en la clase. Cuadriguero da Hab +15 y Def +10. Va con el caballo de la clase.",
+    "why_en": "On Wheels (Hit +20) and Tank (crushing blows) only work as a Chariot: he stays in the class. Chariot gives Dex +15 and Def +10. He rides the class horse.",
+    "fits": "Si falta un segundo arquero.",
+    "fits_en": "If you lack a second archer.",
+    "routes": [
+     "leda"
+    ],
+    "parts": [
+     0,
+     1
     ]
    }
   ],
@@ -7425,6 +7950,39 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
      2,
      3
     ]
+   },
+   {
+    "id": "p3-apsara",
+    "name": "Segunda bailarina antiaérea",
+    "name_en": "Anti-air second dancer",
+    "path": [
+     "Arquero",
+     "Tirador",
+     "Maestro arquero",
+     "La Apsará"
+    ],
+    "weapon": "Arco",
+    "roles": [
+     "bailarin",
+     "arquero"
+    ],
+    "when": [
+     {
+      "has": "PID_レダ"
+     }
+    ],
+    "why": "La Apsará baila y pide Espada A y Arco C; Lilian tiene aptitud en arco. Pasa por Maestro arquero y se queda con Caza aérea (Gol +50 contra voladores). Sobre seguro sigue dando Gol +10 cuando no pueden contraatacarle.",
+    "why_en": "The Apsara dances and needs Sword A and Bow C; Lilian has a bow talent. She goes through Bow Master and keeps Sky Hunter (Hit +50 against fliers). Safety First still gives Hit +10 when the foe cannot counter.",
+    "fits": "Con Leda de bailarina: dos bailarines dan dos acciones extra al mejor atacante.",
+    "fits_en": "With Leda as a dancer: two dancers give the best attacker two extra actions.",
+    "parts": [
+     2,
+     3
+    ],
+    "debate": {
+     "es": "La Apsará es para una sola unidad: Leda, Lilian o Dante.",
+     "en": "The Apsara goes to one unit only: Leda, Lilian or Dante."
+    }
    }
   ],
   "PID_ヌディーヌ": [
@@ -7562,6 +8120,32 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
     "parts": [
      2,
      3
+    ]
+   },
+   {
+    "id": "bardada-leda",
+    "name": "Jinete bardada",
+    "name_en": "Barded rider",
+    "path": [
+     "Jinete de ornius",
+     "Jinete ligero",
+     "Jinete bardado"
+    ],
+    "weapon": "Lanza",
+    "roles": [
+     "montado"
+    ],
+    "when": [],
+    "why": "Abrirse paso deja atravesar casillas enemigas y Al trote baja el coste del terreno. Jinete bardado da Res +10 y Égida. Caladrio y Jinete de baus no se abren en esta ruta.",
+    "why_en": "Break Through lets her pass enemy-occupied tiles and Trot lowers terrain cost. Barded Rider gives Res +10 and Aegis. Kaladrius and Bau Rider don't open on this route.",
+    "fits": "Solo si quieres otro jinete.",
+    "fits_en": "Only if you want another rider.",
+    "routes": [
+     "leda"
+    ],
+    "parts": [
+     0,
+     1
     ]
    }
   ],
@@ -7759,6 +8343,32 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
      2,
      3
     ]
+   },
+   {
+    "id": "tiradora-leda",
+    "name": "Tiradora de Adaptabilidad",
+    "name_en": "Adaptability sniper",
+    "path": [
+     "Cazador",
+     "Arquero",
+     "Tirador"
+    ],
+    "weapon": "Arco",
+    "roles": [
+     "arquero"
+    ],
+    "when": [],
+    "why": "Hab 60 y Adaptabilidad (Gol +2 tras cada combate, hasta +30). Arquero deja Crescendo y Tirador da Hab +20 y Puntería (Gol +15 con arco).",
+    "why_en": "Dex 60 and Adaptability (Hit +2 after each combat, up to +30). Archer leaves Crescendo and Sniper gives Dex +20 and Deadeye (Hit +15 with bows).",
+    "fits": "Si falta un arquero; compite con Peter y Lilian.",
+    "fits_en": "If you lack an archer; she competes with Peter and Lilian.",
+    "routes": [
+     "leda"
+    ],
+    "parts": [
+     0,
+     1
+    ]
    }
   ],
   "PID_マクシム": [
@@ -7897,6 +8507,33 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
      2,
      3
     ]
+   },
+   {
+    "id": "shido-leda",
+    "name": "Shido esquivo",
+    "name_en": "Evasive swordmaster",
+    "path": [
+     "Gladiador",
+     "Mirmidón",
+     "Shido"
+    ],
+    "weapon": "Espada",
+    "roles": [
+     "esquiva",
+     "golpe"
+    ],
+    "when": [],
+    "why": "Vel 60 de crecimiento: con Shido (Vel +15) dobla casi siempre; Filo instantáneo suma Ata +3/+5 tras esquivar. Trocar le deja cambiar de sitio con un aliado.",
+    "why_en": "Spd growth 60: as a Swordmaster (Spd +15) he almost always doubles; Instant Edge adds Atk +3/+5 after a dodge. Swap lets him trade places with an ally.",
+    "fits": "Solo si sobra un puesto: llega con prestigio 10.",
+    "fits_en": "Only if a slot is free: he needs renown 10.",
+    "routes": [
+     "leda"
+    ],
+    "parts": [
+     0,
+     1
+    ]
    }
   ],
   "PID_ディエゴ": [
@@ -8003,6 +8640,35 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
     "parts": [
      2,
      3
+    ]
+   },
+   {
+    "id": "rastreador-leda",
+    "name": "Rastreador de Sin piedad",
+    "name_en": "Merciless ranger",
+    "path": [
+     "Rastreador"
+    ],
+    "weapon": "Arco",
+    "roles": [
+     "arquero",
+     "esquiva"
+    ],
+    "when": [
+     {
+      "lacks_role": "arquero"
+     }
+    ],
+    "why": "Se une en el cap. 11 ya de Rastreador (Hab, Vel y Sue +15; Contratiro). Hab 60; Sin piedad suma Gol y Crí +5/+10 en el segundo golpe al doblar, y Guardaespaldas puede evitar que doblen a los de al lado.",
+    "why_en": "Joins in ch. 11 already as a Ranger (Dex, Spd and Lck +15; Countershot). Dex 60; Merciless adds Hit and Crit +5/+10 on his second hit, and Bodyguard can stop foes doubling adjacent allies.",
+    "fits": "Solo si llega a tiempo y falta arquero.",
+    "fits_en": "Only if he arrives in time and you lack an archer.",
+    "routes": [
+     "leda"
+    ],
+    "parts": [
+     0,
+     1
     ]
    }
   ],
@@ -8120,7 +8786,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
     "name_en": "Attacking Dragoon",
     "path": [
      "Jinete de ornius",
-     "Ala Celeste",
+     "Jin. ornius acorazado",
      "Jinete de baus"
     ],
     "weapon": "Lanza",
@@ -8255,6 +8921,33 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
      "es": "Unos lo ven de los mejores con puños; otros lo dejan en caballería y bajo en el tier.",
      "en": "Some rate him among the best with fists; others keep him on cavalry and low in the tier."
     }
+   },
+   {
+    "id": "bardado-leda",
+    "name": "Jinete bardado veloz",
+    "name_en": "Speedy barded rider",
+    "path": [
+     "Jinete de ornius",
+     "Jinete ligero",
+     "Jinete bardado"
+    ],
+    "weapon": "Lanza",
+    "roles": [
+     "montado",
+     "golpe"
+    ],
+    "when": [],
+    "why": "Ataque veloz da Esq +15 si ataca primero y Aceleración Vel +1 por derrota. Vel 50. Jinete ligero (Refuerzo vital) y Jinete bardado (Égida).",
+    "why_en": "Swift Attack gives Avo +15 when he attacks first and Acceleration Spd +1 per kill. Spd 50. Cavalier (Vital Boost) and Barded Rider (Aegis).",
+    "fits": "Si quieres otro jinete.",
+    "fits_en": "If you want another rider.",
+    "routes": [
+     "leda"
+    ],
+    "parts": [
+     0,
+     1
+    ]
    }
   ],
   "PID_ウーシュラ": [
@@ -8600,6 +9293,33 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
      2,
      3
     ]
+   },
+   {
+    "id": "shido-leda",
+    "name": "Shido veloz",
+    "name_en": "Speedy swordmaster",
+    "path": [
+     "Gladiador",
+     "Mirmidón",
+     "Shido"
+    ],
+    "weapon": "Espada",
+    "roles": [
+     "golpe",
+     "esquiva"
+    ],
+    "when": [],
+    "why": "Vel 55; Halcón (VA +3 al atacar primero) y Percepción (Esq +10/+20 si dobla). Mirmidón deja Técnica devastadora y Shido sube Vel +15 (Siempre alerta).",
+    "why_en": "Spd 55; Hawk (AS +3 when attacking first) and Perception (Avo +10/+20 when she doubles). Myrmidon leaves Devastating Technique and Swordmaster adds Spd +15 (Ever Vigilant).",
+    "fits": "Equipo de críticos; en esta ruta llega pronto (cap. 4).",
+    "fits_en": "Crit team; on this route she arrives early (ch. 4).",
+    "routes": [
+     "leda"
+    ],
+    "parts": [
+     0,
+     1
+    ]
    }
   ],
   "PID_ペペ": [
@@ -8923,6 +9643,30 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
      2,
      3
     ]
+   },
+   {
+    "id": "vate-leda",
+    "name": "Mago de Llamado oscuro",
+    "name_en": "Dark Calling mage",
+    "path": [
+     "Vate"
+    ],
+    "weapon": "Magia negra",
+    "roles": [
+     "mago"
+    ],
+    "when": [],
+    "why": "Se une en el cap. 11 ya de Vate (Mag +20 y Hab +15 sobre su Mag 50). Llamado oscuro quita Evit −5 a los enemigos de al lado (radio 2 a nv 20, 3 a nv 35): más golpes y críticos para quien pegue a su lado.",
+    "why_en": "Joins in ch. 11 already as an Ovate (Mag +20 and Dex +15 on top of his Mag 50). Dark Calling gives adjacent enemies Avo −5 (radius 2 at lv 20, 3 at lv 35): more hits and crits for whoever fights next to him.",
+    "fits": "Si llega a tiempo y falta daño mágico; con Sirocco y Olympia ya hay dos magos.",
+    "fits_en": "If he arrives in time and you lack magic damage; Sirocco and Olympia are already two mages.",
+    "routes": [
+     "leda"
+    ],
+    "parts": [
+     0,
+     1
+    ]
    }
   ],
   "PID_ゲイツ": [
@@ -9085,6 +9829,31 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
     "parts": [
      2,
      3
+    ]
+   },
+   {
+    "id": "obispa-leda",
+    "name": "Obispa de Alerta",
+    "name_en": "Watchful bishop",
+    "path": [
+     "Sacerdote",
+     "Obispo"
+    ],
+    "weapon": "Magia blanca",
+    "roles": [
+     "sanador"
+    ],
+    "when": [],
+    "why": "Se une en el cap. 10 de Sacerdote; Obispo suma Mag +15 y Res +20. Trae una Salamandra. Alerta da Vel +2 a los aliados de al lado (+4 a nv 35): magos y arqueros justos de Vel pasan a doblar.",
+    "why_en": "Joins in ch. 10 as a Priest; Bishop adds Mag +15 and Res +20. Brings a Salamander. Watchful gives adjacent allies Spd +2 (+4 at lv 35): mages and archers just short on Spd start doubling.",
+    "fits": "Si haces el desvío de Anatolia y hay magos o arqueros que no doblan.",
+    "fits_en": "If you clear Anatolia's paralogue and have mages or archers that don't double.",
+    "routes": [
+     "leda"
+    ],
+    "parts": [
+     0,
+     1
     ]
    }
   ],
@@ -9772,6 +10541,41 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
      "es": "La Encarnación es para una sola unidad: Sirocco, Olympia u Orchel.",
      "en": "The Avatar goes to one unit only: Sirocco, Olympia or Orchel."
     }
+   },
+   {
+    "id": "p3-manodivina",
+    "name": "La Mano Divina acorazada",
+    "name_en": "Armored God Hand",
+    "path": [
+     "Obispo",
+     "Monje soldado",
+     "La Mano Divina"
+    ],
+    "weapon": "Guanteletes",
+    "roles": [
+     "golpe",
+     "sanador"
+    ],
+    "when": [
+     {
+      "lacks": "PID_トロイア"
+     },
+     {
+      "has": "PID_シロッコ"
+     }
+    ],
+    "why": "Fue 60, Def 60 y Res 60 de crecimiento: con La Mano Divina pega con puños sin dejar la magia blanca. No tiene aptitud en guanteletes, así que subirlos a S es lo más caro, y con Hab 20 y Vel 10 falla y no dobla.",
+    "why_en": "Str 60, Def 60 and Res 60 growths: as the God Hand she punches without giving up white magic. She has no gauntlet talent, so raising them to S is the costly part, and with Dex 20 and Spd 10 she misses and does not double.",
+    "fits": "Si Sirocco u Olympia llevan La Encarnación y Troy no está.",
+    "fits_en": "If Sirocco or Olympia takes the Avatar and Troy is absent.",
+    "parts": [
+     2,
+     3
+    ],
+    "debate": {
+     "es": "La Mano Divina es para una sola unidad: Troy, Mu u Orchel.",
+     "en": "The God Hand goes to one unit only: Troy, Mu or Orchel."
+    }
    }
   ],
   "PID_タリムーン": [
@@ -9865,6 +10669,163 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
      3
     ]
    }
+  ],
+  "PID_トロイア": [
+   {
+    "id": "p3-monje",
+    "name": "Monje soldado antiaérea",
+    "name_en": "Anti-air war monk",
+    "path": [
+     "Monje soldado"
+    ],
+    "weapon": "Guanteletes",
+    "roles": [
+     "golpe",
+     "esquiva",
+     "sanador"
+    ],
+    "when": [],
+    "why": "Entra de Monje soldado con Puños y Magia blanca altos. Zerberus con Arma modificada es eficaz contra voladores (muy eficaz a nv 60) y Yun Shou da Gol +10 con guanteletes. Golpe y cura le deja usar magia de apoyo tras el combate. Nunca va montada.",
+    "why_en": "Joins as a War Monk with high Gauntlets and White magic. Zerberus with Modified Weapon is effective against fliers (very effective at lv 60) and Yun Shou gives Hit +10 with gauntlets. Strike and Heal lets her cast support magic after combat. She never rides.",
+    "fits": "Contra voladores, si La Mano Divina va a otra unidad.",
+    "fits_en": "Against fliers, if the God Hand goes to another unit.",
+    "parts": [
+     2,
+     3
+    ]
+   },
+   {
+    "id": "p3-manodivina",
+    "name": "La Mano Divina antiaérea",
+    "name_en": "Anti-air God Hand",
+    "path": [
+     "Monje soldado",
+     "La Mano Divina"
+    ],
+    "weapon": "Guanteletes",
+    "roles": [
+     "golpe",
+     "esquiva",
+     "sanador"
+    ],
+    "when": [],
+    "why": "La Mano Divina pide Guanteletes S y Magia blanca C: Troy entra con las dos muy altas y aptitud en ambas, así que es quien menos cuesta. Crecimiento en la clase 55/55/55/45/65/35/40/45/40; Atuendo bendito (Res +10) se queda al dominarla.",
+    "why_en": "The God Hand needs Gauntlets S and White magic C: Troy joins with both very high and has a talent in each, so she is the cheapest candidate. Growths in the class 55/55/55/45/65/35/40/45/40; Divine Garb (Res +10) stays once mastered.",
+    "fits": "Casi siempre: es la candidata natural.",
+    "fits_en": "Almost always: she is the natural candidate.",
+    "parts": [
+     2,
+     3
+    ],
+    "debate": {
+     "es": "La Mano Divina es para una sola unidad: Troy, Mu u Orchel.",
+     "en": "The God Hand goes to one unit only: Troy, Mu or Orchel."
+    }
+   }
+  ],
+  "PID_イシュマール": [
+   {
+    "id": "p3-centinela",
+    "name": "Centinela purificador",
+    "name_en": "Purifying Holy Lancer",
+    "path": [
+     "Guardián",
+     "Centinela"
+    ],
+    "weapon": "Lanza",
+    "roles": [
+     "tanque",
+     "sanador"
+    ],
+    "when": [],
+    "why": "Entra de Guardián con Lanza muy alta y aptitud en lanza. Centinela (Fue +15, Res +15, Pose resuelta) con magia blanca. Luz salvadora anula el Favor infernal de los enemigos en 2 casillas: los aliados cercanos les pegan sin esa protección.",
+    "why_en": "Joins as a Sentinel with a very high Lance rank and a lance talent. Holy Lancer (Str +15, Res +15, Resolute Stance) with white magic. Saving Light cancels enemies' Underworld Favor within 2 tiles: nearby allies hit them without that protection.",
+    "fits": "Casi siempre; sin Theodora, El Tridente es suyo.",
+    "fits_en": "Almost always; without Theodora, the Trident is theirs.",
+    "parts": [
+     2,
+     3
+    ]
+   },
+   {
+    "id": "p3-tridente",
+    "name": "El Tridente purificador",
+    "name_en": "Purifying Trident",
+    "path": [
+     "Guardián",
+     "Centinela",
+     "El Tridente"
+    ],
+    "weapon": "Lanza",
+    "roles": [
+     "tanque",
+     "sanador"
+    ],
+    "when": [
+     {
+      "lacks": "PID_セオドラ"
+     }
+    ],
+    "why": "Su autonivel acaba en El Tridente a nivel 55. Pide Lanza S, y Eshmel entra con lanza muy alta. Muralla bendita (Def +10) y magia blanca ×3.",
+    "why_en": "Their auto-level path ends in the Trident at lv 55. It needs Lance S, and Eshmel joins with a very high lance rank. Divine Wall (Def +10) and white magic ×3.",
+    "fits": "Sin Theodora: solo hay un Tridente.",
+    "fits_en": "Without Theodora: there is only one Trident.",
+    "parts": [
+     2,
+     3
+    ],
+    "debate": {
+     "es": "El Tridente es para una sola unidad: Theodora, Eshmel o Ultand.",
+     "en": "The Trident goes to one unit only: Theodora, Eshmel or Ultand."
+    }
+   }
+  ],
+  "PID_クラプカ": [
+   {
+    "id": "p3-centinela",
+    "name": "Centinela de relleno",
+    "name_en": "Filler Holy Lancer",
+    "path": [
+     "Guardián",
+     "Centinela"
+    ],
+    "weapon": "Lanza",
+    "roles": [
+     "tanque"
+    ],
+    "when": [],
+    "why": "Entra en la sección 6 de Guardián y su clase por defecto sube a Centinela (Def +10, Res +15). Def 50 y Alma de plata (Def +1 por combate, hasta +10). Res 15: lejos de los magos.",
+    "why_en": "Joins in section 6 as a Sentinel and his default class rises to Holy Lancer (Def +10, Res +15). Def 50 and Silver Soul (Def +1 per combat, up to +10). Res 15: keep him away from mages.",
+    "fits": "Solo para cubrir puestos del mapa final.",
+    "fits_en": "Only to fill slots on the final map.",
+    "parts": [
+     2,
+     3
+    ]
+   }
+  ],
+  "PID_タホウニア": [
+   {
+    "id": "p3-batallador",
+    "name": "Batalladora de llegada",
+    "name_en": "Battle Master as she joins",
+    "path": [
+     "Batallador"
+    ],
+    "weapon": "Guanteletes",
+    "roles": [
+     "golpe"
+    ],
+    "when": [],
+    "why": "Entra de Batallador (PV +25, Fue +25) con Guanteletes de plata: PV 90 y Fue 75 de crecimiento en la clase. Técnica de la pitón puede doblar al usar una técnica de guanteletes.",
+    "why_en": "Joins as a Battle Master (HP +25, Str +25) with Silver Gauntlets: HP 90 and Str 75 growth in the class. Python Technique can double when she uses a gauntlet art.",
+    "fits": "Banquillo o puestos del mapa final; llega en la sección 4 si sobrevive como invitada en la Parte 2.",
+    "fits_en": "Bench or final-map slots; she joins in section 4 if she survives as a Part 2 guest.",
+    "parts": [
+     2,
+     3
+    ]
+   }
   ]
  },
  "tiers": {
@@ -9908,7 +10869,9 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
    "PID_ライサンダー": "C",
    "PID_マクシム": "C",
    "PID_ゴライアス": "C",
-   "PID_マジーデ": "C-"
+   "PID_マジーデ": "C-",
+   "PID_レダ": "S",
+   "PID_ジャスミン": "B"
   },
   "cai": {
    "PID_カイ": "S",
@@ -9996,7 +10959,8 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
    "PID_ルルディヤー": "C",
    "PID_マジーデ": "C-",
    "PID_ザーコネ": "C-",
-   "PID_ペペ": "D+"
+   "PID_ペペ": "D+",
+   "PID_ディートリヒ": "S"
   },
   "theodora": {
    "PID_セオドラ": "S",
@@ -10107,7 +11071,8 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
    "PID_マジーデ": "C-/D",
    "PID_ペペ": "D+",
    "PID_タホウニア": "C-/D",
-   "PID_クラプカ": "D"
+   "PID_クラプカ": "D",
+   "PID_グラディウス": "C+/B-"
   }
  }
 };
