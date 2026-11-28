@@ -169,7 +169,7 @@ function recruitDeal(pid, route) {
     const id = p.identity || {}, bio = bioList(id.bio), vs = variants(id), af = id.affiliation;
     return (id.description ? `<p>${esc(dx(id.description))}</p>` : '') + kvRows([
       [t('Alias'), id.alias && esc(dx(id.alias))], [t('Afiliación'), af?.clan_es && img(ico().force?.[af.bid], 'ico') + `<a href="#/guia/facciones">${esc(dx(af.clan_es))}</a>` +
-        (Object.values(ROUTE_NAME).includes(af.route) ? ` <small>(${t('ruta de {r}', { r: esc(af.route) })})</small>` : af.route === 'Parte 2/3' ? ` <small>(${t('Partes 2 y 3')})</small>` : '')],
+        (Object.values(ROUTE_NAME).includes(af.route) ? ` <small>(${t('ruta de {r}', { r: esc(af.route) })})</small>` : af.route === 'Parte 3' ? ` <small>(${t('ejército de Eshmel: Parte 3')})</small>` : '')],
       [t('Altura'), id.height_cm && `${id.height_cm} cm`], [t('Aficiones'), id.hobbies && esc(dx(id.hobbies))],
       [t('Le gusta'), id.likes && esc(dx(id.likes))], [t('No le gusta'), id.dislikes && esc(dx(id.dislikes))],
     ]) + (bio ? `<h4>${t('Biografía')}</h4><ul class="fi-dates">${bio}</ul>` : '') + (vs ? `<h4>${t('Otras etapas del perfil')}</h4>${vs}` : '');

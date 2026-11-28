@@ -3402,12 +3402,14 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["huecos"]={
       "z": "A1",
       "d": "Hotel",
       "es": [
-       "cuando está Anatolia",
-       "solo jueves"
+       "en el puesto de adivinación de Anatolia",
+       "solo jueves",
+       "desde el 6/3/1449 hasta el final de la Parte 1 (no se va en el cap. 11)"
       ],
       "en": [
-       "when Anatolia is there",
-       "only on Thursday"
+       "at Anatolia's fortune-telling booth",
+       "only on Thursday",
+       "from 6 Mar 1449 to the end of Part 1 (does not leave in ch. 11)"
       ]
      }
     ]
@@ -4086,12 +4088,14 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["huecos"]={
       "z": "A1",
       "d": "Hotel",
       "es": [
-       "cuando está Anatolia",
-       "solo martes"
+       "en el puesto de adivinación de Anatolia",
+       "solo martes",
+       "desde el 6/3/1449 hasta el final de la Parte 1 (no se va en el cap. 11)"
       ],
       "en": [
-       "when Anatolia is there",
-       "only on Tuesday"
+       "at Anatolia's fortune-telling booth",
+       "only on Tuesday",
+       "from 6 Mar 1449 to the end of Part 1 (does not leave in ch. 11)"
       ]
      }
     ],
@@ -4115,9 +4119,13 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["huecos"]={
       "z": "A1",
       "d": "Port",
       "es": [
+       "viernes y sábados",
+       "desde el 7/3/1449",
        "nunca en septiembre"
       ],
       "en": [
+       "Fridays and Saturdays",
+       "from 7 Mar 1449",
        "never in September"
       ]
      }
@@ -4718,7 +4726,39 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["huecos"]={
        ]
       ]
      ]
-    }
+    },
+    "filas": [
+     {
+      "k": "con_theodora",
+      "p": 1,
+      "z": "A1",
+      "d": "Temple_Lower",
+      "es": [
+       "con Theodora, en las rutas que no son la suya",
+       "solo domingo",
+       "sin fecha de salida: no se va en el cap. 12"
+      ],
+      "en": [
+       "with Theodora, on the routes that are not hers",
+       "only on Sunday",
+       "no leaving date: does not leave in ch. 12"
+      ]
+     },
+     {
+      "k": "con_theodora",
+      "p": 1,
+      "z": "A102",
+      "d": null,
+      "es": [
+       "con Theodora, en las rutas que no son la suya",
+       "solo lunes"
+      ],
+      "en": [
+       "with Theodora, on the routes that are not hers",
+       "only on Monday"
+      ]
+     }
+    ]
    },
    "PID_ライサンダー": {
     "historia": {
@@ -4774,7 +4814,39 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["huecos"]={
        ]
       ]
      ]
-    }
+    },
+    "filas": [
+     {
+      "k": "con_theodora",
+      "p": 1,
+      "z": "A1",
+      "d": "Temple_Lower",
+      "es": [
+       "con Theodora, en las rutas que no son la suya",
+       "solo domingo",
+       "sin fecha de salida: no se va en el cap. 12"
+      ],
+      "en": [
+       "with Theodora, on the routes that are not hers",
+       "only on Sunday",
+       "no leaving date: does not leave in ch. 12"
+      ]
+     },
+     {
+      "k": "con_theodora",
+      "p": 1,
+      "z": "A102",
+      "d": null,
+      "es": [
+       "con Theodora, en las rutas que no son la suya",
+       "solo lunes"
+      ],
+      "en": [
+       "with Theodora, on the routes that are not hers",
+       "only on Monday"
+      ]
+     }
+    ]
    },
    "PID_ソフィア": {
     "historia": {

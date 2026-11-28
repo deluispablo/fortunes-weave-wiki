@@ -2827,15 +2827,6 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["rutas"]={
       "1449-10-10"
      ],
      "fight_by": "1449-10-12"
-    },
-    {
-     "id": "SSID_ソレル外伝",
-     "es": "Secreto dorado",
-     "accept": [
-      "1449-09-24",
-      "1449-10-05"
-     ],
-     "fight_by": null
     }
    ]
   },
@@ -2954,6 +2945,17 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["rutas"]={
     {
      "id": "SQID_暗殺協力",
      "es": "Encargo luctuoso"
+    }
+   ],
+   "paralogues": [
+    {
+     "id": "SSID_ソレル外伝",
+     "es": "Secreto dorado",
+     "accept": [
+      "1449-09-29",
+      "1449-10-05"
+     ],
+     "fight_by": null
     }
    ]
   },
@@ -6343,7 +6345,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["rutas"]={
    "quests_close": [],
    "extra": {
     "notes": [
-     "Creek se une si completaste «El accesorio de mi difunta hermana» en la Parte 1. Un explorador suelta Hoja purificadora +1 y huye en el turno 4; otro suelta Arco matacaballos +1 y se va en el turno 8."
+     "Creek se une si completaste «El broche de mi difunta hermana» en la Parte 1 (solo existe en las rutas de Dietrich y Leda, caps. 9–10). Un explorador suelta Espada purificadora +1 y huye en el turno 4; otro suelta Arco matacaballos +1 y se va en el turno 8."
     ]
    }
   },
@@ -7164,6 +7166,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["rutas"]={
      "chapter": 11,
      "chapter_end": 11,
      "clipped_to": null,
+     "pauses": [],
      "time": "12:00"
     },
     "theodora": {
@@ -7175,6 +7178,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["rutas"]={
      "chapter": 12,
      "chapter_end": 12,
      "clipped_to": null,
+     "pauses": [],
      "time": "12:00"
     },
     "leda": {
@@ -7186,6 +7190,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["rutas"]={
      "chapter": 11,
      "chapter_end": 11,
      "clipped_to": null,
+     "pauses": [],
      "time": "12:00"
     }
    }
@@ -7216,6 +7221,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["rutas"]={
      "chapter": 12,
      "chapter_end": 12,
      "clipped_to": "1449-10-24",
+     "pauses": [],
      "time": null
     },
     "leda": {
@@ -7227,6 +7233,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["rutas"]={
      "chapter": 11,
      "chapter_end": 11,
      "clipped_to": null,
+     "pauses": [],
      "time": null
     }
    }
@@ -7257,6 +7264,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["rutas"]={
      "chapter": 9,
      "chapter_end": 9,
      "clipped_to": null,
+     "pauses": [],
      "time": null
     }
    }
@@ -7287,6 +7295,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["rutas"]={
      "chapter": 9,
      "chapter_end": 9,
      "clipped_to": null,
+     "pauses": [],
      "time": "19:00"
     },
     "theodora": {
@@ -7298,6 +7307,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["rutas"]={
      "chapter": 10,
      "chapter_end": 10,
      "clipped_to": null,
+     "pauses": [],
      "time": "19:00"
     }
    }
@@ -7328,6 +7338,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["rutas"]={
      "chapter": 10,
      "chapter_end": 10,
      "clipped_to": null,
+     "pauses": [],
      "time": "21:00"
     },
     "dietrich": {
@@ -7339,6 +7350,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["rutas"]={
      "chapter": 9,
      "chapter_end": 9,
      "clipped_to": null,
+     "pauses": [],
      "time": "21:00"
     },
     "theodora": {
@@ -7350,6 +7362,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["rutas"]={
      "chapter": 11,
      "chapter_end": 11,
      "clipped_to": null,
+     "pauses": [],
      "time": "21:00"
     }
    }
@@ -7380,6 +7393,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["rutas"]={
      "chapter": 10,
      "chapter_end": 10,
      "clipped_to": null,
+     "pauses": [],
      "time": null
     },
     "dietrich": {
@@ -7391,6 +7405,12 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["rutas"]={
      "chapter": 9,
      "chapter_end": 11,
      "clipped_to": null,
+     "pauses": [
+      [
+       "1449-09-19 09:00",
+       "1449-09-29 12:00"
+      ]
+     ],
      "time": null
     },
     "theodora": {
@@ -7402,6 +7422,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["rutas"]={
      "chapter": 11,
      "chapter_end": 11,
      "clipped_to": null,
+     "pauses": [],
      "time": null
     }
    }
@@ -7432,6 +7453,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["rutas"]={
      "chapter": 11,
      "chapter_end": 11,
      "clipped_to": null,
+     "pauses": [],
      "time": "12:00"
     },
     "dietrich": {
@@ -7443,6 +7465,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["rutas"]={
      "chapter": 11,
      "chapter_end": 11,
      "clipped_to": null,
+     "pauses": [],
      "time": "12:00"
     },
     "theodora": {
@@ -7454,6 +7477,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["rutas"]={
      "chapter": 12,
      "chapter_end": 12,
      "clipped_to": "1449-10-24",
+     "pauses": [],
      "time": "12:00"
     },
     "leda": {
@@ -7465,6 +7489,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["rutas"]={
      "chapter": 11,
      "chapter_end": 11,
      "clipped_to": null,
+     "pauses": [],
      "time": "12:00"
     }
    }
@@ -7495,6 +7520,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["rutas"]={
      "chapter": 11,
      "chapter_end": 11,
      "clipped_to": null,
+     "pauses": [],
      "time": null
     },
     "leda": {
@@ -7506,6 +7532,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["rutas"]={
      "chapter": 10,
      "chapter_end": 11,
      "clipped_to": null,
+     "pauses": [],
      "time": null
     }
    }
@@ -7536,17 +7563,19 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["rutas"]={
      "chapter": 10,
      "chapter_end": 10,
      "clipped_to": null,
+     "pauses": [],
      "time": null
     },
     "dietrich": {
      "accept": [
-      "1449-09-24",
+      "1449-09-29",
       "1449-10-05"
      ],
      "fight_by": null,
-     "chapter": 9,
+     "chapter": 10,
      "chapter_end": 11,
      "clipped_to": null,
+     "pauses": [],
      "time": null
     },
     "theodora": {
@@ -7558,6 +7587,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["rutas"]={
      "chapter": 11,
      "chapter_end": 11,
      "clipped_to": null,
+     "pauses": [],
      "time": null
     }
    }
@@ -10337,7 +10367,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["rutas"]={
    "es": "Creek",
    "pid": "PID_キリーク",
    "when": "Parte 2 cap. 2",
-   "how": "Derrótalo en P2-2; solo si completaste «El accesorio de mi difunta hermana» en la Parte 1 (no todas las rutas la tienen)."
+   "how": "Derrótalo en P2-2; solo si completaste «El broche de mi difunta hermana» en la Parte 1 (solo en las rutas de Dietrich y Leda, caps. 9–10)."
   },
   {
    "es": "Nathan",
@@ -10427,14 +10457,14 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["rutas"]={
    "route": "todas",
    "part": 1,
    "ch": null,
-   "text": "Misión «El accesorio de mi difunta hermana» antes del final de la Parte 1: sin ella no hay Creek (ni Nathan) en la Parte 2."
+   "text": "Misión «El broche de mi difunta hermana» (solo en las rutas de Dietrich y Leda, caps. 9–10: Broche violeta a Creek en el Desfiladero de Axion): sin ella no hay Creek (ni Nathan) en la Parte 2."
   },
   {
    "id": "w4",
    "route": "todas",
    "part": 1,
    "ch": null,
-   "text": "Conversaciones de apoyo C: 110 de 190 parejas solo tienen la C antes de la Parte 3."
+   "text": "Conversaciones de apoyo C: 112 de 190 parejas solo tienen la C antes de la Parte 3."
   },
   {
    "id": "w5",
@@ -10455,7 +10485,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["rutas"]={
    "route": "todas",
    "part": 2,
    "ch": 2,
-   "text": "Hoja purificadora +1 (explorador del sureste, huye en el turno 4) y Arco matacaballos +1 (explorador del oeste, huye en el turno 8)."
+   "text": "Espada purificadora +1 (explorador del sureste, huye en el turno 4) y Arco matacaballos +1 (explorador del oeste, huye en el turno 8)."
   },
   {
    "id": "w8",
@@ -10532,7 +10562,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["rutas"]={
    "route": "cai",
    "part": 1,
    "ch": 7,
-   "text": "Cofre con Hoja purificadora (recógelo en el turno 1)."
+   "text": "Cofre con Espada purificadora (recógelo en el turno 1)."
   },
   {
    "id": "w19",
@@ -10602,7 +10632,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["rutas"]={
    "route": "theodora",
    "part": 1,
    "ch": 10,
-   "text": "Prestar el barco a Anatolia antes del 15/9 23:59. Si no, Anatolia y Sha Lan no salen en el cap. 12."
+   "text": "Prestar el barco a Anatolia en el cap. 10, antes de que acabe su tiempo libre (16/9 12:00; el 15/9 es el último día entero). El 21/9 es la fecha en que el barco vuelve, no el plazo. Si no, Anatolia y Sha Lan no salen en el cap. 12."
   },
   {
    "id": "w29",
@@ -10669,6 +10699,27 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["rutas"]={
   },
   {
    "id": "w38",
+   "route": "todas",
+   "part": 1,
+   "ch": null,
+   "text": "Destino de la misión principal: si está fuera de Dagsion y no lo has visitado nunca, al vencer el plazo no puedes seguir y hay que reiniciar el capítulo. Visitado una vez (marca de llegada), el juego te lleva allí aunque estés lejos."
+  },
+  {
+   "id": "w39",
+   "route": "todas",
+   "part": 1,
+   "ch": null,
+   "text": "Las Ayudas de salvación no se devuelven: una vez compradas solo se pueden desactivar y volver a activar."
+  },
+  {
+   "id": "w40",
+   "route": "todas",
+   "part": 3,
+   "ch": 2,
+   "text": "El portal del templo de cada dios se abre al completar la misión de ese dios («Petición de…», secciones 2–6); reconstruir el templo no basta (en el de Aurora la reconstrucción es requisito de la misión)."
+  },
+  {
+   "id": "w41",
    "route": "leda",
    "part": 1,
    "ch": 12,
@@ -10763,7 +10814,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["rutas"]={
    "route": "dietrich",
    "part": 1,
    "ch": 9,
-   "text": "Desvío «El secreto del carro desaparecido» (Talimun): aceptar 17/9–10/10, combatir hasta 12/10. Premio: Espada purificadora; recluta: Ursula (responder «Sí» ×3)."
+   "text": "Desvío «El secreto del carro desaparecido» (Talimun): aceptar 17/9–10/10 (sin tiempo libre del 19/9 al 29/9: la historia corta la ventana), combatir hasta 12/10. Premio: Espada purificadora; recluta: Ursula (responder «Sí» ×3)."
   },
   {
    "id": "p-theodora-SSID_タリムーン外伝",
@@ -10825,8 +10876,8 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["rutas"]={
    "id": "p-dietrich-SSID_ソレル外伝",
    "route": "dietrich",
    "part": 1,
-   "ch": 9,
-   "text": "Desvío «Secreto dorado» (Solel): aceptar 24/9–5/10. Premio: Auricalco."
+   "ch": 10,
+   "text": "Desvío «Secreto dorado» (Solel): aceptar 29/9–5/10. Premio: Auricalco."
   },
   {
    "id": "p-theodora-SSID_ソレル外伝",
@@ -10868,7 +10919,7 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["rutas"]={
     "text": "Misiones compartidas: pueden resolverse solas y pagar en rutas posteriores."
    },
    {
-    "text": "Repetir capítulos: se abre tras acabar cualquier ruta de la Parte 1; repetir uno borra el progreso posterior de esa ruta (una sola partida)."
+    "text": "Repetir capítulos: cada inicio de capítulo es un archivo propio (Chapter_<señor>_<parte>_<cap>). Repetir uno sobrescribe la partida en curso de esa ruta, pero los marcadores de capítulos posteriores siguen ahí hasta que vuelvas a superar el capítulo anterior a cada uno. Volver a terminar la Parte 1 sobrescribe los datos con los que tus unidades empiezan la Parte 2."
    },
    {
     "text": "Parte 3: un recluta se une al ejército en 1454 si se completó una ruta en la que lo reclutaste (sin verificar)."

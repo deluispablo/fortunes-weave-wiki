@@ -16,8 +16,9 @@ const CALC = (() => {
   const hit = (wHit, dex, lck, magic) => wHit + (magic ? Math.floor((dex + lck) / 2) : dex);
   const crit = (wCrit, dex, lck) => wCrit + Math.floor((dex + lck) / 2);
   const shown = n => Math.max(0, Math.min(100, Math.round(n)));
-  /** real chance of a shown hit: the same below 50, higher above (shortcut: curve from the web table, not from game data) */
-  const trueHit = h => (h < 50 ? h : Math.round((h + (40 / 3) * (h / 100) * Math.sin(Math.PI * (h - 50) / 50)) * 10) / 10);
+  /** real chance (%) of a shown hit h, as the game rolls it: threshold out of 10000 = 100·h, plus ⌊sin(3.6·(h−50)°)·h·40/3⌋ from 51 up
+      (40/3 as the game's 32-bit float, so 75 gives 84.99, not 85) */
+  const trueHit = h => (h < 51 ? h : (100 * h + Math.trunc(Math.sin(Math.PI * 3.6 * (h - 50) / 180) * h * Math.fround(40 / 3))) / 100);
 
   const sk = w => w?.equip_skills || [];
   const isMagic = w => /^magia/.test(w?.type || '') || sk(w).includes('SID_魔法攻撃効果');
@@ -220,7 +221,7 @@ const CALC = (() => {
       'Daño = Fue o Mag + Pot del arma (× eficacia) − Def o Res. Crítico ×3; el segundo golpe de espada ×1,2; el hacha quita al menos 5.',
       'Golpe = Golpe del arma + Hab (magia: + (Hab + Sue) ÷ 2) − Esq del rival (su VA + terreno). Crítico = Crí del arma + (Hab + Sue) ÷ 2 − Sue del rival.',
       'VA = Vel − (peso del arma y del equipo − Con) si pesan más que la Con (Fue ÷ 5). Ataque doble con 4 de VA de ventaja.',
-      'El Golpe real por encima del 50 % es una aproximación: los datos del juego no la confirman.',
+      'Golpe real: por encima del 50 % mostrado la probabilidad real es mayor (60 → 65, 70 → 79, 80 → 90, 90 → 97); por debajo es la mostrada.',
       'Dificultad Normal: los enemigos llevan Golpe −30 y Crí −50 ocultos. Los datos guardan también un refuerzo de Golpe +30 y unos límites de diferencia de nivel; no está claro cuándo se aplica cada uno.',
       'No se cuentan: el Crí oculto propio de cada enemigo (de −10 a −80), habilidades, apoyos, batallones, los atributos que dan escudos y accesorios ni el Favor infernal.'].map(s => `<li>${esc(t(s))}</li>`).join('')}</ul>` +
       `<p><a href="#/mecanicas">${t('Tablas de combate')}</a> · <a href="#/guia/tipos-de-unidad">${t('Tipos de unidad y eficacias')}</a></p></details>`;

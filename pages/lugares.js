@@ -85,7 +85,7 @@ function searchQuests(s, d) {
     const ls = (W.map?.carriage_lines || []).filter(l => l.from === id);
     const cai = l => (l.closed_cai ? t('cerrada en la ruta de Cai') : t('ruta de Cai: tras completar {q}', { q: list([...(l.cai_flags || []).map(doneQuest), l.cai_subquest && L('mision', l.cai_subquest.id)].filter(Boolean)) }) +
       (l.seen_on_screen == null ? '' : ' ' + t(l.seen_on_screen ? '(en pantalla se abrió con la misión solo aceptada)' : '(en pantalla seguía cerrada con la misión solo aceptada)')));
-    return ls.length ? `<h4>${t('Carruaje')}</h4><p class="mut">${t('0 turnos, solo la tarifa. Hay que haber pasado antes por esta posta.')}</p>` +
+    return ls.length ? `<h4>${t('Carruaje')}</h4><p class="mut">${t('Es la acción del turno, más la tarifa: llegar andando y montar en el mismo turno cuesta 1 turno en total. Hay que haber pasado antes por esta posta.')}</p>` +
       ul(ls.map(l => li(spotL(l.to, l.to_es), list([gold(l.price), named(l.via) && t('pasa por {p}', { p: named(l.via) }), cai(l)])))) : '';
   }
   /** Theodora's battalion recruiting in this town (WIKI_EXT.guerra.towns): what each stage adds, with the Prestigio stages 2–4 need */

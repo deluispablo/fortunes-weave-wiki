@@ -1,6 +1,6 @@
 window.WIKI={
  "meta": {
-  "built": "2026-11-27",
+  "built": "2026-11-28",
   "profiles_json": true,
   "route_codes": {
    "0": "todas",
@@ -8,7 +8,7 @@ window.WIKI={
    "2": "Dietrich",
    "3": "Theodora",
    "4": "Leda",
-   "9": "Parte 2/3 (救世主軍)"
+   "9": "Parte 3"
   },
   "order": [
    "PID_カイ",
@@ -2840,7 +2840,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 5,
       "kind": 3,
@@ -3208,7 +3208,7 @@ window.WIKI={
       "Cai",
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -3270,7 +3270,7 @@ window.WIKI={
        ]
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 5,
        "kind": "evento/minijuego (引数 = id corto)",
@@ -5045,7 +5045,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 5,
       "kind": 4,
@@ -5352,7 +5352,7 @@ window.WIKI={
       "Cai",
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -5442,7 +5442,7 @@ window.WIKI={
        ]
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 5,
        "kind": "negociación/misión (交渉)",
@@ -6951,7 +6951,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 5,
       "kind": 4,
@@ -7260,7 +7260,7 @@ window.WIKI={
       "Cai",
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -7349,7 +7349,7 @@ window.WIKI={
        ]
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 5,
        "kind": "negociación/misión (交渉)",
@@ -10225,7 +10225,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 5,
       "kind": 3,
@@ -10516,7 +10516,7 @@ window.WIKI={
      ],
      "routes_recruitable_data": [
       "Dietrich",
-      "Parte 2/3 (救世主軍)"
+      "Parte 3"
      ]
     },
     "recruit_cai": null,
@@ -10534,7 +10534,7 @@ window.WIKI={
        ]
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 5,
        "kind": "evento/minijuego (引数 = id corto)",
@@ -12275,7 +12275,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 5,
       "kind": 4,
@@ -12658,7 +12658,7 @@ window.WIKI={
       "Cai",
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -12812,7 +12812,7 @@ window.WIKI={
        ]
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 5,
        "kind": "negociación/misión (交渉)",
@@ -14351,7 +14351,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 5,
       "kind": 0,
@@ -14666,7 +14666,7 @@ window.WIKI={
       "Cai",
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -14741,7 +14741,7 @@ window.WIKI={
        "args": []
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 5,
        "kind": "solo apoyo + prestigio",
@@ -16287,7 +16287,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 5,
       "kind": 0,
@@ -16619,7 +16619,7 @@ window.WIKI={
       "Cai",
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -16676,7 +16676,7 @@ window.WIKI={
        "args": []
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 5,
        "kind": "solo apoyo + prestigio",
@@ -20031,7 +20031,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 5,
       "kind": 3,
@@ -20306,7 +20306,7 @@ window.WIKI={
      "routes_recruitable_data": [
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)"
+      "Parte 3"
      ]
     },
     "recruit_cai": null,
@@ -20335,7 +20335,7 @@ window.WIKI={
        ]
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 5,
        "kind": "evento/minijuego (引数 = id corto)",
@@ -21910,7 +21910,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 5,
       "kind": 4,
@@ -22338,7 +22338,7 @@ window.WIKI={
       "Cai",
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -22420,7 +22420,7 @@ window.WIKI={
        ]
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 5,
        "kind": "negociación/misión (交渉)",
@@ -24214,7 +24214,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 5,
       "kind": 0,
@@ -24485,7 +24485,7 @@ window.WIKI={
       "Cai",
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -24535,7 +24535,7 @@ window.WIKI={
        "args": []
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 5,
        "kind": "solo apoyo + prestigio",
@@ -27952,7 +27952,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 5,
       "kind": 3,
@@ -28262,7 +28262,7 @@ window.WIKI={
       "Cai",
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -28331,7 +28331,7 @@ window.WIKI={
        ]
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 5,
        "kind": "evento/minijuego (引数 = id corto)",
@@ -29543,7 +29543,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 5,
       "kind": 0,
@@ -29911,7 +29911,7 @@ window.WIKI={
       "Cai",
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -29987,7 +29987,7 @@ window.WIKI={
        "args": []
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 5,
        "kind": "solo apoyo + prestigio",
@@ -31260,7 +31260,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 5,
       "kind": 4,
@@ -31526,7 +31526,7 @@ window.WIKI={
       "Cai",
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -31625,7 +31625,7 @@ window.WIKI={
        ]
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 5,
        "kind": "negociación/misión (交渉)",
@@ -32867,7 +32867,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 5,
       "kind": 0,
@@ -33171,7 +33171,7 @@ window.WIKI={
       "Cai",
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -33244,7 +33244,7 @@ window.WIKI={
        "args": []
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 5,
        "kind": "solo apoyo + prestigio",
@@ -36095,7 +36095,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 5,
       "kind": 3,
@@ -36422,7 +36422,7 @@ window.WIKI={
       "Dagsion: toda la Parte 1, zona A102 (Temple_Aurora), si está colocado 面会希望セオドラ"
      ],
      "routes_recruitable_data": [
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -36441,7 +36441,7 @@ window.WIKI={
        ]
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 5,
        "kind": "evento/minijuego (引数 = id corto)",
@@ -38166,7 +38166,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 5,
       "kind": 3,
@@ -38440,7 +38440,7 @@ window.WIKI={
       "Dagsion: toda la Parte 1, zona A102 (Temple_Aurora), si está colocado 面会希望セオドラ"
      ],
      "routes_recruitable_data": [
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -38459,7 +38459,7 @@ window.WIKI={
        ]
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 5,
        "kind": "evento/minijuego (引数 = id corto)",
@@ -40180,7 +40180,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 5,
       "kind": 0,
@@ -40437,7 +40437,7 @@ window.WIKI={
       "Cai",
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -40494,7 +40494,7 @@ window.WIKI={
        "args": []
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 5,
        "kind": "solo apoyo + prestigio",
@@ -42090,7 +42090,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 5,
       "kind": 0,
@@ -42368,7 +42368,7 @@ window.WIKI={
       "Cai",
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -42444,7 +42444,7 @@ window.WIKI={
        "args": []
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 5,
        "kind": "solo apoyo + prestigio",
@@ -45573,7 +45573,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 5,
       "kind": 3,
@@ -45864,7 +45864,7 @@ window.WIKI={
      "routes_recruitable_data": [
       "Cai",
       "Dietrich",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -45922,7 +45922,7 @@ window.WIKI={
        ]
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 5,
        "kind": "evento/minijuego (引数 = id corto)",
@@ -47059,7 +47059,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 5,
       "kind": 4,
@@ -47332,7 +47332,7 @@ window.WIKI={
       "Cai",
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -47414,7 +47414,7 @@ window.WIKI={
        ]
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 5,
        "kind": "negociación/misión (交渉)",
@@ -49071,7 +49071,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 5,
       "kind": 3,
@@ -49352,7 +49352,7 @@ window.WIKI={
       "Cai",
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -49417,7 +49417,7 @@ window.WIKI={
        ]
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 5,
        "kind": "evento/minijuego (引数 = id corto)",
@@ -50686,7 +50686,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 5,
       "kind": 0,
@@ -51035,7 +51035,7 @@ window.WIKI={
       "Cai",
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -51092,7 +51092,7 @@ window.WIKI={
        "args": []
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 5,
        "kind": "solo apoyo + prestigio",
@@ -55109,7 +55109,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 5,
       "kind": 3,
@@ -55409,7 +55409,7 @@ window.WIKI={
      "routes_recruitable_data": [
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -55450,7 +55450,7 @@ window.WIKI={
        ]
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 5,
        "kind": "evento/minijuego (引数 = id corto)",
@@ -57168,7 +57168,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 5,
       "kind": 4,
@@ -57472,7 +57472,7 @@ window.WIKI={
       "Cai",
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -57601,7 +57601,7 @@ window.WIKI={
        ]
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 5,
        "kind": "negociación/misión (交渉)",
@@ -59350,7 +59350,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 5,
       "kind": 4,
@@ -59628,7 +59628,7 @@ window.WIKI={
       "Cai",
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -59855,7 +59855,7 @@ window.WIKI={
        ]
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 5,
        "kind": "negociación/misión (交渉)",
@@ -61406,7 +61406,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 5,
       "kind": 0,
@@ -61690,7 +61690,7 @@ window.WIKI={
       "Cai",
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -61766,7 +61766,7 @@ window.WIKI={
        "args": []
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 5,
        "kind": "solo apoyo + prestigio",
@@ -64894,7 +64894,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 5,
       "kind": 0,
@@ -65187,7 +65187,7 @@ window.WIKI={
       "Cai",
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -65262,7 +65262,7 @@ window.WIKI={
        "args": []
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 5,
        "kind": "solo apoyo + prestigio",
@@ -66456,7 +66456,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 5,
       "kind": 3,
@@ -66756,7 +66756,7 @@ window.WIKI={
      "routes_recruitable_data": [
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)"
+      "Parte 3"
      ]
     },
     "recruit_cai": null,
@@ -66785,7 +66785,7 @@ window.WIKI={
        ]
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 5,
        "kind": "evento/minijuego (引数 = id corto)",
@@ -68403,7 +68403,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 5,
       "kind": 0,
@@ -68707,7 +68707,7 @@ window.WIKI={
       "Cai",
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -68782,7 +68782,7 @@ window.WIKI={
        "args": []
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 5,
        "kind": "solo apoyo + prestigio",
@@ -70456,7 +70456,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 5,
       "kind": 0,
@@ -70777,7 +70777,7 @@ window.WIKI={
       "Cai",
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -70853,7 +70853,7 @@ window.WIKI={
        "args": []
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 5,
        "kind": "solo apoyo + prestigio",
@@ -72274,7 +72274,7 @@ window.WIKI={
     "affiliation": {
      "bid": "BID_救世主軍",
      "clan_es": "Ejército de la Providencia",
-     "route": "Parte 2/3"
+     "route": "Parte 3"
     },
     "scout_blurb": null,
     "travel_blurb": null,
@@ -72656,7 +72656,7 @@ window.WIKI={
      "affiliation": {
       "bid": "BID_救世主軍",
       "clan_es": "Ejército de la Providencia",
-      "route": "Parte 2/3"
+      "route": "Parte 3"
      },
      "description": null,
      "travel_blurb": null,
@@ -74256,7 +74256,7 @@ window.WIKI={
     "affiliation": {
      "bid": "BID_個別設定_コウカ",
      "clan_es": "Neutral",
-     "route": "Parte 2/3"
+     "route": "Parte 3"
     },
     "scout_blurb": "Hechicera instruida en la magia de Kunlun que ataca con gran velocidad y precisión.",
     "travel_blurb": "Una maga de poderes asombrosos.",
@@ -74619,7 +74619,7 @@ window.WIKI={
      "affiliation": {
       "bid": "BID_個別設定_コウカ",
       "clan_es": "Neutral",
-      "route": "Parte 2/3"
+      "route": "Parte 3"
      },
      "description": "Hechicera instruida en la magia de Kunlun que ataca con gran velocidad y precisión.",
      "travel_blurb": "Una maga de poderes asombrosos.",
@@ -75616,7 +75616,7 @@ window.WIKI={
     "affiliation": {
      "bid": "BID_個別設定_トロイア",
      "clan_es": "Neutral",
-     "route": "Parte 2/3"
+     "route": "Parte 3"
     },
     "scout_blurb": "Guerrera cuya avanzada edad da fe de su experiencia en combate. Destaca en el uso de guanteletes.",
     "travel_blurb": "Una anciana poseedora de sabiduría y experiencia simpares.",
@@ -75918,7 +75918,7 @@ window.WIKI={
      "affiliation": {
       "bid": "BID_個別設定_トロイア",
       "clan_es": "Neutral",
-      "route": "Parte 2/3"
+      "route": "Parte 3"
      },
      "description": "Guerrera cuya avanzada edad da fe de su experiencia en combate. Destaca en el uso de guanteletes.",
      "travel_blurb": "Una anciana poseedora de sabiduría y experiencia simpares.",
@@ -77144,7 +77144,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 3,
       "kind": 0,
@@ -77372,7 +77372,7 @@ window.WIKI={
       "Cai",
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -77422,7 +77422,7 @@ window.WIKI={
        "args": []
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 3,
        "kind": "solo apoyo + prestigio",
@@ -78740,7 +78740,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 8,
       "kind": 3,
@@ -78975,7 +78975,7 @@ window.WIKI={
       "Cai",
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -79033,7 +79033,7 @@ window.WIKI={
        ]
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 8,
        "kind": "evento/minijuego (引数 = id corto)",
@@ -80571,7 +80571,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 8,
       "kind": 0,
@@ -80808,7 +80808,7 @@ window.WIKI={
       "Cai",
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -80865,7 +80865,7 @@ window.WIKI={
        "args": []
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 8,
        "kind": "solo apoyo + prestigio",
@@ -82034,7 +82034,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 8,
       "kind": 0,
@@ -82268,7 +82268,7 @@ window.WIKI={
      "routes_recruitable_data": [
       "Cai",
       "Dietrich",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -82319,7 +82319,7 @@ window.WIKI={
        "args": []
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 8,
        "kind": "solo apoyo + prestigio",
@@ -83805,7 +83805,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 8,
       "kind": 0,
@@ -84041,7 +84041,7 @@ window.WIKI={
       "Cai",
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -84091,7 +84091,7 @@ window.WIKI={
        "args": []
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 8,
        "kind": "solo apoyo + prestigio",
@@ -85028,7 +85028,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 3,
       "kind": 0,
@@ -85265,7 +85265,7 @@ window.WIKI={
       "Cai",
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -85321,7 +85321,7 @@ window.WIKI={
        "args": []
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 3,
        "kind": "solo apoyo + prestigio",
@@ -86853,7 +86853,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 8,
       "kind": 0,
@@ -87085,7 +87085,7 @@ window.WIKI={
       "Cai",
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -87141,7 +87141,7 @@ window.WIKI={
        "args": []
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 8,
        "kind": "solo apoyo + prestigio",
@@ -88430,7 +88430,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 8,
       "kind": 0,
@@ -88678,7 +88678,7 @@ window.WIKI={
       "Cai",
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -88745,7 +88745,7 @@ window.WIKI={
        "args": []
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 8,
        "kind": "solo apoyo + prestigio",
@@ -89771,7 +89771,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 8,
       "kind": 3,
@@ -90002,7 +90002,7 @@ window.WIKI={
       "Cai",
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -90068,7 +90068,7 @@ window.WIKI={
        ]
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 8,
        "kind": "evento/minijuego (引数 = id corto)",
@@ -91230,7 +91230,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 8,
       "kind": 3,
@@ -91459,7 +91459,7 @@ window.WIKI={
       "Cai",
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -91518,7 +91518,7 @@ window.WIKI={
        ]
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 8,
        "kind": "evento/minijuego (引数 = id corto)",
@@ -92868,7 +92868,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 8,
       "kind": 3,
@@ -93105,7 +93105,7 @@ window.WIKI={
       "Cai",
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -93170,7 +93170,7 @@ window.WIKI={
        ]
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 8,
        "kind": "evento/minijuego (引数 = id corto)",
@@ -94254,7 +94254,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 8,
       "kind": 0,
@@ -94492,7 +94492,7 @@ window.WIKI={
       "Cai",
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -94550,7 +94550,7 @@ window.WIKI={
        "args": []
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 8,
        "kind": "solo apoyo + prestigio",
@@ -95625,7 +95625,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 8,
       "kind": 0,
@@ -95867,7 +95867,7 @@ window.WIKI={
       "Cai",
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -95925,7 +95925,7 @@ window.WIKI={
        "args": []
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 8,
        "kind": "solo apoyo + prestigio",
@@ -97425,7 +97425,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 8,
       "kind": 0,
@@ -97671,7 +97671,7 @@ window.WIKI={
       "Cai",
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -97728,7 +97728,7 @@ window.WIKI={
        "args": []
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 8,
        "kind": "solo apoyo + prestigio",
@@ -99259,7 +99259,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 8,
       "kind": 0,
@@ -99515,7 +99515,7 @@ window.WIKI={
       "Cai",
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -99592,7 +99592,7 @@ window.WIKI={
        "args": []
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 8,
        "kind": "solo apoyo + prestigio",
@@ -109024,7 +109024,7 @@ window.WIKI={
      },
      {
       "route": 9,
-      "route_es": "Parte 2/3 (救世主軍)",
+      "route_es": "Parte 3",
       "support": 1,
       "renown": 8,
       "kind": 0,
@@ -109287,7 +109287,7 @@ window.WIKI={
       "Cai",
       "Dietrich",
       "Leda",
-      "Parte 2/3 (救世主軍)",
+      "Parte 3",
       "Theodora"
      ]
     },
@@ -109362,7 +109362,7 @@ window.WIKI={
        "args": []
       },
       {
-       "route": "Parte 2/3",
+       "route": "Parte 3",
        "support": 1,
        "renown": 8,
        "kind": "solo apoyo + prestigio",
@@ -116662,7 +116662,7 @@ window.WIKI={
    "2": "Dietrich",
    "3": "Theodora",
    "4": "Leda",
-   "9": "Parte 2/3 (救世主軍)"
+   "9": "Parte 3"
   },
   "theater_plays": [
    {
@@ -294602,7 +294602,6 @@ window.WIKI={
    ],
    "charioteer_factor": 2,
    "inferred": [
-    "lure.outcomes (columnas sin nombre de GmapCommand おびき寄せる)",
     "capture.beckon como base",
     "per_day (comunidad)",
     "stable_cap (spec de guardado)",
@@ -371855,13 +371854,14 @@ window.WIKI={
    "harvest_turns": 6,
    "harvest_qty": 10,
    "extra_harvest_pct": {
-    "1": 100,
-    "2": 70,
-    "3": 40,
-    "4": 10,
-    "5": 0,
-    "6": 0
+    "2": 100,
+    "3": 70,
+    "4": 40,
+    "5": 10,
+    "6": 0,
+    "7": 0
    },
+   "expected_harvests": 3.01,
    "fertiliser_mutation_pct": {
     "オルニウスのフン": {
      "item": {
@@ -476898,7 +476898,7 @@ window.WIKI={
     {
      "kind": "perdible",
      "id": "w18",
-     "es": "Cofre con Hoja purificadora (recógelo en el turno 1).",
+     "es": "Cofre con Espada purificadora (recógelo en el turno 1).",
      "deadline": "1449-07-09",
      "if_missed": "No se puede recuperar más adelante."
     }
@@ -477682,7 +477682,7 @@ window.WIKI={
     }
    ],
    "priorities": [
-    "Recoger el cofre con Hoja purificadora en el turno 1 del combate: después desaparece.",
+    "Recoger el cofre con Espada purificadora en el turno 1 del combate: después desaparece.",
     "Matar a [[PID_イニオニ]] en un solo turno: rellena su reserva de vida al romperse y dispara una flecha de largo alcance cada tres turnos.",
     "Comprar 3 [[IID_鉄の弓]] para [[PID_ヌッツォ]] (2/6, desde el 30 jun) en [[オレンスの町]] (2 por capítulo, −25 %) o [[リベイラ村]] (1, −50 %).",
     "Aceptar «El legado de un escultor legendario» y buscar en [[ブロンテス湖]] el [[IID_カガヤキウオ]] que pide [[PID_ニネ]].",
@@ -481162,14 +481162,14 @@ window.WIKI={
     {
      "kind": "perdible",
      "id": "w3",
-     "es": "Misión «El accesorio de mi difunta hermana» antes del final de la Parte 1: sin ella no hay Creek (ni Nathan) en la Parte 2.",
+     "es": "Misión «El broche de mi difunta hermana» (solo en las rutas de Dietrich y Leda, caps. 9–10: Broche violeta a Creek en el Desfiladero de Axion): sin ella no hay Creek (ni Nathan) en la Parte 2.",
      "deadline": "1449-11-27",
      "if_missed": "No se puede recuperar más adelante."
     },
     {
      "kind": "perdible",
      "id": "w4",
-     "es": "Conversaciones de apoyo C: 110 de 190 parejas solo tienen la C antes de la Parte 3.",
+     "es": "Conversaciones de apoyo C: 112 de 190 parejas solo tienen la C antes de la Parte 3.",
      "deadline": "1449-11-27",
      "if_missed": "No se puede recuperar más adelante."
     },
@@ -481177,6 +481177,20 @@ window.WIKI={
      "kind": "perdible",
      "id": "w5",
      "es": "Antes de la Parte 2: solo pasan los objetos equipados; el resto del convoy queda inaccesible hasta la Parte 3.",
+     "deadline": "1449-11-27",
+     "if_missed": "No se puede recuperar más adelante."
+    },
+    {
+     "kind": "perdible",
+     "id": "w38",
+     "es": "Destino de la misión principal: si está fuera de Dagsion y no lo has visitado nunca, al vencer el plazo no puedes seguir y hay que reiniciar el capítulo. Visitado una vez (marca de llegada), el juego te lleva allí aunque estés lejos.",
+     "deadline": "1449-11-27",
+     "if_missed": "No se puede recuperar más adelante."
+    },
+    {
+     "kind": "perdible",
+     "id": "w39",
+     "es": "Las Ayudas de salvación no se devuelven: una vez compradas solo se pueden desactivar y volver a activar.",
      "deadline": "1449-11-27",
      "if_missed": "No se puede recuperar más adelante."
     }
@@ -489020,14 +489034,14 @@ window.WIKI={
     {
      "kind": "perdible",
      "id": "w3",
-     "es": "Misión «El accesorio de mi difunta hermana» antes del final de la Parte 1: sin ella no hay Creek (ni Nathan) en la Parte 2.",
+     "es": "Misión «El broche de mi difunta hermana» (solo en las rutas de Dietrich y Leda, caps. 9–10: Broche violeta a Creek en el Desfiladero de Axion): sin ella no hay Creek (ni Nathan) en la Parte 2.",
      "deadline": "1449-11-27",
      "if_missed": "No se puede recuperar más adelante."
     },
     {
      "kind": "perdible",
      "id": "w4",
-     "es": "Conversaciones de apoyo C: 110 de 190 parejas solo tienen la C antes de la Parte 3.",
+     "es": "Conversaciones de apoyo C: 112 de 190 parejas solo tienen la C antes de la Parte 3.",
      "deadline": "1449-11-27",
      "if_missed": "No se puede recuperar más adelante."
     },
@@ -489049,6 +489063,20 @@ window.WIKI={
      "kind": "perdible",
      "id": "w26",
      "es": "Los 9 Duelos de Temerario caducan el 27/11 (cada uno enseña un arte oculta; Il-Lara abre la clase Guardián y Oko, la de Rastreador).",
+     "deadline": "1449-11-27",
+     "if_missed": "No se puede recuperar más adelante."
+    },
+    {
+     "kind": "perdible",
+     "id": "w38",
+     "es": "Destino de la misión principal: si está fuera de Dagsion y no lo has visitado nunca, al vencer el plazo no puedes seguir y hay que reiniciar el capítulo. Visitado una vez (marca de llegada), el juego te lleva allí aunque estés lejos.",
+     "deadline": "1449-11-27",
+     "if_missed": "No se puede recuperar más adelante."
+    },
+    {
+     "kind": "perdible",
+     "id": "w39",
+     "es": "Las Ayudas de salvación no se devuelven: una vez compradas solo se pueden desactivar y volver a activar.",
      "deadline": "1449-11-27",
      "if_missed": "No se puede recuperar más adelante."
     }
@@ -494939,7 +494967,7 @@ window.WIKI={
     {
      "kind": "perdible",
      "id": "w28",
-     "es": "Prestar el barco a Anatolia antes del 15/9 23:59. Si no, Anatolia y Sha Lan no salen en el cap. 12.",
+     "es": "Prestar el barco a Anatolia en el cap. 10, antes de que acabe su tiempo libre (16/9 12:00; el 15/9 es el último día entero). El 21/9 es la fecha en que el barco vuelve, no el plazo. Si no, Anatolia y Sha Lan no salen en el cap. 12.",
      "deadline": "1449-09-16",
      "if_missed": "No se puede recuperar más adelante."
     }
@@ -495707,7 +495735,7 @@ window.WIKI={
    ],
    "priorities": [
     "Aceptar «Una táctica de distracción» entre el 2 sep y el 8 sep: da a [[PID_バッカニア]] (3/8) y 20.000 G con 150 de Prestigio.",
-    "Prestar el barco a [[PID_アナトリア]] antes del 15 sep: si no, ella y [[PID_サラン]] faltan en el capítulo 12.",
+    "Prestar el barco a [[PID_アナトリア]] antes del 16 sep a las 12:00 (fin del tiempo libre del capítulo): si no, ella y [[PID_サラン]] faltan en el capítulo 12.",
     "Cerrar antes del 16 sep «Mercancía robada», «Hechiceros en el bosque», «Encargo luctuoso» y «Todavía más Entomosferas».",
     "Entregar los envíos de mijo desértico y Toxolitos: todos los envíos caducan el 24 oct."
    ],
@@ -496956,14 +496984,14 @@ window.WIKI={
     {
      "kind": "perdible",
      "id": "w3",
-     "es": "Misión «El accesorio de mi difunta hermana» antes del final de la Parte 1: sin ella no hay Creek (ni Nathan) en la Parte 2.",
+     "es": "Misión «El broche de mi difunta hermana» (solo en las rutas de Dietrich y Leda, caps. 9–10: Broche violeta a Creek en el Desfiladero de Axion): sin ella no hay Creek (ni Nathan) en la Parte 2.",
      "deadline": "1449-10-24",
      "if_missed": "No se puede recuperar más adelante."
     },
     {
      "kind": "perdible",
      "id": "w4",
-     "es": "Conversaciones de apoyo C: 110 de 190 parejas solo tienen la C antes de la Parte 3.",
+     "es": "Conversaciones de apoyo C: 112 de 190 parejas solo tienen la C antes de la Parte 3.",
      "deadline": "1449-10-24",
      "if_missed": "No se puede recuperar más adelante."
     },
@@ -496978,6 +497006,20 @@ window.WIKI={
      "kind": "perdible",
      "id": "w29",
      "es": "Las 14 peticiones de «Enviar suministros» caducan el 24/10 (abren Catafracto, Guardián y Dragón).",
+     "deadline": "1449-10-24",
+     "if_missed": "No se puede recuperar más adelante."
+    },
+    {
+     "kind": "perdible",
+     "id": "w38",
+     "es": "Destino de la misión principal: si está fuera de Dagsion y no lo has visitado nunca, al vencer el plazo no puedes seguir y hay que reiniciar el capítulo. Visitado una vez (marca de llegada), el juego te lleva allí aunque estés lejos.",
+     "deadline": "1449-10-24",
+     "if_missed": "No se puede recuperar más adelante."
+    },
+    {
+     "kind": "perdible",
+     "id": "w39",
+     "es": "Las Ayudas de salvación no se devuelven: una vez compradas solo se pueden desactivar y volver a activar.",
      "deadline": "1449-10-24",
      "if_missed": "No se puede recuperar más adelante."
     }
@@ -504694,14 +504736,14 @@ window.WIKI={
     {
      "kind": "perdible",
      "id": "w3",
-     "es": "Misión «El accesorio de mi difunta hermana» antes del final de la Parte 1: sin ella no hay Creek (ni Nathan) en la Parte 2.",
+     "es": "Misión «El broche de mi difunta hermana» (solo en las rutas de Dietrich y Leda, caps. 9–10: Broche violeta a Creek en el Desfiladero de Axion): sin ella no hay Creek (ni Nathan) en la Parte 2.",
      "deadline": "1449-11-27",
      "if_missed": "No se puede recuperar más adelante."
     },
     {
      "kind": "perdible",
      "id": "w4",
-     "es": "Conversaciones de apoyo C: 110 de 190 parejas solo tienen la C antes de la Parte 3.",
+     "es": "Conversaciones de apoyo C: 112 de 190 parejas solo tienen la C antes de la Parte 3.",
      "deadline": "1449-11-27",
      "if_missed": "No se puede recuperar más adelante."
     },
@@ -504722,6 +504764,20 @@ window.WIKI={
     {
      "kind": "perdible",
      "id": "w38",
+     "es": "Destino de la misión principal: si está fuera de Dagsion y no lo has visitado nunca, al vencer el plazo no puedes seguir y hay que reiniciar el capítulo. Visitado una vez (marca de llegada), el juego te lleva allí aunque estés lejos.",
+     "deadline": "1449-11-27",
+     "if_missed": "No se puede recuperar más adelante."
+    },
+    {
+     "kind": "perdible",
+     "id": "w39",
+     "es": "Las Ayudas de salvación no se devuelven: una vez compradas solo se pueden desactivar y volver a activar.",
+     "deadline": "1449-11-27",
+     "if_missed": "No se puede recuperar más adelante."
+    },
+    {
+     "kind": "perdible",
+     "id": "w41",
      "es": "Fabio: desvío «Pasado sellado» (hasta 1/11) + caída del equipo de Dietrich.",
      "deadline": "1449-11-27",
      "if_missed": "No se puede recuperar más adelante."
@@ -505668,7 +505724,7 @@ window.WIKI={
     {
      "kind": "perdible",
      "id": "w7",
-     "es": "Hoja purificadora +1 (explorador del sureste, huye en el turno 4) y Arco matacaballos +1 (explorador del oeste, huye en el turno 8).",
+     "es": "Espada purificadora +1 (explorador del sureste, huye en el turno 4) y Arco matacaballos +1 (explorador del oeste, huye en el turno 8).",
      "deadline": "1450-02-28",
      "if_missed": "No se puede recuperar más adelante."
     }
@@ -507095,7 +507151,15 @@ window.WIKI={
     "Puesto de bebidas"
    ],
    "join_routes": {},
-   "closing": [],
+   "closing": [
+    {
+     "kind": "perdible",
+     "id": "w40",
+     "es": "El portal del templo de cada dios se abre al completar la misión de ese dios («Petición de…», secciones 2–6); reconstruir el templo no basta (en el de Aurora la reconstrucción es requisito de la misión).",
+     "deadline": "1454-02-15",
+     "if_missed": "No se puede recuperar más adelante."
+    }
+   ],
    "recruits": [],
    "news": {
     "quests": [
@@ -527939,11 +528003,11 @@ window.WIKI={
     ],
     [
      "Cómo funciona",
-     "<p>La afinidad de la pareja multiplica todo salvo los regalos: normal ×1, algo buena ×1,3, buena ×1,5, óptima ×2. Ver una conversación C, B o A por primera vez da +50.</p>\n<p><b>Mejoras de apoyo.</b> Con un aliado adyacente de apoyo 2 o más, los dos ganan mejoras según el grupo de apoyo de la clase del aliado (por ejemplo, espadachines: Crí y Esq; soldados y acorazados: Agu y Gol), que crecen hasta el nivel 5. Estos grupos de apoyo no son las familias de clase de <a href=\"#/guia/clases\">Clases</a>. Además hay mejoras fijas de pareja desde el nivel 2, la única fuente de VA por apoyo. La previsión las oculta; se ven pulsando X.</p>\n<p><b>Rescate de apoyo</b> (<a href=\"#/tutorial/TUTO_絆の降臨\">tutorial</a>). En batallas normales, las Alas Blancas de la Salvación: Eshmel se interpone ante un golpe letal. En la Batalla rápida, la Lanza Voladora Resplandeciente: cuando el total de PV del grupo baja mucho, Eshmel aniquila al enemigo. Probabilidad según el apoyo con él: 0/20/40/60/80 % en los niveles 1–5, y 5 % desde la segunda vez en la misma batalla.</p>"
+     "<p>La afinidad de la pareja multiplica todo salvo los regalos: normal ×1, algo buena ×1,3, buena ×1,5, óptima ×2. Ver una conversación C, B o A por primera vez da +50.</p>\n<p><b>Mejoras de apoyo.</b> Con un aliado adyacente de apoyo 2 o más, los dos ganan mejoras según el grupo de apoyo de la clase del aliado (por ejemplo, espadachines: Crí y Esq; soldados y acorazados: Agu y Gol), que crecen hasta el nivel 5. Estos grupos de apoyo no son las familias de clase de <a href=\"#/guia/clases\">Clases</a>. Además, cada pareja con bono propio (314 en total) lo suma con solo estar al lado, sin mirar el nivel de apoyo; es la única fuente de VA por apoyo. Todas son mejoras de atributos de combate y no cuentan para el tope de +10. La previsión las oculta; se ven pulsando X.</p>\n<p><b>Rescate de apoyo</b> (<a href=\"#/tutorial/TUTO_絆の降臨\">tutorial</a>). Depende del nivel de apoyo de la unidad con Eshmel.</p>\n<ul>\n<li>En batallas normales, las Alas Blancas de la Salvación: Eshmel se interpone ante un golpe letal. Probabilidad del primer rescate de cada unidad: 0/40/40/50/70 % en los niveles 1–5. Cada rescate baja la del siguiente, hasta un 10 % (nivel 5: 70, 60, 50, 40, 30, 20 y luego 10 %). La cuenta es de cada unidad y dura toda la ruta: los rescates se gastan.</li>\n<li>En la Batalla rápida, la Lanza Voladora Resplandeciente: cuando los PV del grupo bajan al 30 %, Eshmel aniquila al enemigo. Probabilidad 0/20/40/60/80 % en los niveles 1–5, y 5 % desde la segunda vez.</li>\n</ul>"
     ],
     [
      "Finales",
-     "<p>Hay epílogos en solitario y en pareja (102 parejas). Un final en pareja pide que los dos hayan visto su conversación A; con Eshmel pide además nivel 5 y la Parte 3 terminada<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Muchas conversaciones C solo existen antes de la Parte 3 y perderlas bloquea las siguientes<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Si un personaje tiene A con varios, solo conviene ver la A con la pareja deseada<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</p>"
+     "<p>Hay epílogos en solitario y en pareja. Los de pareja son una lista fija de 102 (48 con Eshmel y 54 entre aliados), y uno sale solo si se cumple todo esto:</p>\n<ul>\n<li>La pareja está en esa lista: 26 parejas con A no tienen epílogo propio.</li>\n<li>Los dos siguen vivos en el ejército final y ninguno participa de forma limitada.</li>\n<li>Se ha visto su conversación A; con Eshmel, la S.</li>\n</ul>\n<p>Cada personaje sale en un solo epílogo en pareja: primero cuenta la S con Eshmel y después el apoyo más alto. Muchas conversaciones C solo existen antes de la Parte 3 y perderlas bloquea las siguientes<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</p>"
     ],
     [
      "Percha: qué responder",
@@ -527955,7 +528019,7 @@ window.WIKI={
     ],
     [
      "Consejos de min-max",
-     "<ul>\n<li>Dar pronto un regalo a cada recluta objetivo: abre las comidas y el teatro con él (ver <a href=\"#/guia/regalos\">Regalos</a>).</li>\n<li>Gastar cada semana todo el cupo de comidas: es el mayor rendimiento por oro.</li>\n<li>Los apoyos no deseados también son permanentes.</li>\n<li>Percha en las unidades de primera línea: más rescates de apoyo.</li>\n</ul>"
+     "<ul>\n<li>Dar pronto un regalo a cada recluta objetivo: abre las comidas y el teatro con él (ver <a href=\"#/guia/regalos\">Regalos</a>).</li>\n<li>Gastar cada semana todo el cupo de comidas: es el mayor rendimiento por oro.</li>\n<li>Los apoyos no deseados también son permanentes. Si alguien tiene A con varios, su epílogo en pareja es con quien tenga más apoyo, así que conviene subir más a la pareja deseada.</li>\n<li>Para un epílogo, mantener a los dos vivos y de forma plena hasta el final del juego.</li>\n<li>Percha primero para Cai (si cae, se pierde la partida) y después para las unidades de primera línea; el nivel 2 ya da un 40 % en el primer rescate.</li>\n</ul>"
     ]
    ]
   },
@@ -528009,7 +528073,7 @@ window.WIKI={
     ],
     [
      "Consejos de min-max",
-     "<ul>\n<li>El primer regalo a un recluta nuevo es la acción más rentable de la semana: abre las comidas.</li>\n<li>No repartir el mismo favorito entre dos objetivos si escasea.</li>\n<li>Ojo con los objetos que pide un reclutamiento o un trueque: no regalarlos.</li>\n<li>Lista completa por personaje en <a href=\"#/regalos\">Regalos</a>.</li>\n</ul>"
+     "<ul>\n<li>El primer regalo a un recluta nuevo es la acción más rentable de la semana: abre las comidas.</li>\n<li>No repartir el mismo favorito entre dos objetivos si escasea.</li>\n<li>Ojo con los objetos que pide un reclutamiento o un trueque: no regalarlos.</li>\n<li>Para un recluta de apoyo 3, el regalo semanal es lo que más tarda: con varios objetivos a la vez hacen falta unos 14 regalos que gusten a cada uno.</li>\n<li>Un regalo que gusta también da +1 de motivación<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Lista completa por personaje en <a href=\"#/regalos\">Regalos</a>.</li>\n</ul>"
     ]
    ]
   },
@@ -528060,19 +528124,19 @@ window.WIKI={
    "secs": [
     [
      "En resumen",
-     "<ul>\n<li>Requisitos por ruta: apoyo con el señor de esa ruta, Prestigio de esa ruta y un pago (oro, objetos, misión, negociación o moneda al aire).</li>\n<li>El apoyo requerido varía por ruta (1–3): Esmeralda pide 2 en la de Cai y 3 en las de Theodora y Leda; Sirocco, 3 en las de Cai y Dietrich y 1 en la de Theodora. Los compañeros de cada señor se unen solos en su ruta.</li>\n<li>El Prestigio solo no recluta a nadie: el apoyo suele ser la puerta más lenta.</li>\n<li>Una unidad no reclutada sigue subiendo de nivel sola, más despacio: reclutar pronto a quien se vaya a usar (ver <a href=\"#/guia/experiencia-y-niveles\">Experiencia y niveles</a>).</li>\n<li>Algunos reclutas dependen de un Desvío o llegan a Dagsion en una fecha.</li>\n</ul>"
+     "<ul>\n<li>Requisitos por ruta: apoyo con el señor de esa ruta, Prestigio de esa ruta y un pago (oro, objetos, misión, negociación o moneda al aire).</li>\n<li>El apoyo requerido varía por ruta (1–3): Esmeralda pide 2 en la de Cai y 3 en las de Theodora y Leda; Sirocco, 3 en las de Cai y Dietrich y 1 en la de Theodora. Los compañeros de cada señor se unen solos en su ruta.</li>\n<li>El Prestigio solo no recluta a nadie: el apoyo suele ser la puerta más lenta.</li>\n<li>Una unidad no reclutada sigue subiendo de nivel sola, más despacio: reclutar pronto a quien se vaya a usar (ver <a href=\"#/guia/experiencia-y-niveles\">Experiencia y niveles</a>).</li>\n<li>Algunos reclutas dependen de un Desvío o llegan a Dagsion en una fecha.</li>\n<li>Llegan un nivel por debajo del nivel de reclutamiento del capítulo (o del nivel base del ejército si no marca ninguno), no del nivel del ejército; por cada tipo de equipo traen el objeto de mayor nivel que no supere el suyo.</li>\n</ul>"
     ],
     [
      "Cómo funciona",
-     "<p>Al regalar a un reclutable aparece la opción Reclutar; los requisitos están en su ficha de Información. Ejemplos de la ruta de Cai: <a href=\"#/personaje/PID_ハルヴィン\">Halvin</a> apoyo 3, Prestigio 5 y 10 <a href=\"#/objeto/IID_デーツ\">Dátiles</a>; <a href=\"#/personaje/PID_エスメラルダ\">Esmeralda</a> apoyo 2 y Prestigio 7; <a href=\"#/personaje/PID_ゴライアス\">Goliath</a> 3 <a href=\"#/objeto/IID_巨大肉\">Comidas de gigante</a>; <a href=\"#/personaje/PID_ダンテ\">Dante</a> apoyo 3, Prestigio 10 y 8000 G (en la de Dietrich, apoyo 2 y Prestigio 8). Llegadas a Dagsion en la ruta de Cai: <a href=\"#/personaje/PID_キロイカ\">Kiroc</a> desde el 1/5, <a href=\"#/personaje/PID_ジャスミン\">Jasmine</a> 7/5, <a href=\"#/personaje/PID_アレキサンドラ\">Alexandra</a> 28/5, <a href=\"#/personaje/PID_ヌッツォ\">Nuzzuo</a> 1/7 e <a href=\"#/personaje/PID_イニオニ\">Inyoni</a> 9/7. Capítulo desde el que se reclutan en cada ruta:</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Recluta</th><th>Cai</th><th>Dietrich</th><th>Theodora</th><th>Leda</th></tr><tr><td>Kiroc</td><td>6</td><td>5</td><td>7</td><td>5</td></tr><tr><td>Jasmine</td><td>6</td><td>6</td><td>7</td><td>5</td></tr><tr><td>Alexandra</td><td>6</td><td>6</td><td>7</td><td>7</td></tr><tr><td>Nuzzuo</td><td>7</td><td>8</td><td>8</td><td>8</td></tr><tr><td>Inyoni</td><td>7</td><td>8</td><td>9</td><td>8</td></tr></table></div>\n<p>Los pagos también cambian de una ruta a otra (orden Cai / Dietrich / Theodora / Leda):</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Recluta</th><th>Pago</th></tr><tr><td><a href=\"#/personaje/PID_キロイカ\">Kiroc</a></td><td>8 / 3 / 8 / 3 <a href=\"#/objeto/IID_聖水\">Aguas puras</a></td></tr><tr><td><a href=\"#/personaje/PID_イオ\">Io</a></td><td>4000 / 800 / 4000 / 1500 G</td></tr><tr><td><a href=\"#/personaje/PID_イニオニ\">Inyoni</a></td><td>6000 / 6000 / 4000 / 3000 G</td></tr><tr><td><a href=\"#/personaje/PID_ジャスミン\">Jasmine</a></td><td>2000 / 5000 / 5000 / 500 G</td></tr><tr><td><a href=\"#/personaje/PID_ヌディーヌ\">Nydine</a></td><td>2 Hachas de bronce (Cai, Dietrich) / 3 Hachas de hierro (Theodora, Leda)</td></tr><tr><td><a href=\"#/personaje/PID_ヌッツォ\">Nuzzuo</a></td><td>3 Arcos de hierro (2 en la de Dietrich)</td></tr></table></div>\n<p>Los requisitos completos de cada ruta están en <a href=\"#/reclutas\">Reclutas recomendados</a> y en la ficha de cada personaje.</p>"
+     "<p>Al regalar a un reclutable aparece la opción Reclutar; los requisitos están en su ficha de Información. Ejemplos de la ruta de Cai: <a href=\"#/personaje/PID_ハルヴィン\">Halvin</a> apoyo 3, Prestigio 5 y 10 <a href=\"#/objeto/IID_デーツ\">Dátiles</a>; <a href=\"#/personaje/PID_エスメラルダ\">Esmeralda</a> apoyo 2 y Prestigio 7; <a href=\"#/personaje/PID_ゴライアス\">Goliath</a> 3 <a href=\"#/objeto/IID_巨大肉\">Comidas de gigante</a>; <a href=\"#/personaje/PID_ダンテ\">Dante</a> apoyo 3, Prestigio 10 y 8000 G (en la de Dietrich, apoyo 2 y Prestigio 8). Llegadas a Dagsion en la ruta de Cai: <a href=\"#/personaje/PID_キロイカ\">Kiroc</a> desde el 1/5, <a href=\"#/personaje/PID_ジャスミン\">Jasmine</a> 7/5, <a href=\"#/personaje/PID_アレキサンドラ\">Alexandra</a> 28/5, <a href=\"#/personaje/PID_ヌッツォ\">Nuzzuo</a> 1/7 e <a href=\"#/personaje/PID_イニオニ\">Inyoni</a> 9/7. Capítulo desde el que se reclutan en cada ruta:</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Recluta</th><th>Cai</th><th>Dietrich</th><th>Theodora</th><th>Leda</th></tr><tr><td>Kiroc</td><td>6</td><td>5</td><td>7</td><td>5</td></tr><tr><td>Jasmine</td><td>6</td><td>6</td><td>7</td><td>5</td></tr><tr><td>Alexandra</td><td>6</td><td>6</td><td>7</td><td>7</td></tr><tr><td>Nuzzuo</td><td>7</td><td>8</td><td>8</td><td>8</td></tr><tr><td>Inyoni</td><td>7</td><td>8</td><td>9</td><td>8</td></tr></table></div>\n<p>Los pagos también cambian de una ruta a otra (orden Cai / Dietrich / Theodora / Leda):</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Recluta</th><th>Pago</th></tr><tr><td><a href=\"#/personaje/PID_キロイカ\">Kiroc</a></td><td>8 / 3 / 8 / 3 <a href=\"#/objeto/IID_聖水\">Aguas puras</a></td></tr><tr><td><a href=\"#/personaje/PID_イオ\">Io</a></td><td>4000 / 800 / 4000 / 1500 G</td></tr><tr><td><a href=\"#/personaje/PID_イニオニ\">Inyoni</a></td><td>6000 / 6000 / 4000 / 3000 G</td></tr><tr><td><a href=\"#/personaje/PID_ジャスミン\">Jasmine</a></td><td>2000 / 5000 / 5000 / 500 G</td></tr><tr><td><a href=\"#/personaje/PID_ヌディーヌ\">Nydine</a></td><td>2 Hachas de bronce (Cai, Dietrich) / 3 Hachas de hierro (Theodora, Leda)</td></tr><tr><td><a href=\"#/personaje/PID_ヌッツォ\">Nuzzuo</a></td><td>3 Arcos de hierro (2 en la de Dietrich)</td></tr></table></div>\n<p>Los requisitos completos de cada ruta están en <a href=\"#/reclutas\">Reclutas recomendados</a> y en la ficha de cada personaje. El oro total de los reclutas de pago es de unos 31 000 G en la ruta de Cai, 30 800 en la de Dietrich, 32 000 en la de Theodora y 24 000 en la de Leda.</p>\n<p><b>Dónde están.</b> <a href=\"#/personaje/PID_ナジャ\">Nezha</a> (martes) y <a href=\"#/personaje/PID_ダイトウ\">Dadao</a> (jueves) solo aparecen junto al puesto de adivinación de Anatolia en Dagsion; <a href=\"#/personaje/PID_ハルヴィン\">Halvin</a> no está en septiembre; <a href=\"#/personaje/PID_リリアン\">Lilian</a> y <a href=\"#/personaje/PID_ライサンダー\">Lysander</a> van con Theodora fuera de su ruta. La tabla de reclutamiento no tiene fechas de salida.</p>\n<p><b>Equipo al llegar.</b> <a href=\"#/personaje/PID_ノクチュラ\">Noctula</a> trae la Garra derecha de Ursa solo si llega con nivel 20 o más; <a href=\"#/personaje/PID_ナジャ\">Nezha</a> trae la Salamandra solo por debajo de 20.</p>"
     ],
     [
      "Quién no se recluta en cada ruta",
-     "<div class=\"tw\"><table class=\"md\"><tr><th>Personaje</th><th>Situación</th></tr><tr><td><a href=\"#/personaje/PID_ゲイツ\">Gaitz</a></td><td>Solo en la ruta de Dietrich</td></tr><tr><td><a href=\"#/personaje/PID_ボナパルテ\">Bonaventure</a>, <a href=\"#/personaje/PID_トビヤス\">Tobias</a></td><td>Solo en la ruta de Theodora (se unen solos)</td></tr><tr><td><a href=\"#/personaje/PID_ファビオ\">Fabio</a>, <a href=\"#/personaje/PID_サラン\">Sha Lan</a></td><td>Solo en las rutas de Dietrich y Leda</td></tr><tr><td><a href=\"#/personaje/PID_バッカニア\">Buccar</a></td><td>No en la ruta de Cai (en la de Leda se une solo)</td></tr><tr><td><a href=\"#/personaje/PID_ペペ\">Peppe</a>, <a href=\"#/personaje/PID_ウーシュラ\">Ursula</a></td><td>No en la ruta de Leda</td></tr><tr><td><a href=\"#/personaje/PID_セテス\">Seteth</a></td><td>No en la ruta de Dietrich</td></tr></table></div>\n<p><a href=\"#/personaje/PID_キリーク\">Creek</a> y <a href=\"#/personaje/PID_ネイサン\">Nathan</a> se unen en la Parte 2 solo si la ruta tiene la misión «<a href=\"#/mision/SQID_妹の形見\">El broche de mi difunta hermana</a>» (Dietrich y Leda) y la completaste en la Parte 1. <a href=\"#/personaje/PID_セントリオン\">Centurio</a> se une en la Parte 3 con la misión «<a href=\"#/mision/SQID_救援サブクエ1\">Socorre a Centurio</a>» (secciones 2–6), si completaste la Parte 2 de Cai. No son reclutas. <a href=\"#/personaje/PID_ペペ\">Peppe</a>, <a href=\"#/personaje/PID_ウーシュラ\">Ursula</a> y <a href=\"#/personaje/PID_ディエゴ\">Diego</a> dependen de los Desvíos de Bertrand, Talimun y Orchel.</p>\n<p>Los compañeros de otro señor (<a href=\"#/personaje/PID_ティアラ\">Tialla</a>, <a href=\"#/personaje/PID_ファビオ\">Fabio</a>, <a href=\"#/personaje/PID_ボナパルテ\">Bonaventure</a>, <a href=\"#/personaje/PID_トビヤス\">Tobias</a>, <a href=\"#/personaje/PID_バッカニア\">Buccar</a>, <a href=\"#/personaje/PID_ゲイツ\">Gaitz</a>, <a href=\"#/personaje/PID_ウーシュラ\">Ursula</a>, <a href=\"#/personaje/PID_ディエゴ\">Diego</a> y <a href=\"#/personaje/PID_サラン\">Sha Lan</a>) solo se reclutan tras terminar el Desvío de su señor y cuando ese señor queda eliminado del Gran Torneo. Fechas en la ruta de Cai: Leda 1/9, Talimun 16/9, Orchel 27/9, Anatolia 4/10, Theodora 15/10, Dietrich 3/11 y Bertrand 27/11. En la ruta de Theodora, Dietrich y Bertrand nunca quedan eliminados: por eso Fabio y Gaitz no se reclutan allí. La fecha de cada ruta está en la ficha del personaje.</p>"
+     "<div class=\"tw\"><table class=\"md\"><tr><th>Personaje</th><th>Situación</th></tr><tr><td>Compañeros de cada señor</td><td>En la ruta de su señor no hay conversación de reclutamiento (casi todos se unen en la historia; Seteth no está en la de Dietrich): Tialla, Peter y Ultand (Cai); Fabio, Esmeralda, Mikaela y Seteth (Dietrich); Bonaventure, Tobias, Lilian y Lysander (Theodora); Buccar, Sirocco, Mu, Olympia y Peppe (Leda)</td></tr><tr><td><a href=\"#/personaje/PID_ゲイツ\">Gaitz</a></td><td>Solo en la ruta de Dietrich</td></tr><tr><td><a href=\"#/personaje/PID_ボナパルテ\">Bonaventure</a>, <a href=\"#/personaje/PID_トビヤス\">Tobias</a></td><td>Solo en la ruta de Theodora (se unen solos)</td></tr><tr><td><a href=\"#/personaje/PID_ファビオ\">Fabio</a>, <a href=\"#/personaje/PID_サラン\">Sha Lan</a></td><td>Solo en las rutas de Dietrich y Leda</td></tr><tr><td><a href=\"#/personaje/PID_バッカニア\">Buccar</a></td><td>No en la ruta de Cai (en la de Leda se une solo)</td></tr><tr><td><a href=\"#/personaje/PID_ペペ\">Peppe</a>, <a href=\"#/personaje/PID_ウーシュラ\">Ursula</a></td><td>No en la ruta de Leda</td></tr><tr><td><a href=\"#/personaje/PID_セテス\">Seteth</a></td><td>No en la ruta de Dietrich</td></tr></table></div>\n<p><a href=\"#/personaje/PID_キリーク\">Creek</a> y <a href=\"#/personaje/PID_ネイサン\">Nathan</a> se unen en la Parte 2 solo si la ruta tiene la misión «<a href=\"#/mision/SQID_妹の形見\">El broche de mi difunta hermana</a>» (Dietrich y Leda) y la completaste en la Parte 1: entonces Creek se une al derrotarle en el cap. 2 (si no, muere). Nathan se une en el cap. 3 solo si le derrota Creek en un combate entre los dos, ataque quien ataque; si le remata otra unidad, muere. <a href=\"#/personaje/PID_セントリオン\">Centurio</a> se une en la Parte 3 con la misión «<a href=\"#/mision/SQID_救援サブクエ1\">Socorre a Centurio</a>» (secciones 2–6), si completaste la Parte 2 de Cai. No son reclutas. <a href=\"#/personaje/PID_ペペ\">Peppe</a>, <a href=\"#/personaje/PID_ウーシュラ\">Ursula</a> y <a href=\"#/personaje/PID_ディエゴ\">Diego</a> dependen de los Desvíos de Bertrand, Talimun y Orchel.</p>\n<p>Los compañeros de otro señor (<a href=\"#/personaje/PID_ティアラ\">Tialla</a>, <a href=\"#/personaje/PID_ファビオ\">Fabio</a>, <a href=\"#/personaje/PID_ボナパルテ\">Bonaventure</a>, <a href=\"#/personaje/PID_トビヤス\">Tobias</a>, <a href=\"#/personaje/PID_バッカニア\">Buccar</a>, <a href=\"#/personaje/PID_ゲイツ\">Gaitz</a>, <a href=\"#/personaje/PID_ウーシュラ\">Ursula</a>, <a href=\"#/personaje/PID_ディエゴ\">Diego</a> y <a href=\"#/personaje/PID_サラン\">Sha Lan</a>) solo se reclutan tras terminar el Desvío de su señor y cuando ese señor queda eliminado del Gran Torneo. Fechas en la ruta de Cai: Leda 1/9, Talimun 16/9, Orchel 27/9, Anatolia 4/10, Theodora 15/10, Dietrich 3/11 y Bertrand 27/11. En la ruta de Theodora, Dietrich y Bertrand nunca quedan eliminados: por eso Fabio y Gaitz no se reclutan allí. La fecha de cada ruta está en la ficha del personaje.</p>\n<p>En la <b>Parte 3</b> (no en la Parte 2) los guerreros que trajiste de las Partes 1 y 2 esperan en Dagsion y hay que volver a incorporarlos hablando con ellos. Piden Apoyo 1 y el Prestigio de su ficha, que se abre en la sección 2 (1/2/1454); quien pedía objetos u oro en la Parte 1 ya no los pide, y los de evento repiten su conversación. Los compañeros de otro señor (Tialla, Fabio, Gaitz…) no tienen conversación propia en la Parte 3: vuelven con su señor. Peter, Seteth y Ultand sí la tienen (Apoyo 1 y Prestigio 5). Una unidad que no traes de ninguna ruta no está en Dagsion: cuenta como retirada y no se puede reclutar.</p>"
     ],
     [
      "Reclutas de evento",
-     "<p>Algunos reclutas no piden un pago fijo, sino superar una conversación al reclutarles. Detalle por ruta en su ficha.</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Recluta</th><th>Qué pide</th></tr><tr><td><a href=\"#/personaje/PID_ティアラ\">Tialla</a></td><td>Preguntarle para qué quiere el dinero y darle 3000 G</td></tr><tr><td><a href=\"#/personaje/PID_ファビオ\">Fabio</a></td><td>Un objeto con precio de compra entre 3000 y 5999 G; al unirse lo devuelve</td></tr><tr><td><a href=\"#/personaje/PID_トビヤス\">Tobias</a></td><td>Una bebida: ghosh, shosh, leches, cervi o la bebida medicinal; el garo falla. Se puede repetir</td></tr><tr><td><a href=\"#/personaje/PID_ボナパルテ\">Bonaventure</a></td><td>Aceptar tres veces. Solo se recluta a uno de los dos: él o Tobias</td></tr><tr><td><a href=\"#/personaje/PID_ゲイツ\">Gaitz</a>, <a href=\"#/personaje/PID_ディエゴ\">Diego</a>, <a href=\"#/personaje/PID_バッカニア\">Buccar</a></td><td>Basta con aceptar</td></tr><tr><td><a href=\"#/personaje/PID_ウーシュラ\">Ursula</a></td><td>Aceptar sus tres condiciones</td></tr><tr><td><a href=\"#/personaje/PID_シモン\">Simon</a></td><td>Una apuesta de 500 G por intento: elegir cruz, que sale siempre</td></tr><tr><td><a href=\"#/personaje/PID_サラン\">Sha Lan</a>, <a href=\"#/personaje/PID_ヨーカイ\">Yang Jie</a></td><td>Acertar sus preguntas (respuestas en su ficha); un fallo corta la conversación y se puede repetir</td></tr><tr><td><a href=\"#/personaje/PID_ザーコネ\">Zarcone</a></td><td>Pide 10 000 G: rechazar tres veces hasta que baje a 10 G y pagar</td></tr><tr><td><a href=\"#/personaje/PID_マジーデ\">Majide</a></td><td>Hablar con él tres veces; a la tercera, pedirle ayuda de corazón</td></tr><tr><td><a href=\"#/personaje/PID_ベンディッツ\">Benditz</a></td><td>Aliarse con él; si se rechaza, insiste y se puede aceptar después</td></tr></table></div>"
+     "<p>Algunos reclutas no piden un pago fijo, sino superar una conversación al reclutarles. Detalle por ruta en su ficha.</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Recluta</th><th>Qué pide</th></tr><tr><td><a href=\"#/personaje/PID_ティアラ\">Tialla</a></td><td>Preguntarle para qué quiere el dinero y darle 3000 G</td></tr><tr><td><a href=\"#/personaje/PID_ファビオ\">Fabio</a></td><td>Un objeto con precio de compra entre 3000 y 5999 G; al unirse lo devuelve, así que no se gasta</td></tr><tr><td><a href=\"#/personaje/PID_トビヤス\">Tobias</a></td><td>Una bebida: ghosh, shosh, leches, cervi o la bebida medicinal; el garo falla. Se puede repetir</td></tr><tr><td><a href=\"#/personaje/PID_ボナパルテ\">Bonaventure</a></td><td>Aceptar tres veces. Solo se recluta a uno de los dos: él o Tobias</td></tr><tr><td><a href=\"#/personaje/PID_ゲイツ\">Gaitz</a>, <a href=\"#/personaje/PID_ディエゴ\">Diego</a>, <a href=\"#/personaje/PID_バッカニア\">Buccar</a></td><td>Basta con aceptar</td></tr><tr><td><a href=\"#/personaje/PID_ウーシュラ\">Ursula</a></td><td>Aceptar sus tres condiciones</td></tr><tr><td><a href=\"#/personaje/PID_シモン\">Simon</a></td><td>Una apuesta de 500 G por intento: elegir cruz, que sale siempre</td></tr><tr><td><a href=\"#/personaje/PID_サラン\">Sha Lan</a>, <a href=\"#/personaje/PID_ヨーカイ\">Yang Jie</a></td><td>Acertar sus preguntas (respuestas en su ficha); un fallo corta la conversación y se puede repetir</td></tr><tr><td><a href=\"#/personaje/PID_ザーコネ\">Zarcone</a></td><td>Pide 10 000 G: rechazar tres veces hasta que baje a 10 G y pagar</td></tr><tr><td><a href=\"#/personaje/PID_マジーデ\">Majide</a></td><td>Hablar con él tres veces; a la tercera, pedirle ayuda de corazón</td></tr><tr><td><a href=\"#/personaje/PID_ベンディッツ\">Benditz</a></td><td>Aliarse con él; si se rechaza, insiste y se puede aceptar después</td></tr></table></div>"
     ],
     [
      "Cómo se consigue",
@@ -528080,7 +528144,7 @@ window.WIKI={
     ],
     [
      "Consejos de min-max",
-     "<ul>\n<li>Si un recluta se desbloquea justo antes de un cambio de capítulo, esperar al siguiente: entra con más nivel.</li>\n<li>Halvin en la ruta de Cai: plantar los 2 Dátiles de la misión «Bestias enormes» (10 por cosecha)<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Goliath en una primera partida de Cai: la Hierba del tormento solo sale de la <a href=\"#/objeto/IID_高級野菜箱\">Caja verdura deliciosa</a>; conviene plantarla. Las Comidas de gigante por trueque son 2 + 2 en toda la Parte 1 de Cai.</li>\n<li>En la Parte 3 hacen falta muchas unidades: repartir reclutas entre las cuatro rutas.</li>\n</ul>"
+     "<ul>\n<li>Si el juego crea a un personaje antes de que se una (por ejemplo, al consultar sus apoyos), sube en dos tandas y llega algo más flojo: no mirar sin necesidad los apoyos de quien tenga crecimientos altos.</li>\n<li>Si un recluta se desbloquea justo antes de un cambio de capítulo, esperar al siguiente: entra con más nivel (salvo Nezha, que pierde la Salamandra a partir de 20).</li>\n<li>Preparar el apoyo antes que el Prestigio. Con Prestigio 7, un recluta de apoyo 3 sale en 3–4 semanas de cupo si se le dedican regalo, las tres comidas y la obra; todos los de la ruta de Cai a la vez, en unas 14, porque manda el regalo semanal. Suben antes los de afinidad alta con Cai: Goliath, Ninae, Mu, Esmeralda y Alexandra.</li>\n<li>En la ruta de Cai, Maxim, Dante, Ursula, Diego, Io y Catania piden Prestigio 10, que llega hacia el cap. 10: tener su apoyo 3 hecho antes.</li>\n<li>Halvin en la ruta de Cai: plantar los 2 Dátiles de la misión «Bestias enormes» (10 por cosecha)<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Goliath en una primera partida de Cai: la Hierba del tormento solo sale de la <a href=\"#/objeto/IID_高級野菜箱\">Caja verdura deliciosa</a>; conviene plantarla. Las Comidas de gigante por trueque son 2 + 2 en toda la Parte 1 de Cai.</li>\n<li>En la Parte 3 hacen falta muchas unidades: repartir reclutas entre las cuatro rutas.</li>\n</ul>"
     ]
    ]
   },
@@ -528134,15 +528198,15 @@ window.WIKI={
    "secs": [
     [
      "En resumen",
-     "<ul>\n<li>Comida: el señor y 2 invitados comparten un plato; cada plato una vez por semana; 300 G (150 G el domingo y festivos).</li>\n<li>Apoyo base 80/60/40 por pareja según gustos, × bono de comedor (R5 ×1,3, R9 ×1,5) × afinidad. Ejemplo: +104 por invitado a Prestigio 7.</li>\n<li>Los invitados necesitan un regalo previo y que su grupo esté en Dagsion ese capítulo.</li>\n<li>La carta rota cada semana entre cuatro (1→2→4→8); 2 platos a R1–2 (3 en la semana de la carta 2, que no tiene plato de R3) y 3 desde R3.</li>\n<li>Teatro (ver desde R7, actuar desde R8) y Termas (desde R8) completan la rutina.</li>\n</ul>"
+     "<ul>\n<li>Comida: el señor y 2 invitados comparten un plato; cada plato una vez por semana; 300 G (150 G el domingo y festivos).</li>\n<li>Apoyo base 80/60/40 por pareja según gustos, × bono de comedor (R5 ×1,3, R9 ×1,5) × afinidad. Ejemplo: +104 por invitado a Prestigio 7.</li>\n<li>Los invitados necesitan un regalo previo y que su grupo esté en Dagsion ese capítulo. Los mismos dos invitados pueden repetir en los tres platos de la semana.</li>\n<li>La carta rota cada semana entre cuatro (1→2→4→8); 2 platos a R1–2 (3 en la semana de la carta 2, que no tiene plato de R3) y 3 desde R3.</li>\n<li>Teatro (ver desde R7, actuar desde R8) y Termas (desde R8) completan la rutina.</li>\n</ul>"
     ],
     [
      "Cómo funciona",
-     "<p><b>Comidas.</b> También curan PV y magia y suben la motivación (+2 si gusta, +1 neutro)<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</p>\n<p><b>Teatro.</b> Una vez por semana, ver o actuar. Ver (500 G): apoyo 60/80/100 entre los espectadores y motivación a quien le gusta la obra; las obras especiales gustan a todos («Las siete pruebas de Arago», «El incomparable Cohen», «Orígenes del Demonio Cano»). Actuar: una recompensa según el resultado (cantidades sin confirmar) y +10 de Prestigio con resultado normal o mejor.</p>\n<p><b>Termas.</b> Dos unidades por 500 G: apoyo, motivación, PV y magia, y una habilidad «Efecto…» al azar del baño elegido, que dura todo el capítulo pero hay que equipar. Los baños especiales (domingos y festivos) dan versiones «+».</p>\n<p><b>Posada: otras opciones.</b> Dormir (400 G, 1 turno) llena motivación, PV y magia. <a href=\"#/instalaciones?ir=actividades-automaticas\">Actividades auto.</a>: Buscar (oro y materiales por turno), Entrenar (Exp de clase y de competencia) y Combate (EXP de personaje).</p>"
+     "<p><b>Comidas.</b> Cada comensal reacciona al plato según su ficha: el ingrediente y el sabor del plato puntúan −1/0/+1/+2 con su nivel 0/1/2/3 de ese tipo; suma 2 o más = le encanta, 1 = le gusta, 0 = neutral, negativa = no le gusta. Un 5 en cualquiera de los dos es «le encanta» y un 4 es «lo odia»; su plato favorito o detestado manda sobre todo. Cada pareja suma su reacción (encanta 2, gusta 1, neutral 0, no gusta −1): 2 o más da 80, 0–1 da 60 y menos de 0 da 40. También curan PV y magia y suben la motivación (+2 si le gusta o encanta, +1 neutral, nada si no le gusta; tope 3). El juego solo marca cada plato como usado esa semana, no a los invitados: con los mismos dos en los tres platos, a Prestigio 7 son hasta 3 × 104 por invitado y semana.</p>\n<p><b>Teatro.</b> Una vez por semana, ver o actuar. Ver (500 G): apoyo entre los espectadores 100 si les gusta a los dos, 60 si a uno solo le disgusta y 80 en los demás casos (también si les disgusta a los dos), sin bono de local y motivación a quien le gusta la obra; las obras especiales gustan a todos («Las siete pruebas de Arago», «El incomparable Cohen», «Orígenes del Demonio Cano»). Actuar: de 300 a 1000 G según el resultado (de 500 a 3000 G con obra especial), una caja de regalo y +10 de Prestigio con resultado normal o mejor.</p>\n<p><b>Termas.</b> Dos unidades por 500 G: apoyo (20, o 40 con resultado perfecto, que sale el 10 % de las veces; 30 o 60 en los baños especiales), motivación, PV y magia, y una habilidad «Efecto…» del baño elegido, que dura todo el capítulo pero hay que equipar. Cada unidad sortea la suya por separado entre las del baño (salvo las que ya tiene al máximo); recargar y repetir el baño da lo mismo si antes no se hace otra acción con azar. Los baños especiales (domingos y festivos) dan versiones «+».</p>\n<p><b>Posada: otras opciones.</b> Dormir (400 G, 1 turno) llena motivación, PV y magia. <a href=\"#/instalaciones?ir=actividades-automaticas\">Actividades auto.</a>: Buscar (oro y materiales por turno), Entrenar (Exp de clase y de competencia) y Combate (EXP de personaje y de clase).</p>"
     ],
     [
      "Consejos de min-max",
-     "<ul>\n<li>Elegir el plato de la carta de la semana que más guste a los dos invitados.</li>\n<li>Comer después de entrenar y servir: la motivación por encima de 3 se pierde.</li>\n<li>La semana de una obra especial es la mejor para ver teatro.</li>\n<li>Entrenar en Actividades auto. domina clases sin combatir.</li>\n</ul>"
+     "<ul>\n<li>Cai adora la carne y el pescado: con esos platos cualquier invitado al que no le disguste da 80 de base con Cai.</li>\n<li>Para un recluta, sentarlo en los tres platos de la semana: triplica el apoyo con el señor.</li>\n<li>Comer después de entrenar y servir: la motivación por encima de 3 se pierde.</li>\n<li>La semana de una obra especial es la mejor para ver teatro.</li>\n<li>Entrenar en Actividades auto. domina clases sin combatir.</li>\n</ul>"
     ]
    ]
   },
@@ -528199,11 +528263,11 @@ window.WIKI={
    "secs": [
     [
      "En resumen",
-     "<ul>\n<li>Seis dioses tienen bendición: <a href=\"#/personaje/PID_アウロラ\">Aurora</a>, Mars, Smyrnos, Jurah, Kalla y Credna. Yu Phas, Dagda y Solel no. Ficha de cada uno en <a href=\"#/dioses\">Dioses</a>.</li>\n<li>Una bendición mejora a todo el ejército durante 1 turno y cuesta Arena divina (reserva de 100, que se rellena antes de cada batalla de historia y de Desvío). Solo una activa por turno.</li>\n<li>Cada bendición tiene 3 niveles; cada nivel añade un efecto. Se suben con el <b>tributo</b> del Servicio divino.</li>\n<li>El Servicio es una vez por semana en total, entre todos los templos. Da tributo y apoyo entre las dos unidades, no EXP.</li>\n<li>El tributo por servicio se multiplica por el Prestigio: ×0,5 al principio, ×0,8 con Prestigio 6, ×1,2 con Prestigio 10; en la Parte 3, ×1,5 y ×2 (multiplicadores del local; que afecten igual al tributo que al apoyo es inferido).</li>\n<li>Al empezar otra ruta desde el cap. 1, las bendiciones heredan el tributo más alto de una sola ruta, no la suma de todas<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Tabla completa con efectos, tributo y costes: <a href=\"#/dioses?ir=tabla-bendiciones\">Las seis bendiciones</a>.</li>\n</ul>"
+     "<ul>\n<li>Seis dioses tienen bendición: <a href=\"#/personaje/PID_アウロラ\">Aurora</a>, Mars, Smyrnos, Jurah, Kalla y Credna. Yu Phas, Dagda y Solel no. Ficha de cada uno en <a href=\"#/dioses\">Dioses</a>.</li>\n<li>Una bendición mejora a todo el ejército durante 1 turno y cuesta Arena divina (reserva de 100, que se rellena antes de cada batalla de historia y de Desvío). Solo una activa por turno.</li>\n<li>Cada bendición tiene 3 niveles; cada nivel añade un efecto. Se suben con el <b>tributo</b> del Servicio divino.</li>\n<li>El Servicio es una vez por semana en total, entre todos los templos. Da tributo y apoyo entre las dos unidades, no EXP.</li>\n<li>El tributo por servicio se multiplica por el Prestigio: ×0,5 al principio, ×0,8 con Prestigio 6, ×1,2 con Prestigio 10; en la Parte 3, ×1,5 y ×2 (multiplicadores del local; se aplican igual al tributo y al apoyo).</li>\n<li>Al empezar otra ruta desde el cap. 1, las bendiciones heredan el tributo más alto de una sola ruta, no la suma de todas<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Tabla completa con efectos, tributo y costes: <a href=\"#/dioses?ir=tabla-bendiciones\">Las seis bendiciones</a>.</li>\n</ul>"
     ],
     [
      "Cómo funciona",
-     "<p><b>Desbloqueo.</b> El Servicio abre en el cap. 4 (en la ruta de Cai, en el cap. 5; en la Parte 3, desde la sección 2). Hay que haber hablado una vez con el dios.</p>\n<p><b>Resultado.</b> Mejor 10 %, Bueno 40 %, Normal 50 %; da 15, 10 o 5 de tributo antes del multiplicador. La aptitud de cada unidad para ese servicio (0–2) mueve la probabilidad 20 puntos. Cada unidad gasta 1 barra de Motivación, que se devuelve con «Perfecto».</p>\n<p><b>Día sagrado.</b> Aurora el lunes, Mars el martes, Smyrnos el miércoles, Jurah el jueves, Kalla el viernes y Credna el sábado. El domingo es el <b>Día de Dagda</b>, sagrado para todos. Ese día el servicio da más tributo. Sin confirmar: que asegure «Perfecto» y que, en la Parte 1, el aumento completo de Mars, Smyrnos, Jurah y Kalla solo valga en su templo principal.</p>\n<p><b>Parte 2.</b> No hay tiempo libre: el oficial al cargo ofrece un Servicio grupal entre misiones (25 de tributo más un extra pequeño).</p>\n<p><b>Parte 3.</b> El multiplicador pasa a ×1,5, y a ×2 tras la misión <a href=\"#/mision/SQID_神殿の備品調達\">Ayuda para los devotos</a>. Cada Petición de un dios abre su portal y una clase; después llega su Prueba de nivel 60.</p>\n<p><b>Portal de los Dioses.</b> Viaje instantáneo del templo adjunto de Dagsion al templo principal; cada señor abre uno en la Parte 1 (ver <a href=\"#/guia/mapa-del-mundo\">Mapa del mundo</a>).</p>\n<p><b>Audiencias.</b> Solo Mars, Smyrnos, Jurah y Kalla; +50 de Prestigio por etapa, sin tributo. Etapas y fechas en <a href=\"#/dioses\">Dioses</a>.</p>\n<p><b>Esquirlas.</b> Cada bendición se abarata −20 % (1 ruta terminada) y −50 % (3 rutas) en las <a href=\"#/ayudas\">Ayudas de salvación</a>, 300 esquirlas cada compra.</p>\n<p><b>Reiniciar capítulo</b> deshace el tributo ganado en ese capítulo. Los niveles pasan a otra ruta al empezarla desde el cap. 1 tras terminar una Parte 1<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</p>"
+     "<p><b>Desbloqueo.</b> El Servicio abre en el cap. 4 (en la ruta de Cai, en el cap. 5; en la Parte 3, desde la sección 2). Hay que haber hablado una vez con el dios.</p>\n<p><b>Resultado.</b> Mejor 10 %, Bueno 40 %, Normal 50 %; da 15, 10 o 5 de tributo antes del multiplicador. La aptitud de cada unidad para ese servicio cuenta por separado: buena (2) pasa 20 puntos de Normal a Mejor; mala (0), 20 de Mejor a Normal. Dos unidades buenas: Mejor 50 %, Bueno 40 %, Normal 10 %; dos malas: Normal 90 %. Con buena motivación el resultado puede subir un escalón, igual que en la Plaza de armas. Cada unidad gasta 1 barra de Motivación, que se devuelve con «Perfecto». El apoyo de la pareja es 20, 10 o 5, también por el multiplicador.</p>\n<p><b>Día sagrado.</b> Aurora el lunes, Mars el martes, Smyrnos el miércoles, Jurah el jueves, Kalla el viernes y Credna el sábado. El domingo es el <b>Día de Dagda</b>, sagrado para todos. Ese día el resultado es siempre «Perfecto» (Mejor), sin sorteo, y por eso da más tributo y devuelve la Motivación. Vale en cualquier templo del dios, también en el adjunto de Dagsion: el juego guarda una sola ficha por dios y solo mira el día de la semana, no el lugar. En la Parte 1, el aviso del calendario en español dice que el templo principal tiene efectos potenciados; el inglés dice solo «su templo», y el código no distingue entre los dos.</p>\n<p><b>Parte 2.</b> No hay tiempo libre: el oficial al cargo ofrece un Servicio grupal entre misiones (25 de tributo más un extra pequeño).</p>\n<p><b>Parte 3.</b> El multiplicador pasa a ×1,5, y a ×2 tras la misión <a href=\"#/mision/SQID_神殿の備品調達\">Ayuda para los devotos</a>. Cada Petición de un dios abre su portal y una clase; después llega su Prueba de nivel 60.</p>\n<p><b>Portal de los Dioses.</b> Viaje instantáneo del templo adjunto de Dagsion al templo principal; cada señor abre uno en la Parte 1 (ver <a href=\"#/guia/mapa-del-mundo\">Mapa del mundo</a>).</p>\n<p><b>Audiencias.</b> Solo Mars, Smyrnos, Jurah y Kalla, en su templo adjunto de Dagsion en su día sagrado; +50 de Prestigio cada una, sea de la etapa que sea, sin tributo y sin gastar el Servicio de la semana. Las etapas se abren con los rangos 2, 4, 6, 8, 9 y 10, pero hay que ir a recibirlas; una etapa atrasada vale lo mismo. Máximo 24 (1200) en la Parte 1. Fechas en <a href=\"#/dioses\">Dioses</a>.</p>\n<p><b>Esquirlas.</b> Cada bendición se abarata −20 % (1 ruta terminada) y −50 % (3 rutas) en las <a href=\"#/ayudas\">Ayudas de salvación</a>, 300 esquirlas cada compra.</p>\n<p><b>Reiniciar capítulo</b> deshace el tributo ganado en ese capítulo. Los niveles pasan a otra ruta al empezarla desde el cap. 1 tras terminar una Parte 1<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</p>"
     ],
     [
      "Consejos de min-max",
@@ -528270,7 +528334,7 @@ window.WIKI={
     ],
     [
      "Cómo funciona",
-     "<p><b>Probabilidad de aprobar.</b> (100 − penalización × rangos que faltan + Sue/2) × multiplicador de nivel. La penalización es de 30 o 15 por rango según la clase. El multiplicador por niveles por debajo del recomendado es ×100 / 50 / 32 / 18 / 8 / 2 % (0 a 5 niveles); con 6 o más no se puede. Ejemplo: Cai como Augur, 100 − 30 + 15/2 = 78.</p>\n<p><b>Licencias.</b> <a href=\"#/objeto/IID_下級資格手形\">Inicial</a>, <a href=\"#/objeto/IID_中級資格手形\">intermedia</a>, <a href=\"#/objeto/IID_上級資格手形\">avanzada</a> y <a href=\"#/objeto/IID_最上級資格手形\">magistral</a>: 300 / 500 / 3000 / 8000 G de precio base. Se venden en cantidad limitada: en la Parte 1 las avanzadas son el cuello de botella, una por capítulo en el mercado de Megaira y más en Dagsion desde el cap. 10 (capítulos de la ruta de Cai). La licencia de Bailarín y las divinas se pueden devolver con «Reutilizar licencia» para que otra unidad se examine.</p>\n<p><b>Desbloqueos especiales.</b> Algunas clases piden, además de la licencia, una condición propia de cada ruta. En la Parte 1 cada una solo se abre en las rutas de la tabla:</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Clase</th><th>Ruta de Cai</th><th>Ruta de Dietrich</th><th>Ruta de Theodora</th><th>Ruta de Leda</th></tr><tr><td><a href=\"#/clase/JID_カラドリオス\">Caladrio</a></td><td>Formación de Castor (Prestigio 7)</td><td>—</td><td>—</td><td>—</td></tr><tr><td><a href=\"#/clase/JID_ドラグーン\">Jinete de baus</a></td><td>Formación de Aurora (Prestigio 8)</td><td>—</td><td>14 envíos de suministros</td><td>—</td></tr><tr><td><a href=\"#/clase/JID_トルバドール\">Trovador</a></td><td>Formación de Bertrand (Prestigio 10)</td><td>—</td><td>—</td><td><a href=\"#/mision/SQID_レダ篇_酒場興行5\">Nuevas bebidas para la nobleza</a></td></tr><tr><td><a href=\"#/clase/JID_ガーディアン\">Guardián</a></td><td>—</td><td><a href=\"#/mision/SQID_ディートリヒ篇_挑戦状5\">Duelo de Temerario: Il-Lara</a></td><td>10 envíos de suministros</td><td>—</td></tr><tr><td><a href=\"#/clase/JID_レンジャー\">Rastreador</a></td><td>—</td><td><a href=\"#/mision/SQID_ディートリヒ篇_挑戦状9\">Duelo de Temerario: Oko</a></td><td>—</td><td><a href=\"#/mision/SQID_レダ篇_酒場興行5\">Nuevas bebidas para la nobleza</a></td></tr><tr><td><a href=\"#/clase/JID_鍛冶師\">Herrero</a></td><td>—</td><td>10 mejoras con Potenciar técnicas</td><td>—</td><td>—</td></tr><tr><td><a href=\"#/clase/JID_カタフラクト\">Catafracto</a></td><td>—</td><td>—</td><td>8 envíos de suministros</td><td>—</td></tr><tr><td><a href=\"#/clase/JID_踊り子\">Bailarín</a></td><td>—</td><td>—</td><td>—</td><td><a href=\"#/mision/SQID_レダ篇_踊り子への道\">La sucesora del gran bailarín</a> (hasta el cap. 10)</td></tr></table></div>\n<p>Los envíos de suministros de Theodora cuentan por número: vale cualquiera de los 14 envíos de Bonaventure (2 por capítulo, caps. 5–11), no uno concreto. Haciéndolos en orden, el 8.º es uno del cap. 8, el 10.º uno del cap. 9 y el 14.º el último del cap. 11; por eso a menudo se asocia cada clase a un envío concreto.</p>\n<p>En la Parte 3 las peticiones de los dioses abren las clases supremas para todas las rutas (Espadachín, Prodigio, Caballero arco, Monje soldado, Jinete pesado y Valquiria), y el <a href=\"#/clase/JID_戦象兵\">Jinete de elefantes</a> llega al volver a Dagsion tras la Parte 2. Truhan, Iluminado, Seir y Badb Catha van ligadas a Talimun, Orchel, Bertrand y Anatolia; cómo se abren está sin confirmar.</p>\n<p><b>Las clases iniciales sí piden armas.</b> El examen lista «Comp. adicionales» y basta con una del grupo (Gladiador: Espada, Hacha o Guanteletes D).</p>"
+     "<p><b>Probabilidad de aprobar.</b> (100 − penalización × rangos que faltan + Sue/2 redondeada hacia arriba) × multiplicador de nivel, entre 0 y 100. La penalización es de 30 o 15 por rango según la clase (50 en La Eternidad); en un grupo de armas alternativas cuenta solo la que menos rangos pide. Se usa la Suerte con sus bonos. El multiplicador por niveles por debajo del recomendado es ×100 / 50 / 32 / 18 / 8 / 2 % (0 a 5 niveles); con 6 o más no se puede. Si falta algún rango, el máximo es 99 %. Ejemplo: Cai como Augur, 100 − 30 + 15/2 = 78.</p>\n<p><b>Resultado fijado.</b> La tirada del examen sale de la misma secuencia que las subidas de nivel de la unidad, y el examen la avanza un paso apruebe o no. Si un examen de menos de 100 % no va a aprobar, recargar no cambia nada; subir un nivel antes (o hacer otro examen) sí cambia el resultado. Una clase ya aprobada se puede elegir después con «Cambiar de clase» sin examen ni licencia. Las clases divinas y el Bailarín solo se pueden examinar cumpliendo todos los requisitos.</p>\n<p><b>Licencias.</b> <a href=\"#/objeto/IID_下級資格手形\">Inicial</a>, <a href=\"#/objeto/IID_中級資格手形\">intermedia</a>, <a href=\"#/objeto/IID_上級資格手形\">avanzada</a> y <a href=\"#/objeto/IID_最上級資格手形\">magistral</a>: 300 / 500 / 3000 / 8000 G de precio base. Se venden en cantidad limitada: en la Parte 1 las avanzadas son el cuello de botella, una por capítulo en el mercado de Megaira y más en Dagsion desde el cap. 10 (capítulos de la ruta de Cai). La licencia de Bailarín y las divinas se pueden devolver con «Reutilizar licencia» para que otra unidad se examine.</p>\n<p><b>Desbloqueos especiales.</b> Algunas clases piden, además de la licencia, una condición propia de cada ruta. En la Parte 1 cada una solo se abre en las rutas de la tabla:</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Clase</th><th>Ruta de Cai</th><th>Ruta de Dietrich</th><th>Ruta de Theodora</th><th>Ruta de Leda</th></tr><tr><td><a href=\"#/clase/JID_カラドリオス\">Caladrio</a></td><td>Formación de Castor (Prestigio 7)</td><td>—</td><td>—</td><td>—</td></tr><tr><td><a href=\"#/clase/JID_ドラグーン\">Jinete de baus</a></td><td>Formación de Aurora (Prestigio 8)</td><td>—</td><td>14 envíos de suministros</td><td>—</td></tr><tr><td><a href=\"#/clase/JID_トルバドール\">Trovador</a></td><td>Formación de Bertrand (Prestigio 10)</td><td>—</td><td>—</td><td><a href=\"#/mision/SQID_レダ篇_酒場興行5\">Nuevas bebidas para la nobleza</a></td></tr><tr><td><a href=\"#/clase/JID_ガーディアン\">Guardián</a></td><td>—</td><td><a href=\"#/mision/SQID_ディートリヒ篇_挑戦状5\">Duelo de Temerario: Il-Lara</a></td><td>10 envíos de suministros</td><td>—</td></tr><tr><td><a href=\"#/clase/JID_レンジャー\">Rastreador</a></td><td>—</td><td><a href=\"#/mision/SQID_ディートリヒ篇_挑戦状9\">Duelo de Temerario: Oko</a></td><td>—</td><td><a href=\"#/mision/SQID_レダ篇_酒場興行5\">Nuevas bebidas para la nobleza</a></td></tr><tr><td><a href=\"#/clase/JID_鍛冶師\">Herrero</a></td><td>—</td><td>10 mejoras con Potenciar técnicas</td><td>—</td><td>—</td></tr><tr><td><a href=\"#/clase/JID_カタフラクト\">Catafracto</a></td><td>—</td><td>—</td><td>8 envíos de suministros</td><td>—</td></tr><tr><td><a href=\"#/clase/JID_踊り子\">Bailarín</a></td><td>—</td><td>—</td><td>—</td><td><a href=\"#/mision/SQID_レダ篇_踊り子への道\">La sucesora del gran bailarín</a> (hasta el cap. 10)</td></tr></table></div>\n<p>Los envíos de suministros de Theodora cuentan por número: vale cualquiera de los 14 envíos de Bonaventure (2 por capítulo, caps. 5–11), no uno concreto. Haciéndolos en orden, el 8.º es uno del cap. 8, el 10.º uno del cap. 9 y el 14.º el último del cap. 11; por eso a menudo se asocia cada clase a un envío concreto.</p>\n<p>En la Parte 3 las peticiones de los dioses abren las clases supremas para todas las rutas (Espadachín, Prodigio, Caballero arco, Monje soldado, Jinete pesado y Valquiria), y el <a href=\"#/clase/JID_戦象兵\">Jinete de elefantes</a> llega al volver a Dagsion tras la Parte 2. Truhan, Iluminado, Seir y Badb Catha van ligadas a Talimun, Orchel, Bertrand y Anatolia; cómo se abren está sin confirmar.</p>\n<p><b>Las clases iniciales sí piden armas.</b> El examen lista «Comp. adicionales» y basta con una del grupo (Gladiador: Espada, Hacha o Guanteletes D).</p>"
     ],
     [
      "Tipos",
@@ -528290,7 +528354,7 @@ window.WIKI={
     ],
     [
      "Consejos de min-max",
-     "<ul>\n<li>Cambiar al llegar a 20, 35 y 45: cada nivel pasado en una clase de rango inferior es crecimiento perdido.</li>\n<li>Clases puente para el atributo flojo: <a href=\"#/clase/JID_ブリガンド\">Forajido</a> (PV y Fue +15), <a href=\"#/clase/JID_重装歩兵\">Soldado acorazado</a> (Def +25), <a href=\"#/clase/JID_シャーマン\">Chamán</a> (Mag +15), <a href=\"#/clase/JID_剣士\">Mirmidón</a> (Vel +15).</li>\n<li>Aprobar pronto sirve como «examen de mínimos»: el Soldado acorazado regala Def a los magos y el <a href=\"#/clase/JID_飛駝兵\">Jinete de ornius</a>, Vel 8.</li>\n<li>La EXP de clase también sube con «Entrenar» en las Actividades auto.: se puede dominar una clase puente sin luchar en ella.</li>\n<li>El resultado de cada examen queda fijado desde el inicio del capítulo; con Reiniciar capítulo y exámenes baratos de relleno se elige qué intento aprueba.</li>\n</ul>"
+     "<ul>\n<li>Cambiar al llegar a 20, 35 y 45: cada nivel pasado en una clase de rango inferior es crecimiento perdido.</li>\n<li>Clases puente para el atributo flojo: <a href=\"#/clase/JID_ブリガンド\">Forajido</a> (PV y Fue +15), <a href=\"#/clase/JID_重装歩兵\">Soldado acorazado</a> (Def +25), <a href=\"#/clase/JID_シャーマン\">Chamán</a> (Mag +15), <a href=\"#/clase/JID_剣士\">Mirmidón</a> (Vel +15).</li>\n<li>Aprobar pronto sirve como «examen de mínimos»: el Soldado acorazado regala Def a los magos y el <a href=\"#/clase/JID_飛駝兵\">Jinete de ornius</a>, Vel 8.</li>\n<li>La EXP de clase también sube con «Entrenar» en las Actividades auto.: se puede dominar una clase puente sin luchar en ella.</li>\n<li>El resultado de cada examen queda fijado por la secuencia de la unidad; Reiniciar capítulo la devuelve al estado guardado, y con subidas o exámenes baratos de relleno se elige qué intento aprueba.</li>\n<li>Con Suerte 20 se recuperan 10 puntos: lo mismo que un rango que falta en una clase de penalización 15.</li>\n<li>La Exp de clase solo depende del número de acciones: atacar a enemigos débiles o curar cada turno domina una clase igual de rápido que matar jefes, y con la bendición +2 una intermedia (60) se domina en 20 acciones.</li>\n</ul>"
     ]
    ]
   },
@@ -528416,7 +528480,7 @@ window.WIKI={
     ],
     [
      "Cómo funciona",
-     "<p>Se elige «Técnica de combate» y un arma capaz de usarla. Cada uso resta durabilidad (y algunas, PV). Con el arma a 0 usos se ataca con Pot y Golpe a la mitad y no se pueden usar técnicas, así que conviene reparar en la <a href=\"#/tutorial/TUTO_鍛冶屋\">Herrería</a> antes de llegar a 0. Las técnicas de magia son los hechizos; las de Mando son órdenes de apoyo de área o de un objetivo.</p>\n<p>Las <b>técnicas de ignición</b> de los señores son distintas: no gastan durabilidad sino PV y llenan el medidor de ignición (ver <a href=\"#/tutorial/TUTO_ブレイズアーツ\">Ignición</a>).</p>"
+     "<p>Se elige «Técnica de combate» y un arma capaz de usarla. Cada uso resta durabilidad (y algunas, PV). Con el arma a 0 usos se ataca con Pot y Golpe a la mitad y no se pueden usar técnicas, así que conviene reparar en la <a href=\"#/tutorial/TUTO_鍛冶屋\">Herrería</a> antes de llegar a 0. Las técnicas de magia son los hechizos; las de Mando son órdenes de apoyo de área o de un objetivo.</p>\n<p><b>Ataque doble.</b> Una técnica también puede atacar dos veces si la VA lo permite, pero su bono (Pot, Golpe, Crí, eficacia y efecto) solo vale en el primer golpe: el segundo es un ataque normal. Algunas impiden el ataque doble, como <a href=\"#/habilidad/SID_秘伝・絶刃\">Secreto de verdugo</a> o <a href=\"#/habilidad/SID_ノックアウト\">Noqueo</a>.</p>\n<p><b>Golpe fijo.</b> <a href=\"#/habilidad/SID_ブレードスラム\">Golpe de hoja</a> deja el Golpe en el 50 % y Secreto de verdugo en el 10 %, sea cual sea la Esq del rival.</p>\n<p><b>Técnicas elementales.</b> <a href=\"#/habilidad/SID_氷槍\">Lanza gélida</a>, <a href=\"#/habilidad/SID_雷斧\">Hacha relámpago</a>, <a href=\"#/habilidad/SID_魔刃\">Sortilegio</a> y otras convierten el ataque en mágico: usan la Mag y pegan contra la Rsl aunque el arma sea física.</p>\n<p><b>Alcance.</b> <a href=\"#/habilidad/SID_狙い撃ち\">Puntería certera</a> (Alc +1 con técnicas de arco) solo cuenta al atacar con la técnica: no sirve para contraatacar.</p>\n<p>Las <b>técnicas de ignición</b> de los señores son distintas: no gastan durabilidad sino PV y llenan el medidor de ignición (ver <a href=\"#/tutorial/TUTO_ブレイズアーツ\">Ignición</a>).</p>"
     ],
     [
      "Cómo se consigue",
@@ -528424,7 +528488,7 @@ window.WIKI={
     ],
     [
      "Consejos de min-max",
-     "<ul>\n<li>Las mejores tras potenciarlas: Secreto de verdugo (Pot 15, Crít +100), Iracundia mayor, Picotazo potente, Flecha mayor (Pot 15, Gol +20), Secreto de firmeza (alcance 2) y Secreto de elusión (Esq +30)<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>En la ruta de Dietrich, gastar las esquirlas primero en las técnicas de la unidad principal; diez mejoras abren además la clase <a href=\"#/clase/JID_鍛冶師\">Herrero</a>.</li>\n<li>Técnica entrenada (maestría de Guerrero) suma Gol +10 a cualquier técnica y compensa sus penalizaciones.</li>\n<li>Llevar un arma de repuesto para técnicas y otra para atacar normal ahorra reparaciones.</li>\n</ul>"
+     "<ul>\n<li>Las mejores tras potenciarlas: Secreto de verdugo (Pot 15, Crít +100, aunque su Golpe queda fijo en el 10 %), Iracundia mayor, Picotazo potente, Flecha mayor (Pot 15, Gol +20), Secreto de firmeza (alcance 2) y Secreto de elusión (Esq +30)<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>En la ruta de Dietrich, gastar las esquirlas primero en las técnicas de la unidad principal; diez mejoras abren además la clase <a href=\"#/clase/JID_鍛冶師\">Herrero</a>.</li>\n<li>Técnica entrenada (maestría de Guerrero) suma Gol +10 a cualquier técnica y compensa sus penalizaciones.</li>\n<li>Llevar un arma de repuesto para técnicas y otra para atacar normal ahorra reparaciones.</li>\n<li>Si el primer golpe con técnica no mata y la unidad dobla, el segundo llega con el daño normal: basta con que ese daño remate.</li>\n<li>Golpe de hoja rinde contra enemigos de mucha Esq (en bosque, por ejemplo), donde el Golpe normal caería por debajo del 50 %.</li>\n</ul>"
     ]
    ]
   },
@@ -528478,11 +528542,11 @@ window.WIKI={
    "secs": [
     [
      "En resumen",
-     "<ul>\n<li>Velocidad de ataque (VA) = Vel − máx(0, peso − Con); Con = Fue ÷ 5. Con 4 o más de VA de ventaja se ataca dos veces.</li>\n<li>No hay triángulo de armas; cada tipo tiene un rasgo propio y algunas armas son eficaces (Pot ×2) o muy eficaces (Pot ×3); la lista está en <a href=\"#/guia/tipos-de-unidad\">tipos de unidad</a>.</li>\n<li>Las competencias suben de E a S+ con EXP: cada asalto que hace daño da 1 + aptitud + bono de clase.</li>\n<li>Solo las técnicas gastan durabilidad; con 0 usos el arma pega con Pot y Golpe a la mitad.</li>\n<li>La Armería vende armas +1 desde Prestigio 7 y +2 desde Prestigio 10.</li>\n<li>Además de Pot, Golpe y Crítico, unas 70 armas suman Esq o Evit al equiparlas; la ficha de cada arma lo dice, junto con quién no puede usarla.</li>\n</ul>"
+     "<ul>\n<li>Velocidad de ataque (VA) = Vel − máx(0, peso − Con) + bonos de VA; Con = Fue ÷ 5 + bonos de Con. El peso es el del arma más el de todos los accesorios equipados. Con 4 o más de VA de ventaja se ataca dos veces.</li>\n<li>No hay triángulo de armas; cada tipo tiene un rasgo propio y algunas armas son eficaces (Pot ×2) o muy eficaces (Pot ×3); la lista está en <a href=\"#/guia/tipos-de-unidad\">tipos de unidad</a>.</li>\n<li>Las competencias suben de E a S+ con EXP: cada asalto que hace daño da 1 + aptitud + bono de clase.</li>\n<li>Solo las técnicas gastan durabilidad; con 0 usos el arma pega con Pot, Golpe y bonos a la mitad.</li>\n<li>La Armería vende armas +1 desde Prestigio 7 y +2 desde Prestigio 10.</li>\n<li>Además de Pot, Golpe y Crítico, unas 70 armas suman Esq o Evit al equiparlas; la ficha de cada arma lo dice, junto con quién no puede usarla.</li>\n</ul>"
     ],
     [
      "Cómo funciona",
-     "<p><b>Rasgos.</b> Espadas: el segundo golpe del ataque doble hace más daño (×1,2). Lanzas: eficaces contra caballería. Hachas: quitan al menos 5 PV. Arcos: muy eficaces contra voladores. Guanteletes: más Esq contra otras armas. Solo cuenta la eficacia mayor.</p>\n<p><b>Las 12 competencias.</b> Según el juego:</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Competencia</th><th>Para qué sirve</th></tr><tr><td>Espada, Lanza, Hacha, Arco</td><td>Manejar ese tipo de arma</td></tr><tr><td>Guanteletes</td><td>La lucha cuerpo a cuerpo</td></tr><tr><td>Magia negra</td><td>La magia negra y la magia oscura</td></tr><tr><td>Magia blanca</td><td>La magia blanca (curación y magias sagradas)</td></tr><tr><td>Mando</td><td>Comandar batallones</td></tr><tr><td>Infantería</td><td>Las clases de infantería</td></tr><tr><td>Equitación</td><td>Las clases montadas terrestres</td></tr><tr><td>Coraza</td><td>Las clases que luchan con coraza</td></tr><tr><td>Vuelo</td><td>Luchar sobre una montura voladora</td></tr></table></div>\n<p>Las cuatro últimas no son armas: las piden los exámenes de clase.</p>\n<p><b>Peso.</b> La Con solo compensa el peso, nunca suma: el Anillo de gigante (Con +4) no da VA extra por encima de la Vel. Los accesorios también pesan.</p>\n<p><b>Competencias.</b> EXP acumulada por rango: E 0 · E+ 20 · D 35 · D+ 80 · C 220 · C+ 440 · B 690 · B+ 910 · A 1215 · A+ 1510 · S 1960 · S+ 2560. Por asalto con al menos 1 de daño: 1 + aptitud (dorado +1, negro 0, azul −1) + bono de la clase + Ayudas; atacar dos veces no suma más. Equitación, Coraza, Vuelo e Infantería no tienen el 1 base por asalto (un vídeo de la comunidad dice que sí). En las mazmorras las unidades montadas luchan a pie y suben Infantería.</p>"
+     "<p><b>Rasgos.</b> Espadas: el segundo golpe del ataque doble hace más daño (×1,2). Lanzas: eficaces contra caballería. Hachas: quitan al menos 5 PV. Arcos: muy eficaces contra voladores. Guanteletes: más Esq contra otras armas. Solo cuenta la eficacia mayor.</p>\n<p><b>Las 12 competencias.</b> Según el juego:</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Competencia</th><th>Para qué sirve</th></tr><tr><td>Espada, Lanza, Hacha, Arco</td><td>Manejar ese tipo de arma</td></tr><tr><td>Guanteletes</td><td>La lucha cuerpo a cuerpo</td></tr><tr><td>Magia negra</td><td>La magia negra y la magia oscura</td></tr><tr><td>Magia blanca</td><td>La magia blanca (curación y magias sagradas)</td></tr><tr><td>Mando</td><td>Comandar batallones</td></tr><tr><td>Infantería</td><td>Las clases de infantería</td></tr><tr><td>Equitación</td><td>Las clases montadas terrestres</td></tr><tr><td>Coraza</td><td>Las clases que luchan con coraza</td></tr><tr><td>Vuelo</td><td>Luchar sobre una montura voladora</td></tr></table></div>\n<p>Las cuatro últimas no son armas: las piden los exámenes de clase.</p>\n<p><b>Peso.</b> El peso total es el del arma más el de cada accesorio equipado: escudo, orbe, talismán o bastón. La Con solo compensa ese peso, nunca suma VA por encima de la Vel. La suben <a href=\"#/habilidad/SID_体格\">Constitución</a> (+5), <a href=\"#/habilidad/SID_体格＋\">Constitución+</a> (+10) y el Anillo de gigante (+4); <a href=\"#/habilidad/SID_怪力\">Músculo</a> deja el peso al 80 %. Un accesorio roto sigue sumando sus atributos y su peso.</p>\n<p><b>Competencias.</b> EXP acumulada por rango: E 0 · E+ 20 · D 35 · D+ 80 · C 220 · C+ 440 · B 690 · B+ 910 · A 1215 · A+ 1510 · S 1960 · S+ 2560. Por asalto con al menos 1 de daño: 1 + aptitud (dorado +1, negro 0, azul −1) + bono de la clase + Ayudas; atacar dos veces no suma más. Equitación, Coraza, Vuelo e Infantería no tienen el 1 base por asalto (un vídeo de la comunidad dice que sí). En las mazmorras las unidades montadas luchan a pie y suben Infantería.</p>"
     ],
     [
      "Cómo se consigue la EXP de competencia",
@@ -528490,7 +528554,7 @@ window.WIKI={
     ],
     [
      "Consejos de min-max",
-     "<ul>\n<li>Asegurar el ataque doble antes que la Fue: es el mayor salto de daño.</li>\n<li>Golpear y retirarse en una Batalla rápida sube competencias sin gastar turnos de historia: tope de 15 asaltos por combate, retirarse antes de matar al último enemigo; sitios y umbrales en <a href=\"#/trucos?s=retirada\">Golpear y retirarse</a><span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Los señores con magia (Cai, Theodora, Eshmel) suben Magia negra o blanca con el ataque preventivo en una mazmorra sin gastar usos (<a href=\"#/trucos?s=magia-senores\">truco</a>)<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Armas clave en la Parte 1 de la ruta de Cai: Flyssa (eficaz contra acorazados), Zanbato y Antijinetes (contra caballería), Alabarda, Arco largo, Arco de caza y Anillas de Qiankun<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Muchos enemigos llevan un Crí negativo oculto: ver <a href=\"#/guia/combate\">Combate</a>.</li>\n</ul>"
+     "<ul>\n<li>Asegurar el ataque doble antes que la Fue: es el mayor salto de daño.</li>\n<li>El escudo da Def pero resta su peso a la VA y, con ella, a la Esq: a quien deba doblar o esquivar, mejor sin escudo ni orbe si su Con no cubre el peso.</li>\n<li>Golpear y retirarse en una Batalla rápida sube competencias sin gastar turnos de historia: tope de 15 asaltos por combate, retirarse antes de matar al último enemigo; sitios y umbrales en <a href=\"#/trucos?s=retirada\">Golpear y retirarse</a><span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Los señores con magia (Cai, Theodora, Eshmel) suben Magia negra o blanca con el ataque preventivo en una mazmorra sin gastar usos (<a href=\"#/trucos?s=magia-senores\">truco</a>)<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Armas clave en la Parte 1 de la ruta de Cai: Flyssa (eficaz contra acorazados), Zanbato y Antijinetes (contra caballería), Alabarda, Arco largo, Arco de caza y Anillas de Qiankun<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Muchos enemigos llevan un Crí negativo oculto: ver <a href=\"#/guia/combate\">Combate</a>.</li>\n</ul>"
     ]
    ]
   },
@@ -528541,23 +528605,23 @@ window.WIKI={
    "secs": [
     [
      "En resumen",
-     "<ul>\n<li>Crecimiento efectivo = personal + modificador de clase + montura + habilidades; nunca baja de 0 y por encima del 100 % da 1 punto seguro más una tirada.</li>\n<li>La clase solo da crecimientos mientras la unidad está en ella; la montura, mientras la monta.</li>\n<li>En las Partes 1 y 2 cada subida da al menos 2 atributos; en la Parte 3 no hay mínimo.</li>\n<li>Las subidas salen de una secuencia fija por personaje: recargar no cambia una subida mala.</li>\n<li>Topes: 99 en todos los atributos, más el modificador fijo de la clase actual; nivel máximo 99 (ver <a href=\"#/guia/estadisticas\">estadísticas</a>).</li>\n</ul>"
+     "<ul>\n<li>Crecimiento efectivo = personal + modificador de clase + montura + habilidades; nunca baja de 0 y por encima del 100 % da 1 punto seguro más una tirada.</li>\n<li>La clase solo da crecimientos mientras la unidad está en ella; la montura, mientras la monta.</li>\n<li>En las Partes 1 y 2 cada subida da al menos 2 atributos; en la Parte 3 no hay mínimo, aunque un nivel en blanco se repite hasta 4 veces.</li>\n<li>Las subidas salen de una secuencia fija por personaje que solo avanzan las subidas y los exámenes: recargar no cambia una subida mala.</li>\n<li>Topes: 99 en todos los atributos, más el modificador fijo de la clase actual; nivel máximo 99 (ver <a href=\"#/guia/estadisticas\">estadísticas</a>).</li>\n</ul>"
     ],
     [
      "Cómo funciona",
-     "<p>Cada 100 EXP la unidad sube un nivel. En cada subida se tira cada atributo contra su crecimiento efectivo; en las Partes 1 y 2, si salen menos de 2, el juego repite hasta 4 tiradas y luego rellena. Los modificadores fijos de la clase (por ejemplo Vel +3 del Jinete de ornius) se recalculan al cambiar de clase y no son crecimiento.</p>\n<p><b>Habilidades de crecimiento.</b> Signos de madurez de <a href=\"#/personaje/PID_ムウ\">Mu</a> suma +20 a los 9 crecimientos. La Senda de la cuadriga del <a href=\"#/clase/JID_戦車兵\">Cuadriguero</a> añade crecimiento oculto desde Nv 35 (PV +10, Fue/Mag/Hab/Vel/Car +5, Def +10) y más desde Nv 45.</p>\n<p><b>Reclutas tardíos y señores en la Parte 3.</b> Suben solos con una parte de su crecimiento personal: ver <a href=\"#/guia/experiencia-y-niveles\">Experiencia y niveles</a>.</p>"
+     "<p>Cada 100 EXP la unidad sube un nivel. En cada subida se tira cada atributo contra su crecimiento efectivo; en las Partes 1 y 2, si salen menos de 2, el juego repite la tirada hasta 4 veces y luego rellena con atributos que no subieron, con más probabilidad cuanto mayor es su crecimiento. Un atributo en su tope no entra en la tirada, así que los 2 garantizados van a los demás. Los modificadores fijos de la clase (por ejemplo Vel +3 del Jinete de ornius) se recalculan al cambiar de clase y no son crecimiento.</p>\n<p><b>Habilidades de crecimiento.</b> Signos de madurez de <a href=\"#/personaje/PID_ムウ\">Mu</a> suma +20 a los 9 crecimientos. La Senda de la cuadriga del <a href=\"#/clase/JID_戦車兵\">Cuadriguero</a> añade crecimiento oculto desde Nv 35 (PV +10, Fue/Mag/Hab/Vel/Car +5, Def +10) y otro tanto mayor desde Nv 45 (en total PV +20, Fue +20, Mag +10, Hab +15, Vel +10, Sue +5, Def +30, Res +5, Car +15). La Senda del elefante del <a href=\"#/clase/JID_戦象兵\">Jinete de elefantes</a> da desde Nv 45 PV, Fue, Hab, Def y Res +10. Son habilidades de la clase: solo cuentan mientras la unidad está en ella. Una montura solo suma crecimiento si es de la misma especie que la montura de la clase (cualquier ornius vale para un jinete de ornius). El <a href=\"#/clase/JID_戦車兵\">Cuadriguero</a> recibe el doble del crecimiento de la montura.</p>\n<p><b>Reclutas tardíos y señores en la Parte 3.</b> Suben solos con una parte de su crecimiento personal: ver <a href=\"#/guia/experiencia-y-niveles\">Experiencia y niveles</a>.</p>"
     ],
     [
      "Cómo se consigue",
-     "<ul>\n<li>EXP de combate y de curación (ver <a href=\"#/guia/experiencia-y-niveles\">experiencia y niveles</a>); en la Parte 3, las unidades de la Reserva de Dagsion ganan algo de EXP al final de cada turno en el mapa del mundo.</li>\n<li>Montura (ruta de Cai): cada nivel de vínculo suma crecimiento en los atributos de la montura, hasta +25 en total a vínculo 5 repartido entre ellos (por ejemplo, Meganius rojo: Fue +15, Hab +5, Def +5; ver <a href=\"#/guia/monturas\">Monturas</a>).</li>\n<li>Ayuda de salvación «Exp adicional»: +10 % a +50 %.</li>\n</ul>"
+     "<ul>\n<li>EXP de combate y de curación (ver <a href=\"#/guia/experiencia-y-niveles\">experiencia y niveles</a>); en la Parte 3, las unidades de la Reserva de Dagsion ganan algo de EXP al final de cada turno en el mapa del mundo.</li>\n<li>Montura (ruta de Cai): desde el vínculo 1 suma crecimiento en los atributos de su especie, hasta +25 en total a vínculo 5 repartido entre ellos (por ejemplo, Meganius rojo: Fue +15, Hab +5, Def +5; ver <a href=\"#/guia/monturas\">Monturas</a>).</li>\n<li>Ayuda de salvación «Exp adicional»: +10 % a +50 %.</li>\n</ul>"
     ],
     [
      "Subidas previsibles",
-     "<p>Cada personaje tiene su propia secuencia y gasta un número por subida; recargar, reiniciar o rebobinar (también con la Bendición de Fortuna) repiten el resultado mientras no cambien clase, montura, vínculo ni habilidades de crecimiento<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</p>\n<ol>\n<li>Guardar a mano en Dagsion.</li>\n<li>Posada → Actividades auto. → <b>Combate</b> (la única que da EXP de personaje) durante unos turnos.</li>\n<li>Anotar lo que sube y recargar para recuperar los turnos.</li>\n</ol>\n<p>Para saltar una subida mala: cada examen (aprobado, suspendido o al 100 %) y cada clase nueva enseñada avanzan un paso la secuencia de ese personaje sin subirle de nivel; el más barato es un examen inicial con poca probabilidad. Cambiar a una clase ya aprobada no gasta número: el mismo número se compara con los nuevos crecimientos<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. En la Parte 2 no hay previsión; en la Parte 3 las licencias no se agotan.</p>\n<p>La EXP por turno de las Actividades auto. está en <a href=\"#/guia/experiencia-y-niveles\">Experiencia y niveles</a>.</p>"
+     "<p>Cada personaje tiene su propia secuencia, que avanza un paso por cada subida y por cada examen. Nada más la mueve: ni comidas, ni días, ni combates sin subir. Recargar o reiniciar el capítulo repiten el resultado mientras no cambien clase, montura, vínculo ni habilidades de crecimiento. Rebobinar con la Bendición de Fortuna hace lo mismo<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</p>\n<ol>\n<li>Guardar a mano en Dagsion.</li>\n<li>Posada → Actividades auto. → <b>Combate</b> (la única que da EXP de personaje; también da Exp de clase) durante unos turnos.</li>\n<li>Anotar lo que sube y recargar para recuperar los turnos.</li>\n</ol>\n<p>Para saltar una subida mala: cada examen (aprobado, suspendido o al 100 %) avanza un paso la secuencia de ese personaje sin subirle de nivel; el más barato es un examen inicial con poca probabilidad. Cambiar a una clase ya aprobada no es un examen y no gasta paso: la secuencia sigue igual, pero con los crecimientos de la otra clase sale otra subida, así que elegir en qué clase subir puede convertir una subida mala en buena. En la Parte 2 no hay previsión; en la Parte 3 las licencias no se agotan.</p>\n<p>La EXP por turno de las Actividades auto. está en <a href=\"#/guia/experiencia-y-niveles\">Experiencia y niveles</a>.</p>"
     ],
     [
      "Consejos de min-max",
-     "<ul>\n<li>Subir en las Partes 1 y 2 a las unidades de crecimiento bajo: el mínimo de 2 atributos les rinde más que a nadie.</li>\n<li>Ver la próxima subida con Actividades auto. y recargar; si es mala, hacer antes un examen barato para saltarla.</li>\n<li>No dejar a nadie muchos niveles como <a href=\"#/clase/JID_無職\">Plebeyo</a> ni en una clase de rango inferior al que puede tener.</li>\n<li>Repartir la EXP: el nivel enemigo sale de la media de los 10 aliados de mayor nivel (ver <a href=\"#/guia/combate\">Combate</a>).</li>\n<li>Mu rinde más en clases físicas: con su habilidad tiene unos 50 en Fue, Vel y Hab.</li>\n</ul>"
+     "<ul>\n<li>Subir en las Partes 1 y 2 a las unidades de crecimiento bajo: con un 30 % en todo, el mínimo de 2 da 3,2 atributos por nivel frente a 2,8 en la Parte 3; con un 50 % apenas cambia.</li>\n<li>Ver la próxima subida con Actividades auto. y recargar; si es mala, hacer antes un examen barato para saltarla.</li>\n<li>No dejar a nadie muchos niveles como <a href=\"#/clase/JID_無職\">Plebeyo</a> ni en una clase de rango inferior al que puede tener.</li>\n<li>Repartir la EXP: el nivel enemigo sale de la media de los 10 aliados de mayor nivel (ver <a href=\"#/guia/combate\">Combate</a>).</li>\n<li>El Cuadriguero es la mejor clase de crecimiento a nivel alto: +45 % repartido entre los niveles 35 y 44, +130 % desde el 45 y el doble de la montura.</li>\n<li>Mu rinde más en clases físicas: con su habilidad tiene unos 50 en Fue, Vel y Hab.</li>\n</ul>"
     ]
    ]
   },
@@ -528582,13 +528646,14 @@ window.WIKI={
    "preguntas": [
     "¿Cómo se calculan golpe, crítico y daño?",
     "¿Por qué fallo con un 80 % de golpe?",
-    "¿Cómo se fija el nivel de los enemigos?"
+    "¿Cómo se fija el nivel de los enemigos?",
+    "¿Cuánto vale de verdad un 75 % de golpe?"
    ],
    "relacionados": [
     "atributos-de-combate",
-    "estadisticas",
     "armas",
-    "terreno",
+    "azar",
+    "ia-enemiga",
     "experiencia-y-niveles"
    ],
    "enlaces": [
@@ -528609,15 +528674,15 @@ window.WIKI={
    "secs": [
     [
      "En resumen",
-     "<ul>\n<li>Golpe físico = Golpe del arma + Hab; mágico = Golpe del hechizo + ⌊(Hab + Sue) ÷ 2⌋; Esquiva = VA.</li>\n<li>Daño = Ata − Agu del rival (física), o Ata − Rsl del rival (magia); el crítico triplica y los multiplicadores se suman.</li>\n<li>Agu y Rsl son la Def y la Res más los bonos de combate; qué es cada cifra está en <a href=\"#/guia/atributos-de-combate\">atributos de combate</a>.</li>\n<li>El nivel enemigo de cada capítulo sale de la media de los 10 aliados de mayor nivel (+2 normales, +3 oficiales, +5 jefes).</li>\n<li>Por encima del 50 % mostrado, el Golpe real es mayor (75 ≈ 85)<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>La EXP se explica en <a href=\"#/guia/experiencia-y-niveles\">experiencia y niveles</a>.</li>\n</ul>"
+     "<ul>\n<li>Golpe físico = Golpe del arma + Hab; mágico = Golpe del hechizo + ⌊(Hab + Sue) ÷ 2⌋. Esquiva = VA + Esq del arma; la Sue no cuenta.</li>\n<li>Daño = Ata − Agu del rival (física), o Ata − Rsl del rival (magia); el crítico triplica y los multiplicadores se suman.</li>\n<li>Hasta el 50 % el Golpe mostrado es exacto; por encima, el real es mayor (75 mostrado acierta el 85 %). El crítico vale lo que muestra.</li>\n<li>Agu y Rsl son la Def y la Res más los bonos de combate; qué es cada cifra está en <a href=\"#/guia/atributos-de-combate\">atributos de combate</a>.</li>\n<li>El nivel enemigo de cada capítulo sale de la media de los 10 aliados de mayor nivel (+2 normales, +3 oficiales, +5 jefes).</li>\n<li>Qué cambia al recargar o rebobinar está en <a href=\"#/guia/azar\">azar</a>; a quién ataca el enemigo, en <a href=\"#/guia/ia-enemiga\">IA enemiga</a>.</li>\n</ul>"
     ],
     [
      "Cómo funciona",
-     "<p><b>Daño.</b> Ata = Fue + Pot del arma (física) o Mag + Pot del hechizo (magia). Se resta el Agu (ataques físicos) o la Rsl (magia) del objetivo; con 0 o menos no hay daño. Los ataques especiales (At esp) ignoran tanto el Agu como la Rsl. Algunas armas mágicas, como la <a href=\"#/objeto/IID_硝子の車輪\">Rueda de cristal</a>, calculan el daño contra el Agu en lugar de la Rsl (lista en <a href=\"#/guia/atributos-de-combate\">Atributos de combate</a>).</p>\n<p><b>Multiplicadores.</b> Se suman antes de aplicarse: el segundo golpe de espada (+0,2) con crítico (+2) da ×3,2. La eficacia dobla (o triplica) la Pot del arma, no la Fue ni la Mag. El hacha quita al menos 5 PV.</p>\n<p><b>Crítico</b> = Crí del arma + ⌊(Hab + Sue) ÷ 2⌋, menos el Evit del rival (que sale de la Sue). El Favor infernal reduce a la mitad el daño no eficaz (la Espada purificadora lo anula).</p>\n<p><b>Previsión.</b> Gol mostrado = Gol propio − Esq del rival (más el terreno), entre 0 y 100. Los voladores no reciben bonos de terreno. Golpe y crítico usan tiradas distintas; el crítico se compara directamente con la cifra mostrada<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</p>\n<p><b>Crí oculto de los enemigos.</b> Muchos enemigos llevan una habilidad oculta que les resta Crí: −10, −20, −30, −40, −50 u −80 según el enemigo; la más común es −30. En dificultad Normal todos los enemigos tienen además Gol −30 y Crí −50 (en la Batalla rápida, solo Crí −50). Por eso sus críticos son raros.</p>\n<p><b>Tope de bonos.</b> Ver <a href=\"#/guia/atributos-de-combate\">Atributos de combate</a>.</p>\n<p><b>Nivel enemigo.</b> Se calcula al empezar el capítulo, limitado al rango de cada capítulo (cap. 8 de la Parte 1: 13–19 en la ruta de Dietrich, 16–22 en las otras; <a href=\"#/mecanicas?ir=nivel-de-los-enemigos\">rango de cada capítulo por ruta</a>). Los encuentros del mapa usan base +1. El terreno y los estados alterados tienen sus propias guías.</p>"
+     "<p><b>Daño.</b> Ata = Fue + Pot del arma (física) o Mag + Pot del hechizo (magia). Se resta el Agu (ataques físicos) o la Rsl (magia) del objetivo; con 0 o menos no hay daño. Los ataques especiales (At esp) ignoran tanto el Agu como la Rsl. Algunas armas mágicas, como la <a href=\"#/objeto/IID_硝子の車輪\">Rueda de cristal</a>, calculan el daño contra el Agu en lugar de la Rsl (lista en <a href=\"#/guia/atributos-de-combate\">Atributos de combate</a>). Un arma con 0 usos pega con la Pot, el Golpe y los bonos del arma a la mitad.</p>\n<p><b>Multiplicadores.</b> Los que suben el daño se suman antes de aplicarse: el segundo golpe de espada (+0,2) con crítico (+2) da ×3,2, y una técnica ×1,5 con crítico da ×3,5. Los que lo bajan (escudos, barreras a la mitad) se aplican aparte, multiplicando. La eficacia dobla (o triplica) la Pot del arma, no la Fue ni la Mag. El hacha quita al menos 5 PV.</p>\n<p><b>Golpe real.</b> Cada golpe se decide con una sola tirada. Con un Golpe mostrado de 50 o menos, la cifra es exacta; por encima, el juego añade una curva a favor de quien ataca:</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Mostrado</th><th>50</th><th>55</th><th>60</th><th>65</th><th>70</th><th>75</th><th>80</th><th>85</th><th>90</th><th>95</th><th>100</th></tr><tr><td>Real (%)</td><td>50</td><td>57</td><td>65</td><td>72</td><td>79</td><td>85</td><td>90</td><td>94</td><td>97</td><td>99</td><td>100</td></tr></table></div>\n<p>La curva vale igual para los enemigos.</p>\n<p><b>Crítico</b> = Crí del arma + ⌊(Hab + Sue) ÷ 2⌋, menos el Evit del rival (Sue + Evit del arma + bonos). Se tira con otro número, sin curva: un 15 % es un 15 %. El Favor infernal reduce a la mitad el daño no eficaz (la Espada purificadora lo anula).</p>\n<p><b>Previsión.</b> Gol mostrado = (Gol + terreno + apoyo) − (Esq del rival + su terreno + su apoyo), entre 0 y 100; el Crí igual con el Evit. Los voladores no reciben bonos de terreno. La diferencia de nivel no cambia ni el Golpe ni el daño.</p>\n<p><b>Orden de los golpes.</b> Golpea el atacante, responde el defensor y después llega el ataque doble de quien lo tenga (VA 4 o más por encima). Algunas habilidades hacen que el defensor golpee primero o que el segundo golpe vaya justo detrás del primero. Con una técnica, solo el primer golpe lleva su bono: el segundo es un ataque normal (<a href=\"#/guia/tecnicas\">técnicas</a>).</p>\n<p><b>Crí oculto de los enemigos.</b> Muchos enemigos llevan una habilidad oculta que les resta Crí: −10, −20, −30, −40, −50 u −80 según el enemigo; la más común es −30. En dificultad Normal todos los enemigos tienen además Gol −30 y Crí −50 (en la Batalla rápida, solo Crí −50). Por eso sus críticos son raros.</p>\n<p><b>Tope de bonos.</b> Las mejoras de un aliado no suben un atributo más de +10 sobre su valor propio (en los enemigos, 99). El terreno y el apoyo se suman en combate y no cuentan para ese tope.</p>\n<p><b>Nivel enemigo.</b> Se calcula al empezar el capítulo, limitado al rango de cada capítulo (cap. 8 de la Parte 1: 13–19 en la ruta de Dietrich, 16–22 en las otras; <a href=\"#/mecanicas?ir=nivel-de-los-enemigos\">rango de cada capítulo por ruta</a>). Las tropas del mapa salen a base +1, recortado al rango de la región salvo en los puntos de control y en la Parte 3 (<a href=\"#/guia/escaramuzas\">Tropas del mapa y escaramuzas</a>). El terreno y los estados alterados tienen sus propias guías.</p>"
     ],
     [
      "Consejos de min-max",
-     "<ul>\n<li>Repartir la EXP: subir mucho a pocos sube a todos los enemigos.</li>\n<li>Contra acorazados, magia o hechizos que atacan el Agu; contra magos, armas físicas.</li>\n</ul>"
+     "<ul>\n<li>Repartir la EXP: subir mucho a pocos sube a todos los enemigos.</li>\n<li>Subir el Golpe mostrado de 50 a 75–80 es lo que más rinde; pasar de 90 a 100 apenas suma 3 puntos reales.</li>\n<li>Bajar el Golpe enemigo de 55–60 a 50 o menos: es la zona más inflada (un 60 acierta el 65 %).</li>\n<li>Si el primer golpe con técnica no mata, contar el segundo con el daño normal.</li>\n<li>Contra acorazados, magia o hechizos que atacan el Agu; contra magos, armas físicas.</li>\n</ul>"
     ]
    ]
   },
@@ -528801,6 +528866,7 @@ window.WIKI={
    "resumen": "Las monturas se capturan con Cebo (ruta de Cai en la Parte 1, todas las rutas en la Parte 3 con Cai en el ejército), se alimentan en el Establo para subir el vínculo y dan atributos, crecimientos y una habilidad al jinete que las monta.",
    "preguntas": [
     "¿Cómo capturo una montura y cuál es mejor?",
+    "¿Qué probabilidad hay de capturar un animal?",
     "¿Cómo sube el vínculo con la montura?",
     "¿Qué comida le gusta a cada montura?",
     "¿Cómo elijo la habilidad de vínculo antes de capturar?",
@@ -528835,31 +528901,31 @@ window.WIKI={
    "secs": [
     [
      "En resumen",
-     "<ul>\n<li><b>Parte 1:</b> solo la ruta de Cai captura animales, desde el cap. 5. <b>Parte 3:</b> todas las rutas, desde la sección 2, con Cai en el ejército.</li>\n<li>Cada animal da atributos fijos, crecimientos y <b>una</b> habilidad de vínculo; todo crece con el vínculo (1–5) entre ese animal y su jinete.</li>\n<li>Vínculo 2/3/4/5 a 20/50/90/140 puntos. Una comida al día por animal da de 1 a 20 puntos; el vínculo también sube combatiendo montado<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>La habilidad se sortea al crearse el animal entre las de su especie; se aprende con vínculo 3 y pasa a «+» con vínculo 5.</li>\n<li>Las monturas de clase (<a href=\"#/montura/RID_デフォルト騎馬\">Caballo</a>, Ornius, Pegaso, Bau, Elefante de guerra) no dan nada.</li>\n</ul>"
+     "<ul>\n<li><b>Parte 1:</b> solo la ruta de Cai captura animales, desde el cap. 5. <b>Parte 3:</b> todas las rutas, desde la sección 2, con Cai en el ejército.</li>\n<li>Cada animal da atributos fijos, crecimientos y <b>una</b> habilidad de vínculo; todo crece con el vínculo (1–5) entre ese animal y su jinete.</li>\n<li>Vínculo 2/3/4/5 a 20/50/90/140 puntos. Cada comida da de 1 a 20 puntos, y cada combate en que el jinete actúa montado en ese animal suma 1. Se da una comida al día por animal<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>La habilidad se sortea al crearse el animal entre las de su especie; se aprende con vínculo 3 y pasa a «+» con vínculo 5.</li>\n<li>Las monturas de clase (<a href=\"#/montura/RID_デフォルト騎馬\">Caballo</a>, Ornius, Pegaso, Bau, Elefante de guerra) no dan nada.</li>\n</ul>"
     ],
     [
      "Qué son",
-     "<p>Una montura se asigna a un jinete cuya clase acepte su tipo: caballo, ornius, pegaso, bau o elefante. Da tres cosas, y todas dependen del vínculo de ese jinete con ese animal:</p>\n<ul>\n<li><b>Atributos fijos.</b> Por ejemplo, el <a href=\"#/montura/RID_馬\">Caballo salvaje</a> da Hab +3, Vel +1 y Def +1 con vínculo 5.</li>\n<li><b>Crecimientos.</b> +25 % en total con vínculo 5, repartido entre atributos (+30 % con <a href=\"#/montura/RID_ロシナン\">Rocinán</a> y <a href=\"#/montura/RID_ブーケパラス\">Bucephalus</a>).</li>\n<li><b>Una habilidad de vínculo.</b></li>\n</ul>\n<p>Solo cuentan mientras va montado: al desmontar se pierden.</p>\n<p>Las monturas de clase son las que lleva la clase sin animal asignado. No crecen, no comen y no se liberan. Por eso en las rutas de Dietrich, Theodora y Leda los jinetes de la Parte 1 van sin bonos de montura, salvo <a href=\"#/personaje/PID_イオ\">Io</a> y <a href=\"#/personaje/PID_アレキサンドラ\">Alexandra</a>, que traen la suya en cualquier ruta.</p>"
+     "<p>Una montura se asigna a un jinete cuya clase acepte su tipo: caballo, ornius, pegaso, bau o elefante. Da tres cosas, y todas dependen del vínculo de ese jinete con ese animal:</p>\n<ul>\n<li><b>Atributos fijos.</b> Existen desde el vínculo 1 y crecen hasta el 5, repartidos entre 2 o 3 atributos según la especie. Por ejemplo, el <a href=\"#/montura/RID_馬\">Caballo salvaje</a> da Hab +3, Vel +1 y Def +1 con vínculo 5.</li>\n<li><b>Crecimientos.</b> +25 % en total con vínculo 5, repartido entre atributos (+30 % con <a href=\"#/montura/RID_ロシナン\">Rocinán</a> y <a href=\"#/montura/RID_ブーケパラス\">Bucephalus</a>). Los atributos fijos suman +5 en casi todas las especies, +6 con Rocinán y +20 con el Elefante.</li>\n<li><b>Una habilidad de vínculo.</b></li>\n</ul>\n<p>Solo cuentan mientras va montado: al desmontar se pierden.</p>\n<p>Las monturas de clase son las que lleva la clase sin animal asignado. No crecen, no comen y no se liberan. Por eso en las rutas de Dietrich, Theodora y Leda los jinetes de la Parte 1 van sin bonos de montura, salvo <a href=\"#/personaje/PID_イオ\">Io</a> y <a href=\"#/personaje/PID_アレキサンドラ\">Alexandra</a>, que traen la suya en cualquier ruta.</p>"
     ],
     [
      "Dónde y cuándo",
-     "<ul>\n<li><b>Parte 1, ruta de Cai:</b> Cebo y Establo (200 animales) se abren en el cap. 5. Las regiones que Cai no alcanza en la Parte 1 (ver <a href=\"#/guia/mapa-del-mundo\">Mapa del mundo</a>) dejan el <a href=\"#/montura/RID_黒馬\">Caballo negro</a>, el <a href=\"#/montura/RID_レッドバウ\">Bau rojo</a>, el <a href=\"#/montura/RID_ブラックバウ\">Bau negro</a> y el <a href=\"#/montura/RID_レッドファルコン\">Halicornio rojo</a> para la Parte 3.</li>\n<li><b>Parte 1, otras rutas:</b> no hay Cebo ni Establo.</li>\n<li><b>Parte 2:</b> con Cai aliado, el Establo sigue abierto para alimentar y asignar, pero sin Cebo<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Al terminar la Parte 2, los animales pasan al Arcón de la memoria. Se recuperan con Esquirlas cau. y con Cai en el grupo.</li>\n<li><b>Parte 3:</b> desde la sección 2, en todas las rutas, si Cai está en el ejército. La milicia de Cai pone el Cebo y cualquier unidad puede capturar.</li>\n<li><b><a href=\"#/montura/RID_ダグザンゾウ\">Elefante saramita</a>:</b> solo con la misión <a href=\"#/mision/SQID_お腹を空かせた戦象\">Comida para los elefantes</a>, en la Parte 3 (secciones 2–6). Pide haber terminado la Parte 2 de la ruta de Cai, tener desbloqueado el <a href=\"#/clase/JID_戦象兵\">Jinete de elefantes</a> y entregar 2 <a href=\"#/objeto/IID_ハクレン\">Hakuren</a>. Da 2 elefantes, 10 000 G y 50 de Moral. Come verdura de sabor exótico.</li>\n<li><b>Duplicados:</b> en la Parte 3 puede haber dos Io o dos Alexandra de rutas distintas. Entonces la copia de su montura se convierte en <a href=\"#/montura/RID_ロシナンの仔\">Hermano de Rocinán</a> o <a href=\"#/montura/RID_ブーケパラスの仔\">Potro de Bucephalus</a>: es igual, pero no única.</li>\n</ul>"
+     "<ul>\n<li><b>Parte 1, ruta de Cai:</b> Cebo y Establo (200 animales) se abren en el cap. 5. Las regiones que Cai no alcanza en la Parte 1 (ver <a href=\"#/guia/mapa-del-mundo\">Mapa del mundo</a>) dejan el <a href=\"#/montura/RID_黒馬\">Caballo negro</a>, el <a href=\"#/montura/RID_レッドバウ\">Bau rojo</a>, el <a href=\"#/montura/RID_ブラックバウ\">Bau negro</a> y el <a href=\"#/montura/RID_レッドファルコン\">Halicornio rojo</a> para la Parte 3.</li>\n<li><b>Parte 1, otras rutas:</b> no hay Cebo ni Establo.</li>\n<li><b>Parte 2:</b> no hay monturas en ninguna Guerra: los animales quedan guardados y, al terminar la Parte 2, pasan al Arcón de la memoria. Se recuperan con Esquirlas cau. y con Cai en el grupo.</li>\n<li><b>Parte 3:</b> desde la sección 2, en todas las rutas, si Cai está en el ejército. La milicia de Cai pone el Cebo y cualquier unidad puede capturar.</li>\n<li><b><a href=\"#/montura/RID_ダグザンゾウ\">Elefante saramita</a>:</b> solo con la misión <a href=\"#/mision/SQID_お腹を空かせた戦象\">Comida para los elefantes</a>, en la Parte 3 (secciones 2–6). Pide haber terminado la Parte 2 de la ruta de Cai, tener desbloqueado el <a href=\"#/clase/JID_戦象兵\">Jinete de elefantes</a> y entregar 2 <a href=\"#/objeto/IID_ハクレン\">Hakuren</a>. Da 2 elefantes, 10 000 G y 50 de Moral. Come verdura de sabor exótico.</li>\n<li><b>Duplicados:</b> en la Parte 3 puede haber dos Io o dos Alexandra de rutas distintas. Entonces la copia de su montura se convierte en <a href=\"#/montura/RID_ロシナンの仔\">Hermano de Rocinán</a> o <a href=\"#/montura/RID_ブーケパラスの仔\">Potro de Bucephalus</a>: es igual, pero no única.</li>\n</ul>"
     ],
     [
      "Capturar, alimentar y liberar",
-     "<p>Las tablas de cebo, captura, puntos por comida y liberación están en <a href=\"#/monturas?ir=establo\">Establo</a>; aquí, lo que importa para decidir:</p>\n<ul>\n<li><b>Cebo del tipo que le gusta</b> (caballos, pegasos y elefantes, verdura; ornius, pescado; baus, carne): con ★★★ el animal sale siempre y la especie rara es más probable (inferido). Con otro tipo nunca aparece.</li>\n<li><b>Capturar con su Favorito</b> es seguro; si no, la calidad y coincidir en tipo y sabor suben la probabilidad. Si huye deja boñiga, abono para los cultivos.</li>\n<li><b>Comida perfecta:</b> un ★★★ del tipo y sabor correctos da 15 puntos y el Favorito ★★★, 20; vínculo 5 son unas 7–10 comidas. El vínculo sube para el aliado que da de comer, y cada animal recuerda hasta 5 jinetes.</li>\n<li><b>Liberar</b> deja un Amuleto (vínculo 1–4) o un Talismán (seguro con vínculo 5) con los bonos de la montura. Con varios jinetes, qué vínculo cuenta está sin confirmar.</li>\n</ul>"
+     "<p>Las tablas de cebo, captura, puntos por comida y liberación están en <a href=\"#/monturas?ir=establo\">Establo</a>; aquí, lo que importa para decidir:</p>\n<ul>\n<li><b>Cebo</b> (1 acción; el animal llega a los 5 turnos). Con comida del tipo que le gusta (caballos, pegasos y elefantes, verdura; ornius, pescado; baus, carne), el animal se queda en el campo el 80/90/100 % de las veces con calidad ★/★★/★★★; el resto, empieza ya el combate de captura. Antes se sortea la especie rara del campo: 10/30/50 %. Con otro tipo nunca se queda: se va o empieza el combate de captura, y nunca sale la rara.</li>\n<li><b>Capturar</b> (1 acción) es una Batalla rápida contra el animal. La probabilidad exacta de captura se desconoce: las tablas de favorito, calidad y sabor que circulan no tienen efecto. Si falla, el animal huye y deja boñiga (abono para los cultivos); el cebo ya se gastó y volver a cebar cuesta otros 5 turnos.</li>\n<li><b>Puntos por comida:</b> 1, más 0/2/5 por calidad ★/★★/★★★, +6 si es del tipo que le gusta, +3 si es de su sabor y +5 si es el plato favorito de ese ejemplar. Un ★★★ del tipo y sabor correctos da 15 y el Favorito ★★★, 20; vínculo 5 son unas 7–10 comidas. El vínculo sube para el aliado que da de comer, y cada animal recuerda hasta 5 jinetes.</li>\n<li><b>Liberar</b> deja un Amuleto (vínculo 1–4) o un Talismán (seguro con vínculo 5) con los bonos de la montura. Con varios jinetes, qué vínculo cuenta está sin confirmar.</li>\n</ul>"
     ],
     [
      "Habilidad de vínculo",
-     "<ul>\n<li><b>Una por animal.</b> Cada ejemplar trae una sola habilidad, sorteada entre las de su especie con la misma probabilidad (dos opciones: 47/53 %; tres: 33/35/32 %). No influyen el cebo, el lugar ni el vínculo, y no cambia después de la captura.</li>\n<li><b>Cuándo llega.</b> El jinete la aprende con vínculo 3 y pasa a la versión «+» con vínculo 5. Cuenta el vínculo del jinete que la monta, y solo funciona montado.</li>\n<li><b>Una sola opción.</b> <a href=\"#/montura/RID_ロシナン\">Rocinán</a>, <a href=\"#/montura/RID_ブーケパラス\">Bucephalus</a>, sus copias y el Elefante tienen una sola habilidad posible.</li>\n<li><b>Elegirla antes de capturar.</b> El resultado es determinista: recargar y repetir lo mismo da el mismo animal con la misma habilidad. Guarda antes de poner el Cebo. Si no sale la que quieres, recarga y cambia algo antes de cebar: otra casilla, esperar un turno o hacer una Búsqueda<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Combatir o entrar en una mazmorra hace un autoguardado.</li>\n</ul>"
+     "<ul>\n<li><b>Una por animal.</b> Cada ejemplar trae una sola habilidad, sorteada entre las de su especie con la misma probabilidad (dos opciones: 47/53 %; tres: 33/35/32 %). No influyen el cebo, el lugar ni el vínculo, y no cambia después de la captura.</li>\n<li><b>Cuándo llega.</b> El jinete la aprende con vínculo 3 y pasa a la versión «+» con vínculo 5. Cuenta el vínculo del jinete que la monta, y solo funciona montado.</li>\n<li><b>Una sola opción.</b> <a href=\"#/montura/RID_ロシナン\">Rocinán</a>, <a href=\"#/montura/RID_ブーケパラス\">Bucephalus</a>, sus copias y el Elefante tienen una sola habilidad posible.</li>\n<li><b>Elegirla antes de capturar.</b> El animal y lo que hace con el cebo se sortean al usar el Cebo, y la habilidad sale de una tirada propia de ese animal. El resultado es determinista: recargar y repetir lo mismo da el mismo animal con la misma habilidad. Guarda antes de poner el Cebo. Si no sale la que quieres, recarga y cambia algo antes de cebar: otra casilla, esperar un turno o hacer una Búsqueda<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Combatir o entrar en una mazmorra hace un autoguardado.</li>\n</ul>"
     ],
     [
      "Cuadriguero",
-     "<p>El <a href=\"#/clase/JID_戦車兵\">Cuadriguero</a> es una clase intermedia (Arco C y Equitación D, Nv 20, Mov 5) que solo usa arcos y va en un carro tirado por un caballo.</p>\n<ul>\n<li><b>Bono de montura doble.</b> Dobla los bonos fijos y de crecimiento del caballo (×2).</li>\n<li><b>Senda de la cuadriga.</b> Suma crecimiento oculto desde el Nv 35 y más desde el Nv 45 (niveles inferidos).</li>\n<li><b>Carga.</b> Ataque en línea de hasta 7 casillas, con 3 usos por mapa. Golpea una vez a cada enemigo y no recibe contraataque<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Al desmontar.</b> Pierde los bonos del caballo y la Carga.</li>\n</ul>\n<p>Encaja con un caballo con vínculo 5 (<a href=\"#/montura/RID_汗血馬\">Caballo de Ferganá</a>, <a href=\"#/montura/RID_ユニコーン\">Monoceronte</a> o <a href=\"#/montura/RID_ロシナン\">Rocinán</a>).</p>"
+     "<p>El <a href=\"#/clase/JID_戦車兵\">Cuadriguero</a> es una clase intermedia (Arco C y Equitación D, Nv 20, Mov 5) que solo usa arcos y va en un carro tirado por un caballo.</p>\n<ul>\n<li><b>Bono de montura doble.</b> Dobla los bonos fijos y de crecimiento del caballo (×2).</li>\n<li><b>Senda de la cuadriga.</b> Suma crecimiento oculto desde el Nv 35 y más desde el Nv 45 (cifras en <a href=\"#/guia/crecimientos\">Crecimientos</a>).</li>\n<li><b>Carga.</b> Ataque en línea de hasta 7 casillas, con 3 usos por mapa. Golpea una vez a cada enemigo y no recibe contraataque<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Al desmontar.</b> Pierde los bonos del caballo y la Carga.</li>\n</ul>\n<p>Encaja con un caballo con vínculo 5 (<a href=\"#/montura/RID_汗血馬\">Caballo de Ferganá</a>, <a href=\"#/montura/RID_ユニコーン\">Monoceronte</a> o <a href=\"#/montura/RID_ロシナン\">Rocinán</a>).</p>"
     ],
     [
      "Consejos de min-max",
-     "<ul>\n<li><b>Pronto en Cai.</b> Captura en cuanto se abra el cap. 5 y alimenta cada día. Para llegar a vínculo 5 hacen falta unos 7–10 días de comida perfecta.</li>\n<li><b>La siguiente montura, antes de tiempo.</b> Captura y alimenta la montura de la etapa siguiente antes de necesitarla: el vínculo sube aunque la clase actual no la monte.</li>\n<li><b>Cebo de ★★★ del tipo correcto.</b> El animal sale siempre y la rara es más probable. Guarda antes, por si hay que repetir hasta que salga la habilidad buena.</li>\n<li><b>Habilidades.</b> Las de movilidad (<a href=\"#/habilidad/SID_再移動\">Movilidad</a>, <a href=\"#/habilidad/SID_共なる疾走\">Unión dinámica</a>) sirven a casi todos. Las de daño dependen del jinete: <a href=\"#/habilidad/SID_共なる魔法集中\">Unión mágica</a> (Magonius; Gol +10 con magia) y <a href=\"#/habilidad/SID_共なる魔法尖鋭\">Unión crítica</a> (Magonius negro; Crí +5 con magia) para los magos; <a href=\"#/habilidad/SID_共なる巨躯\">Unión fornida</a> (Meganius; Con +2) para quien lleve armas pesadas.</li>\n<li><b>Por atributos.</b> <a href=\"#/montura/RID_赤羽のメガニウス\">Meganius rojo</a> (Fue +15 % de crecimiento) para los ornius físicos; <a href=\"#/montura/RID_マジニウス\">Magonius</a> para el Caladrio; <a href=\"#/montura/RID_汗血馬\">Caballo de Ferganá</a> (Def +10 %) para los caballeros. El <a href=\"#/montura/RID_黒馬\">Caballo negro</a> y el <a href=\"#/montura/RID_ブラックバウ\">Bau negro</a> (Vel) solo llegan en la Parte 3.</li>\n<li><b>Misiones.</b> Conserva un <a href=\"#/montura/RID_ペガサス\">Pegaso salvaje</a> para <a href=\"#/mision/SQID_カイ篇_似た者同士\">Un corcel alado</a> (ruta de Cai, caps. 11–12) y dos <a href=\"#/montura/RID_オルニウス\">Ornius salvajes</a> para <a href=\"#/mision/SQID_カイ篇_オルニウスの群れ\">Captura de ornius</a> (ruta de Cai, caps. 5–8).</li>\n<li><b>Abono.</b> La boñiga de bau da la mayor mutación de cultivos (ver <a href=\"#/monturas?ir=establo\">Establo</a>).</li>\n</ul>"
+     "<ul>\n<li><b>Pronto en Cai.</b> Captura en cuanto se abra el cap. 5 y alimenta cada día. Para llegar a vínculo 5 hacen falta unos 7–10 días de comida perfecta.</li>\n<li><b>La siguiente montura, antes de tiempo.</b> Captura y alimenta la montura de la etapa siguiente antes de necesitarla: el vínculo sube aunque la clase actual no la monte.</li>\n<li><b>Cebo de ★★★ del tipo correcto.</b> El animal se queda siempre y la rara sale la mitad de las veces. Guarda antes, por si hay que repetir hasta que salga la habilidad buena.</li>\n<li><b>Habilidades.</b> Las de movilidad (<a href=\"#/habilidad/SID_再移動\">Movilidad</a>, <a href=\"#/habilidad/SID_共なる疾走\">Unión dinámica</a>) sirven a casi todos. Las de daño dependen del jinete: <a href=\"#/habilidad/SID_共なる魔法集中\">Unión mágica</a> (Magonius; Gol +10 con magia) y <a href=\"#/habilidad/SID_共なる魔法尖鋭\">Unión crítica</a> (Magonius negro; Crí +5 con magia) para los magos; <a href=\"#/habilidad/SID_共なる巨躯\">Unión fornida</a> (Meganius; Con +2) para quien lleve armas pesadas.</li>\n<li><b>Por atributos.</b> <a href=\"#/montura/RID_赤羽のメガニウス\">Meganius rojo</a> (Fue +15 % de crecimiento) para los ornius físicos; <a href=\"#/montura/RID_マジニウス\">Magonius</a> para el Caladrio; <a href=\"#/montura/RID_汗血馬\">Caballo de Ferganá</a> (Def +10 %) para los caballeros. El <a href=\"#/montura/RID_黒馬\">Caballo negro</a> y el <a href=\"#/montura/RID_ブラックバウ\">Bau negro</a> (Vel) solo llegan en la Parte 3.</li>\n<li><b>Misiones.</b> Conserva un <a href=\"#/montura/RID_ペガサス\">Pegaso salvaje</a> para <a href=\"#/mision/SQID_カイ篇_似た者同士\">Un corcel alado</a> (ruta de Cai, caps. 11–12) y dos <a href=\"#/montura/RID_オルニウス\">Ornius salvajes</a> para <a href=\"#/mision/SQID_カイ篇_オルニウスの群れ\">Captura de ornius</a> (ruta de Cai, caps. 5–8).</li>\n<li><b>Abono.</b> La boñiga de bau da la mayor mutación de cultivos (ver <a href=\"#/monturas?ir=establo\">Establo</a>).</li>\n</ul>"
     ]
    ]
   },
@@ -528885,7 +528951,7 @@ window.WIKI={
     "rutas",
     "combate",
     "habilidades",
-    "guerra-y-salvacion"
+    "parte-3-salvacion"
    ],
    "enlaces": [
     {
@@ -528905,15 +528971,19 @@ window.WIKI={
    "secs": [
     [
      "En resumen",
-     "<ul>\n<li>Hay 99 batallones. En la Parte 1 solo existen en la ruta de Theodora (desde su cap. 4); en la Parte 2 el juego entrega 12 como suministro, y en la Parte 3 se reclutan si Theodora está en el ejército o se sacan del Arcón de la memoria.</li>\n<li>Uno por unidad; no se pueden asignar a unidades montadas (<a href=\"#/tutorial/TUTO_軍団兵\">tutorial</a>).</li>\n<li>Suben atributos: hasta +3 en Fue, Hab, Vel, Sue y Def, +4 en Mag y Res y +9 en Car. Comparten el <a href=\"#/guia/atributos-de-combate\">tope de +10</a> de las mejoras.</li>\n<li>Cada batallón da una táctica con Pot y Gol propios: ataque, zona (impide el paso), curación o estados (Inmovilidad, Veneno, Silencio, Bloqueo táctico). Cualquier táctica apaga las llamas del terreno.</li>\n<li>Piden rango de Mando: de E a A según el batallón.</li>\n</ul>"
+     "<ul>\n<li>Hay 99 batallones. En la Parte 1 solo existen en la ruta de Theodora (desde su cap. 4); en la Parte 2 el juego entrega 12 como suministro (los de la Parte 1 quedan guardados y pasan al Arcón de la memoria), y en la Parte 3 se reclutan si Theodora está en el ejército o se sacan del Arcón de la memoria.</li>\n<li>Uno por unidad y solo en clases de a pie (<a href=\"#/tutorial/TUTO_軍団兵\">tutorial</a>); sus atributos solo cuentan si el rango de Mando de la unidad llega al que pide el batallón.</li>\n<li>Suben atributos: hasta +3 en Fue, Hab, Vel, Sue y Def, +4 en Mag y Res y +9 en Car. Comparten el <a href=\"#/guia/atributos-de-combate\">tope de +10</a> de las mejoras.</li>\n<li>Cada batallón da una táctica con Pot y Gol propios: ataque, zona (impide el paso), curación o estados (Inmovilidad, Veneno, Silencio, Bloqueo táctico). Cualquier táctica apaga las llamas del terreno.</li>\n<li>Piden rango de Mando: de E a A según el batallón.</li>\n</ul>"
+    ],
+    [
+     "Tácticas",
+     "<ul>\n<li><b>Ata</b> = (Fue + Mag) ÷ 2, redondeado hacia abajo, + Pot de la táctica. Cuentan las mejoras, también las del propio batallón.</li>\n<li><b>Gol</b> = Car + Gol de la táctica. <b>Crí</b> 0.</li>\n<li>Un solo golpe y sin contraataque; las tácticas mágicas van contra la Res.</li>\n<li>El número de soldados del batallón no cambia el daño.</li>\n<li>Cada táctica tiene un número de usos por batalla.</li>\n</ul>"
     ],
     [
      "Cómo funciona",
-     "<p>En la ruta de Theodora los primeros batallones los da la historia (cap. 4); después se reclutan en las poblaciones, y Enviar tropas y el Cuartel completan el sistema. Reclutamiento, envíos, botín de cada zona y las clases que abren los suministros a Saramis: <a href=\"#/senores?ir=theodora\">Sistemas de Theodora</a>. El Car sube el Gol de las tácticas. El estado «Bloqueo táctico» impide usarlas 1 turno.</p>"
+     "<p>En la ruta de Theodora los primeros batallones los da la historia (cap. 4); después se reclutan en las poblaciones, y Enviar tropas y el Cuartel completan el sistema. <b>Reclutar soldados</b> tarda 4 turnos. <b>Enviar tropas</b> manda batallones a buscar, a una zona explorable o a defender un fuerte: hasta 2/3/4/5 a la vez con Prestigio 1/5/7/9, y 8 en la Parte 3. Una expedición de búsqueda o de zona explorable trae 10–30 objetos si el tipo del batallón encaja con el lugar y 8–25 si no. Reclutamiento, envíos, botín de cada zona y las clases que abren los suministros a Saramis: <a href=\"#/senores?ir=theodora\">Sistemas de Theodora</a>. El Car sube el Gol de las tácticas. El estado «Bloqueo táctico» impide usarlas 1 turno.</p>"
     ],
     [
      "Consejos de min-max",
-     "<ul>\n<li>Valorados por la comunidad: los de curación (Circo de Aesobos, con Curación amplia) y la Ópera de Kalla<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Subir Mando con la Plaza de armas (opciones «Pesado», «Magia» y «Montura») y con manuales.</li>\n<li>Fuera de la ruta de Theodora no hay batallones en la Parte 1: no gastar en Mando por ellos hasta la Parte 3.</li>\n</ul>"
+     "<ul>\n<li>Valorados por la comunidad: los de curación (Circo de Aesobos, con Curación amplia) y la Ópera de Kalla<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>La táctica premia Fue + Mag y Car, no el arma: una unidad con mucha Mag y poca Fue hace la mitad de su media.</li>\n<li>Subir Mando con la Plaza de armas (opciones «Pesado», «Magia» y «Montura») y con manuales.</li>\n<li>Fuera de la ruta de Theodora no hay batallones en la Parte 1: no gastar en Mando por ellos hasta la Parte 3.</li>\n</ul>"
     ]
    ]
   },
@@ -528931,12 +529001,13 @@ window.WIKI={
    ],
    "resumen": "Rebobina la batalla a cualquier acción anterior, incluso para salvar a un caído; es gratis en Normal y cuesta Arena divina en Difícil.",
    "preguntas": [
-    "¿Cómo rebobino un combate y cuánto cuesta?"
+    "¿Cómo rebobino un combate y cuánto cuesta?",
+    "¿Por qué al rebobinar vuelvo a fallar el mismo ataque?"
    ],
    "relacionados": [
     "servicio-divino",
     "dificultad",
-    "crecimientos",
+    "azar",
     "combate"
    ],
    "enlaces": [
@@ -528957,15 +529028,142 @@ window.WIKI={
    "secs": [
     [
      "En resumen",
-     "<ul>\n<li>Se abre desde el menú de Bendiciones y vuelve al punto elegido de la lista de acciones pasadas.</li>\n<li>El coste depende de la dificultad: gratis en Normal y 5 de Arena divina por uso en Difícil (costes de todas las Bendiciones en <a href=\"#/guia/dificultad\">Dificultad</a>).</li>\n<li>Comparte la reserva de Arena divina (100) con las demás Bendiciones; se rellena antes de las batallas de historia y de Desvío.</li>\n<li>Repetir las mismas acciones da los mismos resultados: no cambia una subida de nivel.</li>\n<li>Solo afecta a la batalla en curso; deja de estar disponible al declararse la victoria.</li>\n</ul>"
+     "<ul>\n<li>Se abre desde el menú de Bendiciones y vuelve al punto elegido de la lista de acciones pasadas.</li>\n<li>El coste depende de la dificultad: gratis en Normal y 5 de Arena divina por uso en Difícil (costes de todas las Bendiciones en <a href=\"#/guia/dificultad\">Dificultad</a>).</li>\n<li>Comparte la reserva de Arena divina (100) con las demás Bendiciones; se rellena antes de las batallas de historia y de Desvío.</li>\n<li>Repetir las mismas acciones da los mismos resultados; hacer otra cosa antes cambia los golpes y los críticos, pero nunca una subida de nivel.</li>\n<li>Solo afecta a la batalla en curso; deja de estar disponible al declararse la victoria.</li>\n</ul>"
     ],
     [
      "Cómo funciona",
      "<p>Se desbloquea en una batalla fija (cap. 1 en las rutas de Cai y Leda, cap. 2 en las de Dietrich y Theodora), guarda los últimos 100 turnos, se puede usar desde la pantalla de derrota y, si se rebobina a un punto anterior a otra Bendición, devuelve la arena de esa Bendición<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</p>"
     ],
     [
+     "Rebobinar y azar",
+     "<p>Rebobinar devuelve también la secuencia de tiradas al punto elegido. Cada ataque gasta dos tiradas (golpe y crítico) aunque falle, y cada habilidad de activación una más. Por eso:</p>\n<ul>\n<li>repetir el mismo ataque en el mismo orden da el mismo resultado;</li>\n<li>atacar antes con otra unidad, cambiar el orden o elegir otro objetivo cambia lo que sale;</li>\n<li>mover la cámara, abrir menús o mirar previsiones no gasta tiradas.</li>\n</ul>\n<p>Las subidas de nivel van con una secuencia propia de cada unidad y no cambian al rebobinar. Más en <a href=\"#/guia/azar\">azar</a>.</p>"
+    ],
+    [
      "Consejos de min-max",
-     "<ul>\n<li>En Clásico, rebobinar antes de perder a un recluta.</li>\n<li>Más usos de las Bendiciones: <a href=\"#/trucos?s=bendiciones\">Bendiciones y arena</a>.</li>\n</ul>"
+     "<ul>\n<li>En Clásico, rebobinar antes de perder a un recluta.</li>\n<li>Si un golpe clave falla, rebobinar y meter antes otro ataque barato (o cambiar el orden) da otra tirada; repetirlo igual falla igual.</li>\n<li>Más usos de las Bendiciones: <a href=\"#/trucos?s=bendiciones\">Bendiciones y arena</a>.</li>\n</ul>"
+    ]
+   ]
+  },
+  {
+   "id": "azar",
+   "titulo": "Azar y recargar partida",
+   "alias": [
+    "azar",
+    "rng",
+    "aleatorio",
+    "aleatoriedad",
+    "tiradas",
+    "recargar",
+    "recargar partida",
+    "cargar partida",
+    "save scum",
+    "savescum",
+    "suerte del juego"
+   ],
+   "resumen": "Qué decide el azar del juego, qué queda fijo al guardar y qué cambia de verdad al recargar, en combate, subidas de nivel, exámenes, botín, cajas y actividades.",
+   "preguntas": [
+    "¿Recargar la partida cambia el resultado de un ataque?",
+    "¿Se puede cambiar una subida de nivel mala?",
+    "¿Cuándo se decide el contenido de una caja?",
+    "¿Por qué la búsqueda da siempre lo mismo al recargar?"
+   ],
+   "relacionados": [
+    "fortuna",
+    "combate",
+    "crecimientos",
+    "busqueda",
+    "clases"
+   ],
+   "enlaces": [
+    {
+     "texto": "Fórmulas de combate",
+     "ruta": "#/mecanicas"
+    },
+    {
+     "texto": "Bendiciones y arena",
+     "ruta": "#/trucos?s=bendiciones"
+    }
+   ],
+   "tema": "combate",
+   "secs": [
+    [
+     "En resumen",
+     "<ul>\n<li>Casi todo el azar sale de una secuencia de números que se guarda con la partida: recargar y repetir lo mismo da el mismo resultado.</li>\n<li>Cada ataque gasta 2 números (golpe y crítico), acierte o no. Atacar antes con otra unidad o cambiar el orden cambia lo que sale.</li>\n<li>Las subidas de nivel son fijas para cada unidad: no las cambian ni recargar ni el orden de los combates. Solo un intento de examen las desplaza un puesto.</li>\n<li>El botín de cada enemigo se decide cuando aparece; el contenido de una caja, cuando se consigue.</li>\n<li>El clima, los encuentros, los PNJ del campamento, los reclutas generados y la obra del teatro dependen de la fecha del juego.</li>\n</ul>"
+    ],
+    [
+     "Qué cambia al recargar",
+     "<div class=\"tw\"><table class=\"md\"><tr><th>Qué</th><th>Cuándo se decide</th><th>¿Recargar lo cambia?</th><th>Cómo cambiarlo</th></tr><tr><td>Golpe y crítico</td><td>Al atacar</td><td>No</td><td>Hacer antes otra acción que tire (otro ataque, otro orden), o rebobinar con <a href=\"#/guia/fortuna\">Fortuna</a> y cambiar algo</td></tr><tr><td>Subidas de nivel</td><td>Secuencia propia de cada unidad</td><td>No</td><td>Un intento de examen de esa unidad antes de subir</td></tr><tr><td>Examen de clase</td><td>Secuencia propia de cada unidad</td><td>No</td><td>Subir un nivel u otro intento antes</td></tr><tr><td>Botín de enemigos</td><td>Al aparecer el enemigo</td><td>No, una vez en el mapa</td><td>Recargar antes de que aparezca y gastar antes otra cantidad de tiradas</td></tr><tr><td>Contenido de cajas</td><td>Al comprar, ganar o recibir la caja</td><td><b>Sí</b></td><td>Recargar antes de conseguirla</td></tr><tr><td>Búsqueda, cebo, entrenamiento, voluntariado, teatro, termas, adivinación</td><td>Al hacerlo</td><td>No</td><td>Gastar antes tiradas con otra actividad o cambiar el orden</td></tr><tr><td>Cambio de mineral, fallo de la forja</td><td>Al hacerlo</td><td>Sí</td><td>Recargar y repetir</td></tr><tr><td>Clima de cada zona, encuentros</td><td>Fecha y franja horaria</td><td>No</td><td>Esperar a otra franja o a otro día</td></tr><tr><td>PNJ del campamento, reclutas generados, obra del teatro</td><td>Fecha</td><td>No</td><td>Esperar a otro día</td></tr><tr><td>Regalos, tienda, negociaciones de reclutamiento</td><td>Sin azar</td><td>—</td><td>—</td></tr></table></div>\n<p>Gastan tiradas: cada ataque (2), cada habilidad de activación en combate (1), cada enemigo que aparece (2) y las actividades de la tabla. No gastan nada la cámara, los menús, las animaciones ni dejar pasar el tiempo.</p>"
+    ],
+    [
+     "Combate",
+     "<p>Hasta el 50 % el Golpe mostrado es exacto; por encima, la probabilidad real es mayor (75 mostrado acierta el 85 %). El crítico se tira aparte y vale lo que muestra la previsión. Fórmulas y tabla completa en <a href=\"#/guia/combate\">Combate</a>.</p>"
+    ],
+    [
+     "Subidas de nivel y exámenes",
+     "<ul>\n<li>Cada unidad lleva su propia secuencia: la próxima subida ya está decidida y no depende de lo que hagan las demás.</li>\n<li>Lo que sube depende de los crecimientos de la clase en el momento de subir: con la misma tirada, una clase con más crecimiento en un atributo lo sube más a menudo (<a href=\"#/guia/crecimientos\">crecimientos</a>).</li>\n<li>Cada subida y cada intento de examen, aprobado o no, avanzan la secuencia un paso. El cambio de clase por sí solo no la mueve.</li>\n<li>El examen también usa esa secuencia: si no aprueba, recargar no sirve; hay que subir un nivel antes.</li>\n</ul>"
+    ],
+    [
+     "Consejos de min-max",
+     "<ul>\n<li>Un golpe clave que falla no se arregla recargando: hay que atacar antes con otra unidad, cambiar el orden o rebobinar y hacer otra cosa.</li>\n<li>Para mejorar una subida de nivel, cambiar antes de clase (otros crecimientos) o mover la secuencia con un intento de examen; ojo, eso cambia también todas las subidas siguientes.</li>\n<li>Guardar antes de comprar o recibir una caja: si el contenido no convence, recargar.</li>\n<li>Si la búsqueda sale Mala o el cebo trae otro animal, recargar y hacer antes otra actividad que tire (adivinación, entrenamiento) o buscar en otro orden.</li>\n<li>Si hoy no llueve en una zona, recargar no lo cambia: hay que cambiar de franja o de día.</li>\n<li>Cada autoguardado (batalla, zona explorable, contacto con enemigos del mapa) congela todo lo anterior.</li>\n</ul>"
+    ]
+   ]
+  },
+  {
+   "id": "ia-enemiga",
+   "titulo": "IA enemiga",
+   "alias": [
+    "ia enemiga",
+    "ia",
+    "inteligencia artificial",
+    "comportamiento enemigo",
+    "a quién ataca el enemigo",
+    "a quien ataca el enemigo",
+    "atraer enemigos",
+    "cebar a la ia",
+    "enemigos que esperan",
+    "despertar enemigos",
+    "aggro"
+   ],
+   "resumen": "Cuándo se activa cada enemigo, a quién elige atacar y desde qué casilla, cuándo se cura o se retira, y cómo aprovecharlo para atraerlos de uno en uno.",
+   "preguntas": [
+    "¿A quién ataca la IA enemiga?",
+    "¿Por qué hay enemigos que no se mueven?",
+    "¿Cómo atraigo a los enemigos de uno en uno?",
+    "¿Cuándo se retira un enemigo a curarse?"
+   ],
+   "relacionados": [
+    "batalla-basica",
+    "combate",
+    "terreno",
+    "enemigos-especiales"
+   ],
+   "enlaces": [
+    {
+     "texto": "Batallas",
+     "ruta": "#/batallas"
+    },
+    {
+     "texto": "Calculadora de combate",
+     "ruta": "#/calculadora"
+    }
+   ],
+   "tema": "combate",
+   "secs": [
+    [
+     "En resumen",
+     "<ul>\n<li>Cada enemigo tiene una condición para activarse: desde el primer turno, al tener un objetivo a su alcance, en un turno fijo, al entrar alguien en una zona o cuando lo ordena la batalla. Una vez activo, sigue activo.</li>\n<li>Ataca a quien tenga más probabilidad de matar, si llega al 30 %; si nadie llega, a quien más daño esperado haga.</li>\n<li>Su propio riesgo casi no lo frena: solo cuenta a partir de un 50 % de morir.</li>\n<li>En empate, ataca desde la casilla de mejor terreno y moviéndose lo menos posible.</li>\n<li>Con menos del 75 % de PV usa un objeto curativo si lo lleva; con menos del 50 % deja de atacar para curarse o retirarse.</li>\n</ul>"
+    ],
+    [
+     "Cuándo se mueve",
+     "<div class=\"tw\"><table class=\"md\"><tr><th>Tipo</th><th>Comportamiento</th></tr><tr><td>Activo</td><td>Actúa desde la primera fase enemiga</td></tr><tr><td>Espera a tener objetivo</td><td>No se mueve hasta que una unidad entra en su Mov + alcance; es el más común</td></tr><tr><td>Quieto hasta el turno N</td><td>Se activa en ese turno, o antes si alguien entra en su alcance</td></tr><tr><td>Zona</td><td>Se activa cuando una unidad entra en un rectángulo del mapa</td></tr><tr><td>Grupo</td><td>Si uno de su grupo tiene objetivo, despierta el grupo entero</td></tr></table></div>\n<ul>\n<li>Casi todos despiertan también al ser atacados, y con ellos su grupo. Unos pocos no despiertan ni así, como la guardia de Dyan en la <a href=\"#/batalla/SC13_13\">batalla del fuerte de Zanbar</a>.</li>\n<li>Algunos persiguen y después vuelven a su casilla; otros no salen de una zona del mapa.</li>\n<li>Hay perfiles con objetivo fijo: ir a por el señor, a por los aliados verdes, a por el carruaje o a saquear cofres y huir. Algunos nunca atacan a una unidad concreta: en el <a href=\"#/batalla/SC12_17\">combate de exhibición contra Mars</a>, Mars solo ataca a Dietrich y parte de su equipo nunca lo ataca.</li>\n<li>La ficha de cada <a href=\"#/batallas\">batalla</a> dice qué condición tiene cada enemigo.</li>\n</ul>"
+    ],
+    [
+     "A quién ataca",
+     "<p>La IA simula cada ataque posible, con el Golpe real y el crítico ×3 de la previsión (<a href=\"#/guia/combate\">combate</a>), y lo puntúa en este orden:</p>\n<ol>\n<li><b>Probabilidad de matar</b>, ignorada si es menor del 30 %.</li>\n<li><b>Daño esperado</b>: daño × probabilidad de acertar, sin pasar de los PV que le quedan al objetivo.</li>\n<li><b>Riesgo de morir</b>, que solo resta a partir del 50 %.</li>\n</ol>\n<p>Si dos ataques empatan, elige la casilla con mejor bono de terreno y, después, la que le obliga a moverse menos. Con 0 % de Golpe no ataca.</p>\n<p>Unos pocos enemigos de batallas concretas (la del fuerte de Zanbar, la <a href=\"#/batalla/SC14_14\">Confrontación con Martila</a>, <a href=\"#/batalla/SCXX_00\">La gran evasión</a>) puntúan al revés: primero evitar morir, luego matar.</p>\n<p>En la batalla automática, las unidades del jugador también usan ese modo prudente y descartan cualquier ataque con un 50 % o más de morir.</p>"
+    ],
+    [
+     "Consejos de min-max",
+     "<ul>\n<li><b>Atraer de uno en uno:</b> entrar en el alcance de un solo enemigo que espera con una unidad que aguante, y rematarlo en la fase del jugador. Cuidado con los grupos: tocar a uno despierta a todos.</li>\n<li><b>Elegir el cebo:</b> será quien más daño esperado reciba sin llegar al 30 % de morir. Tiene que aguantar todos sus golpes: PV mayores que golpes × (Ata − Agu), con dos golpes si la VA enemiga supera la suya en 4.</li>\n<li><b>Dejar de ser el objetivo:</b> bajar el daño esperado con bosque, Esq alta (Golpe mostrado de 50 o menos), Def o VA suficiente para no recibir el ataque doble.</li>\n<li><b>Unidades heridas:</b> con pocos PV atraen menos por daño, pero mucho más en cuanto entran en el 30 % de morir.</li>\n<li><b>Muros:</b> contra la IA normal, un muro con mucho contraataque no disuade; solo cuenta lo que ella gana.</li>\n<li><b>Terreno:</b> ocupar los bosques que rodean al cebo obliga al enemigo a atacar desde llano, y el contraataque llega sin su bono de Esq.</li>\n<li><b>Enemigos con objeto curativo:</b> rematarlos en el mismo turno o dejarlos por encima del 50 %, para que no se retiren.</li>\n<li><b>Relojes:</b> los enemigos «quieto hasta el turno N» marcan el tiempo; si la victoria es derrotar al jefe, hacerlo antes ahorra la oleada.</li>\n</ul>"
     ]
    ]
   },
@@ -529050,7 +529248,7 @@ window.WIKI={
     ],
     [
      "Tabla de atributos de combate",
-     "<div class=\"tw\"><table class=\"md\"><tr><th>Atributo</th><th>Abrev.</th><th>Qué hace (juego)</th><th>De dónde sale</th></tr><tr><td>Ataque</td><td>Ata</td><td>Potencia de los ataques físicos y mágicos</td><td>Es el At fís o el At mág del arma equipada</td></tr><tr><td>Ataque físico</td><td>At fís</td><td>Daño con armas físicas</td><td>Fue, Pot del arma y bonos</td></tr><tr><td>Ataque mágico</td><td>At mág</td><td>Daño con magia</td><td>Mag, Pot del hechizo y bonos</td></tr><tr><td>Ataque especial</td><td>At esp</td><td>No le afectan el Agu ni la Rsl del enemigo</td><td>Daño de ataques especiales que ignoran la defensa</td></tr><tr><td>Aguante</td><td>Agu</td><td>Mitiga los ataques físicos; «relacionado con Def/Res»</td><td>Def + bonos de combate</td></tr><tr><td>Resiliencia</td><td>Rsl</td><td>Mitiga los ataques mágicos</td><td>Res + bonos de combate</td></tr><tr><td>Golpe</td><td>Gol</td><td>Probabilidad de acertar</td><td>Golpe del arma o hechizo, Hab (y Sue en magia)</td></tr><tr><td>Esquivar</td><td>Esq</td><td>Probabilidad de evitar el ataque</td><td>VA, terreno y bonos</td></tr><tr><td>Crítico</td><td>Crí</td><td>Probabilidad de golpe crítico (triple de daño)</td><td>Crí del arma, Hab y Sue</td></tr><tr><td>Evitar</td><td>Evit</td><td>Probabilidad de evitar recibir críticos</td><td>Sue + bonos<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span></td></tr><tr><td>Velocidad de ataque</td><td>VA</td><td>Ataque doble si supera la del enemigo en 4 o más</td><td>Vel menos el peso que no cubre la Con</td></tr><tr><td>Alcance</td><td>Alc</td><td>Distancia desde la que se ataca</td><td>La del arma o el hechizo</td></tr></table></div>\n<p>Previsión: el Gol mostrado es el Gol propio menos la Esq del rival, y el Crí es el Crí propio menos el Evit del rival. Ambos quedan entre 0 y 100. Por eso el Gol de la ficha puede pasar de 100<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Las fórmulas exactas están en <a href=\"#/guia/combate\">Combate</a> y en <a href=\"#/mecanicas\">Fórmulas de combate</a>.</p>"
+     "<div class=\"tw\"><table class=\"md\"><tr><th>Atributo</th><th>Abrev.</th><th>Qué hace (juego)</th><th>De dónde sale</th></tr><tr><td>Ataque</td><td>Ata</td><td>Potencia de los ataques físicos y mágicos</td><td>Es el At fís o el At mág del arma equipada</td></tr><tr><td>Ataque físico</td><td>At fís</td><td>Daño con armas físicas</td><td>Fue, Pot del arma y bonos</td></tr><tr><td>Ataque mágico</td><td>At mág</td><td>Daño con magia</td><td>Mag, Pot del hechizo y bonos</td></tr><tr><td>Ataque especial</td><td>At esp</td><td>No le afectan el Agu ni la Rsl del enemigo</td><td>Daño de ataques especiales que ignoran la defensa</td></tr><tr><td>Aguante</td><td>Agu</td><td>Mitiga los ataques físicos; «relacionado con Def/Res»</td><td>Def + bonos de combate</td></tr><tr><td>Resiliencia</td><td>Rsl</td><td>Mitiga los ataques mágicos</td><td>Res + bonos de combate</td></tr><tr><td>Golpe</td><td>Gol</td><td>Probabilidad de acertar</td><td>Golpe del arma o hechizo, Hab (y Sue en magia)</td></tr><tr><td>Esquivar</td><td>Esq</td><td>Probabilidad de evitar el ataque</td><td>VA + Esq del arma, terreno y bonos; no usa la Sue</td></tr><tr><td>Crítico</td><td>Crí</td><td>Probabilidad de golpe crítico (triple de daño)</td><td>Crí del arma, Hab y Sue</td></tr><tr><td>Evitar</td><td>Evit</td><td>Probabilidad de evitar recibir críticos</td><td>Sue + Evit del arma + bonos</td></tr><tr><td>Velocidad de ataque</td><td>VA</td><td>Ataque doble si supera la del enemigo en 4 o más</td><td>Vel menos el peso que no cubre la Con</td></tr><tr><td>Alcance</td><td>Alc</td><td>Distancia desde la que se ataca</td><td>La del arma o el hechizo</td></tr></table></div>\n<p>Previsión: el Gol mostrado es el Gol propio menos la Esq del rival, y el Crí es el Crí propio menos el Evit del rival. Ambos quedan entre 0 y 100. Por eso el Gol de la ficha puede pasar de 100. Hasta el 50 % el Gol mostrado es exacto; por encima, el real es mayor (75 mostrado acierta el 85 %). Las fórmulas exactas están en <a href=\"#/guia/combate\">Combate</a> y en <a href=\"#/mecanicas\">Fórmulas de combate</a>.</p>"
     ],
     [
      "Agu y Rsl frente a Def y Res",
@@ -529058,11 +529256,11 @@ window.WIKI={
     ],
     [
      "Evitar",
-     "<p>Evit es un atributo propio, no la Sue a secas. Lo suben:</p>\n<ul>\n<li><b>apoyos</b>: el grupo de cazadores y arqueros (Cazador, Arquero, Pícaro, Tirador…) da hasta Evit +5;</li>\n<li><b>habilidades</b>: <a href=\"#/habilidad/SID_致命避け\">Evasión fatal</a> (infantería), <a href=\"#/habilidad/SID_無事の祈り\">Plegaria</a> (aliados adyacentes), <a href=\"#/habilidad/SID_愛馬との連携\">Nunca sin corcel</a> (caballería que ataca primero) y habilidades de despertar como <a href=\"#/habilidad/SID_嵐ノ覚醒\">Despertar fulminante</a>;</li>\n<li>lo baja <a href=\"#/habilidad/SID_闇呼び\">Llamado oscuro</a>, que da Evit negativo a los enemigos adyacentes.</li>\n</ul>\n<p>La base es la Sue<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Muchos enemigos llevan además un Crí negativo oculto, así que sus críticos son raros (ver <a href=\"#/guia/combate\">Combate</a>).</p>"
+     "<p>Evit es un atributo propio, no la Sue a secas. Lo suben:</p>\n<ul>\n<li><b>apoyos</b>: el grupo de cazadores y arqueros (Cazador, Arquero, Pícaro, Tirador…) da hasta Evit +5;</li>\n<li><b>habilidades</b>: <a href=\"#/habilidad/SID_致命避け\">Evasión fatal</a> (infantería), <a href=\"#/habilidad/SID_無事の祈り\">Plegaria</a> (aliados adyacentes), <a href=\"#/habilidad/SID_愛馬との連携\">Nunca sin corcel</a> (caballería que ataca primero) y habilidades de despertar como <a href=\"#/habilidad/SID_嵐ノ覚醒\">Despertar fulminante</a>;</li>\n<li>lo baja <a href=\"#/habilidad/SID_闇呼び\">Llamado oscuro</a>, que da Evit negativo a los enemigos adyacentes.</li>\n</ul>\n<p>La base es la Sue más el Evit del arma. Muchos enemigos llevan además un Crí negativo oculto, así que sus críticos son raros (ver <a href=\"#/guia/combate\">Combate</a>).</p>"
     ],
     [
      "Bonos: de dónde vienen",
-     "<p>Al pulsar X sobre una cifra, la ficha la desglosa en Valor base, Clase, Modificador, Mejora apoyo, Ignición y Ráfaga.</p>\n<ul>\n<li><b>Clase</b>: modificador fijo mientras se está en ella (ver <a href=\"#/guia/estadisticas\">estadísticas</a>).</li>\n<li><b>Apoyos</b>: hasta cuatro aliados adyacentes dan mejoras según el grupo de apoyo de su clase y el nivel de apoyo, como Gol +10 o Crí +10 a nivel 5 (<a href=\"#/apoyos?ir=bonos-de-combate\">tabla</a>).</li>\n<li><b>Habilidades y armas</b>: bonos directos de combate.</li>\n<li><b>Supraignición y ráfaga</b>: cambian atributos mientras dura el estado (ver <a href=\"#/guia/ignicion\">ignición</a>).</li>\n<li><b>Tope</b>: las mejoras de atributos básicos de un aliado no pasan de +10. En los enemigos el límite es 99.</li>\n</ul>"
+     "<p>Al pulsar X sobre una cifra, la ficha la desglosa en Valor base, Clase, Modificador, Mejora apoyo, Ignición y Ráfaga.</p>\n<ul>\n<li><b>Clase</b>: modificador fijo mientras se está en ella (ver <a href=\"#/guia/estadisticas\">estadísticas</a>).</li>\n<li><b>Apoyos</b>: hasta cuatro aliados adyacentes dan mejoras según el grupo de apoyo de <b>la clase del aliado</b> y el nivel de apoyo, como Gol +10 o Crí +10 a nivel 5 (<a href=\"#/apoyos?ir=bonos-de-combate\">tabla</a>). Cada pareja de personajes suma además un bono propio siempre que estén al lado, aunque aún no tengan nivel de apoyo. Son bonos de combate (Ata, Gol, Esq…), no de Fue o Def.</li>\n<li><b>Habilidades y armas</b>: bonos directos de combate.</li>\n<li><b>Supraignición y ráfaga</b>: cambian atributos mientras dura el estado (ver <a href=\"#/guia/ignicion\">ignición</a>).</li>\n<li><b>Tope</b>: las mejoras de atributos básicos de un aliado no pasan de +10 sobre su valor propio; en los enemigos el límite es 99. El terreno y el apoyo quedan fuera del tope.</li>\n<li><b>Accesorios rotos</b>: siguen sumando sus atributos (y su peso).</li>\n</ul>"
     ],
     [
      "Leer la previsión del combate",
@@ -529070,7 +529268,7 @@ window.WIKI={
     ],
     [
      "Consejos de min-max",
-     "<ul>\n<li>Contra acorazados (mucho Agu, poca Rsl), magia; contra magos, armas físicas o los hechizos que atacan el Agu.</li>\n<li>La VA es la cifra que más vale: da ataques dobles y, como Esq = VA, también defensa.</li>\n<li>Los bonos de Agu y Rsl de combate se suman sin tope: una unidad que defiende en la fase enemiga gana mucho con Def paciente o el Hacha guardiana.</li>\n<li>Antes de dejar a una unidad al alcance, mirar si alguna línea es amarilla.</li>\n</ul>"
+     "<ul>\n<li>Contra acorazados (mucho Agu, poca Rsl), magia; contra magos, armas físicas o los hechizos que atacan el Agu.</li>\n<li>La VA es la cifra que más vale: da ataques dobles y, como la Esq sale de la VA, también defensa. Quitar el escudo o el orbe a quien deba esquivar sube las dos a la vez.</li>\n<li>Los bonos de Agu y Rsl de combate se suman sin tope: una unidad que defiende en la fase enemiga gana mucho con Def paciente o el Hacha guardiana.</li>\n<li>Antes de dejar a una unidad al alcance, mirar si alguna línea es amarilla.</li>\n</ul>"
     ]
    ]
   },
@@ -529120,11 +529318,12 @@ window.WIKI={
     "¿Cuándo puede contraatacar una unidad?",
     "¿Qué pasa con la EXP de los invitados?",
     "¿Cómo funciona la batalla automática?",
-    "¿Qué pasa si cae una unidad?"
+    "¿Qué pasa si cae una unidad?",
+    "¿Cuándo aparecen los refuerzos y se pueden bloquear?"
    ],
    "relacionados": [
     "combate",
-    "armas",
+    "ia-enemiga",
     "magia",
     "enemigos-especiales",
     "fortuna"
@@ -529155,11 +529354,11 @@ window.WIKI={
    "secs": [
     [
      "En resumen",
-     "<ul>\n<li>Cada <b>turno</b> tiene la <b>fase</b> del jugador y la del enemigo. La fase acaba cuando todas las unidades han actuado o al elegir «Terminar fase».</li>\n<li>Se mueve una unidad dentro de su área azul y se elige una orden. Hasta confirmar, se puede cancelar y repetir el movimiento.</li>\n<li>La <b>zona de peligro</b> marca adónde llega el ataque enemigo; las <b>líneas de ataque</b> dicen quién va a por quién y con qué.</li>\n<li>Antes de luchar están los <b>preparativos</b>: elegir unidades, desplegar y ajustar el inventario.</li>\n<li>Con 0 PV la unidad se retira. En Novato vuelve tras la batalla y en Clásico muere, salvo que se rebobine con <a href=\"#/guia/fortuna\">Fortuna</a>.</li>\n</ul>"
+     "<ul>\n<li>Cada <b>turno</b> tiene la <b>fase</b> del jugador y la del enemigo. La fase acaba cuando todas las unidades han actuado o al elegir «Terminar fase».</li>\n<li>Se mueve una unidad dentro de su área azul y se elige una orden. Hasta confirmar, se puede cancelar y repetir el movimiento.</li>\n<li>La <b>zona de peligro</b> marca adónde llega el ataque enemigo; las <b>líneas de ataque</b> dicen quién va a por quién y con qué.</li>\n<li>Antes de luchar están los <b>preparativos</b>: elegir unidades, desplegar y ajustar el inventario.</li>\n<li>Los enemigos siguen reglas fijas para activarse y elegir objetivo: ver <a href=\"#/guia/ia-enemiga\">IA enemiga</a>.</li>\n<li>Con 0 PV la unidad se retira. En Novato vuelve tras la batalla y en Clásico muere, salvo que se rebobine con <a href=\"#/guia/fortuna\">Fortuna</a>.</li>\n</ul>"
     ],
     [
      "Cómo funciona",
-     "<p><b>Mover y actuar.</b> Al llegar a la casilla sale el menú de órdenes. «Esperar» cierra el turno de la unidad. Con «Atacar» se elige arma o hechizo y aparece el análisis del ataque (Golpe, daño y crítico de los dos). Una X roja en el análisis avisa de que la unidad cae si el rival acierta todos sus golpes<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Cómo leer cada cifra está en <a href=\"#/guia/atributos-de-combate\">Atributos de combate</a>.</p>\n<p><b>Contraataques.</b> El defensor responde si su arma llega a esa distancia. Un arco (alcance 2) no recibe respuesta de una espada, pero tampoco responde a un enemigo pegado a él. La magia de 1–2 responde a las dos distancias. Se contraataca con la última arma con la que se atacó<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</p>\n<p><b>Zona de peligro.</b> Con el cursor sobre un enemigo se ve su alcance, que se puede dejar fijo; también se puede mostrar el de todos los enemigos a la vez.</p>\n<p><b>Líneas de ataque.</b> Si una unidad está en la zona de un enemigo, una línea los une. Su color dice qué va a usar:</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Color</th><th>Ataque</th></tr><tr><td>Rojo</td><td>Normal</td></tr><tr><td>Amarillo</td><td>Crítico alto</td></tr><tr><td>Morado</td><td>Eficaz o muy eficaz</td></tr><tr><td>Morado oscuro</td><td>Técnica de ignición</td></tr></table></div>\n<p>Varias líneas sobre la misma unidad significan varios atacantes: suele convenir moverla.</p>"
+     "<p><b>Mover y actuar.</b> Al llegar a la casilla sale el menú de órdenes. «Esperar» cierra el turno de la unidad. Con «Atacar» se elige arma o hechizo y aparece el análisis del ataque (Golpe, daño y crítico de los dos). Una X roja en el análisis avisa de que la unidad cae si el rival acierta todos sus golpes<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Cómo leer cada cifra está en <a href=\"#/guia/atributos-de-combate\">Atributos de combate</a>.</p>\n<p><b>Contraataques.</b> El defensor responde si su arma llega a esa distancia. Un arco (alcance 2) no recibe respuesta de una espada, pero tampoco responde a un enemigo pegado a él. La magia de 1–2 responde a las dos distancias. Se contraataca con la última arma con la que se atacó<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Las tácticas de batallón nunca reciben contraataque, y un tomo sin usos no contraataca.</p>\n<p><b>Zona de peligro.</b> Con el cursor sobre un enemigo se ve su alcance, que se puede dejar fijo; también se puede mostrar el de todos los enemigos a la vez.</p>\n<p><b>Líneas de ataque.</b> Si una unidad está en la zona de un enemigo, una línea los une. Su color dice qué va a usar:</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Color</th><th>Ataque</th></tr><tr><td>Rojo</td><td>Normal</td></tr><tr><td>Amarillo</td><td>Crítico alto</td></tr><tr><td>Morado</td><td>Eficaz o muy eficaz</td></tr><tr><td>Morado oscuro</td><td>Técnica de ignición</td></tr></table></div>\n<p>Varias líneas sobre la misma unidad significan varios atacantes: suele convenir moverla.</p>"
     ],
     [
      "Órdenes",
@@ -529167,15 +529366,15 @@ window.WIKI={
     ],
     [
      "Victoria, derrota y sorpresas",
-     "<p><b>Condiciones.</b> Las más comunes: derrotar a todos, derrotar a un jefe, resistir X turnos o llevar a alguien al objetivo. Se pierde si caen todas las unidades o el Señor de la Llama de la batalla. Hay reglas propias, como accionar mecanismos, reunir orbes o proteger a civiles.</p>\n<p><b>Refuerzos.</b> Entran por los bordes del mapa o por los puntos invocadores; conviene no dejar flancos vacíos.</p>\n<p><b>Invitados.</b> Se unen a mitad de batalla, se ven en azul claro y los controla el jugador. Al acabar, su EXP se reparte entre las unidades del jugador y lo que hayan conseguido va al Carro. Usan sus propias armas, así que sus técnicas salen gratis<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</p>\n<p><b>Enemigos con ◆.</b> Llevan un objeto que se queda quien los derrota. Algunos llevan llaves de cofre.</p>\n<p><b>Mapas de reaparición.</b> En algunos mapas, quien cae vuelve con todos sus PV a su zona de reaparición, pero no actúa ese turno (<a href=\"#/tutorial/TUTO_復活について\">tutorial</a>).</p>"
+     "<p><b>Condiciones.</b> Las más comunes: derrotar a todos, derrotar a un jefe, resistir X turnos o llevar a alguien al objetivo. Se pierde si caen todas las unidades o el Señor de la Llama de la batalla. Hay reglas propias, como accionar mecanismos, reunir orbes o proteger a civiles.</p>\n<p><b>Refuerzos.</b> Entran por los bordes del mapa o por los puntos invocadores.</p>\n<ul>\n<li>Los de turno fijo aparecen al empezar la fase del jugador de ese turno y no actúan hasta la fase enemiga: hay una fase entera para recibirlos o apartarse. Salen aunque ya no quede ningún enemigo.</li>\n<li>Ocupar su casilla de entrada no los detiene: aparecen en la casilla libre más cercana. Solo en la <a href=\"#/batalla/SC00_15\">batalla final</a>, la <a href=\"#/batalla/SC12_09\">clasificatoria contra los Caballeros Argénteos de Tellus</a> (Dietrich 6) y la <a href=\"#/batalla/SC13_13\">batalla del fuerte de Zanbar</a> (Theodora 12) una casilla ocupada anula esa aparición.</li>\n<li>Los de zona solo salen si una unidad entra en ella; los dispara la primera que entra.</li>\n</ul>\n<p><b>Invitados.</b> Se unen a mitad de batalla, se ven en azul claro y los controla el jugador. Al acabar, su EXP se reparte entre las unidades del jugador y lo que hayan conseguido va al Carro. Usan sus propias armas, así que sus técnicas salen gratis<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</p>\n<p><b>Enemigos con ◆.</b> Llevan un objeto que se queda quien los derrota. Algunos llevan llaves de cofre.</p>\n<p><b>Mapas de reaparición.</b> En algunos mapas, quien cae vuelve con todos sus PV a su zona de reaparición, pero no actúa ese turno (<a href=\"#/tutorial/TUTO_復活について\">tutorial</a>).</p>"
     ],
     [
      "Preparativos y ayudas",
-     "<ul>\n<li><b>Elegir unidades:</b> el número varía por batalla; las del candado van obligatorias.</li>\n<li><b>Despliegue:</b> se intercambian posiciones de dos en dos; las casillas verdes son fijas.</li>\n<li><b>Inventario:</b> armas, equipo, habilidades y técnicas; hay botones para optimizar todo.</li>\n<li><b>Previsión del Cuervo Blanco:</b> datos estratégicos de la próxima batalla principal. Hay que visitar su percha antes; luego se consulta en la Guía.</li>\n<li><b>Batalla automática:</b> desde el menú, los aliados actúan solos con una de cuatro estrategias: Avanzar, Defender, Atacar o Retroceder. Se puede cancelar.</li>\n</ul>"
+     "<ul>\n<li><b>Elegir unidades:</b> el número varía por batalla; las del candado van obligatorias.</li>\n<li><b>Despliegue:</b> se intercambian posiciones de dos en dos; las casillas verdes son fijas.</li>\n<li><b>Inventario:</b> armas, equipo, habilidades y técnicas; hay botones para optimizar todo.</li>\n<li><b>Previsión del Cuervo Blanco:</b> datos estratégicos de la próxima batalla principal. Hay que visitar su percha antes; luego se consulta en la Guía.</li>\n<li><b>Batalla automática:</b> desde el menú, los aliados actúan solos con una de cuatro estrategias: Avanzar, Defender, Atacar o Retroceder. Se puede cancelar. Las unidades descartan cualquier ataque con un 50 % o más de morir.</li>\n</ul>"
     ],
     [
      "Consejos de min-max",
-     "<ul>\n<li>Acabar cada fase con las unidades frágiles fuera de toda zona de peligro y los tanques en el borde, para que el enemigo choque con ellos.</li>\n<li>Las líneas amarillas y moradas son las peligrosas: un crítico triplica el daño y la eficacia duplica o triplica la Pot del arma.</li>\n<li>Hablar no gasta la acción: hablar primero y después atacar o esperar.</li>\n<li>Matar primero a los portadores de llaves y de ◆, y tener un plan para los refuerzos del borde.</li>\n<li>La batalla automática sirve para escaramuzas fáciles; en Clásico es arriesgada.</li>\n</ul>"
+     "<ul>\n<li>Acabar cada fase con las unidades frágiles fuera de toda zona de peligro y los tanques en el borde, para que el enemigo choque con ellos.</li>\n<li>Las líneas amarillas y moradas son las peligrosas: un crítico triplica el daño y la eficacia duplica o triplica la Pot del arma.</li>\n<li>Hablar no gasta la acción: hablar primero y después atacar o esperar.</li>\n<li>Matar primero a los portadores de llaves y de ◆, y tener un plan para los refuerzos del borde.</li>\n<li>Si la victoria es derrotar al jefe, matarlo antes del turno de un refuerzo hace que ese refuerzo no llegue a salir.</li>\n<li>Para no disparar refuerzos de zona, rodearla o cruzarla con todo el grupo en un mismo turno, entrando primero con quien aguante la oleada.</li>\n<li>La batalla automática sirve para escaramuzas fáciles; en Clásico es arriesgada.</li>\n</ul>"
     ]
    ]
   },
@@ -529245,7 +529444,7 @@ window.WIKI={
     ],
     [
      "Reservas de PV",
-     "<p>Las gemas rojas bajo la barra de PV son reservas (<a href=\"#/tutorial/TUTO_HPストック\">tutorial</a>). Cuando los PV llegan a 0, el enemigo gasta una gema y se cura del todo. Solo cae cuando llega a 0 sin gemas.</p>"
+     "<p>Las gemas rojas bajo la barra de PV son reservas (<a href=\"#/tutorial/TUTO_HPストック\">tutorial</a>). Cuando los PV llegan a 0, el enemigo gasta una gema y se cura del todo. Solo cae cuando llega a 0 sin gemas. En algunas batallas, gastar una gema además potencia al jefe o le da una habilidad nueva (Mars, Balor).</p>"
     ],
     [
      "Golpes demoledores y ataques de jefe",
@@ -529253,7 +529452,11 @@ window.WIKI={
     ],
     [
      "Batallas con reglas propias",
-     "<ul>\n<li><b>Elefantes enloquecidos</b> (<a href=\"#/batalla/SC12_10\">Dietrich 7</a>): ver <a href=\"#/guia/mecanicas-de-batalla\">Mecánicas especiales</a>.</li>\n<li><b>Combate contra los gigantes</b> (<a href=\"#/batalla/SCXX_04\">Encuentro amistoso con el rey</a>, rutas de Cai, Dietrich y Theodora): gana quien derrote antes a 4 de los 7 gigantes. Las unidades a 0 PV reaparecen curadas. La <a href=\"#/objeto/IID_巨大肉\">Comida de gigante</a>, dada a 3 casillas o menos, hace al gigante invencible un turno y le impide atacar a esa unidad.</li>\n<li><b>Barrera de Balor</b> (<a href=\"#/batalla/SC00_15\">batalla final</a>): casi no se puede romper a golpes. Destruir el primer portal de la batalla deja hacerle el 50 % del daño, y el segundo, el 100 %. Si se destruyeron los demás portales en el mapa del mundo, los de esta batalla aguantan menos y los refuerzos son más débiles.</li>\n</ul>"
+     "<ul>\n<li><b>Elefantes enloquecidos</b> (<a href=\"#/batalla/SC12_10\">Dietrich 7</a>): ver <a href=\"#/guia/mecanicas-de-batalla\">Mecánicas especiales</a>.</li>\n<li><b>Combate contra los gigantes</b> (<a href=\"#/batalla/SCXX_04\">Encuentro amistoso con el rey</a>, rutas de Cai, Dietrich y Theodora): gana quien derrote antes a 4 de los 7 gigantes. Las unidades a 0 PV reaparecen curadas. La <a href=\"#/objeto/IID_巨大肉\">Comida de gigante</a>, dada a 3 casillas o menos, hace al gigante invencible un turno y le impide atacar a esa unidad.</li>\n<li><b>Barrera de Balor</b> (<a href=\"#/batalla/SC00_15\">batalla final</a>): casi no se puede romper a golpes. Destruir el primer portal de la batalla deja hacerle el 50 % del daño, y el segundo, el 100 %.</li>\n<li>Los portales de invocación salen por parejas: los primeros a los 3 turnos y luego cada 2. Cada uno suelta grupos que van a por el señor; cuantas más gemas le quedan a Balor, más grandes son.</li>\n<li>Las casillas de invocación se marcan un turno antes: ocuparlas anula esa aparición.</li>\n<li>Cada batalla de portal de la Parte 3 superada quita los tres jefes con nombre de ese portal, y menos portales sin superar significa menos grupos. Los señores reclutados tampoco salen como enemigos.</li>\n<li>Balor alterna fases en las que no ataca.</li>\n</ul>"
+    ],
+    [
+     "Jefes que esperan",
+     "<p>Muchos jefes no se mueven hasta tener un objetivo a su alcance, y otros esperan a un turno fijo. Mientras, se puede limpiar a su escolta y atacarlos con todo en una sola fase (<a href=\"#/guia/ia-enemiga\">IA enemiga</a>). Contra una unidad grande del ejército, el enemigo golpea primero la sección con menos barrera.</p>"
     ],
     [
      "Refuerzos y Favor infernal",
@@ -529261,7 +529464,7 @@ window.WIKI={
     ],
     [
      "Consejos de min-max",
-     "<ul>\n<li>Contra una unidad grande, romper primero la sección que protege a quien va a dar el golpe fuerte.</li>\n<li>Guardar la Bendición de Fortuna para un golpe demoledor mal calculado.</li>\n<li>En la Parte 3, destruir portales en el mapa del mundo antes de la batalla final la hace mucho más fácil.</li>\n</ul>"
+     "<ul>\n<li>Contra una unidad grande, romper primero la sección que protege a quien va a dar el golpe fuerte.</li>\n<li>Guardar la Bendición de Fortuna para un golpe demoledor mal calculado.</li>\n<li>Contra jefes con gemas, romper la gema y rematar la siguiente barra en la misma fase, antes de que actúe potenciado.</li>\n<li>En la Parte 3, destruir portales en el mapa del mundo antes de la batalla final la hace mucho más fácil.</li>\n</ul>"
     ]
    ]
   },
@@ -529357,7 +529560,7 @@ window.WIKI={
     ],
     [
      "Topes y mejoras",
-     "<ul>\n<li><b>Tope de atributo.</b> El tope personal y el de clase valen 99 para todos. El máximo real es 99 más el modificador fijo de la clase actual. Por ejemplo, un Hoplita (Def +9) puede llegar a 108 de Def, y un Espadachín (Hab +7, Vel +7) a 106 en ambas.</li>\n<li><b>Modificador de clase.</b> Es un bono fijo mientras se está en la clase: Jinete de ornius Vel +3, Soldado acorazado Def +4 y Vel −2, Hoplita Def +9 y Vel −5. Se recalcula al cambiar de clase y no cuenta como crecimiento.</li>\n<li><b>Mejoras.</b> Los bonos temporales de habilidades, objetos o batallones tienen un tope de +10: ver <a href=\"#/guia/atributos-de-combate\">Atributos de combate</a>.</li>\n<li><b>Nivel.</b> El nivel máximo es 99. Un atributo en su tope ya no sube.</li>\n</ul>"
+     "<ul>\n<li><b>Tope de atributo.</b> Es el menor entre el tope de la clase y el personal, más el modificador fijo de la clase actual. Los dos valen 99 para todos, así que el máximo real es 99 más ese modificador. Por ejemplo, un Hoplita (Def +9) puede llegar a 108 de Def, y un Espadachín (Hab +7, Vel +7) a 106 en ambas. La montura, los objetos y las habilidades no cuentan para el tope.</li>\n<li><b>Nada se pierde.</b> Lo que pase del tope de la clase actual se guarda y vuelve a verse en una clase con modificador más alto.</li>\n<li><b>Modificador de clase.</b> Es un bono fijo mientras se está en la clase: Jinete de ornius Vel +3, Soldado acorazado Def +4 y Vel −2, Hoplita Def +9 y Vel −5. Se recalcula al cambiar de clase y no cuenta como crecimiento.</li>\n<li><b>Mejoras.</b> Los bonos temporales de habilidades, objetos o batallones suman como mucho +10 sobre el valor propio del atributo: ver <a href=\"#/guia/atributos-de-combate\">Atributos de combate</a>.</li>\n<li><b>Nivel.</b> El nivel máximo es 99. Un atributo en su tope ya no sube.</li>\n</ul>"
     ],
     [
      "Suelo de clase",
@@ -529480,7 +529683,10 @@ window.WIKI={
     "reserva de dagsion",
     "exp de reserva",
     "autocrecimiento",
-    "nivel de los reclutas"
+    "nivel de los reclutas",
+    "bote de invitados",
+    "exp de invitados",
+    "exp de bastones"
    ],
    "resumen": "De dónde sale la EXP, cuánto hace falta por nivel, cómo influye la diferencia de nivel, la Exp de clase hasta dominarla, la reserva y el nivel con que llegan los reclutas.",
    "preguntas": [
@@ -529488,7 +529694,9 @@ window.WIKI={
     "¿Cómo subo de nivel rápido?",
     "¿Cuál es el nivel máximo?",
     "¿Cuánta Exp de clase hace falta para dominar una clase?",
-    "¿Ganan EXP las unidades que no luchan?"
+    "¿Ganan EXP las unidades que no luchan?",
+    "¿Cuánta EXP da la Batalla rápida?",
+    "¿Dan EXP los contraataques?"
    ],
    "relacionados": [
     "crecimientos",
@@ -529527,35 +529735,39 @@ window.WIKI={
    "secs": [
     [
      "En resumen",
-     "<ul>\n<li>Cada nivel cuesta 100 EXP, del 1 al 99, y la dificultad no cambia la EXP.</li>\n<li>EXP = base × factor de diferencia de nivel × factor de nivel propio. Un enemigo de más nivel paga mucho más; uno 5 niveles por debajo, casi nada.</li>\n<li>Curar da EXP fija según el bastón, sin importar el nivel del objetivo.</li>\n<li>La Exp de clase es aparte: 15 (Plebeyo), 30, 60, 100, 130 o 160 puntos para dominar una clase según su rango.</li>\n<li>En la Parte 3, los aliados de la Reserva de Dagsion ganan EXP al final de cada turno en el mapa del mundo.</li>\n<li>Los reclutas que se unen tarde llegan subidos solos, pero con el 80 % de su crecimiento personal y sin el de clase.</li>\n</ul>"
+     "<ul>\n<li>Cada nivel cuesta 100 EXP, del 1 al 99, y la dificultad no cambia la EXP.</li>\n<li>EXP de un enemigo = base de su clase × factor de diferencia de nivel × factor de nivel propio. Matar de un golpe a un enemigo con la vida llena da el doble de esa cifra; uno 5 niveles por debajo da casi nada.</li>\n<li>Curar da EXP fija según el bastón, la misma a cualquier nivel.</li>\n<li>La Exp de clase es aparte: 15 (Plebeyo), 30, 60, 100, 130 o 160 puntos para dominar una clase según su rango.</li>\n<li>En la Parte 3, los aliados de la Reserva de Dagsion ganan EXP y Exp de clase al final de cada turno en el mapa del mundo.</li>\n<li>Los reclutas que se unen tarde llegan subidos solos, con el 80 % de su crecimiento (personal más el modificador de su clase prevista).</li>\n</ul>"
     ],
     [
      "Cómo se gana EXP",
-     "<div class=\"tw\"><table class=\"md\"><tr><th>Fuente</th><th>Cuánto</th></tr><tr><td>Atacar y derrotar</td><td>Base según la clase del enemigo: 15 en clases iniciales e intermedias, 20 en avanzadas, 25 en supremas, 30 en divinas y 35–45 en monstruos especiales; matar da más que golpear</td></tr><tr><td>Jefes</td><td>×2</td></tr><tr><td>Curar y apoyar</td><td>EXP fija del bastón: 10 (Curar, Antorcha…), 15 (Recuperar, Sanar, Rescatar…) o 20 (Fortalecer), solo con el factor de nivel propio</td></tr><tr><td>Batalla rápida</td><td>Quien remata es el <b>as</b> y gana ×3; la reserva, ×0,5</td></tr><tr><td>Reserva de Dagsion (Parte 3)</td><td>Una pequeña cantidad al final de cada turno en el mapa del mundo (base 5)</td></tr><tr><td>Actividades auto. → Combate</td><td>EXP por turno según el nivel frente al nivel base del capítulo: 10 por debajo 10; 5 por debajo 8; igual 5; +1 3; +2/+3 2; +4 1<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span></td></tr><tr><td>Ayuda de salvación «Exp adicional»</td><td>+10 % a +50 % (ver <a href=\"#/guia/esquirlas\">esquirlas</a>)</td></tr></table></div>\n<p>La EXP no baja por tardar turnos.</p>"
+     "<div class=\"tw\"><table class=\"md\"><tr><th>Fuente</th><th>Cuánto</th></tr><tr><td>Combate en el mapa</td><td>Cada combate da la fracción de vida quitada × la EXP del enemigo (mínimo 1 si hay daño), y matar suma la EXP entera. Los contraataques cuentan igual</td></tr><tr><td>Base del enemigo</td><td>Según su clase: 15 en clases iniciales e intermedias, 20 en avanzadas, 25 en supremas, 30 en divinas y 35–45 en monstruos especiales. La clase propia no cambia nada</td></tr><tr><td>Jefes</td><td>×2</td></tr><tr><td>Bastones y técnicas de apoyo</td><td>EXP fija, sin factor de nivel: 10 (<a href=\"#/objeto/IID_ライブ\">Curar</a>, <a href=\"#/objeto/IID_トーチ\">Antorcha</a>, <a href=\"#/objeto/IID_マジックシールド\">Escudo mágico</a>…), 15 (<a href=\"#/objeto/IID_リカバー\">Recuperar</a>, <a href=\"#/objeto/IID_リブロー\">Sanar</a>, <a href=\"#/objeto/IID_レスキュー\">Rescatar</a>, <a href=\"#/objeto/IID_ワープ\">Transportar</a>…) o 20 (<a href=\"#/objeto/IID_リザーブ\">Fortalecer</a>); cantos, bailes, formaciones y maleficios dan 10, 15, 20 o 30</td></tr><tr><td>Bastones de estado</td><td><a href=\"#/objeto/IID_サイレス\">Silencio</a> y <a href=\"#/objeto/IID_フリーズ\">Congelar</a> valen como un enemigo de base 20 y <a href=\"#/objeto/IID_バサーク\">Locura</a> de base 25, con los dos factores de nivel</td></tr><tr><td>Invitados</td><td>Lo que ganan los invitados va a un bote; al acabar el mapa se reparte ×1,5 entre las unidades propias, recalculado al nivel de cada una (mínimo 1)</td></tr><tr><td>Batalla rápida</td><td>Ver abajo</td></tr><tr><td>Reserva de Dagsion (Parte 3)</td><td>Al final de cada turno en el mapa del mundo, como un enemigo de base 5, y 1 de Exp de clase</td></tr><tr><td>Actividades auto. → Combate</td><td>Por turno, como un enemigo de base 5 con el nivel base del ejército: unas 10 EXP 10 niveles por debajo, 8 a 5 por debajo, 5 al mismo nivel, 3 un nivel por encima, 2 a dos o tres por encima y 1 a partir de cuatro</td></tr><tr><td>Ayuda de salvación «Exp adicional»</td><td>+10 % a +50 % en cada combate, redondeando hacia abajo (ver <a href=\"#/guia/esquirlas\">esquirlas</a>)</td></tr></table></div>\n<p>La EXP no baja por tardar turnos.</p>"
+    ],
+    [
+     "Batalla rápida",
+     "<p>No hay EXP por golpe: se reparte al final. Cada participante suma la EXP de matar a todos los enemigos de la batalla, la divide entre 5, y se queda la cifra entera en el frente o la mitad en la reserva. Quien remata es el <b>as</b> y gana el triple. Si remata un invitado, cada participante suma 2/5 de su parte. La ayuda «Exp adicional» se aplica una vez al total. Además, un participante al azar gana 1 de competencia de Autoridad. La EXP de competencia solo se gana en los primeros 15 asaltos.</p>"
     ],
     [
      "Diferencia de nivel y nivel propio",
-     "<p><b>Factor de diferencia</b> (nivel enemigo − nivel propio, recortado entre −5 y +20):</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Diferencia</th><th>≤ −5</th><th>−3</th><th>−1</th><th>0</th><th>+1</th><th>+3</th><th>+5</th><th>+10</th><th>≥ +20</th></tr><tr><td>%</td><td>1</td><td>30</td><td>50</td><td>100</td><td>110</td><td>130</td><td>150</td><td>200</td><td>300</td></tr></table></div>\n<p><b>Factor de nivel propio</b>: 150 % a nivel 1, baja 5 puntos por nivel hasta 100 % a nivel 11–12, y después 1 punto cada 2 niveles: 96 % a nivel 20, 86 % a nivel 40 y 56 % a nivel 99.</p>\n<p>Ejemplos: un nivel 10 que mata a un enemigo de nivel 12 gana el 126 % de la base. Un nivel 25 contra un nivel 20 gana el 1 %.</p>\n<p>El nivel de los enemigos sale del de las 10 unidades de más nivel del ejército (ver <a href=\"#/guia/combate\">Combate</a>): subir mucho a pocos sube a todos los enemigos.</p>"
+     "<p><b>Factor de diferencia</b> (nivel enemigo − nivel propio, recortado entre −5 y +20):</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Diferencia</th><th>≤ −5</th><th>−4</th><th>−3</th><th>−2</th><th>−1</th><th>0</th><th>+1</th><th>+5</th><th>+10</th><th>≥ +20</th></tr><tr><td>%</td><td>1</td><td>20</td><td>30</td><td>40</td><td>50</td><td>100</td><td>110</td><td>150</td><td>200</td><td>300</td></tr></table></div>\n<p><b>Factor de nivel propio</b>: 150 % a nivel 1, baja 5 puntos por nivel hasta 100 % a nivel 11–12, y después 1 punto cada 2 niveles: 96 % a nivel 20, 86 % a nivel 40 y 56 % a nivel 99.</p>\n<p>Ejemplos: un nivel 10 que mata a un enemigo de nivel 12 gana el 126 % de la base. Un nivel 25 contra un nivel 20 gana el 1 %: 1 EXP por combate con daño y 1 más si mata.</p>\n<p>El nivel de los enemigos sale del de las 10 unidades de más nivel del ejército (ver <a href=\"#/guia/combate\">Combate</a>): subir mucho a pocos sube a todos los enemigos. Las tropas del mapa salen a ese nivel más 1, con todas sus unidades al mismo nivel y recortadas al rango de la región, salvo en los puntos de control y en la Parte 3 (<a href=\"#/guia/escaramuzas\">Tropas del mapa y escaramuzas</a>).</p>"
     ],
     [
      "Nivel máximo y lo que da cada nivel",
-     "<ul>\n<li>Nivel máximo: 99, en todas las partes.</li>\n<li>Cada subida tira cada atributo contra su crecimiento. En las Partes 1 y 2 sube al menos 2 atributos; en la Parte 3 no hay mínimo. Ver <a href=\"#/guia/crecimientos\">crecimientos</a>.</li>\n<li>Las competencias de arma tienen su propia EXP, separada de la de nivel (ver <a href=\"#/guia/armas\">armas</a>).</li>\n</ul>"
+     "<ul>\n<li>Nivel máximo: 99, en todas las partes.</li>\n<li>Cada subida tira cada atributo contra su crecimiento. En las Partes 1 y 2 sube al menos 2 atributos; en la Parte 3 no hay mínimo. Ver <a href=\"#/guia/crecimientos\">crecimientos</a>.</li>\n<li>Las competencias de arma tienen su propia EXP, separada de la de nivel (ver <a href=\"#/guia/armas\">armas</a>).</li>\n<li>Reiniciar el capítulo o la batalla devuelve la EXP, el nivel y la secuencia de subidas al estado guardado.</li>\n</ul>"
     ],
     [
      "Exp de clase y dominio",
-     "<p>La Exp de clase se cuenta aparte de la EXP de nivel. Al llenarla, la clase queda dominada y su habilidad maestra se puede equipar en cualquier clase (ver <a href=\"#/guia/clases\">clases</a>).</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Rango de clase</th><th>Exp de clase para dominarla</th><th>Nivel recomendado</th></tr><tr><td>Básica (<a href=\"#/clase/JID_無職\">Plebeyo</a>)</td><td>15</td><td>—</td></tr><tr><td>Inicial</td><td>30</td><td>5</td></tr><tr><td>Intermedia</td><td>60</td><td>20</td></tr><tr><td>Avanzada</td><td>100</td><td>35</td></tr><tr><td>Suprema</td><td>130</td><td>45</td></tr><tr><td>Divina</td><td>160</td><td>—</td></tr></table></div>\n<ul>\n<li>Sube al combatir. En la Batalla rápida solo cuentan los primeros 15 asaltos.</li>\n<li>Actividades auto. → Entrenar, en la Posada, también da Exp de clase (1 por turno), así que se puede dominar una clase puente sin luchar en ella.</li>\n<li>El nivel recomendado no bloquea el examen, pero estar por debajo baja la probabilidad de aprobar, y con seis niveles o más de diferencia es 0.</li>\n</ul>"
+     "<p>La Exp de clase se cuenta aparte de la EXP de nivel. Al llenarla, la clase queda dominada y su habilidad maestra se puede equipar en cualquier clase (ver <a href=\"#/guia/clases\">clases</a>).</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Rango de clase</th><th>Exp de clase para dominarla</th><th>Nivel recomendado</th></tr><tr><td>Básica (<a href=\"#/clase/JID_無職\">Plebeyo</a>)</td><td>15</td><td>—</td></tr><tr><td>Inicial</td><td>30</td><td>5</td></tr><tr><td>Intermedia</td><td>60</td><td>20</td></tr><tr><td>Avanzada</td><td>100</td><td>35</td></tr><tr><td>Suprema</td><td>130</td><td>45</td></tr><tr><td>Divina</td><td>160</td><td>—</td></tr></table></div>\n<ul>\n<li>En combate sube 1 por cada combate en que la unidad actúa por su cuenta (ataca o usa una técnica o un bastón); los contraataques no dan nada. No importa el daño ni el enemigo. La bendición «Exp de clase adicional» suma +1/+2 por combate. Una clase dominada ya no gana más.</li>\n<li>Actividades auto. → Entrenar, en la Posada, también da Exp de clase (1 por turno) y 1 de Exp de competencia por turno a un tipo al azar, así que se puede dominar una clase puente sin luchar en ella. Combate da también 1 de Exp de clase por turno, además de la EXP de personaje. Cualquier actividad tiene una probabilidad de Suerte/2 % de dar el doble.</li>\n<li>En la Parte 3, la fusión de unidades conserva la mejor Exp de clase de cada copia.</li>\n<li>El nivel recomendado no bloquea el examen, pero estar por debajo baja la probabilidad de aprobar, y con seis niveles o más de diferencia es 0.</li>\n</ul>"
     ],
     [
      "Reclutas tardíos y llegada a las Partes 2 y 3",
-     "<ul>\n<li>Mientras no se reclutan, los personajes suben solos: un nivel menos que el ejército y el 80 % de su crecimiento personal, sin crecimiento de clase. Lo mismo vale para quien se une en la Parte 3.</li>\n<li>Su clase y sus competencias también se eligen solas, según sus aptitudes.</li>\n<li>Nivel previsto al unirse: 35 en la Parte 2 y 40 en la Parte 3. Saltar la Parte 2 suma 5 niveles.</li>\n<li>Los señores de las otras rutas, al unirse en la Parte 3, suben con el 70 % de su crecimiento personal.</li>\n</ul>\n<p>Por eso conviene <a href=\"#/guia/reclutamiento\">reclutar</a> pronto: quien llega tarde trae menos atributos que si se hubiera subido a mano.</p>"
+     "<ul>\n<li>Mientras no se reclutan, los personajes suben solos, sin azar: el 80 % de su crecimiento (personal más el modificador de la clase que les marca su lista para cada nivel), con al menos 2 atributos por nivel y sin montura. Lo mismo vale para quien se une en la Parte 3.</li>\n<li>Llegan un nivel por debajo del nivel de reclutamiento que marca el capítulo (o del nivel base del ejército si no marca ninguno). En la ruta de Cai, por ejemplo, <a href=\"#/personaje/PID_ミカエラ\">Mikaela</a> llega a nivel 17. Depende del capítulo, no del ejército: subir mucho a pocos no los trae más fuertes.</li>\n<li>Si el juego crea al personaje antes de que se una (por ejemplo, al consultar sus apoyos), sube en dos tandas y pierde los restos de la primera: llega algo más flojo.</li>\n<li>Su clase y sus competencias también se eligen solas, según sus aptitudes.</li>\n<li>Nivel previsto al unirse: 35 en la Parte 2 y 40 en la Parte 3. Saltar la Parte 2 suma 5 niveles.</li>\n<li>Los señores de las otras rutas, al unirse en la Parte 3, suben con el 70 % de su crecimiento.</li>\n</ul>\n<p>Por eso conviene <a href=\"#/guia/reclutamiento\">reclutar</a> pronto a quien tiene crecimientos altos: pierde un 20 % por cada nivel que no sube a mano. Para uno de crecimientos medios, llegar tarde cuesta poco.</p>"
     ],
     [
      "Victoria instantánea",
      "<p>En las zonas explorables, si el grupo tiene mucho más nivel que el enemigo, basta con golpearlo en el mapa para vencer sin combatir. Ahorra tiempo en grupos que ya no suponen ningún reto. Ver <a href=\"#/guia/mazmorras\">zonas explorables</a>.</p>"
     ],
     [
-     "Subir de nivel rápido",
-     "<ul>\n<li>Rematar con las unidades bajas a enemigos de nivel igual o superior: la diferencia de nivel multiplica la EXP.</li>\n<li>Dejar a los jefes para quien más lo necesite (×2).</li>\n<li>En la Batalla rápida, elegir quién será el as (×3).</li>\n<li>Las momias plateadas del mapa dan EXP extra.</li>\n<li>Comprar pronto la Ayuda de salvación «Exp adicional».</li>\n<li>Perder una batalla y reintentarla conserva la EXP ganada.</li>\n</ul>"
+     "Consejos de min-max",
+     "<ul>\n<li>Rematar con las unidades bajas a enemigos de nivel igual o superior, y con un golpe que quite toda la vida: la diferencia de nivel multiplica la EXP y matar de un golpe la dobla.</li>\n<li>Dejar a los jefes para quien más lo necesite (×2).</li>\n<li>En la Batalla rápida, elegir quién será el as (×3) y no dejar en la reserva a quien deba subir (×0,5).</li>\n<li>Los sanadores ganan lo mismo a cualquier nivel: curar sigue rindiendo cuando la diferencia de nivel ya no da nada.</li>\n<li>Los mapas con invitados reparten lo que ellos maten: dejarles bajas no se pierde.</li>\n<li>Las momias plateadas del mapa dan EXP extra.</li>\n<li>Comprar pronto la Ayuda de salvación «Exp adicional».</li>\n</ul>"
     ]
    ]
   },
@@ -529623,11 +529835,11 @@ window.WIKI={
     ],
     [
      "Cómo funciona",
-     "<p><b>Ataque.</b> Se elige «Atacar» y el hechizo como si fuera un arma. El daño sale del Ataque mágico (Mag + Pot del hechizo) contra la Resiliencia (Rsl) del rival, no contra su Agu (ver <a href=\"#/guia/atributos-de-combate\">atributos de combate</a>). Algunos hechizos llegan más lejos: Haz estelar 1–3, Thanatos 1–4.</p>\n<p><b>Sanación y apoyo.</b> Curar, Recuperar, Sanar y compañía se usan con <b>Apoyo</b> en el menú de órdenes, sobre un aliado dentro del alcance. Dos cifras mandan:</p>\n<ul>\n<li><b>Curación</b>: potencia de la magia de sanación del arma.</li>\n<li><b>Recuperación</b>: PV que recibe el objetivo.</li>\n</ul>\n<p>Curar con magia también sube el apoyo entre las dos unidades.</p>\n<p><b>Usos.</b> Cada hechizo trae su número de usos (Curar 10, Recuperar 5, Fortalecer 2, Rescatar 1…), y la ficha los muestra como «Usos magia». No gasta durabilidad de armas.</p>\n<p><b>Equipo que ayuda.</b> Los bastones de equipo (<a href=\"#/objeto/IID_魔導の杖\">Bastón de hechicero</a>, <a href=\"#/objeto/IID_癒しの杖\">Bastón de sanación</a>, <a href=\"#/objeto/IID_ブラギの絵筆\">Pincel de Bragi</a>…) se llevan en su propia ranura y mejoran la magia (ver <a href=\"#/guia/equipo-y-objetos\">Equipo</a>).</p>"
+     "<p><b>Ataque.</b> Se elige «Atacar» y el hechizo como si fuera un arma. El daño sale del Ataque mágico (Mag + Pot del hechizo) contra la Resiliencia (Rsl) del rival, no contra su Agu (ver <a href=\"#/guia/atributos-de-combate\">atributos de combate</a>). El Golpe y el Crí mágicos usan ⌊(Hab + Sue) ÷ 2⌋ en lugar de la Hab, así que la Sue también cuenta para acertar. Algunos hechizos llegan más lejos: Haz estelar 1–3, Thanatos 1–4.</p>\n<p><b>Sanación y apoyo.</b> Curar, Recuperar, Sanar y compañía se usan con <b>Apoyo</b> en el menú de órdenes, sobre un aliado dentro del alcance. Dos cifras mandan:</p>\n<ul>\n<li><b>Curación</b>: potencia de la magia de sanación del arma.</li>\n<li><b>Recuperación</b>: PV que recibe el objetivo, ⌊Mag ÷ 3⌋ + Pot del hechizo (Curar 10, Sanar 8, Fortalecer 20, Recuperar 30).</li>\n</ul>\n<p>Curar con magia también sube el apoyo entre las dos unidades.</p>\n<p><b>Usos.</b> Cada hechizo trae su número de usos (Curar 10, Recuperar 5, Fortalecer 2, Rescatar 1…), y la ficha los muestra como «Usos magia». Cada ataque con un hechizo gasta un uso, y sin usos no se puede atacar ni contraatacar con él. No gasta durabilidad de armas.</p>\n<p><b>Equipo que ayuda.</b> Los bastones de equipo (<a href=\"#/objeto/IID_魔導の杖\">Bastón de hechicero</a>, <a href=\"#/objeto/IID_癒しの杖\">Bastón de sanación</a>, <a href=\"#/objeto/IID_ブラギの絵筆\">Pincel de Bragi</a>…) se llevan en su propia ranura y mejoran la magia (ver <a href=\"#/guia/equipo-y-objetos\">Equipo</a>).</p>"
     ],
     [
      "Tipos",
-     "<div class=\"tw\"><table class=\"md\"><tr><th>Familia</th><th>Ejemplos</th><th>Para qué</th></tr><tr><td>Negra (fuego, trueno, viento, hielo)</td><td><a href=\"#/objeto/IID_ファイアー\">Fuego</a>, <a href=\"#/objeto/IID_ボルガノン\">Bolganone</a>, <a href=\"#/objeto/IID_サンダー\">Trueno</a>, <a href=\"#/objeto/IID_トロン\">Thoron</a>, <a href=\"#/objeto/IID_ウィンド\">Viento</a>, <a href=\"#/objeto/IID_ブリザー\">Ventisca</a>, <a href=\"#/objeto/IID_アグネアの矢\">Flecha de Agnea</a>, <a href=\"#/objeto/IID_フィンブルの夜\">Fimbulvetr nocturno</a></td><td>Daño a 1–2 casillas</td></tr><tr><td>Oscura (usa Magia negra)</td><td><a href=\"#/objeto/IID_スライムB\">Ciénaga Β</a>, <a href=\"#/objeto/IID_デスΓ\">Agonía Γ</a>, <a href=\"#/objeto/IID_ウォームZ\">Enjambre Ζ</a>, <a href=\"#/objeto/IID_バンシーΘ\">Banshee Θ</a>, <a href=\"#/objeto/IID_ダークスパイクΤ\">Púas oscuras Τ</a></td><td>Largo alcance, crítico, robo de Vel, Inmovilidad, eficaz contra caballería</td></tr><tr><td>Blanca de curación</td><td><a href=\"#/objeto/IID_ライブ\">Curar</a>, <a href=\"#/objeto/IID_リカバー\">Recuperar</a>, <a href=\"#/objeto/IID_リブロー\">Sanar</a> (1–10), <a href=\"#/objeto/IID_リザーブ\">Fortalecer</a> (área 1–5), <a href=\"#/objeto/IID_ライア\">Laia</a></td><td>PV a aliados</td></tr><tr><td>Blanca de ataque</td><td><a href=\"#/objeto/IID_リザイア\">Nosferatu</a>, <a href=\"#/objeto/IID_エンジェル\">Ángeles</a>, <a href=\"#/objeto/IID_オーラ\">Aura</a>, <a href=\"#/objeto/IID_スターライト\">Haz estelar</a>, <a href=\"#/objeto/IID_タナトス\">Thanatos</a></td><td>Daño; Nosferatu cura al atacante</td></tr><tr><td>Blanca de apoyo</td><td><a href=\"#/objeto/IID_レスト\">Restaurar</a>, <a href=\"#/objeto/IID_バリアー\">Barrera</a>, <a href=\"#/objeto/IID_マジックシールド\">Escudo mágico</a>, <a href=\"#/objeto/IID_レスキュー\">Rescatar</a>, <a href=\"#/objeto/IID_ワープ\">Transportar</a>, <a href=\"#/objeto/IID_エマージス\">Emergis</a></td><td>Quitar estados, mitad de daño, Res +10, Evit +30, mover aliados</td></tr><tr><td>Blanca de estados</td><td><a href=\"#/objeto/IID_サイレス\">Silencio</a>, <a href=\"#/objeto/IID_フリーズ\">Congelar</a>, <a href=\"#/objeto/IID_バサーク\">Locura</a></td><td>Silencio, Inmovilidad o Confusión a un rival (60 de Golpe)</td></tr></table></div>\n<p>Con lluvia, el trueno se potencia y el fuego se debilita (ver <a href=\"#/guia/terreno\">terreno y clima</a>).</p>"
+     "<div class=\"tw\"><table class=\"md\"><tr><th>Familia</th><th>Ejemplos</th><th>Para qué</th></tr><tr><td>Negra (fuego, trueno, viento, hielo)</td><td><a href=\"#/objeto/IID_ファイアー\">Fuego</a>, <a href=\"#/objeto/IID_ボルガノン\">Bolganone</a>, <a href=\"#/objeto/IID_サンダー\">Trueno</a>, <a href=\"#/objeto/IID_トロン\">Thoron</a>, <a href=\"#/objeto/IID_ウィンド\">Viento</a>, <a href=\"#/objeto/IID_ブリザー\">Ventisca</a>, <a href=\"#/objeto/IID_アグネアの矢\">Flecha de Agnea</a>, <a href=\"#/objeto/IID_フィンブルの夜\">Fimbulvetr nocturno</a></td><td>Daño a 1–2 casillas</td></tr><tr><td>Oscura (usa Magia negra)</td><td><a href=\"#/objeto/IID_スライムB\">Ciénaga Β</a>, <a href=\"#/objeto/IID_デスΓ\">Agonía Γ</a>, <a href=\"#/objeto/IID_ウォームZ\">Enjambre Ζ</a>, <a href=\"#/objeto/IID_バンシーΘ\">Banshee Θ</a>, <a href=\"#/objeto/IID_ダークスパイクΤ\">Púas oscuras Τ</a></td><td>Largo alcance, crítico, robo de Vel, Inmovilidad, eficaz contra caballería</td></tr><tr><td>Blanca de curación</td><td><a href=\"#/objeto/IID_ライブ\">Curar</a>, <a href=\"#/objeto/IID_リカバー\">Recuperar</a>, <a href=\"#/objeto/IID_リブロー\">Sanar</a> (1–10), <a href=\"#/objeto/IID_リザーブ\">Fortalecer</a> (área 1–5), <a href=\"#/objeto/IID_ライア\">Laia</a></td><td>PV a aliados</td></tr><tr><td>Blanca de ataque</td><td><a href=\"#/objeto/IID_リザイア\">Nosferatu</a>, <a href=\"#/objeto/IID_エンジェル\">Ángeles</a>, <a href=\"#/objeto/IID_オーラ\">Aura</a>, <a href=\"#/objeto/IID_スターライト\">Haz estelar</a>, <a href=\"#/objeto/IID_タナトス\">Thanatos</a></td><td>Daño; Nosferatu cura al atacante</td></tr><tr><td>Blanca de apoyo</td><td><a href=\"#/objeto/IID_レスト\">Restaurar</a>, <a href=\"#/objeto/IID_バリアー\">Barrera</a>, <a href=\"#/objeto/IID_マジックシールド\">Escudo mágico</a>, <a href=\"#/objeto/IID_レスキュー\">Rescatar</a>, <a href=\"#/objeto/IID_ワープ\">Transportar</a>, <a href=\"#/objeto/IID_エマージス\">Emergis</a></td><td>Quitar estados, mitad de daño, Res +10, Evit +30, mover aliados</td></tr><tr><td>Blanca de estados</td><td><a href=\"#/objeto/IID_サイレス\">Silencio</a>, <a href=\"#/objeto/IID_フリーズ\">Congelar</a>, <a href=\"#/objeto/IID_バサーク\">Locura</a></td><td>Silencio, Inmovilidad o Confusión a un rival (60 de Golpe)</td></tr></table></div>\n<p>Con lluvia, el trueno se potencia y el fuego se debilita (ver <a href=\"#/guia/terreno\">terreno y clima</a>). Algunas técnicas de armas físicas también son mágicas (Lanza gélida, Hacha relámpago…): ver <a href=\"#/guia/tecnicas\">técnicas</a>.</p>"
     ],
     [
      "Cómo se consigue",
@@ -529639,7 +529851,7 @@ window.WIKI={
     ],
     [
      "Consejos de min-max",
-     "<ul>\n<li>Llevar al menos un sanador con Curar y otro hechizo de apoyo; en el tiempo libre, guardar usos para la escaramuza siguiente.</li>\n<li>Usar la magia contra acorazados y unidades de mucha Def, y dejar las armas para los magos rivales de poca Def.</li>\n<li>Las habilidades que curan sin gastar o curan más (Curar sin consumir magia con probabilidad Sue %; +10 PV al curar) alargan mucho las salidas largas al mapa.</li>\n<li>En Difícil, Sanar (alcance 1–10) y Rescatar salvan unidades que ya no llegan a tiempo.</li>\n</ul>"
+     "<ul>\n<li>Al curar, la Mag rinde poco (1 PV por cada 3 puntos): lo que manda es el hechizo.</li>\n<li>Llevar al menos un sanador con Curar y otro hechizo de apoyo; en el tiempo libre, guardar usos para la escaramuza siguiente.</li>\n<li>Usar la magia contra acorazados y unidades de mucha Def, y dejar las armas para los magos rivales de poca Def.</li>\n<li>Las habilidades que curan sin gastar o curan más (Curar sin consumir magia con probabilidad Sue %; +10 PV al curar) alargan mucho las salidas largas al mapa.</li>\n<li>En Difícil, Sanar (alcance 1–10) y Rescatar salvan unidades que ya no llegan a tiempo.</li>\n</ul>"
     ]
    ]
   },
@@ -529701,7 +529913,7 @@ window.WIKI={
    "secs": [
     [
      "En resumen",
-     "<ul>\n<li>La artillería se usa poniéndose encima: los arqueros usan la balista, los magos la esfera ígnea y cualquiera la catapulta. Tiene munición limitada y no funciona con lluvia.</li>\n<li>Atacar un explosivo daña e inmoviliza un turno a los enemigos cercanos.</li>\n<li>Las palancas y casi todos los aparatos de una batalla se accionan desde una casilla adyacente con «Accionar», y muchos solo sirven una vez.</li>\n<li>Los enemigos también pueden usar la artillería y los explosivos.</li>\n<li>Las unidades grandes, los jefes y los miasmas tienen guía propia: <a href=\"#/guia/enemigos-especiales\">enemigos-especiales</a> y <a href=\"#/guia/terreno\">terreno</a>.</li>\n</ul>"
+     "<ul>\n<li>La artillería se usa poniéndose encima: los arqueros usan la balista, los magos la esfera ígnea y cualquiera la catapulta. Tiene munición limitada y no funciona con lluvia.</li>\n<li>Atacar un explosivo daña e inmoviliza un turno a los enemigos cercanos.</li>\n<li>Las palancas y casi todos los aparatos de una batalla se accionan desde una casilla adyacente con «Accionar», y muchos solo sirven una vez.</li>\n<li>Los enemigos también pueden usar la artillería y los explosivos.</li>\n<li>Las unidades grandes, los jefes, los portales de la batalla final y los miasmas tienen guía propia: <a href=\"#/guia/enemigos-especiales\">enemigos-especiales</a> y <a href=\"#/guia/terreno\">terreno</a>.</li>\n</ul>"
     ],
     [
      "Mecanismos generales",
@@ -529709,7 +529921,11 @@ window.WIKI={
     ],
     [
      "Batalla a batalla",
-     "<p>Batallas de la Parte 1; «Cai 5» es el cap. 5 de la ruta de Cai. Los Desvíos indican en qué rutas salen.</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Mecánica</th><th>Qué hace</th><th>Dónde</th></tr><tr><td>Defender el carruaje</td><td>Se pierde si el carruaje (50 PV) llega a 0</td><td><a href=\"#/batalla/SC11_03\">Cai 2</a></td></tr><tr><td>Pilares inestables</td><td>«Derribar» crea un obstáculo que solo cruzan los voladores</td><td><a href=\"#/batalla/SC11_06\">Cai 5</a></td></tr><tr><td>Casillas de un solo uso</td><td>Curan o protegen solo la primera vez</td><td><a href=\"#/batalla/SC11_14\">Cai 12</a></td></tr><tr><td>Palancas de barrera</td><td>Desactivan las barreras que aíslan a <a href=\"#/personaje/PID_カイ\">Cai</a>; derrotar a Castor también</td><td><a href=\"#/batalla/SC11_14\">Cai 12</a></td></tr><tr><td>Campanario</td><td>Romperlo enloquece a los elefantes: 3 turnos como tercera facción</td><td><a href=\"#/batalla/SC12_10\">Dietrich 7</a></td></tr><tr><td>Trampas mágicas</td><td>Ocho, de un uso: paralizan a Cetus si acaba el turno al alcance</td><td><a href=\"#/batalla/SC12_12\">Dietrich 8</a></td></tr><tr><td>Anulatormentas</td><td>Despeja la tormenta de una zona un turno; luego se recarga dos turnos</td><td><a href=\"#/batalla/SC12_14\">Dietrich 9</a></td></tr><tr><td>Ventiladores antiniebla</td><td>Tres palancas de un uso: quitan la niebla del mapa durante la fase</td><td><a href=\"#/batalla/SC13_09\">Theodora 8</a></td></tr><tr><td>Orbes mágicos</td><td>Se recogen acabando el turno encima, uno por unidad; el último turno termina en tu fase</td><td><a href=\"#/batalla/SC13_11\">Theodora 10</a></td></tr><tr><td>Braseros</td><td>Se encienden en azul; los que quedan entre dos llamas del mismo color cambian a ese color, también en diagonal</td><td><a href=\"#/batalla/SC14_03\">Leda 3</a></td></tr><tr><td>Palancas del agua pura</td><td>Cinco, de un uso: anulan el Agua pura de todas las unidades</td><td><a href=\"#/batalla/SC14_06\">Leda 5</a></td></tr><tr><td>Barreras de <a href=\"#/personaje/PID_セオドラ\">Theodora</a></td><td>Caen al derrotar a todos los enemigos de cada zona</td><td><a href=\"#/batalla/SC14_13\">Leda 10</a></td></tr><tr><td>Cañón telúrico</td><td>Cuatro palancas de un uso refuerzan la barrera contra el cañón un turno</td><td><a href=\"#/batalla/SC14_13\">Leda 10</a></td></tr><tr><td>Ácido</td><td>Daña al inicio de la fase siguiente a quien acabe encima, salvo voladores; crece y mengua cada turno; el Canto de frescor lo congela</td><td><a href=\"#/batalla/SC14_14\">Leda 11</a></td></tr><tr><td>Incensarios</td><td>Ocho, de un uso: romperlos daña y quita Mov un turno a los enemigos cercanos y deja ceniza que frena</td><td><a href=\"#/batalla/SCXX_00\">La gran evasión</a> (Dietrich, Theodora, Leda)</td></tr><tr><td>Recuperar la mercancía</td><td>Se pierde si un ladrón con carga llega a su casilla; la sueltan al morir</td><td><a href=\"#/batalla/SCXX_05\">El secreto del carro desaparecido</a> (Cai, Dietrich, Theodora)</td></tr><tr><td>Catapulta especial</td><td>Activar los dos mecanismos en la misma fase lanza un gran ataque de área</td><td><a href=\"#/batalla/SCXX_06\">El asunto pendiente de Orchel</a> (las cuatro rutas)</td></tr><tr><td>Evacuación</td><td>Los ciudadanos de Kunlun siguen a <a href=\"#/personaje/PID_アナトリア\">Anatolia</a>; si caen 3, se pierde. Los que entran en pánico por la nube de miasma de la hidra se calman con «Apaciguar» desde una casilla adyacente</td><td><a href=\"#/batalla/SCXX_07\">La reina del pueblo erradicado</a> (Dietrich, Leda)</td></tr><tr><td>Montones de auricalco</td><td>Cada 5 destruidos dañan mucho al gigante (10 en total)</td><td><a href=\"#/batalla/SCXX_08\">Secreto dorado</a> (Cai, Dietrich, Theodora)</td></tr></table></div>"
+     "<p>Batallas de la Parte 1; «Cai 5» es el cap. 5 de la ruta de Cai. Los Desvíos indican en qué rutas salen.</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Mecánica</th><th>Qué hace</th><th>Dónde</th></tr><tr><td>Defender el carruaje</td><td>Se pierde si el carruaje (50 PV) llega a 0</td><td><a href=\"#/batalla/SC11_03\">Cai 2</a></td></tr><tr><td>Pilares inestables</td><td>«Derribar» crea un obstáculo que solo cruzan los voladores</td><td><a href=\"#/batalla/SC11_06\">Cai 5</a></td></tr><tr><td>Casillas de un solo uso</td><td>Curan o protegen solo la primera vez</td><td><a href=\"#/batalla/SC11_14\">Cai 12</a></td></tr><tr><td>Palancas de barrera</td><td>Desactivan las barreras que aíslan a <a href=\"#/personaje/PID_カイ\">Cai</a>; derrotar a Castor también</td><td><a href=\"#/batalla/SC11_14\">Cai 12</a></td></tr><tr><td>Campanario</td><td>Romperlo enloquece a los elefantes: 3 turnos como tercera facción</td><td><a href=\"#/batalla/SC12_10\">Dietrich 7</a></td></tr><tr><td>Trampas mágicas</td><td>Ocho, de un uso: paralizan a Cetus si acaba el turno al alcance</td><td><a href=\"#/batalla/SC12_12\">Dietrich 8</a></td></tr><tr><td>Anulatormentas</td><td>Despeja la tormenta de una zona un turno; luego se recarga dos turnos</td><td><a href=\"#/batalla/SC12_14\">Dietrich 9</a></td></tr><tr><td>Ventiladores antiniebla</td><td>Tres palancas de un uso: quitan la niebla del mapa durante la fase</td><td><a href=\"#/batalla/SC13_09\">Theodora 8</a></td></tr><tr><td>Orbes mágicos</td><td>Se recogen acabando el turno encima, uno por unidad; el último turno termina en tu fase</td><td><a href=\"#/batalla/SC13_11\">Theodora 10</a></td></tr><tr><td>Braseros</td><td>Se encienden en azul; los que quedan entre dos llamas del mismo color cambian a ese color, también en diagonal</td><td><a href=\"#/batalla/SC14_03\">Leda 3</a></td></tr><tr><td>Palancas del agua pura</td><td>Cinco, de un uso: anulan el Agua pura de todas las unidades</td><td><a href=\"#/batalla/SC14_06\">Leda 5</a></td></tr><tr><td>Barreras de <a href=\"#/personaje/PID_セオドラ\">Theodora</a></td><td>Caen al derrotar a todos los enemigos de cada zona</td><td><a href=\"#/batalla/SC14_13\">Leda 10</a></td></tr><tr><td>Cañón telúrico</td><td>Cuatro palancas de un uso refuerzan la barrera contra el cañón un turno</td><td><a href=\"#/batalla/SC14_13\">Leda 10</a></td></tr><tr><td>Ácido</td><td>Daña al inicio de la fase siguiente a quien acabe encima, salvo voladores; crece y mengua cada turno; el Canto de frescor lo congela</td><td><a href=\"#/batalla/SC14_14\">Leda 11</a></td></tr><tr><td>Incensarios</td><td>Ocho, de un uso: romperlos daña y quita Mov un turno a los enemigos cercanos y deja ceniza que frena</td><td><a href=\"#/batalla/SCXX_00\">La gran evasión</a> (Dietrich, Theodora, Leda)</td></tr><tr><td>Recuperar la mercancía</td><td>Se pierde si un ladrón con carga llega a su casilla; la sueltan al morir</td><td><a href=\"#/batalla/SCXX_05\">El secreto del carro desaparecido</a> (Cai, Dietrich, Theodora)</td></tr><tr><td>Catapulta especial</td><td>Activar los dos mecanismos en la misma fase lanza un gran ataque de área</td><td><a href=\"#/batalla/SCXX_06\">El asunto pendiente de Orchel</a> (las cuatro rutas)</td></tr><tr><td>Evacuación</td><td>Los ciudadanos de Kunlun siguen a <a href=\"#/personaje/PID_アナトリア\">Anatolia</a>; el premio es mayor sin bajas, medio con 1 y menor con 2; si caen 3, se pierde. Los que entran en pánico por la nube de miasma de la hidra se calman con «Apaciguar» desde una casilla adyacente</td><td><a href=\"#/batalla/SCXX_07\">La reina del pueblo erradicado</a> (Dietrich, Leda)</td></tr><tr><td>Montones de auricalco</td><td>Cada 5 destruidos dañan mucho al gigante (10 en total)</td><td><a href=\"#/batalla/SCXX_08\">Secreto dorado</a> (Cai, Dietrich, Theodora)</td></tr></table></div>"
+    ],
+    [
+     "Límites de turnos y premios",
+     "<div class=\"tw\"><table class=\"md\"><tr><th>Batalla</th><th>Regla</th></tr><tr><td><a href=\"#/batalla/SC12_08\">Las pruebas de Hannibal</a> (Dietrich 5)</td><td>10 turnos para accionar los mecanismos</td></tr><tr><td><a href=\"#/batalla/SC13_09\">Batalla contra los har halis</a> (Theodora 8)</td><td>20 turnos para derrotar a Nuzzuo</td></tr><tr><td><a href=\"#/batalla/SC14_03\">Batalla contra Olympia</a> (Leda 3)</td><td>Los braseros de cada color se cuentan en el turno 10</td></tr><tr><td><a href=\"#/batalla/SCXX_01\">El pasado olvidado</a> (Desvío de Theodora y Leda)</td><td>10 turnos</td></tr><tr><td><a href=\"#/batalla/SC30_06\">Batalla contra Dagda el Magno</a> (Parte 2)</td><td>La Maza de Dagda es para quien remate su primera forma</td></tr><tr><td><a href=\"#/batalla/SC30_01\">Asalto a la fortaleza de Agris</a>, <a href=\"#/batalla/SC30_03\">La invasión de Grand Aragon</a> (Parte 2)</td><td>Un invitado que cae ya no vuelve</td></tr></table></div>\n<p>Los ladrones van primero a por los cofres y después huyen por un borde: hay que alcanzarlos antes de que lleguen.</p>"
     ],
     [
      "Consejos de min-max",
@@ -529773,7 +529989,7 @@ window.WIKI={
    "secs": [
     [
      "En resumen",
-     "<ul>\n<li>El efecto de la casilla se lee en la esquina inferior izquierda; afecta igual a aliados y enemigos.</li>\n<li>El bosque da Esq +20 a +40; desierto, orilla, yermo y charcos la bajan 20.</li>\n<li>Cada clase tiene un tipo de movimiento. A pie y acorazado pagan lo mismo; la caballería paga 3–4 en bosque y desierto, y los voladores pagan 1 en todo y cruzan montañas, muros y agua.</li>\n<li>Los voladores son inmunes a los efectos del terreno.</li>\n<li>Lluvia: trueno ×2, fuego a la mitad, sin artillería. Niebla y tormenta de arena ocultan al enemigo.</li>\n<li>En la Parte 3 cada portal tiene su miasma, con una regla propia.</li>\n</ul>"
+     "<ul>\n<li>El efecto de la casilla se lee en la esquina inferior izquierda; afecta igual a aliados y enemigos y se suma fuera del tope de +10 de las mejoras.</li>\n<li>El bosque da Esq +20 a +40; desierto, orilla, yermo y charcos la bajan 20.</li>\n<li>Cada clase tiene un tipo de movimiento. A pie y acorazado pagan lo mismo; la caballería paga 3–4 en bosque y desierto, y los voladores pagan 1 en todo y cruzan montañas, muros y agua.</li>\n<li>Los voladores son inmunes a los efectos del terreno.</li>\n<li>Lluvia: trueno ×2, fuego a la mitad, sin artillería. Niebla y tormenta de arena ocultan al enemigo.</li>\n<li>En la Parte 3 cada portal tiene su miasma, con una regla propia.</li>\n</ul>"
     ],
     [
      "Efecto de cada casilla",
@@ -529785,7 +530001,7 @@ window.WIKI={
     ],
     [
      "Clima y visibilidad",
-     "<ul>\n<li><b>Lluvia:</b> dobla el daño del trueno, reduce a la mitad el del fuego e impide usar la <a href=\"#/tutorial/TUTO_雨天マップ\">artillería</a>.</li>\n<li><b>Niebla y tormenta de arena:</b> reducen la visibilidad. Las casillas visibles se actualizan cuando un aliado termina su acción. Un enemigo descubierto así queda confundido y no contrataca durante un tiempo. Si una unidad choca con un enemigo oculto, su acción termina en el acto.</li>\n<li>La Vis (campo de visión) se amplía con <a href=\"#/habilidad/SID_トーチ\">Antorcha</a> (+3), la <a href=\"#/habilidad/SID_クレール１\">Bendición de Credna</a> (+5) y <a href=\"#/habilidad/SID_視界の効能\">Efecto Visión</a> (+1). La visión normal es de unas 3 casillas alrededor de cada unidad<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Algunas batallas traen ayudas propias: ventiladores antiniebla, Anulatormentas (ver <a href=\"#/guia/mecanicas-de-batalla\">mecánicas de batalla</a>).</li>\n</ul>"
+     "<ul>\n<li><b>Lluvia:</b> dobla el daño del trueno, reduce a la mitad el del fuego e impide usar la <a href=\"#/tutorial/TUTO_雨天マップ\">artillería</a>.</li>\n<li><b>Niebla y tormenta de arena:</b> reducen la visibilidad. Las casillas visibles se actualizan cuando un aliado termina su acción. Un enemigo descubierto así queda confundido y no contrataca durante un tiempo. Si una unidad choca con un enemigo oculto, su acción termina en el acto.</li>\n<li>Los enemigos que esperan a tener objetivo reaccionan a la posición de las unidades, se vean o no en la niebla.</li>\n<li>La Vis (campo de visión) se amplía con <a href=\"#/habilidad/SID_トーチ\">Antorcha</a> (+3), la <a href=\"#/habilidad/SID_クレール１\">Bendición de Credna</a> (+5) y <a href=\"#/habilidad/SID_視界の効能\">Efecto Visión</a> (+1). La visión normal es de unas 3 casillas alrededor de cada unidad<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Algunas batallas traen ayudas propias: ventiladores antiniebla, Anulatormentas (ver <a href=\"#/guia/mecanicas-de-batalla\">mecánicas de batalla</a>).</li>\n</ul>"
     ],
     [
      "Terreno especial, en llamas y destructible",
@@ -529797,7 +530013,7 @@ window.WIKI={
     ],
     [
      "Consejos de min-max",
-     "<ul>\n<li>Esperar al enemigo en bosque o en un punto protector rinde más que la Def: Esq +30 o +40 con Sue alta se nota mucho.</li>\n<li>Los voladores no sacan bonos del terreno, pero tampoco sufren trampas, ácido ni penalizaciones.</li>\n<li>En mapas de bosque o desierto, desmontar a la caballería puede darle más alcance real que ir montada.</li>\n<li>En los miasmas de Ira y Avaricia, no dejar a las unidades frágiles al alcance del enemigo.</li>\n</ul>"
+     "<ul>\n<li>Esperar al enemigo en bosque o en un punto protector rinde más que la Def: la Esq sale de la VA, y +30 o +40 encima de una VA alta deja el Golpe enemigo por debajo del 50 %, donde no hay curva a su favor.</li>\n<li>En empate, la IA ataca desde la casilla de mejor terreno: ocupar los bosques junto a la propia línea la obliga a atacar desde llano, desierto u orilla (<a href=\"#/guia/ia-enemiga\">IA enemiga</a>).</li>\n<li>Los voladores no sacan bonos del terreno, pero tampoco sufren trampas, ácido ni penalizaciones.</li>\n<li>En mapas de bosque o desierto, desmontar a la caballería puede darle más alcance real que ir montada.</li>\n<li>En los miasmas de Ira y Avaricia, no dejar a las unidades frágiles al alcance del enemigo.</li>\n</ul>"
     ]
    ]
   },
@@ -529859,7 +530075,7 @@ window.WIKI={
    "secs": [
     [
      "En resumen",
-     "<ul>\n<li>Cada clase tiene uno o dos tipos: Infantería, Caballería, Acorazado, Vuelo, Bestia, Dragón o Muerto viviente.</li>\n<li>«Eficaz» dobla la Pot del arma y «muy eficaz» la triplica. Si un ataque tiene varias eficacias, solo cuenta la mayor.</li>\n<li>Arcos: muy eficaces contra voladores. Lanzas: eficaces contra caballería. Algunas espadas y lanzas pesadas son eficaces contra acorazados, y el Martillo es muy eficaz.</li>\n<li>Desmontar cambia el Mov y quita la debilidad de montado; un volador desmontado ya no teme a los arcos.</li>\n<li>El <a href=\"#/habilidad/SID_冥府の加護\">Favor infernal</a> reduce a la mitad el daño no eficaz; la <a href=\"#/habilidad/SID_救世の光\">Luz salvadora</a> de <a href=\"#/personaje/PID_イシュマール\">Eshmel</a> y la <a href=\"#/objeto/IID_清めの剣\">Espada purificadora</a> lo anulan.</li>\n</ul>"
+     "<ul>\n<li>Cada clase tiene uno o dos tipos: Infantería, Caballería, Acorazado, Vuelo, Bestia, Dragón o Muerto viviente.</li>\n<li>«Eficaz» dobla la Pot del arma y «muy eficaz» la triplica; también multiplica el bono de Ata de algunas habilidades de combate, pero nunca la Fue ni la Mag. Si un ataque tiene varias eficacias, solo cuenta la mayor.</li>\n<li>Arcos: muy eficaces contra voladores. Lanzas: eficaces contra caballería. Algunas espadas y lanzas pesadas son eficaces contra acorazados, y el Martillo es muy eficaz.</li>\n<li>Desmontar cambia el Mov y quita la debilidad de montado; un volador desmontado ya no teme a los arcos.</li>\n<li>El <a href=\"#/habilidad/SID_冥府の加護\">Favor infernal</a> reduce a la mitad el daño no eficaz; la <a href=\"#/habilidad/SID_救世の光\">Luz salvadora</a> de <a href=\"#/personaje/PID_イシュマール\">Eshmel</a> y la <a href=\"#/objeto/IID_清めの剣\">Espada purificadora</a> lo anulan.</li>\n</ul>"
     ],
     [
      "Qué clase es de cada tipo",
@@ -529929,15 +530145,15 @@ window.WIKI={
    "secs": [
     [
      "En resumen",
-     "<ul>\n<li>Cada estante tiene su descuento (0–50 %): el mismo objeto cuesta distinto en cada ciudad.</li>\n<li>Las armerías amplían su catálogo con la historia; desde Prestigio 7 venden armas +1 y desde 10, +2.</li>\n<li>El contenido de la <a href=\"#/objeto/IID_良質な武具箱\">Caja armas de calidad</a> (800 G) y de la Caja armas de lujo (2000 G) se decide al comprarlas.</li>\n<li>El oro grande llega de pagos únicos: Desvíos (20 000 G), misiones grandes y la actividad de cada señor (por ejemplo, cada Actuación en locales de Leda paga 3000 G en la Parte 1; las de los demás, en <a href=\"#/senores\">Señores</a>).</li>\n<li>El oro no pasa a la Parte 2: gastarlo antes del final de la Parte 1.</li>\n</ul>"
+     "<ul>\n<li>Cada estante tiene su descuento (0–50 %): el mismo objeto cuesta distinto en cada ciudad. Si la fila tiene precio propio, el descuento no se aplica; el descuento de las Ayudas de salvación se suma después.</li>\n<li>Cada fila repone al empezar cada capítulo su cantidad propia, sin pasar de su tope. No hay reposición semanal ni mensual, y una fila sin reposición es compra única.</li>\n<li>Las armerías amplían su catálogo con la historia; la de Dagsion vende armas +1 desde Prestigio 7 y +2 desde Prestigio 10. Los manuales del bazar de Dagsion piden Prestigio 6.</li>\n<li>El contenido de la <a href=\"#/objeto/IID_良質な武具箱\">Caja armas de calidad</a> (800 G) y de la Caja armas de lujo (2000 G) se decide al comprarlas.</li>\n<li>El oro grande llega de pagos únicos: Desvíos (20 000 G), misiones grandes y la actividad de cada señor (por ejemplo, cada Actuación en locales de Leda paga 3000 G en la Parte 1; las de los demás, en <a href=\"#/senores\">Señores</a>).</li>\n<li>El oro no pasa a la Parte 2: gastarlo antes del final de la Parte 1.</li>\n</ul>"
     ],
     [
      "Cómo funciona",
-     "<p>Los mercaderes itinerantes aparecen en el mapa y se ve su inventario sin entrar; reponen 1 por capítulo. La tienda de Anna en Dagsion abre de noche y, tras el Desvío «Secreto dorado» (rutas de Cai, Dietrich y Theodora), vende anillos caros. Qué compras gastan turno: <a href=\"#/turnos\">Turnos y viajes</a>.</p>\n<p><b>Oro renovable:</b> <a href=\"#/objeto/IID_金塊\">Lingote de oro</a> 600 G, grande 1800, enorme 3000, Doblón de la suerte 1200, Entomosferas 300/1500; las momias doradas sueltan lingotes. Actuar en el Teatro paga 300–3000 G.</p>"
+     "<p>Los mercaderes itinerantes se colocan junto con las tropas enemigas cada vez que el ejército sale de Dagsion (ver <a href=\"#/guia/escaramuzas\">Tropas del mapa</a>) y se ve su inventario sin entrar. Comprar en una población no gasta turno y aún deja hacer una acción allí; dentro de Dagsion todo cabe en un turno. La tienda de Anna en Dagsion abre de noche y, tras el Desvío «Secreto dorado» (rutas de Cai, Dietrich y Theodora), vende anillos caros. Qué compras gastan turno: <a href=\"#/turnos\">Turnos y viajes</a>.</p>\n<p><b>Oro renovable:</b> <a href=\"#/objeto/IID_金塊\">Lingote de oro</a> 600 G, grande 1800, enorme 3000, Doblón de la suerte 1200, Entomosferas 300/1500; las momias doradas sueltan lingotes. Actuar en el Teatro paga 300–3000 G.</p>"
     ],
     [
      "Consejos de min-max",
-     "<ul>\n<li>Guardar antes de comprar una caja: variando lo que se hace antes cambia el resultado.</li>\n<li><a href=\"#/objeto/IID_上級資格手形\">Licencias avanzadas</a> (3000 G): además de la tienda de licencias de Dagsion, las vende el mercado de Megaira: comprar también la de Megaira cada capítulo.</li>\n<li>Ayudas de salvación de descuento en armas, bazar y regalos (10–30 %) con las primeras Esquirlas.</li>\n<li>Comprar en la ciudad más barata cuando la ruta pasa por ella.</li>\n</ul>"
+     "<ul>\n<li>Guardar antes de comprar una caja: variando lo que se hace antes cambia el resultado.</li>\n<li><a href=\"#/objeto/IID_上級資格手形\">Licencias avanzadas</a> (3000 G): además de la tienda de licencias de Dagsion, las vende el mercado de Megaira: comprar también la de Megaira cada capítulo.</li>\n<li>Ayudas de salvación de descuento en armas, bazar y regalos (10–30 %) con las primeras Esquirlas.</li>\n<li>Comprar en la ciudad más barata cuando la ruta pasa por ella: comprar de paso no cuesta turno.</li>\n<li>Las licencias de la tienda de Dagsion tienen tope 3 y reponen 2 por capítulo: comprarlas todas cada capítulo para no perder reposición.</li>\n<li>Si falta un mercader del mapa, volver a Dagsion y salir lo cambia.</li>\n</ul>"
     ]
    ]
   },
@@ -529977,7 +530193,7 @@ window.WIKI={
    "secs": [
     [
      "En resumen",
-     "<ul>\n<li>Solo trueque: la columna de precio no es lo que se paga.</li>\n<li>Los mercaderes no se mueven; sus existencias se reponen por capítulo cuando la fila lo indica.</li>\n<li>Las filas cambian por ruta: el mismo objeto puede costar distinto según el señor.</li>\n<li>Algunos mercaderes quedan en regiones que la ruta no alcanza en la Parte 1: ver <a href=\"#/guia/mapa-del-mundo\">Mapa del mundo</a>.</li>\n<li>El mercader de Dagsion amplía su lista con los capítulos.</li>\n</ul>"
+     "<ul>\n<li>Solo trueque: la columna de precio no es lo que se paga.</li>\n<li>Los 11 puestos del mapa no se mueven y solo están durante el tiempo libre, desde el cap. 4 en las cuatro rutas; en la Parte 3 no se colocan.</li>\n<li>La sede de Dagsion abre en el cap. 4 con Cai y en el cap. 6 con Dietrich, Theodora y Leda, y tiene filas propias de la Parte 3.</li>\n<li>Cada fila repone su cantidad al empezar cada capítulo, sin pasar de su tope; las que no reponen son únicas.</li>\n<li>Las filas cambian por ruta: el mismo objeto puede costar distinto según el señor.</li>\n<li>Algunos mercaderes quedan en regiones que la ruta no alcanza en la Parte 1: ver <a href=\"#/guia/mapa-del-mundo\">Mapa del mundo</a>.</li>\n<li>La sede de Dagsion amplía su lista con los capítulos; sus filas de los caps. 4–5 solo se pueden trocar con Cai.</li>\n</ul>"
     ],
     [
      "Cómo funciona",
@@ -530107,11 +530323,11 @@ window.WIKI={
    "secs": [
     [
      "En resumen",
-     "<ul>\n<li>Resultado de Buscar: malo 25 % (1 objeto), bueno 70 % (3), perfecto 5 % (6); las búsquedas de evento dan siempre 10.</li>\n<li>Cada punto tiene su tabla con porcentajes; los de pesca dan los peces (no hay minijuego).</li>\n<li>Las habilidades <a href=\"#/habilidad/SID_探索術\">Búsqueda</a> (del <a href=\"#/clase/JID_ローグ\">Pícaro</a>), <a href=\"#/habilidad/SID_上級探索術\">Búsqueda avanzada</a>, <a href=\"#/habilidad/SID_最上級探索術\">Búsqueda magistral</a> y <a href=\"#/habilidad/SID_神将探索術\">Búsqueda suprema</a> hacen «un poco más probable» el resultado Perfecto, y se suman entre las unidades del grupo.</li>\n<li>Los ingredientes sobrantes sirven para el Banquete (ver <a href=\"#/guia/recuperacion\">Recuperación</a>).</li>\n<li>En las Actividades auto., Buscar paga oro y materiales por turno.</li>\n</ul>"
+     "<ul>\n<li>Resultado de Buscar: malo 25 % (1 objeto), bueno 70 % (3), perfecto 5 % (6), unos 2,65 objetos de media; las búsquedas de evento dan siempre 10.</li>\n<li>Buscar es la acción del turno en ese lugar.</li>\n<li>Cada punto tiene su tabla con porcentajes; los de pesca dan los peces (no hay minijuego).</li>\n<li>Las habilidades <a href=\"#/habilidad/SID_探索術\">Búsqueda</a> (del <a href=\"#/clase/JID_ローグ\">Pícaro</a>), <a href=\"#/habilidad/SID_上級探索術\">Búsqueda avanzada</a>, <a href=\"#/habilidad/SID_最上級探索術\">Búsqueda magistral</a> y <a href=\"#/habilidad/SID_神将探索術\">Búsqueda suprema</a> hacen «un poco más probable» el resultado Perfecto, y se suman entre las unidades del grupo.</li>\n<li>Los ingredientes sobrantes sirven para el Banquete (ver <a href=\"#/guia/recuperacion\">Recuperación</a>).</li>\n<li>En las Actividades auto., Buscar paga oro y materiales por turno.</li>\n</ul>"
     ],
     [
      "Cómo funciona",
-     "<p>Buscar gasta tiempo en el mapa. Las fiestas lunares (Marea Viva para pesca, Cosecha de la Luna Negra para cultivos, Brillo Cristalino para minería) suben lo raro; sus fechas están sin confirmar. En la Parte 1 de la ruta de Cai no se puede buscar en las regiones cerradas (ver <a href=\"#/guia/mapa-del-mundo\">Mapa del mundo</a>), y eso deja sin fuente el <a href=\"#/objeto/IID_風石\">Aerolito</a> y el <a href=\"#/objeto/IID_ウーツ鋼\">Acero wootz</a>.</p>"
+     "<p>Primero se sortea el resultado y luego cada objeto. Recargar y buscar otra vez da lo mismo: para cambiar el resultado hay que gastar antes otras tiradas (<a href=\"#/guia/azar\">Azar</a>). Los objetos de «primera vez» de un punto salen antes que nada, sin sorteo; después cada objeto se elige por los porcentajes de la tabla. Hablar con habitantes de Aguiño, el Puerto de Pandora, Twalinn, el Puerto de Raivo, el Oasis de Baina, Orens, Alecto y Benetnasch revela el objeto raro de Buscar o el animal raro del Cebo de otro lugar. Las fiestas lunares (Marea Viva para pesca, Cosecha de la Luna Negra para cultivos, Brillo Cristalino para minería) suben lo raro; sus fechas están sin confirmar. En la Parte 1 de la ruta de Cai no se puede buscar en las regiones cerradas (ver <a href=\"#/guia/mapa-del-mundo\">Mapa del mundo</a>), y eso deja sin fuente el <a href=\"#/objeto/IID_風石\">Aerolito</a> y el <a href=\"#/objeto/IID_ウーツ鋼\">Acero wootz</a>.</p>"
     ],
     [
      "Objetos de reclutamiento difíciles (ruta de Cai)",
@@ -530138,7 +530354,7 @@ window.WIKI={
     "mutación",
     "nuevo cultivo"
    ],
-   "resumen": "Cai planta en terrenos fértiles del mapa una planta del inventario y cosecha 10 unidades a los 6 turnos; el abono sube la probabilidad de la planta rara de cada parcela.",
+   "resumen": "Cai planta en terrenos fértiles del mapa una planta del inventario y cosecha 10 unidades a los 6 turnos; la parcela da unas 3 cosechas; el abono sube la probabilidad de la planta rara de cada parcela.",
    "preguntas": [
     "¿Cuántas parcelas puede cultivar Cai?",
     "¿Cómo se consigue la planta rara de una parcela?"
@@ -530171,15 +530387,15 @@ window.WIKI={
    "secs": [
     [
      "En resumen",
-     "<ul>\n<li>Exclusivo de la ruta de Cai; se abre en el cap. 6. En la Parte 3 vuelve en todas las rutas si Cai está en el ejército.</li>\n<li>Parcelas a la vez: 3 / 5 / 7 con Prestigio 1 / 7 / 9 (10 en la Parte 3).</li>\n<li>Cosecha a los 6 turnos: 10 unidades de lo plantado y cosechas extra con 100 / 70 / 40 / 10 % de probabilidad.</li>\n<li>Cada una de las 27 parcelas tiene una planta rara y un % de mutación (2–30 %); el abono lo sube.</li>\n<li>Se cosecha al pasar por la casilla o al lado; en carruaje no<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n</ul>"
+     "<ul>\n<li>Exclusivo de la ruta de Cai; se abre en el cap. 6. En la Parte 3 vuelve en todas las rutas si Cai está en el ejército.</li>\n<li>Parcelas a la vez: 3 / 5 / 7 con Prestigio 1 / 7 / 9 (10 en la Parte 3).</li>\n<li>Cosecha a los 6 turnos: 10 unidades de lo plantado, y vuelve a crecer. La 2.ª cosecha es segura; luego 70 % de tener una 3.ª, 40 % de una 4.ª y 10 % de una 5.ª (cada una depende de la anterior). Media: unas 3 cosechas, unas 30 unidades.</li>\n<li>Cada una de las 27 parcelas tiene una planta rara y un % de mutación (2–30 %); el abono lo sube. Una cosecha que muta da 1 planta rara en vez de las 10 unidades.</li>\n<li>Plantar, abonar o cambiar el cultivo es la acción del turno. Cosechar es gratis y automático: al acabar cada turno se recoge todo lo listo en el lugar donde está el ejército y en cada lugar por el que pasó andando; en carruaje no se pisa<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. La parcela agotada vuelve a terreno fértil.</li>\n</ul>"
     ],
     [
      "Cómo funciona",
-     "<p>Hace falta al menos una planta del inventario para crear el cultivo. Abono: <a href=\"#/objeto/IID_オルニウスのフン\">Boñiga de ornius</a> 50, <a href=\"#/objeto/IID_馬のフン\">de caballo</a> 60, <a href=\"#/objeto/IID_ペガサスのフン\">de pegaso</a> 70 y <a href=\"#/objeto/IID_バウのフン\">de bau</a> 100; sale del Establo o de una captura fallida. Con abono, la mutación sustituye lo plantado por la planta rara de la parcela<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. «Nuevo cultivo» sobre un terreno ya cultivado lo cambia para que crezcan varias plantas.</p>\n<p>La <a href=\"#/lugar/決闘広場\">Plaza de los Duelos</a> (<a href=\"#/objeto/IID_煉獄草\">Hierba del tormento</a>) solo se abre con la misión «<a href=\"#/mision/SQID_ささやかな報復\">Entrada robada</a>», de segunda vuelta.</p>"
+     "<p>Hace falta al menos una planta del inventario para crear el cultivo. Abono: <a href=\"#/objeto/IID_オルニウスのフン\">Boñiga de ornius</a> 50, <a href=\"#/objeto/IID_馬のフン\">de caballo</a> 60, <a href=\"#/objeto/IID_ペガサスのフン\">de pegaso</a> 70 y <a href=\"#/objeto/IID_バウのフン\">de bau</a> 100; sale del Establo o de una captura fallida. Cada cosecha tira la mutación por separado: % de la parcela + % del abono (si lo hay). Si muta, esa cosecha da 1 planta rara de la parcela en vez de las 10 unidades; con boñiga de bau (100 %) todas las cosechas mutan. «Nuevo cultivo» sobre un terreno ya cultivado lo cambia para que crezcan varias plantas.</p>\n<p>La <a href=\"#/lugar/決闘広場\">Plaza de los Duelos</a> (<a href=\"#/objeto/IID_煉獄草\">Hierba del tormento</a>) solo se abre con la misión «<a href=\"#/mision/SQID_ささやかな報復\">Entrada robada</a>», de segunda vuelta.</p>"
     ],
     [
      "Consejos de min-max",
-     "<ul>\n<li>Plantar en cuanto se tenga 1 unidad de lo que pide un trueque o un recluta: 10 por cosecha.</li>\n<li><a href=\"#/personaje/PID_ハルヴィン\">Halvin</a>: los 2 <a href=\"#/objeto/IID_デーツ\">Dátiles</a> de «<a href=\"#/mision/SQID_巨大獣の討伐\">Bestias enormes</a>» bastan para cultivar sus 10<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Misiones de verduras de Cai (<a href=\"#/mision/SQID_カイ篇_お取り寄せ野菜\">Verduras para los saramitas</a>, <a href=\"#/mision/SQID_カイ篇_お取り寄せ野菜2\">para los aragueses</a> y <a href=\"#/mision/SQID_カイ篇_お取り寄せ野菜3\">para el coliseo</a>; 30 unidades cada una, 2500 G y 200 de Prestigio): comprar unas pocas y plantar.</li>\n<li><a href=\"#/lugar/そよ風の丘\">Colina de la Brisa</a>, <a href=\"#/lugar/ムルキベル湿地帯\">Humedal de Mulciber</a> y <a href=\"#/lugar/ソナイ峠\">Paso de Sonai</a> mutan a <a href=\"#/objeto/IID_グルマオサ\">Glirmosa</a> (<a href=\"#/personaje/PID_ムウ\">Mu</a> pide 3).</li>\n</ul>"
+     "<ul>\n<li>Plantar en lugares de paso de los viajes habituales: la cosecha se recoge sola al volver a pasar.</li>\n<li>Plantar en cuanto se tenga 1 unidad de lo que pide un trueque o un recluta: 10 por cosecha, unas 30 por parcela.</li>\n<li>Para cantidad, sin abono; para la planta rara, con abono fuerte (con bau, una rara por cosecha).</li>\n<li><a href=\"#/personaje/PID_ハルヴィン\">Halvin</a>: los 2 <a href=\"#/objeto/IID_デーツ\">Dátiles</a> de «<a href=\"#/mision/SQID_巨大獣の討伐\">Bestias enormes</a>» bastan para cultivar sus 10<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Misiones de verduras de Cai (<a href=\"#/mision/SQID_カイ篇_お取り寄せ野菜\">Verduras para los saramitas</a>, <a href=\"#/mision/SQID_カイ篇_お取り寄せ野菜2\">para los aragueses</a> y <a href=\"#/mision/SQID_カイ篇_お取り寄せ野菜3\">para el coliseo</a>; 30 unidades cada una, 2500 G y 200 de Prestigio): comprar unas pocas (el mercado de Aguiño vende Shaktoh a 50 G, 5 por capítulo) y plantar.</li>\n<li><a href=\"#/lugar/そよ風の丘\">Colina de la Brisa</a>, <a href=\"#/lugar/ムルキベル湿地帯\">Humedal de Mulciber</a> y <a href=\"#/lugar/ソナイ峠\">Paso de Sonai</a> mutan a <a href=\"#/objeto/IID_グルマオサ\">Glirmosa</a> (<a href=\"#/personaje/PID_ムウ\">Mu</a> pide 3).</li>\n</ul>"
     ]
    ]
   },
@@ -530312,7 +530528,7 @@ window.WIKI={
     ],
     [
      "Cómo funciona",
-     "<p><b>Inventario.</b> En los preparativos, «Inventario» cambia armas, equipo, objetos, habilidades y técnicas de cada unidad. Durante la batalla se cambia el arma equipada seleccionando la unidad y pulsando los botones laterales. «Optimizar equipo» lo elige solo; la comunidad lo desaconseja porque a veces equipa armas viejas<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</p>\n<p><b>Carro.</b> Es el almacén común. Desde el inventario se pasa un objeto al carro y al revés; «Depositar todo» lo vacía de golpe. Si el carro se llena, hay que tirar algo. En batalla, la orden <b>Carro</b> solo sale en los Señores de la Llama y en sus vecinos. Los objetos que consiguen los invitados van al carro al acabar.</p>\n<p><b>Peso.</b> Escudos (2–8), máscaras (3–8) y otros accesorios pesan. Si la suma con el arma supera la Con, baja la velocidad de ataque (ver <a href=\"#/guia/armas\">Armas</a>).</p>\n<p><b>Partes 2 y 3.</b> A la Guerra solo pasan las armas y el equipo que cada personaje lleve encima; qué se recupera después en la Parte 3 está en <a href=\"#/guia/guerra-y-salvacion\">Partes 2 y 3</a>.</p>"
+     "<p><b>Inventario.</b> En los preparativos, «Inventario» cambia armas, equipo, objetos, habilidades y técnicas de cada unidad. Durante la batalla se cambia el arma equipada seleccionando la unidad y pulsando los botones laterales. «Optimizar equipo» lo elige solo; la comunidad lo desaconseja porque a veces equipa armas viejas<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</p>\n<p><b>Carro.</b> Es el almacén común. Desde el inventario se pasa un objeto al carro y al revés; «Depositar todo» lo vacía de golpe. Si el carro se llena, hay que tirar algo. En batalla, la orden <b>Carro</b> solo sale en los Señores de la Llama y en sus vecinos. Los objetos que consiguen los invitados van al carro al acabar.</p>\n<p><b>Peso.</b> Escudos (2–8), máscaras (3–8) y otros accesorios pesan. Si la suma con el arma supera la Con, baja la velocidad de ataque (ver <a href=\"#/guia/armas\">Armas</a>).</p>\n<p><b>Partes 2 y 3.</b> A la Guerra solo pasan las armas y el equipo que cada personaje lleve encima; qué se recupera después en la Parte 3 está en <a href=\"#/guia/parte-2-guerra\">Parte 2: Guerra</a>.</p>"
     ],
     [
      "Tipos",
@@ -530378,15 +530594,15 @@ window.WIKI={
    "secs": [
     [
      "En resumen",
-     "<ul>\n<li>Una misión se cobra hablando con quien la dio, casi siempre en Dagsion, no en el objetivo.</li>\n<li>Altruismo (solo Cai): 26 encargos de 100–200 de Prestigio; es la fuente principal en esta ruta.</li>\n<li>Formación (solo Cai): 8 lecciones por Prestigio; las tres últimas dan 8000 G y clases (Caladrio, Jinete de baus) o una Licencia avanzada y Trovador.</li>\n<li>Desvíos: 9 en la Parte 1, cada uno 20 000 G y 150 de Prestigio; ningún señor juega el suyo. Por ruta: Cai 4, Dietrich 8, Theodora 7 y Leda 4.</li>\n<li>Misiones por ruta: Cai 95, Dietrich 82, Theodora 85, Leda 98, más 15 de la Parte 3 comunes a todas. 53 existen en las cuatro rutas.</li>\n<li>25 misiones solo aparecen en una segunda o tercera ruta (18 en la de Cai, 23 en cada una de las otras).</li>\n</ul>"
+     "<ul>\n<li>Una misión se cobra hablando con quien la dio, casi siempre en Dagsion, no en el objetivo.</li>\n<li>Altruismo (solo Cai): 26 encargos de 100–200 de Prestigio; es la fuente principal en esta ruta.</li>\n<li>Formación (solo Cai): 8 lecciones por Prestigio; las tres últimas dan 8000 G y clases (Caladrio, Jinete de baus) o una Licencia avanzada y Trovador.</li>\n<li>Desvíos: 9 en la Parte 1, cada uno 20 000 G y 150 de Prestigio; ningún señor juega el suyo. Por ruta: Cai 4, Dietrich 8, Theodora 7 y Leda 4.</li>\n<li>Misiones por ruta: Cai 95, Dietrich 82, Theodora 85, Leda 98, más 15 de la Parte 3 comunes a todas. 53 existen en las cuatro rutas.</li>\n<li>25 misiones solo aparecen en una segunda o tercera ruta (18 en la de Cai, 23 en cada una de las otras).</li>\n<li>Una misión solo se pierde dejando pasar su plazo. Las de combate ponen una tropa en su lugar mientras están activas: 6 unidades y 1 turno de combate, más el viaje.</li>\n</ul>"
     ],
     [
      "Cómo funciona",
-     "<p>La fecha que anuncia un Desvío es la de aceptación: hay que encontrar al cliente antes. Plazo para aceptarlo en cada ruta (entre paréntesis, el último día para combatir cuando el juego lo fija; «—» = no sale en esa ruta):</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Desvío</th><th>Cai</th><th>Dietrich</th><th>Theodora</th><th>Leda</th></tr><tr><td>Bertrand · Encuentro amistoso con el rey</td><td>17/9–25/9</td><td>solo el 17/9</td><td>17/9–25/9</td><td>—</td></tr><tr><td>Talimun · El secreto del carro desaparecido</td><td>17/9–10/10 (12/10)</td><td>17/9–10/10 (12/10)</td><td>17/9–10/10 (12/10)</td><td>—</td></tr><tr><td>Anna · Secreto dorado</td><td>24/9–5/10</td><td>24/9–5/10</td><td>24/9–5/10</td><td>—</td></tr><tr><td>Orchel · El asunto pendiente de Orchel</td><td>18/10–20/10 (21/10)</td><td>18/10–25/10 (27/10)</td><td>18/10–25/10 (27/10)</td><td>18/10–25/10 (27/10)</td></tr><tr><td>Cai · La gran evasión</td><td>—</td><td>16/10–22/10</td><td>16/10–22/10</td><td>16/10–22/10</td></tr><tr><td>Dietrich · El pasado olvidado</td><td>—</td><td>—</td><td>16/10–29/10 (1/11)</td><td>16/10–29/10 (1/11)</td></tr><tr><td>Theodora · La estatua robada del guerrero</td><td>—</td><td>3/9–12/9 (15/9)</td><td>—</td><td>—</td></tr><tr><td>Leda · Una táctica de distracción</td><td>—</td><td>2/9–8/9</td><td>2/9–8/9</td><td>—</td></tr><tr><td>Anatolia · La reina del pueblo erradicado</td><td>—</td><td>5/10–14/10 (17/10)</td><td>—</td><td>5/10–14/10 (17/10)</td></tr></table></div>\n<p>Premios además del oro y el Prestigio: el de Bertrand da un Lingote de oro enorme y abre a Peppe y a Bertrand en la Parte 3; el de Talimun, la <a href=\"#/objeto/IID_清めの剣\">Espada purificadora</a> y a Ursula; el de Anna, Auricalco; el de Orchel, un Bastón de sanación, a Diego y a Orchel en la Parte 3; el de Cai, una Caja de gemas; el de Dietrich, una Salamandra; el de Theodora, una Pica; el de Leda, un Escudo de plata; y el de Anatolia, un Aturdidor eléctrico. Las misiones compartidas hechas en otra ruta cuentan como hechas en las siguientes.</p>\n<p><b>Misiones propias de cada ruta.</b> Cai: Altruismo y Formación. Dietrich: los 9 Duelos de Temerario (el 5.º desbloquea Guardián y el 9.º Rastreador). Theodora: 14 envíos de suministros a Saramis (8 envíos abren Catafracto, 10 Guardián y 14 Jinete de baus). Leda: actuaciones («Baile en…») y las misiones del tabernero. En la Parte 3, las peticiones de los seis dioses desbloquean clases.</p>\n<p><b><a href=\"#/objeto/IID_カーラの聖弓\">Arco de Kalla</a>.</b> Lo da la batalla «La prueba por el Arco de Kalla» en la ruta de Leda (cap. 10<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>) y, en la Parte 3, el combate del Templo de Kalla de la misión <a href=\"#/mision/SQID_カーラの依頼\">Petición de Kalla</a>. Otorga la técnica Viento celestial.</p>\n<p><b>Encargos concretos.</b> Cada misión tiene en su ficha quién la da, el objetivo, el plazo y el premio: <a href=\"#/misiones\">Misiones y desvíos</a>.</p>"
+     "<p>La fecha que anuncia un Desvío es la de aceptación: hay que encontrar al cliente antes. Cada ruta lo ofrece desde el día en que su historia lo registra, y solo mientras hay tiempo libre: en la de Dietrich, Anna no aparece hasta el 29/9 (empieza su cap. 10) y la ventana de Talimun se corta entre el 19/9 y el 29/9, cuando no hay tiempo libre. La ventana de Talimun es una sola en el juego; las «dos ventanas» que dan algunas guías salen de esa pausa de Dietrich. Plazo para aceptarlo en cada ruta (entre paréntesis, el último día para combatir cuando el juego lo fija; «—» = no sale en esa ruta):</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Desvío</th><th>Cai</th><th>Dietrich</th><th>Theodora</th><th>Leda</th></tr><tr><td>Bertrand · Encuentro amistoso con el rey</td><td>17/9–25/9</td><td>solo el 17/9</td><td>17/9–25/9</td><td>—</td></tr><tr><td>Talimun · El secreto del carro desaparecido</td><td>17/9–10/10 (12/10)</td><td>17/9–10/10 (12/10), sin tiempo libre del 19/9 al 29/9</td><td>17/9–10/10 (12/10)</td><td>—</td></tr><tr><td>Anna · Secreto dorado</td><td>24/9–5/10</td><td>29/9–5/10</td><td>24/9–5/10</td><td>—</td></tr><tr><td>Orchel · El asunto pendiente de Orchel</td><td>18/10–20/10 (21/10)</td><td>18/10–25/10 (27/10)</td><td>18/10–25/10 (27/10)</td><td>18/10–25/10 (27/10)</td></tr><tr><td>Cai · La gran evasión</td><td>—</td><td>16/10–22/10</td><td>16/10–22/10</td><td>16/10–22/10</td></tr><tr><td>Dietrich · El pasado olvidado</td><td>—</td><td>—</td><td>16/10–29/10 (1/11)</td><td>16/10–29/10 (1/11)</td></tr><tr><td>Theodora · La estatua robada del guerrero</td><td>—</td><td>3/9–12/9 (15/9)</td><td>—</td><td>—</td></tr><tr><td>Leda · Una táctica de distracción</td><td>—</td><td>2/9–8/9</td><td>2/9–8/9</td><td>—</td></tr><tr><td>Anatolia · La reina del pueblo erradicado</td><td>—</td><td>5/10–14/10 (17/10)</td><td>—</td><td>5/10–14/10 (17/10)</td></tr></table></div>\n<p>Premios además del oro y el Prestigio: el de Bertrand da un Lingote de oro enorme y abre a Peppe y a Bertrand en la Parte 3; el de Talimun, la <a href=\"#/objeto/IID_清めの剣\">Espada purificadora</a> y a Ursula; el de Anna, Auricalco; el de Orchel, un Bastón de sanación, a Diego y a Orchel en la Parte 3; el de Cai, una Caja de gemas; el de Dietrich, una Salamandra; el de Theodora, una Pica; el de Leda, un Escudo de plata; y el de Anatolia, un Aturdidor eléctrico. En el de Anatolia el premio depende de cuántos ciudadanos de Kunlun mueren mientras ella sigue en pie: grande sin bajas, medio con 1 y pequeño con 2; con la 3.ª se pierde la batalla (ver <a href=\"#/guia/mecanicas-de-batalla\">Mecánicas especiales de batalla</a>). Las misiones compartidas hechas en otra ruta cuentan como hechas en las siguientes.</p>\n<p><b>Misiones propias de cada ruta.</b> Cai: Altruismo y Formación. Dietrich: los 9 Duelos de Temerario (el 5.º desbloquea Guardián y el 9.º Rastreador). Theodora: 14 envíos de suministros a Saramis (8 envíos abren Catafracto, 10 Guardián y 14 Jinete de baus). Leda: actuaciones («Baile en…») y las misiones del tabernero. En la Parte 3, las peticiones de los seis dioses desbloquean clases.</p>\n<p><b><a href=\"#/objeto/IID_カーラの聖弓\">Arco de Kalla</a>.</b> Lo da la batalla «La prueba por el Arco de Kalla» en la ruta de Leda (cap. 10<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>) y, en la Parte 3, el combate del Templo de Kalla de la misión <a href=\"#/mision/SQID_カーラの依頼\">Petición de Kalla</a>. Otorga la técnica Viento celestial.</p>\n<p><b>Excluyentes y cierres.</b> «La carta oculta» y «Por el bien del Imperio» (caps. 8–9; rutas de Dietrich, Theodora y Leda) se excluyen: solo se puede hacer una, y «Por el bien del Imperio» es la que da 200 de Prestigio. En todas las rutas, el cap. 5 cierra 7 misiones del tablón, el 6 cierra 4, el 9 de 10 a 12 y el 10, 5 o 6; lista por capítulo en <a href=\"#/guia/perdibles\">Perdibles</a>. Algunas se aceptan solas con la historia, como «Primer encargo» (Cai, cap. 3) o el primer baile de Leda (cap. 4).</p>\n<p><b>Encargos concretos.</b> Cada misión tiene en su ficha quién la da, el objetivo, el plazo y el premio: <a href=\"#/misiones\">Misiones y desvíos</a>.</p>"
     ],
     [
      "Consejos de min-max",
-     "<ul>\n<li>Al empezar cada capítulo, aceptar todo lo posible para ver plazos y fechas.</li>\n<li>Priorizar las misiones que abren pasos (en la ruta de Cai, Fortaleza de Hugo y Fortaleza de Libertas), clases o locales.</li>\n<li>En la ruta de Cai, las entregas de 30 plantas se cubren cultivando; en la de Theodora, los envíos de 30 no se pueden cultivar (Cultivar es solo de Cai).</li>\n<li>La ventana de Orchel en la ruta de Cai es de solo tres días; en la de Dietrich, la de Bertrand es de un solo día.</li>\n</ul>"
+     "<ul>\n<li>Al empezar cada capítulo, aceptar todo lo posible para ver plazos y fechas.</li>\n<li>Priorizar las misiones que abren pasos (en la ruta de Cai, Fortaleza de Hugo y Fortaleza de Libertas), clases o locales.</li>\n<li>En la ruta de Cai, las entregas de 30 plantas se cubren cultivando; en la de Theodora, los envíos de 30 no se pueden cultivar (Cultivar es solo de Cai).</li>\n<li>La ventana de Orchel en la ruta de Cai es de solo tres días; en la de Dietrich, la de Bertrand es de un solo día.</li>\n<li>En el Desvío de Anatolia, proteger a los ciudadanos antes que matar: cada muerte rebaja el premio un escalón.</li>\n</ul>"
     ]
    ]
   },
@@ -530410,9 +530626,12 @@ window.WIKI={
    "resumen": "Zonas explorables con minerales, cofres fijos y grupos enemigos que se combaten en Batalla rápida; dan EXP, competencias y objetos únicos.",
    "preguntas": [
     "¿Dónde están las mazmorras y las Llaves del Halo?",
-    "¿Cómo funciona la Batalla rápida?"
+    "¿Cómo funciona la Batalla rápida?",
+    "¿De qué nivel son los enemigos de una mazmorra?",
+    "¿Reaparecen los enemigos de las mazmorras?"
    ],
    "relacionados": [
+    "escaramuzas",
     "busqueda",
     "refinado",
     "armas",
@@ -530444,15 +530663,87 @@ window.WIKI={
    "secs": [
     [
      "En resumen",
-     "<ul>\n<li>Tocar un grupo enemigo inicia una Batalla rápida: hasta 5 unidades comparten una barra de PV, igual que el enemigo.</li>\n<li>Los cofres son fijos (uno para la Parte 1 y otro para la Parte 3) y no se regeneran; cajas, barriles y minerales sí, al volver a entrar.</li>\n<li>Los enemigos derrotados vuelven en el capítulo siguiente.</li>\n<li>Entrar o salir gasta 1 turno; las alcantarillas de Dagsion de Cai no.</li>\n<li>En modo Clásico, perder una Batalla rápida tiene castigo propio: ver <a href=\"#/guia/dificultad\">Dificultad</a>.</li>\n</ul>"
+     "<ul>\n<li>Tocar un grupo enemigo inicia una Batalla rápida: hasta 5 unidades comparten una barra de PV, igual que el enemigo; la reserva gana la mitad de la EXP.</li>\n<li>Nivel de la Parte 1: fijo para cada zona (de 3 en las alcantarillas a 35 en el Fuerte de la Huella), salvo en algunos capítulos de historia, en que sigue al ejército. En la Parte 3 sigue siempre al ejército.</li>\n<li>Los grupos se ven y se pueden esquivar; no reaparecen dentro del capítulo y vuelven en el siguiente.</li>\n<li>Los cofres son fijos (uno para la Parte 1 y otro para la Parte 3) y no se regeneran; cajas, barriles y minerales sí, al volver a entrar.</li>\n<li>Entrar es la acción del turno; dentro no corre el reloj del mapa, así que los combates no gastan turnos. Las alcantarillas de Dagsion de Cai no gastan turno.</li>\n<li>En modo Clásico, perder una Batalla rápida tiene castigo propio: ver <a href=\"#/guia/dificultad\">Dificultad</a>.</li>\n</ul>"
     ],
     [
      "Cómo funciona",
-     "<p><b>Batalla rápida</b> (<a href=\"#/tutorial/TUTO_ショートバトル\">tutorial</a>). El daño depende de la vanguardia. Atacar no gasta durabilidad; las técnicas sí. Las Cadenas (<a href=\"#/tutorial/TUTO_連携\">tutorial</a>; ataque, curación, mixta con apoyo 3) cuestan puntos de cadena, menos con más apoyo. Cómo se reparte la EXP (as, reserva, asaltos): <a href=\"#/guia/experiencia-y-niveles\">Experiencia y niveles</a>. Con mucho más nivel, golpear primero acaba con el grupo sin combate.</p>\n<p><b>Descanso</b> (<a href=\"#/tutorial/TUTO_ダンジョン「休憩」\">tutorial</a>). Un punto por internada: 1–10 raciones curan PV y magia.</p>\n<p><b>Momias.</b> Las doradas sueltan <a href=\"#/objeto/IID_金塊\">Lingote de oro</a> (grande en la Parte 3); las plateadas dan EXP extra.</p>\n<p><b>Llaves del Halo.</b> Cinco cofres de la Parte 3 abren el Templo del Halo y las clases divinas: Cueva de la Hereje, Islote de Enno, Bosque del Puma, Fuerte de las Sombras y Fuerte de la Huella (ver cada zona en <a href=\"#/mazmorras\">Mazmorras</a>).</p>"
+     "<p><b>Batalla rápida</b> (<a href=\"#/tutorial/TUTO_ショートバトル\">tutorial</a>). El daño depende de la vanguardia. Atacar no gasta durabilidad; las técnicas sí. Las Cadenas (<a href=\"#/tutorial/TUTO_連携\">tutorial</a>; ataque, curación, mixta con apoyo 3) cuestan puntos de cadena, menos con más apoyo. La EXP se reparte al final: cada participante suma la EXP de matar a todos los enemigos, la divide entre 5 y se queda la cifra entera en el frente, la mitad en la reserva y el triple si es el as (quien remata); detalle en <a href=\"#/guia/experiencia-y-niveles\">Experiencia y niveles</a>. Con 5 niveles o más de ventaja, golpear primero acaba con el grupo sin combate.</p>\n<p><b>Nivel y grupos.</b> Cada zona tiene en la Parte 1 un nivel fijo, que es el que muestra su ficha en <a href=\"#/mazmorras\">Mazmorras</a>. Excepciones de la ruta de Cai, en las que el nivel es el del ejército más un desfase: alcantarillas de Dagsion (cap. 2, +2; caps. 4, 5 y 11, +0), Ruinas del fuerte Galen (cap. 2), Mina de Niraga (cap. 3) y Templo de Balor (cap. 6, +4). En la Parte 3 todas siguen al ejército. Cada zona tiene de 4 a 9 grupos visibles, de 1 a 6 unidades cada uno.</p>\n<p><b>Persecución.</b> Los grupos ven en un cono (los humanos, 120°; animales e insectos, casi todo alrededor), oyen y aceleran al perseguir; pierden el rastro a los 2 segundos sin verte. El combate solo empieza al tocarse, así que se pueden esquivar.</p>\n<p><b>Descanso</b> (<a href=\"#/tutorial/TUTO_ダンジョン「休憩」\">tutorial</a>). Una vez por visita: 1–10 raciones curan PV y magia.</p>\n<p><b>Momias.</b> Las doradas sueltan <a href=\"#/objeto/IID_金塊\">Lingote de oro</a> (grande en la Parte 3); las plateadas dan EXP extra.</p>\n<p><b>Llaves del Halo.</b> Cinco cofres de la Parte 3 abren el Templo del Halo y las clases divinas: Cueva de la Hereje, Islote de Enno, Bosque del Puma, Fuerte de las Sombras y Fuerte de la Huella (ver cada zona en <a href=\"#/mazmorras\">Mazmorras</a>).</p>"
     ],
     [
      "Consejos de min-max",
      "<ul>\n<li>Golpear sin matar y retirarse sube competencias y EXP de clase sin gastar EXP de nivel (tope de 15 asaltos por combate). Si matas al último enemigo, el autoguardado acaba el bucle hasta el capítulo siguiente. Sitios: Fuerte Hayn, alcantarillas de Dagsion (Cai), Bosque vetado (Cai), Cueva de la Hereje (gusanos que regeneran)<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Dentro de una mazmorra las unidades montadas luchan a pie: suben Infantería, no Equitación ni Vuelo<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Subir a una unidad débil haciéndola rematar en una zona de más nivel<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Ruta de Cai: en vista en primera persona, <a href=\"#/personaje/PID_カイ\">Cai</a> ve a los enemigos a través de los muros (<a href=\"#/senores?ir=cai\">Tercer Ojo</a>); en la Parte 3, con Cai en la milicia.</li>\n<li>Abrir todos los cofres de la Parte 1: su contenido cambia en la Parte 3.</li>\n</ul>"
+    ]
+   ]
+  },
+  {
+   "id": "escaramuzas",
+   "titulo": "Tropas del mapa y escaramuzas",
+   "alias": [
+    "escaramuza",
+    "escaramuzas",
+    "enemigos itinerantes",
+    "tropas del mapa",
+    "tropa enemiga",
+    "tropas enemigas",
+    "peleas forzosas",
+    "encuentros",
+    "nivel de las tropas",
+    "tercera facción"
+   ],
+   "resumen": "Las tropas enemigas del mapa se colocan de nuevo cada vez que el ejército sale de Dagsion, no se mueven y cortan el camino de quien pase por su lugar; su nivel es el del ejército más 1, limitado por la región.",
+   "preguntas": [
+    "¿Por qué se para el viaje en mitad del camino?",
+    "¿Cuándo cambian los enemigos del mapa?",
+    "¿De qué nivel son los enemigos de una región?",
+    "¿Cuántas unidades llevo a una escaramuza?",
+    "¿Se puede huir de una escaramuza?"
+   ],
+   "relacionados": [
+    "mapa-del-mundo",
+    "mazmorras",
+    "experiencia-y-niveles",
+    "recuperacion",
+    "misiones"
+   ],
+   "enlaces": [
+    {
+     "texto": "Mapa",
+     "ruta": "#/mapa"
+    },
+    {
+     "texto": "Turnos y viajes",
+     "ruta": "#/turnos"
+    },
+    {
+     "texto": "Tutorial: enemigos y mercaderes",
+     "ruta": "#/tutorial/TUTO_勢力出現"
+    },
+    {
+     "texto": "Tutorial: Escaramuza",
+     "ruta": "#/tutorial/TUTO_遭遇戦"
+    }
+   ],
+   "tema": "mundo",
+   "secs": [
+    [
+     "En resumen",
+     "<ul>\n<li>Cada salida de Dagsion vuelve a colocar las tropas del mapa: entre 10 y 50, contando enemigos y mercaderes itinerantes. Mientras no se vuelva a Dagsion, siguen en el mismo sitio.</li>\n<li>No se mueven ni persiguen, pero si el siguiente lugar del camino tiene una tropa, el viaje se para ahí y empieza la escaramuza.</li>\n<li>Nivel de la tropa: la media de los 10 aliados de más nivel, más 1, recortada al rango de la región. El mapa muestra el tope de la región, no el nivel real.</li>\n<li>Escaramuza: 6 unidades por bando, 1 turno dure lo que dure. Da EXP, Exp de clase y de competencias, apoyo y objetos; con Cai, ningún Prestigio.</li>\n</ul>"
+    ],
+    [
+     "Dónde aparecen",
+     "<ul>\n<li>Cada colocación elige una región al azar (cada región tiene su peso y un tope de tropas por capítulo), decide si es enemigo o mercader según la proporción de la región y ocupa un lugar libre: <b>una tropa por lugar</b>.</li>\n<li>Solo hay tropas en campos, pasos, santuarios, fuertes y puntos de mitad de carretera. Nunca en cruces, pueblos, postas, templos ni zonas explorables.</li>\n<li>Cada lugar tiene su lista de facciones (lobos, bandidos, piratas, esqueletos…); la tropa sale de esa lista con 4–6 unidades. El detalle por lugar está en el <a href=\"#/mapa\">Mapa</a>.</li>\n<li>A veces entra una tercera facción: de 0 a 4 animales o de 0 a 2 momias. Las momias doradas sueltan lingotes de oro y las plateadas dan EXP extra.</li>\n<li>Las tropas de misión son aparte: ocupan su lugar mientras la misión está activa, incluso sobre un punto de control.</li>\n</ul>"
+    ],
+    [
+     "El encuentro",
+     "<ul>\n<li>El cálculo del alcance azul no mira las tropas: el camino se planea por encima y se corta al llegar. Una tropa en un paso obligado (un puente, un tramo de carretera) cierra ese camino hasta vencerla o hasta la siguiente salida de Dagsion.</li>\n<li><b>Retirarse</b> en la preparación devuelve el ejército al lugar anterior; la tropa sigue allí.</li>\n<li><b>Perder</b> deja elegir entre repetir la batalla o volver a Dagsion con todas las unidades a 1 PV.</li>\n<li>Los PV y la magia no se recuperan solos después: ver <a href=\"#/guia/recuperacion\">Recuperación</a>.</li>\n</ul>"
+    ],
+    [
+     "Nivel por región",
+     "<p>El nivel base del ejército es la media truncada de sus 10 unidades de más nivel. Cada tropa sale a ese nivel más 1, y todas sus unidades al mismo nivel, pero nunca por debajo del mínimo ni por encima del máximo de la región:</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Región</th><th>Nivel</th><th>Región</th><th>Nivel</th></tr><tr><td>Amalthea</td><td>3–5</td><td>Castalia</td><td>19–28</td></tr><tr><td>Elektra</td><td>5–12</td><td>Braxithea</td><td>20–25</td></tr><tr><td>Lambath</td><td>6–13</td><td>Solomon</td><td>22–28</td></tr><tr><td>Melias</td><td>6–15</td><td>Idyia</td><td>26–33</td></tr><tr><td>Thaleia</td><td>14–20</td><td>Nysiades</td><td>26–30</td></tr><tr><td>Saveilon</td><td>15–25</td><td>Solidus</td><td>26–33</td></tr><tr><td>Mares</td><td>7–23</td><td>Pasithea, Ogmios</td><td>35</td></tr></table></div>\n<ul>\n<li>En los puntos de control no hay recorte por región: la tropa sale al nivel base + 1.</li>\n<li>En la Parte 3 no hay recorte: siempre nivel base + 1.</li>\n<li>Ogmios y Pasithea son siempre nivel 35 en la Parte 1, muy por encima del ejército a mitad de ruta.</li>\n</ul>"
+    ],
+    [
+     "Consejos de min-max",
+     "<ul>\n<li>Para cambiar las tropas o traer un mercader, basta con entrar en Dagsion y volver a salir; moverse o dormir fuera no las cambia.</li>\n<li>Antes de un viaje largo, mirar qué lugares de paso tienen tropa: rodear cuesta tramos, pero una escaramuza cuesta un turno entero y PV que no vuelven.</li>\n<li>No cruzar lugares con tropa de Ogmios o Pasithea con un ejército bajo; los cruces, pueblos y postas siempre son seguros.</li>\n<li>Subir mucho a pocas unidades sube el nivel de todas las tropas que no estén en su tope de región.</li>\n</ul>"
     ]
    ]
   },
@@ -530474,7 +530765,8 @@ window.WIKI={
    ],
    "resumen": "El torneo que marca la Parte 1: cada ruta tiene sus combates con fecha fija, que son la batalla principal de varios capítulos; los de otros grupos se pueden ver como espectador.",
    "preguntas": [
-    "¿Cuándo son los combates de los Juegos Heroicos?"
+    "¿Cuándo son los combates de los Juegos Heroicos?",
+    "¿Cuándo queda eliminado cada señor del torneo?"
    ],
    "relacionados": [
     "rutas",
@@ -530509,6 +530801,10 @@ window.WIKI={
     [
      "Cómo funciona",
      "<p><b>Invitados.</b> La EXP de sus bajas se reparte entre los miembros fijos (×1,5 en total, más para los de menor nivel); los objetos que consigan en el mapa van al Carro<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Si cae un personaje nombrado en la condición de derrota, se pierde la batalla.</p>\n<p><b>Combate de orbes</b> (Theodora, cap. 10, cuartos contra Talimun): gana quien tenga más orbes al final de la fase del jugador del turno 12; llevar un orbe deja la Def a 0<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</p>\n<p><b>Espectador.</b> De 12:00 a 18:00 en el coliseo, el día del combate. Qué combates se pueden ver depende de la ruta:</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Ruta</th><th>Combates que se pueden ver</th></tr><tr><td>Cai</td><td>21/3, 7/5, 15/6, 16/9, 27/9, 4/10</td></tr><tr><td>Dietrich</td><td>7/5, 9/7, 10/7 (exhibición), 1/9, 16/9, 15/10</td></tr><tr><td>Theodora</td><td>10/4, 7/5, 15/6, 9/7, 10/7 (exhibición), 1/9, 27/9, 4/10</td></tr><tr><td>Leda</td><td>10/4, 15/6, 4/10, 3/11</td></tr></table></div>\n<p>EXP en la ruta de Cai: 21/3 Lanza 15 y Arco 10; 7/5 Arco 15 y Coraza 10; 15/6 Hacha 25 y Equitación 20; 16/9 Coraza 30 y Magia negra 25; 27/9 Hacha 30 y Magia blanca 25; 4/10 Espada 30 y Guanteletes 25<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</p>"
+    ],
+    [
+     "Cuándo cae cada señor",
+     "<p>Un señor eliminado del torneo deja libres a sus compañeros para reclutarlos en esa ruta (si además se hizo su Desvío en ella; ver <a href=\"#/guia/reclutamiento\">Reclutamiento</a>). Cuenta desde la tarde del día del combate en que cae:</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Ruta</th><th>Leda</th><th>Cai</th><th>Talimun</th><th>Orchel</th><th>Anatolia</th><th>Theodora</th><th>Dietrich</th><th>Bertrand</th></tr><tr><td>Cai</td><td>1/9</td><td>—</td><td>16/9</td><td>27/9</td><td>4/10</td><td>15/10</td><td>3/11</td><td>27/11</td></tr><tr><td>Dietrich</td><td>1/9</td><td>15/10</td><td>16/9</td><td>27/9</td><td>4/10</td><td>nunca</td><td>—</td><td>3/11</td></tr><tr><td>Theodora</td><td>1/9</td><td>15/10</td><td>16/9</td><td>27/9</td><td>4/10</td><td>—</td><td>nunca</td><td>nunca</td></tr><tr><td>Leda</td><td>—</td><td>1/9</td><td>16/9</td><td>27/9</td><td>4/10</td><td>15/10</td><td>3/11</td><td>27/11</td></tr></table></div>\n<p>Por eso Bonaventure y Tobias no se reclutan en la ruta de Dietrich, ni Fabio y Gaitz en la de Theodora.</p>\n<p><b>Plazas.</b> En los combates del torneo cada grupo tiene sus casillas en el mismo mapa: en el cap. 4 de Cai se eligen 3 unidades; en el cap. 7, 6 además de Cai, con 4 aliados fijos.</p>"
     ],
     [
      "Consejos de min-max",
@@ -530549,8 +530845,8 @@ window.WIKI={
     "perdibles",
     "reclutamiento",
     "rutas",
-    "apoyos",
-    "calendario"
+    "guerra-y-salvacion",
+    "apoyos"
    ],
    "enlaces": [
     {
@@ -530582,7 +530878,7 @@ window.WIKI={
     ],
     [
      "Escenas secundarias de la Parte 1",
-     "<div class=\"tw\"><table class=\"md\"><tr><th>Ruta</th><th>Cap.</th><th>Escenas</th><th>Cómo sale</th></tr><tr><td>Cai</td><td>2</td><td><a href=\"#/guion/1_KAI_c02?ir=e-EV11_100\">La sabiduría de un padre</a>, <a href=\"#/guion/1_KAI_c02?ir=e-EV11_101\">Cai y Tialla</a>, <a href=\"#/guion/1_KAI_c02?ir=e-EV11_102\">La Tempestad y el Corindón</a></td><td>Al llegar a Dagsion, antes de avanzar<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span></td></tr><tr><td>Cai</td><td>4</td><td><a href=\"#/guion/1_KAI_c04?ir=e-EV11_104\">Bertrand</a></td><td>Celda del fondo del subsuelo del coliseo, primeros 24 turnos; da EXP de Espada a Cai<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span></td></tr><tr><td>Cai</td><td>6</td><td><a href=\"#/guion/1_KAI_c06?ir=e-EV11_113\">Recuerdos tenebrosos</a></td><td>Mural de la ciudad de los muertos, a la izquierda del inicio</td></tr><tr><td>Cai</td><td>8</td><td><a href=\"#/guion/1_KAI_c08?ir=e-EV11_110\">El dilema de Buccar</a></td><td>—</td></tr><tr><td>Dietrich</td><td>3</td><td><a href=\"#/guion/1_DIT_c03?ir=e-EV12_100\">La hoja que atraviesa a los dioses</a></td><td>—</td></tr><tr><td>Dietrich</td><td>4</td><td><a href=\"#/guion/1_DIT_c04?ir=e-EV12_101\">Dietrich y Talimun</a>, <a href=\"#/guion/1_DIT_c04?ir=e-EV12_102\">Una presencia embriagadora</a>, <a href=\"#/guion/1_DIT_c04?ir=e-EV12_107\">La Wen Oscura</a>, <a href=\"#/guion/1_DIT_c04?ir=e-EV12_110\">Mikaela y Mu</a></td><td>Camino al sur de la taberna, trasera de la posada y puestos del mercado tras hablar con Mikaela<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span></td></tr><tr><td>Dietrich</td><td>5</td><td><a href=\"#/guion/1_DIT_c05?ir=e-EV12_103\">Yanjin y Fabio</a></td><td>Callejón al este; necesaria para la del cap. 10<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span></td></tr><tr><td>Dietrich</td><td>6</td><td><a href=\"#/guion/1_DIT_c06?ir=e-EV12_108\">Intimidaciones</a></td><td>Hablar con Alexandra y luego ir al barrio pobre<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span></td></tr><tr><td>Dietrich</td><td>8</td><td><a href=\"#/guion/1_DIT_c08?ir=e-EV12_104\">La perfidia de Baozi</a></td><td>Callejón del barrio pobre, de 18:00 a 23:59<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span></td></tr><tr><td>Dietrich</td><td>10</td><td><a href=\"#/guion/1_DIT_c10?ir=e-EV12_105\">Rescate sorpresa</a></td><td>De 18:00 a 23:59, si se vio la del cap. 5<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span></td></tr><tr><td>Dietrich</td><td>12</td><td><a href=\"#/guion/1_DIT_c12?ir=e-EV12_106\">El legado de un Elegido</a></td><td>Callejón al este con Fabio; mejora la Respondedora antes del duelo con Mars<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span></td></tr><tr><td>Theodora</td><td>4</td><td><a href=\"#/guion/1_SEO_c04?ir=e-EV13_101\">La adivina enigmática</a></td><td>—</td></tr><tr><td>Theodora</td><td>9</td><td><a href=\"#/guion/1_SEO_c09?ir=e-EV13_102\">El periplo de Long</a></td><td>—</td></tr><tr><td>Theodora</td><td>10</td><td><a href=\"#/guion/1_SEO_c10?ir=e-EV13_104\">La petición de la mediadora</a>, <a href=\"#/guion/1_SEO_c10?ir=e-EV13_105\">Un pecado de otra vida</a></td><td>Anatolia junto al coliseo; interior del templo junto al teatro<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span></td></tr><tr><td>Theodora</td><td>11</td><td><a href=\"#/guion/1_SEO_c11?ir=e-EV13_106\">Voluntad legada</a></td><td>Solo si se prestó el barco en el cap. 10<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span></td></tr><tr><td>Leda</td><td>4</td><td><a href=\"#/guion/1_LED_c04?ir=e-EV14_100\">Leda y Talimun</a></td><td>—</td></tr><tr><td>Leda</td><td>5</td><td><a href=\"#/guion/1_LED_c05?ir=e-EV14_102\">Leda y Kalla</a></td><td>En el templo de Kalla<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span></td></tr><tr><td>Leda</td><td>6</td><td><a href=\"#/guion/1_LED_c06?ir=e-EV14_103\">La flor de Olympia</a></td><td>Camino al nivel medio, con Olympia<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span></td></tr><tr><td>Leda</td><td>7</td><td><a href=\"#/guion/1_LED_c07?ir=e-EV14_104\">Mentira piadosa</a>, <a href=\"#/guion/1_LED_c07?ir=e-EV14_105\">Dudas sobre Mahdel</a>, <a href=\"#/guion/1_LED_c07?ir=e-EV14_106\">El invitado sorpresa</a></td><td>—</td></tr><tr><td>Leda</td><td>8</td><td><a href=\"#/guion/1_LED_c08?ir=e-EV14_107\">El testimonio de Mahdel</a></td><td>—</td></tr><tr><td>Leda</td><td>9</td><td><a href=\"#/guion/1_LED_c09?ir=e-EV14_108\">Pesquisas nocturnas</a>, <a href=\"#/guion/1_LED_c09?ir=e-EV14_109\">El secreto del ámbar gris</a></td><td>Con Sirocco, de 18:00 a 23:59; la segunda tras la primera<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span></td></tr></table></div>\n<p>Otros eventos de la Parte 1:</p>\n<ul>\n<li><b>Theodora, 6 de abril:</b> el Palacio de Cristal anuncia un combate privado entre el Demonio Cano y Yanjin; la recepción invita a verlo. Después se puede luchar contra Bertrand por 500 de Prestigio, con 3 unidades.</li>\n<li><b>Leda, cap. 9:</b> Kiroc, ante el establo, da la misión de reclutamiento que lo une al grupo; no existe en la ruta de Cai<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Leda, cap. 10:</b> una prueba en el Portal de los Dioses da EXP y el <a href=\"#/objeto/IID_カーラの聖弓\">Arco de Kalla</a> (ver <a href=\"#/guia/misiones\">Misiones</a>).</li>\n<li><b>Dietrich, caps. 10 y 12:</b> dos vecinos de Ribeira y del pueblo pesquero del norte tienen conversación sin escena<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n</ul>"
+     "<div class=\"tw\"><table class=\"md\"><tr><th>Ruta</th><th>Cap.</th><th>Escenas</th><th>Cómo sale</th></tr><tr><td>Cai</td><td>2</td><td><a href=\"#/guion/1_KAI_c02?ir=e-EV11_100\">La sabiduría de un padre</a>, <a href=\"#/guion/1_KAI_c02?ir=e-EV11_101\">Cai y Tialla</a>, <a href=\"#/guion/1_KAI_c02?ir=e-EV11_102\">La Tempestad y el Corindón</a></td><td>Al llegar a Dagsion, antes de avanzar<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span></td></tr><tr><td>Cai</td><td>4</td><td><a href=\"#/guion/1_KAI_c04?ir=e-EV11_104\">Bertrand</a></td><td>Celda del fondo del subsuelo del coliseo, primeros 24 turnos; da EXP de Espada a Cai<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span></td></tr><tr><td>Cai</td><td>6</td><td><a href=\"#/guion/1_KAI_c06?ir=e-EV11_113\">Recuerdos tenebrosos</a></td><td>Mural de la ciudad de los muertos, a la izquierda del inicio</td></tr><tr><td>Cai</td><td>8</td><td><a href=\"#/guion/1_KAI_c08?ir=e-EV11_110\">El dilema de Buccar</a></td><td>—</td></tr><tr><td>Dietrich</td><td>3</td><td><a href=\"#/guion/1_DIT_c03?ir=e-EV12_100\">La hoja que atraviesa a los dioses</a></td><td>—</td></tr><tr><td>Dietrich</td><td>4</td><td><a href=\"#/guion/1_DIT_c04?ir=e-EV12_101\">Dietrich y Talimun</a>, <a href=\"#/guion/1_DIT_c04?ir=e-EV12_102\">Una presencia embriagadora</a>, <a href=\"#/guion/1_DIT_c04?ir=e-EV12_107\">La Wen Oscura</a>, <a href=\"#/guion/1_DIT_c04?ir=e-EV12_110\">Mikaela y Mu</a></td><td>Camino al sur de la taberna, trasera de la posada y puestos del mercado tras hablar con Mikaela<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span></td></tr><tr><td>Dietrich</td><td>5</td><td><a href=\"#/guion/1_DIT_c05?ir=e-EV12_103\">Yanjin y Fabio</a></td><td>Callejón al este; necesaria para la del cap. 10<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span></td></tr><tr><td>Dietrich</td><td>6</td><td><a href=\"#/guion/1_DIT_c06?ir=e-EV12_108\">Intimidaciones</a></td><td>Hablar con Alexandra y luego ir al barrio pobre<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span></td></tr><tr><td>Dietrich</td><td>8</td><td><a href=\"#/guion/1_DIT_c08?ir=e-EV12_104\">La perfidia de Baozi</a></td><td>Callejón del barrio pobre, de 18:00 a 23:59<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span></td></tr><tr><td>Dietrich</td><td>10</td><td><a href=\"#/guion/1_DIT_c10?ir=e-EV12_105\">Rescate sorpresa</a></td><td>De 18:00 a 23:59, si se vio la del cap. 5<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span></td></tr><tr><td>Dietrich</td><td>12</td><td><a href=\"#/guion/1_DIT_c12?ir=e-EV12_106\">El legado de un Elegido</a></td><td>Callejón al este con Fabio; mejora la Respondedora antes del duelo con Mars<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span></td></tr><tr><td>Theodora</td><td>4</td><td><a href=\"#/guion/1_SEO_c04?ir=e-EV13_101\">La adivina enigmática</a></td><td>—</td></tr><tr><td>Theodora</td><td>9</td><td><a href=\"#/guion/1_SEO_c09?ir=e-EV13_102\">El periplo de Long</a></td><td>—</td></tr><tr><td>Theodora</td><td>10</td><td><a href=\"#/guion/1_SEO_c10?ir=e-EV13_104\">La petición de la mediadora</a>, <a href=\"#/guion/1_SEO_c10?ir=e-EV13_105\">Un pecado de otra vida</a></td><td>Anatolia junto al coliseo; interior del templo junto al teatro<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span></td></tr><tr><td>Theodora</td><td>11</td><td><a href=\"#/guion/1_SEO_c11?ir=e-EV13_106\">Voluntad legada</a></td><td>Solo si se prestó el barco en el cap. 10<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span></td></tr><tr><td>Leda</td><td>4</td><td><a href=\"#/guion/1_LED_c04?ir=e-EV14_100\">Leda y Talimun</a></td><td>—</td></tr><tr><td>Leda</td><td>5</td><td><a href=\"#/guion/1_LED_c05?ir=e-EV14_102\">Leda y Kalla</a></td><td>En el templo de Kalla<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span></td></tr><tr><td>Leda</td><td>6</td><td><a href=\"#/guion/1_LED_c06?ir=e-EV14_103\">La flor de Olympia</a></td><td>Camino al nivel medio, con Olympia<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span></td></tr><tr><td>Leda</td><td>7</td><td><a href=\"#/guion/1_LED_c07?ir=e-EV14_104\">Mentira piadosa</a>, <a href=\"#/guion/1_LED_c07?ir=e-EV14_105\">Dudas sobre Mahdel</a>, <a href=\"#/guion/1_LED_c07?ir=e-EV14_106\">El invitado sorpresa</a></td><td>—</td></tr><tr><td>Leda</td><td>8</td><td><a href=\"#/guion/1_LED_c08?ir=e-EV14_107\">El testimonio de Mahdel</a></td><td>—</td></tr><tr><td>Leda</td><td>9</td><td><a href=\"#/guion/1_LED_c09?ir=e-EV14_108\">Pesquisas nocturnas</a>, <a href=\"#/guion/1_LED_c09?ir=e-EV14_109\">El secreto del ámbar gris</a></td><td>Con Sirocco, de 18:00 a 23:59; la segunda tras la primera<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span></td></tr></table></div>\n<p>Otros eventos de la Parte 1:</p>\n<ul>\n<li><b>Theodora, 6 de abril:</b> el Palacio de Cristal anuncia un combate privado entre el Demonio Cano y Yanjin; la recepción invita a verlo. Después se puede luchar contra Bertrand por 500 de Prestigio, con 3 unidades.</li>\n<li><b>Leda, cap. 9:</b> Kiroc, ante el establo, da la misión de reclutamiento que lo une al grupo; no existe en la ruta de Cai<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Leda, cap. 10:</b> una prueba en el Portal de los Dioses da EXP y el <a href=\"#/objeto/IID_カーラの聖弓\">Arco de Kalla</a> (ver <a href=\"#/guia/misiones\">Misiones</a>).</li>\n<li><b>Reclutas como enemigos o invitados.</b> Si <a href=\"#/personaje/PID_ゴライアス\">Goliath</a>, <a href=\"#/personaje/PID_マクシム\">Maxim</a> o <a href=\"#/personaje/PID_ダンテ\">Dante</a> ya están en el ejército, en las batallas donde saldrían (Cai, caps. 11 y 12; final de Leda contra Bertrand) aparece un sustituto; el de Goliath en el cap. 11 de Cai entra al terminar la primera fase.</li>\n<li><b>Dietrich, caps. 10 y 12:</b> dos vecinos de Ribeira y del pueblo pesquero del norte tienen conversación sin escena<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n</ul>"
     ],
     [
      "Elecciones que cambian algo",
@@ -530594,11 +530890,11 @@ window.WIKI={
     ],
     [
      "Spoilers: Partes 2 y 3",
-     "<p>Aviso: esta sección nombra escenas de las Partes 2 y 3.</p>\n<ul>\n<li><b>Parte 2 (común):</b> <a href=\"#/guion/2_XXX_c02?ir=e-EV20_100\">Palabra de comerciante</a> (cap. 2), <a href=\"#/guion/2_XXX_c03?ir=e-EV20_101\">El desconsuelo de Talimun</a> (cap. 3), <a href=\"#/guion/2_XXX_c04?ir=e-EV20_103\">Talimun y Lind</a> (cap. 4) y <a href=\"#/guion/2_XXX_c06?ir=e-EV20_105\">Fortuna y Hong Hua</a> (cap. 6).</li>\n<li><b>Parte 2, Dietrich y Leda:</b> derrotar a Kiroc en el cap. 2 lo recluta si se hizo su misión en la Parte 1; si Kiroc remata a Nathan en el cap. 3, Nathan se une al empezar el cap. 4<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Parte 3, sección 1:</b> <a href=\"#/guion/3_ISM_c01?ir=e-EV30_100\">Con ayuda de Aurora</a>.</li>\n<li><b>Parte 3, sección 2:</b> una escena por cada señor que haya pasado a la Parte 3 (<a href=\"#/guion/3_ISM_c02?ir=e-EV30_101\">Cai</a>, <a href=\"#/guion/3_ISM_c02?ir=e-EV30_102\">Dietrich</a>, <a href=\"#/guion/3_ISM_c02?ir=e-EV30_103\">Theodora</a>, <a href=\"#/guion/3_ISM_c02?ir=e-EV30_104\">Leda</a>), más <a href=\"#/guion/3_ISM_c02?ir=e-EV30_110\">El pesar de Fortuna</a>, <a href=\"#/guion/3_ISM_c02?ir=e-EV30_113\">El regreso de Aurora</a> (tras la misión de auxilio de Centurio<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>) y <a href=\"#/guion/3_ISM_c02?ir=e-EV30_123\">El emblema de fuego</a>.</li>\n<li><b>Parte 3, secciones 3–5:</b> la cadena de Fortuna junto a las Termas (<a href=\"#/guion/3_ISM_c03?ir=e-EV30_114\">3</a>, <a href=\"#/guion/3_ISM_c04?ir=e-EV30_115\">4</a>, <a href=\"#/guion/3_ISM_c05?ir=e-EV30_116\">5</a>) y los juramentos de <a href=\"#/guion/3_ISM_c04?ir=e-EV30_121\">Aswan</a> y <a href=\"#/guion/3_ISM_c05?ir=e-EV30_122\">Klapka</a>. Saltarse una escena de Fortuna bloquea las siguientes hasta rejugar la sección<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n</ul>"
+     "<p>Aviso: esta sección nombra escenas de las Partes 2 y 3.</p>\n<ul>\n<li><b>Parte 2, invitados:</b> un invitado que muere en los caps. 2 o 3 ya no vuelve a salir; Dante, además, muere para siempre. En el cap. 1, si caen <a href=\"#/personaje/PID_ティアラ\">Tialla</a> o <a href=\"#/personaje/PID_バッカニア\">Buccar</a>, mueren para siempre.</li>\n<li><b>Parte 2, Talimun y Lind:</b> sale con la Parte 1 de Talimun terminada o con su Desvío hecho en una ruta que terminó la Parte 1; si no, se añade más tarde a la galería.</li>\n<li><b>Parte 2, Maza de Dagda:</b> se la queda la unidad que derrota la primera forma de Dagda (cap. 5).</li>\n<li><b>Parte 2 (común):</b> <a href=\"#/guion/2_XXX_c02?ir=e-EV20_100\">Palabra de comerciante</a> (cap. 2), <a href=\"#/guion/2_XXX_c03?ir=e-EV20_101\">El desconsuelo de Talimun</a> (cap. 3), <a href=\"#/guion/2_XXX_c04?ir=e-EV20_103\">Talimun y Lind</a> (cap. 4) y <a href=\"#/guion/2_XXX_c06?ir=e-EV20_105\">Fortuna y Hong Hua</a> (cap. 6).</li>\n<li><b>Parte 2, Dietrich y Leda:</b> derrotar a <a href=\"#/personaje/PID_キリーク\">Creek</a> en el cap. 2 lo recluta si completaste «<a href=\"#/mision/SQID_妹の形見\">El broche de mi difunta hermana</a>» en la Parte 1; si no, muere. En el cap. 3, <a href=\"#/personaje/PID_ネイサン\">Nathan</a> solo se une si lo derrota Creek en un combate entre los dos, también si es Nathan quien ataca en la fase enemiga. Si lo remata otra unidad, muere. Truco: desgástalo con otras unidades sin quitarle la última barra de PV; en el combate contra Creek no puede morir.</li>\n<li><b>Parte 3, sección 1:</b> <a href=\"#/guion/3_ISM_c01?ir=e-EV30_100\">Con ayuda de Aurora</a>.</li>\n<li><b>Parte 3, sección 2:</b> una escena por cada señor que haya pasado a la Parte 3 (<a href=\"#/guion/3_ISM_c02?ir=e-EV30_101\">Cai</a>, <a href=\"#/guion/3_ISM_c02?ir=e-EV30_102\">Dietrich</a>, <a href=\"#/guion/3_ISM_c02?ir=e-EV30_103\">Theodora</a>, <a href=\"#/guion/3_ISM_c02?ir=e-EV30_104\">Leda</a>), más <a href=\"#/guion/3_ISM_c02?ir=e-EV30_110\">El pesar de Fortuna</a>, <a href=\"#/guion/3_ISM_c02?ir=e-EV30_113\">El regreso de Aurora</a> (tras la misión de auxilio de Centurio<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>) y <a href=\"#/guion/3_ISM_c02?ir=e-EV30_123\">El emblema de fuego</a>, que pide la Parte 2 de los cuatro señores cerrada y los Desvíos de Bertrand, Talimun, Orchel y Anatolia hechos en rutas que terminaron la Parte 1.</li>\n<li><b>Parte 3, secciones 3–5:</b> la cadena de Fortuna junto a las Termas (<a href=\"#/guion/3_ISM_c03?ir=e-EV30_114\">3</a>, <a href=\"#/guion/3_ISM_c04?ir=e-EV30_115\">4</a>, <a href=\"#/guion/3_ISM_c05?ir=e-EV30_116\">5</a>) y los juramentos de <a href=\"#/guion/3_ISM_c04?ir=e-EV30_121\">Aswan</a> y <a href=\"#/guion/3_ISM_c05?ir=e-EV30_122\">Klapka</a>. Saltarse una escena de Fortuna bloquea las siguientes hasta rejugar la sección<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Ver las seis conversaciones condicionadas de Fortuna (una pide el portal del templo de Credna) permite elegirla en el final; cuentan aunque se vean en vueltas distintas.</li>\n<li><b>Rutas descargables (sin publicar):</b> <a href=\"#/personaje/PID_フィアナ\">Fianna</a> recupera la memoria si remata a Gilchris (Parte 2, cap. 3, o Parte 3, sección 5) con la Parte 1 de Talimun terminada; rematar a la general infernal de la batalla contra Cohen (sección 5) con <a href=\"#/personaje/PID_タリムーン\">Talimun</a>, sin participación limitada, cambia su escena; la escena extra de Orchel pide su Parte 1 terminada y su final S en esa vuelta.</li>\n</ul>"
     ],
     [
      "Consejos",
-     "<ul>\n<li>Al empezar cada capítulo, recorrer los pulsos del mapa antes de gastar turnos fuera de Dagsion; varias escenas solo están al principio del tiempo libre.</li>\n<li>Las de 18:00 a 23:59 piden pasar un turno de noche en la ciudad.</li>\n<li>En Theodora, prestar el barco compensa: el único coste es no poder navegar unas semanas.</li>\n</ul>"
+     "<ul>\n<li>Al empezar cada capítulo, recorrer los pulsos del mapa antes de gastar turnos fuera de Dagsion; varias escenas solo están al principio del tiempo libre.</li>\n<li>Las de 18:00 a 23:59 piden pasar un turno de noche en la ciudad.</li>\n<li>En Theodora, prestar el barco compensa: el único coste es no poder navegar unas semanas. El plazo es el fin del tiempo libre del cap. 10 (16/9 a mediodía); el 21/9 es cuando vuelve el barco.</li>\n<li>Hacer los Desvíos de los señores en una ruta que se vaya a terminar: varias escenas de las Partes 2 y 3 los piden.</li>\n</ul>"
     ]
    ]
   },
@@ -530621,29 +530917,28 @@ window.WIKI={
     "punto de control",
     "puestos fronterizos",
     "puesto fronterizo",
-    "escaramuza",
-    "escaramuzas",
-    "enemigos itinerantes",
     "mercaderes itinerantes",
+    "tramos",
+    "continuar viaje",
     "poblaciones",
     "población",
     "regiones",
     "icono de objetivo",
     "rutas de un sentido"
    ],
-   "resumen": "En el tiempo libre el ejército se mueve por el mapa del mundo entre bases, poblaciones, postas, templos y zonas explorables; cada movimiento gasta turnos y cambia los enemigos y mercaderes que hay.",
+   "resumen": "En el tiempo libre el ejército avanza por el mapa del mundo hasta 3 tramos por turno y hace una acción en el lugar de llegada; carruajes, barcos y portales acortan los viajes, y los puntos de control piden Prestigio.",
    "preguntas": [
     "¿Cómo se viaja rápido por el mapa?",
     "¿Qué es un punto de control y cómo se pasa?",
-    "¿Por qué no se recuperan los PV después de una escaramuza?",
-    "¿De qué depende la fuerza de los enemigos del mapa?",
+    "¿Cuántos turnos cuesta un viaje?",
+    "¿El carruaje gasta turno?",
     "¿Por qué no puedo volver por un camino por el que vine?"
    ],
    "relacionados": [
     "tiempo-libre",
+    "escaramuzas",
     "busqueda",
     "mazmorras",
-    "vandahl",
     "guerra-y-salvacion"
    ],
    "enlaces": [
@@ -530672,31 +530967,31 @@ window.WIKI={
    "secs": [
     [
      "En resumen",
-     "<ul>\n<li>Se elige un destino dentro del alcance azul, se va y se hace una acción allí; al terminar pasa el turno.</li>\n<li>Tipos de lugar: bases, poblaciones, postas, templos, zonas explorables, puntos de control y lugares de Buscar, cultivo y animales.</li>\n<li>El carruaje viaja entre postas por una tarifa sin gastar turno; con barco se navega entre lugares de la costa.</li>\n<li>Los puntos de control piden un nivel de Prestigio para pasar.</li>\n<li>Los enemigos y mercaderes itinerantes cambian al moverse o al dormir; tocar a un enemigo empieza una escaramuza.</li>\n<li>Fuera de la batalla principal, los PV y la magia no se recuperan solos: hay que curarse o dormir.</li>\n</ul>"
+     "<ul>\n<li>Cada turno es un movimiento de hasta 3 tramos y una acción en el lugar de llegada; los tramos que sobran se pierden.</li>\n<li>Ir a un lugar a <i>h</i> tramos y hacer algo allí cuesta ⌈h/3⌉ turnos (mínimo 1). Nada cambia los 3 tramos: ni monturas, ni habilidades, ni terreno, ni la hora.</li>\n<li>El carruaje y el portal son la acción del turno: llegar andando a la posta y montar en el mismo turno no cuesta un turno extra.</li>\n<li>Un punto de control cerrado obliga a parar encima; si se cumple su rango de Prestigio, se abre para siempre en esa ruta.</li>\n<li>Las tropas del mapa cortan el camino y fuerzan una escaramuza: ver <a href=\"#/guia/escaramuzas\">Tropas del mapa y escaramuzas</a>.</li>\n<li>Fuera de la batalla principal, los PV y la magia no se recuperan solos: hay que curarse o dormir.</li>\n</ul>"
     ],
     [
      "Cómo se mueve el ejército",
-     "<p>Con el cursor sobre la unidad se ve en azul su alcance de movimiento (<a href=\"#/tutorial/TUTO_ワールドマップ\">tutorial</a>). Tras moverse se elige la acción del lugar (Entrar, Buscar, Usar instalaciones, Hablar, Banquete, Esperar…) y pasa el turno. «Seguir moviéndote» continúa el viaje sin actuar. El icono ◆ marca el próximo objetivo de la historia (<a href=\"#/tutorial/TUTO_目的地\">tutorial</a>).</p>\n<p>Cuánto dura un turno y cuánto se avanza por turno: <a href=\"#/turnos\">Turnos y viajes</a>. Se puede acelerar el movimiento con un botón, y la Velocidad del juego de las Opciones también afecta al mapa.</p>"
+     "<p>El mapa es una red de lugares unidos por caminos con puntos intermedios. Cada paso de un punto al siguiente es un <b>tramo</b> y vale lo mismo, sea largo o corto: los desiertos cuestan más porque sus caminos tienen muchos puntos, no porque cada tramo valga más. El alcance azul marca hasta dónde llegan los 3 tramos (<a href=\"#/tutorial/TUTO_ワールドマップ\">tutorial</a>). Un destino más lejano se recorre en varios turnos con «Continuar viaje», que cierra cada uno. El icono ◆ marca el próximo objetivo de la historia (<a href=\"#/tutorial/TUTO_目的地\">tutorial</a>).</p>\n<p>Un turno son 6 horas y nunca hay penalización nocturna. La lluvia de cada zona depende solo de la fecha y la franja: recargar no la cambia. El tiempo libre acaba donde esté el ejército cuando se agotan los turnos. Detalle por capítulo: <a href=\"#/turnos\">Turnos y viajes</a>.</p>"
+    ],
+    [
+     "Qué cuesta cada acción",
+     "<p>Casi toda opción del menú del lugar es una acción y cierra el turno, aunque no haya movimiento:</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Acción</th><th>Coste</th></tr><tr><td>Esperar</td><td>Cierra el turno; 15 % de que salga una conversación</td></tr><tr><td>Buscar, Hablar, Banquete, Explorar una zona</td><td>1 acción</td></tr><tr><td>Usar las tiendas de una población</td><td>Gratis: después aún cabe una acción</td></tr><tr><td>Dormir en una posada</td><td>1 turno</td></tr><tr><td>Entrar en Dagsion</td><td>1 acción: todo lo que se haga dentro cabe en ese turno</td></tr><tr><td>Cultivar, Fertilizar, Nuevo cultivo, Cebo, Capturar</td><td>1 acción (solo Cai; ver <a href=\"#/guia/cultivo\">Cultivo</a> y <a href=\"#/guia/monturas\">Monturas</a>)</td></tr><tr><td>Cosechar</td><td>Gratis: se recoge solo al pasar o parar en la parcela</td></tr><tr><td>Escaramuza o combate de misión</td><td>1 turno, dure lo que dure</td></tr></table></div>"
     ],
     [
      "Tipos de lugar",
-     "<div class=\"tw\"><table class=\"md\"><tr><th>Lugar</th><th>Qué se hace</th></tr><tr><td>Bases</td><td>Se entra y se recorre, con tiendas y locales (<a href=\"#/tutorial/TUTO_スポット：拠点\">tutorial</a>)</td></tr><tr><td>Poblaciones</td><td>Tiendas propias y habitantes que dan información o revelan lugares (<a href=\"#/tutorial/TUTO_スポット：簡易拠点\">tutorial</a>)</td></tr><tr><td>Postas</td><td>Carruaje a otras postas (<a href=\"#/tutorial/TUTO_スポット：駅\">tutorial</a>)</td></tr><tr><td>Templos principales</td><td>Lo mismo que los templos de Dagsion (<a href=\"#/tutorial/TUTO_スポット：神殿\">tutorial</a>)</td></tr><tr><td>Zonas explorables</td><td>Enemigos, cajas y minerales; una segunda salida abre un atajo en el mapa</td></tr><tr><td>Puntos de control</td><td>Piden Prestigio; en la Parte 3 son bastiones</td></tr><tr><td>Buscar, tierras de cultivo, campos de animales</td><td>Materiales, cultivo y cebos</td></tr></table></div>\n<p>Situar el cursor sobre una base o población y pulsar el botón de detalles muestra sus tiendas y productos sin entrar. El mismo producto puede costar distinto según el lugar.</p>"
+     "<div class=\"tw\"><table class=\"md\"><tr><th>Lugar</th><th>Qué se hace</th></tr><tr><td>Bases</td><td>Se entra y se recorre, con tiendas y locales (<a href=\"#/tutorial/TUTO_スポット：拠点\">tutorial</a>)</td></tr><tr><td>Poblaciones</td><td>Tiendas propias y habitantes que dan información o revelan lugares (<a href=\"#/tutorial/TUTO_スポット：簡易拠点\">tutorial</a>)</td></tr><tr><td>Postas</td><td>Carruaje a otras postas (<a href=\"#/tutorial/TUTO_スポット：駅\">tutorial</a>)</td></tr><tr><td>Templos principales</td><td>Lo mismo que los templos de Dagsion (<a href=\"#/tutorial/TUTO_スポット：神殿\">tutorial</a>)</td></tr><tr><td>Zonas explorables</td><td>Enemigos, cajas y minerales; una segunda salida abre un atajo (<a href=\"#/guia/mazmorras\">Mazmorras</a>)</td></tr><tr><td>Puntos de control</td><td>Piden Prestigio; en la Parte 3 son bastiones</td></tr><tr><td>Buscar, tierras de cultivo, campos de animales</td><td>Materiales, cultivo y cebos</td></tr></table></div>\n<p>Con el cursor sobre una base o población, el botón de detalles muestra sus tiendas sin entrar. Hablar con habitantes de algunas poblaciones revela el objeto raro de Buscar o el animal raro del Cebo de otro lugar.</p>"
     ],
     [
      "Viajes rápidos",
-     "<ul>\n<li><b>Carruaje.</b> En una posta se alquila un carruaje hasta otra posta de su línea en la que ya se haya estado, por 100, 200 o 300 G según la distancia. No gasta turno. En la ruta de Cai las líneas se abren tras la misión «Fabricado en Megaira», y algunas piden además otra misión; en las demás rutas no piden misión.</li>\n<li><b>Barco.</b> Con un barco se navega entre lugares del mar.</li>\n<li><b>Portal de los Dioses</b> y <b>Dispositivo teletransp.</b>: saltan a un templo o a otro dispositivo ya desbloqueado. Cada señor abre el portal de un templo en la Parte 1: Cai el de Aurora (cap. 6), Dietrich el de Mars (cap. 5), Leda el de Kalla (cap. 4) y Theodora el de Yu Phas (cap. 12).</li>\n</ul>"
+     "<ul>\n<li><b>Carruaje.</b> Desde una posta a otra de su línea ya visitada, por 100, 200 o 300 G según la distancia. El viaje es la acción del turno y el turno acaba al llegar. En la ruta de Cai no hay ningún carruaje hasta cobrar la misión «Fabricado en Megaira» (el eje cuesta 500 G en el mercado de Megaira); las líneas de Urka y Eochaid piden además <a href=\"#/mision/SQID_カイ篇_通せんぼをする何か\">Fieras en el camino</a> y <a href=\"#/mision/SQID_カイ篇_大人の事情\">Bandidos en el camino</a>, y las 12 que tocan Chiron, Aragona o Cartodo están cerradas a Cai. En las demás rutas no piden misión.</li>\n<li><b>Barco.</b> Con barco se navega por los mares; sin él, sus lugares están bloqueados.</li>\n<li><b>Portal de los Dioses</b> y <b>Dispositivo teletransp.</b>: saltan a un templo o a otro dispositivo ya desbloqueado, también como acción del turno. Cada señor abre el portal de un templo en la Parte 1: Cai el de Aurora (cap. 6), Dietrich el de Mars (cap. 5), Leda el de Kalla (cap. 4) y Theodora el de Yu Phas (cap. 12).</li>\n</ul>"
     ],
     [
      "Órdenes propias de cada señor",
-     "<p>Además de las órdenes comunes (Entrar, Buscar, Hablar, Banquete, Esperar…), cada señor tiene las suyas en el mapa durante la Parte 1:</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Señor</th><th>Órdenes</th></tr><tr><td>Cai</td><td>Cebo y Capturar (animales, ver <a href=\"#/guia/monturas\">Monturas</a>); Cultivar, Fertilizar y Nuevo cultivo (ver <a href=\"#/guia/cultivo\">Cultivo</a>)</td></tr><tr><td>Dietrich</td><td>La Respondedora: delata a los enemigos escondidos (ver <a href=\"#/senores?ir=dietrich\">Señores</a>)</td></tr><tr><td>Theodora</td><td>Reclutar unidades, Arenga y Enviar tropas (a Buscar, a una mazmorra o a Defender un fuerte; ver <a href=\"#/guia/batallones\">Batallones</a>)</td></tr><tr><td>Leda</td><td>Actuación («Actuar en locales») en poblaciones (ver <a href=\"#/senores?ir=leda\">Señores</a>)</td></tr></table></div>"
+     "<div class=\"tw\"><table class=\"md\"><tr><th>Señor</th><th>Órdenes</th></tr><tr><td>Cai</td><td>Cebo y Capturar (<a href=\"#/guia/monturas\">Monturas</a>); Cultivar, Fertilizar y Nuevo cultivo (<a href=\"#/guia/cultivo\">Cultivo</a>)</td></tr><tr><td>Dietrich</td><td>La Respondedora: delata a los enemigos escondidos (<a href=\"#/senores?ir=dietrich\">Señores</a>)</td></tr><tr><td>Theodora</td><td>Reclutar unidades (4 turnos), Arenga y Enviar tropas a Buscar, a una mazmorra o a defender un fuerte (<a href=\"#/guia/batallones\">Batallones</a>)</td></tr><tr><td>Leda</td><td>Actuación en poblaciones (<a href=\"#/senores?ir=leda\">Señores</a>)</td></tr></table></div>"
     ],
     [
      "Caminos y puntos de control",
-     "<ul>\n<li>Algunos caminos entre dos puntos solo se abren desde uno de ellos: hay que llegar por el lado bueno la primera vez.</li>\n<li>Buscar en ciertos lugares y hablar con algunos habitantes descubre lugares nuevos.</li>\n<li>Para atravesar un punto de control hace falta cierto rango de Prestigio, entre 1 y 7 (<a href=\"#/tutorial/TUTO_関\">tutorial</a>). Al pasar se revelan los lugares de detrás. En la ruta de Cai, algunos piden además una misión secundaria.</li>\n<li><b>Regiones cerradas a Cai.</b> En la Parte 1 de la ruta de Cai no se llega a Pasithea, Lambath, Solidus, Thaleia, Braxithea ni Nysiades, ni en una nueva vuelta: sus mercaderes de Vandahl, lugares de Búsqueda y campos de animales esperan a la Parte 3.</li>\n</ul>"
-    ],
-    [
-     "Enemigos y mercaderes itinerantes",
-     "<p>En el mapa aparecen enemigos y mercaderes (<a href=\"#/tutorial/TUTO_勢力出現\">tutorial</a>). Cambian de sitio cada vez que el ejército se mueve o duerme en otro lugar. Cada región tiene su propia proporción de enemigos frente a mercaderes.</p>\n<ul>\n<li><b>Escaramuza.</b> Entrar en contacto con un enemigo empieza una batalla que da EXP, Exp de clase y de competencias, apoyo y objetos (<a href=\"#/tutorial/TUTO_遭遇戦\">tutorial</a>). A veces se une una tercera facción: si se la derrota antes de que huya, da objetos y EXP extra.</li>\n<li><b>Fuerza por región.</b> El nivel de los enemigos depende de la región: Amalthea 3–5, Elektra 5–12, Melias 6–15, Castalia 19–28, Saveilon 15–25, Idyia 26–33, Ogmios 35… En la Parte 3 se hacen más fuertes conforme avanza la historia.</li>\n<li><b>Momias.</b> Las momias doradas sueltan lingotes de oro y las plateadas dan EXP adicional.</li>\n<li><b>Mercaderes.</b> Venden por oro. Los mercantes de Vandahl solo truecan materiales por armas u objetos (<a href=\"#/tutorial/TUTO_商人\">tutorial</a>).</li>\n</ul>"
+     "<ul>\n<li>Solo se pisa lo revelado. Algunos caminos solo se abren desde un extremo, y Buscar o hablar con habitantes descubre lugares nuevos.</li>\n<li>Un punto de control cerrado no se puede dejar atrás en el mismo movimiento: hay que acabar encima. Si en ese momento se tiene su rango de Prestigio (1–7), se abre y desde el turno siguiente es un tramo más (<a href=\"#/tutorial/TUTO_関\">tutorial</a>). Si no, queda cerrado hasta que otro movimiento vuelva a acabar en él.</li>\n<li>En la ruta de Cai, algunos piden una misión en vez del Prestigio (<a href=\"#/mision/SQID_カイ篇_大人の事情\">Bandidos en el camino</a> para la Fortaleza de Hugo y otras dos, <a href=\"#/mision/SQID_カイ篇_通せんぼをする何か\">Fieras en el camino</a> para la de Libertas) y otros están cerrados toda la Parte 1.</li>\n<li><b>Regiones cerradas a Cai.</b> En la Parte 1 de la ruta de Cai no se llega a Pasithea, Lambath, Solidus, Thaleia, Braxithea ni Nysiades, ni en una nueva vuelta: sus lugares de Búsqueda y campos de animales esperan a la Parte 3, y sus tiendas y puestos de Vandahl quedan fuera de alcance.</li>\n<li>Al empezar otra ruta, todos los puntos de control vuelven a estar cerrados.</li>\n</ul>"
     ],
     [
      "Curarse fuera de Dagsion",
@@ -530704,7 +530999,7 @@ window.WIKI={
     ],
     [
      "Consejos de min-max",
-     "<ul>\n<li>Planificar un bucle por salida: Buscar, cultivar (solo Cai) y escaramuzas de camino, y volver a Dagsion cerca del sábado.</li>\n<li>Usar el carruaje en cuanto esté disponible, porque no gasta turno.</li>\n<li>Antes de cruzar a una región de nivel alto, mirar su rango: las escaramuzas de allí pueden superar con creces al ejército.</li>\n<li>Si un mercader interesante no está, moverse o dormir lo puede traer.</li>\n</ul>"
+     "<ul>\n<li>Medir los viajes en tramos, no en distancia: un pueblo tras un desierto puede quedar más lejos que otro por carretera recta. Encadenar llegadas en múltiplos de 3.</li>\n<li>Llegar andando a la posta y tomar el carruaje en el mismo turno: Dagsion → Ribeira son 5 turnos a pie y 3 con carruaje desde la Posta de Amalthea este hasta la de Carmenta.</li>\n<li>Abrir de una vez los puntos de control de las rutas que se repiten: uno cerrado en mitad del viaje obliga a parar y puede costar 2 tramos.</li>\n<li>Plantar y poner cebos en lugares de paso; la cosecha se recoge sola al volver a pasar.</li>\n<li>Comprar de paso en las poblaciones: no cierra el turno.</li>\n</ul>"
     ]
    ]
   },
@@ -530720,19 +531015,23 @@ window.WIKI={
     "consejos",
     "prioridades",
     "builds",
-    "build"
+    "build",
+    "estado final",
+    "jugador perfecto"
    ],
-   "resumen": "Las palancas que más rinden en la Parte 1, ordenadas: reclutar pronto, Prestigio, cupo semanal, crecimientos, clases y reparto de EXP.",
+   "resumen": "Cómo jugar la Parte 1 pensando en el estado final (el ejército que llega a las Partes 2 y 3): reclutar con criterio, Prestigio, turnos, EXP, crecimientos e inversión.",
    "preguntas": [
     "¿Quiénes son los mejores personajes (tier list)?",
-    "¿Qué es lo que más rinde para min-max?"
+    "¿Qué es lo que más rinde para min-max?",
+    "¿A cuántos personajes conviene reclutar?",
+    "¿En qué gasto los turnos que me sobran?"
    ],
    "relacionados": [
     "crecimientos",
-    "clases",
     "reclutamiento",
     "tiempo-libre",
-    "prestigio"
+    "prestigio",
+    "escaramuzas"
    ],
    "enlaces": [
     {
@@ -530756,23 +531055,31 @@ window.WIKI={
    "secs": [
     [
      "En resumen",
-     "<ul>\n<li>Reclutar pronto a quien se vaya a usar: fuera del grupo sube más despacio (ver <a href=\"#/guia/experiencia-y-niveles\">Experiencia y niveles</a>).</li>\n<li>Llegar a Prestigio 4 y 7 antes de entrenar mucho; a 8 para exámenes avanzados y Termas.</li>\n<li>Gastar todo el cupo semanal de Dagsion, y dos veces con la doble semana del sábado.</li>\n<li>La clase solo da crecimientos mientras se está en ella: cambiar a 20, 35 y 45 y no quedarse en clases de un rango de clase inferior (Inicial, Intermedia, Avanzada, Suprema).</li>\n<li>Repartir la EXP: el nivel enemigo sigue a los 10 aliados más altos (ver <a href=\"#/guia/combate\">Combate</a>).</li>\n</ul>"
+     "<ul>\n<li>Optimizar el estado final, no cada capítulo: oro y Prestigio se pierden al cerrar la Parte 1; lo que cuenta es el ejército y lo que lleva encima.</li>\n<li>Reclutar con criterio: la Parte 2 despliega 12 unidades además del señor (13 con Theodora). Cada recluta de más reparte la EXP y quita semanas de apoyo.</li>\n<li>Llegar a Prestigio 4 y 7 antes de entrenar mucho, a 8 para exámenes avanzados y Termas, y dejar de acumular en 12.</li>\n<li>Ningún turno sin usar: los que quedan al vencer el plazo se pierden, y escaramuzas y mazmorras dan la mayor parte de la EXP.</li>\n<li>La clase solo da crecimientos mientras se está en ella: cambiar a 20, 35 y 45 y subir a los flojos en las Partes 1 y 2.</li>\n</ul>"
     ],
     [
-     "Principios",
-     "<ol>\n<li><b>Velocidad primero.</b> Atacar dos veces es el mayor salto de daño; después Fue o Mag.</li>\n<li><b>Maestrías prestadas.</b> Visitas cortas a clases con buena maestría (<a href=\"#/habilidad/SID_好調\">Crescendo</a>, <a href=\"#/habilidad/SID_大反撃\">Contra mayor</a>, <a href=\"#/habilidad/SID_熟練の技\">Técnica entrenada</a>, <a href=\"#/habilidad/SID_残心\">Siempre alerta</a>) y vuelta a la línea principal; dominarlas con Actividades auto. → Entrenar.</li>\n<li><b>Mínimos de clase.</b> Aprobar un examen sube los atributos flojos al mínimo de la clase, aunque no se cambie.</li>\n<li><b>Partes 1 y 2 para los flojos.</b> El mínimo de 2 atributos por subida les rinde más.</li>\n<li><b>Monturas (Cai).</b> Montura con vínculo 5 y el atributo que la unidad necesita; el <a href=\"#/clase/JID_戦車兵\">Cuadriguero</a> cuenta doble el bono y suma la Senda de la cuadriga desde Nv 35.</li>\n<li><b>En Difícil, Golpe.</b> Fallar cuesta más que hacer poco daño.</li>\n<li><b>Fin de la Parte 1.</b> Gastar oro y Prestigio y equipar a cada unidad para la Parte 2: qué pasa y qué espera en el Arcón de la memoria, en <a href=\"#/guia/guerra-y-salvacion\">Guerra y Salvación</a>.</li>\n</ol>"
+     "Estado final, no capítulo",
+     "<ol>\n<li><b>Qué pasa a la Parte 2.</b> Solo los 6 objetos que lleva cada unidad. Carro, monturas y batallones esperan en el Arcón de la memoria a la Parte 3 (<a href=\"#/guia/guerra-y-salvacion\">Guerra y Salvación</a>). Gastar el oro en equipo y refinado antes de cerrar el cap. 12.</li>\n<li><b>Invertir pronto lo que rinde después.</b> Una montura capturada antes acumula más vínculo; armas, licencias y objetos de reclutas futuros se compran cuando pillan de paso, no cuando hacen falta.</li>\n<li><b>Más no es mejor.</b> Reclutar siempre a los baratos que se vayan a usar; a los caros, solo si entran en el ejército de la Parte 2 o abren algo (una clase, otro recluta, una conversación). Un recluta de apoyo 3 cuesta 3–4 semanas de cupo (<a href=\"#/guia/reclutamiento\">Reclutamiento</a>). La Parte 3 sí pide muchas unidades: repartirlas entre las cuatro rutas.</li>\n<li><b>Pronto, los de crecimiento alto.</b> Sin reclutar suben solos con el 80 % de su crecimiento y llegan un nivel por debajo del nivel de reclutamiento del capítulo. Para crecimientos medios, reclutar tarde apenas cuesta (<a href=\"#/guia/experiencia-y-niveles\">Experiencia y niveles</a>).</li>\n</ol>"
+    ],
+    [
+     "Turnos y EXP",
+     "<ul>\n<li><b>Los últimos turnos, lejos.</b> Al vencer el plazo el juego lleva solo a la batalla principal si su lugar está en Dagsion o ya se visitó (<a href=\"#/guia/tiempo-libre\">Tiempo libre</a>): gastarlos en escaramuzas, mazmorras o búsquedas en vez de volver.</li>\n<li><b>La EXP está fuera de la batalla principal.</b> Las <a href=\"#/guia/escaramuzas\">escaramuzas</a> cuestan un turno y sus tropas salen a la media de los 10 mejores más 1. En las <a href=\"#/guia/mazmorras\">mazmorras</a> no corre el reloj, el nivel es fijo por zona y los grupos no reaparecen en el capítulo. Un ejército que solo hace misiones y batallas principales se queda corto de nivel.</li>\n<li><b>Todas las plazas.</b> En la batalla principal, cada plaza vacía es EXP que no gana nadie; en la Batalla rápida la reserva cobra la mitad y el as el triple.</li>\n<li><b>Repartir.</b> El nivel de los enemigos y de las tropas sigue a los 10 aliados de más nivel: subir mucho a pocos endurece todo (<a href=\"#/guia/combate\">Combate</a>).</li>\n<li><b>Margen para el azar.</b> Buscar da 1, 3 o 6 objetos (2,65 de media) y la captura puede fallar: reservar turnos para lo que dependa de una tirada, no apurar el plan.</li>\n<li><b>Prestigio por turno.</b> Con todo hecho sobra Prestigio: las misiones baratas y lejanas son las primeras que se pueden saltar (<a href=\"#/guia/prestigio\">Prestigio</a>).</li>\n</ul>"
+    ],
+    [
+     "Crecimientos y clases",
+     "<ol>\n<li><b>Velocidad primero.</b> Atacar dos veces es el mayor salto de daño; después Fue o Mag.</li>\n<li><b>Maestrías prestadas.</b> Visitas cortas a clases con buena maestría (<a href=\"#/habilidad/SID_好調\">Crescendo</a>, <a href=\"#/habilidad/SID_大反撃\">Contra mayor</a>, <a href=\"#/habilidad/SID_熟練の技\">Técnica entrenada</a>, <a href=\"#/habilidad/SID_残心\">Siempre alerta</a>) y vuelta a la línea principal; la Exp de clase solo depende del número de acciones.</li>\n<li><b>Mínimos de clase.</b> Aprobar un examen sube los atributos flojos al mínimo de la clase.</li>\n<li><b>Partes 1 y 2 para los flojos.</b> El mínimo de 2 atributos por subida les rinde más que la Parte 3 (<a href=\"#/guia/crecimientos\">Crecimientos</a>).</li>\n<li><b>Monturas (Cai).</b> Solo para unidades cuya clase prevista monte esa especie; vínculo 5 y el atributo que la unidad necesita (<a href=\"#/guia/monturas\">Monturas</a>).</li>\n<li><b>En Difícil, Golpe.</b> Fallar cuesta más que hacer poco daño.</li>\n</ol>"
+    ],
+    [
+     "Sin guardar y cargar",
+     "<ul>\n<li>Subidas de nivel y exámenes salen de una secuencia fija de cada unidad: recargar no cambia una subida; cambiar antes de clase, sí (<a href=\"#/guia/azar\">Azar</a>).</li>\n<li>Reiniciar capítulo devuelve EXP, oro, Prestigio y misiones y conserva los apoyos. El bucle de apoyos y los demás trucos son optativos y están en <a href=\"#/trucos\">Trucos</a>.</li>\n</ul>"
     ],
     [
      "Listas de niveles",
      "<p>Las listas de nivel no coinciden, pero repiten arriba a Sirocco y después a Esmeralda, Guzran, Mu, Olympia, Fabio, Sofia y Catania; abajo, Zarcone, Majide, Peppe, Benditz y Nydine<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. <a href=\"#/personaje/PID_ダンテ\">Dante</a> es el más discutido. El coste de reclutamiento en cada ruta pesa tanto como la valoración: ver <a href=\"#/reclutas\">Reclutas que valen la pena</a>.</p>"
     ],
     [
-     "Optativo (trucos)",
-     "<p>Bucle de apoyos con Reiniciar capítulo, secuencia fija de subidas, examen fijado por capítulo, cajas y cebos que dependen de lo hecho antes. Todos en <a href=\"#/trucos\">Trucos</a>, marcados según pidan recargar o reiniciar.</p>"
-    ],
-    [
      "Errores frecuentes",
-     "<ul>\n<li>Vender objetos que pide un reclutamiento, un trueque o el refinado.</li>\n<li>Planear comidas con invitados cuyo grupo está fuera de Dagsion.</li>\n<li>Contar el carruaje como un turno (no gasta) o las compras en ciudad como gratis (pueden gastarlo).</li>\n<li>Fiarse de listas de regalos ajenas al juego: los gustos de cada personaje están en su ficha y en <a href=\"#/guia/regalos\">Regalos</a>.</li>\n</ul>"
+     "<ul>\n<li>Acabar la Parte 1 con oro sin gastar o con unidades sin equipo completo.</li>\n<li>Ir a la batalla principal con plazas vacías.</li>\n<li>Vender objetos que pide un reclutamiento, un trueque o el refinado.</li>\n<li>Planear comidas con invitados cuyo grupo está fuera de Dagsion.</li>\n<li>Contar el carruaje como gratis: el viaje es la acción del turno (<a href=\"#/guia/mapa-del-mundo\">Mapa del mundo</a>).</li>\n<li>Fiarse de listas de regalos ajenas al juego: los gustos de cada personaje están en su ficha y en <a href=\"#/guia/regalos\">Regalos</a>.</li>\n</ul>"
     ]
    ]
   },
@@ -530800,7 +531107,9 @@ window.WIKI={
    "preguntas": [
     "¿Qué hago cada semana en el tiempo libre?",
     "¿Cuándo se reinician las actividades semanales?",
-    "¿Cuántos turnos gasta cada cosa?"
+    "¿Cuántos turnos gasta cada cosa?",
+    "¿Qué pasa si se acaba el plazo lejos de Dagsion?",
+    "¿Comprar en una población gasta turno?"
    ],
    "relacionados": [
     "comidas",
@@ -530831,15 +531140,27 @@ window.WIKI={
    "secs": [
     [
      "En resumen",
-     "<ul>\n<li>Un turno son 6 horas (franjas de 0, 6, 12 y 18 h): 4 por día. Moverse, combatir, entrar en zonas explorables y dormir gastan turnos.</li>\n<li>Las actividades de Dagsion no gastan turno: cada una adelanta 20 minutos y el reloj se para al final de la franja.</li>\n<li>Los cupos semanales se reinician el domingo a las 0:00 y al empezar cada capítulo; lo no usado se pierde.</li>\n<li>Lo usado el sábado vuelve a estar libre el domingo: dos semanas de cupo con una visita.</li>\n<li>Motivación: 3 barras; entrenar y servir gastan 1, comer y ver una obra que gusta la recuperan.</li>\n</ul>"
+     "<ul>\n<li>Un turno son 6 horas (franjas de 0, 6, 12 y 18 h): 4 por día. En cada turno el ejército anda hasta 3 tramos de camino y hace una acción en el lugar; lo que sobra de movimiento se pierde.</li>\n<li>Las actividades de Dagsion no gastan turno: entrar es la acción, cada actividad adelanta 20 minutos y el reloj se para al final de la franja.</li>\n<li>Los cupos semanales se reinician el domingo a las 0:00 y al empezar cada capítulo; lo no usado se pierde.</li>\n<li>Lo usado el sábado vuelve a estar libre el domingo: dos semanas de cupo con una visita.</li>\n<li>Al vencer el plazo, el juego lleva solo a la misión principal si su lugar está en Dagsion o ya se visitó: no hace falta volver a tiempo.</li>\n<li>Motivación: 3 barras; entrenar y servir gastan 1, comer y ver una obra que gusta la recuperan.</li>\n</ul>"
+    ],
+    [
+     "Qué gasta un turno",
+     "<div class=\"tw\"><table class=\"md\"><tr><th>Gasta el turno</th><th>No gasta turno</th></tr><tr><td>Andar (3 tramos), combatir en el mapa o en una misión (1 turno, dure lo que dure)</td><td>Cada actividad dentro de Dagsion</td></tr><tr><td>Buscar, cebar, capturar, esperar, plantar, abonar, banquete</td><td>Comprar o mirar en las tiendas de una población; después aún cabe una acción</td></tr><tr><td>Entrar en Dagsion o en una zona explorable (los combates dentro no corren el reloj)</td><td>Las alcantarillas de Dagsion</td></tr><tr><td>Carruaje o Portal de los dioses: son la acción del turno, gratis si se llega a la posta ese mismo turno</td><td></td></tr><tr><td>Dormir en una posada (400 G en Dagsion, 500 G en las poblaciones)</td><td></td></tr></table></div>\n<p>Cuántos turnos quedan, carruajes y qué gasta cada viaje, en <a href=\"#/turnos\">Turnos y viajes</a>. Plaza de armas, Teatro, Termas, mercado y estadio abren de 6:00 a 24:00; el resto de locales, todo el día.</p>"
+    ],
+    [
+     "El plazo",
+     "<ul>\n<li>Si el destino de la misión principal está fuera de Dagsion y nunca se ha visitado, al vencer el plazo no se puede seguir y hay que reiniciar el capítulo.</li>\n<li>En la ruta de Cai, de los caps. 3 al 12, lo siguiente tras el tiempo libre ocurre siempre en Dagsion: acabar el bloque en la otra punta del mapa es seguro. En las otras rutas, Dietrich (caps. 5, 8 y 9), Theodora (8, 9 y 12) y Leda (4 y 7) tienen la batalla fuera de Dagsion.</li>\n<li>Los Desvíos no tienen salto: hay que estar en su lugar (ver <a href=\"#/guia/perdibles\">Perdibles</a>).</li>\n<li>El salto incluye recuperación completa, así que el último turno no hace falta gastarlo en la posada<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n</ul>"
+    ],
+    [
+     "Bloque de tiempo libre en la ruta de Cai",
+     "<div class=\"tw\"><table class=\"md\"><tr><th>Cap.</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th><th>Total</th></tr><tr><td>Turnos</td><td>32</td><td>23</td><td>103</td><td>119</td><td>120</td><td>172</td><td>31</td><td>120</td><td>27</td><td>92</td><td>839</td></tr><tr><td>Cupos semanales</td><td>2</td><td>2</td><td>5</td><td>5</td><td>6</td><td>7</td><td>2</td><td>6</td><td>2</td><td>4</td><td>41</td></tr></table></div>\n<p>Un cupo por inicio de capítulo más uno por cada domingo dentro del bloque.</p>"
     ],
     [
      "Cómo funciona",
-     "<ul>\n<li><b>Turnos:</b> cuántos quedan, qué gasta cada acción, carruajes y qué pasa al llegar el plazo, en <a href=\"#/turnos\">Turnos y viajes</a>.</li>\n<li><b>Calendario:</b> días de precio reducido, días sagrados y obras de teatro, en <a href=\"#/guia/calendario\">Calendario</a>.</li>\n<li><b>Cupos por semana</b> de cada local de Dagsion: <a href=\"#/instalaciones\">Instalaciones</a>.</li>\n<li><b>Motivación:</b> qué la gasta y qué la recupera, en <a href=\"#/guia/recuperacion\">Recuperación</a>.</li>\n</ul>"
+     "<ul>\n<li><b>Calendario:</b> días de precio reducido, días sagrados y obras de teatro, en <a href=\"#/guia/calendario\">Calendario</a>.</li>\n<li><b>Cupos por semana</b> de cada local de Dagsion: <a href=\"#/instalaciones\">Instalaciones</a>. Plaza de armas, 4 opciones; comidas, cada plato una vez; Termas, cada baño una vez; Servicio divino, uno entre todos los templos; Teatro, ver o actuar; Percha, uno.</li>\n<li><b>Motivación:</b> qué la gasta y qué la recupera, en <a href=\"#/guia/recuperacion\">Recuperación</a>. Al entrenar y servir, con la media de la pareja en 1, 2 o 3 barras el resultado sube un escalón el 10, 30 o 50 % de las veces.</li>\n<li><b>Plaza de armas:</b> cada curso sale Excelente el 10 %, Bueno el 30 % y Normal el 60 %; si en alguna competencia del curso las dos unidades son débiles, hay un 50 % de Pésimo. Cada alumno gana en cada competencia la base del curso, +5 por cada rango que le saca la pareja (hasta +20 con 4 o más), −2/0/+2/+5 según el resultado y +7 si es fuerte en ella, todo por el multiplicador de Prestigio. No da EXP de nivel.</li>\n<li><b>Tropas del mapa:</b> cada vez que el ejército sale de Dagsion se coloca una tanda nueva; no se mueven, pero una tropa en el camino para el viaje y obliga a combatir (ver <a href=\"#/guia/mapa-del-mundo\">Mapa del mundo</a>).</li>\n</ul>"
     ],
     [
      "Consejos de min-max",
-     "<ul>\n<li>Orden dentro de una visita: entrenar y servir primero, comer y ver obras después.</li>\n<li>Planificar un bucle por salida y volver a Dagsion cerca del sábado.</li>\n<li>Usar carruajes en cuanto se pueda: no gastan turno. En la ruta de Cai las líneas se abren tras la misión «Fabricado en Megaira» (cap. 7); en las demás rutas no piden misión (ver <a href=\"#/guia/mapa-del-mundo\">Mapa del mundo</a>).</li>\n<li>Actividades auto. de la Posada para gastar los turnos que sobran al final del bloque.</li>\n</ul>"
+     "<ul>\n<li>Plaza de armas: pareja con 4 rangos de ventaja en competencias en que el alumno sea fuerte, los dos con la motivación llena; nunca dos débiles en la misma competencia.</li>\n<li>Orden dentro de una visita: entrenar y servir primero, comer y ver obras después, termas al final.</li>\n<li>Rutina de fin de semana: llegar a Dagsion el sábado en la franja de las 18:00, gastar todo el cupo (regalos, servicio, Plaza de armas, comidas, obra, termas, Percha), dormir, y el domingo a las 0:00 repetir con descuentos; la franja de las 6:00 del domingo abre otra vez Plaza de armas, Teatro y Termas. Unos 3 turnos por dos semanas de cupo.</li>\n<li>Entre semana, encadenar acciones de 5–6 turnos: plantar o cebar a la ida, cosechar y capturar a la vuelta.</li>\n<li>En la ruta de Cai, los caps. 9 (31 turnos) y 11 (27) son cortos: preparar en el 8 y el 10 lo que necesiten. El cap. 8 (172 turnos, 7 cupos) es el gran capítulo de apoyos.</li>\n<li>Comprar de paso en las poblaciones: no cuesta turno.</li>\n<li>Gastar los últimos turnos lejos (misiones, búsquedas, mazmorras): el plazo lleva de vuelta.</li>\n<li>Carruajes: en la ruta de Cai las líneas se abren tras la misión «Fabricado en Megaira» (caps. 7–12); en las demás rutas no piden misión (ver <a href=\"#/guia/mapa-del-mundo\">Mapa del mundo</a>).</li>\n<li>Actividades auto. de la Posada para gastar los turnos que sobran al final del bloque.</li>\n</ul>"
     ]
    ]
   },
@@ -530856,7 +531177,9 @@ window.WIKI={
    "resumen": "La fama del ejército en la ruta actual; cada rango abre exámenes, locales y mejoras de Dagsion y es requisito de reclutamientos.",
    "preguntas": [
     "¿Cómo subo el Prestigio rápido? ¿Hasta qué rango merece la pena?",
-    "¿Qué abre cada rango de Prestigio?"
+    "¿Qué abre cada rango de Prestigio?",
+    "¿Cuánto Prestigio da la batalla principal de cada capítulo?",
+    "¿Matar tropas del mapa da Prestigio?"
    ],
    "relacionados": [
     "misiones",
@@ -530883,19 +531206,23 @@ window.WIKI={
    "secs": [
     [
      "En resumen",
-     "<ul>\n<li>800 puntos para el rango 2 y 1000 por cada rango después; tope 12 en la Parte 1 y el exceso se pierde.</li>\n<li>Es propio de cada ruta y no pasa a las Partes 2 y 3: gastarlo en reclutas antes de cerrar la Parte 1.</li>\n<li>Rangos clave: 4 (exámenes intermedios, Plaza de armas ×1,8), 7 (Teatro, armas +1, ×2,5), 8 (exámenes avanzados, Termas, Actuar). Tabla completa en <a href=\"#/prestigio?ir=rangos\">Rangos de Prestigio</a>.</li>\n<li>Fuentes: misiones, Desvíos (150), audiencias (50) y actuar en el Teatro (10). Exámenes y reclutamientos no dan Prestigio.</li>\n</ul>"
+     "<ul>\n<li>800 puntos para el rango 2 y 1000 por cada rango después; tope 12 (10 800) en la Parte 1 y el exceso se pierde.</li>\n<li>Es propio de cada ruta y no pasa a las Partes 2 y 3: gastarlo en reclutas antes de cerrar la Parte 1.</li>\n<li>Rangos clave: 4 (exámenes intermedios, Plaza de armas ×1,8), 5 (comidas ×1,3), 7 (Teatro, armas +1, ×2,5), 8 (exámenes avanzados, Termas, Actuar), 9 (comidas ×1,5) y 10 (seis reclutas de la ruta de Cai). Tabla completa en <a href=\"#/prestigio?ir=rangos\">Rangos de Prestigio</a>.</li>\n<li>Fuentes: batalla principal de cada capítulo, misiones, Desvíos (150), audiencias (50 cada una), algunos puntos fijos de la historia y actuar en el Teatro (10). Nada más da Prestigio.</li>\n</ul>"
     ],
     [
      "Cómo funciona",
-     "<p>Cada rango abre o mejora locales de Dagsion para todas las rutas; algunos rangos traen además algo propio de una ruta:</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Ruta</th><th>Rangos con algo propio</th></tr><tr><td>Cai</td><td>Lecciones de Formación (rangos 3–8 y 10); 5 campos de cultivo en el 7 y 7 en el 9</td></tr><tr><td>Theodora</td><td>«Arenga» y mejores batallones y envíos en el 5; batallones nuevos en el 7 y el 9</td></tr><tr><td>Dietrich, Leda</td><td>Nada propio: sus sistemas se abren por capítulo (ver <a href=\"#/senores\">Señores</a>)</td></tr></table></div>\n<p>En la Parte 3 el Prestigio pasa a llamarse Moral (Puntos moral): sube con misiones y reconstrucciones, y sus rangos 13–21 dan libros secretos, Botas del viento y cofres de libros.</p>"
+     "<p>Cada rango abre o mejora locales de Dagsion para todas las rutas; algunos rangos traen además algo propio de una ruta:</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Ruta</th><th>Rangos con algo propio</th></tr><tr><td>Cai</td><td>Lecciones de Formación (rangos 3–8 y 10); 5 campos de cultivo en el 7 y 7 en el 9</td></tr><tr><td>Theodora</td><td>«Arenga» y mejores batallones y envíos en el 5; batallones nuevos en el 7 y el 9</td></tr><tr><td>Dietrich, Leda</td><td>Nada propio: sus sistemas se abren por capítulo (ver <a href=\"#/senores\">Señores</a>)</td></tr></table></div>\n<p>En la Parte 3 el Prestigio pasa a llamarse Moral (Puntos moral): sube con misiones, purificando miasmas y con reconstrucciones, y sus rangos 13–21 dan libros secretos, Botas del viento y cofres de libros.</p>"
     ],
     [
      "Cómo se consigue",
-     "<ul>\n<li><b>Misiones:</b> la fuente principal. En la ruta de Cai, los 26 encargos de Altruismo dan 100–200 cada uno.</li>\n<li><b>Audiencias:</b> +50 cada una, hasta 1200 en la Parte 1; quién las concede y cuándo, en <a href=\"#/dioses\">Dioses</a>.</li>\n<li><b>Desvíos:</b> 150 y 20 000 G cada uno.</li>\n<li>Sistemas de cada señor: duelos de Dietrich, envíos de Theodora, actuaciones de Leda (<a href=\"#/senores\">Señores</a>).</li>\n</ul>"
+     "<ul>\n<li><b>Batalla principal del capítulo.</b> En la ruta de Cai: 0 en los caps. 1–2, 450 en los caps. 3–7 y 700 en los caps. 8–12. Se cobra al ganarla, sin coste extra.</li>\n<li><b>Puntos fijos de la historia,</b> sin aviso en pantalla. Cai: +350 al acabar el cap. 2 y +350 al empezar el 3. Dietrich: +200, +270 y +300 en los caps. 2–4. Leda: +300 en el cap. 4. Theodora: ninguno.</li>\n<li><b>Misiones:</b> la fuente principal. En la ruta de Cai, las 79 misiones de la Parte 1 suman 6270; los 26 encargos de Altruismo dan 100–200 cada uno.</li>\n<li><b>Desvíos:</b> 150 y 20 000 G cada uno (4 en la ruta de Cai).</li>\n<li><b>Audiencias:</b> +50 cada una, sea de la etapa que sea; solo Mars, Smyrnos, Jurah y Kalla, con etapas en los rangos 2, 4, 6, 8, 9 y 10. No llegan solas al subir de rango: hay que ir al templo a recibirlas. Máximo 24 audiencias (1200) en la Parte 1; fechas en <a href=\"#/dioses\">Dioses</a>.</li>\n<li><b>Teatro:</b> actuar (rango 8) da +10 con resultado normal o mejor.</li>\n<li>Sistemas de cada señor: duelos de Dietrich, envíos de Theodora, actuaciones de Leda (<a href=\"#/senores\">Señores</a>). Las tropas del mapa solo dan Prestigio en la ruta de Dietrich (30 las de su sistema, nada si ya está en el tope); con los demás señores, 0.</li>\n<li><b>No dan nada:</b> comidas, Plaza de armas, Servicio divino, Termas, ver una obra, la adivina, capturar monturas, exámenes y reclutamientos.</li>\n</ul>"
+    ],
+    [
+     "Presupuesto en la ruta de Cai",
+     "<p>Antes de la final hay unos 13 800 disponibles: 700 de la historia, 5050 de las batallas de los caps. 3–11, 6270 de misiones, 600 de Desvíos, 1200 de audiencias y lo que dé actuar. El tope son 10 800, así que haciéndolo todo sobran unos 3000. Haciendo todas las misiones de cada capítulo y las audiencias en cuanto se abren, el rango 10 llega en el cap. 9 y el tope (rango 12) en el cap. 10; con menos misiones se retrasa al 11–12.</p>"
     ],
     [
      "Consejos de min-max",
-     "<ul>\n<li>Llegar a Prestigio 4 y 7 antes de entrenar mucho: la Plaza de armas multiplica.</li>\n<li>Priorizar las misiones que abren pasos, clases o locales; después las de plazo.</li>\n<li>Parar de acumular al llegar a 12.</li>\n</ul>"
+     "<ul>\n<li>Llegar a Prestigio 4 y 7 antes de entrenar mucho: la Plaza de armas multiplica.</li>\n<li>Ordenar misiones por Prestigio por turno: un Altruismo de 130–200 en Dagsion antes que un combate lejano de 30–50. Con el margen de unos 3000 se pueden saltar entre 20 y 40 misiones baratas sin perder el rango 12.</li>\n<li>Recibir cada audiencia en cuanto se abre su etapa: son 50 seguros sin gastar turno.</li>\n<li>En la ruta de Cai, el rango 10 pide los caps. 10–12 para Maxim, Dante, Ursula, Diego, Io y Catania: tener su apoyo hecho antes, para reclutarlos el mismo día (ver <a href=\"#/guia/reclutamiento\">Reclutamiento</a>).</li>\n<li>Parar de acumular al llegar a 12.</li>\n</ul>"
     ]
    ]
   },
@@ -530911,14 +531238,20 @@ window.WIKI={
     "senda",
     "sendas",
     "orden de rutas",
-    "capítulos"
+    "capítulos",
+    "prólogo",
+    "prologo",
+    "rutas descargables",
+    "pasar a la campaña final"
    ],
    "resumen": "El juego es un prólogo, cuatro rutas de 12 capítulos (Cai, Dietrich, Theodora, Leda), una Parte 2 de guerra de 6 capítulos que cada ruta juega por su cuenta (basta con una) y una Parte 3 común de 6 secciones.",
    "preguntas": [
     "¿Con qué señor empiezo?",
     "¿Termino la Parte 1 de un señor antes de empezar otro?",
     "¿Qué se conserva al acabar la Parte 1?",
-    "¿Puedo saltarme la Parte 2?"
+    "¿Puedo saltarme la Parte 2?",
+    "¿Cuándo se abre la Parte 3?",
+    "¿Cómo se abren las rutas de Bertrand, Talimun, Anatolia y Orchel?"
    ],
    "relacionados": [
     "guerra-y-salvacion",
@@ -530953,15 +531286,302 @@ window.WIKI={
    "secs": [
     [
      "En resumen",
-     "<ul>\n<li>Parte 1: cuatro rutas, una por señor, con calendario, reclutas y sistema propios: Cai (cultivo y monturas), Dietrich (Respondedora y Temerarios), Theodora (batallones y envíos), Leda (actuaciones y bebidas).</li>\n<li>Parte 2 (Guerra, 1450, del 1/1 al 30/4): cada ruta juega su propia Parte 2, de 6 capítulos sin tiempo libre ni tiendas; basta con jugar una y el resto se puede saltar.</li>\n<li>Parte 3 (Salvación): 6 secciones del 24/1 al 6/6 de 1454, jugando como Eshmel, con milicias, reconstrucción y clases divinas.</li>\n<li>Las rutas son continuidades separadas: niveles, objetos, oro y Prestigio no se comparten; apoyos, desbloqueos de clase, logros y Ayudas sí.</li>\n<li>En la Parte 1 de Cai hay regiones que no se alcanzan, ni en una nueva vuelta: ver <a href=\"#/guia/mapa-del-mundo\">Mapa del mundo</a>.</li>\n</ul>"
+     "<ul>\n<li>Prólogo: tres capítulos con Eshmel; al terminarlo se abren las cuatro rutas.</li>\n<li>Parte 1: cuatro rutas, una por señor, con calendario, reclutas y sistema propios: Cai (cultivo y monturas), Dietrich (Respondedora y Temerarios), Theodora (batallones y envíos), Leda (actuaciones y bebidas).</li>\n<li>Terminar la batalla del cap. 12 es terminar la Parte 1; el juego enlaza en el acto con la Parte 2 de ese señor.</li>\n<li>Parte 2 (Guerra, 1450, del 1/1 al 30/4): cada ruta juega su propia Parte 2, de 6 capítulos sin tiempo libre ni tiendas; cualquiera se puede omitir.</li>\n<li>Parte 3 (Salvación): 6 secciones del 24/1 al 6/6 de 1454, jugando como Eshmel. «Pasar a la campaña final» se abre con una sola Parte 2 terminada u omitida, pero cada ruta solo aporta sus unidades cuando tiene la suya cerrada.</li>\n<li>Las rutas son continuidades separadas: niveles, reclutas, objetos, oro y Prestigio no se comparten; apoyos, conversaciones de apoyo vistas, logros, Esquirlas y Ayudas sí.</li>\n<li>Clases: las clases especiales que desbloqueas (Caladrio, Guardián, Catafracto…) quedan abiertas para todas las rutas. Lo demás es de cada ruta: el Examen de aptitud se abre en el cap. 5, los niveles intermedio y avanzado con el Prestigio 4 y 8 de esa ruta, y cada unidad tiene que aprobar su examen otra vez.</li>\n<li>En la Parte 1 de Cai hay regiones que no se alcanzan, ni en una nueva vuelta: ver <a href=\"#/guia/mapa-del-mundo\">Mapa del mundo</a>.</li>\n</ul>"
     ],
     [
      "Cómo funciona",
-     "<p>Calendario de cada ruta (Parte 1, 12 capítulos):</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Ruta</th><th>Empieza</th><th>Termina</th><th>Nivel enemigo en el cap. 12</th></tr><tr><td>Cai</td><td>24/1/1449</td><td>27/11/1449</td><td>28–38</td></tr><tr><td>Dietrich</td><td>10/2/1449</td><td>27/11/1449</td><td>28–38</td></tr><tr><td>Theodora</td><td>1/2/1446 (recuerdos; 1449 desde el cap. 3)</td><td>24/10/1449 (último día libre; batalla final el 17/11)</td><td>30–40</td></tr><tr><td>Leda</td><td>1/12/1444 (recuerdos; 1449 desde el cap. 2)</td><td>27/11/1449</td><td>29–39</td></tr></table></div>\n<p>El capítulo con más tiempo libre: Cai cap. 8 (10/7–1/9), Dietrich caps. 8 y 9 (unos 40 días cada uno), Theodora cap. 7 (21/4–28/5) y Leda cap. 9 (10/7–1/9). Qué pasa de la Parte 1 a la 2 y a la 3: <a href=\"#/guia/guerra-y-salvacion\">Guerra y Salvación</a>.</p>\n<p><b>Locales por ruta.</b> El Mercado abre en el cap. 3 (en la ruta de Theodora, en el cap. 5). Buscar: Cai y Leda cap. 4, Theodora cap. 5, Dietrich cap. 6. Sociedad Mercantil Vandahl: Cai cap. 4, las demás rutas cap. 6. Servicio divino: Cai cap. 5, las demás rutas cap. 4. Plaza de armas y Examen de aptitud: Theodora cap. 4, las demás rutas cap. 5. La Herrería abre en el cap. 6 en todas las rutas. El detalle está en la página de cada capítulo («Novedades»).</p>\n<p><b>Portal de los Dioses y órdenes de cada señor en el mapa:</b> ver <a href=\"#/guia/mapa-del-mundo\">Mapa del mundo</a>.</p>\n<p><b>Partes 2 y 3.</b> Acciones del ejército, milicias, Moral, Fusión causal, reconstrucción y Arcón de la memoria: todo en <a href=\"#/guia/guerra-y-salvacion\">Guerra y Salvación</a>. Reinicios y nueva vuelta: <a href=\"#/sendas\">Sendas y reinicios</a>.</p>"
+     "<p>Calendario de cada ruta (Parte 1, 12 capítulos):</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Ruta</th><th>Empieza</th><th>Termina</th><th>Nivel enemigo en el cap. 12</th></tr><tr><td>Cai</td><td>24/1/1449</td><td>27/11/1449</td><td>28–38</td></tr><tr><td>Dietrich</td><td>10/2/1449</td><td>27/11/1449</td><td>28–38</td></tr><tr><td>Theodora</td><td>1/2/1446 (recuerdos; 1449 desde el cap. 3)</td><td>24/10/1449 (último día libre; batalla final el 17/11)</td><td>30–40</td></tr><tr><td>Leda</td><td>1/12/1444 (recuerdos; 1449 desde el cap. 2)</td><td>27/11/1449</td><td>29–39</td></tr></table></div>\n<p>El capítulo con más tiempo libre: Cai cap. 8 (10/7–1/9), Dietrich caps. 8 y 9 (unos 40 días cada uno), Theodora cap. 7 (21/4–28/5) y Leda cap. 9 (10/7–1/9). Qué pasa de la Parte 1 a la 2 y a la 3: <a href=\"#/guia/guerra-y-salvacion\">Guerra y Salvación</a>.</p>\n<p><b>Locales por ruta.</b> El Mercado abre en el cap. 3 (en la ruta de Theodora, en el cap. 5). Buscar: Cai y Leda cap. 4, Theodora cap. 5, Dietrich cap. 6. Sociedad Mercantil Vandahl: Cai cap. 4, las demás rutas cap. 6. Servicio divino: Cai cap. 5, las demás rutas cap. 4. Plaza de armas y Examen de aptitud: Theodora cap. 4, las demás rutas cap. 5. La Herrería abre en el cap. 6 en todas las rutas. El detalle está en la página de cada capítulo («Novedades»).</p>\n<p>En la ruta de Dietrich no hay tiempo libre del 19/9 (09:00) al 29/9 (12:00): lo que tenga plazo en esas fechas se hace antes o después.</p>\n<p><b>Qué hereda una ruta nueva.</b> Al empezar una ruta desde el cap. 1 recibe de las que ya terminaron la Parte 1 los lugares visitados del mapa (los controles fronterizos vuelven a pedir su Prestigio), el tributo más alto de cada dios y las misiones compartidas. Los Desvíos completados solo cuentan para las Partes 2 y 3 si la ruta donde se hicieron termina la Parte 1. Detalle en <a href=\"#/guia/nueva-vuelta\">Nueva vuelta</a>.</p>\n<p><b>Rutas descargables</b> (oleada 3 del Pase, sin publicar): se abren con la Parte 2 terminada u omitida de ciertas rutas, no con la Parte 1. Bertrand: la de Cai o la de Leda. Talimun: Dietrich o Leda. Anatolia: Dietrich o Theodora. Orchel: Talimun y además Cai o Theodora; la ruta de Orchel no tiene Parte 2.</p>\n<p><b>Portal de los Dioses y órdenes de cada señor en el mapa:</b> ver <a href=\"#/guia/mapa-del-mundo\">Mapa del mundo</a>.</p>\n<p><b>Partes 2 y 3.</b> Acciones del ejército, milicias, Moral, Fusión causal, reconstrucción y Arcón de la memoria: todo en <a href=\"#/guia/guerra-y-salvacion\">Guerra y Salvación</a>. Reinicios y nueva vuelta: <a href=\"#/sendas\">Sendas y reinicios</a>.</p>"
     ],
     [
      "Consejos de min-max",
-     "<ul>\n<li>Terminar la Parte 1 de una ruta antes de empezar otra, y empezar la siguiente desde el cap. 1: así hereda mapa, postas, misiones compartidas y bendiciones.</li>\n<li>Orden recomendado por varios jugadores: Cai → Leda → Theodora → Dietrich<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Repartir los reclutas entre rutas para tener un ejército grande en la Parte 3.</li>\n</ul>"
+     "<ul>\n<li>Terminar la Parte 1 de una ruta antes de empezar otra, y empezar la siguiente desde el cap. 1: así hereda mapa, postas, misiones compartidas y bendiciones.</li>\n<li>Orden recomendado por varios jugadores: Cai → Leda → Theodora → Dietrich<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Los datos lo respaldan: Cai desvela el mapa y deja su sistema listo para la Parte 3; la Parte 2 de Leda abre dos rutas descargables (Bertrand y Talimun) y la de Theodora o Dietrich, la de Anatolia.</li>\n<li>Completar los Desvíos de los señores antes del cap. 12 de una ruta que se vaya a terminar.</li>\n<li>Repartir los reclutas entre rutas para tener un ejército grande en la Parte 3.</li>\n</ul>"
+    ]
+   ]
+  },
+  {
+   "id": "guerra-y-salvacion",
+   "titulo": "Partes 2 y 3: Guerra y Salvación",
+   "alias": [
+    "partes 2 y 3",
+    "parte 2 y 3",
+    "guerra y salvación",
+    "guerra y salvacion",
+    "campaña de guerra",
+    "después de la parte 1",
+    "despues de la parte 1"
+   ],
+   "resumen": "Resumen de lo que viene tras la Parte 1, una Guerra de 6 capítulos por ruta y una Salvación común con milicias, portales y la batalla contra Balor, con enlaces a la guía de cada una.",
+   "preguntas": [
+    "¿Qué viene después de la Parte 1?",
+    "¿Hay que jugar la Parte 2 de las cuatro rutas?",
+    "¿Qué pasa de la Parte 2 a la Parte 3?"
+   ],
+   "relacionados": [
+    "parte-2-guerra",
+    "parte-3-salvacion",
+    "portales-y-balor",
+    "rutas",
+    "esquirlas"
+   ],
+   "enlaces": [
+    {
+     "texto": "Partes 2 y 3",
+     "ruta": "#/partes23"
+    },
+    {
+     "texto": "Sendas y reinicios",
+     "ruta": "#/sendas"
+    }
+   ],
+   "tema": "progresion",
+   "secs": [
+    [
+     "En resumen",
+     "<ul>\n<li><b><a href=\"#/guia/parte-2-guerra\">Parte 2: Guerra</a></b> (1450): 6 capítulos por ruta, sin tiempo libre ni tiendas, preparados con el oficial al cargo. Las unidades entran a nivel 35. Se puede omitir (+5 niveles), pero se pierden sus 120 Esquirlas cau. y algunas escenas.</li>\n<li><b><a href=\"#/guia/parte-3-salvacion\">Parte 3: Salvación</a></b> (1454): común a todas las rutas. Eshmel manda desde Dagsion, el ejército se mueve en milicias de hasta 8, reconstruye lugares y sube la moral. Las unidades entran a nivel 40.</li>\n<li><b><a href=\"#/guia/portales-y-balor\">Portales del inframundo y batalla final</a></b>: cada sección trae portales con plazo; destruirlos debilita a Balor antes de la final de 25 unidades.</li>\n</ul>"
+    ],
+    [
+     "Cómo encajan",
+     "<ul>\n<li>Basta con cerrar una Parte 2 (jugada u omitida) para abrir la Parte 3.</li>\n<li>Cada ruta aporta a la Parte 3 la copia de su ejército grabada al cerrar su Parte 2; sin eso, sus unidades no aparecen y su señor entra limitado o no entra.</li>\n<li>Lo que deja la Parte 1 (objetos, materiales, monturas y batallones) se recupera en la Parte 3 desde el Arcón de la memoria con <a href=\"#/guia/esquirlas\">Esquirlas cau.</a>.</li>\n<li>Orden de rutas y qué abre cada Parte 2: <a href=\"#/guia/rutas\">Rutas y partes</a>.</li>\n</ul>"
+    ],
+    [
+     "Consejos de min-max",
+     "<ul>\n<li>Jugar entera al menos una Guerra y cerrar la Parte 2 de los cuatro señores para tenerlos de forma plena en la Parte 3.</li>\n<li>La copia que pasa es la del final de cada Parte 2: entrenarla y equiparla antes de cerrarla.</li>\n</ul>"
+    ]
+   ]
+  },
+  {
+   "id": "parte-2-guerra",
+   "titulo": "Parte 2: Guerra",
+   "alias": [
+    "parte 2",
+    "parte ii",
+    "guerra",
+    "omitir la parte ii",
+    "saltar la guerra",
+    "omitir la guerra",
+    "oficial al cargo",
+    "acción del ejército",
+    "accion del ejercito",
+    "puesta al día",
+    "práctica grupal",
+    "servicio grupal",
+    "arcón de la memoria",
+    "arcon de la memoria",
+    "qué pasa a la parte 3",
+    "bolsas de los señores"
+   ],
+   "resumen": "Campaña de 6 capítulos sin tiempo libre que cada señor juega por su cuenta; se prepara con el oficial al cargo, se puede omitir y graba la copia del ejército que pasa a la Parte 3.",
+   "preguntas": [
+    "¿Qué hace el oficial al cargo en la Parte 2?",
+    "¿Merece la pena saltarse la Guerra?",
+    "¿Qué pasa a la Parte 2 y qué se recupera en la Parte 3?",
+    "¿Cuántas unidades se llevan en la Parte 2?"
+   ],
+   "relacionados": [
+    "guerra-y-salvacion",
+    "parte-3-salvacion",
+    "esquirlas",
+    "rutas",
+    "nueva-vuelta"
+   ],
+   "enlaces": [
+    {
+     "texto": "Partes 2 y 3",
+     "ruta": "#/partes23"
+    },
+    {
+     "texto": "Sendas y reinicios",
+     "ruta": "#/sendas"
+    },
+    {
+     "texto": "Tutorial: Oficial al cargo",
+     "ruta": "#/tutorial/TUTO_行軍管理官"
+    }
+   ],
+   "tema": "progresion",
+   "secs": [
+    [
+     "En resumen",
+     "<ul>\n<li>Parte 2 (Guerra), en 1450: 6 capítulos por ruta, sin tiempo libre ni tiendas. Es la misma campaña para los cuatro señores, con escenas propias de cada uno.</li>\n<li>Antes de cada batalla, el oficial al cargo ofrece una Acción del ejército entre tres y reparte armas y licencias.</li>\n<li>Las unidades entran subidas a nivel 35. Omitir la Guerra muestra un resumen y suma 5 niveles, pero no da sus 120 Esquirlas cau.; se puede jugar después igualmente.</li>\n<li>Al terminarla u omitirla se graba la copia del ejército de esa ruta que pasa a la <a href=\"#/guia/parte-3-salvacion\">Parte 3</a>; sin eso, sus unidades no aparecen.</li>\n</ul>"
+    ],
+    [
+     "Al entrar",
+     "<p>Terminar el cap. 12 lleva directo a la Guerra de ese señor. Solo pasan las armas y el equipo que cada personaje lleva encima; el Carro, las monturas y los batallones de la Parte 1 quedan guardados. <a href=\"#/objeto/IID_開かれし救世の剣\">Espada elegida</a>, <a href=\"#/objeto/IID_氷の救世の槍\">Lanza elegida</a>, <a href=\"#/objeto/IID_ブレイザブリク\">Breidablik</a> y <a href=\"#/objeto/IID_王家の宝剣\">Espada real</a> no se pueden llevar, pero la Parte 2 regala sus versiones +1.</p>"
+    ],
+    [
+     "Oficial al cargo",
+     "<p>«Misión principal» cierra los preparativos y empieza la batalla (<a href=\"#/tutorial/TUTO_行軍管理官\">tutorial</a>). «Acción del ejército» permite elegir una de tres por capítulo:</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Acción</th><th>Efecto</th></tr><tr><td>Puesta al día</td><td>Entrena a los de menor nivel para acercarlos a los más fuertes</td></tr><tr><td>Práctica grupal</td><td>Sube las competencias de todo el grupo</td></tr><tr><td>Servicio grupal</td><td>Todos sirven a una divinidad para subir el tributo</td></tr></table></div>\n<p><b>Suministros.</b> En cada capítulo se reparten armas de hierro y de bronce +3 de cada tipo, arrojadizas +2, <a href=\"#/objeto/IID_調合薬\">Brebaje</a>, <a href=\"#/objeto/IID_毒消し\">Antídoto</a> y 5 licencias de cada nivel. Según la ruta llegan también ingredientes (Cai), 100 <a href=\"#/objeto/IID_魔響石\">Esquirlas del eco</a> (Dietrich) o plantas (Leda). Estas armas +3 no pasan a la Parte 3.</p>\n<p><b>Plazas.</b> Sin contar al señor se eligen 8 unidades en el cap. 1 y 12 en los demás (en la ruta de Theodora, 9, 13, 13, 12, 13 y 13). Los preparativos no tienen plazo.</p>"
+    ],
+    [
+     "Al terminar",
+     "<ul>\n<li>Se retiran <a href=\"#/objeto/IID_妖槍ヴェンデッタ\">Vendetta</a>, <a href=\"#/objeto/IID_邪剣エンジュラ\">Ángela</a> y la <a href=\"#/objeto/IID_ダグザの棍棒\">Maza de Dagda</a>; la Maza la recibe quien derrota la primera forma de Dagda en el cap. 5.</li>\n<li>Repetir una Guerra sustituye la copia anterior de esa ruta.</li>\n<li><b>Arcón de la memoria.</b> Al cerrar la Parte 2, los objetos, materiales, monturas y batallones de la Parte 1 pasan al Arcón de la memoria de la Sala de los obeliscos; repetir una Guerra ya cerrada no lo vuelve a llenar. En la Parte 3 se sacan a cambio de <a href=\"#/guia/esquirlas\">Esquirlas cau.</a>: las monturas piden a Cai en el ejército y los batallones a Theodora, los dos de forma plena.</li>\n<li><b>Bolsas de los señores.</b> Cuando cada señor se une en la Parte 3, el juego entrega gratis lo que llevaban su Carro y su bolsa de materiales, una vez por señor; lo que no cabe se pierde. Llega tras la sección 1<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>El oro no entra en el Arcón: cada senda guarda el suyo. El Prestigio deja paso a la moral.</li>\n</ul>"
+    ],
+    [
+     "Omitirla",
+     "<p>«Omitir la parte II: Guerra» muestra un resumen y los aliados mejoran solos (+5 niveles); también se puede omitir a mitad, perdiendo lo jugado. Cuenta como terminada para la Parte 3, graba las unidades y pasa por el mismo cierre que llena el Arcón. Lo que se pierde: las 120 Esquirlas y las escenas que piden una Guerra jugada entera (la promesa de Fortuna, y otra que pide además a Dietrich o Theodora). Theodora tiene escenas propias en la Parte 3 si se jugó su Guerra.</p>"
+    ],
+    [
+     "Consejos de min-max",
+     "<ul>\n<li>Jugar entera al menos una Guerra (escenas y 120 Esquirlas) y omitir las demás si no hace falta su copia entrenada.</li>\n<li>Antes de terminar u omitir cada Parte 2, entrenar a mano a las unidades de crecimiento alto y cargarlas con lo mejor: esa es la copia que pasa.</li>\n<li>Cerrar la Parte 2 de los cuatro señores para tenerlos de forma plena en la Parte 3.</li>\n<li>«Puesta al día» para igualar niveles y «Servicio grupal» si faltan bendiciones.</li>\n<li>En la Parte 3, hacer sitio en el Carro antes de que se una cada señor: lo que no cabe de su bolsa se pierde.</li>\n</ul>"
+    ]
+   ]
+  },
+  {
+   "id": "parte-3-salvacion",
+   "titulo": "Parte 3: Salvación",
+   "alias": [
+    "parte 3",
+    "parte iii",
+    "salvación",
+    "salvacion",
+    "causalidad fijada",
+    "señor limitado",
+    "participación limitada",
+    "participacion limitada",
+    "milicia",
+    "milicias",
+    "formar filas",
+    "moral",
+    "puntos de moral",
+    "reconstrucción",
+    "reconstruccion",
+    "reconstruir",
+    "materiales de obra"
+   ],
+   "resumen": "Campaña común de 1454 en la que Eshmel manda desde Dagsion, el ejército se mueve en milicias por el mapa del mundo, reconstruye lugares y sube la moral entre fases de portales.",
+   "preguntas": [
+    "¿Cuántas unidades caben en una milicia?",
+    "¿Qué da la moral?",
+    "¿Qué señores entran de forma plena en la Parte 3?",
+    "¿Cuándo se abre la Parte 3?"
+   ],
+   "relacionados": [
+    "guerra-y-salvacion",
+    "parte-2-guerra",
+    "portales-y-balor",
+    "reclutamiento",
+    "mapa-del-mundo"
+   ],
+   "enlaces": [
+    {
+     "texto": "Partes 2 y 3",
+     "ruta": "#/partes23"
+    },
+    {
+     "texto": "Dioses y pruebas",
+     "ruta": "#/dioses"
+    },
+    {
+     "texto": "Tutorial: Formar milicias",
+     "ruta": "#/tutorial/TUTO_部隊編成"
+    },
+    {
+     "texto": "Tutorial: Reconstrucción",
+     "ruta": "#/tutorial/TUTO_復興"
+    }
+   ],
+   "tema": "progresion",
+   "secs": [
+    [
+     "En resumen",
+     "<ul>\n<li>Parte 3 (Salvación), del 24/1 al 6/6 de 1454: Eshmel manda desde Dagsion y el ejército se mueve en milicias de hasta 8 unidades.</li>\n<li>Las unidades llegan subidas a nivel 40, con la copia que grabó cada ruta al cerrar su <a href=\"#/guia/parte-2-guerra\">Parte 2</a>.</li>\n<li>Cada sección alterna tiempo libre y una fase de <a href=\"#/guia/portales-y-balor\">portales del inframundo</a> con plazo.</li>\n<li>La moral sustituye al Prestigio: sube con misiones y reconstrucciones y da tratados y Botas del viento.</li>\n</ul>"
+    ],
+    [
+     "Entrada",
+     "<p>«Pasar a la campaña final» se abre en cuanto hay una Parte 2 terminada u omitida. Cada ruta con la suya cerrada fija su «causalidad» y sus acompañantes pueden unirse; desde la Parte 3 se puede volver a la Sala de los obeliscos para fijar la de otro señor. Los guerreros arrastrados esperan en Dagsion y se reincorporan desde la sección 2 con Apoyo 1 y Prestigio (<a href=\"#/guia/reclutamiento\">Reclutamiento</a>); quien no tenga copia no aparece.</p>\n<p><b>Señores.</b> Un señor con su Parte 2 cerrada entra de forma plena: trae su sistema de mapa, sus conversaciones de apoyo y su epílogo normal. Sin ella, pero con su Desvío hecho en una ruta que terminó la Parte 1, participa limitado: lucha, pero sin sistema, sin conversaciones de apoyo y con otro epílogo. Un recluta nuevo de la Parte 3 se autonivela con el 80 % de sus crecimientos y un señor que llega así, con el 70 %.</p>\n<p><b>Quién se une según lo jugado.</b> <a href=\"#/personaje/PID_アスワン\">Aswan</a> y <a href=\"#/personaje/PID_タホウニア\">Tahonia</a>, al final de la sección 4 si se cerró la Parte 2 de Cai o la de Leda. <a href=\"#/personaje/PID_クラプカ\">Klapka</a>, solo en la sección 6 si Theodora entró de forma plena. <a href=\"#/personaje/PID_セントリオン\">Centurio</a> no está sin la Parte 2 de Cai. <a href=\"#/personaje/PID_グラディウス\">Gladius</a>, con la de Bertrand.</p>"
+    ],
+    [
+     "Secciones",
+     "<div class=\"tw\"><table class=\"md\"><tr><th>Sección</th><th>Tiempo libre</th><th>Portales</th><th>Plazas de la batalla principal</th></tr><tr><td>1</td><td>24/1–31/1 (introducción)</td><td>—</td><td>3</td></tr><tr><td>2</td><td>1/2–10/2</td><td>11/2–15/2</td><td>9</td></tr><tr><td>3</td><td>16/2–25/2</td><td>26/2–6/3</td><td>9</td></tr><tr><td>4</td><td>7/3–21/3</td><td>22/3–5/4</td><td>17 y 9 (dos frentes)</td></tr><tr><td>5</td><td>6/4–25/4</td><td>26/4–15/5</td><td>17, 9 y 17 (tres frentes)</td></tr><tr><td>6</td><td>16/5–6/6</td><td>—</td><td>17</td></tr></table></div>\n<p>Tras la sección 6 viene «La batalla final» contra Balor. En el tiempo libre se reclutan los guerreros reunidos en Dagsion, se reconstruye y se prepara la batalla (<a href=\"#/tutorial/TUTO_3部自由行動\">tutorial</a>).</p>"
+    ],
+    [
+     "Milicias",
+     "<ul>\n<li><b>Formar filas</b> en el menú de órdenes de Eshmel crea una milicia de hasta 8 aliados (<a href=\"#/tutorial/TUTO_部隊編成\">tutorial</a>). Eshmel no entra en ninguna y dirige desde Dagsion; al combatir o explorar, se teletransporta para ayudar.</li>\n<li>Al principio se controlan 2 milicias y el límite sube en 1 tras cada batalla principal, hasta 5. Se pueden dividir, transferir unidades entre ellas o romper filas.</li>\n<li>Cada milicia actúa por separado; el turno pasa cuando todas han actuado o con «Terminar turno».</li>\n<li>Los aliados que se quedan en la reserva de Dagsion ganan EXP al final de cada turno.</li>\n<li>Si un señor de la llama está en el ejército de forma plena, vuelve su sistema: Cai cultiva y pone cebos, Dietrich trae la Respondedora, Theodora recluta batallones y da arengas, y con Leda hay bebidas en la taberna.</li>\n</ul>"
+    ],
+    [
+     "Reconstrucción y moral",
+     "<ul>\n<li><b>Reconstruir</b> pide materiales y oro y tarda varios turnos; al acabar da una recompensa y reabre las instalaciones (<a href=\"#/tutorial/TUTO_復興\">tutorial</a>). Enviar un batallón a reconstruir acorta el plazo. Ejemplos: una posta, 3–5 materiales, 1000 G y 4 turnos (50 de moral); Grand Aragon o Megaira, 10 000 G y 8 turnos (300 de moral). Los <a href=\"#/objeto/IID_復興資材\">Materiales de obra</a> se compran en aldeas y ciudades.</li>\n<li><b>Moral</b> (<a href=\"#/tutorial/TUTO_救世\">tutorial</a>). Cada nivel pide 1000 puntos. Recompensas: tratados de competencia en los niveles 2–4 y 6–8, <a href=\"#/objeto/IID_風呼びの靴\">Botas del viento</a> en el 5 (y dos en el 10) y 4 cofres de tratados en el 9.</li>\n<li><b>Locales.</b> El coliseo y otros locales empiezan cerrados. Entrenar cuesta 500 G y rinde ×3 tras «<a href=\"#/mision/SQID_闘技場の再建要請1\">La reconstrucción del coliseo</a>» y ×3,5 tras «<a href=\"#/mision/SQID_闘技場の再建要請2\">La reconstrucción del coliseo II</a>». Las comidas rinden ×1,8 tras «<a href=\"#/mision/SQID_食堂の再建要請1\">Sabores perdidos</a>» y ×2 tras «<a href=\"#/mision/SQID_食堂の再建要請2\">Sabores restaurados</a>». Servir rinde ×1,5, o ×2 tras «<a href=\"#/mision/SQID_神殿の備品調達\">Ayuda para los devotos</a>».</li>\n</ul>"
+    ],
+    [
+     "Consejos de min-max",
+     "<ul>\n<li>Hacer pronto las misiones del coliseo y del comedor: multiplican Entrenar y comidas el resto de la parte.</li>\n<li>Dejar en la reserva a quien no se use, porque gana EXP cada turno.</li>\n<li>Fusión causal (300 Esquirlas cau.) para traer la mejor versión de una unidad de la Parte 2 (<a href=\"#/guia/esquirlas\">Esquirlas</a>).</li>\n<li>Reconstruir pronto las postas: dan más moral por oro que las ciudades grandes (50 por 1000 G frente a 300 por 10 000 G).</li>\n</ul>"
+    ]
+   ]
+  },
+  {
+   "id": "portales-y-balor",
+   "titulo": "Portales del inframundo y batalla final",
+   "alias": [
+    "portales del inframundo",
+    "portal del inframundo",
+    "destruir portal",
+    "caballero infernal",
+    "miasma",
+    "disipar miasma",
+    "bastión",
+    "bastion",
+    "bastiones",
+    "defensa de dagsion",
+    "resistencia de dagsion",
+    "civiles",
+    "balor",
+    "batalla contra balor",
+    "epílogo final",
+    "perder la partida en la parte 3"
+   ],
+   "resumen": "En la Parte 3 hay que destruir los portales del inframundo antes de cada plazo, despejar el miasma, defender Dagsion y debilitar a Balor antes de la batalla final de 25 unidades.",
+   "preguntas": [
+    "¿Cuándo se pierde la partida en la Parte 3?",
+    "¿Cómo se debilita a Balor?",
+    "¿Qué pasa si no ataco un portal?",
+    "¿Qué es la defensa de Dagsion?"
+   ],
+   "relacionados": [
+    "parte-3-salvacion",
+    "guerra-y-salvacion",
+    "enemigos-especiales",
+    "apoyos",
+    "mapa-del-mundo"
+   ],
+   "enlaces": [
+    {
+     "texto": "Partes 2 y 3",
+     "ruta": "#/partes23"
+    },
+    {
+     "texto": "Batalla final",
+     "ruta": "#/batalla/SC00_15"
+    },
+    {
+     "texto": "Tutorial: Estado de los portales",
+     "ruta": "#/tutorial/TUTO_冥界の門の状態"
+    },
+    {
+     "texto": "Tutorial: Defensa de Dagsion",
+     "ruta": "#/tutorial/TUTO_ダグシオン防衛戦"
+    }
+   ],
+   "tema": "progresion",
+   "secs": [
+    [
+     "En resumen",
+     "<ul>\n<li>Al acabar cada tiempo libre de la <a href=\"#/guia/parte-3-salvacion\">Parte 3</a> aparecen portales del inframundo que hay que destruir antes del plazo.</li>\n<li>Se pierde si caen todas las milicias, si la resistencia de Dagsion llega a 0 o si queda sin atacar un portal cuando hay varios.</li>\n<li>El miasma inutiliza las instalaciones y hay que despejarlo antes de atacar el portal de esa región.</li>\n<li>Cada portal destruido debilita a Balor; la batalla final admite 25 unidades.</li>\n</ul>"
+    ],
+    [
+     "Portales, miasma y bastiones",
+     "<ul>\n<li><b>Portales del inframundo.</b> Al acabar el tiempo libre aparecen por el mapa (<a href=\"#/tutorial/TUTO_冥界の門の状態\">tutorial</a>). La ficha del lugar avisa de los que están a punto de salir. En la batalla contra su caballero infernal se usan las milicias del lugar y las de lugares adyacentes. Después hay que elegir «Destruir portal». Si se agota el plazo, la historia avanza sola.</li>\n<li><b>Varios portales.</b> Si salen varios a la vez hay que atacarlos todos; si queda alguno sin atacar al terminar el plazo, se acaba la partida.</li>\n<li><b>Portales grandes.</b> Traen más enemigos, pero también permiten desplegar más unidades si se acercan otras milicias.</li>\n<li><b>Miasma.</b> Inutiliza las instalaciones del lugar. Para atacar un portal de una región con miasma, primero hay que despejarla. «Disipar miasma» puede necesitar varias pasadas y da una recompensa al limpiarlo del todo.</li>\n<li><b>Bastiones.</b> Los puntos de control se convierten en bastiones. Un batallón que lo defiende elimina cada turno a algunas tropas enemigas que intentan pasar, de 1 a 5 según su nivel.</li>\n<li><b>Templos.</b> El portal de cada templo se abre con la misión de su dios (secciones 2–6), no al reconstruirlo; la de Aurora pide además su templo reconstruido.</li>\n</ul>"
+    ],
+    [
+     "Defensa de Dagsion",
+     "<p>Las huestes que salen del miasma marchan hacia Dagsion. Si llegan, empieza una batalla de defensa contra enemigos muy fuertes (<a href=\"#/tutorial/TUTO_ダグシオン防衛戦\">tutorial</a>). Perderla no acaba la partida y los caídos se reponen, pero la resistencia de Dagsion baja 1. Si llega a 0, la partida termina. Cada civil que cae mejora mucho a los enemigos, y si caen todos se pierde.</p>"
+    ],
+    [
+     "Balor y final",
+     "<p>La batalla final contra Balor se puede librar en cualquier momento, pero cada portal destruido lo debilita (<a href=\"#/tutorial/TUTO_第9門\">tutorial</a>). Disuelve las milicias y admite 25 unidades. Sus portales se abren por parejas en un ciclo fijo, marcan un turno antes las casillas de aparición y los refuerzos cambian según las barras de PV que le queden al jefe. Una unidad sobre una casilla de aparición la anula. Su barrera y cómo romperla: <a href=\"#/guia/enemigos-especiales\">Unidades grandes y jefes</a>.</p>\n<p>Tras la batalla llega la conversación S con la persona elegida (solo Eshmel tiene rango S, con 48 personajes), los epílogos y los créditos; después el juego vuelve a antes de la batalla final para ver otro. Fortuna se puede elegir tras ver en cualquier partida seis conversaciones suyas de la Parte 3, una de ellas con el portal del templo de Credna abierto. Reglas de los epílogos en pareja: <a href=\"#/guia/apoyos\">Apoyos y finales</a>.</p>"
+    ],
+    [
+     "Consejos de min-max",
+     "<ul>\n<li>Interceptar en el mapa las huestes que van hacia Dagsion antes de que lleguen.</li>\n<li>Destruir todos los portales posibles antes de la final: cada uno quita enemigos y debilita a Balor.</li>\n<li>Llevar a la final 25 unidades preparadas, no solo las de las milicias.</li>\n<li>En la final, ocupar las casillas marcadas un turno antes para anular la aparición de refuerzos.</li>\n<li>Poner un batallón en cada bastión de paso: frena las tropas sin gastar milicias.</li>\n</ul>"
     ]
    ]
   },
@@ -531001,11 +531621,11 @@ window.WIKI={
    "secs": [
     [
      "En resumen",
-     "<ul>\n<li>Plazos de misiones secundarias (en la ruta de Cai, también las de Altruismo) y ventanas de Desvío.</li>\n<li>Escenas opcionales y cofres de batalla: cada ruta tiene los suyos; la lista completa por ruta y capítulo está en <a href=\"#/perdibles\">Perdibles</a>. Ejemplos de la ruta de Cai: Castor y Centurio (cap. 2), Bertrand en el calabozo (cap. 4); Zanbato y Escudo de hierro (cap. 5), Espada purificadora el turno 1 (cap. 7).</li>\n<li>Entre Partes: a la Parte 2 solo pasa lo que cada unidad lleva encima; el resto (objetos, materiales, monturas y batallones) va al Arcón de la memoria al terminar la Parte 2 y se recupera en la Parte 3 con Esquirlas cau. El oro y el Prestigio se pierden. Detalle en <a href=\"#/guia/guerra-y-salvacion\">Guerra y Salvación</a>.</li>\n<li>Conversaciones de apoyo: 112 de 190 parejas tienen la C solo en las Partes 1–2; sin verla, la pareja queda bloqueada en la Parte 3. Ver <a href=\"#/apoyos\">Apoyos</a>.</li>\n<li>Partes 2 y 3: las misiones de la Parte 3 vencen como muy tarde el 6/6, y el arma Prototipo de cada señor en la Parte 3 depende de haber completado su Parte 2 (ver <a href=\"#/guia/dlc\">Contenido descargable</a>).</li>\n</ul>"
+     "<ul>\n<li>Plazos de misiones secundarias (en la ruta de Cai, también las de Altruismo) y ventanas de Desvío. En todas las rutas, el cap. 5 cierra 7 misiones del tablón, el 6 cierra 4, el 9 de 10 a 12 y el 10, 5 o 6; en la de Cai, además, el cap. 3 cierra 3, el 4 «La nieta desaparecida» y el 6 «Un mensaje peculiar»; los bailes de Leda vencen en los caps. 6, 7, 9 y 10. Último capítulo de cada una en <a href=\"#/misiones\">Misiones y desvíos</a>.</li>\n<li>Escenas opcionales y cofres de batalla: cada ruta tiene los suyos; la lista completa por ruta y capítulo está en <a href=\"#/perdibles\">Perdibles</a>. Ejemplos de la ruta de Cai: Castor y Centurio (cap. 2), Bertrand en el calabozo (cap. 4); Zanbato y Escudo de hierro (cap. 5), Espada purificadora el turno 1 (cap. 7).</li>\n<li>Entre Partes: a la Parte 2 solo pasa lo que cada unidad lleva encima; el resto (objetos, materiales, monturas y batallones) va al Arcón de la memoria al terminar la Parte 2 y se recupera en la Parte 3 con Esquirlas cau. El oro y el Prestigio se pierden. Detalle en <a href=\"#/guia/guerra-y-salvacion\">Guerra y Salvación</a>.</li>\n<li>Conversaciones de apoyo: 112 de 190 parejas tienen la C solo en las Partes 1–2; sin verla, la pareja queda bloqueada en la Parte 3. Ver <a href=\"#/apoyos\">Apoyos</a>.</li>\n<li>Destino de la misión principal: si está fuera de Dagsion y nunca lo has visitado, al vencer el plazo no se puede seguir y hay que reiniciar el capítulo. Si lo visitaste una vez, el juego te lleva allí. En la ruta de Cai, de los caps. 3 al 12, lo siguiente al plazo ocurre siempre en Dagsion, así que nunca hay riesgo.</li>\n<li>Desvíos: se empiezan en su lugar (a veces con un personaje concreto en el grupo) y no tienen salto automático; pasada la fecha, se pierden en ese capítulo.</li>\n<li>Cupos semanales y regalos: lo no usado se pierde el domingo y al empezar capítulo.</li>\n<li>Repetir capítulos: cada inicio de capítulo es un marcador propio. Repetir uno sobrescribe la partida en curso de esa ruta; los marcadores posteriores siguen hasta que vuelvas a superar el capítulo anterior a cada uno. Volver a terminar la Parte 1 sobrescribe con qué empiezan tus unidades la Parte 2.</li>\n<li>Un Desvío completado solo cuenta para las Partes 2 y 3 si la ruta donde se hizo termina la Parte 1.</li>\n<li>Omitir todas las Partes 2 pierde la promesa de Fortuna y otras escenas que piden una Guerra jugada entera: jugar al menos una (ver <a href=\"#/guia/guerra-y-salvacion\">Guerra y Salvación</a>).</li>\n<li>Señores de la Llama en la Parte 3: si completaste su Desvío pero no su Parte 2, el señor solo participa de forma limitada (sin apoyos en la Parte 3, sin sus habilidades de mapa y con su otro epílogo).</li>\n<li>Partes 2 y 3: los portales de los templos se abren con la misión de cada dios, no al reconstruir el templo. Las misiones de la Parte 3 vencen como muy tarde el 6/6, y el arma Prototipo de cada señor en la Parte 3 depende de haber completado su Parte 2 (ver <a href=\"#/guia/dlc\">Contenido descargable</a>).</li>\n</ul>"
     ],
     [
      "Cómo funciona",
-     "<p>Los eventos aparecen como pulsos amarillos en el mapa de Dagsion y se pierden al cambiar de capítulo. En la Sala de los obeliscos → Recuerdos se marcan con «?» los que faltan; se recuperan rejugando el capítulo (ver <a href=\"#/trucos?s=eventos\">Eventos perdibles</a>). En modo Clásico, un recluta caído se pierde en esa historia.</p>"
+     "<p><b>Reclutas que dejan de estar.</b> Nezha y Dadao solo aparecen junto al puesto de adivinación de Anatolia y Halvin falta en septiembre: no dejar su apoyo para el final (ver <a href=\"#/guia/reclutamiento\">Reclutamiento</a>). Reclutar a Goliath en la ruta de Cai cambia sus escenas del cap. 12: en la batalla lucha en su lugar un soldado de Bertrand.</p>\n<p><b>Reiniciar capítulo</b> devuelve el tributo de las bendiciones ganado en ese capítulo; el apoyo se conserva.</p>\n<p>Los eventos aparecen como pulsos amarillos en el mapa de Dagsion y se pierden al cambiar de capítulo. En la Sala de los obeliscos → Recuerdos se marcan con «?» los que faltan; se recuperan rejugando el capítulo (ver <a href=\"#/trucos?s=eventos\">Eventos perdibles</a>). En modo Clásico, un recluta caído se pierde en esa historia.</p>"
     ],
     [
      "Consejos de min-max",
@@ -531031,6 +531651,7 @@ window.WIKI={
    ],
    "resumen": "Moneda global que se gana con logros y al terminar rutas; se gasta en mejoras permanentes (Ayudas de salvación), en la Fusión causal y en el Arcón de la memoria.",
    "preguntas": [
+    "¿Cuántas Esquirlas cau. da cada capítulo?",
     "¿Cómo funciona la Fusión causal?",
     "¿Qué Ayudas de salvación compro primero?"
    ],
@@ -531057,15 +531678,15 @@ window.WIKI={
    "secs": [
     [
      "En resumen",
-     "<ul>\n<li>Se ganan con el Registro de logros (39 425 en total). Además, 5000 al terminar por primera vez la Parte 1 de cada señor<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Valen para toda la partida y sobreviven a Reiniciar capítulo.</li>\n<li>Las Ayudas de salvación se compran en la Sala de los obeliscos; los niveles altos piden rutas terminadas.</li>\n<li>Fusión causal (Parte 3): 300 por fusión.</li>\n</ul>"
+     "<ul>\n<li>Se ganan con el Registro de logros (39 425 en total; terminar la Parte 1 de cada señor es un logro de 5000) y al acabar cada capítulo: 20 por capítulo de la Parte 1 (240 por ruta), 20 por capítulo de una Parte 2 jugada (120; omitirla no da nada) y 145 en la Parte 3. El prólogo no da.</li>\n<li>Valen para toda la partida y sobreviven a Reiniciar capítulo; las gastadas no vuelven al reiniciar.</li>\n<li>Las Ayudas de salvación se compran en la Sala de los obeliscos; los niveles altos piden la Parte 1 terminada con 1, 2 o 3 señores distintos (da igual el orden; repetir la misma ruta no suma). Una vez compradas no se devuelven: solo se pueden desactivar y volver a activar.</li>\n<li>Fusión causal (Parte 3): 300 por fusión, haya mejora o no.</li>\n</ul>"
     ],
     [
      "Cómo funciona",
-     "<p>Ayudas: Exp adicional (+10 a +50 %), Exp de clase, Exp por competencia (+1/+2/+3 por combate en cada una), descuentos en armas, bazar, regalos, posada, comida, teatro, termas, carruajes y herrería, abundancia de materiales, evasión en zonas explorables y rebaja del coste de cada bendición. Con 0 rutas terminadas se puede comprar Exp +10 %, Exp por competencia y los descuentos de armas, bazar y regalos.</p>\n<p><b>Fusión causal.</b> No se puede con los Señores de la Llama. Se queda con el mayor valor de nivel, cada atributo y la EXP de competencias y de clase; suma habilidades, técnicas y certificaciones; no conserva clase, montura, objetos ni apoyos.</p>\n<p><b>Arcón de la memoria.</b> Guarda lo conseguido en las Partes 1 y 2 para sacarlo por esquirlas en la Parte 3: qué entra y cuándo, en <a href=\"#/guia/guerra-y-salvacion\">Partes 2 y 3</a>.</p>"
+     "<p>Ayudas: Exp adicional (+10 a +50 %, redondeando hacia abajo en cada combate y, en la Batalla rápida, una sola vez sobre el total), Exp de clase, Exp por competencia (+1/+2/+3 por combate en cada una; no se aplica en la Plaza de armas), descuentos en armas, bazar, regalos, posada, comida, teatro, termas, carruajes y herrería, abundancia de materiales, evasión en zonas explorables y rebaja del coste de cada bendición. Con 0 rutas terminadas se puede comprar Exp +10 %, Exp por competencia y los descuentos de armas, bazar y regalos. Ejemplo de escalera: Exp +10 % (0 rutas, 500), +20 % (1 ruta, 500), +30 % (1, 1000), +40 % (2, 1000) y +50 % (3, 1000); la rebaja de bendiciones, −20 % con 1 ruta y −50 % con 3.</p>\n<p><b>Fusión causal.</b> No se puede con los Señores de la Llama. Primero compara las dos copias: si la de la Parte 2 no supera a la de la Parte 3 en ningún atributo, nivel, EXP, competencia ni habilidad aprendida, no cambia nada («la nueva causalidad se funde…») y las 300 esquirlas se gastan igual. Si la supera en algo, se queda con el mayor valor de nivel, EXP, cada atributo (sin contar lo que da la clase) y cada competencia, añade las habilidades y toma los restos de crecimiento de la copia de la Parte 2. Las clases también se funden: la unidad se queda con las clases que obtuvo en cualquiera de las dos copias y con la Exp de clase más alta de cada una (el resumen lo muestra como «Exp de clase»), así que puede volver a ellas. Lo que no cambia es la clase que lleva puesta, ni la montura, el batallón o los objetos. Los apoyos no se fusionan porque ya son de toda la partida.</p>\n<p><b>Arcón de la memoria.</b> Guarda lo conseguido en las Partes 1 y 2 para sacarlo por esquirlas en la Parte 3; los animales piden a Cai en el ejército y los batallones a Theodora, los dos con su Parte 2 cerrada. Qué entra y cuándo, en <a href=\"#/guia/parte-2-guerra\">Parte 2: Guerra</a>.</p>"
     ],
     [
      "Consejos de min-max",
-     "<ul>\n<li>Exp adicional +10 % (500) primero; después la Exp por competencia de las armas principales.</li>\n<li>Los logros de la Percha («Perfecto» y estrechar lazos) dan 300 esquirlas sin coste extra.</li>\n</ul>"
+     "<ul>\n<li>Exp adicional +10 % (500) primero; después la Exp por competencia de las armas principales.</li>\n<li>Los logros de la Percha («Perfecto» y estrechar lazos) dan 300 esquirlas sin coste extra; cada Desvío completado, 25, y ver 50 conversaciones A, 1000.</li>\n<li>Jugar entera al menos una Parte 2 por ruta importante: 120 esquirlas, casi media fusión.</li>\n<li>Fusionar solo cuando la copia de la Parte 2 supere en algo a la de la Parte 3, y no reiniciar después la sección.</li>\n</ul>"
     ]
    ]
   },
@@ -531081,18 +531702,28 @@ window.WIKI={
     "rejugar",
     "rejugar capítulo",
     "segunda vuelta",
-    "reinicio"
+    "reinicio",
+    "reiniciar prólogo",
+    "reiniciar prologo",
+    "reiniciar batalla",
+    "reiniciar sección",
+    "reiniciar seccion",
+    "marcadores de capítulo"
    ],
-   "resumen": "Qué se conserva y qué se deshace al reiniciar un capítulo o rejugar una ruta, y cómo aprovecharlo.",
+   "resumen": "Qué se conserva y qué se deshace al reiniciar una batalla, un capítulo, una sección o el prólogo, o al rejugar una ruta, y cómo aprovecharlo.",
    "preguntas": [
     "¿Hay nueva partida+? ¿Cómo repito capítulos?",
-    "¿Reiniciar capítulo conserva los apoyos?"
+    "¿Reiniciar capítulo conserva los apoyos?",
+    "¿Rejugar un capítulo borra los siguientes?",
+    "¿Qué hace Reiniciar prólogo?",
+    "¿Puedo reiniciar una batalla sin perder la EXP?"
    ],
    "relacionados": [
     "rutas",
     "apoyos",
     "esquirlas",
-    "perdibles"
+    "perdibles",
+    "guerra-y-salvacion"
    ],
    "enlaces": [
     {
@@ -531112,15 +531743,19 @@ window.WIKI={
    "secs": [
     [
      "En resumen",
-     "<ul>\n<li>Reiniciar capítulo (en la Percha o en Sistema) vuelve al inicio del capítulo: conserva los apoyos y deshace casi todo lo demás. La lista exacta está en <a href=\"#/trucos?s=reiniciar\">Qué deshace Reiniciar capítulo</a>.</li>\n<li>No hay Nueva partida+: tras el final se puede rejugar cualquier capítulo de las tres partes.</li>\n<li>Una nueva vuelta de la Parte 1, en cualquier ruta, trae el mapa desvelado, los apoyos y las misiones compartidas ya hechas (<a href=\"#/trucos?s=nueva-vuelta\">Nueva vuelta de una ruta</a>).</li>\n<li>En la ruta de Cai siguen cerradas en la Parte 1 las mismas regiones (ver <a href=\"#/guia/mapa-del-mundo\">Mapa del mundo</a>).</li>\n</ul>"
+     "<ul>\n<li>Reiniciar capítulo (en la Percha, en Sistema o en el obelisco del señor) vuelve al inicio del capítulo: conserva los apoyos, las Esquirlas y las Ayudas y deshace casi todo lo demás. La lista exacta está en <a href=\"#/trucos?s=reiniciar\">Qué deshace Reiniciar capítulo</a>.</li>\n<li>No hay Nueva partida+: cada capítulo tiene su punto de inicio guardado y se puede rejugar cualquiera de las tres partes; tras los créditos el juego vuelve a justo antes de la batalla final.</li>\n<li>Rejugar un capítulo no borra los siguientes: siguen en el menú hasta que se vuelve a superar el anterior, que los sobrescribe.</li>\n<li>Una nueva vuelta de la Parte 1 desde el cap. 1 trae el mapa desvelado, los apoyos y las misiones compartidas ya hechas (<a href=\"#/trucos?s=nueva-vuelta\">Nueva vuelta de una ruta</a>).</li>\n<li>En la ruta de Cai siguen cerradas en la Parte 1 las mismas regiones (ver <a href=\"#/guia/mapa-del-mundo\">Mapa del mundo</a>).</li>\n</ul>"
+    ],
+    [
+     "Tipos de reinicio",
+     "<div class=\"tw\"><table class=\"md\"><tr><th>Opción</th><th>Dónde</th><th>Qué pasa</th></tr><tr><td>Reiniciar batalla</td><td>Menú de combate</td><td>Vuelve a la pantalla previa al combate; se elige conservar o descartar la EXP ganada</td></tr><tr><td>Reiniciar (antes de la batalla)</td><td>Menú de combate</td><td>Vuelve a los instantes previos a la batalla; no se puede si ya no quedan turnos libres</td></tr><tr><td>Reiniciar capítulo</td><td>Percha, Sistema, obelisco</td><td>Vuelve al inicio del capítulo: atributos, inventario, oro, Prestigio, grupo, clases y monturas como estaban</td></tr><tr><td>Reiniciar sección / misión del portal</td><td>Parte 3</td><td>Historia, atributos e inventario vuelven al inicio de la sección o de la misión del portal</td></tr><tr><td>Reiniciar prólogo</td><td>Título</td><td>Rejuega el prólogo con un avatar nuevo, conserva el progreso de cada ruta y deja cambiar la dificultad; pide haber guardado en la Sala de los obeliscos</td></tr></table></div>\n<p>Con Reiniciar prólogo se empieza con atributos fijos y se recuperan los previos al llegar a la Sala de los obeliscos. En una partida terminada, rejugar el prólogo muestra dos escenas extra<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</p>"
     ],
     [
      "Cómo funciona",
-     "<p>Al rejugar un capítulo anterior (Reiniciar capítulo, o elegirlo en una ruta sin terminar) se conservan todos los apoyos con sus puntos; oro, Prestigio, Carro, grupo, clases, monturas y vínculos vuelven a los del inicio de ese capítulo. Las misiones de segunda vuelta solo aparecen tras terminar la Parte 1 de otra ruta: 25 en total, de las que 18 salen en la ruta de Cai y 23 en cada una de las de Dietrich, Theodora y Leda (<a href=\"#/misiones\">lista en Misiones</a>). En la Parte 3, rejugar una sección deshace las fusiones sin devolver las esquirlas. Cómo encajan rutas, sendas y reinicios: <a href=\"#/sendas\">Sendas y reinicios</a>.</p>\n<p><b>Bucle de apoyos.</b> Comidas de la semana, Actividades auto. hasta el domingo, repetir y Reiniciar capítulo: el apoyo se queda y el oro y los turnos vuelven. Los capítulos largos rinden más.</p>"
+     "<p>Al rejugar un capítulo se conservan todos los apoyos con sus puntos, las Esquirlas y las Ayudas (las Esquirlas gastadas en ese capítulo no se devuelven); oro, Prestigio, Carro, grupo, clases, monturas y vínculos vuelven a los del inicio de ese capítulo. Cada unidad recupera también su secuencia de subidas, así que repite las mismas subidas salvo que cambie de clase, montura o haga otro examen.</p>\n<p><b>Lo que se sobrescribe.</b> Volver a terminar la Parte 1 (no basta con empezar el cap. 12) sustituye el ejército que entra en la Parte 2. Volver a terminar u omitir la Parte 2 sustituye la copia de esa ruta que pasa a la Parte 3. En ambos casos no se puede recuperar la anterior. En la Parte 3, reiniciar una sección deshace las fusiones sin devolver las Esquirlas.</p>\n<p><b>Al empezar otra ruta.</b> Los controles fronterizos vuelven a pedir su Prestigio aunque el mapa esté desvelado. Un carruaje puede dejar el ejército al otro lado de un control sin Prestigio ni oro para volver; si el destino de la misión principal no está en Dagsion ni se ha visitado, al vencer el plazo toca reiniciar el capítulo. No hay ningún bloqueo permanente al repetir la ruta de Leda.</p>\n<p><b>Misiones de segunda vuelta.</b> Solo aparecen tras terminar la Parte 1 de otra ruta: 25 en total, de las que 18 salen en la ruta de Cai y 23 en cada una de las de Dietrich, Theodora y Leda (<a href=\"#/misiones\">lista en Misiones</a>). Cómo encajan rutas, sendas y reinicios: <a href=\"#/sendas\">Sendas y reinicios</a>.</p>\n<p><b>Bucle de apoyos.</b> Comidas de la semana, Actividades auto. hasta el domingo, repetir y Reiniciar capítulo: el apoyo se queda y el oro y los turnos vuelven. Los capítulos largos rinden más.</p>"
     ],
     [
      "Consejos de min-max",
-     "<ul>\n<li>En el bucle, no subir niveles, comprar, reclutar ni hacer el Servicio divino hasta la última vuelta.</li>\n<li>Con los apoyos ya altos, una nueva vuelta recluta mucho antes.</li>\n<li>El resultado de cada examen queda fijado al empezar el capítulo: si un intento aprueba, repetir los mismos pasos tras reiniciar vuelve a aprobar, y hacer antes otro examen cambia qué intento aprueba (<a href=\"#/trucos?s=examen\">Resultado de examen fijado</a>).</li>\n<li>Rejugar primero y fusionar después en la Parte 3.</li>\n</ul>"
+     "<ul>\n<li>En el bucle, no subir niveles, comprar, reclutar ni hacer el Servicio divino hasta la última vuelta.</li>\n<li>Con los apoyos ya altos, una nueva vuelta recluta mucho antes.</li>\n<li>El resultado de cada examen sale de la secuencia de la unidad, que vuelve con el reinicio: repetir los mismos pasos da el mismo resultado, y subir un nivel o hacer otro examen con esa unidad antes lo cambia (<a href=\"#/trucos?s=examen\">Resultado de examen fijado</a>).</li>\n<li>Reiniciar batalla conservando la EXP sirve para repetir un mapa difícil sin perder lo ganado.</li>\n<li>Repetir el cap. 12 o la Parte 2 solo cuando el ejército nuevo sea mejor: la copia anterior se pierde.</li>\n<li>Rejugar primero y fusionar después en la Parte 3.</li>\n</ul>"
     ]
    ]
   },
@@ -531191,7 +531826,7 @@ window.WIKI={
     ],
     [
      "Cada semana",
-     "<div class=\"tw\"><table class=\"md\"><tr><th>Día</th><th>Qué pasa</th></tr><tr><td>Lunes</td><td>Día de Aurora</td></tr><tr><td>Martes</td><td>Día de Mars · adivina misteriosa en Dagsion</td></tr><tr><td>Miércoles</td><td>Día de Smyrnos</td></tr><tr><td>Jueves</td><td>Día de Jurah · adivina misteriosa</td></tr><tr><td>Viernes</td><td>Día de Kalla</td></tr><tr><td>Sábado</td><td>Día de Credna · Plaza de armas a mitad</td></tr><tr><td>Domingo</td><td>Día de Dagda (todos los templos) · Plaza de armas a mitad · Día del Gourmet · baño especial · reinicio semanal</td></tr></table></div>\n<p>El día sagrado potencia el <a href=\"#/guia/servicio-divino\">Servicio divino</a> en el templo principal de ese dios; Mars, Smyrnos, Jurah y Kalla además conceden audiencia en su templo adjunto ese día. Los cupos semanales se reinician el domingo y al empezar capítulo, así que un capítulo que cruza un domingo da dos cupos.</p>"
+     "<div class=\"tw\"><table class=\"md\"><tr><th>Día</th><th>Qué pasa</th></tr><tr><td>Lunes</td><td>Día de Aurora</td></tr><tr><td>Martes</td><td>Día de Mars · adivina misteriosa en Dagsion (100 G, apoyo con ella)</td></tr><tr><td>Miércoles</td><td>Día de Smyrnos</td></tr><tr><td>Jueves</td><td>Día de Jurah · adivina misteriosa</td></tr><tr><td>Viernes</td><td>Día de Kalla</td></tr><tr><td>Sábado</td><td>Día de Credna · Plaza de armas a mitad</td></tr><tr><td>Domingo</td><td>Día de Dagda (todos los templos) · Plaza de armas a mitad · Día del Gourmet · baño especial · reinicio semanal</td></tr></table></div>\n<p>Las tiendas no tienen días de rebaja: el calendario solo abarata la Plaza de armas, las comidas y las Termas (los baños especiales dan 30 de apoyo, o 60 con resultado perfecto, en vez de 20 o 40). Plaza de armas, Teatro, Termas y mercado abren de 6:00 a 24:00.</p>\n<p>El día sagrado potencia el <a href=\"#/guia/servicio-divino\">Servicio divino</a> en el templo principal de ese dios; Mars, Smyrnos, Jurah y Kalla además conceden audiencia en su templo adjunto ese día. Los cupos semanales se reinician el domingo y al empezar capítulo, así que un capítulo que cruza un domingo da dos cupos.</p>"
     ],
     [
      "Festividades del año",
@@ -531203,7 +531838,7 @@ window.WIKI={
     ],
     [
      "Fiestas lunares",
-     "<p>Marea Viva (más actividad en la pesca), Cosecha de la Luna Negra (buen momento para cosechar) y Brillo Cristalino (minería con luna llena) dependen de la fase de la luna; el calendario del juego las marca, pero sus fechas están sin confirmar. Ver <a href=\"#/guia/busqueda\">Búsqueda</a> y <a href=\"#/guia/cultivo\">Cultivo</a>.</p>"
+     "<p>Dependen de la fase de la luna, que el juego calcula con un ciclo de 29,5 días contado desde el 22/3/1449 (luna llena). Cosecha de la Luna Negra cae en luna nueva, Brillo Cristalino en luna llena y Marea Viva en las dos. El juego solo anuncia que ese día la cosecha, la minería o la pesca dan mejores resultados; la mejora no tiene cifra conocida. Los días de Marea Viva suben los peces raros<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Parte 1 (1449)</th><th>Luna nueva: Cosecha y Marea Viva</th><th>Luna llena: Brillo y Marea Viva</th></tr><tr><td>Ene–Abr</td><td>8/1, 6/2, 8/3, 6/4</td><td>22/1, 21/2, 22/3, 21/4</td></tr><tr><td>May–Ago</td><td>6/5, 4/6, 4/7, 2/8</td><td>20/5, 19/6, 18/7, 17/8</td></tr><tr><td>Sep–Dic</td><td>1/9, 30/9, 30/10, 28/11, 28/12</td><td>15/9, 15/10, 13/11, 13/12</td></tr></table></div>\n<p>En la Parte 3 (1454): luna nueva 11/1, 9/2, 11/3, 9/4, 9/5 y 7/6; luna llena 25/1, 24/2, 25/3, 24/4 y 23/5. Ver <a href=\"#/guia/busqueda\">Búsqueda</a> y <a href=\"#/guia/cultivo\">Cultivo</a>.</p>"
     ],
     [
      "Cumpleaños",
@@ -531211,122 +531846,7 @@ window.WIKI={
     ],
     [
      "Consejos de min-max",
-     "<ul>\n<li>Entrenar en la Plaza de armas el fin de semana o en festivo, y comer el domingo o en festivo.</li>\n<li>Los días 17 de la Parte 1 juntan los dos descuentos (Plaza de armas y comidas) y el baño especial de las Termas: buen día para gastar la motivación.</li>\n<li>Hacer el Servicio divino el domingo si se quiere potenciar cualquier templo; si no, el día del dios.</li>\n<li>Ir al Teatro cuando hay obra especial: gusta a todos, así que cualquier pareja sale ganando.</li>\n</ul>"
-    ]
-   ]
-  },
-  {
-   "id": "guerra-y-salvacion",
-   "titulo": "Partes 2 y 3: Guerra y Salvación",
-   "alias": [
-    "parte 2",
-    "parte 3",
-    "parte ii",
-    "parte iii",
-    "guerra",
-    "salvación",
-    "salvacion",
-    "arcón de la memoria",
-    "qué pasa a la parte 3",
-    "oficial al cargo",
-    "acción del ejército",
-    "accion del ejercito",
-    "milicia",
-    "milicias",
-    "formar filas",
-    "moral",
-    "puntos de moral",
-    "portales del inframundo",
-    "portal del inframundo",
-    "caballero infernal",
-    "miasma",
-    "disipar miasma",
-    "bastión",
-    "bastiones",
-    "reconstrucción",
-    "reconstruir",
-    "materiales de obra",
-    "defensa de dagsion",
-    "resistencia de dagsion",
-    "civiles",
-    "balor",
-    "saltar la guerra"
-   ],
-   "resumen": "La Parte 2 es una campaña de 6 capítulos sin tiempo libre, preparada con el oficial al cargo; la Parte 3 se juega con milicias por el mapa del mundo destruyendo portales del inframundo, reconstruyendo lugares y subiendo la moral hasta la batalla contra Balor.",
-   "preguntas": [
-    "¿Qué hace el oficial al cargo en la Parte 2?",
-    "¿Merece la pena saltarse la Guerra?",
-    "¿Cuántas unidades caben en una milicia?",
-    "¿Cuándo se pierde la partida en la Parte 3?",
-    "¿Qué da la moral?",
-    "¿Cómo se debilita a Balor?"
-   ],
-   "relacionados": [
-    "rutas",
-    "esquirlas",
-    "batallones",
-    "mapa-del-mundo",
-    "nueva-vuelta"
-   ],
-   "enlaces": [
-    {
-     "texto": "Partes 2 y 3",
-     "ruta": "#/partes23"
-    },
-    {
-     "texto": "Dioses y pruebas",
-     "ruta": "#/dioses"
-    },
-    {
-     "texto": "Sendas y reinicios",
-     "ruta": "#/sendas"
-    },
-    {
-     "texto": "Tutorial: Formar milicias",
-     "ruta": "#/tutorial/TUTO_部隊編成"
-    },
-    {
-     "texto": "Tutorial: Oficial al cargo",
-     "ruta": "#/tutorial/TUTO_行軍管理官"
-    }
-   ],
-   "tema": "progresion",
-   "secs": [
-    [
-     "En resumen",
-     "<ul>\n<li>Parte 2 (Guerra), en 1450: 6 capítulos por ruta, sin tiempo libre ni tiendas. Antes de cada batalla, el oficial al cargo ofrece una Acción del ejército entre tres y reparte armas y licencias.</li>\n<li>Las unidades entran a la Parte 2 subidas a nivel 35 y a la Parte 3 a nivel 40. Saltar una Guerra muestra un resumen y suma 5 niveles.</li>\n<li>Parte 3 (Salvación), en 1454: Eshmel manda desde Dagsion y el ejército se mueve en milicias de hasta 8 unidades. Hay que destruir portales del inframundo antes de cada plazo.</li>\n<li>La moral sustituye al Prestigio: sube con misiones y reconstrucciones y da tratados y Botas del viento.</li>\n<li>Se pierde si caen todas las milicias, si la resistencia de Dagsion llega a 0 o si queda sin atacar un portal cuando hay varios.</li>\n</ul>"
-    ],
-    [
-     "Parte 2: Guerra",
-     "<p><b>Al entrar.</b> Solo pasan a la Guerra las armas y el equipo que cada personaje lleva encima. <a href=\"#/objeto/IID_開かれし救世の剣\">Espada elegida</a>, <a href=\"#/objeto/IID_氷の救世の槍\">Lanza elegida</a>, <a href=\"#/objeto/IID_ブレイザブリク\">Breidablik</a> y <a href=\"#/objeto/IID_王家の宝剣\">Espada real</a> no se pueden llevar, pero la Parte 2 regala sus versiones +1.</p>\n<p><b>Qué se recupera en la Parte 3.</b> Cada vez que se completa una Parte 2, los objetos, materiales, monturas y batallones conseguidos en las Partes 1 y 2 se guardan en el <b>Arcón de la memoria</b> de la Sala de los obeliscos; en la Parte 3 se sacan de él a cambio de <a href=\"#/guia/esquirlas\">Esquirlas cau.</a>. El oro no está en esa lista (sin confirmar si se conserva) y el Prestigio deja paso a la moral.</p>\n<p><b>Oficial al cargo</b> (<a href=\"#/tutorial/TUTO_行軍管理官\">tutorial</a>). «Misión principal» cierra los preparativos y empieza la batalla. «Acción del ejército» permite elegir una de tres por capítulo:</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Acción</th><th>Efecto</th></tr><tr><td>Puesta al día</td><td>Entrena a los de menor nivel para acercarlos a los más fuertes</td></tr><tr><td>Práctica grupal</td><td>Sube las competencias de todo el grupo</td></tr><tr><td>Servicio grupal</td><td>Todos sirven a una divinidad para subir el tributo</td></tr></table></div>\n<p><b>Suministros.</b> En cada capítulo se reparten armas de hierro y de bronce +3 de cada tipo, arrojadizas +2, <a href=\"#/objeto/IID_調合薬\">Brebaje</a>, <a href=\"#/objeto/IID_毒消し\">Antídoto</a> y 5 licencias de cada nivel. Según la ruta llegan también ingredientes (Cai), 100 <a href=\"#/objeto/IID_魔響石\">Esquirlas del eco</a> (Dietrich) o plantas (Leda). Estas armas +3 no pasan a la Parte 3.</p>\n<p><b>Saltarla.</b> Basta con jugar una Guerra; en las otras rutas se puede ver un resumen, y los aliados mejoran solos (+5 niveles). Si saltarla también llena el Arcón de la memoria está sin confirmar.</p>"
-    ],
-    [
-     "Parte 3: estructura",
-     "<p>La Parte 3 va del 24/1 al 6/6 de 1454, cuatro años después de la Guerra. La sección 1 (24/1–31/1) es la introducción; desde la 2, cada sección alterna tiempo libre y una fase de portales:</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Sección</th><th>Tiempo libre</th><th>Portales</th></tr><tr><td>1</td><td>24/1–31/1</td><td>—</td></tr><tr><td>2</td><td>1/2–10/2</td><td>11/2–15/2</td></tr><tr><td>3</td><td>16/2–25/2</td><td>26/2–6/3</td></tr><tr><td>4</td><td>7/3–21/3</td><td>22/3–5/4</td></tr><tr><td>5</td><td>6/4–25/4</td><td>26/4–15/5</td></tr><tr><td>6</td><td>16/5–6/6</td><td>—</td></tr></table></div>\n<p>Tras la sección 6 viene «La batalla final» contra Balor; si cuenta como una séptima sección está sin confirmar.</p>\n<p>En el tiempo libre se reclutan los guerreros reunidos en Dagsion, se reconstruye y se prepara la batalla (<a href=\"#/tutorial/TUTO_3部自由行動\">tutorial</a>). El coliseo y otros locales empiezan cerrados y se restauran con <a href=\"#/objeto/IID_復興資材\">Materiales de obra</a>, que se compran en aldeas y ciudades.</p>"
-    ],
-    [
-     "Milicias",
-     "<ul>\n<li><b>Formar filas</b> en el menú de órdenes de Eshmel crea una milicia de hasta 8 aliados (<a href=\"#/tutorial/TUTO_部隊編成\">tutorial</a>). Eshmel no entra en ninguna y dirige desde Dagsion.</li>\n<li>Al principio se controlan 2 milicias y el límite sube en 1 tras cada batalla principal, hasta 5. Se pueden dividir, transferir unidades entre ellas o romper filas.</li>\n<li>Cada milicia actúa por separado; el turno pasa cuando todas han actuado o con «Terminar turno».</li>\n<li>Los aliados que se quedan en la reserva de Dagsion ganan EXP al final de cada turno.</li>\n<li>Al combatir o explorar, Eshmel se teletransporta para ayudar.</li>\n<li>Si un señor de la llama está en el ejército, vuelve su sistema: Cai cultiva y pone cebos, Dietrich trae la Respondedora, Theodora recluta batallones y da arengas, y con Leda hay bebidas en la taberna.</li>\n</ul>"
-    ],
-    [
-     "Portales, miasma y bastiones",
-     "<ul>\n<li><b>Portales del inframundo.</b> Al acabar el tiempo libre aparecen por el mapa (<a href=\"#/tutorial/TUTO_冥界の門の状態\">tutorial</a>). La ficha del lugar avisa de los que están a punto de salir. En la batalla contra su caballero infernal se usan las milicias del lugar y las de lugares adyacentes. Después hay que elegir «Destruir portal». Si se agota el plazo, la historia avanza sola.</li>\n<li><b>Varios portales.</b> Si salen varios a la vez hay que atacarlos todos; si queda alguno sin atacar al terminar el plazo, se acaba la partida.</li>\n<li><b>Portales grandes.</b> Traen más enemigos, pero también permiten desplegar más unidades si se acercan otras milicias.</li>\n<li><b>Miasma.</b> Inutiliza las instalaciones del lugar. Para atacar un portal de una región con miasma, primero hay que despejarla. «Disipar miasma» puede necesitar varias pasadas y da una recompensa al limpiarlo del todo.</li>\n<li><b>Bastiones.</b> Los puntos de control se convierten en bastiones. Un batallón que lo defiende elimina cada turno a algunas tropas enemigas que intentan pasar, de 1 a 5 según su nivel.</li>\n</ul>"
-    ],
-    [
-     "Defensa de Dagsion",
-     "<p>Las huestes que salen del miasma marchan hacia Dagsion. Si llegan, empieza una batalla de defensa contra enemigos muy fuertes (<a href=\"#/tutorial/TUTO_ダグシオン防衛戦\">tutorial</a>). Perderla no acaba la partida y los caídos se reponen, pero la resistencia de Dagsion baja 1. Si llega a 0, la partida termina. Cada civil que cae mejora mucho a los enemigos, y si caen todos se pierde. Conviene interceptarlas en el mapa.</p>"
-    ],
-    [
-     "Reconstrucción y moral",
-     "<ul>\n<li><b>Reconstruir</b> pide materiales y oro y tarda varios turnos; al acabar da una recompensa y reabre las instalaciones (<a href=\"#/tutorial/TUTO_復興\">tutorial</a>). Enviar un batallón a reconstruir acorta el plazo. Ejemplos: una posta, 3–5 materiales, 1000 G y 4 turnos (50 de moral); Grand Aragon o Megaira, 10 000 G y 8 turnos (300 de moral).</li>\n<li><b>Moral</b> (<a href=\"#/tutorial/TUTO_救世\">tutorial</a>). Cada nivel pide 1000 puntos. Recompensas: tratados de competencia en los niveles 2–4 y 6–8, <a href=\"#/objeto/IID_風呼びの靴\">Botas del viento</a> en el 5 (y dos en el 10) y 4 cofres de tratados en el 9.</li>\n<li><b>Locales.</b> Entrenar cuesta 500 G y rinde ×3 tras «<a href=\"#/mision/SQID_闘技場の再建要請1\">La reconstrucción del coliseo</a>» y ×3,5 tras «<a href=\"#/mision/SQID_闘技場の再建要請2\">La reconstrucción del coliseo II</a>». Las comidas rinden ×1,8 tras «<a href=\"#/mision/SQID_食堂の再建要請1\">Sabores perdidos</a>» y ×2 tras «<a href=\"#/mision/SQID_食堂の再建要請2\">Sabores restaurados</a>». Servir rinde ×1,5, o ×2 tras «<a href=\"#/mision/SQID_神殿の備品調達\">Ayuda para los devotos</a>».</li>\n</ul>"
-    ],
-    [
-     "Balor",
-     "<p>La batalla final contra Balor se puede librar en cualquier momento, pero cada portal destruido lo debilita (<a href=\"#/tutorial/TUTO_第9門\">tutorial</a>).</p>"
-    ],
-    [
-     "Consejos de min-max",
-     "<ul>\n<li>Jugar la Guerra de la ruta con el ejército más útil y saltar las demás.</li>\n<li>En la Parte 2, «Puesta al día» para igualar niveles y «Servicio grupal» si faltan bendiciones.</li>\n<li>En la Parte 3, hacer pronto las misiones del coliseo y del comedor: multiplican Entrenar y comidas el resto de la parte.</li>\n<li>Dejar en la reserva a quien no se use, porque gana EXP cada turno.</li>\n<li>Fusión causal (300 Esquirlas cau.) para traer la mejor versión de una unidad de la Parte 2.</li>\n</ul>"
+     "<ul>\n<li>Entrenar en la Plaza de armas el fin de semana o en festivo, y comer el domingo o en festivo.</li>\n<li>Los días 17 de la Parte 1 juntan los dos descuentos (Plaza de armas y comidas) y el baño especial de las Termas. Un 17 entre semana no da cupo nuevo, pero permite gastar el de esa semana a mitad de precio y dejar el fin de semana libre para el mapa; un 17 en sábado o domingo no suma nada.</li>\n<li>Hacer el Servicio divino el domingo si se quiere potenciar cualquier templo; si no, el día del dios.</li>\n<li>Ir al Teatro cuando hay obra especial: gusta a todos, así que cualquier pareja sale ganando.</li>\n</ul>"
     ]
    ]
   },
@@ -531385,23 +531905,23 @@ window.WIKI={
    "secs": [
     [
      "En resumen",
-     "<ul>\n<li><b>Equipo base gratis:</b> Cai, Peter y Tialla desde el cap. 1, Guzran en el 3 y Ultand en el 6. Cubren los 4 puestos de los caps. 5–6.</li>\n<li><b>Primeros reclutas:</b> Yang Jie (cap. 4) y Noctula (Prestigio 4, cap. 5). Después Ninae, Nezha y Seteth (cap. 6) y Esmeralda, Alexandra y Nuzzuo (cap. 7).</li>\n<li><b>Prestigio de sobra:</b> cada capítulo da Prestigio al cerrarse (7930 en total). Haciendo todo, rango 8 al acabar el cap. 7 y el tope (10 800, rango 12) al acabar el 9. Desde ahí, elige misiones por oro.</li>\n<li><b>Monturas desde el cap. 5:</b> captura pronto, alimenta cada día y guarda 2 Ornius salvajes y un Pegaso salvaje para dos misiones.</li>\n<li><b>Clases propias:</b> <a href=\"#/clase/JID_カラドリオス\">Caladrio</a> (Prestigio 7), <a href=\"#/clase/JID_ドラグーン\">Jinete de baus</a> (8) y <a href=\"#/clase/JID_トルバドール\">Trovador</a> (10). Cai en Caladrio es la build más repetida<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Plazos duros:</b> cada capítulo cierra misiones al acabar su tiempo libre. Los Desvíos de los caps. 10–11 tienen ventanas cortas y dan 80 000 G.</li>\n</ul>"
+     "<ul>\n<li><b>Equipo base gratis:</b> Cai, Peter y Tialla desde el cap. 1, Guzran en el 3 y Ultand en el 6. Cubren los 4 puestos de los caps. 5–6.</li>\n<li><b>Primeros reclutas:</b> Yang Jie (cap. 4) y Noctula (Prestigio 4, cap. 5). Después Ninae, Nezha y Seteth (cap. 6) y Esmeralda, Alexandra y Nuzzuo (cap. 7).</li>\n<li><b>Prestigio de sobra:</b> la batalla principal da 450 (caps. 3–7) y 700 (caps. 8–12) y la historia suma 350 al acabar el cap. 2 y 350 al empezar el 3. Haciendo todo, rango 8 al acabar el cap. 7 y el tope (10 800, rango 12) en el cap. 10. Desde ahí, elige misiones por oro.</li>\n<li><b>Monturas desde el cap. 5:</b> solo para quien vaya a montar esa especie; captura pronto, alimenta cada día y guarda 2 Ornius salvajes y un Pegaso salvaje para dos misiones.</li>\n<li><b>Clases propias:</b> <a href=\"#/clase/JID_カラドリオス\">Caladrio</a> (Prestigio 7), <a href=\"#/clase/JID_ドラグーン\">Jinete de baus</a> (8) y <a href=\"#/clase/JID_トルバドール\">Trovador</a> (10). Cai en Caladrio es la build más repetida<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Plazos duros:</b> cada capítulo cierra misiones al acabar su tiempo libre. Los Desvíos de los caps. 10–11 tienen ventanas cortas y dan 80 000 G.</li>\n</ul>"
     ],
     [
      "Antes de empezar",
-     "<ul>\n<li><b>Despliegue:</b> 3 puestos en los caps. 1–3, 5 en el 4, 4 en los caps. 5–6, 6 en los caps. 7–9, 7 en el 10 y 8 en los caps. 11–12. Hasta el cap. 7 solo caben 1–2 reclutas.</li>\n<li><b>Recluta pronto a quien vayas a usar.</b> Sin reclutar, una unidad sube sola con el 80 % de su crecimiento y sin crecimientos de clase (<a href=\"#/trucos?s=tardios\">Reclutas tardíos</a>).</li>\n<li><b>Reiniciar capítulo</b> devuelve oro, Prestigio y misiones al inicio del capítulo y conserva los apoyos. Haz el <a href=\"#/trucos?s=bucle-apoyos\">bucle de apoyos</a> al empezar el capítulo, antes de cobrar nada.</li>\n<li><b>Apoyo, el cuello de botella:</b> 26 reclutas piden apoyo 3 con Cai. Da un primer regalo a cada reclutable en cuanto aparezca: sin él no acepta comidas. La Percha no sube el apoyo con Cai.</li>\n<li><b>Clases que abre Cai</b> (Formación): <a href=\"#/clase/JID_カラドリオス\">Caladrio</a> con Castor (Prestigio 7; 2 <a href=\"#/objeto/IID_アンゼリカ\">Angélicas</a>, 8000 G), <a href=\"#/clase/JID_ドラグーン\">Jinete de baus</a> con Aurora (8; soldados del Templo de Fortuna, 8000 G) y <a href=\"#/clase/JID_トルバドール\">Trovador</a> con Bertrand (10; ladrones de las Ruinas del fuerte Galen, <a href=\"#/objeto/IID_上級資格手形\">Licencia avanzada</a>). <a href=\"#/clase/JID_ガーディアン\">Guardián</a>, <a href=\"#/clase/JID_カタフラクト\">Catafracto</a>, <a href=\"#/clase/JID_レンジャー\">Rastreador</a>, <a href=\"#/clase/JID_踊り子\">Bailarín</a> y <a href=\"#/clase/JID_鍛冶師\">Herrero</a> solo están si ya las abriste en otra ruta.</li>\n<li><b>Regiones cerradas:</b> Pasithea, Lambath, Solidus, Thaleia, Braxithea y Nysiades no se abren en esta Parte 1 (<a href=\"#/guia/mapa-del-mundo\">Mapa del mundo</a>). Usa los templos adjuntos de Dagsion.</li>\n<li><b>Rutina semanal:</b> gasta los cupos el sábado, espera en Dagsion al domingo y gástalos otra vez (<a href=\"#/trucos?s=doble-semana\">doble semana</a>). Audiencias (+50): martes Mars, miércoles Smyrnos, jueves Jurah, viernes Kalla y todos el domingo. Aurora y Credna no conceden audiencias.</li>\n</ul>"
+     "<ul>\n<li><b>Despliegue:</b> 3 puestos en los caps. 1–3, 5 en el 4, 4 en los caps. 5–6, 6 en los caps. 7–9, 7 en el 10 y 8 en los caps. 11–12. Hasta el cap. 7 solo caben 1–2 reclutas.</li>\n<li><b>Recluta pronto a quien vayas a usar.</b> Sin reclutar, una unidad sube sola con el 80 % de su crecimiento (con el modificador de la clase que le toca) y sin el azar ni la montura (<a href=\"#/trucos?s=tardios\">Reclutas tardíos</a>).</li>\n<li><b>Reiniciar capítulo</b> devuelve oro, Prestigio, EXP y misiones al inicio del capítulo y conserva los apoyos. El <a href=\"#/trucos?s=bucle-apoyos\">bucle de apoyos</a> es optativo: si lo haces, al empezar el capítulo, antes de cobrar nada.</li>\n<li><b>Apoyo, el cuello de botella:</b> 26 reclutas piden apoyo 3 con Cai. Da un primer regalo a cada reclutable en cuanto aparezca: sin él no acepta comidas. La Percha no sube el apoyo con Cai.</li>\n<li><b>Clases que abre Cai</b> (Formación): <a href=\"#/clase/JID_カラドリオス\">Caladrio</a> con Castor (Prestigio 7; 2 <a href=\"#/objeto/IID_アンゼリカ\">Angélicas</a>, 8000 G), <a href=\"#/clase/JID_ドラグーン\">Jinete de baus</a> con Aurora (8; soldados del Templo de Fortuna, 8000 G) y <a href=\"#/clase/JID_トルバドール\">Trovador</a> con Bertrand (10; ladrones de las Ruinas del fuerte Galen, <a href=\"#/objeto/IID_上級資格手形\">Licencia avanzada</a>). <a href=\"#/clase/JID_ガーディアン\">Guardián</a>, <a href=\"#/clase/JID_カタフラクト\">Catafracto</a>, <a href=\"#/clase/JID_レンジャー\">Rastreador</a>, <a href=\"#/clase/JID_踊り子\">Bailarín</a> y <a href=\"#/clase/JID_鍛冶師\">Herrero</a> solo están si ya las abriste en otra ruta.</li>\n<li><b>Regiones cerradas:</b> Pasithea, Lambath, Solidus, Thaleia, Braxithea y Nysiades no se abren en esta Parte 1 (<a href=\"#/guia/mapa-del-mundo\">Mapa del mundo</a>). Usa los templos adjuntos de Dagsion.</li>\n<li><b>Rutina semanal:</b> gasta los cupos el sábado, espera en Dagsion al domingo y gástalos otra vez (<a href=\"#/trucos?s=doble-semana\">doble semana</a>). Audiencias (+50): martes Mars, miércoles Smyrnos, jueves Jurah, viernes Kalla y todos el domingo. Aurora y Credna no conceden audiencias.</li>\n</ul>"
     ],
     [
      "Capítulo a capítulo",
-     "<p>El techo de Prestigio supone todas las misiones, Desvíos y audiencias disponibles hasta ese momento, más el Prestigio de historia que cada capítulo da al cerrarse (350 en el cap. 2; 850, 200, 860, 1000, 1000, 1420, 260, 1000, 230 y 760 del 3 al 12: 7930 en total). Ese premio se cobra al acabar el capítulo: el rango nuevo llega al siguiente.</p>\n<h4>Capítulo 1</h4>\n<ul>\n<li>Se unen <a href=\"#/personaje/PID_カイ\">Cai</a>, <a href=\"#/personaje/PID_ティアラ\">Tialla</a> y <a href=\"#/personaje/PID_ピーテル\">Peter</a>. Sin tiempo libre.</li>\n<li>Batalla contra Nero: la Bendición de Fortuna se abre en el turno 2<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Prestigio al acabar: 0.</li>\n</ul>\n<h4>Capítulo 2</h4>\n<ul>\n<li>Abren el Bazar, la Armería y el Tercer Ojo. Sin tiempo libre.</li>\n<li>Elige perseguir a los bandidos tras el combate de evento: entras en las Ruinas del fuerte Galen, que se pueden repetir más tarde<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Batalla contra Whill (defensa del carruaje): pierdes si cae Cai o el carruaje. Las lanzas rinden contra los jinetes<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Prestigio al acabar: 350.</li>\n</ul>\n<h4>Capítulo 3</h4>\n<ul>\n<li><b>Libre del 20/2 al 28/2.</b> Abren Mercado, Posada, Tablón, Percha y Altruismo.</li>\n<li><b>Recluta a <a href=\"#/personaje/PID_グザラン\">Guzran</a></b> (apoyo 1, Prestigio 2): es un objetivo del capítulo.</li>\n<li><b>Altruismo que cierra el 28/2:</b> «Sed de venganza» (130), «Un atardecer de fábula» (130) y «Horquilla perdida» (100; la horquilla está en la Mina de Niraga). 550 G cada una. Haz también «Hospedaje en la Posada» y «Regalos en el Mercado» (10 cada una).</li>\n<li>Empieza los regalos a los que piden apoyo 3 (Ninae, Seteth, Sofia, Catania…).</li>\n<li><b>Batalla contra Goliath:</b> enemigos cuerpo a cuerpo; atácalos con magia y proyectiles desde lejos.</li>\n<li><b>Fin de semana:</b> 24–25/2.</li>\n<li>Techo de Prestigio al acabar: 1580 (rango 2).</li>\n</ul>\n<h4>Capítulo 4</h4>\n<ul>\n<li><b>Libre del 1/3 al 7/3: solo 5 días.</b> Abren Formación, Buscar, Barrios bajos, Vandahl y los regalos de la taberna.</li>\n<li><b>«<a href=\"#/mision/SQID_カイ篇_孫の捜索依頼\">La nieta desaparecida</a>»</b> (100, 1500 G) cierra el 7/3. Las demás del capítulo («La casa abandonada» 130, «Los bandidos de Granada», «Se busca Piedra de refinado», «Ocho Colmillos», «Pesquisas para la… ¿novia?») cierran el 10/4.</li>\n<li><b>Recluta a <a href=\"#/personaje/PID_ヨーカイ\">Yang Jie</a></b> (apoyo 2, Prestigio 3): el rango 3 llega a mitad de capítulo si haces todo.</li>\n<li>Formación de Centurio (Prestigio 1): Anillo de arquero.</li>\n<li><b>Batalla contra la Brigada Gaia:</b> ataques a distancia y armas de bronce; el juego recomienda un Arco de madera. Elige negociar con Zarcone para poder reclutarlo después<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fin de semana:</b> 3–4/3. Aún no hay Plaza de armas.</li>\n<li>Techo de Prestigio al acabar: 2130 (rango 3).</li>\n</ul>\n<h4>Capítulo 5</h4>\n<ul>\n<li><b>Libre del 15/3 al 10/4: el capítulo clave.</b> Abren a la vez Plaza de armas, Servicio divino, Examen de aptitud, Barrio alto, Cebo y Establo.</li>\n<li><b>Prestigio 4 cuanto antes:</b> «La casa abandonada», «<a href=\"#/mision/SQID_怪異退治\">Criatura nocturna</a>» (100; cierra el 10/4), «Un mensaje peculiar» (180), «Memorias ocultas» (100) y «Captura de ornius» (200), más las audiencias del rango 2. Con el 4, Plaza de armas ×1,8 y exámenes intermedios.</li>\n<li><b>Recluta a <a href=\"#/personaje/PID_ノクチュラ\">Noctula</a></b> (apoyo 1, Prestigio 4).</li>\n<li><b>Monturas:</b> pon Cebo en cuanto puedas (<a href=\"#/trucos?s=cebo\">Cebo</a>) y alimenta cada día. Captura 2 <a href=\"#/montura/RID_オルニウス\">Ornius salvajes</a> para «<a href=\"#/mision/SQID_カイ篇_オルニウスの群れ\">Captura de ornius</a>» (2000 G + 200; plazo 1/9). El <a href=\"#/montura/RID_汗血馬\">Caballo de Ferganá</a> y el <a href=\"#/montura/RID_赤羽のメガニウス\">Meganius rojo</a> son los favoritos para empezar<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Servicio divino a Credna primero:</b> su Bendición Nv 1 da +5 de visión (tributo 15) para la niebla de los caps. 6 y 9 (<a href=\"#/guia/servicio-divino\">Servicio divino</a>).</li>\n<li><b>Reserva</b> 20 <a href=\"#/objeto/IID_リナリア\">Linarias</a> para «Flores de amor eterno» (caps. 6–8) y 30 Bayas de café, Zang o Meliágrida para «Verduras para los saramitas» (caps. 6–12).</li>\n<li>Formación: Castor (Prestigio 3, Gema voltaica) y Aurora (4, Bastón de sanación).</li>\n<li><b>Batalla contra los Caballeros de la Tormenta:</b> a los Cuadrigueros (arqueros), cuerpo a cuerpo; a los acorazados, magia. Dos cofres piden una llave que llevan los propios caballeros<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fines de semana:</b> 17–18/3, 24–25/3, 31/3–1/4 y 7–8/4; el 17/3, Plaza y comidas a mitad.</li>\n<li>Techo de Prestigio al acabar: 4130 (rango 5).</li>\n</ul>\n<h4>Capítulo 6</h4>\n<ul>\n<li><b>Libre del 20/4 al 20/5.</b> Abren Herrería y Cultivar. Se une <a href=\"#/personaje/PID_ウルタンド\">Ultand</a>.</li>\n<li><b>Prestigio 5 y 6:</b> recluta a <a href=\"#/personaje/PID_ニネ\">Ninae</a> (1 <a href=\"#/objeto/IID_カガヤキウオ\">Pez del paraíso</a>; se pesca en el lago al sur de Dagsion<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>), <a href=\"#/personaje/PID_ナジャ\">Nezha</a> (3 <a href=\"#/objeto/IID_砂虫肉\">Carnes de gusano</a>) y <a href=\"#/personaje/PID_セテス\">Seteth</a> (misión). Mikaela, Majide y Halvin, solo si te hacen falta.</li>\n<li><b>Cierran el 20/5:</b> «Un mensaje peculiar» (180) y «Felina perdida» (130). Abren «Flores de amor eterno» (130) y «Entomófobo en apuros» (100), hasta el 1/9, y «Verduras para los saramitas» (200), hasta el 27/11.</li>\n<li><b>Llegan a Dagsion:</b> Kiroc el 1/5 y Jasmine el 7/5; se reclutan con Prestigio 8.</li>\n<li>Formación: Bertrand (Prestigio 5, <a href=\"#/objeto/IID_ハルバード\">Alabarda</a>) y Centurio (6, <a href=\"#/objeto/IID_サンダーソード\">Espada trueno</a>).</li>\n<li><b>Batalla contra los har halis (Ahm Lu):</b> niebla; armas de calidad y magia. Mata primero a los hechiceros que suben Def y Res a los suyos<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fines de semana:</b> 21–22/4, 28–29/4, 5–6/5, 12–13/5 y 19–20/5; el 17/5 (jueves), Plaza y comidas a mitad.</li>\n<li>Techo de Prestigio al acabar: 6000 (rango 7).</li>\n</ul>\n<h4>Capítulo 7</h4>\n<ul>\n<li><b>Libre del 9/6 al 9/7. Empieza en sábado:</b> cupo de entrada y cupo del domingo 10/6 seguidos.</li>\n<li><b>«<a href=\"#/mision/SQID_カイ篇_使い慣れたもの\">Fabricado en Megaira</a>»</b> (130, 5000 G): entrega el <a href=\"#/objeto/IID_カイサブクエ馬具\">Eje personalizado</a> y abre las líneas de carruaje. Hazla ya.</li>\n<li><b>Prestigio 7:</b> Teatro y la Formación de Castor: 2 Angélicas (Jardín de la Semilla Astral) → <a href=\"#/clase/JID_カラドリオス\">Caladrio</a> y 8000 G.</li>\n<li><b>Recluta</b> a <a href=\"#/personaje/PID_エスメラルダ\">Esmeralda</a> (apoyo 2; misión), <a href=\"#/personaje/PID_アレキサンドラ\">Alexandra</a> (apoyo 2) y <a href=\"#/personaje/PID_ヌッツォ\">Nuzzuo</a> (desde el 1/7; 3 <a href=\"#/objeto/IID_鉄の弓\">Arcos de hierro</a>). Loretta (3 Espadas de hierro), Goliath o Dadao, solo si te hacen falta.</li>\n<li><b>Cierra el 9/7:</b> «Correspondencia amorosa» (130), «Memorias ocultas», «Sacrificios siniestros» y «Pétalos para un gladiador». Haz «Bandidos en el camino» (100) y empieza «Remilgos con el pescado» (180; hasta el 23/10).</li>\n<li><b>Batalla contra la Hermandad de Bragança:</b> arcos enemigos; lleva objetos curativos y magia. Inyoni dispara de lejos cada 3 turnos y se refuerza al romper su reserva de PV: acaba con él en un turno<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fines de semana:</b> 9–10/6, 16–17/6, 23–24/6, 30/6–1/7 y 7–8/7. El domingo 17/6 es también Fiesta del Cuervo Dorado.</li>\n<li>Techo de Prestigio al acabar: 7760 (rango 8).</li>\n</ul>\n<h4>Capítulo 8</h4>\n<ul>\n<li><b>Libre del 20/7 al 1/9: 43 días y 7 cupos.</b> Es el mejor capítulo para apoyos y entrenamiento.</li>\n<li><b>Prestigio 8:</b> exámenes avanzados (una Licencia avanzada por capítulo en Megaira), Termas y la Formación de Aurora → <a href=\"#/clase/JID_ドラグーン\">Jinete de baus</a> y 8000 G.</li>\n<li><b>Prestigio 9 y 10 a mitad de capítulo:</b> recluta a quien quieras del bloque de 8 (Inyoni desde el 9/7, Jasmine, Kiroc, Olympia, Simon…) y de 9–10 (Sofia, Sirocco, Mu…). Haz la Formación de Bertrand → <a href=\"#/clase/JID_トルバドール\">Trovador</a>.</li>\n<li><b>Cierra el 1/9:</b> «Captura de ornius», «Flores de amor eterno» y «Entomófobo en apuros».</li>\n<li>Misiones: «Pacificación» (130, 7000 G), «Fieras en el camino» (100), «Verduras para los aragueses» (200), «Mercancía robada» y «Bestias enormes» (2 <a href=\"#/objeto/IID_デーツ\">Dátiles</a>: plántalos para <a href=\"#/personaje/PID_ハルヴィン\">Halvin</a>, <a href=\"#/guia/cultivo\">Cultivo</a>).</li>\n<li><b>Captura un <a href=\"#/montura/RID_ペガサス\">Pegaso salvaje</a></b> (Castalia o Idyia) para «Un corcel alado» (caps. 11–12). Reserva 30 Cocominj, Manja oda o Jin ba jiao para «Verduras para el coliseo».</li>\n<li><b>Batalla contra Leda:</b> el juego pide una clase intermedia y aliados con magia y defensa. Buccar cambia de bando el turno 3 y casi nadie se mueve hasta que te acercas<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fines de semana:</b> 21–22/7 a 25–26/8, y el 1/9; el 17/8, Plaza y comidas a mitad.</li>\n<li>Techo de Prestigio al acabar: 10 430 (rango 11).</li>\n</ul>\n<h4>Capítulo 9</h4>\n<ul>\n<li><b>Libre del 3/9 al 11/9: solo 2 cupos.</b> Ultand no está en este capítulo.</li>\n<li><b>Cierra el 11/9</b> todo lo de los caps. 6–8 que quede («Frutos energéticos», «En busca de tierras fértiles», «Bestias enormes», «La sombra del terror», «Los Aceros Infalibles»…).</li>\n<li>Misiones nuevas: «Anciano desaparecido» (130, 4000 G; hasta el 15/10), «Hechiceros en el bosque» (4000 G) y «Un manjar digno de los dioses» (6000 G; hasta el 23/10).</li>\n<li><b>Batalla en el paraíso:</b> niebla y voladores; lleva arqueros y la Bendición de Credna. Al acabar, la <a href=\"#/objeto/IID_アウロラの星槍\">Lanza Estelar</a>.</li>\n<li><b>Fin de semana:</b> 8–9/9.</li>\n<li>Techo de Prestigio al acabar: 10 800 (rango 12, tope de la Parte 1).</li>\n</ul>\n<h4>Capítulo 10</h4>\n<ul>\n<li><b>Libre del 15/9 al 15/10. Es el capítulo de los Desvíos</b> (20 000 G y 150 cada uno; <a href=\"#/trucos?s=desvios\">Fecha de los Desvíos</a>):</li>\n<li>Bertrand: aceptar del 17/9 al 25/9 (21:00); abre a <a href=\"#/personaje/PID_ペペ\">Peppe</a>.</li>\n<li>Talimun: aceptar del 17/9 al 10/10 y combatir antes del 12/10; da la Espada purificadora y abre a <a href=\"#/personaje/PID_ウーシュラ\">Ursula</a>.</li>\n<li>Anna: aceptar del 24/9 al 5/10; da Auricalco.</li>\n<li><b>Cierra el 15/10:</b> «<a href=\"#/mision/SQID_カイ篇_深奥の罪人\">El prisionero eterno</a>» (100, 5000 G), «Anciano desaparecido» y «Mercancía robada».</li>\n<li>Misiones: «Bronca en las llanuras» (5000 G), «Verduras para el coliseo» (200), «El ataque de las bestias aladas», «Esqueletos en las ruinas» y «El retorno de los Aceros Infalibles».</li>\n<li><b>Prestigio 10:</b> recluta a Catania, Dante (8000 G), Io (4000 G) o Maxim solo si los quieres para la Parte 2.</li>\n<li><b>Batalla contra Theodora:</b> jinetes de ornius y acorazados; magia blanca y pociones. El juego recomienda Antijinetes y Martillo. Sácala de sus casillas de bonificación<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fines de semana:</b> 15–16/9 a 13–14/10; el 17/9 (lunes), Plaza y comidas a mitad.</li>\n<li>Techo de Prestigio: tope.</li>\n</ul>\n<h4>Capítulo 11</h4>\n<ul>\n<li><b>Libre del 16/10 al 23/10: solo 8 días.</b></li>\n<li><b>Desvío de Orchel:</b> aceptar del 18/10 al 20/10 (12:00) en el Fuerte Galcar y combatir antes del 21/10. 20 000 G, 150 y abre a <a href=\"#/personaje/PID_ディエゴ\">Diego</a>.</li>\n<li>Entrega el Pegaso en «<a href=\"#/mision/SQID_カイ篇_似た者同士\">Un corcel alado</a>» (4000 G).</li>\n<li><b>Cierra el 23/10:</b> «Remilgos con el pescado», «Un manjar digno de los dioses» y «El ataque de las bestias aladas».</li>\n<li><b>Batalla bajo el coliseo:</b> magia contra acorazados y cuerpo a cuerpo contra arqueros. El grupo del norte no sale de su casilla de bonificación: atácalo allí<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fin de semana:</b> 20–21/10; el 17/10, Plaza y comidas a mitad.</li>\n</ul>\n<h4>Capítulo 12</h4>\n<ul>\n<li><b>Libre del 4/11 al 27/11.</b> Último capítulo: todo cierra el 27/11.</li>\n<li><b>Misiones por oro:</b> «El misterio de la Peña del Patíbulo» (Necrodragón, 7000 G), «El héroe oscuro» (7000 G), «Pacificación» y «Bronca en las llanuras» si faltan.</li>\n<li><b>Gasta oro y Prestigio:</b> el Prestigio no pasa a la Parte 2. Equipa a cada unidad con 6 objetos para la guerra (<a href=\"#/guia/guerra-y-salvacion\">Guerra y Salvación</a>).</li>\n<li><b>Batalla contra Bertrand:</b> te separan de tus aliados; lleva curas a distancia y desmonta a los jinetes si el terreno estorba. La barrera cae al activar dos interruptores o derrotar a Castor; cada círculo mágico sirve una vez<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fines de semana:</b> 4/11 (domingo), 10–11/11, 17–18/11 (el 17, Plaza y comidas a mitad) y 24–25/11.</li>\n</ul>"
+     "<p>El techo de Prestigio supone cada misión hecha en el primer capítulo en que sale, los Desvíos y las audiencias de cada etapa, más los fijos de la historia (350 al acabar el cap. 2 y 350 al empezar el 3) y la batalla principal, que se cobra al ganarla: el rango que da llega al capítulo siguiente.</p>\n<h4>Capítulo 1</h4>\n<ul>\n<li>Se unen <a href=\"#/personaje/PID_カイ\">Cai</a>, <a href=\"#/personaje/PID_ティアラ\">Tialla</a> y <a href=\"#/personaje/PID_ピーテル\">Peter</a>. Sin tiempo libre.</li>\n<li>Batalla contra Nero: la Bendición de Fortuna se abre en el turno 2<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Prestigio al acabar: 0.</li>\n</ul>\n<h4>Capítulo 2</h4>\n<ul>\n<li>Abren el Bazar, la Armería y el Tercer Ojo. Sin tiempo libre.</li>\n<li>Elige perseguir a los bandidos tras el combate de evento: entras en las Ruinas del fuerte Galen, que se pueden repetir más tarde<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Batalla contra Whill (defensa del carruaje): pierdes si cae Cai o el carruaje. Las lanzas rinden contra los jinetes<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Prestigio al acabar: 350.</li>\n</ul>\n<h4>Capítulo 3</h4>\n<ul>\n<li><b>Libre del 20/2 al 28/2.</b> Abren Mercado, Posada, Tablón, Percha y Altruismo.</li>\n<li><b>Recluta a <a href=\"#/personaje/PID_グザラン\">Guzran</a></b> (apoyo 1, Prestigio 2): es un objetivo del capítulo.</li>\n<li><b>Altruismo que cierra el 28/2:</b> «Sed de venganza» (130), «Un atardecer de fábula» (130) y «Horquilla perdida» (100; la horquilla está en la Mina de Niraga). 550 G cada una. Haz también «Hospedaje en la Posada» y «Regalos en el Mercado» (10 cada una).</li>\n<li>Empieza los regalos a los que piden apoyo 3 (Ninae, Seteth, Sofia, Catania…).</li>\n<li><b>Batalla contra Goliath:</b> enemigos cuerpo a cuerpo; atácalos con magia y proyectiles desde lejos.</li>\n<li><b>Fin de semana:</b> 24–25/2.</li>\n<li>Techo de Prestigio al acabar: 1730 (rango 2).</li>\n</ul>\n<h4>Capítulo 4</h4>\n<ul>\n<li><b>Libre del 1/3 al 7/3: solo 5 días.</b> Abren Formación, Buscar, Barrios bajos, Vandahl y los regalos de la taberna.</li>\n<li><b>«<a href=\"#/mision/SQID_カイ篇_孫の捜索依頼\">La nieta desaparecida</a>»</b> (100, 1500 G) cierra el 7/3. Las demás del capítulo («La casa abandonada» 130, «Los bandidos de Granada», «Se busca Piedra de refinado», «Ocho Colmillos», «Pesquisas para la… ¿novia?») cierran el 10/4.</li>\n<li><b>Recluta a <a href=\"#/personaje/PID_ヨーカイ\">Yang Jie</a></b> (apoyo 2, Prestigio 3): el rango 3 llega a mitad de capítulo si haces todo.</li>\n<li>Formación de Centurio (Prestigio 1): Anillo de arquero.</li>\n<li><b>Batalla contra la Brigada Gaia:</b> ataques a distancia y armas de bronce; el juego recomienda un Arco de madera. Elige negociar con Zarcone para poder reclutarlo después<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fin de semana:</b> 3–4/3. Aún no hay Plaza de armas.</li>\n<li>Techo de Prestigio al acabar: 2620 (rango 3).</li>\n</ul>\n<h4>Capítulo 5</h4>\n<ul>\n<li><b>Libre del 15/3 al 10/4: el capítulo clave.</b> Abren a la vez Plaza de armas, Servicio divino, Examen de aptitud, Barrio alto, Cebo y Establo.</li>\n<li><b>Prestigio 4 cuanto antes:</b> «La casa abandonada», «<a href=\"#/mision/SQID_怪異退治\">Criatura nocturna</a>» (100; cierra el 10/4), «Un mensaje peculiar» (180), «Memorias ocultas» (100) y «Captura de ornius» (200), más las audiencias del rango 2. Con el 4, Plaza de armas ×1,8 y exámenes intermedios.</li>\n<li><b>Recluta a <a href=\"#/personaje/PID_ノクチュラ\">Noctula</a></b> (apoyo 1, Prestigio 4).</li>\n<li><b>Monturas:</b> pon Cebo en cuanto puedas (<a href=\"#/trucos?s=cebo\">Cebo</a>) y alimenta cada día. Captura 2 <a href=\"#/montura/RID_オルニウス\">Ornius salvajes</a> para «<a href=\"#/mision/SQID_カイ篇_オルニウスの群れ\">Captura de ornius</a>» (2000 G + 200; plazo 1/9). El <a href=\"#/montura/RID_汗血馬\">Caballo de Ferganá</a> y el <a href=\"#/montura/RID_赤羽のメガニウス\">Meganius rojo</a> son los favoritos para empezar<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Servicio divino a Credna primero:</b> su Bendición Nv 1 da +5 de visión (tributo 15) para la niebla de los caps. 6 y 9 (<a href=\"#/guia/servicio-divino\">Servicio divino</a>).</li>\n<li><b>Reserva</b> 20 <a href=\"#/objeto/IID_リナリア\">Linarias</a> para «Flores de amor eterno» (caps. 6–8) y 30 Bayas de café, Zang o Meliágrida para «Verduras para los saramitas» (caps. 6–12).</li>\n<li>Formación: Castor (Prestigio 3, Gema voltaica) y Aurora (4, Bastón de sanación).</li>\n<li><b>Batalla contra los Caballeros de la Tormenta:</b> a los Cuadrigueros (arqueros), cuerpo a cuerpo; a los acorazados, magia. Dos cofres piden una llave que llevan los propios caballeros<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fines de semana:</b> 17–18/3, 24–25/3, 31/3–1/4 y 7–8/4; el 17/3, Plaza y comidas a mitad.</li>\n<li>Techo de Prestigio al acabar: 4100 (rango 5).</li>\n</ul>\n<h4>Capítulo 6</h4>\n<ul>\n<li><b>Libre del 20/4 al 20/5.</b> Abren Herrería y Cultivar. Se une <a href=\"#/personaje/PID_ウルタンド\">Ultand</a>.</li>\n<li><b>Prestigio 5 y, al final del capítulo si haces todo, 6:</b> recluta a <a href=\"#/personaje/PID_ニネ\">Ninae</a> (1 <a href=\"#/objeto/IID_カガヤキウオ\">Pez del paraíso</a>; se pesca en el lago al sur de Dagsion<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>), <a href=\"#/personaje/PID_ナジャ\">Nezha</a> (3 <a href=\"#/objeto/IID_砂虫肉\">Carnes de gusano</a>) y <a href=\"#/personaje/PID_セテス\">Seteth</a> (misión). Mikaela, Majide y Halvin, solo si te hacen falta.</li>\n<li><b>Cierran el 20/5:</b> «Un mensaje peculiar» (180) y «Felina perdida» (130). Abren «Flores de amor eterno» (130) y «Entomófobo en apuros» (100), hasta el 1/9, y «Verduras para los saramitas» (200), hasta el 27/11.</li>\n<li><b>Llegan a Dagsion:</b> Kiroc el 1/5 y Jasmine el 7/5; se reclutan con Prestigio 8.</li>\n<li>Formación: Bertrand (Prestigio 5, <a href=\"#/objeto/IID_ハルバード\">Alabarda</a>) y Centurio (6, <a href=\"#/objeto/IID_サンダーソード\">Espada trueno</a>).</li>\n<li><b>Batalla contra los har halis (Ahm Lu):</b> niebla; armas de calidad y magia. Mata primero a los hechiceros que suben Def y Res a los suyos<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fines de semana:</b> 21–22/4, 28–29/4, 5–6/5, 12–13/5 y 19–20/5; el 17/5 (jueves), Plaza y comidas a mitad.</li>\n<li>Techo de Prestigio al acabar: 5530 (rango 6).</li>\n</ul>\n<h4>Capítulo 7</h4>\n<ul>\n<li><b>Libre del 9/6 al 9/7. Empieza en sábado:</b> cupo de entrada y cupo del domingo 10/6 seguidos.</li>\n<li><b>«<a href=\"#/mision/SQID_カイ篇_使い慣れたもの\">Fabricado en Megaira</a>»</b> (130, 5000 G): entrega el <a href=\"#/objeto/IID_カイサブクエ馬具\">Eje personalizado</a> y abre las líneas de carruaje. Hazla ya.</li>\n<li><b>Prestigio 7:</b> Teatro y la Formación de Castor: 2 Angélicas (Jardín de la Semilla Astral) → <a href=\"#/clase/JID_カラドリオス\">Caladrio</a> y 8000 G.</li>\n<li><b>Recluta</b> a <a href=\"#/personaje/PID_エスメラルダ\">Esmeralda</a> (apoyo 2; misión), <a href=\"#/personaje/PID_アレキサンドラ\">Alexandra</a> (apoyo 2) y <a href=\"#/personaje/PID_ヌッツォ\">Nuzzuo</a> (desde el 1/7; 3 <a href=\"#/objeto/IID_鉄の弓\">Arcos de hierro</a>). Loretta (3 Espadas de hierro), Goliath o Dadao, solo si te hacen falta.</li>\n<li><b>Cierra el 9/7:</b> «Correspondencia amorosa» (130), «Memorias ocultas», «Sacrificios siniestros» y «Pétalos para un gladiador». Haz «Bandidos en el camino» (100) y empieza «Remilgos con el pescado» (180; hasta el 23/10).</li>\n<li><b>Batalla contra la Hermandad de Bragança:</b> arcos enemigos; lleva objetos curativos y magia. Inyoni dispara de lejos cada 3 turnos y se refuerza al romper su reserva de PV: acaba con él en un turno<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fines de semana:</b> 9–10/6, 16–17/6, 23–24/6, 30/6–1/7 y 7–8/7. El domingo 17/6 es también Fiesta del Cuervo Dorado.</li>\n<li>Techo de Prestigio al acabar: 6920 (rango 8).</li>\n</ul>\n<h4>Capítulo 8</h4>\n<ul>\n<li><b>Libre del 20/7 al 1/9: 43 días y 7 cupos.</b> Es el mejor capítulo para apoyos y entrenamiento.</li>\n<li><b>Prestigio 8:</b> exámenes avanzados (una Licencia avanzada por capítulo en Megaira), Termas y la Formación de Aurora → <a href=\"#/clase/JID_ドラグーン\">Jinete de baus</a> y 8000 G.</li>\n<li><b>Prestigio 9 a mitad de capítulo:</b> recluta a quien quieras del bloque de 8 (Inyoni desde el 9/7, Jasmine, Kiroc, Olympia, Simon…) y de 9 (Sofia, Sirocco, Mu…). El 10, con la Formación de Bertrand → <a href=\"#/clase/JID_トルバドール\">Trovador</a>, llega en el cap. 9.</li>\n<li><b>Cierra el 1/9:</b> «Captura de ornius», «Flores de amor eterno» y «Entomófobo en apuros».</li>\n<li>Misiones: «Pacificación» (130, 7000 G), «Fieras en el camino» (100), «Verduras para los aragueses» (200), «Mercancía robada» y «Bestias enormes» (2 <a href=\"#/objeto/IID_デーツ\">Dátiles</a>: plántalos para <a href=\"#/personaje/PID_ハルヴィン\">Halvin</a>, <a href=\"#/guia/cultivo\">Cultivo</a>).</li>\n<li><b>Captura un <a href=\"#/montura/RID_ペガサス\">Pegaso salvaje</a></b> (Castalia o Idyia) para «Un corcel alado» (caps. 11–12). Reserva 30 Cocominj, Manja oda o Jin ba jiao para «Verduras para el coliseo».</li>\n<li><b>Batalla contra Leda:</b> el juego pide una clase intermedia y aliados con magia y defensa. Buccar cambia de bando el turno 3 y casi nadie se mueve hasta que te acercas<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fines de semana:</b> 21–22/7 a 25–26/8, y el 1/9; el 17/8, Plaza y comidas a mitad.</li>\n<li>Techo de Prestigio al acabar: 8770 (rango 9).</li>\n</ul>\n<h4>Capítulo 9</h4>\n<ul>\n<li><b>Libre del 3/9 al 11/9: solo 2 cupos.</b> Ultand no está en este capítulo.</li>\n<li><b>Cierra el 11/9</b> todo lo de los caps. 6–8 que quede («Frutos energéticos», «En busca de tierras fértiles», «Bestias enormes», «La sombra del terror», «Los Aceros Infalibles»…).</li>\n<li>Misiones nuevas: «Anciano desaparecido» (130, 4000 G; hasta el 15/10), «Hechiceros en el bosque» (4000 G) y «Un manjar digno de los dioses» (6000 G; hasta el 23/10).</li>\n<li><b>Batalla en el paraíso:</b> niebla y voladores; lleva arqueros y la Bendición de Credna. Al acabar, la <a href=\"#/objeto/IID_アウロラの星槍\">Lanza Estelar</a>.</li>\n<li><b>Fin de semana:</b> 8–9/9.</li>\n<li>Techo de Prestigio al acabar: 10 050 (rango 11).</li>\n</ul>\n<h4>Capítulo 10</h4>\n<ul>\n<li><b>Libre del 15/9 al 15/10. Es el capítulo de los Desvíos</b> (20 000 G y 150 cada uno; <a href=\"#/trucos?s=desvios\">Fecha de los Desvíos</a>):</li>\n<li>Bertrand: aceptar del 17/9 al 25/9 (21:00); abre a <a href=\"#/personaje/PID_ペペ\">Peppe</a>.</li>\n<li>Talimun: aceptar del 17/9 al 10/10 y combatir antes del 12/10; da la Espada purificadora y abre a <a href=\"#/personaje/PID_ウーシュラ\">Ursula</a>.</li>\n<li>Anna: aceptar del 24/9 al 5/10; da Auricalco.</li>\n<li><b>Cierra el 15/10:</b> «<a href=\"#/mision/SQID_カイ篇_深奥の罪人\">El prisionero eterno</a>» (100, 5000 G), «Anciano desaparecido» y «Mercancía robada».</li>\n<li>Misiones: «Bronca en las llanuras» (5000 G), «Verduras para el coliseo» (200), «El ataque de las bestias aladas», «Esqueletos en las ruinas» y «El retorno de los Aceros Infalibles».</li>\n<li><b>Prestigio 10:</b> recluta a Catania, Dante (8000 G), Io (4000 G) o Maxim solo si los quieres para la Parte 2.</li>\n<li><b>Batalla contra Theodora:</b> jinetes de ornius y acorazados; magia blanca y pociones. El juego recomienda Antijinetes y Martillo. Sácala de sus casillas de bonificación<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fines de semana:</b> 15–16/9 a 13–14/10; el 17/9 (lunes), Plaza y comidas a mitad.</li>\n<li>Techo de Prestigio: el tope (10 800, rango 12) llega en este tiempo libre.</li>\n</ul>\n<h4>Capítulo 11</h4>\n<ul>\n<li><b>Libre del 16/10 al 23/10: solo 8 días.</b></li>\n<li><b>Desvío de Orchel:</b> aceptar del 18/10 al 20/10 (12:00) en el Fuerte Galcar y combatir antes del 21/10. 20 000 G, 150 y abre a <a href=\"#/personaje/PID_ディエゴ\">Diego</a>.</li>\n<li>Entrega el Pegaso en «<a href=\"#/mision/SQID_カイ篇_似た者同士\">Un corcel alado</a>» (4000 G).</li>\n<li><b>Cierra el 23/10:</b> «Remilgos con el pescado», «Un manjar digno de los dioses» y «El ataque de las bestias aladas».</li>\n<li><b>Batalla bajo el coliseo:</b> magia contra acorazados y cuerpo a cuerpo contra arqueros. El grupo del norte no sale de su casilla de bonificación: atácalo allí<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fin de semana:</b> 20–21/10; el 17/10, Plaza y comidas a mitad.</li>\n</ul>\n<h4>Capítulo 12</h4>\n<ul>\n<li><b>Libre del 4/11 al 27/11.</b> Último capítulo: todo cierra el 27/11.</li>\n<li><b>Misiones por oro:</b> «El misterio de la Peña del Patíbulo» (Necrodragón, 7000 G), «El héroe oscuro» (7000 G), «Pacificación» y «Bronca en las llanuras» si faltan.</li>\n<li><b>Gasta oro y Prestigio:</b> el Prestigio no pasa a la Parte 2. Equipa a cada unidad con 6 objetos para la guerra (<a href=\"#/guia/guerra-y-salvacion\">Guerra y Salvación</a>).</li>\n<li><b>Batalla contra Bertrand:</b> te separan de tus aliados; lleva curas a distancia y desmonta a los jinetes si el terreno estorba. La barrera cae al activar dos interruptores o derrotar a Castor; cada círculo mágico sirve una vez<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fines de semana:</b> 4/11 (domingo), 10–11/11, 17–18/11 (el 17, Plaza y comidas a mitad) y 24–25/11.</li>\n</ul>"
     ],
     [
      "Equipo y tier list",
-     "<p>Consenso de varias listas<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Coste = apoyo con Cai / Prestigio (+ pago); «Cap.» es el primero en que puedes pagarlo haciendo todo.</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Unidad</th><th>Coste</th><th>Cap.</th><th>Nota</th><th>Rol</th></tr><tr><td><a href=\"#/personaje/PID_カイ\">Cai</a></td><td>—</td><td>1</td><td>S</td><td>Híbrido montado (Caladrio)</td></tr><tr><td><a href=\"#/personaje/PID_グザラン\">Guzran</a></td><td>1/2</td><td>3</td><td>S</td><td>Delantero (Shido)</td></tr><tr><td><a href=\"#/personaje/PID_ノクチュラ\">Noctula</a></td><td>1/4</td><td>5</td><td>A+</td><td>Tanque de esquiva (Púgil)</td></tr><tr><td><a href=\"#/personaje/PID_エスメラルダ\">Esmeralda</a></td><td>2/7 + misión</td><td>7</td><td>A+</td><td>Tanque con lanzas arrojadizas</td></tr><tr><td><a href=\"#/personaje/PID_ヌッツォ\">Nuzzuo</a></td><td>2/6 + 3 Arcos de hierro</td><td>7</td><td>A</td><td>Arquero montado</td></tr><tr><td><a href=\"#/personaje/PID_ピーテル\">Peter</a></td><td>—</td><td>1</td><td>A−</td><td>Cuadriguero</td></tr><tr><td><a href=\"#/personaje/PID_アレキサンドラ\">Alexandra</a></td><td>2/7</td><td>7</td><td>A−</td><td>Ala Celeste antimagos</td></tr><tr><td><a href=\"#/personaje/PID_ティアラ\">Tialla</a></td><td>—</td><td>1</td><td>B+</td><td>Sanadora (Obispo o Trovador)</td></tr><tr><td><a href=\"#/personaje/PID_ウルタンド\">Ultand</a></td><td>—</td><td>6</td><td>B+</td><td>Apoyo con aura; Caladrio</td></tr><tr><td><a href=\"#/personaje/PID_ニネ\">Ninae</a></td><td>3/6 + Pez del paraíso</td><td>6</td><td>B+</td><td>Antimagia</td></tr><tr><td><a href=\"#/personaje/PID_ナジャ\">Nezha</a></td><td>3/6 + 3 Carnes de gusano</td><td>6</td><td>B+</td><td>Shido</td></tr><tr><td><a href=\"#/personaje/PID_セテス\">Seteth</a></td><td>3/6 + misión</td><td>6</td><td>B+</td><td>Jinete de baus</td></tr><tr><td><a href=\"#/personaje/PID_ソフィア\">Sofia</a></td><td>3/9</td><td>8</td><td>B+</td><td>Sanadora de alcance</td></tr><tr><td><a href=\"#/personaje/PID_シロッコ\">Sirocco</a></td><td>3/9 + misión</td><td>8</td><td>B+</td><td>Mago con Espada trueno</td></tr><tr><td><a href=\"#/personaje/PID_オリンピア\">Olympia</a></td><td>3/8 + misión</td><td>8</td><td>B+</td><td>Maga de crítico</td></tr><tr><td><a href=\"#/personaje/PID_ムウ\">Mu</a></td><td>3/9 + 3 Glirmosas</td><td>8</td><td>B+</td><td>Espadachina</td></tr><tr><td><a href=\"#/personaje/PID_ヨーカイ\">Yang Jie</a></td><td>2/3 + evento</td><td>4</td><td>B</td><td>Sanador y tanque</td></tr><tr><td><a href=\"#/personaje/PID_ロレッタ\">Loretta</a></td><td>3/7 + 3 Espadas de hierro</td><td>7</td><td>B</td><td>Ala Celeste</td></tr><tr><td><a href=\"#/personaje/PID_マジーデ\">Majide</a></td><td>2/5 + evento</td><td>6</td><td>B−</td><td>Tanque temprano (Hoplita)</td></tr><tr><td><a href=\"#/personaje/PID_ゴライアス\">Goliath</a></td><td>3/7 + 3 Comidas de gigante</td><td>7</td><td>B−</td><td>Tanque</td></tr><tr><td><a href=\"#/personaje/PID_イニオニ\">Inyoni</a></td><td>3/8 + 6000 G</td><td>8</td><td>B−</td><td>Arquero de Fue</td></tr><tr><td><a href=\"#/personaje/PID_ダンテ\">Dante</a></td><td>3/10 + 8000 G</td><td>8</td><td>B−</td><td>Maga de apoyo</td></tr></table></div>\n<p>Builds según tu roster: <a href=\"#/equipo?ir=eq-equipamiento\">Mi partida › Equipo</a>.</p>\n<ul>\n<li><b>Cai:</b> Jinete de ornius → Jin. ornius acorazado → Caladrio, con lanza y <a href=\"#/objeto/IID_サンダーソード\">Espada trueno</a><span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. El examen de Caladrio pide Magia negra B y Equitación D: sube su magia pronto. <a href=\"#/clase/JID_バーディンガー\">Jinete bardado</a> y Jinete de baus son las alternativas<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Peter:</b> Cuadriguero con Caballo de Ferganá arregla su Fue baja<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Guzran:</b> Shido si ya tienes tanque (Esmeralda); si no, Soldado acorazado → <a href=\"#/clase/JID_ヘヴィアーマー\">Hoplita</a><span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Tialla y Ultand:</b> Tialla cura; Ultand cura un poco al vecino tras cada combate y le sube la Evit, así que va pegada a quien ataca. Con Sofia en el equipo, Tialla puede pasar a Trovador<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n</ul>"
+     "<p>Consenso de varias listas<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Coste = apoyo con Cai / Prestigio (+ pago); «Cap.» es el primero en que puedes pagarlo haciendo todo.</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Unidad</th><th>Coste</th><th>Cap.</th><th>Nota</th><th>Rol</th></tr><tr><td><a href=\"#/personaje/PID_カイ\">Cai</a></td><td>—</td><td>1</td><td>S</td><td>Híbrido montado (Caladrio)</td></tr><tr><td><a href=\"#/personaje/PID_グザラン\">Guzran</a></td><td>1/2</td><td>3</td><td>S</td><td>Delantero (Shido)</td></tr><tr><td><a href=\"#/personaje/PID_ノクチュラ\">Noctula</a></td><td>1/4</td><td>5</td><td>A+</td><td>Tanque de esquiva (Púgil)</td></tr><tr><td><a href=\"#/personaje/PID_エスメラルダ\">Esmeralda</a></td><td>2/7 + misión</td><td>7</td><td>A+</td><td>Tanque con lanzas arrojadizas</td></tr><tr><td><a href=\"#/personaje/PID_ヌッツォ\">Nuzzuo</a></td><td>2/6 + 3 Arcos de hierro</td><td>7</td><td>A</td><td>Arquero montado</td></tr><tr><td><a href=\"#/personaje/PID_ピーテル\">Peter</a></td><td>—</td><td>1</td><td>A−</td><td>Cuadriguero</td></tr><tr><td><a href=\"#/personaje/PID_アレキサンドラ\">Alexandra</a></td><td>2/7</td><td>7</td><td>A−</td><td>Ala Celeste antimagos</td></tr><tr><td><a href=\"#/personaje/PID_ティアラ\">Tialla</a></td><td>—</td><td>1</td><td>B+</td><td>Sanadora (Obispo o Trovador)</td></tr><tr><td><a href=\"#/personaje/PID_ウルタンド\">Ultand</a></td><td>—</td><td>6</td><td>B+</td><td>Apoyo con aura; Caladrio</td></tr><tr><td><a href=\"#/personaje/PID_ニネ\">Ninae</a></td><td>3/6 + Pez del paraíso</td><td>6</td><td>B+</td><td>Antimagia</td></tr><tr><td><a href=\"#/personaje/PID_ナジャ\">Nezha</a></td><td>3/6 + 3 Carnes de gusano</td><td>6</td><td>B+</td><td>Shido</td></tr><tr><td><a href=\"#/personaje/PID_セテス\">Seteth</a></td><td>3/6 + misión</td><td>6</td><td>B+</td><td>Jinete de baus</td></tr><tr><td><a href=\"#/personaje/PID_ソフィア\">Sofia</a></td><td>3/9</td><td>8</td><td>B+</td><td>Sanadora de alcance</td></tr><tr><td><a href=\"#/personaje/PID_シロッコ\">Sirocco</a></td><td>3/9 + misión</td><td>8</td><td>B+</td><td>Mago con Espada trueno</td></tr><tr><td><a href=\"#/personaje/PID_オリンピア\">Olympia</a></td><td>3/8 + misión</td><td>8</td><td>B+</td><td>Maga de crítico</td></tr><tr><td><a href=\"#/personaje/PID_ムウ\">Mu</a></td><td>3/9 + 3 Glirmosas</td><td>8</td><td>B+</td><td>Espadachina</td></tr><tr><td><a href=\"#/personaje/PID_ヨーカイ\">Yang Jie</a></td><td>2/3 + evento</td><td>4</td><td>B</td><td>Sanador y tanque</td></tr><tr><td><a href=\"#/personaje/PID_ロレッタ\">Loretta</a></td><td>3/7 + 3 Espadas de hierro</td><td>7</td><td>B</td><td>Ala Celeste</td></tr><tr><td><a href=\"#/personaje/PID_マジーデ\">Majide</a></td><td>2/5 + evento</td><td>6</td><td>B−</td><td>Tanque temprano (Hoplita)</td></tr><tr><td><a href=\"#/personaje/PID_ゴライアス\">Goliath</a></td><td>3/7 + 3 Comidas de gigante</td><td>7</td><td>B−</td><td>Tanque</td></tr><tr><td><a href=\"#/personaje/PID_イニオニ\">Inyoni</a></td><td>3/8 + 6000 G</td><td>8</td><td>B−</td><td>Arquero de Fue</td></tr><tr><td><a href=\"#/personaje/PID_ダンテ\">Dante</a></td><td>3/10 + 8000 G</td><td>9</td><td>B−</td><td>Maga de apoyo</td></tr></table></div>\n<p>Builds según tu roster: <a href=\"#/equipo?ir=eq-equipamiento\">Mi partida › Equipo</a>.</p>\n<ul>\n<li><b>Cai:</b> Jinete de ornius → Jin. ornius acorazado → Caladrio, con lanza y <a href=\"#/objeto/IID_サンダーソード\">Espada trueno</a><span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. El examen de Caladrio pide Magia negra B y Equitación D: sube su magia pronto. <a href=\"#/clase/JID_バーディンガー\">Jinete bardado</a> y Jinete de baus son las alternativas<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Peter:</b> Cuadriguero con Caballo de Ferganá arregla su Fue baja<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Guzran:</b> Shido si ya tienes tanque (Esmeralda); si no, Soldado acorazado → <a href=\"#/clase/JID_ヘヴィアーマー\">Hoplita</a><span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Tialla y Ultand:</b> Tialla cura; Ultand cura un poco al vecino tras cada combate y le sube la Evit, así que va pegada a quien ataca. Con Sofia en el equipo, Tialla puede pasar a Trovador<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n</ul>"
     ],
     [
      "Métodos de minmax",
-     "<ul>\n<li><b>EXP:</b> reparte la EXP; el nivel enemigo sigue a tus 10 unidades más altas (<a href=\"#/trucos?s=nivel-enemigo\">Nivel de los enemigos</a>). En Batalla rápida el remate da EXP ×3 (<a href=\"#/trucos?s=reserva\">Remate y reserva</a>). Detalle en <a href=\"#/guia/experiencia-y-niveles\">Experiencia y niveles</a>.</li>\n<li><b>Crecimientos:</b> cambia de clase antes de cada tope y aprovecha los mínimos de clase al aprobar (<a href=\"#/trucos?s=minimos\">Mínimos</a>, <a href=\"#/trucos?s=secuencia\">Secuencia de subidas</a>).</li>\n<li><b>Monturas:</b> el vínculo suma atributos y crecimientos solo en clases del mismo tipo: ornius (Jinete de ornius, Jin. ornius acorazado, Caladrio), caballo (Jinete ligero, Cuadriguero, Jinete arquero, Jinete bardado, Trovador), pegaso (Ala Celeste) y bau (Jinete de baus). Ver <a href=\"#/guia/monturas\">Monturas</a>.</li>\n<li><b>Cuadriguero:</b> dobla lo que da la montura. Con caballo, la Fue llega a +15, igual que Forajido: rinde sobre todo en PV, Hab y Def (<a href=\"#/clase/JID_戦車兵\">Cuadriguero</a>).</li>\n<li><b>Competencias:</b> golpea y retírate en las mazmorras; conservas lo ganado (<a href=\"#/trucos?s=retirada\">Golpear y retirarse</a>).</li>\n<li><b>Apoyos rápidos:</b> comidas, regalos y Teatro cada semana; el bucle de apoyos al empezar los caps. 5, 7, 8 y 10 (<a href=\"#/trucos?s=bucle-apoyos\">Bucle de apoyos</a>, <a href=\"#/guia/comidas\">Comidas</a>, <a href=\"#/trucos?s=bonos-apoyo\">Mejoras de apoyo</a>).</li>\n<li><b>Dinero:</b> 136 850 G en misiones, 80 000 G en Desvíos y 16 000 G de Formación. Los reclutas de pago cuestan 31 000 G en total (<a href=\"#/guia/tiendas\">Tiendas</a>).</li>\n<li><b>Prestigio:</b> 26 encargos de Altruismo, misiones, Desvíos, las 24 audiencias (+50 cada una, por etapas de rango) y el Prestigio de historia (7930). Ver <a href=\"#/guia/prestigio\">Prestigio</a>.</li>\n</ul>"
+     "<p>Principios comunes en <a href=\"#/guia/minmax\">Min-max</a>; lo propio de la ruta de Cai:</p>\n<ul>\n<li><b>EXP:</b> la batalla principal no basta. Gasta los turnos que sobran en escaramuzas y en las mazmorras (las alcantarillas de Dagsion no gastan turno) y lleva siempre las plazas llenas. El nivel enemigo sigue a tus 10 unidades más altas (<a href=\"#/guia/experiencia-y-niveles\">Experiencia y niveles</a>, <a href=\"#/guia/escaramuzas\">Escaramuzas</a>).</li>\n<li><b>Crecimientos:</b> cambia de clase antes de cada tope y aprovecha los mínimos de clase al aprobar (<a href=\"#/trucos?s=minimos\">Mínimos</a>, <a href=\"#/trucos?s=secuencia\">Secuencia de subidas</a>).</li>\n<li><b>Monturas, solo si sirven:</b> el vínculo suma atributos y crecimientos solo en una clase montada de la misma especie (cualquier ornius vale para cualquier clase de ornius): ornius (Jinete de ornius, Jin. ornius acorazado, Caladrio), caballo (Jinete ligero, Cuadriguero, Jinete arquero, Jinete bardado, Trovador), pegaso (Ala Celeste) y bau (Jinete de baus). Una por unidad que vaya a montar, capturada pronto: cada combate montado suma 1 de vínculo y el crecimiento solo cuenta en los niveles que se ganan montado. En la Parte 2 se quedan guardadas y vuelven en la Parte 3 con Cai (<a href=\"#/guia/monturas\">Monturas</a>).</li>\n<li><b>Cuadriguero:</b> dobla lo que da la montura. Con caballo, la Fue llega a +15, igual que Forajido: rinde sobre todo en PV, Hab y Def (<a href=\"#/clase/JID_戦車兵\">Cuadriguero</a>).</li>\n<li><b>Apoyos:</b> comidas, regalos y Teatro cada semana; apoyo 3 con Cai antes de llegar al rango que pide cada recluta, sobre todo los seis de rango 10 (<a href=\"#/guia/comidas\">Comidas</a>, <a href=\"#/trucos?s=bonos-apoyo\">Mejoras de apoyo</a>).</li>\n<li><b>Dinero:</b> 205 350 G en misiones, 80 000 G en Desvíos y 16 000 G de Formación; los reclutas de pago cuestan 31 000 G. Lo que quede al cerrar el cap. 12 se pierde: gástalo en equipo y refinado (<a href=\"#/guia/tiendas\">Tiendas</a>).</li>\n<li><b>Prestigio:</b> misiones (6270 entre las 79), Desvíos (600), audiencias (+50 cada una, 24 como máximo), batallas principales e historia. Sobran unos 3000: salta primero las misiones baratas y lejanas (<a href=\"#/guia/prestigio\">Prestigio</a>).</li>\n</ul>"
     ],
     [
      "Errores de las fuentes",
@@ -531464,27 +531984,27 @@ window.WIKI={
    "secs": [
     [
      "En resumen",
-     "<ul>\n<li><b>Equipo base gratis:</b> Dietrich y Fabio desde el cap. 1, Esmeralda desde el 2, y Mikaela y Yang Jie (tutorial, sin coste) en el 4. Cubren los 4 puestos de los caps. 4–5.</li>\n<li><b>Primeros reclutas:</b> Io (Prestigio 3) y Kiroc (Prestigio 4), luego Nydine y Ultand (5) y, en el cap. 8, Noctula, Olympia, Goliath y Maxim (6).</li>\n<li><b>Economía:</b> los 9 <a href=\"#/mision/SQID_ディートリヒ篇_挑戦状1\">Duelos de Temerario</a> dan 80 500 G y 1350 de Prestigio, y los 8 Desvíos 160 000 G. La cadena de las Entomosferas (43 000 G) se decide en el cap. 4.</li>\n<li><b>Plazos duros:</b> 10/4 («A la caza del porcelio»), 19/9 (cierra casi todo lo de los caps. 6–9), 4/10, 3/11 y 27/11.</li>\n<li><b>El Prestigio frena hasta el cap. 8:</b> en tres puntos faltan 20–100 que solo dan las escaramuzas de la Respondedora<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Desde el cap. 10 sobra.</li>\n<li><b>Prestigio de historia:</b> cada capítulo suma Prestigio al cerrarse (7250 en total). Con todo hecho deberías tener ≈1010 al ganar el cap. 4.</li>\n</ul>"
+     "<ul>\n<li><b>Equipo base gratis:</b> Dietrich y Fabio desde el cap. 1, Esmeralda desde el 2, y Mikaela y Yang Jie (tutorial, sin coste) en el 4. Cubren los 4 puestos de los caps. 4–5.</li>\n<li><b>Primeros reclutas:</b> Io (Prestigio 3) y Kiroc (Prestigio 4), luego Nydine y Ultand (5) y, en el cap. 8, Noctula, Olympia, Goliath y Maxim (6).</li>\n<li><b>Economía:</b> los 9 <a href=\"#/mision/SQID_ディートリヒ篇_挑戦状1\">Duelos de Temerario</a> dan 80 500 G y 1350 de Prestigio, y los 8 Desvíos 160 000 G. La cadena de las Entomosferas (43 000 G) se decide en el cap. 4.</li>\n<li><b>Plazos duros:</b> 10/4 («A la caza del porcelio»), 19/9 (cierra casi todo lo de los caps. 6–9), 4/10, 3/11 y 27/11.</li>\n<li><b>El Prestigio frena en el cap. 8:</b> al rango 7 le faltan 370 en el tiempo libre; las tropas de la Respondedora dan 30 cada una, o llega con la batalla. Desde el cap. 11 sobra.</li>\n<li><b>De dónde sale el Prestigio:</b> la batalla principal da 400 (caps. 4–7), 600 (8–10) y 700 (11–12), y la historia suma 200 al empezar el cap. 3 y 570 al empezar el 4. Con todo hecho, ≈1610 al ganar el cap. 4.</li>\n</ul>"
     ],
     [
      "Antes de empezar",
-     "<ul>\n<li><b>Despliegue:</b> 4 puestos en los caps. 4–5, 6 en el 6, 8 en el 7, 5 en el 8, 6 en el 9 y 7 en los caps. 10–12. En los caps. 1–3 el mapa fija el grupo.</li>\n<li><b>Recluta pronto a quien vayas a usar.</b> Sin reclutar, una unidad sube sola con el 80 % de su crecimiento y sin crecimientos de clase (<a href=\"#/trucos?s=tardios\">Reclutas tardíos</a>).</li>\n<li><b>No reinicies un capítulo después de cobrar.</b> Reiniciar capítulo devuelve oro, Prestigio y misiones al inicio del capítulo; solo conserva los apoyos. El <a href=\"#/trucos?s=bucle-apoyos\">bucle de apoyos</a> rinde más en los caps. 8 y 9, los más largos.</li>\n<li><b>Ni batallones ni monturas con vínculo:</b> son de las rutas de Theodora y Cai. Solo Io y Alexandra traen montura propia.</li>\n<li><b>Clases que abre Dietrich:</b> <a href=\"#/clase/JID_ガーディアン\">Guardián</a> (Duelo de Il-Lara), <a href=\"#/clase/JID_レンジャー\">Rastreador</a> (Duelo de Oko) y <a href=\"#/clase/JID_鍛冶師\">Herrero</a> (10 técnicas potenciadas en el templo de Smyrnos). Las tres quedan abiertas para las demás rutas. <a href=\"#/clase/JID_カタフラクト\">Catafracto</a>, <a href=\"#/clase/JID_カラドリオス\">Caladrio</a>, <a href=\"#/clase/JID_ドラグーン\">Jinete de baus</a>, <a href=\"#/clase/JID_踊り子\">Bailarín</a> y <a href=\"#/clase/JID_トルバドール\">Trovador</a> solo están si ya las abriste en otra ruta.</li>\n<li><b>Rutina semanal:</b> gasta los cupos el sábado, espera en Dagsion al domingo y gástalos otra vez (<a href=\"#/trucos?s=doble-semana\">doble semana</a>). Audiencias (+50): martes Mars, miércoles Smyrnos, jueves Jurah y viernes Kalla.</li>\n<li><b>Orden del sábado:</b> Plaza de armas y Servicio divino primero (gastan motivación), comidas y regalos después<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n</ul>"
+     "<ul>\n<li><b>Despliegue:</b> 4 puestos en los caps. 4–5, 6 en el 6, 8 en el 7, 5 en el 8, 6 en el 9 y 7 en los caps. 10–12. En los caps. 1–3 el mapa fija el grupo.</li>\n<li><b>Recluta pronto a quien vayas a usar.</b> Sin reclutar, una unidad sube sola con el 80 % de su crecimiento (con el modificador de la clase que le toca) y sin el azar ni la montura (<a href=\"#/trucos?s=tardios\">Reclutas tardíos</a>).</li>\n<li><b>No reinicies un capítulo después de cobrar.</b> Reiniciar capítulo devuelve oro, Prestigio y misiones al inicio del capítulo; solo conserva los apoyos. El <a href=\"#/trucos?s=bucle-apoyos\">bucle de apoyos</a> rinde más en los caps. 8 y 9, los más largos.</li>\n<li><b>Ni batallones ni monturas con vínculo:</b> son de las rutas de Theodora y Cai. Solo Io y Alexandra traen montura propia.</li>\n<li><b>Clases que abre Dietrich:</b> <a href=\"#/clase/JID_ガーディアン\">Guardián</a> (Duelo de Il-Lara), <a href=\"#/clase/JID_レンジャー\">Rastreador</a> (Duelo de Oko) y <a href=\"#/clase/JID_鍛冶師\">Herrero</a> (10 técnicas potenciadas en el templo de Smyrnos). Las tres quedan abiertas para las demás rutas. <a href=\"#/clase/JID_カタフラクト\">Catafracto</a>, <a href=\"#/clase/JID_カラドリオス\">Caladrio</a>, <a href=\"#/clase/JID_ドラグーン\">Jinete de baus</a>, <a href=\"#/clase/JID_踊り子\">Bailarín</a> y <a href=\"#/clase/JID_トルバドール\">Trovador</a> solo están si ya las abriste en otra ruta.</li>\n<li><b>Rutina semanal:</b> gasta los cupos el sábado, espera en Dagsion al domingo y gástalos otra vez (<a href=\"#/trucos?s=doble-semana\">doble semana</a>). Audiencias (+50): martes Mars, miércoles Smyrnos, jueves Jurah y viernes Kalla.</li>\n<li><b>Orden del sábado:</b> Plaza de armas y Servicio divino primero (gastan motivación), comidas y regalos después<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n</ul>"
     ],
     [
      "Capítulo a capítulo",
-     "<p>El techo de Prestigio supone todas las misiones, los Duelos en cuanto abre su rango, los Desvíos y las audiencias disponibles hasta ese momento, más el Prestigio de historia que cada capítulo da al cerrarse (200, 270, 300, 630, 790, 530, 1320, 1320, 170, 960 y 760 desde el cap. 2). Ese premio se cobra al acabar el capítulo: el rango nuevo llega al siguiente. No cuenta las escaramuzas de la Respondedora, que suman algo más.</p>\n<h4>Capítulo 1</h4>\n<ul>\n<li>Se unen Dietrich y Fabio. Sin tiempo libre; inventario y trueque bloqueados.</li>\n<li>Batalla contra los bandoleros de Tarek: se pierde si cae Dietrich o Fabio<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Fabio cura.</li>\n<li>Prestigio al acabar: 0.</li>\n</ul>\n<h4>Capítulo 2</h4>\n<ul>\n<li>Se une Esmeralda; repártele EXP. Bendición de Fortuna desde el turno 2<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Batalla contra Orejas Rojas: invoca 2 enemigos; mátalo en un turno si llegas<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Da el <a href=\"#/objeto/IID_シンザのモリ\">Tridente de Sinza</a>.</li>\n<li>Prestigio al acabar: 200.</li>\n</ul>\n<h4>Capítulo 3</h4>\n<ul>\n<li>Mazmorra tutorial: abre sus cofres antes de seguir<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Batalla de Santa Katarina: apaga los tres dispositivos antes de golpear a Anatolia y no pises la arena<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Abren Mercado, Posada, Tablón y Percha; se usan desde el cap. 4.</li>\n<li>Prestigio al acabar: 470.</li>\n</ul>\n<h4>Capítulo 4</h4>\n<ul>\n<li><b>Libre del 27/3 al 10/4.</b> Se une Mikaela. Abren Servicio divino, Potenciar técnicas, la Respondedora y el Barrio alto. Aún no hay Plaza de armas, Examen de aptitud, Herrería ni Vandahl.</li>\n<li><b>Recluta a <a href=\"#/personaje/PID_ヨーカイ\">Yang Jie</a></b> (gratis, tutorial). Dale el <a href=\"#/objeto/IID_南方のゴーシュ\">Ghosh sureño</a> de «Regalos en el Mercado»: el primer regalo abre sus comidas.</li>\n<li><b>Haz «<a href=\"#/mision/SQID_幻の真珠（１）\">A la caza del porcelio</a>» en este capítulo</b> (5000 G; antes, «Ocho Colmillos»). Cierra el 10/4 y es requisito de «Más Entomosferas» (8000 G), «Todavía más Entomosferas» (10 000 G) y «Armas de Da Mina» (20 000 G). Las <a href=\"#/objeto/IID_虫真珠\">Entomosferas</a> caen de los porcelios (15,8 %).</li>\n<li>Haz también «Los bandidos de Granada» → «Entrada robada» → «Tablilla robada», «Se busca Piedra de refinado» y «Pesquisas para la… ¿novia?» (cierran con el cap. 5) y las cinco de los locales de Dagsion.</li>\n<li><b>Servicio divino:</b> Dietrich y Mikaela en Smyrnos; los dos tienen aptitud con ese dios.</li>\n<li><b>Cumpleaños:</b> Kiroc el sábado 31/3. Un regalo ese día da ≥70 de apoyo y no gasta el semanal; Kiroc solo pide apoyo 1.</li>\n<li><b>Batalla, clasificatoria contra Benditz:</b> carros; derriba pilares para frenarlos y usa magia contra los acorazados. Cofres con <a href=\"#/objeto/IID_斬馬刀\">Zanbato</a> (sureste) y <a href=\"#/objeto/IID_鉄の盾\">Escudo de hierro</a> (noroeste)<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fines de semana:</b> 31/3–1/4 y 7–8/4.</li>\n<li>Prestigio al acabar: 1010 (rango 2). Con R1 en el tiempo libre (techo 710) no hay audiencias ni reclutas por Prestigio. <b>Calibra con tu partida:</b> con todo hecho deberías tener ≈1010 al ganar el cap. 4 (≈710 + 300 de historia); si vas por debajo, te falta una misión.</li>\n</ul>\n<h4>Capítulo 5</h4>\n<ul>\n<li><b>Libre del 11/4 al 30/4.</b> Dietrich pasa a <a href=\"#/clase/JID_闘士\">Gladiador</a>. Abren Plaza de armas, Examen de aptitud, Cazatalentos (Duelos) y Barrios bajos.</li>\n<li><b>Audiencias de rango 2</b> (+200) y <b><a href=\"#/mision/SQID_ディートリヒ篇_挑戦状1\">Duelo de Borges</a></b> (Mina de Niraga, nivel recomendado 10): 5000 G, 150 y Secreto de sangre para Dietrich.</li>\n<li><b>«<a href=\"#/mision/SQID_怪異退治\">Criatura nocturna</a>»</b> (1500 G + 100): solo hasta el 30/4.</li>\n<li>Haz «Hachas de Behelda», «Pétalos para un gladiador» → «La expedición perdida» → «Cristal espiritual» y «Sacrificios siniestros»; con el porcelio, abren «<a href=\"#/mision/SQID_幻の真珠（２）\">Más Entomosferas</a>» (8000 G; 2 Entomosferas grandes).</li>\n<li><b>Io antes de la batalla:</b> el techo del tiempo libre es 1700 y el rango 3 pide 1800. Los 100 que faltan solo salen de escaramuzas<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Perdible:</b> la escena de Fabio en el callejón este abre su escena del cap. 10 y la mejora de la Respondedora del cap. 12<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Batalla, las pruebas de Hannibal:</b> acciona todas las palancas antes de 10 turnos; los jinetes de elefante no reciben daño hasta pulsar los interruptores. Dietrich no puede caer<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. <a href=\"#/habilidad/SID_影刃\">Paso sombrío</a> cuesta PV: Fabio a su lado.</li>\n<li><b>Fines de semana:</b> 14–15/4, 21–22/4 y 28–29/4; el 17/4 (martes), Plaza y comidas a mitad.</li>\n<li>Prestigio al acabar: 2330 (rango 3).</li>\n</ul>\n<h4>Capítulo 6</h4>\n<ul>\n<li><b>Libre del 4/5 al 28/5.</b> Abren Herrería, Buscar, Vandahl y las escaramuzas en el mapa.</li>\n<li><b>Recluta a <a href=\"#/personaje/PID_イオ\">Io</a></b> (apoyo 2, 800 G). Llega con nivel alto y su caballo propio<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b><a href=\"#/mision/SQID_ディートリヒ篇_挑戦状2\">Duelo de Aguirre</a></b> (rango 3, nivel 14): 6000 G + 150.</li>\n<li><b>Compra</b> 3 <a href=\"#/objeto/IID_聖水\">Aguas puras</a> en el Bazar (500 G cada una) para Kiroc.</li>\n<li>Misiones: «Un día en la herrería», «Frutos energéticos» y «En busca de tierras fértiles» (cierran el 19/9), que abre «Ladrones en Aguiño» → «Sabor a nostalgia» (3000 G + 80). El 28/5 cierran «Hachas», «Más Entomosferas», «La expedición perdida» y «Cristal espiritual».</li>\n<li><b>Herrería:</b> refina el Tridente de Sinza; mejorar un arma restaura sus usos, así que no repares antes de mejorar<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Rango 4 antes de la batalla:</b> el techo es 2700; faltan 100 de escaramuzas para Kiroc y Sepente<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Batalla, clasificatoria contra Alexandra:</b> ocho Alas Celestes. Lleva arcos (<a href=\"#/objeto/IID_鉄の弓\">Arco de hierro</a>, consejo del juego) y unidades con Coraza. Theodora y Leda van de invitadas; se pierde si cae Dietrich, Theodora o Leda<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fines de semana:</b> 5–6/5, 12–13/5, 19–20/5 y 26–27/5; el 17/5 (jueves), Plaza y comidas a mitad.</li>\n<li>Prestigio al acabar: 3490 (rango 4).</li>\n</ul>\n<h4>Capítulo 7</h4>\n<ul>\n<li><b>Libre del 29/5 al 15/6.</b> Abre Transmitir secreto (el tutorial da 50 <a href=\"#/objeto/IID_魔響石\">Esquirlas del eco</a>).</li>\n<li><b>Rango 4:</b> exámenes intermedios, Plaza de armas ×1,8 y audiencias de rango 4. <b>Recluta a <a href=\"#/personaje/PID_キロイカ\">Kiroc</a></b> (3 Aguas puras) y haz el Duelo de Sepente (nivel 17).</li>\n<li><b>Rango 5:</b> <a href=\"#/personaje/PID_ヌディーヌ\">Nydine</a> (2 <a href=\"#/objeto/IID_青銅の斧\">Hachas de bronce</a> de la Armería), <a href=\"#/personaje/PID_ウルタンド\">Ultand</a> y el Duelo de Camilo (nivel 23).</li>\n<li>Misiones: «A la conquista de mi pichurri» (solo este capítulo), «Sabores de casa», «La sombra del terror», «La espada asesina» y «Los Aceros Infalibles» → «A pico y pala» → «El legado de un escultor legendario» (5000 G + 100). «Ladrones en Aguiño» y «Sabor a nostalgia» cierran el 15/6.</li>\n<li><b>Batalla, clasificatoria contra Nathan y Creek:</b> 8 puestos y ocho jinetes ligeros; armas eficaces contra montados (Zanbato)<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fines de semana:</b> 2–3/6 y 9–10/6.</li>\n<li>Prestigio al acabar: 4920 (rango 6).</li>\n</ul>\n<h4>Capítulo 8</h4>\n<ul>\n<li><b>Libre del 21/6 al 31/7: 30 días en tierra y la caza de Cetus en el mar desde el 21/7.</b> Buen capítulo para el bucle de apoyos.</li>\n<li><b>Rango 6:</b> audiencias y <b><a href=\"#/mision/SQID_ディートリヒ篇_挑戦状5\">Duelo de Il-Lara</a></b> (nivel 29): abre Guardián y enseña Secreto de firmeza. Recluta a <a href=\"#/personaje/PID_ノクチュラ\">Noctula</a> (apoyo 1), <a href=\"#/personaje/PID_オリンピア\">Olympia</a>, <a href=\"#/personaje/PID_マクシム\">Maxim</a> y <a href=\"#/personaje/PID_ゴライアス\">Goliath</a> (3 <a href=\"#/objeto/IID_巨大肉\">Comidas de gigante</a>; la Respondedora saca gigantes en el desierto<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>).</li>\n<li><b>Cadena del garo:</b> «Bestias enormes» + «Exterminio de Porcelios» → «<a href=\"#/mision/SQID_ガルムのこだわり（１）\">Bendito garo</a>» (8000 G + 100; 5 garos) → «<a href=\"#/mision/SQID_不穏分子の調査協力\">Por el bien del Imperio</a>» (200 y una <a href=\"#/objeto/IID_中級資格手形\">Licencia intermedia</a>). Elige esta antes que «La carta oculta» (30): piden la misma carta.</li>\n<li><b>Rango 7 por los pelos:</b> con todo hecho el techo es 5780 y el rango 7 pide 5800. Unas escaramuzas bastan<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>; abren Teatro, Plaza ×2,5, el Duelo de Cabaye y a Mu (3 <a href=\"#/objeto/IID_グルマオサ\">Glirmosas</a>) y Simon.</li>\n<li><b>Batalla contra Cetus:</b> ocho trampas mágicas de un uso; rompe la armadura tras cada una y saca a tus unidades de las zonas moradas. El golpe en la zona central es letal<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Caballería y arqueros (consejo del juego).</li>\n<li><b>Fines de semana:</b> 23–24/6, 30/6–1/7, 7–8/7, 14–15/7, 21–22/7 y 28–29/7; el 17/7 (martes), Plaza y comidas a mitad.</li>\n<li>Prestigio al acabar: 7100 (rango 8).</li>\n</ul>\n<h4>Capítulo 9</h4>\n<ul>\n<li><b>Libre del 10/8 al 19/9: 41 días y 7 cupos.</b> El 19/9 cierran casi todas las misiones de los caps. 6–8: termínalas primero.</li>\n<li><b>Rango 8:</b> audiencias, Termas, exámenes avanzados, Duelos de Cabaye y Damien. Recluta a <a href=\"#/personaje/PID_カターニャ\">Catania</a> (apoyo 1), <a href=\"#/personaje/PID_グザラン\">Guzran</a>, <a href=\"#/personaje/PID_ピーテル\">Peter</a>, <a href=\"#/personaje/PID_ダンテ\">Dante</a> (8000 G) o <a href=\"#/personaje/PID_イニオニ\">Inyoni</a> (6000 G) si te hacen falta.</li>\n<li><b>Desvíos</b> (20 000 G y 150 cada uno):</li>\n<li>Leda: aceptar del 2/9 al 8/9; da a <a href=\"#/personaje/PID_バッカニア\">Buccar</a>.</li>\n<li>Theodora: aceptar del 3/9 al 12/9, combatir antes del 15/9.</li>\n<li>Bertrand: <b>solo el 17/9</b> en Dagsion (a las 21:00); da a Peppe y es la única vía a <a href=\"#/personaje/PID_ゲイツ\">Gaitz</a>.</li>\n<li>Talimun: aceptar del 17/9 al 10/10, combatir antes del 12/10; da a <a href=\"#/personaje/PID_ウーシュラ\">Ursula</a>.</li>\n<li><b>Rangos 9 y 10 en este capítulo:</b> Duelos de Berenguela y <a href=\"#/mision/SQID_ディートリヒ篇_挑戦状9\">Oko</a> (nivel 40; abre Rastreador y enseña Secreto de verdugo).</li>\n<li><b>Oro:</b> «Hechiceros en el bosque» (4000 G), «Un manjar digno de los dioses» (6000 G) y «Todavía más Entomosferas» (10 000 G; 8 Entomosferas). Recoge el <a href=\"#/objeto/IID_菫色のブローチ\">Broche violeta</a> en el Desfiladero de Axion para «El broche de mi difunta hermana» (3000 G + 100; plazo 4/10).</li>\n<li>Guarda ≥10 turnos para el viaje a Kunlun<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Batalla contra Zenon:</b> seis chamanes; lleva Res alta o voladores. Si Zenon no cae pronto aparecen tres chamanes invocadores: mátalos primero<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fines de semana:</b> 11–12/8 a 15–16/9; el 17/8 y el 17/9, Plaza y comidas a mitad.</li>\n<li>Prestigio al acabar: 10 590 (rango 11).</li>\n</ul>\n<h4>Capítulo 10</h4>\n<ul>\n<li><b>Libre del 29/9 al 4/10: 20 turnos y 2 cupos.</b> El rango 12 llega en este tiempo libre: desde aquí las misiones se hacen por el oro.</li>\n<li><b>Escena de Fabio el 29/9 a las 18:00</b> en el barrio de los templos (pide la del cap. 5)<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Desvío de Solel</b> («Secreto dorado», con Anna en Dagsion): 20 000 G y 150.</li>\n<li>Haz «El ataque de las bestias aladas»: con el porcelio abre «<a href=\"#/mision/SQID_垂涎の名品\">Armas de Da Mina</a>» (20 000 G + 100; 2 armas de Da Mina) y, con «Por el bien del Imperio», «Traficantes de flamma» (3000 G).</li>\n<li><b>El 4/10 cierran</b> «El broche…», «Mercancía robada», «Los Aceros Infalibles contratacan», «Hechiceros en el bosque» y «Todavía más Entomosferas».</li>\n<li><b>Batalla contra Anatolia:</b> dos grupos hacia los interruptores; activan gólems hostiles a todos. Anatolia se retira tras su primera barra e invoca refuerzos<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fin de semana:</b> 29–30/9.</li>\n<li>Prestigio al acabar: 11 250 (rango 12; el exceso sobre 10 800 se pierde).</li>\n</ul>\n<h4>Capítulo 11</h4>\n<ul>\n<li><b>Libre del 5/10 al 3/11. Es el capítulo de los Desvíos:</b></li>\n<li>Anatolia: aceptar del 5/10 al 14/10, combatir antes del 17/10; da a <a href=\"#/personaje/PID_サラン\">Sha Lan</a>.</li>\n<li>Cai: aceptar del 16/10 al 22/10; da a <a href=\"#/personaje/PID_ティアラ\">Tialla</a> (3000 G).</li>\n<li>Orchel: aceptar del 18/10 al 25/10, combatir antes del 27/10; da a <a href=\"#/personaje/PID_ディエゴ\">Diego</a>.</li>\n<li>Misiones: «Gólems descontrolados» → «La llave de casa» (100; solo este capítulo) y «Un cristal sin igual». El 3/11 cierran «Traficantes de flamma», «Un manjar…» y «Cliente desaparecido».</li>\n<li><b>Batalla contra Bertrand:</b> trampas ocultas en casi todo el suelo; desaparecen al entrar en su alcance<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Ganarla es requisito de Gaitz.</li>\n<li><b>Fines de semana:</b> 6–7/10, 13–14/10, 20–21/10, 27–28/10 y 3/11; el 17/10, Plaza y comidas a mitad.</li>\n<li>Prestigio al acabar: 12 920 (rango 12; el exceso se pierde).</li>\n</ul>\n<h4>Capítulo 12</h4>\n<ul>\n<li><b>Libre del 4/11 al 27/11.</b> Último capítulo: gasta todo.</li>\n<li><b>Escena de Fabio el 4/11</b> en el callejón este: mejora la Respondedora antes del duelo con Mars (<a href=\"#/guion/1_DIT_c12?ir=e-EV12_106\">El legado de un Elegido</a>)<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Recluta a Gaitz</b> (apoyo 3, rango 10): solo aquí y solo con el Desvío de Bertrand y la semifinal ganada.</li>\n<li>Misiones: «Notas robadas» → «Los tesoros de Gisco» → «El secreto del divino soberano» (120), «En busca de una moneda» y «Casa en venta». Duelos y Desvíos cierran el 27/11.</li>\n<li><b>Gasta oro y Prestigio:</b> el Prestigio no pasa a la Parte 2 y el convoy queda cerrado hasta la Parte 3. Equipa a cada unidad (<a href=\"#/guia/guerra-y-salvacion\">Guerra y Salvación</a>).</li>\n<li><b>Batalla contra Mars:</b> dos fases; en la segunda Dietrich lucha solo. Lleva curación y la Respondedora a punto<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fines de semana:</b> 10–11/11, 17–18/11 (el 17, Plaza y comidas a mitad) y 24–25/11.</li>\n<li>Prestigio al acabar: 14 060 (rango 12; el exceso se pierde).</li>\n</ul>"
+     "<p>El techo de Prestigio supone todas las misiones, los Duelos en cuanto abre su rango, los Desvíos y las audiencias disponibles hasta ese momento, más los fijos de la historia y la batalla principal, que se cobra al ganarla: el rango que da llega al capítulo siguiente. No cuenta las tropas de la Respondedora (30 cada una).</p>\n<h4>Capítulo 1</h4>\n<ul>\n<li>Se unen Dietrich y Fabio. Sin tiempo libre; inventario y trueque bloqueados.</li>\n<li>Batalla contra los bandoleros de Tarek: se pierde si cae Dietrich o Fabio<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Fabio cura.</li>\n<li>Prestigio al acabar: 0.</li>\n</ul>\n<h4>Capítulo 2</h4>\n<ul>\n<li>Se une Esmeralda; repártele EXP. Bendición de Fortuna desde el turno 2<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Batalla contra Orejas Rojas: invoca 2 enemigos; mátalo en un turno si llegas<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Da el <a href=\"#/objeto/IID_シンザのモリ\">Tridente de Sinza</a>.</li>\n<li>Prestigio al acabar: 200.</li>\n</ul>\n<h4>Capítulo 3</h4>\n<ul>\n<li>Mazmorra tutorial: abre sus cofres antes de seguir<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Batalla de Santa Katarina: apaga los tres dispositivos antes de golpear a Anatolia y no pises la arena<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Abren Mercado, Posada, Tablón y Percha; se usan desde el cap. 4.</li>\n<li>Prestigio al acabar: 770.</li>\n</ul>\n<h4>Capítulo 4</h4>\n<ul>\n<li><b>Libre del 27/3 al 10/4.</b> Se une Mikaela. Abren Servicio divino, Potenciar técnicas, la Respondedora y el Barrio alto. Aún no hay Plaza de armas, Examen de aptitud, Herrería ni Vandahl.</li>\n<li><b>Recluta a <a href=\"#/personaje/PID_ヨーカイ\">Yang Jie</a></b> (gratis, tutorial). Dale el <a href=\"#/objeto/IID_南方のゴーシュ\">Ghosh sureño</a> de «Regalos en el Mercado»: el primer regalo abre sus comidas.</li>\n<li><b>Haz «<a href=\"#/mision/SQID_幻の真珠（１）\">A la caza del porcelio</a>» en este capítulo</b> (5000 G; antes, «Ocho Colmillos»). Cierra el 10/4 y es requisito de «Más Entomosferas» (8000 G), «Todavía más Entomosferas» (10 000 G) y «Armas de Da Mina» (20 000 G). Las <a href=\"#/objeto/IID_虫真珠\">Entomosferas</a> caen de los porcelios (15,8 %).</li>\n<li>Haz también «Los bandidos de Granada» → «Entrada robada» → «Tablilla robada», «Se busca Piedra de refinado» y «Pesquisas para la… ¿novia?» (cierran con el cap. 5) y las cinco de los locales de Dagsion.</li>\n<li><b>Servicio divino:</b> Dietrich y Mikaela en Smyrnos; los dos tienen aptitud con ese dios.</li>\n<li><b>Cumpleaños:</b> Kiroc el sábado 31/3. Un regalo ese día da ≥70 de apoyo y no gasta el semanal; Kiroc solo pide apoyo 1.</li>\n<li><b>Batalla, clasificatoria contra Benditz:</b> carros; derriba pilares para frenarlos y usa magia contra los acorazados. Cofres con <a href=\"#/objeto/IID_斬馬刀\">Zanbato</a> (sureste) y <a href=\"#/objeto/IID_鉄の盾\">Escudo de hierro</a> (noroeste)<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fines de semana:</b> 31/3–1/4 y 7–8/4.</li>\n<li>Prestigio al acabar: 1610 (rango 2). Los 570 de la historia llegan al empezar el capítulo: el rango 2 y sus audiencias (+200) caben en este tiempo libre. <b>Calibra con tu partida:</b> con todo hecho deberías tener ≈1210 antes de la batalla; si vas por debajo, te falta una misión.</li>\n</ul>\n<h4>Capítulo 5</h4>\n<ul>\n<li><b>Libre del 11/4 al 30/4.</b> Dietrich pasa a <a href=\"#/clase/JID_闘士\">Gladiador</a>. Abren Plaza de armas, Examen de aptitud, Cazatalentos (Duelos) y Barrios bajos.</li>\n<li><b>Audiencias de rango 2</b> (+200, si no las recibiste en el cap. 4) y <b><a href=\"#/mision/SQID_ディートリヒ篇_挑戦状1\">Duelo de Borges</a></b> (Mina de Niraga, nivel recomendado 10): 5000 G, 150 y Secreto de sangre para Dietrich.</li>\n<li><b>«<a href=\"#/mision/SQID_怪異退治\">Criatura nocturna</a>»</b> (1500 G + 100): solo hasta el 30/4.</li>\n<li>Haz «Hachas de Behelda», «Pétalos para un gladiador» → «La expedición perdida» → «Cristal espiritual» y «Sacrificios siniestros»; con el porcelio, abren «<a href=\"#/mision/SQID_幻の真珠（２）\">Más Entomosferas</a>» (8000 G; 2 Entomosferas grandes).</li>\n<li><b>Rango 3 antes de la batalla:</b> el techo del tiempo libre es 2100: recluta ya a <a href=\"#/personaje/PID_イオ\">Io</a> (apoyo 2, 800 G) para Hannibal.</li>\n<li><b>Perdible:</b> la escena de Fabio en el callejón este abre su escena del cap. 10 y la mejora de la Respondedora del cap. 12<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Batalla, las pruebas de Hannibal:</b> acciona todas las palancas antes de 10 turnos; los jinetes de elefante no reciben daño hasta pulsar los interruptores. Dietrich no puede caer<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. <a href=\"#/habilidad/SID_影刃\">Paso sombrío</a> cuesta PV: Fabio a su lado.</li>\n<li><b>Fines de semana:</b> 14–15/4, 21–22/4 y 28–29/4; el 17/4 (martes), Plaza y comidas a mitad.</li>\n<li>Prestigio al acabar: 2500 (rango 3).</li>\n</ul>\n<h4>Capítulo 6</h4>\n<ul>\n<li><b>Libre del 4/5 al 28/5.</b> Abren Herrería, Buscar, Vandahl y las escaramuzas en el mapa.</li>\n<li><b>Recluta a Io</b> si no lo hiciste en el cap. 5. Llega con nivel alto y su caballo propio<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b><a href=\"#/mision/SQID_ディートリヒ篇_挑戦状2\">Duelo de Aguirre</a></b> (rango 3, nivel 14): 6000 G + 150.</li>\n<li><b>Compra</b> 3 <a href=\"#/objeto/IID_聖水\">Aguas puras</a> en el Bazar (500 G cada una) para Kiroc.</li>\n<li>Misiones: «Un día en la herrería», «Frutos energéticos» y «En busca de tierras fértiles» (cierran el 19/9), que abre «Ladrones en Aguiño» → «Sabor a nostalgia» (3000 G + 80). El 28/5 cierran «Hachas», «Más Entomosferas», «La expedición perdida» y «Cristal espiritual».</li>\n<li><b>Herrería:</b> refina el Tridente de Sinza; mejorar un arma restaura sus usos, así que no repares antes de mejorar<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Rango 4 en este tiempo libre</b> (techo 2870): exámenes intermedios, Plaza de armas ×1,8, audiencias de rango 4, <a href=\"#/personaje/PID_キロイカ\">Kiroc</a> (3 Aguas puras) y el Duelo de Sepente (nivel 17).</li>\n<li><b>Batalla, clasificatoria contra Alexandra:</b> ocho Alas Celestes. Lleva arcos (<a href=\"#/objeto/IID_鉄の弓\">Arco de hierro</a>, consejo del juego) y unidades con Coraza. Theodora y Leda van de invitadas; se pierde si cae Dietrich, Theodora o Leda<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fines de semana:</b> 5–6/5, 12–13/5, 19–20/5 y 26–27/5; el 17/5 (jueves), Plaza y comidas a mitad.</li>\n<li>Prestigio al acabar: 3470 (rango 4).</li>\n</ul>\n<h4>Capítulo 7</h4>\n<ul>\n<li><b>Libre del 29/5 al 15/6.</b> Abre Transmitir secreto (el tutorial da 50 <a href=\"#/objeto/IID_魔響石\">Esquirlas del eco</a>).</li>\n<li><b>Kiroc y el Duelo de Sepente,</b> si no los hiciste en el cap. 6.</li>\n<li><b>Rango 5:</b> <a href=\"#/personaje/PID_ヌディーヌ\">Nydine</a> (2 <a href=\"#/objeto/IID_青銅の斧\">Hachas de bronce</a> de la Armería), <a href=\"#/personaje/PID_ウルタンド\">Ultand</a> y el Duelo de Camilo (nivel 23).</li>\n<li>Misiones: «A la conquista de mi pichurri» (solo este capítulo), «Sabores de casa», «La sombra del terror», «La espada asesina» y «Los Aceros Infalibles» → «A pico y pala» → «El legado de un escultor legendario» (5000 G + 100). «Ladrones en Aguiño» y «Sabor a nostalgia» cierran el 15/6.</li>\n<li><b>Batalla, clasificatoria contra Nathan y Creek:</b> 8 puestos y ocho jinetes ligeros; armas eficaces contra montados (Zanbato)<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fines de semana:</b> 2–3/6 y 9–10/6.</li>\n<li>Prestigio al acabar: 4570 (rango 5).</li>\n</ul>\n<h4>Capítulo 8</h4>\n<ul>\n<li><b>Libre del 21/6 al 31/7: 30 días en tierra y la caza de Cetus en el mar desde el 21/7.</b> Buen capítulo para el bucle de apoyos.</li>\n<li><b>Rango 6 al poco de empezar:</b> audiencias y <b><a href=\"#/mision/SQID_ディートリヒ篇_挑戦状5\">Duelo de Il-Lara</a></b> (nivel 29): abre Guardián y enseña Secreto de firmeza. Recluta a <a href=\"#/personaje/PID_ノクチュラ\">Noctula</a> (apoyo 1), <a href=\"#/personaje/PID_オリンピア\">Olympia</a>, <a href=\"#/personaje/PID_マクシム\">Maxim</a> y <a href=\"#/personaje/PID_ゴライアス\">Goliath</a> (3 <a href=\"#/objeto/IID_巨大肉\">Comidas de gigante</a>; la Respondedora saca gigantes en el desierto<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>).</li>\n<li><b>Cadena del garo:</b> «Bestias enormes» + «Exterminio de Porcelios» → «<a href=\"#/mision/SQID_ガルムのこだわり（１）\">Bendito garo</a>» (8000 G + 100; 5 garos) → «<a href=\"#/mision/SQID_不穏分子の調査協力\">Por el bien del Imperio</a>» (200 y una <a href=\"#/objeto/IID_中級資格手形\">Licencia intermedia</a>). Elige esta antes que «La carta oculta» (30): piden la misma carta.</li>\n<li><b>Rango 7:</b> con todo hecho el techo del tiempo libre es 5430 y el rango 7 pide 5800. Los 370 que faltan salen de 13 tropas de la Respondedora; si no, llega con la batalla. Abre Teatro, Plaza ×2,5, el Duelo de Cabaye y a Mu (3 <a href=\"#/objeto/IID_グルマオサ\">Glirmosas</a>) y Simon.</li>\n<li><b>Batalla contra Cetus:</b> ocho trampas mágicas de un uso; rompe la armadura tras cada una y saca a tus unidades de las zonas moradas. El golpe en la zona central es letal<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Caballería y arqueros (consejo del juego).</li>\n<li><b>Fines de semana:</b> 23–24/6, 30/6–1/7, 7–8/7, 14–15/7, 21–22/7 y 28–29/7; el 17/7 (martes), Plaza y comidas a mitad.</li>\n<li>Prestigio al acabar: 6030 (rango 7).</li>\n</ul>\n<h4>Capítulo 9</h4>\n<ul>\n<li><b>Libre del 10/8 al 19/9: 41 días y 7 cupos.</b> El 19/9 cierran casi todas las misiones de los caps. 6–8: termínalas primero.</li>\n<li><b>Rangos 8 y 9 en este tiempo libre</b> (techo 8000): audiencias, Termas, exámenes avanzados, Duelos de Cabaye, Damien y Berenguela. Recluta a <a href=\"#/personaje/PID_カターニャ\">Catania</a> (apoyo 1), <a href=\"#/personaje/PID_グザラン\">Guzran</a>, <a href=\"#/personaje/PID_ピーテル\">Peter</a>, <a href=\"#/personaje/PID_ダンテ\">Dante</a> (8000 G) o <a href=\"#/personaje/PID_イニオニ\">Inyoni</a> (6000 G) si te hacen falta.</li>\n<li><b>Desvíos</b> (20 000 G y 150 cada uno):</li>\n<li>Leda: aceptar del 2/9 al 8/9; da a <a href=\"#/personaje/PID_バッカニア\">Buccar</a>.</li>\n<li>Theodora: aceptar del 3/9 al 12/9, combatir antes del 15/9.</li>\n<li>Bertrand: <b>solo el 17/9</b> en Dagsion (a las 21:00); da a Peppe y es la única vía a <a href=\"#/personaje/PID_ゲイツ\">Gaitz</a>.</li>\n<li>Talimun: aceptar del 17/9 al 10/10, combatir antes del 12/10; da a <a href=\"#/personaje/PID_ウーシュラ\">Ursula</a>.</li>\n<li><b>El rango 10 llega en el cap. 10,</b> con el Duelo de <a href=\"#/mision/SQID_ディートリヒ篇_挑戦状9\">Oko</a> (nivel 40; abre Rastreador y enseña Secreto de verdugo).</li>\n<li><b>Oro:</b> «Hechiceros en el bosque» (4000 G), «Un manjar digno de los dioses» (6000 G) y «Todavía más Entomosferas» (10 000 G; 8 Entomosferas). Recoge el <a href=\"#/objeto/IID_菫色のブローチ\">Broche violeta</a> en el Desfiladero de Axion para «El broche de mi difunta hermana» (3000 G + 100; plazo 4/10).</li>\n<li>Guarda ≥10 turnos para el viaje a Kunlun<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Batalla contra Zenon:</b> seis chamanes; lleva Res alta o voladores. Si Zenon no cae pronto aparecen tres chamanes invocadores: mátalos primero<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fines de semana:</b> 11–12/8 a 15–16/9; el 17/8 y el 17/9, Plaza y comidas a mitad.</li>\n<li>Prestigio al acabar: 8600 (rango 9).</li>\n</ul>\n<h4>Capítulo 10</h4>\n<ul>\n<li><b>Libre del 29/9 al 4/10: 20 turnos y 2 cupos.</b> Rango 10 en este tiempo libre (techo 9290): audiencias y Duelo de Oko. El 12 llega con la batalla del cap. 11.</li>\n<li><b>Escena de Fabio el 29/9 a las 18:00</b> en el barrio de los templos (pide la del cap. 5)<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Desvío de Solel</b> («Secreto dorado», con Anna en Dagsion): 20 000 G y 150.</li>\n<li>Haz «El ataque de las bestias aladas»: con el porcelio abre «<a href=\"#/mision/SQID_垂涎の名品\">Armas de Da Mina</a>» (20 000 G + 100; 2 armas de Da Mina) y, con «Por el bien del Imperio», «Traficantes de flamma» (3000 G).</li>\n<li><b>El 4/10 cierran</b> «El broche…», «Mercancía robada», «Los Aceros Infalibles contratacan», «Hechiceros en el bosque» y «Todavía más Entomosferas».</li>\n<li><b>Batalla contra Anatolia:</b> dos grupos hacia los interruptores; activan gólems hostiles a todos. Anatolia se retira tras su primera barra e invoca refuerzos<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fin de semana:</b> 29–30/9.</li>\n<li>Prestigio al acabar: 9890 (rango 11).</li>\n</ul>\n<h4>Capítulo 11</h4>\n<ul>\n<li><b>Libre del 5/10 al 3/11. Es el capítulo de los Desvíos:</b></li>\n<li>Anatolia: aceptar del 5/10 al 14/10, combatir antes del 17/10; da a <a href=\"#/personaje/PID_サラン\">Sha Lan</a>.</li>\n<li>Cai: aceptar del 16/10 al 22/10; da a <a href=\"#/personaje/PID_ティアラ\">Tialla</a> (3000 G).</li>\n<li>Orchel: aceptar del 18/10 al 25/10, combatir antes del 27/10; da a <a href=\"#/personaje/PID_ディエゴ\">Diego</a>.</li>\n<li>Misiones: «Gólems descontrolados» → «La llave de casa» (100; solo este capítulo) y «Un cristal sin igual». El 3/11 cierran «Traficantes de flamma», «Un manjar…» y «Cliente desaparecido».</li>\n<li><b>Batalla contra Bertrand:</b> trampas ocultas en casi todo el suelo; desaparecen al entrar en su alcance<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Ganarla es requisito de Gaitz.</li>\n<li><b>Fines de semana:</b> 6–7/10, 13–14/10, 20–21/10, 27–28/10 y 3/11; el 17/10, Plaza y comidas a mitad.</li>\n<li>Prestigio al acabar: 10 800 (rango 12, con la batalla; el exceso se pierde). Desde aquí las misiones se hacen por el oro.</li>\n</ul>\n<h4>Capítulo 12</h4>\n<ul>\n<li><b>Libre del 4/11 al 27/11.</b> Último capítulo: gasta todo.</li>\n<li><b>Escena de Fabio el 4/11</b> en el callejón este: mejora la Respondedora antes del duelo con Mars (<a href=\"#/guion/1_DIT_c12?ir=e-EV12_106\">El legado de un Elegido</a>)<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Recluta a Gaitz</b> (apoyo 3, rango 10): solo aquí y solo con el Desvío de Bertrand y la semifinal ganada.</li>\n<li>Misiones: «Notas robadas» → «Los tesoros de Gisco» → «El secreto del divino soberano» (120), «En busca de una moneda» y «Casa en venta». Duelos y Desvíos cierran el 27/11.</li>\n<li><b>Gasta oro y Prestigio:</b> el Prestigio no pasa a la Parte 2 y el convoy queda cerrado hasta la Parte 3. Equipa a cada unidad (<a href=\"#/guia/guerra-y-salvacion\">Guerra y Salvación</a>).</li>\n<li><b>Batalla contra Mars:</b> dos fases; en la segunda Dietrich lucha solo. Lleva curación y la Respondedora a punto<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fines de semana:</b> 10–11/11, 17–18/11 (el 17, Plaza y comidas a mitad) y 24–25/11.</li>\n<li>Prestigio al acabar: 10 800 (rango 12; el exceso se pierde).</li>\n</ul>"
     ],
     [
      "Equipo y tier list",
-     "<p>Consenso de varias listas<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Coste = apoyo con Dietrich / Prestigio; «Cap.» es el primero en que puedes pagarlo haciendo todo.</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Unidad</th><th>Coste</th><th>Cap.</th><th>Nota</th><th>Rol</th></tr><tr><td><a href=\"#/personaje/PID_ディートリヒ\">Dietrich</a></td><td>—</td><td>1</td><td>S</td><td>Espadachín crítico y cebo (Shido)</td></tr><tr><td><a href=\"#/personaje/PID_エスメラルダ\">Esmeralda</a></td><td>—</td><td>2</td><td>S</td><td>Tanque con lanzas arrojadizas</td></tr><tr><td><a href=\"#/personaje/PID_ファビオ\">Fabio</a></td><td>—</td><td>1</td><td>A</td><td>Mago negro de alcance 3 (Vate)</td></tr><tr><td><a href=\"#/personaje/PID_ノクチュラ\">Noctula</a></td><td>1/6</td><td>8</td><td>A</td><td>Tanque de esquiva (Púgil → Guerrero)</td></tr><tr><td><a href=\"#/personaje/PID_キロイカ\">Kiroc</a></td><td>1/4</td><td>7</td><td>A</td><td>Arquero barato (Tirador)</td></tr><tr><td><a href=\"#/personaje/PID_オリンピア\">Olympia</a></td><td>3/6</td><td>8</td><td>A</td><td>Maga crítica y Nosferatu</td></tr><tr><td><a href=\"#/personaje/PID_ヨーカイ\">Yang Jie</a></td><td>—</td><td>4</td><td>A-</td><td>Sanador con Físico</td></tr><tr><td><a href=\"#/personaje/PID_ウルタンド\">Ultand</a></td><td>3/5</td><td>7</td><td>A-</td><td>Guardián junto a los tanques</td></tr><tr><td><a href=\"#/personaje/PID_シモン\">Simon</a></td><td>3/7</td><td>8</td><td>A-</td><td>Pegador resistente (Guerrero)</td></tr><tr><td><a href=\"#/personaje/PID_グザラン\">Guzran</a></td><td>3/8</td><td>9</td><td>A-</td><td>Delantero esquivo</td></tr><tr><td><a href=\"#/personaje/PID_ミカエラ\">Mikaela</a></td><td>—</td><td>4</td><td>B+</td><td>Flanqueadora (Ala Celeste)</td></tr><tr><td><a href=\"#/personaje/PID_イオ\">Io</a></td><td>2/3</td><td>6</td><td>B+</td><td>Caballería (Cuadriguero)</td></tr><tr><td><a href=\"#/personaje/PID_ゴライアス\">Goliath</a></td><td>3/6</td><td>8</td><td>B+</td><td>Muro (Hoplita)</td></tr><tr><td><a href=\"#/personaje/PID_マクシム\">Maxim</a></td><td>3/6</td><td>8</td><td>B+</td><td>Esquiva y Trocar</td></tr><tr><td><a href=\"#/personaje/PID_ウーシュラ\">Ursula</a></td><td>3/7</td><td>9</td><td>B+</td><td>Carro para el equipo</td></tr><tr><td><a href=\"#/personaje/PID_ダンテ\">Dante</a></td><td>2/8</td><td>9</td><td>B+</td><td>Apoyo de Golpe y crítico (8000 G)</td></tr><tr><td><a href=\"#/personaje/PID_ゲイツ\">Gaitz</a></td><td>3/10</td><td>12</td><td>B+</td><td>Tanque; solo en esta ruta</td></tr><tr><td><a href=\"#/personaje/PID_ピーテル\">Peter</a></td><td>3/8</td><td>9</td><td>B+</td><td>Arquero para las técnicas secretas</td></tr></table></div>\n<p>Builds según tu roster: <a href=\"#/equipo?ir=eq-equipamiento\">Mi partida › Equipo</a>.</p>"
+     "<p>Consenso de varias listas<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Coste = apoyo con Dietrich / Prestigio; «Cap.» es el primero en que puedes pagarlo haciendo todo.</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Unidad</th><th>Coste</th><th>Cap.</th><th>Nota</th><th>Rol</th></tr><tr><td><a href=\"#/personaje/PID_ディートリヒ\">Dietrich</a></td><td>—</td><td>1</td><td>S</td><td>Espadachín crítico y cebo (Shido)</td></tr><tr><td><a href=\"#/personaje/PID_エスメラルダ\">Esmeralda</a></td><td>—</td><td>2</td><td>S</td><td>Tanque con lanzas arrojadizas</td></tr><tr><td><a href=\"#/personaje/PID_ファビオ\">Fabio</a></td><td>—</td><td>1</td><td>A</td><td>Mago negro de alcance 3 (Vate)</td></tr><tr><td><a href=\"#/personaje/PID_ノクチュラ\">Noctula</a></td><td>1/6</td><td>8</td><td>A</td><td>Tanque de esquiva (Púgil → Guerrero)</td></tr><tr><td><a href=\"#/personaje/PID_キロイカ\">Kiroc</a></td><td>1/4</td><td>6</td><td>A</td><td>Arquero barato (Tirador)</td></tr><tr><td><a href=\"#/personaje/PID_オリンピア\">Olympia</a></td><td>3/6</td><td>8</td><td>A</td><td>Maga crítica y Nosferatu</td></tr><tr><td><a href=\"#/personaje/PID_ヨーカイ\">Yang Jie</a></td><td>—</td><td>4</td><td>A-</td><td>Sanador con Físico</td></tr><tr><td><a href=\"#/personaje/PID_ウルタンド\">Ultand</a></td><td>3/5</td><td>7</td><td>A-</td><td>Guardián junto a los tanques</td></tr><tr><td><a href=\"#/personaje/PID_シモン\">Simon</a></td><td>3/7</td><td>8</td><td>A-</td><td>Pegador resistente (Guerrero)</td></tr><tr><td><a href=\"#/personaje/PID_グザラン\">Guzran</a></td><td>3/8</td><td>9</td><td>A-</td><td>Delantero esquivo</td></tr><tr><td><a href=\"#/personaje/PID_ミカエラ\">Mikaela</a></td><td>—</td><td>4</td><td>B+</td><td>Flanqueadora (Ala Celeste)</td></tr><tr><td><a href=\"#/personaje/PID_イオ\">Io</a></td><td>2/3</td><td>5</td><td>B+</td><td>Caballería (Cuadriguero)</td></tr><tr><td><a href=\"#/personaje/PID_ゴライアス\">Goliath</a></td><td>3/6</td><td>8</td><td>B+</td><td>Muro (Hoplita)</td></tr><tr><td><a href=\"#/personaje/PID_マクシム\">Maxim</a></td><td>3/6</td><td>8</td><td>B+</td><td>Esquiva y Trocar</td></tr><tr><td><a href=\"#/personaje/PID_ウーシュラ\">Ursula</a></td><td>3/7</td><td>9</td><td>B+</td><td>Carro para el equipo</td></tr><tr><td><a href=\"#/personaje/PID_ダンテ\">Dante</a></td><td>2/8</td><td>9</td><td>B+</td><td>Apoyo de Golpe y crítico (8000 G)</td></tr><tr><td><a href=\"#/personaje/PID_ゲイツ\">Gaitz</a></td><td>3/10</td><td>12</td><td>B+</td><td>Tanque; solo en esta ruta</td></tr><tr><td><a href=\"#/personaje/PID_ピーテル\">Peter</a></td><td>3/8</td><td>9</td><td>B+</td><td>Arquero para las técnicas secretas</td></tr></table></div>\n<p>Builds según tu roster: <a href=\"#/equipo?ir=eq-equipamiento\">Mi partida › Equipo</a>.</p>"
     ],
     [
      "Métodos de minmax",
-     "<ul>\n<li><b>EXP:</b> reparte la EXP; el nivel enemigo sigue a tus 10 unidades más altas (<a href=\"#/trucos?s=nivel-enemigo\">Nivel de los enemigos</a>). Detalle en <a href=\"#/guia/experiencia-y-niveles\">Experiencia y niveles</a>.</li>\n<li><b>Crecimientos:</b> cambia de clase antes de cada tope y aprovecha los mínimos de clase al aprobar (<a href=\"#/trucos?s=minimos\">Mínimos</a>, <a href=\"#/trucos?s=secuencia\">Secuencia de subidas</a>).</li>\n<li><b><a href=\"#/objeto/IID_アンスウェラー\">Respondedora</a>:</b> cada uso gasta 50 de 100; recarga 4 por turno y 50 al entrar en una zona o mazmorra. Las escaramuzas dan Esquirlas del eco y algo de Prestigio<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>; úsalas para cruzar los rangos 3, 4 y 7 a tiempo y para provocar porcelios y gigantes.</li>\n<li><b>Duelos y técnicas:</b> cada Temerario enseña su técnica a Dietrich; Transmitir secreto las pasa a otro por 30, 50 o 70 Esquirlas (470 las nueve). Haz Borges y Aguirre en cuanto puedas: 11 000 G (<a href=\"#/guia/tecnicas\">Técnicas</a>).</li>\n<li><b>Herrero:</b> las 10 técnicas potenciadas solo dejan la clase abierta; la clase rinde poco<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Apoyos rápidos:</b> comidas, Percha y Servicio divino cada semana, y los cumpleaños como regalo extra (<a href=\"#/trucos?s=bucle-apoyos\">Bucle de apoyos</a>, <a href=\"#/guia/comidas\">Comidas</a>, <a href=\"#/trucos?s=bonos-apoyo\">Mejoras de apoyo</a>).</li>\n<li><b>Dinero:</b> Duelos (80 500 G), 8 Desvíos (160 000 G) y misiones (unos 130 000 G), con las cadenas de Entomosferas, garo y Da Mina (<a href=\"#/trucos?s=desvios\">Fecha de los Desvíos</a>, <a href=\"#/guia/tiendas\">Tiendas</a>).</li>\n<li><b>Prestigio:</b> misiones, Duelos, Desvíos, las 24 audiencias (+50 cada una, por etapas de rango) y el Prestigio de historia (7250). En la ruta de Cai un guardado al empezar el cap. 5 tenía 2070, lo que cuadra con su historia más sus misiones. Ver <a href=\"#/guia/prestigio\">Prestigio</a>.</li>\n</ul>"
+     "<p>Principios comunes en <a href=\"#/guia/minmax\">Min-max</a>; lo propio de la ruta de Dietrich:</p>\n<ul>\n<li><b>EXP:</b> gasta los turnos que sobran en escaramuzas y mazmorras y lleva las plazas llenas; el nivel enemigo sigue a tus 10 unidades más altas (<a href=\"#/guia/experiencia-y-niveles\">Experiencia y niveles</a>, <a href=\"#/guia/escaramuzas\">Escaramuzas</a>).</li>\n<li><b>Crecimientos:</b> cambia de clase antes de cada tope y aprovecha los mínimos de clase al aprobar (<a href=\"#/trucos?s=minimos\">Mínimos</a>, <a href=\"#/trucos?s=secuencia\">Secuencia de subidas</a>).</li>\n<li><b><a href=\"#/objeto/IID_アンスウェラー\">Respondedora</a>:</b> cada uso gasta 50 de 100; recarga 4 por turno y 50 al entrar en una zona o mazmorra. Sus tropas dan 30 de Prestigio cada una (nada en el tope) y Esquirlas del eco<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>; úsalas para el rango 7 del cap. 8 y para provocar porcelios y gigantes.</li>\n<li><b>Duelos y técnicas:</b> cada Temerario enseña su técnica a Dietrich; Transmitir secreto las pasa a otro por 30, 50 o 70 Esquirlas (470 las nueve). Haz Borges y Aguirre en cuanto puedas: 11 000 G (<a href=\"#/guia/tecnicas\">Técnicas</a>).</li>\n<li><b>Herrero:</b> las 10 técnicas potenciadas solo dejan la clase abierta; la clase rinde poco<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Apoyos:</b> comidas, Percha y Servicio divino cada semana, y los cumpleaños como regalo extra (<a href=\"#/guia/comidas\">Comidas</a>, <a href=\"#/trucos?s=bonos-apoyo\">Mejoras de apoyo</a>).</li>\n<li><b>Dinero:</b> Duelos (80 500 G), 8 Desvíos (160 000 G) y misiones (unos 130 000 G), con las cadenas de Entomosferas, garo y Da Mina. Lo que quede al cerrar el cap. 12 se pierde: gástalo en equipo (<a href=\"#/trucos?s=desvios\">Fecha de los Desvíos</a>, <a href=\"#/guia/tiendas\">Tiendas</a>).</li>\n<li><b>Prestigio:</b> misiones, Duelos (1350), Desvíos (150 cada uno), audiencias (+50 cada una), batallas principales, los 770 fijos de la historia y las tropas de la Respondedora (<a href=\"#/guia/prestigio\">Prestigio</a>).</li>\n</ul>"
     ],
     [
      "Errores de las fuentes",
-     "<ul>\n<li>Muchas builds de Dietrich usan Catafracto, Caladrio, Jinete de baus, Bailarín o Trovador. En una primera ruta de Dietrich no existen; sí Guardián y Rastreador, tras sus Duelos.</li>\n<li>Se recomienda reclutar a Io antes de Hannibal o a Kiroc en el cap. 6. Sin escaramuzas no llega el Prestigio: Io entra en el cap. 6 y Kiroc en el 7.</li>\n<li>Se dan trueques de armas de bronce en Vandahl desde el cap. 4. En la ruta de Dietrich Vandahl abre en el 6, cuando esos trueques ya no están.</li>\n<li>Se dice que el descuento de regalos del 10 % (Ayudas de salvación) pide una ruta terminada. Se compra desde la primera partida.</li>\n<li>Se describe Llamado oscuro de Fabio como ayuda para acertar. Resta Evit al enemigo: da críticos, no Golpe.</li>\n<li>Algunas guías cierran los Duelos el 24/11. El plazo es el 27/11.</li>\n<li>Se recomienda a Seteth, Cai, Leda, Theodora, Tobias o Bonaventure. No se reclutan en la Parte 1 de Dietrich, y Tialla no puede ser Bailarina aquí.</li>\n</ul>"
+     "<ul>\n<li>Muchas builds de Dietrich usan Catafracto, Caladrio, Jinete de baus, Bailarín o Trovador. En una primera ruta de Dietrich no existen; sí Guardián y Rastreador, tras sus Duelos.</li>\n<li>Se dan trueques de armas de bronce en Vandahl desde el cap. 4. En la ruta de Dietrich Vandahl abre en el 6, cuando esos trueques ya no están.</li>\n<li>Se dice que el descuento de regalos del 10 % (Ayudas de salvación) pide una ruta terminada. Se compra desde la primera partida.</li>\n<li>Se describe Llamado oscuro de Fabio como ayuda para acertar. Resta Evit al enemigo: da críticos, no Golpe.</li>\n<li>Algunas guías cierran los Duelos el 24/11. El plazo es el 27/11.</li>\n<li>Se recomienda a Seteth, Cai, Leda, Theodora, Tobias o Bonaventure. No se reclutan en la Parte 1 de Dietrich, y Tialla no puede ser Bailarina aquí.</li>\n</ul>"
     ]
    ]
   },
@@ -531559,11 +532079,11 @@ window.WIKI={
     ],
     [
      "Antes de la Parte 2",
-     "<ul>\n<li><b>Qué pasa:</b> niveles, clases, competencias, habilidades y lo que cada unidad lleva encima (6 objetos). No pasan el oro, el Prestigio, el Carro ni la bolsa de materiales: vende, compra y refina en el último capítulo de la Parte 1.</li>\n<li><b>Nivel de entrada:</b> 35 en la Parte 2 y 40 en la Parte 3. Saltar una Guerra suma 5 niveles a sus unidades.</li>\n<li><b>Apoyos:</b> las conversaciones abiertas y no vistas en la Parte 1 no se pueden ver en la Parte 2<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Mira las que tengas pendientes antes de salir.</li>\n<li><b>Recluta pronto:</b> una unidad que no reclutas sube sola con el 80 % de su crecimiento (<a href=\"#/trucos?s=tardios\">Reclutas tardíos</a>). Quien llega tarde a la Parte 1 llega flojo al final.</li>\n<li><b>Desvíos:</b> haz los de Bertrand, Orchel, Talimun y Anatolia en la Parte 1 con cualquier ruta; sin ellos no se unen en la Parte 3 (<a href=\"#/guia/reclutamiento\">Reclutamiento</a>).</li>\n<li><b>Qué Guerra jugar:</b> la de la ruta con más unidades que quieras usar al final. Theodora es la más recomendada<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Si quieres a Creek y Nathan, juega la de Dietrich o la de Leda con «<a href=\"#/mision/SQID_妹の形見\">El broche de mi difunta hermana</a>» entregada (caps. 9–10). <a href=\"#/personaje/PID_セントリオン\">Centurio</a> pide haber completado la Parte 2 de Cai.</li>\n<li><b>Orden de rutas:</b> no hay uno mejor. Cai primero es lo más repetido<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Termina cada Parte 1 antes de empezar otra para heredar mapa y misiones (<a href=\"#/guia/rutas\">Rutas</a>).</li>\n<li><b>Fusión desde el principio:</b> si vas a jugar varias rutas, entrena a cada recluta en clases distintas en cada una. La Fusión causal se queda con el mayor valor de cada atributo (<a href=\"#/guia/esquirlas\">Esquirlas</a>).</li>\n</ul>"
+     "<ul>\n<li><b>Qué pasa:</b> niveles, clases, competencias, habilidades y lo que cada unidad lleva encima (6 objetos). Oro y Prestigio se pierden; Carro, materiales, monturas y batallones quedan guardados y en la Parte 3 se sacan del Arcón con Esquirlas cau. (los animales piden a Cai y los batallones a Theodora). Vende, compra y refina en el último capítulo de la Parte 1.</li>\n<li><b>Nivel de entrada:</b> quien se une en la Parte 2 llega a nivel 35 y en la Parte 3 a 40. Saltar una Guerra suma 5 niveles a sus unidades.</li>\n<li><b>La copia que pasa:</b> cada ruta aporta a la Parte 3 sus unidades tal como quedan al terminar u omitir su Guerra. Un recluta nuevo de la Parte 3 se autonivela con el 80 % de sus crecimientos y un señor sin su Parte 2, con el 70 %: sube a mano a las de crecimiento alto antes de cerrar cada Parte 2.</li>\n<li><b>Apoyos:</b> las conversaciones abiertas y no vistas en la Parte 1 no se pueden ver en la Parte 2<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Mira las que tengas pendientes antes de salir.</li>\n<li><b>Recluta pronto:</b> una unidad que no reclutas sube sola con el 80 % de su crecimiento (<a href=\"#/trucos?s=tardios\">Reclutas tardíos</a>). Quien llega tarde a la Parte 1 llega flojo al final.</li>\n<li><b>Desvíos:</b> haz los de Bertrand, Orchel, Talimun y Anatolia en la Parte 1 con cualquier ruta; sin ellos no se unen en la Parte 3 (<a href=\"#/guia/reclutamiento\">Reclutamiento</a>).</li>\n<li><b>Qué Guerra jugar:</b> la de la ruta con más unidades que quieras usar al final. Theodora es la más recomendada<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Si quieres a Creek y Nathan, juega la de Dietrich o la de Leda con «<a href=\"#/mision/SQID_妹の形見\">El broche de mi difunta hermana</a>» entregada (caps. 9–10). <a href=\"#/personaje/PID_セントリオン\">Centurio</a> pide haber completado la Parte 2 de Cai.</li>\n<li><b>Orden de rutas:</b> no hay uno mejor. Cai primero es lo más repetido<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Termina cada Parte 1 antes de empezar otra para heredar mapa y misiones (<a href=\"#/guia/rutas\">Rutas</a>).</li>\n<li><b>Fusión desde el principio:</b> si vas a jugar varias rutas, entrena a cada recluta en clases distintas en cada una. La Fusión causal se queda con el mayor valor de cada atributo (<a href=\"#/guia/esquirlas\">Esquirlas</a>).</li>\n</ul>"
     ],
     [
      "Parte 2 capítulo a capítulo",
-     "<p>Seis capítulos sin tiempo libre ni tiendas. Antes de cada batalla eliges una Acción del ejército y recibes armas +3 y 5 licencias de cada nivel (<a href=\"#/guia/guerra-y-salvacion\">Guerra y Salvación</a>). Theodora y Bertrand luchan como aliados en todos los mapas; si caen, pierdes<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</p>\n<ul>\n<li><b>Acción del ejército:</b> Puesta al día al menos una vez y Práctica grupal el resto<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Antes de la Puesta al día, pon a cada rezagado en la clase cuyos crecimientos quieras<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Solo hay acciones en los caps. 1–4<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Armas sin miedo:</b> se reparan al empezar cada capítulo<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Las +3 regaladas no pasan a la Parte 3.</li>\n<li><b>Avanza en bloque:</b> los refuerzos entran al cruzar zonas; ir despacio es más seguro<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Bendiciones:</b> Kalla (Mov y Esq) y Aurora (mitad de daño) son las más útiles<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span> (<a href=\"#/guia/servicio-divino\">Servicio divino</a>).</li>\n</ul>\n<h4>Capítulo 1: La batalla de la llanura de Klytius</h4>\n<ul>\n<li><b>Nivel 30–35. Solo 10 casillas</b>, el único mapa así. 51 enemigos, 15 de ellos con arco; los jefes van a caballo.</li>\n<li><b>Objetivo:</b> derrotar a Ianuarius y a Lind.</li>\n<li><b>Botín:</b> Creek suelta <a href=\"#/objeto/IID_サンダーソード＋１\">Espada trueno+1</a> y un guerrero del oeste, <a href=\"#/objeto/IID_ハンマー＋１\">Martillo+1</a>.</li>\n<li>Lleva lanzas y armas anticaballería; el juego recomienda <a href=\"#/objeto/IID_ダ・ミナの槍\">Lanza de Da Mina</a> y <a href=\"#/objeto/IID_ハンマー\">Martillo</a>.</li>\n</ul>\n<h4>Capítulo 2: Duelo en la fortaleza de Agris</h4>\n<ul>\n<li><b>Nivel 31–37. 15 casillas.</b> 45 enemigos con 9 refuerzos y 8 voladores.</li>\n<li><b>Creek se une</b> al derrotarlo, solo si entregaste el broche en la Parte 1<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Botín perdible:</b> un Rastreador del sureste lleva <a href=\"#/objeto/IID_清めの剣＋１\">Espada purificadora+1</a> y huye pronto; otro del oeste, <a href=\"#/objeto/IID_馬殺しの弓＋１\">Arco anticaballería+1</a>. Manda un volador a por el primero<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n</ul>\n<h4>Capítulo 3: Más allá de la Vía de la Sal</h4>\n<ul>\n<li><b>Nivel 32–39. 15 casillas.</b> 50 enemigos, 17 de ellos refuerzos, casi todos jinetes. Sin voladores.</li>\n<li><b>Objetivo:</b> derrotar a Gilchris, que suelta <a href=\"#/objeto/IID_妖槍ヴェンデッタ\">Vendetta</a>.</li>\n<li><b>Nathan se une</b> si Creek le da el golpe final<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Aswan y Tahonia</b> luchan como invitadas; si sobreviven, vuelven en la Parte 3<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Calles estrechas: acorazados delante, arqueros detrás y magos con <a href=\"#/objeto/IID_リブロー\">Sanar</a>.</li>\n</ul>\n<h4>Capítulo 4: Asalto a Dagsion</h4>\n<ul>\n<li><b>Nivel 33–41. 14 casillas.</b> El mapa más poblado: 66 enemigos, 17 voladores, 8 elefantes.</li>\n<li><b>Objetivo:</b> derrotar a Lind, que suelta <a href=\"#/objeto/IID_邪剣エンジュラ\">Ángela</a>.</li>\n<li>Lleva 3–4 arqueros y varios sanadores; el juego recomienda el <a href=\"#/objeto/IID_ダ・ミナの弓\">Arco de Da Mina</a>.</li>\n<li>Última Acción del ejército<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n</ul>\n<h4>Capítulo 5: Dagda, el emperador divino</h4>\n<ul>\n<li><b>Nivel 34–43. 15 casillas.</b> 65 enemigos, 23 de ellos refuerzos (12 jinetes de baus) y 7 gólems.</li>\n<li><b>Botín:</b> Dagda suelta la <a href=\"#/objeto/IID_ダグザの棍棒\">Maza de Dagda</a> y cuatro gólems, <a href=\"#/objeto/IID_グレイブ＋１\">Glaive+1</a>, <a href=\"#/objeto/IID_グレートソード＋１\">Mandoble+1</a>, <a href=\"#/objeto/IID_ロングボウ＋１\">Arco largo+1</a> y <a href=\"#/objeto/IID_ジャマダハル＋１\">Jamadhars+1</a>.</li>\n<li>Su Res es mucho más baja que su Def: usa magia<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Lleva al menos 2 arqueros para los refuerzos voladores<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>No corras hacia Dagda: limpia la zona baja antes de subir la escalera, que dispara más refuerzos<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n</ul>\n<h4>Capítulo 6: El inframundo encarnado</h4>\n<ul>\n<li><b>Nivel 35–45. Dos mapas seguidos de 15 casillas.</b></li>\n<li><b>Batalla contra Lyrah:</b> rompe primero los escudos de las esquinas con golpes débiles; en su fase de capullo cada golpe la cura, así que solo golpes fuertes<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Un Shido suelta otra <a href=\"#/objeto/IID_清めの剣＋１\">Espada purificadora+1</a>.</li>\n<li><b>Huida de Dagsion:</b> lleva a Leda a la salida. Los fuertes por el oeste y sin atraer a los batallones del centro; Aurora ayuda mucho<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Antes de cerrar:</b> lo que lleves encima al terminar es lo que pasa a la Parte 3<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n</ul>"
+     "<p>Seis capítulos sin tiempo libre ni tiendas. Antes de cada batalla eliges una Acción del ejército y recibes armas +3 y 5 licencias de cada nivel (<a href=\"#/guia/guerra-y-salvacion\">Guerra y Salvación</a>). Theodora y Bertrand luchan como aliados en todos los mapas; si caen, pierdes<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</p>\n<ul>\n<li><b>Acción del ejército:</b> Puesta al día al menos una vez y Práctica grupal el resto<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Antes de la Puesta al día, pon a cada rezagado en la clase cuyos crecimientos quieras<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Solo hay acciones en los caps. 1–4<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Armas sin miedo:</b> se reparan al empezar cada capítulo<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Las +3 regaladas no pasan a la Parte 3.</li>\n<li><b>Avanza en bloque:</b> los refuerzos entran al cruzar zonas; ir despacio es más seguro<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Bendiciones:</b> Kalla (Mov y Esq) y Aurora (mitad de daño) son las más útiles<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span> (<a href=\"#/guia/servicio-divino\">Servicio divino</a>).</li>\n</ul>\n<h4>Capítulo 1: La batalla de la llanura de Klytius</h4>\n<ul>\n<li><b>Nivel 30–35. Solo 8 plazas además del señor</b> (9 con Theodora), el único mapa así. 51 enemigos, 15 de ellos con arco; los jefes van a caballo.</li>\n<li><b>Objetivo:</b> derrotar a Ianuarius y a Lind.</li>\n<li><b>Botín:</b> Creek suelta <a href=\"#/objeto/IID_サンダーソード＋１\">Espada trueno+1</a> y un guerrero del oeste, <a href=\"#/objeto/IID_ハンマー＋１\">Martillo+1</a>.</li>\n<li>Lleva lanzas y armas anticaballería; el juego recomienda <a href=\"#/objeto/IID_ダ・ミナの槍\">Lanza de Da Mina</a> y <a href=\"#/objeto/IID_ハンマー\">Martillo</a>.</li>\n</ul>\n<h4>Capítulo 2: Duelo en la fortaleza de Agris</h4>\n<ul>\n<li><b>Nivel 31–37. 12 plazas</b> (13 con Theodora). 45 enemigos con 9 refuerzos y 8 voladores.</li>\n<li><b>Creek se une</b> al derrotarlo, solo si entregaste el broche en la Parte 1<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Botín perdible:</b> un Rastreador del sureste lleva <a href=\"#/objeto/IID_清めの剣＋１\">Espada purificadora+1</a> y huye pronto; otro del oeste, <a href=\"#/objeto/IID_馬殺しの弓＋１\">Arco anticaballería+1</a>. Manda un volador a por el primero<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n</ul>\n<h4>Capítulo 3: Más allá de la Vía de la Sal</h4>\n<ul>\n<li><b>Nivel 32–39. 12 plazas</b> (13 con Theodora). 50 enemigos, 17 de ellos refuerzos, casi todos jinetes. Sin voladores.</li>\n<li><b>Objetivo:</b> derrotar a Gilchris, que suelta <a href=\"#/objeto/IID_妖槍ヴェンデッタ\">Vendetta</a>.</li>\n<li><b>Nathan se une</b> si Creek le da el golpe final<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Aswan y Tahonia</b> luchan como invitadas; si sobreviven, vuelven en la Parte 3<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Calles estrechas: acorazados delante, arqueros detrás y magos con <a href=\"#/objeto/IID_リブロー\">Sanar</a>.</li>\n</ul>\n<h4>Capítulo 4: Asalto a Dagsion</h4>\n<ul>\n<li><b>Nivel 33–41. 12 plazas,</b> también con Theodora. El mapa más poblado: 66 enemigos, 17 voladores, 8 elefantes.</li>\n<li><b>Objetivo:</b> derrotar a Lind, que suelta <a href=\"#/objeto/IID_邪剣エンジュラ\">Ángela</a>.</li>\n<li>Lleva 3–4 arqueros y varios sanadores; el juego recomienda el <a href=\"#/objeto/IID_ダ・ミナの弓\">Arco de Da Mina</a>.</li>\n<li>Última Acción del ejército<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n</ul>\n<h4>Capítulo 5: Dagda, el emperador divino</h4>\n<ul>\n<li><b>Nivel 34–43. 12 plazas</b> (13 con Theodora). 65 enemigos, 23 de ellos refuerzos (12 jinetes de baus) y 7 gólems.</li>\n<li><b>Botín:</b> Dagda suelta la <a href=\"#/objeto/IID_ダグザの棍棒\">Maza de Dagda</a> y cuatro gólems, <a href=\"#/objeto/IID_グレイブ＋１\">Glaive+1</a>, <a href=\"#/objeto/IID_グレートソード＋１\">Mandoble+1</a>, <a href=\"#/objeto/IID_ロングボウ＋１\">Arco largo+1</a> y <a href=\"#/objeto/IID_ジャマダハル＋１\">Jamadhars+1</a>.</li>\n<li>Su Res es mucho más baja que su Def: usa magia<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Lleva al menos 2 arqueros para los refuerzos voladores<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>No corras hacia Dagda: limpia la zona baja antes de subir la escalera, que dispara más refuerzos<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n</ul>\n<h4>Capítulo 6: El inframundo encarnado</h4>\n<ul>\n<li><b>Nivel 35–45. Dos mapas seguidos de 12 plazas</b> (13 con Theodora).</li>\n<li><b>Batalla contra Lyrah:</b> rompe primero los escudos de las esquinas con golpes débiles; en su fase de capullo cada golpe la cura, así que solo golpes fuertes<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Un Shido suelta otra <a href=\"#/objeto/IID_清めの剣＋１\">Espada purificadora+1</a>.</li>\n<li><b>Huida de Dagsion:</b> lleva a Leda a la salida. Los fuertes por el oeste y sin atraer a los batallones del centro; Aurora ayuda mucho<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Antes de cerrar:</b> lo que lleves encima al terminar es lo que pasa a la Parte 3<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n</ul>"
     ],
     [
      "Parte 3 sección a sección",
@@ -531587,7 +532107,7 @@ window.WIKI={
     ],
     [
      "Errores de las fuentes",
-     "<ul>\n<li>Se dice que Creek y Nathan se unen en todas las rutas. Su misión solo existe en las rutas de Dietrich y Leda.</li>\n<li>Se dice que saltar una Guerra iguala el nivel al de la Guerra jugada. Saltarla suma 5 niveles.</li>\n<li>Se dice que con unidades a nivel 99 los enemigos del final llegan a 99. El nivel base del mapa final tiene tope en 60.</li>\n<li>Se dice que la Parte 2 da 14 casillas en todos los mapas. Son 10 en el cap. 1, 14 en el 4 y 15 en el resto.</li>\n<li>Se dice que el cap. 1 de la Parte 2 se gana derrotando a todos. Basta con Ianuarius y Lind.</li>\n<li>Se dice que Aswan y Tahonia se unen al principio de la sección 5. Llegan en la 4.</li>\n<li>Se dice que La Calamidad pide Espada S <b>y</b> Arco S. Basta con uno de los dos.</li>\n</ul>"
+     "<ul>\n<li>Se dice que Creek y Nathan se unen en todas las rutas. Su misión solo existe en las rutas de Dietrich y Leda.</li>\n<li>Se dice que saltar una Guerra iguala el nivel al de la Guerra jugada. Saltarla suma 5 niveles.</li>\n<li>Se dice que con unidades a nivel 99 los enemigos del final llegan a 99. El nivel base del mapa final tiene tope en 60.</li>\n<li>Se dice que la Parte 2 da 14 casillas en todos los mapas. Sin contar al señor se eligen 8 unidades en el cap. 1 y 12 en los demás; en la ruta de Theodora, 9, 13, 13, 12, 13 y 13.</li>\n<li>Se dice que el cap. 1 de la Parte 2 se gana derrotando a todos. Basta con Ianuarius y Lind.</li>\n<li>Se dice que Aswan y Tahonia se unen al principio de la sección 5. Llegan en la 4.</li>\n<li>Se dice que La Calamidad pide Espada S <b>y</b> Arco S. Basta con uno de los dos.</li>\n</ul>"
     ]
    ]
   },
@@ -531646,15 +532166,15 @@ window.WIKI={
    "secs": [
     [
      "En resumen",
-     "<ul>\n<li><b>Equipo base gratis:</b> Leda, Buccar, Mu y Sirocco desde el cap. 1, Olympia desde el 3 y Catania por apoyo 1 y Prestigio 2. Cubren los 6 puestos de los caps. 5–8.</li>\n<li><b>Primeros reclutas:</b> Catania (cap. 4) y Guzran (Prestigio 3, cap. 5). Después, Esmeralda y Sofia en el cap. 7 e Inyoni en el cap. 9.</li>\n<li><b>Economía:</b> las actuaciones de Leda son la mayor fuente de oro y Prestigio (unos 89 000 G y 4480 de Prestigio en total). Hazlas en cuanto salgan.</li>\n<li><b>Plazos duros:</b> 28/5, 28/6, 1/9, 15/10 y 27/11. El 1/9 cierra a la vez casi todo lo de los caps. 6–9.</li>\n<li><b>Leda bailarina, sí:</b> la clase <a href=\"#/clase/JID_踊り子\">Bailarín</a> es solo suya en la Parte 1 y da mucha Vel. Bailar y cantar gastan la misma acción, así que elige cada turno<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Prestigio 10 llega en el cap. 9</b> haciendo todo, con el Prestigio de historia de cada capítulo y las audiencias. Lo que frena la última receta es el Calicanto, que no sale hasta el cap. 11.</li>\n</ul>"
+     "<ul>\n<li><b>Equipo base gratis:</b> Leda, Buccar, Mu y Sirocco desde el cap. 1, Olympia desde el 3 y Catania por apoyo 1 y Prestigio 2. Cubren los 6 puestos de los caps. 5–8.</li>\n<li><b>Primeros reclutas:</b> Catania (cap. 4) y Guzran (Prestigio 3, cap. 5). Después, Esmeralda y Sofia en el cap. 7 e Inyoni en el cap. 9.</li>\n<li><b>Economía:</b> las actuaciones de Leda son la mayor fuente de oro y Prestigio (unos 89 000 G y 4480 de Prestigio en total). Hazlas en cuanto salgan.</li>\n<li><b>Plazos duros:</b> 28/5, 28/6, 1/9, 15/10 y 27/11. El 1/9 cierra a la vez casi todo lo de los caps. 6–9.</li>\n<li><b>Leda bailarina, sí:</b> la clase <a href=\"#/clase/JID_踊り子\">Bailarín</a> es solo suya en la Parte 1 y da mucha Vel. Bailar y cantar gastan la misma acción, así que elige cada turno<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Prestigio 10 llega en el cap. 9</b> haciendo todo, con la batalla principal de cada capítulo y las audiencias. Lo que frena la última receta es el Calicanto, que no sale hasta el cap. 11.</li>\n</ul>"
     ],
     [
      "Antes de empezar",
-     "<ul>\n<li><b>Despliegue:</b> 3 puestos en los caps. 2–3, 5 en el 4, 6 en los caps. 5–8, 7 en el 9, 8 en los caps. 10–11 y 9 en el 12. Hasta el cap. 9 los 6 gratis bastan.</li>\n<li><b>Recluta pronto a quien vayas a usar.</b> Sin reclutar, una unidad sube sola con el 80 % de su crecimiento y sin crecimientos de clase (<a href=\"#/trucos?s=tardios\">Reclutas tardíos</a>).</li>\n<li><b>No reinicies un capítulo después de actuar.</b> Reiniciar capítulo devuelve oro, Prestigio y misiones al inicio del capítulo; solo conserva los apoyos. Si haces el <a href=\"#/trucos?s=bucle-apoyos\">bucle de apoyos</a>, hazlo al empezar el capítulo, antes de cualquier actuación.</li>\n<li><b>Ni batallones ni monturas con vínculo:</b> son de las rutas de Theodora y Cai.</li>\n<li><b>Clases que abre Leda:</b> <a href=\"#/clase/JID_踊り子\">Bailarín</a> (misión «La sucesora del gran bailarín») y <a href=\"#/clase/JID_レンジャー\">Rastreador</a> y <a href=\"#/clase/JID_トルバドール\">Trovador</a> (última receta de la taberna). <a href=\"#/clase/JID_ガーディアン\">Guardián</a>, <a href=\"#/clase/JID_カタフラクト\">Catafracto</a>, <a href=\"#/clase/JID_カラドリオス\">Caladrio</a>, <a href=\"#/clase/JID_ドラグーン\">Jinete de baus</a> y <a href=\"#/clase/JID_鍛冶師\">Herrero</a> solo están si ya las abriste en otra ruta.</li>\n<li><b>Rutina semanal:</b> gasta los cupos el sábado, espera en Dagsion al domingo y gástalos otra vez (<a href=\"#/trucos?s=doble-semana\">doble semana</a>). Audiencias (+50): martes Mars, miércoles Smyrnos, jueves Jurah y viernes Kalla.</li>\n</ul>"
+     "<ul>\n<li><b>Despliegue:</b> 3 puestos en los caps. 2–3, 5 en el 4, 6 en los caps. 5–8, 7 en el 9, 8 en los caps. 10–11 y 9 en el 12. Hasta el cap. 9 los 6 gratis bastan.</li>\n<li><b>Recluta pronto a quien vayas a usar.</b> Sin reclutar, una unidad sube sola con el 80 % de su crecimiento (con el modificador de la clase que le toca) y sin el azar ni la montura (<a href=\"#/trucos?s=tardios\">Reclutas tardíos</a>).</li>\n<li><b>No reinicies un capítulo después de actuar.</b> Reiniciar capítulo devuelve oro, Prestigio y misiones al inicio del capítulo; solo conserva los apoyos. Si haces el <a href=\"#/trucos?s=bucle-apoyos\">bucle de apoyos</a>, hazlo al empezar el capítulo, antes de cualquier actuación.</li>\n<li><b>Ni batallones ni monturas con vínculo:</b> son de las rutas de Theodora y Cai.</li>\n<li><b>Clases que abre Leda:</b> <a href=\"#/clase/JID_踊り子\">Bailarín</a> (misión «La sucesora del gran bailarín») y <a href=\"#/clase/JID_レンジャー\">Rastreador</a> y <a href=\"#/clase/JID_トルバドール\">Trovador</a> (última receta de la taberna). <a href=\"#/clase/JID_ガーディアン\">Guardián</a>, <a href=\"#/clase/JID_カタフラクト\">Catafracto</a>, <a href=\"#/clase/JID_カラドリオス\">Caladrio</a>, <a href=\"#/clase/JID_ドラグーン\">Jinete de baus</a> y <a href=\"#/clase/JID_鍛冶師\">Herrero</a> solo están si ya las abriste en otra ruta.</li>\n<li><b>Rutina semanal:</b> gasta los cupos el sábado, espera en Dagsion al domingo y gástalos otra vez (<a href=\"#/trucos?s=doble-semana\">doble semana</a>). Audiencias (+50): martes Mars, miércoles Smyrnos, jueves Jurah y viernes Kalla.</li>\n</ul>"
     ],
     [
      "Capítulo a capítulo",
-     "<p>El techo de Prestigio supone todas las misiones, Desvíos y audiencias disponibles hasta ese momento, más el Prestigio de historia que cada capítulo da al cerrarse (300, 1000, 630, 1000, 300, 1680, 560, 690 y 660 desde el cap. 4: 6820 en total). Ese premio se cobra al acabar el capítulo: el rango nuevo llega al siguiente.</p>\n<h4>Capítulo 1</h4>\n<ul>\n<li>Se unen Leda, Buccar, Mu y Sirocco. Sin tiempo libre.</li>\n<li>Batalla contra Bjor: Leda ya tiene <a href=\"#/habilidad/SID_熱狂の歌\">Canto de fervor</a>, que cuesta el 20 % de sus PV. Úsalo con moderación.</li>\n<li>Prestigio al acabar: 0.</li>\n</ul>\n<h4>Capítulo 2</h4>\n<ul>\n<li>Mina de Coris: abre sus tres cofres antes de terminar<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Batalla contra Balboa: abre el cofre antes de matarlo; un arquero lleva la llave<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Da a Leda el <a href=\"#/objeto/IID_羅刹女の徹扇\">Abanico de Lakshashi</a>: cuenta como espada<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Prestigio al acabar: 0.</li>\n</ul>\n<h4>Capítulo 3</h4>\n<ul>\n<li>Batalla contra Olympia: gana si tras 10 turnos hay más llamas azules que rojas. Mantén azules las exteriores<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Se une Olympia. Abren Mercado, Posada, Tablón y Percha: haz «Hospedaje en la Posada» y «Regalos en el Mercado» (10 cada una).</li>\n<li>Prestigio al acabar: 20.</li>\n</ul>\n<h4>Capítulo 4</h4>\n<ul>\n<li><b>Libre del 21/3 al 4/4.</b> Abren Servicio divino, Buscar y las actuaciones.</li>\n<li><b>Actúa ya:</b> <a href=\"#/mision/SQID_レダ篇_酒場興行1\">Baile en la taberna</a> (200, enseña <a href=\"#/habilidad/SID_冷狂の歌\">Canto de frescor</a>) y Yaaman, Regia y Daimōn (3000 G cada una; plazo 28/5).</li>\n<li><b>Haz «<a href=\"#/mision/SQID_幻の真珠（１）\">A la caza del porcelio</a>» en este capítulo</b> (5000 G; antes, «Ocho Colmillos»). Es requisito de «Más Entomosferas» y de «Armas de Da Mina» (20 000 G). Las Entomosferas las sueltan los porcelios.</li>\n<li>Haz también «Los bandidos de Granada» → «Entrada robada» → «Tablilla robada», «Se busca Piedra de refinado» y «Pesquisas para la… ¿novia?» (cierran con el cap. 5).</li>\n<li><b>Recluta a <a href=\"#/personaje/PID_カターニャ\">Catania</a></b> en cuanto tengas Prestigio 2. Da un primer regalo a todos los reclutables: abre sus comidas.</li>\n<li><b>Compra</b> un <a href=\"#/objeto/IID_ヤーマンギク\">Yaamantemo</a> en el mercado de Yaaman para «Pétalos para un gladiador».</li>\n<li><b>Batalla contra Lechner:</b> lleva a Leda a la casilla de huida del noreste<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Contra los acorazados, magia (<a href=\"#/objeto/IID_サンダー\">Trueno</a>) de Olympia y Sirocco.</li>\n<li><b>Fines de semana:</b> 24–25/3 y 31/3–1/4. Aún no hay Plaza de armas.</li>\n<li>Prestigio al acabar: 1520 (rango 2). <b>Calibra con tu partida:</b> con todo hecho deberías tener ≈1520 al ganar el cap. 4; si vas muy por debajo, te falta una actuación o misión.</li>\n</ul>\n<h4>Capítulo 5</h4>\n<ul>\n<li><b>Libre del 7/4 al 7/5.</b> Abren Plaza de armas y Examen de aptitud. Es largo: buen momento para el bucle de apoyos, antes de actuar.</li>\n<li><b>Recluta a <a href=\"#/personaje/PID_グザラン\">Guzran</a></b> al llegar a Prestigio 3 (apoyo 1).</li>\n<li><b>Actúa</b> en Callianeira y Aguiño (5000 G cada una; plazo 28/6).</li>\n<li><b>«<a href=\"#/mision/SQID_怪異退治\">Criatura nocturna</a>»</b> (1500 G + 100): solo hasta el 7/5. El espectro sale de noche en los callejones del este<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Entrega el Yaamantemo en «Pétalos para un gladiador» y haz «Sacrificios siniestros»; con el porcelio, abren «Más Entomosferas» (8000 G).</li>\n<li><b>Batalla contra Jasmine:</b> acorazados débiles a la magia negra; las hachas también rinden. Pulsa los interruptores para cortar el Agua pura<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fines de semana:</b> 7–8/4, 14–15/4, 21–22/4, 28–29/4 y 5–6/5; el 17/4 (martes), Plaza y comidas a mitad.</li>\n<li>Prestigio al acabar: 3590 (rango 4).</li>\n</ul>\n<h4>Capítulo 6</h4>\n<ul>\n<li><b>Libre del 9/5 al 28/5.</b> Abren Herrería y Vandahl.</li>\n<li><b>Prestigio 4 desde el inicio:</b> exámenes intermedios (nivel 20) y Plaza de armas ×1,8.</li>\n<li><b>Recluta</b> a <a href=\"#/personaje/PID_キロイカ\">Kiroc</a> (3 <a href=\"#/objeto/IID_聖水\">Aguas puras</a>) y, si lo quieres, a <a href=\"#/personaje/PID_ジャスミン\">Jasmine</a> (500 G; solo tras la batalla del cap. 5). Con Prestigio 5, a mitad de capítulo, Dadao, Fianna, Loretta o Zarcone solo si te hacen falta.</li>\n<li><b>Actúa</b> en Raivo y Zoste (plazo 1/9). Cierra Yaaman, Regia y Daimōn si faltan (28/5).</li>\n<li><b>Compra</b> una <a href=\"#/objeto/IID_清めの剣\">Espada purificadora</a> en Vandahl (3 <a href=\"#/objeto/IID_ラドンパイク\">Lucios del Ladon</a>) para el cap. 7, y un <a href=\"#/objeto/IID_ロングボウ\">Arco largo</a> en Aguiño contra voladores.</li>\n<li>Misiones: «Frutos energéticos» y «En busca de tierras fértiles» (cierran el 1/9), «Un día en la herrería».</li>\n<li><b>Sube a Leda a nivel 10:</b> aprende <a href=\"#/habilidad/SID_滅冥の歌\">Canto de pureza</a>, que hace a los aliados eficaces contra muertos vivientes.</li>\n<li><b>Batalla contra Alexandra:</b> llegan voladoras; usa arqueros y protégelos con unidades con Coraza.</li>\n<li><b>Fines de semana:</b> 12–13/5, 19–20/5 y 26–27/5; el 17/5 (jueves), Plaza y comidas a mitad.</li>\n<li>Prestigio al acabar: 5000 (rango 6).</li>\n</ul>\n<h4>Capítulo 7</h4>\n<ul>\n<li><b>Libre del 29/5 al 28/6.</b> Otro capítulo largo para el bucle de apoyos.</li>\n<li><b>Prestigio 6 desde el inicio y 7 a mitad de capítulo:</b> Servicio divino ×0,8, Teatro (ver obra), armas +1 y Plaza de armas ×2,5. Úsalo para apoyos.</li>\n<li><b>Recluta</b> con Prestigio 6–7 a <a href=\"#/personaje/PID_エスメラルダ\">Esmeralda</a>, <a href=\"#/personaje/PID_ソフィア\">Sofia</a> y <a href=\"#/personaje/PID_シモン\">Simon</a>.</li>\n<li><b>Actúa</b> en Mons, Alecto y Barsk (plazo 15/10). Haz «El misterio de Mahdel» antes del 28/6.</li>\n<li>Misiones que cierran el 1/9: «Sabores de casa», «La sombra del terror», «La espada asesina», «Los Aceros Infalibles» y «A pico y pala».</li>\n<li><b>Batalla contra Lechner y Mahna:</b> primera contra el inframundo. Lleva Espada purificadora, <a href=\"#/objeto/IID_エンジェル\">Ángeles</a> o Canto de pureza, y usa las catapultas. Mata pronto a la invocadora<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fines de semana:</b> 2–3/6, 9–10/6, 16–17/6 y 23–24/6. El domingo 17/6 es también Fiesta del Cuervo Dorado.</li>\n<li>Prestigio al acabar: 7220 (rango 8).</li>\n</ul>\n<h4>Capítulo 8</h4>\n<ul>\n<li><b>Libre del 30/6 al 9/7: solo 10 días.</b> Hazlo en un viaje.</li>\n<li><b>Cadena del garo:</b> «Bestias enormes» + «Exterminio de Porcelios» → «<a href=\"#/mision/SQID_ガルムのこだわり（１）\">Bendito garo</a>» (8000 G + 100; 5 garos de cualquier tipo) → «<a href=\"#/mision/SQID_不穏分子の調査協力\">Por el bien del Imperio</a>» (200 y una <a href=\"#/objeto/IID_中級資格手形\">Licencia intermedia</a>). Elige esta antes que «La carta oculta» (30): piden la misma carta.</li>\n<li>Haz «Mercancía robada» (80, 1500 G).</li>\n<li><b>Prestigio 8 desde el inicio:</b> exámenes avanzados (nivel 35), Termas y actuar en el Teatro (+10 por semana).</li>\n<li><b>Batalla contra Inyoni:</b> el enemigo usa arcos; lleva objetos curativos y magia. Inyoni dispara de lejos cada 3 turnos<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fines de semana:</b> 30/6–1/7 y 7–8/7.</li>\n<li>Prestigio al acabar: 8230 (rango 9).</li>\n</ul>\n<h4>Capítulo 9</h4>\n<ul>\n<li><b>Libre del 12/7 al 1/9: 52 días y 8 fines de semana.</b> Es el mejor capítulo para apoyos y entrenamiento.</li>\n<li><b>Antes del 1/9</b> cierra todo lo de los caps. 6–8 y Raivo y Zoste. Hazlo primero.</li>\n<li><b>Actúa</b> en Orens, Pandora, Mahón, Twalinn, Breston y Whill (plazo 27/11).</li>\n<li><b>«<a href=\"#/mision/SQID_レダ篇_踊り子への道\">La sucesora del gran bailarín</a>»</b> (plazo 15/10): entrega una <a href=\"#/objeto/IID_ヒンガシャ\">Hingosha</a> en la taberna. Cómprala en el mercado del Oasis de Baina (1500 G). Da el <a href=\"#/objeto/IID_踊り子資格手形\">Collar de baile</a>; el examen pide Espada B o Arco B.</li>\n<li><b>Recluta</b> a <a href=\"#/personaje/PID_イニオニ\">Inyoni</a> (3000 G; solo tras la batalla del cap. 8). Halvin pide 10 <a href=\"#/objeto/IID_デーツ\">Dátiles</a>: mercado del Oasis de Baina o Buscar en Entrada al desierto o Tarvos.</li>\n<li><b>Oro:</b> «Hechiceros en el bosque» (4000 G), «Un manjar digno de los dioses» (6000 G), «Los Aceros Infalibles contratacan» y «Todavía más Entomosferas» (10 000 G). Recoge el Broche violeta en el Desfiladero de Axion para «El broche de mi difunta hermana» (3000 G + 100; plazo 15/10).</li>\n<li><b>Prestigio 10 a mitad de capítulo</b>, con margen: ya puedes pagar a Alexandra, Dante, Goliath, Maxim, Nydine, Peter y Seteth si los quieres para la Parte 3, y abre la última receta de la taberna.</li>\n<li><b>Batalla contra Cai:</b> lleva defensivas, tiradores y magos. Buccar cambia de bando el turno 1 y vuelve después<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Avanza despacio: hay invocaciones desde el turno 3<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fines de semana:</b> 14–15/7 a 25–26/8, y el 1/9; el 17/7 y el 17/8, Plaza y comidas a mitad.</li>\n<li>Prestigio al acabar: 11 700 (rango 12; el exceso sobre 10 800 se pierde).</li>\n</ul>\n<h4>Capítulo 10</h4>\n<ul>\n<li><b>Libre del 28/9 al 15/10.</b> El 15/10 cierran Mons, Alecto, Barsk, la bailarina y el broche: termínalos.</li>\n<li><b>Desvío de Anatolia:</b> acéptalo del 5/10 al 14/10 y combate antes del 17/10. Da 20 000 G, 150 de Prestigio y a <a href=\"#/personaje/PID_サラン\">Sha Lan</a> (apoyo 3, Prestigio 8).</li>\n<li>Haz «El ataque de las bestias aladas»: con el porcelio abre «<a href=\"#/mision/SQID_垂涎の名品\">Armas de Da Mina</a>» (20 000 G + 100; 2 armas de Da Mina).</li>\n<li><b>Actúa</b> en Osiris y Niiza (plazo 27/11).</li>\n<li>Haz «La prueba por el Arco de Kalla» (nivel 30) en el templo adjunto: da el <a href=\"#/objeto/IID_カーラの聖弓\">Arco de Kalla</a>. No vuelve en otro capítulo<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Batalla contra Theodora:</b> muros que parten al ejército; lleva unidades que aguanten o curen a distancia. Dos enemigos sueltan arcos de Da Mina: guárdalos para la misión.</li>\n<li><b>Fines de semana:</b> 29–30/9, 6–7/10 y 13–14/10.</li>\n<li>Prestigio al acabar: 13 390 (rango 12; el exceso se pierde).</li>\n</ul>\n<h4>Capítulo 11</h4>\n<ul>\n<li><b>Libre del 16/10 al 6/11. Es el capítulo de los Desvíos</b> (20 000 G y 150 cada uno):</li>\n<li>Cai: aceptar del 16/10 al 22/10; da a Tialla.</li>\n<li>Orchel: aceptar del 18/10 al 25/10, combatir antes del 27/10; da a Diego.</li>\n<li>Dietrich: aceptar del 16/10 al 29/10, combatir antes del 1/11; abre a <a href=\"#/personaje/PID_ファビオ\">Fabio</a> (apoyo 3, Prestigio 9).</li>\n<li><b>Actúa</b> en Benetnasch (plazo 27/11). Guarda un <a href=\"#/objeto/IID_ワンダーリーフ\">Calicanto</a> para la última receta; también se busca en el Jardín de Maharipa.</li>\n<li>Misiones: «Gólems descontrolados» → «La llave de casa» (100), «Un cristal sin igual».</li>\n<li><b>Batalla contra Martila:</b> objetivos Guillermo y Mahna. Lleva Espada purificadora, Ángeles o Canto de pureza, y caballería. No te dividas y ve primero a por Guillermo<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fines de semana:</b> 20–21/10, 27–28/10 y 3–4/11; el 17/10, Plaza y comidas a mitad.</li>\n<li>Prestigio al acabar: 14 970 (rango 12; el exceso se pierde).</li>\n</ul>\n<h4>Capítulo 12</h4>\n<ul>\n<li><b>Libre del 7/11 al 27/11.</b> Último capítulo: gasta todo.</li>\n<li><b>Prestigio 10 ya lo tienes:</b> solo falta el Calicanto de Benetnasch. Entrega «<a href=\"#/mision/SQID_レダ篇_酒場興行5\">Nuevas bebidas para la nobleza</a>» antes del 17/11<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>: da <a href=\"#/habilidad/SID_女神の舞\">Canto de ángeles</a>, Rastreador y Trovador.</li>\n<li>Termina todas las actuaciones y recetas antes del 27/11.</li>\n<li>Último día para reclutar a los de Prestigio 10 (Alexandra, Dante, Goliath, Maxim, Nydine, Peter, Seteth) si los quieres para la Parte 3.</li>\n<li><b>Gasta oro y Prestigio:</b> el Prestigio no pasa a la Parte 2. Equipa a cada unidad para la guerra (<a href=\"#/guia/guerra-y-salvacion\">Guerra y Salvación</a>).</li>\n<li><b>Batalla contra Bertrand:</b> magia y ataques a distancia; lleva tropas que los aguanten y sanadores. Dos Furias Canas llevan las llaves de los cofres. El fuego avanza desde el turno 7: sube al norte<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fines de semana:</b> 10–11/11, 17–18/11 (el 17, Plaza y comidas a mitad) y 24–25/11.</li>\n<li>Prestigio al acabar: 16 210 (rango 12; el exceso se pierde).</li>\n</ul>"
+     "<p>El techo de Prestigio supone todas las misiones, actuaciones, Desvíos y audiencias disponibles hasta ese momento, más los 300 fijos de la historia al empezar el cap. 4 y la batalla principal (500 en los caps. 4–8 y 700 del 9 al 12), que se cobra al ganarla: el rango que da llega al capítulo siguiente.</p>\n<h4>Capítulo 1</h4>\n<ul>\n<li>Se unen Leda, Buccar, Mu y Sirocco. Sin tiempo libre.</li>\n<li>Batalla contra Bjor: Leda ya tiene <a href=\"#/habilidad/SID_熱狂の歌\">Canto de fervor</a>, que cuesta el 20 % de sus PV. Úsalo con moderación.</li>\n<li>Prestigio al acabar: 0.</li>\n</ul>\n<h4>Capítulo 2</h4>\n<ul>\n<li>Mina de Coris: abre sus tres cofres antes de terminar<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Batalla contra Balboa: abre el cofre antes de matarlo; un arquero lleva la llave<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Da a Leda el <a href=\"#/objeto/IID_羅刹女の徹扇\">Abanico de Lakshashi</a>: cuenta como espada<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Prestigio al acabar: 0.</li>\n</ul>\n<h4>Capítulo 3</h4>\n<ul>\n<li>Batalla contra Olympia: gana si tras 10 turnos hay más llamas azules que rojas. Mantén azules las exteriores<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Se une Olympia. Abren Mercado, Posada, Tablón y Percha: haz «Hospedaje en la Posada» y «Regalos en el Mercado» (10 cada una).</li>\n<li>Prestigio al acabar: 20.</li>\n</ul>\n<h4>Capítulo 4</h4>\n<ul>\n<li><b>Libre del 21/3 al 4/4.</b> Abren Servicio divino, Buscar y las actuaciones.</li>\n<li><b>Actúa ya:</b> <a href=\"#/mision/SQID_レダ篇_酒場興行1\">Baile en la taberna</a> (200, enseña <a href=\"#/habilidad/SID_冷狂の歌\">Canto de frescor</a>) y Yaaman, Regia y Daimōn (3000 G cada una; plazo 28/5).</li>\n<li><b>Haz «<a href=\"#/mision/SQID_幻の真珠（１）\">A la caza del porcelio</a>» en este capítulo</b> (5000 G; antes, «Ocho Colmillos»). Es requisito de «Más Entomosferas» y de «Armas de Da Mina» (20 000 G). Las Entomosferas las sueltan los porcelios.</li>\n<li>Haz también «Los bandidos de Granada» → «Entrada robada» → «Tablilla robada», «Se busca Piedra de refinado» y «Pesquisas para la… ¿novia?» (cierran con el cap. 5).</li>\n<li><b>Recluta a <a href=\"#/personaje/PID_カターニャ\">Catania</a></b> en cuanto tengas Prestigio 2. Da un primer regalo a todos los reclutables: abre sus comidas.</li>\n<li><b>Compra</b> un <a href=\"#/objeto/IID_ヤーマンギク\">Yaamantemo</a> en el mercado de Yaaman para «Pétalos para un gladiador».</li>\n<li><b>Batalla contra Lechner:</b> lleva a Leda a la casilla de huida del noreste<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Contra los acorazados, magia (<a href=\"#/objeto/IID_サンダー\">Trueno</a>) de Olympia y Sirocco.</li>\n<li><b>Fines de semana:</b> 24–25/3 y 31/3–1/4. Aún no hay Plaza de armas.</li>\n<li>Prestigio al acabar: 2020 (rango 3). <b>Calibra con tu partida:</b> con todo hecho deberías tener ≈1520 antes de la batalla y ≈2020 al ganarla; si vas muy por debajo, te falta una actuación o misión.</li>\n</ul>\n<h4>Capítulo 5</h4>\n<ul>\n<li><b>Libre del 7/4 al 7/5.</b> Abren Plaza de armas y Examen de aptitud. Es largo: buen momento para el bucle de apoyos, antes de actuar.</li>\n<li><b>Recluta a <a href=\"#/personaje/PID_グザラン\">Guzran</a></b> (Prestigio 3, apoyo 1) desde el principio del capítulo. El 4 llega a mitad de capítulo (techo 3090).</li>\n<li><b>Actúa</b> en Callianeira y Aguiño (5000 G cada una; plazo 28/6).</li>\n<li><b>«<a href=\"#/mision/SQID_怪異退治\">Criatura nocturna</a>»</b> (1500 G + 100): solo hasta el 7/5. El espectro sale de noche en los callejones del este<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Entrega el Yaamantemo en «Pétalos para un gladiador» y haz «Sacrificios siniestros»; con el porcelio, abren «Más Entomosferas» (8000 G).</li>\n<li><b>Batalla contra Jasmine:</b> acorazados débiles a la magia negra; las hachas también rinden. Pulsa los interruptores para cortar el Agua pura<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fines de semana:</b> 7–8/4, 14–15/4, 21–22/4, 28–29/4 y 5–6/5; el 17/4 (martes), Plaza y comidas a mitad.</li>\n<li>Prestigio al acabar: 3790 (rango 4).</li>\n</ul>\n<h4>Capítulo 6</h4>\n<ul>\n<li><b>Libre del 9/5 al 28/5.</b> Abren Herrería y Vandahl.</li>\n<li><b>Prestigio 4 desde el inicio:</b> exámenes intermedios (nivel 20) y Plaza de armas ×1,8.</li>\n<li><b>Recluta</b> a <a href=\"#/personaje/PID_キロイカ\">Kiroc</a> (3 <a href=\"#/objeto/IID_聖水\">Aguas puras</a>) y, si lo quieres, a <a href=\"#/personaje/PID_ジャスミン\">Jasmine</a> (500 G; solo tras la batalla del cap. 5). Con Prestigio 5, a mitad de capítulo, Dadao, Fianna, Loretta o Zarcone solo si te hacen falta.</li>\n<li><b>Actúa</b> en Raivo y Zoste (plazo 1/9). Cierra Yaaman, Regia y Daimōn si faltan (28/5).</li>\n<li><b>Compra</b> una <a href=\"#/objeto/IID_清めの剣\">Espada purificadora</a> en Vandahl (3 <a href=\"#/objeto/IID_ラドンパイク\">Lucios del Ladon</a>) para el cap. 7, y un <a href=\"#/objeto/IID_ロングボウ\">Arco largo</a> en Aguiño contra voladores.</li>\n<li>Misiones: «Frutos energéticos» y «En busca de tierras fértiles» (cierran el 1/9), «Un día en la herrería».</li>\n<li><b>Sube a Leda a nivel 10:</b> aprende <a href=\"#/habilidad/SID_滅冥の歌\">Canto de pureza</a>, que hace a los aliados eficaces contra muertos vivientes.</li>\n<li><b>Batalla contra Alexandra:</b> llegan voladoras; usa arqueros y protégelos con unidades con Coraza.</li>\n<li><b>Fines de semana:</b> 12–13/5, 19–20/5 y 26–27/5; el 17/5 (jueves), Plaza y comidas a mitad.</li>\n<li>Prestigio al acabar: 4870 (rango 6).</li>\n</ul>\n<h4>Capítulo 7</h4>\n<ul>\n<li><b>Libre del 29/5 al 28/6.</b> Otro capítulo largo para el bucle de apoyos.</li>\n<li><b>Prestigio 6 desde el inicio y 7 a mitad de capítulo:</b> Servicio divino ×0,8, Teatro (ver obra), armas +1 y Plaza de armas ×2,5. Úsalo para apoyos.</li>\n<li><b>Recluta</b> con Prestigio 6–7 a <a href=\"#/personaje/PID_エスメラルダ\">Esmeralda</a>, <a href=\"#/personaje/PID_ソフィア\">Sofia</a> y <a href=\"#/personaje/PID_シモン\">Simon</a>.</li>\n<li><b>Actúa</b> en Mons, Alecto y Barsk (plazo 15/10). Haz «El misterio de Mahdel» antes del 28/6.</li>\n<li>Misiones que cierran el 1/9: «Sabores de casa», «La sombra del terror», «La espada asesina», «Los Aceros Infalibles» y «A pico y pala».</li>\n<li><b>Batalla contra Lechner y Mahna:</b> primera contra el inframundo. Lleva Espada purificadora, <a href=\"#/objeto/IID_エンジェル\">Ángeles</a> o Canto de pureza, y usa las catapultas. Mata pronto a la invocadora<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fines de semana:</b> 2–3/6, 9–10/6, 16–17/6 y 23–24/6. El domingo 17/6 es también Fiesta del Cuervo Dorado.</li>\n<li>Prestigio al acabar: 6590 (rango 7).</li>\n</ul>\n<h4>Capítulo 8</h4>\n<ul>\n<li><b>Libre del 30/6 al 9/7: solo 10 días.</b> Hazlo en un viaje.</li>\n<li><b>Cadena del garo:</b> «Bestias enormes» + «Exterminio de Porcelios» → «<a href=\"#/mision/SQID_ガルムのこだわり（１）\">Bendito garo</a>» (8000 G + 100; 5 garos de cualquier tipo) → «<a href=\"#/mision/SQID_不穏分子の調査協力\">Por el bien del Imperio</a>» (200 y una <a href=\"#/objeto/IID_中級資格手形\">Licencia intermedia</a>). Elige esta antes que «La carta oculta» (30): piden la misma carta.</li>\n<li>Haz «Mercancía robada» (80, 1500 G).</li>\n<li><b>Prestigio 8 a mitad de capítulo</b> (techo 7300): exámenes avanzados (nivel 35), Termas y actuar en el Teatro (+10 por semana).</li>\n<li><b>Batalla contra Inyoni:</b> el enemigo usa arcos; lleva objetos curativos y magia. Inyoni dispara de lejos cada 3 turnos<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fines de semana:</b> 30/6–1/7 y 7–8/7.</li>\n<li>Prestigio al acabar: 7800 (rango 9).</li>\n</ul>\n<h4>Capítulo 9</h4>\n<ul>\n<li><b>Libre del 12/7 al 1/9: 52 días y 8 fines de semana.</b> Es el mejor capítulo para apoyos y entrenamiento.</li>\n<li><b>Antes del 1/9</b> cierra todo lo de los caps. 6–8 y Raivo y Zoste. Hazlo primero.</li>\n<li><b>Actúa</b> en Orens, Pandora, Mahón, Twalinn, Breston y Whill (plazo 27/11).</li>\n<li><b>«<a href=\"#/mision/SQID_レダ篇_踊り子への道\">La sucesora del gran bailarín</a>»</b> (plazo 15/10): entrega una <a href=\"#/objeto/IID_ヒンガシャ\">Hingosha</a> en la taberna. Cómprala en el mercado del Oasis de Baina (1500 G). Da el <a href=\"#/objeto/IID_踊り子資格手形\">Collar de baile</a>; el examen pide Espada B o Arco B.</li>\n<li><b>Recluta</b> a <a href=\"#/personaje/PID_イニオニ\">Inyoni</a> (3000 G; solo tras la batalla del cap. 8). Halvin pide 10 <a href=\"#/objeto/IID_デーツ\">Dátiles</a>: mercado del Oasis de Baina o Buscar en Entrada al desierto o Tarvos.</li>\n<li><b>Oro:</b> «Hechiceros en el bosque» (4000 G), «Un manjar digno de los dioses» (6000 G), «Los Aceros Infalibles contratacan» y «Todavía más Entomosferas» (10 000 G). Recoge el Broche violeta en el Desfiladero de Axion para «El broche de mi difunta hermana» (3000 G + 100; plazo 15/10).</li>\n<li><b>Prestigio 10 a mitad de capítulo</b>, con margen: ya puedes pagar a Alexandra, Dante, Goliath, Maxim, Nydine, Peter y Seteth si los quieres para la Parte 3, y abre la última receta de la taberna.</li>\n<li><b>Batalla contra Cai:</b> lleva defensivas, tiradores y magos. Buccar cambia de bando el turno 1 y vuelve después<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Avanza despacio: hay invocaciones desde el turno 3<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fines de semana:</b> 14–15/7 a 25–26/8, y el 1/9; el 17/7 y el 17/8, Plaza y comidas a mitad.</li>\n<li>Prestigio al acabar: 10 290 (rango 11).</li>\n</ul>\n<h4>Capítulo 10</h4>\n<ul>\n<li><b>Libre del 28/9 al 15/10.</b> El 15/10 cierran Mons, Alecto, Barsk, la bailarina y el broche: termínalos.</li>\n<li><b>Desvío de Anatolia:</b> acéptalo del 5/10 al 14/10 y combate antes del 17/10. Da 20 000 G, 150 de Prestigio y a <a href=\"#/personaje/PID_サラン\">Sha Lan</a> (apoyo 3, Prestigio 8).</li>\n<li>Haz «El ataque de las bestias aladas»: con el porcelio abre «<a href=\"#/mision/SQID_垂涎の名品\">Armas de Da Mina</a>» (20 000 G + 100; 2 armas de Da Mina).</li>\n<li><b>Actúa</b> en Osiris y Niiza (plazo 27/11).</li>\n<li>Haz «La prueba por el Arco de Kalla» (nivel 30) en el templo adjunto: da el <a href=\"#/objeto/IID_カーラの聖弓\">Arco de Kalla</a>. No vuelve en otro capítulo<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Batalla contra Theodora:</b> muros que parten al ejército; lleva unidades que aguanten o curen a distancia. Dos enemigos sueltan arcos de Da Mina: guárdalos para la misión.</li>\n<li><b>Fines de semana:</b> 29–30/9, 6–7/10 y 13–14/10.</li>\n<li>Prestigio al acabar: 10 800 (rango 12; el exceso se pierde).</li>\n</ul>\n<h4>Capítulo 11</h4>\n<ul>\n<li><b>Libre del 16/10 al 6/11. Es el capítulo de los Desvíos</b> (20 000 G y 150 cada uno):</li>\n<li>Cai: aceptar del 16/10 al 22/10; da a Tialla.</li>\n<li>Orchel: aceptar del 18/10 al 25/10, combatir antes del 27/10; da a Diego.</li>\n<li>Dietrich: aceptar del 16/10 al 29/10, combatir antes del 1/11; abre a <a href=\"#/personaje/PID_ファビオ\">Fabio</a> (apoyo 3, Prestigio 9).</li>\n<li><b>Actúa</b> en Benetnasch (plazo 27/11). Guarda un <a href=\"#/objeto/IID_ワンダーリーフ\">Calicanto</a> para la última receta; también se busca en el Jardín de Maharipa.</li>\n<li>Misiones: «Gólems descontrolados» → «La llave de casa» (100), «Un cristal sin igual».</li>\n<li><b>Batalla contra Martila:</b> objetivos Guillermo y Mahna. Lleva Espada purificadora, Ángeles o Canto de pureza, y caballería. No te dividas y ve primero a por Guillermo<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fines de semana:</b> 20–21/10, 27–28/10 y 3–4/11; el 17/10, Plaza y comidas a mitad.</li>\n<li>Prestigio al acabar: 10 800 (rango 12; el exceso se pierde).</li>\n</ul>\n<h4>Capítulo 12</h4>\n<ul>\n<li><b>Libre del 7/11 al 27/11.</b> Último capítulo: gasta todo.</li>\n<li><b>Prestigio 10 ya lo tienes:</b> solo falta el Calicanto de Benetnasch. Entrega «<a href=\"#/mision/SQID_レダ篇_酒場興行5\">Nuevas bebidas para la nobleza</a>» antes del 17/11<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>: da <a href=\"#/habilidad/SID_女神の舞\">Canto de ángeles</a>, Rastreador y Trovador.</li>\n<li>Termina todas las actuaciones y recetas antes del 27/11.</li>\n<li>Último día para reclutar a los de Prestigio 10 (Alexandra, Dante, Goliath, Maxim, Nydine, Peter, Seteth) si los quieres para la Parte 3.</li>\n<li><b>Gasta oro y Prestigio:</b> el Prestigio no pasa a la Parte 2. Equipa a cada unidad para la guerra (<a href=\"#/guia/guerra-y-salvacion\">Guerra y Salvación</a>).</li>\n<li><b>Batalla contra Bertrand:</b> magia y ataques a distancia; lleva tropas que los aguanten y sanadores. Dos Furias Canas llevan las llaves de los cofres. El fuego avanza desde el turno 7: sube al norte<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fines de semana:</b> 10–11/11, 17–18/11 (el 17, Plaza y comidas a mitad) y 24–25/11.</li>\n<li>Prestigio al acabar: 10 800 (rango 12; el exceso se pierde).</li>\n</ul>"
     ],
     [
      "Equipo y tier list",
@@ -531662,11 +532182,11 @@ window.WIKI={
     ],
     [
      "Métodos de minmax",
-     "<ul>\n<li><b>EXP:</b> reparte la EXP; el nivel enemigo sigue a tus 10 unidades más altas (<a href=\"#/trucos?s=nivel-enemigo\">Nivel de los enemigos</a>). En Batalla rápida el remate da EXP ×3 (<a href=\"#/trucos?s=reserva\">Remate y reserva</a>). Detalle en <a href=\"#/guia/experiencia-y-niveles\">Experiencia y niveles</a>.</li>\n<li><b>Crecimientos:</b> cambia de clase antes de cada tope y aprovecha los mínimos de clase al aprobar (<a href=\"#/trucos?s=minimos\">Mínimos</a>, <a href=\"#/trucos?s=secuencia\">Secuencia de subidas</a>).</li>\n<li><b>Competencias:</b> golpea y retírate en las mazmorras; conservas lo ganado (<a href=\"#/trucos?s=retirada\">Golpear y retirarse</a>). Sube así a Leda a Arco B para la bailarina.</li>\n<li><b>Cantos:</b> cada canto cuesta el 20 % de los PV de Leda y llena su medidor; al llenarse, baja su PV máx. Lleva un sanador a su lado (<a href=\"#/guia/ignicion\">Técnicas de ignición</a>).</li>\n<li><b>Baile:</b> Bailar da otra acción al aliado; con la maestría, Danza especial suma Hab +3 y Vel +3. Baila al que más daño hace (<a href=\"#/clase/JID_踊り子\">Bailarín</a>).</li>\n<li><b>Apoyos rápidos:</b> comidas, Teatro y Percha cada semana; el bucle de apoyos al empezar los caps. 5, 7 y 9 (<a href=\"#/trucos?s=bucle-apoyos\">Bucle de apoyos</a>, <a href=\"#/guia/comidas\">Comidas</a>, <a href=\"#/trucos?s=bonos-apoyo\">Mejoras de apoyo</a>).</li>\n<li><b>Dinero:</b> actuaciones (unos 89 000 G), 4 Desvíos (80 000 G) y las cadenas del porcelio, el garo y Da Mina (<a href=\"#/trucos?s=desvios\">Fecha de los Desvíos</a>, <a href=\"#/guia/tiendas\">Tiendas</a>).</li>\n<li><b>Prestigio:</b> actuaciones, misiones, Desvíos, las 24 audiencias (+50 cada una, por etapas de rango) y el Prestigio de historia (6820). Ver <a href=\"#/guia/prestigio\">Prestigio</a>.</li>\n<li><b>Bebidas:</b> las avanzadas piden una hoja y dan mejoras para una batalla. Hojas y recetas en <a href=\"#/guia/bebidas-leda\">Bebidas y actuaciones de Leda</a>.</li>\n</ul>"
+     "<p>Principios comunes en <a href=\"#/guia/minmax\">Min-max</a>; lo propio de la ruta de Leda:</p>\n<ul>\n<li><b>EXP:</b> gasta los turnos que sobran en escaramuzas y mazmorras (las actuaciones ya te llevan por todo el mapa) y lleva las plazas llenas; el nivel enemigo sigue a tus 10 unidades más altas (<a href=\"#/guia/experiencia-y-niveles\">Experiencia y niveles</a>, <a href=\"#/guia/escaramuzas\">Escaramuzas</a>).</li>\n<li><b>Crecimientos:</b> cambia de clase antes de cada tope y aprovecha los mínimos de clase al aprobar (<a href=\"#/trucos?s=minimos\">Mínimos</a>, <a href=\"#/trucos?s=secuencia\">Secuencia de subidas</a>).</li>\n<li><b>Competencias:</b> golpea y retírate en las mazmorras; conservas lo ganado (<a href=\"#/trucos?s=retirada\">Golpear y retirarse</a>). Sube así a Leda a Arco B para la bailarina.</li>\n<li><b>Cantos:</b> cada canto cuesta el 20 % de los PV de Leda y llena su medidor; al llenarse, baja su PV máx. Lleva un sanador a su lado (<a href=\"#/guia/ignicion\">Técnicas de ignición</a>).</li>\n<li><b>Baile:</b> Bailar da otra acción al aliado; con la maestría, Danza especial suma Hab +3 y Vel +3. Baila al que más daño hace (<a href=\"#/clase/JID_踊り子\">Bailarín</a>).</li>\n<li><b>Apoyos:</b> comidas, Teatro y Percha cada semana; apoyo hecho antes de llegar al rango de cada recluta (<a href=\"#/guia/comidas\">Comidas</a>, <a href=\"#/trucos?s=bonos-apoyo\">Mejoras de apoyo</a>).</li>\n<li><b>Dinero:</b> actuaciones (unos 89 000 G), 4 Desvíos (80 000 G) y las cadenas del porcelio, el garo y Da Mina. Lo que quede al cerrar el cap. 12 se pierde: gástalo en equipo (<a href=\"#/trucos?s=desvios\">Fecha de los Desvíos</a>, <a href=\"#/guia/tiendas\">Tiendas</a>).</li>\n<li><b>Prestigio:</b> actuaciones, misiones, Desvíos, audiencias (+50 cada una), las batallas principales (4600 hasta la del cap. 11) y los 300 fijos del cap. 4 (<a href=\"#/guia/prestigio\">Prestigio</a>).</li>\n<li><b>Bebidas:</b> las avanzadas piden una hoja y dan mejoras para una batalla. Hojas y recetas en <a href=\"#/guia/bebidas-leda\">Bebidas y actuaciones de Leda</a>.</li>\n</ul>"
     ],
     [
      "Errores de las fuentes",
-     "<ul>\n<li>Muchas builds de Leda usan Guardián, Catafracto, Caladrio o Jinete de baus. En una primera ruta de Leda no existen: usa Soldado acorazado, Hoplita, Jinete bardado o Ala Celeste.</li>\n<li>Se presenta Canto de ángeles como el centro de la Parte 1. Llega con la última receta (Prestigio 10 y un Calicanto): el Prestigio sobra desde el cap. 9, pero el Calicanto sale en el cap. 11, así que es de las últimas semanas.</li>\n<li>Se dice que el Prestigio de Leda sale casi solo de las actuaciones y que el 10 es cosa del cap. 12. Esas cuentas olvidan el Prestigio de historia que da cada capítulo al cerrarse (6820 en total).</li>\n<li>Se dice que el Bailarín pide Espada B <b>y</b> Arco B. Basta con una de las dos.</li>\n<li>Se habla de audiencias con Aurora y Credna. Solo las conceden Mars, Smyrnos, Jurah y Kalla.</li>\n<li>Hay quien recomienda a Tobias, o reclutar a Fabio y Sha Lan en el cap. 4. Tobias no está en la ruta de Leda, y Fabio y Sha Lan dependen de Desvíos de los caps. 10–11.</li>\n</ul>"
+     "<ul>\n<li>Muchas builds de Leda usan Guardián, Catafracto, Caladrio o Jinete de baus. En una primera ruta de Leda no existen: usa Soldado acorazado, Hoplita, Jinete bardado o Ala Celeste.</li>\n<li>Se presenta Canto de ángeles como el centro de la Parte 1. Llega con la última receta (Prestigio 10 y un Calicanto): el Prestigio sobra desde el cap. 9, pero el Calicanto sale en el cap. 11, así que es de las últimas semanas.</li>\n<li>Se dice que el Prestigio de Leda sale casi solo de las actuaciones y que el 10 es cosa del cap. 12. Esas cuentas olvidan la batalla principal de cada capítulo (500 en los caps. 4–8 y 700 del 9 al 12).</li>\n<li>Se dice que el Bailarín pide Espada B <b>y</b> Arco B. Basta con una de las dos.</li>\n<li>Se habla de audiencias con Aurora y Credna. Solo las conceden Mars, Smyrnos, Jurah y Kalla.</li>\n<li>Hay quien recomienda a Tobias, o reclutar a Fabio y Sha Lan en el cap. 4. Tobias no está en la ruta de Leda, y Fabio y Sha Lan dependen de Desvíos de los caps. 10–11.</li>\n</ul>"
     ]
    ]
   },
@@ -531730,19 +532250,19 @@ window.WIKI={
    "secs": [
     [
      "En resumen",
-     "<ul>\n<li><b>Equipo base gratis:</b> Theodora, Bonaventure y Tobias desde el cap. 1, Lilian y Lysander desde el 4 y Sofia con apoyo 1 y Prestigio 2 (final del cap. 5). Cubren los 5 puestos hasta el cap. 6.</li>\n<li><b>Primeros reclutas:</b> Noctula (cap. 6) y Sirocco, Zarcone y Loretta (cap. 7). Ninae, Ultand, Nezha y Alexandra en el cap. 8; Nuzzuo e Inyoni en el 9.</li>\n<li><b>Envíos de suministros:</b> 14 misiones, 77 000 G y 4390 de Prestigio, la mayor fuente de la ruta. El 8.º abre el <a href=\"#/clase/JID_カタフラクト\">Catafracto</a>, el 10.º el <a href=\"#/clase/JID_ガーディアン\">Guardián</a> y el 14.º el <a href=\"#/clase/JID_ドラグーン\">Jinete de baus</a>. Haz los dos de cada capítulo en cuanto salgan.</li>\n<li><b>Plazos duros:</b> 21/3, 28/5, 31/7, 16/9, 15/10 y 24/10. El 31/7 acaba el tiempo libre del cap. 9 y cierra a la vez 8 misiones de los caps. 6–8.</li>\n<li><b>Batallones:</b> solo para infantería y acorazados. Los buenos llegan por etapas: rango D con Prestigio 5 (cap. 7), C con 7 (cap. 8) y B con 9 (cap. 9).</li>\n<li><b>Prestigio:</b> los caps. 1–4 dan muy poco (130). Desde el cap. 5 la historia suma 6480 y el 10 llega a mitad del cap. 9 haciendo todo.</li>\n</ul>"
+     "<ul>\n<li><b>Equipo base gratis:</b> Theodora, Bonaventure y Tobias desde el cap. 1, Lilian y Lysander desde el 4 y Sofia con apoyo 1 y Prestigio 2 (cap. 5). Cubren los 5 puestos hasta el cap. 6.</li>\n<li><b>Primeros reclutas:</b> Noctula (cap. 6) y Sirocco, Zarcone y Loretta (cap. 7). Ninae, Ultand, Nezha y Alexandra en el cap. 8; Nuzzuo e Inyoni en el 9.</li>\n<li><b>Envíos de suministros:</b> 14 misiones, 77 000 G y 4390 de Prestigio, la mayor fuente de la ruta. El 8.º abre el <a href=\"#/clase/JID_カタフラクト\">Catafracto</a>, el 10.º el <a href=\"#/clase/JID_ガーディアン\">Guardián</a> y el 14.º el <a href=\"#/clase/JID_ドラグーン\">Jinete de baus</a>. Haz los dos de cada capítulo en cuanto salgan.</li>\n<li><b>Plazos duros:</b> 21/3, 28/5, 31/7, 16/9, 15/10 y 24/10. El 31/7 acaba el tiempo libre del cap. 9 y cierra a la vez 8 misiones de los caps. 6–8.</li>\n<li><b>Batallones:</b> solo para infantería y acorazados. Los buenos llegan por etapas: rango D con Prestigio 5 (cap. 7), C con 7 (cap. 8) y B con 9 (cap. 9).</li>\n<li><b>Prestigio:</b> los caps. 1–3 casi no dan. La batalla principal da 450 (cap. 4), 600 (caps. 5, 7 y 8), 1100 (cap. 6) y 700 (caps. 9–12); haciendo todo, el 10 llega a mitad del cap. 9.</li>\n</ul>"
     ],
     [
      "Antes de empezar",
-     "<ul>\n<li><b>Despliegue:</b> 3 puestos en el cap. 1, 2 en el 2, 5 en los caps. 3–6 (3 en la exhibición del cap. 6), 6 en el 7, 7 en el 8, 6 en el 9, 8 en los caps. 10–11 y 9 en el 12. Hasta el cap. 6 los 5 gratis bastan.</li>\n<li><b>Recluta pronto a quien vayas a usar.</b> Sin reclutar, una unidad sube sola con el 80 % de su crecimiento y sin crecimientos de clase (<a href=\"#/trucos?s=tardios\">Reclutas tardíos</a>).</li>\n<li><b>No reinicies un capítulo después de cobrar.</b> Reiniciar capítulo devuelve oro, Prestigio y misiones al inicio del capítulo; solo conserva los apoyos. Si haces el <a href=\"#/trucos?s=bucle-apoyos\">bucle de apoyos</a>, hazlo al empezar el capítulo. El cap. 6 es el primero largo de verdad.</li>\n<li><b>Batallones sí, monturas con vínculo no:</b> las monturas son de la ruta de Cai. Un montado no lleva batallón, así que juega con infantería todo lo posible<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Clases que abre Theodora:</b> <a href=\"#/clase/JID_カタフラクト\">Catafracto</a> (8 envíos), <a href=\"#/clase/JID_ガーディアン\">Guardián</a> (10) y <a href=\"#/clase/JID_ドラグーン\">Jinete de baus</a> (14); valen cualquiera de los 14 envíos. <a href=\"#/clase/JID_レンジャー\">Rastreador</a>, <a href=\"#/clase/JID_踊り子\">Bailarín</a>, <a href=\"#/clase/JID_トルバドール\">Trovador</a>, <a href=\"#/clase/JID_カラドリオス\">Caladrio</a> y <a href=\"#/clase/JID_鍛冶師\">Herrero</a> solo están si ya las abriste en otra ruta.</li>\n<li><b>La Percha no sube el apoyo con Theodora:</b> sube el de Eshmel. Para reclutar cuentan comidas, Teatro y regalos.</li>\n<li><b>Rutina semanal:</b> gasta los cupos el sábado, espera en Dagsion al domingo y gástalos otra vez (<a href=\"#/trucos?s=doble-semana\">doble semana</a>). Audiencias (+50): martes Mars, miércoles Smyrnos, jueves Jurah y viernes Kalla.</li>\n<li><b>Si no es tu primera ruta</b>, salen 23 misiones más (cadena del porcelio, «Bendito garo», «Armas de Da Mina»…) que suman hasta 1410 de Prestigio; los rangos se adelantan. «A la caza del porcelio» solo existe en el cap. 4.</li>\n</ul>"
+     "<ul>\n<li><b>Despliegue:</b> 3 puestos en el cap. 1, 2 en el 2, 5 en los caps. 3–6 (3 en la exhibición del cap. 6), 6 en el 7, 7 en el 8, 6 en el 9, 8 en los caps. 10–11 y 9 en el 12. Hasta el cap. 6 los 5 gratis bastan.</li>\n<li><b>Recluta pronto a quien vayas a usar.</b> Sin reclutar, una unidad sube sola con el 80 % de su crecimiento (con el modificador de la clase que le toca) y sin el azar ni la montura (<a href=\"#/trucos?s=tardios\">Reclutas tardíos</a>).</li>\n<li><b>No reinicies un capítulo después de cobrar.</b> Reiniciar capítulo devuelve oro, Prestigio y misiones al inicio del capítulo; solo conserva los apoyos. Si haces el <a href=\"#/trucos?s=bucle-apoyos\">bucle de apoyos</a>, hazlo al empezar el capítulo. El cap. 6 es el primero largo de verdad.</li>\n<li><b>Batallones sí, monturas con vínculo no:</b> las monturas son de la ruta de Cai. Un montado no lleva batallón, así que juega con infantería todo lo posible<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Clases que abre Theodora:</b> <a href=\"#/clase/JID_カタフラクト\">Catafracto</a> (8 envíos), <a href=\"#/clase/JID_ガーディアン\">Guardián</a> (10) y <a href=\"#/clase/JID_ドラグーン\">Jinete de baus</a> (14); valen cualquiera de los 14 envíos. <a href=\"#/clase/JID_レンジャー\">Rastreador</a>, <a href=\"#/clase/JID_踊り子\">Bailarín</a>, <a href=\"#/clase/JID_トルバドール\">Trovador</a>, <a href=\"#/clase/JID_カラドリオス\">Caladrio</a> y <a href=\"#/clase/JID_鍛冶師\">Herrero</a> solo están si ya las abriste en otra ruta.</li>\n<li><b>La Percha no sube el apoyo con Theodora:</b> sube el de Eshmel. Para reclutar cuentan comidas, Teatro y regalos.</li>\n<li><b>Rutina semanal:</b> gasta los cupos el sábado, espera en Dagsion al domingo y gástalos otra vez (<a href=\"#/trucos?s=doble-semana\">doble semana</a>). Audiencias (+50): martes Mars, miércoles Smyrnos, jueves Jurah y viernes Kalla.</li>\n<li><b>Si no es tu primera ruta</b>, salen 23 misiones más (cadena del porcelio, «Bendito garo», «Armas de Da Mina»…) que suman hasta 1410 de Prestigio; los rangos se adelantan. «A la caza del porcelio» solo existe en el cap. 4.</li>\n</ul>"
     ],
     [
      "Capítulo a capítulo",
-     "<p>El techo de Prestigio supone todas las misiones de una primera ruta, Desvíos y audiencias disponibles hasta ese momento, más el Prestigio de historia que cada capítulo da al cerrarse (430, 960, 1220, 960, 1000, 730, 920 y 260 desde el cap. 5: 6480 en total). Ese premio se cobra al acabar el capítulo: el rango nuevo llega al siguiente.</p>\n<h4>Capítulo 1</h4>\n<ul>\n<li>Se unen Theodora, Bonaventure y Tobias. Sin tiempo libre.</li>\n<li>Batalla de tutorial: lleva a Theodora a la casilla objetivo.</li>\n<li>Prestigio al acabar: 0.</li>\n</ul>\n<h4>Capítulo 2</h4>\n<ul>\n<li>Batalla contra Dyan: quédate en las casillas que dan Esq. La <a href=\"#/guia/fortuna\">Bendición de Fortuna</a> se abre en el turno 2.</li>\n<li>Prestigio al acabar: 20.</li>\n</ul>\n<h4>Capítulo 3</h4>\n<ul>\n<li>Abren Posada, Tablón y Percha: haz «Hospedaje en la Posada» (10).</li>\n<li>Batalla contra Idi: luchan contigo Orchel, Diego, Seteth y Loretta. Usa el <a href=\"#/habilidad/SID_轟土\">Proyectil telúrico</a> de Theodora sobre quien lleve el lingote<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Prestigio al acabar: 30.</li>\n</ul>\n<h4>Capítulo 4</h4>\n<ul>\n<li><b>Libre del 1/3 al 7/3: solo 6 días.</b> Se unen Lilian y Lysander. Abren Barrio alto, Plaza de armas, Examen de aptitud y Servicio divino.</li>\n<li><b>Primer batallón:</b> la historia da los Cazadores novatos (antiaéreos). Todas las listas de reclutamiento son de rango E hasta el Prestigio 5.</li>\n<li>Misiones (cierran el 21/3): «Los bandidos de Granada», «Ocho Colmillos» y «Se busca Piedra de refinado» (600 G y 30 cada una), y «Culto a los dioses del Templo» (10).</li>\n<li><b>Compra</b> todas las <a href=\"#/objeto/IID_中級資格手形\">Licencias intermedias</a> que haya: salen pocas y se reponen por capítulo<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Da un primer regalo a todos los reclutables: abre sus comidas.</li>\n<li><b>Batalla contra Zarcone:</b> cae si lo derrotan Theodora, Cai u Orchel. Deja que vengan a ti; el puente es mejor que los bajíos<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Lleva ataques a distancia y armas de bronce.</li>\n<li><b>Formación:</b> los 5 gratis; el batallón en una unidad de infantería de segunda línea.</li>\n<li><b>Fin de semana:</b> 3–4/3. La Plaza de armas aún va a ×1: no gastes motivación en ella más de lo justo.</li>\n<li>Prestigio al acabar: 130 (rango 1).</li>\n</ul>\n<h4>Capítulo 5</h4>\n<ul>\n<li><b>Libre del 8/3 al 21/3.</b> Abren Barrios bajos, Buscar, Mercado, Enviar tropas (2 ranuras) y <b>Enviar suministros</b>. La historia da el batallón Novicios (Curación de área).</li>\n<li><b>Envíos 1 y 2:</b> <a href=\"#/objeto/IID_ヒシバナ\">Flores tetras</a> ×5 (100) y <a href=\"#/objeto/IID_ホワイトトラウト\">Truchas blancas</a> ×20 (300); 5500 G cada uno. Las truchas salen junto a Dagsion: envía un batallón al nodo y busca tú encima a la vez<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>«Criatura nocturna»</b> (1500 G + 100) y «Pesquisas para la… ¿novia?» (600 G + 30): solo hasta el 21/3. Haz también «Sacrificios siniestros», «Hachas de Behelda» y «Pétalos para un gladiador» (un Yaamantemo en Yaaman).</li>\n<li><b>Recluta a <a href=\"#/personaje/PID_ソフィア\">Sofia</a></b> al llegar a Prestigio 2: necesitas casi todas las misiones del capítulo y los dos envíos.</li>\n<li><b>Batalla contra Bartholomé:</b> cae si lo derrota Theodora, Talimun o Anatolia. Llueve del turno 5 al 9 y la lluvia inutiliza las ballestas. Divide el ejército por las dos alas<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Formación:</b> Novicios en la unidad que vaya delante, para que cure al avanzar<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fines de semana:</b> 10–11/3 y 17–18/3; el 17, Plaza y comidas a mitad.</li>\n<li>Prestigio al acabar: 1450 (rango 2). <b>Calibra con tu partida:</b> con todo hecho deberías tener ≈1020 antes de la batalla y ≈1450 al ganarla; el premio de historia lo confirma una partida de Cai (2070 al empezar su cap. 5). Si vas muy por debajo, te falta una misión, un envío o una audiencia.</li>\n</ul>\n<h4>Capítulo 6</h4>\n<ul>\n<li><b>Libre del 22/3 al 20/4.</b> Abren Herrería, Sociedad Mercantil Vandahl y <b>Reclutar unidades</b> (4 turnos por batallón).</li>\n<li><b>Envíos 3 y 4:</b> <a href=\"#/objeto/IID_玉鋼\">Acero tamahagane</a> ×20 y <a href=\"#/objeto/IID_メララ\">Melaras</a> ×10 (320 cada uno). Para el acero, envía tropas a las Ruinas del fuerte Corroios (38 % por tirada) o a la Cueva de la Hereje (35 %).</li>\n<li><b>Exhibición contra Bertrand, viernes 6/4 a las 18:00:</b> +500 de Prestigio con 3 unidades, una sola vez (<a href=\"#/guia/eventos-ocultos\">Eventos ocultos</a>). Basta con herirlo; lleva un sanador<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Recluta a <a href=\"#/personaje/PID_ノクチュラ\">Noctula</a></b> al llegar a Prestigio 3, a mitad de capítulo.</li>\n<li>Misiones: «Frutos energéticos» y «En busca de tierras fértiles» (2000 G cada una; cierran el 31/7), «Un día en la herrería». «Hachas de Behelda» cierra el 20/4.</li>\n<li><b>Compra</b> una <a href=\"#/objeto/IID_清めの剣\">Espada purificadora</a> en Vandahl (3 <a href=\"#/objeto/IID_ラドンパイク\">Lucios del Ladon</a>) para la batalla del capítulo.</li>\n<li>El 10/4 puedes ver gratis un combate de otro grupo: da EXP de dos competencias a todo el ejército.</li>\n<li><b>Batalla contra Bahr Vahn:</b> al herirlo se retira a las casillas curativas del fondo y llama a 16 refuerzos, muertos vivientes incluidos<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Abre con el Proyectil telúrico, usa magia contra las momias y lleva la Espada purificadora<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Formación:</b> recluta Guardias broncíneos (Pelotón trifrontal) en Zoste o Aguiño para cerrar pasillos.</li>\n<li><b>Fines de semana:</b> 24–25/3, 31/3–1/4, 7–8/4 y 14–15/4; el 17/4 (martes), Plaza y comidas a mitad.</li>\n<li>Prestigio al acabar: 3660 (rango 4).</li>\n</ul>\n<h4>Capítulo 7</h4>\n<ul>\n<li><b>Libre del 21/4 al 28/5.</b> Empieza en sábado: el 21 y el 22 son dos cupos seguidos. Abre el Cuartel (Transporte militar). Capítulo largo para el bucle de apoyos.</li>\n<li><b>Prestigio 4 desde el inicio y 5 a mitad de capítulo:</b> exámenes intermedios (nivel 20), Plaza de armas ×1,8, 3 ranuras de envío y batallones de rango D. La Arenga empieza a servir.</li>\n<li><b>Recluta</b> a <a href=\"#/personaje/PID_シロッコ\">Sirocco</a>, <a href=\"#/personaje/PID_ザーコネ\">Zarcone</a>, <a href=\"#/personaje/PID_ロレッタ\">Loretta</a> (3 Espadas de hierro) y, si lo quieres, a <a href=\"#/personaje/PID_ダイトウ\">Dadao</a> (2 Sollos del Kothar).</li>\n<li><b>Envíos 5 y 6:</b> <a href=\"#/objeto/IID_サンノミ\">Trifrutos</a> ×30 y <a href=\"#/objeto/IID_カーネボニート\">Bonitos carnosos</a> ×30 (320 cada uno). Bonito en el cabo de Peluza<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Misiones (cierran el 31/7): «Sabores de casa», «La sombra del terror» (80), «La espada asesina» (4000 G) y «Los Aceros Infalibles». «Sacrificios siniestros» y «Pétalos para un gladiador» cierran el 28/5.</li>\n<li><b>Batalla contra Alexandra:</b> 8 Alas Celestes y un escudo que anula la eficacia contra voladores. Mata primero a los 3 sacerdotes de la barrera<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Formación:</b> arqueros con batallón antiaéreo (Cazadores novatos, Brisas de Regia o Cazadores nómadas: Salva disruptiva inmoviliza) y un acorazado con Muro de hierro delante.</li>\n<li><b>Fines de semana:</b> 21–22/4, 28–29/4, 5–6/5, 12–13/5, 19–20/5 y 26–27/5; el 17/5 (jueves), Plaza y comidas a mitad.</li>\n<li>Prestigio al acabar: 5930 (rango 7).</li>\n</ul>\n<h4>Capítulo 8</h4>\n<ul>\n<li><b>Libre del 1/6 al 30/6.</b></li>\n<li><b>Prestigio 7 desde el inicio y 8 a mitad de capítulo:</b> Teatro, armas +1, Plaza de armas ×2,5, 4 ranuras de envío y batallones de rango C; con el 8, exámenes avanzados (nivel 35), Termas y actuar.</li>\n<li><b>Recluta</b> a <a href=\"#/personaje/PID_アレキサンドラ\">Alexandra</a>, <a href=\"#/personaje/PID_ニネ\">Ninae</a>, <a href=\"#/personaje/PID_ウルタンド\">Ultand</a> y <a href=\"#/personaje/PID_ナジャ\">Nezha</a>. Con apoyo 3, <a href=\"#/personaje/PID_カターニャ\">Catania</a>, <a href=\"#/personaje/PID_シモン\">Simon</a>, <a href=\"#/personaje/PID_グザラン\">Guzran</a> o <a href=\"#/personaje/PID_ダンテ\">Dante</a> (8000 G) si te hacen falta.</li>\n<li><b>Envíos 7 y 8:</b> <a href=\"#/objeto/IID_ハードフィッシュ\">Peces acero</a> ×10 y <a href=\"#/objeto/IID_ラドンローチ\">Lochas del Ladon</a> ×35 (320 cada uno). Con el 8.º se abre el Catafracto. Peces en la Bahía de Socie y lochas en el lago Ladon<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Misiones (cierran el 31/7): «Bestias enormes» (80) y «Exterminio de Porcelios» (2500 G); «Mercancía robada» (80) cierra el 16/9.</li>\n<li><b>Batalla contra Nuzzuo:</b> 20 turnos y pierdes si cae Theodora. Armas envenenadas: lleva antídotos. Después, el Bosque Errante se cruza con 1, 3, 2, 1 y 3 mariposas<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Formación:</b> Novicios sacros (anulan el Veneno; Aguiño, Daimōn, Yaaman) y Arqueros diestros o Magos tutores, ya de rango C.</li>\n<li><b>Fines de semana:</b> 2–3/6, 9–10/6, 16–17/6 y 23–24/6. El domingo 17/6 es también Fiesta del Cuervo Dorado.</li>\n<li>Prestigio al acabar: 8140 (rango 9).</li>\n</ul>\n<h4>Capítulo 9</h4>\n<ul>\n<li><b>Libre del 1/7 al 31/7.</b> El capítulo sigue hasta el 24/8, pero sin tiempo libre: el 31/7 es el plazo real.</li>\n<li><b>Antes del 31/7</b> cierran 8 misiones de los caps. 6–8 (440 de Prestigio y 16 000 G). Hazlas primero.</li>\n<li><b>Prestigio 9 desde el inicio y 10 a mitad de capítulo:</b> 5 ranuras de envío y batallones de rango B. Con orador Excelente, la Arenga sube del 7 % al 34 % la probabilidad del Circo de Aesobos en Ribeira.</li>\n<li><b>Recluta</b> a <a href=\"#/personaje/PID_ヌッツォ\">Nuzzuo</a> (3 Arcos de hierro) e <a href=\"#/personaje/PID_イニオニ\">Inyoni</a> (4000 G; desde el 9/7). Con apoyo 3, <a href=\"#/personaje/PID_ムウ\">Mu</a>, <a href=\"#/personaje/PID_オリンピア\">Olympia</a> y <a href=\"#/personaje/PID_エスメラルダ\">Esmeralda</a>. Halvin pide 10 <a href=\"#/objeto/IID_デーツ\">Dátiles</a>.</li>\n<li><b>Envíos 9 y 10:</b> <a href=\"#/objeto/IID_ロカ\">Rocarraíces</a> ×35 (320) y <a href=\"#/objeto/IID_コーシャルーガー\">Sollos del Kothar</a> ×10 (350). Con el 10.º se abre el Guardián.</li>\n<li><b>Oro:</b> «Un manjar digno de los dioses» (6000 G; cierra el 15/10), «Hechiceros en el bosque» (4000 G) y «Los Aceros Infalibles contratacan» (cierran el 16/9).</li>\n<li><b>Batalla contra los digammas:</b> el jefe tiene tres barras de PV y las bestias envenenan. Lleva <a href=\"#/objeto/IID_獣狩りの弓\">Arcos de caza</a> y antídotos.</li>\n<li><b>Formación:</b> Novicios sacros otra vez; Circo de Aesobos u Ópera de Kalla si ya los tienes.</li>\n<li><b>Fines de semana:</b> 1/7, 7–8/7, 14–15/7, 21–22/7 y 28–29/7; el 17/7 (martes), Plaza y comidas a mitad.</li>\n<li>Prestigio al acabar: 10 360 (rango 11).</li>\n</ul>\n<h4>Capítulo 10</h4>\n<ul>\n<li><b>Libre del 25/8 al 16/9.</b> Prestigio 11 desde el inicio y 12 a mitad de capítulo.</li>\n<li><b>Desvío de Leda:</b> acéptalo del 2/9 al 8/9; la batalla es el 9/9. Da 20 000 G, 150 de Prestigio, Escudo de plata y a <a href=\"#/personaje/PID_バッカニア\">Buccar</a> (<a href=\"#/trucos?s=desvios\">Fecha de los Desvíos</a>).</li>\n<li><b>Envíos 11 y 12:</b> <a href=\"#/objeto/IID_サバクキビ\">Mijo desértico</a> ×35 y <a href=\"#/objeto/IID_毒石\">Toxolitos</a> ×35 (350 cada uno).</li>\n<li><b>Barco de Anatolia:</b> si se lo prestas (hasta el 15/9), no navegas hasta el 21/9, pero Anatolia y Sha Lan luchan contigo en la batalla del cap. 12. Navega antes lo que necesites.</li>\n<li>Misiones: «El ataque de las bestias aladas» (3000 G; cierra el 15/10), «Esqueletos en las ruinas» y «El retorno de los Aceros Infalibles» (3000 G).</li>\n<li><b>Batalla contra Talimun:</b> gana quien tenga más orbes al acabar el turno 12, y llevar un orbe deja la Def a 0. No te alejes de la artillería del centro<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fines de semana:</b> 25–26/8, 1–2/9, 8–9/9 y 15–16/9.</li>\n<li>Prestigio al acabar: 12 150 (rango 12; el exceso sobre 10 800 se pierde).</li>\n</ul>\n<h4>Capítulo 11</h4>\n<ul>\n<li><b>Libre del 17/9 al 15/10. Es el capítulo de los Desvíos</b> (20 000 G y 150 cada uno); el siguiente solo tiene 9 días, así que haz aquí todo lo largo:</li>\n<li>Bertrand: aceptar del 17/9 al 25/9; da a <a href=\"#/personaje/PID_ペペ\">Peppe</a> y un Lingote de oro enorme. Hay que derrotar a más de la mitad de los gigantes.</li>\n<li>Talimun: aceptar del 17/9 al 10/10 y combatir antes del 12/10; da a <a href=\"#/personaje/PID_ウーシュラ\">Ursula</a> y otra Espada purificadora.</li>\n<li>Solel: aceptar del 24/9 al 5/10; da Auricalco. El gigante anómalo es de nivel 45: magia y ataques a distancia.</li>\n<li><b>Envíos 13 y 14:</b> <a href=\"#/objeto/IID_リルフィッシュ\">Pirañas de Lir</a> ×35 y <a href=\"#/objeto/IID_海星石\">Ocealitos</a> ×35 (350 cada uno). Con el 14.º se abre el Jinete de baus.</li>\n<li>Misiones: «Gólems descontrolados» (80) y «Un cristal sin igual» (3000 G + 80).</li>\n<li><b>Batalla contra Cai:</b> magia y flechas. El orbe de fuego de la izquierda pide unidades de Res alta y la ballesta de la derecha, de Def alta<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Formación:</b> Ninae y Ultand junto a los de Res baja; Monjes de Aegina (Silencio) en un mago.</li>\n<li><b>Fines de semana:</b> 22–23/9, 29–30/9, 6–7/10 y 13–14/10; el 17/9 (lunes, primer día), Plaza y comidas a mitad.</li>\n<li>Prestigio al acabar: 14 380 (rango 12; el exceso se pierde).</li>\n</ul>\n<h4>Capítulo 12</h4>\n<ul>\n<li><b>Libre del 16/10 al 24/10: solo 9 días.</b> Último capítulo: gasta todo.</li>\n<li><b>Tres Desvíos</b> (20 000 G y 150 cada uno):</li>\n<li>Cai: aceptar del 16/10 al 22/10; da a <a href=\"#/personaje/PID_ティアラ\">Tialla</a> y una Caja de gemas.</li>\n<li>Dietrich: aceptar del 16/10 al 24/10; da una Salamandra.</li>\n<li>Orchel: aceptar del 18/10 al 24/10; da a <a href=\"#/personaje/PID_ディエゴ\">Diego</a> y un Bastón de sanación. Llega gratis para el 9.º puesto.</li>\n<li>El 24/10 cierran los envíos y todas las misiones: «En busca de una moneda», «Notas robadas» y las de los caps. 10–11.</li>\n<li><b>Gasta oro y Prestigio:</b> no pasan a la Parte 2. Equipa a cada unidad para la guerra (<a href=\"#/guia/guerra-y-salvacion\">Guerra y Salvación</a>).</li>\n<li><b>Batalla contra Dyan</b> (17/11): tropas anticaballería, así que protege a los montados. Al subir las primeras escaleras llegan dos oleadas de voladores por detrás: lleva arcos y desmonta la caballería antes de subir<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fin de semana:</b> 20–21/10; el 17/10 (miércoles), Plaza y comidas a mitad.</li>\n<li>Prestigio al acabar: 15 220 (rango 12; el exceso se pierde).</li>\n</ul>"
+     "<p>El techo de Prestigio supone todas las misiones de una primera ruta, envíos, Desvíos y audiencias disponibles hasta ese momento, más la batalla principal, que se cobra al ganarla: el rango que da llega al capítulo siguiente. La ruta de Theodora no tiene puntos fijos de historia.</p>\n<h4>Capítulo 1</h4>\n<ul>\n<li>Se unen Theodora, Bonaventure y Tobias. Sin tiempo libre.</li>\n<li>Batalla de tutorial: lleva a Theodora a la casilla objetivo.</li>\n<li>Prestigio al acabar: 0.</li>\n</ul>\n<h4>Capítulo 2</h4>\n<ul>\n<li>Batalla contra Dyan: quédate en las casillas que dan Esq. La <a href=\"#/guia/fortuna\">Bendición de Fortuna</a> se abre en el turno 2.</li>\n<li>Prestigio al acabar: 20.</li>\n</ul>\n<h4>Capítulo 3</h4>\n<ul>\n<li>Abren Posada, Tablón y Percha: haz «Hospedaje en la Posada» (10).</li>\n<li>Batalla contra Idi: luchan contigo Orchel, Diego, Seteth y Loretta. Usa el <a href=\"#/habilidad/SID_轟土\">Proyectil telúrico</a> de Theodora sobre quien lleve el lingote<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Prestigio al acabar: 30.</li>\n</ul>\n<h4>Capítulo 4</h4>\n<ul>\n<li><b>Libre del 1/3 al 7/3: solo 6 días.</b> Se unen Lilian y Lysander. Abren Barrio alto, Plaza de armas, Examen de aptitud y Servicio divino.</li>\n<li><b>Primer batallón:</b> la historia da los Cazadores novatos (antiaéreos). Todas las listas de reclutamiento son de rango E hasta el Prestigio 5.</li>\n<li>Misiones (cierran el 21/3): «Los bandidos de Granada», «Ocho Colmillos» y «Se busca Piedra de refinado» (600 G y 30 cada una), y «Culto a los dioses del Templo» (10).</li>\n<li><b>Compra</b> todas las <a href=\"#/objeto/IID_中級資格手形\">Licencias intermedias</a> que haya: salen pocas y se reponen por capítulo<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Da un primer regalo a todos los reclutables: abre sus comidas.</li>\n<li><b>Batalla contra Zarcone:</b> cae si lo derrotan Theodora, Cai u Orchel. Deja que vengan a ti; el puente es mejor que los bajíos<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Lleva ataques a distancia y armas de bronce.</li>\n<li><b>Formación:</b> los 5 gratis; el batallón en una unidad de infantería de segunda línea.</li>\n<li><b>Fin de semana:</b> 3–4/3. La Plaza de armas aún va a ×1: no gastes motivación en ella más de lo justo.</li>\n<li>Prestigio al acabar: 580 (rango 1).</li>\n</ul>\n<h4>Capítulo 5</h4>\n<ul>\n<li><b>Libre del 8/3 al 21/3.</b> Abren Barrios bajos, Buscar, Mercado, Enviar tropas (2 ranuras) y <b>Enviar suministros</b>. La historia da el batallón Novicios (Curación de área).</li>\n<li><b>Envíos 1 y 2:</b> <a href=\"#/objeto/IID_ヒシバナ\">Flores tetras</a> ×5 (100) y <a href=\"#/objeto/IID_ホワイトトラウト\">Truchas blancas</a> ×20 (300); 5500 G cada uno. Las truchas salen junto a Dagsion: envía un batallón al nodo y busca tú encima a la vez<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>«Criatura nocturna»</b> (1500 G + 100) y «Pesquisas para la… ¿novia?» (600 G + 30): solo hasta el 21/3. Haz también «Sacrificios siniestros», «Hachas de Behelda» y «Pétalos para un gladiador» (un Yaamantemo en Yaaman).</li>\n<li><b>Recluta a <a href=\"#/personaje/PID_ソフィア\">Sofia</a></b> al llegar a Prestigio 2: faltan 220 al empezar el capítulo.</li>\n<li><b>Batalla contra Bartholomé:</b> cae si lo derrota Theodora, Talimun o Anatolia. Llueve del turno 5 al 9 y la lluvia inutiliza las ballestas. Divide el ejército por las dos alas<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Formación:</b> Novicios en la unidad que vaya delante, para que cure al avanzar<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fines de semana:</b> 10–11/3 y 17–18/3; el 17, Plaza y comidas a mitad.</li>\n<li>Prestigio al acabar: 2070 (rango 3). <b>Calibra con tu partida:</b> con todo hecho deberías tener ≈1470 antes de la batalla y ≈2070 al ganarla. Si vas muy por debajo, te falta una misión, un envío o una audiencia.</li>\n</ul>\n<h4>Capítulo 6</h4>\n<ul>\n<li><b>Libre del 22/3 al 20/4.</b> Abren Herrería, Sociedad Mercantil Vandahl y <b>Reclutar unidades</b> (4 turnos por batallón).</li>\n<li><b>Envíos 3 y 4:</b> <a href=\"#/objeto/IID_玉鋼\">Acero tamahagane</a> ×20 y <a href=\"#/objeto/IID_メララ\">Melaras</a> ×10 (320 cada uno). Para el acero, envía tropas a las Ruinas del fuerte Corroios (38 % por tirada) o a la Cueva de la Hereje (35 %).</li>\n<li><b>Exhibición contra Bertrand, viernes 6/4 a las 18:00:</b> +500 de Prestigio con 3 unidades, una sola vez (<a href=\"#/guia/eventos-ocultos\">Eventos ocultos</a>). Basta con herirlo; lleva un sanador<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Recluta a <a href=\"#/personaje/PID_ノクチュラ\">Noctula</a></b> (Prestigio 3) desde el principio del capítulo.</li>\n<li><b>Prestigio 4 a mitad de capítulo</b> (techo 3520): exámenes intermedios (nivel 20), Plaza de armas ×1,8, audiencias de rango 4 y <a href=\"#/personaje/PID_ザーコネ\">Zarcone</a>.</li>\n<li>Misiones: «Frutos energéticos» y «En busca de tierras fértiles» (2000 G cada una; cierran el 31/7), «Un día en la herrería». «Hachas de Behelda» cierra el 20/4.</li>\n<li><b>Compra</b> una <a href=\"#/objeto/IID_清めの剣\">Espada purificadora</a> en Vandahl (3 <a href=\"#/objeto/IID_ラドンパイク\">Lucios del Ladon</a>) para la batalla del capítulo.</li>\n<li>El 10/4 puedes ver gratis un combate de otro grupo: da EXP de dos competencias a todo el ejército.</li>\n<li><b>Batalla contra Bahr Vahn:</b> al herirlo se retira a las casillas curativas del fondo y llama a 16 refuerzos, muertos vivientes incluidos<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Abre con el Proyectil telúrico, usa magia contra las momias y lleva la Espada purificadora<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Formación:</b> recluta Guardias broncíneos (Pelotón trifrontal) en Zoste o Aguiño para cerrar pasillos.</li>\n<li><b>Fines de semana:</b> 24–25/3, 31/3–1/4, 7–8/4 y 14–15/4; el 17/4 (martes), Plaza y comidas a mitad.</li>\n<li>Prestigio al acabar: 4620 (rango 5).</li>\n</ul>\n<h4>Capítulo 7</h4>\n<ul>\n<li><b>Libre del 21/4 al 28/5.</b> Empieza en sábado: el 21 y el 22 son dos cupos seguidos. Abre el Cuartel (Transporte militar). Capítulo largo para el bucle de apoyos.</li>\n<li><b>Prestigio 5 desde el inicio y 6 a mitad de capítulo:</b> 3 ranuras de envío y batallones de rango D; la Arenga empieza a servir. Con el 6, <a href=\"#/personaje/PID_ニネ\">Ninae</a>, <a href=\"#/personaje/PID_ウルタンド\">Ultand</a> y <a href=\"#/personaje/PID_ナジャ\">Nezha</a> si ya tienen su apoyo.</li>\n<li><b>Recluta</b> a <a href=\"#/personaje/PID_シロッコ\">Sirocco</a>, <a href=\"#/personaje/PID_ロレッタ\">Loretta</a> (3 Espadas de hierro) y, si lo quieres, a <a href=\"#/personaje/PID_ダイトウ\">Dadao</a> (2 Sollos del Kothar).</li>\n<li><b>Envíos 5 y 6:</b> <a href=\"#/objeto/IID_サンノミ\">Trifrutos</a> ×30 y <a href=\"#/objeto/IID_カーネボニート\">Bonitos carnosos</a> ×30 (320 cada uno). Bonito en el cabo de Peluza<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Misiones (cierran el 31/7): «Sabores de casa», «La sombra del terror» (80), «La espada asesina» (4000 G) y «Los Aceros Infalibles». «Sacrificios siniestros» y «Pétalos para un gladiador» cierran el 28/5.</li>\n<li><b>Batalla contra Alexandra:</b> 8 Alas Celestes y un escudo que anula la eficacia contra voladores. Mata primero a los 3 sacerdotes de la barrera<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Formación:</b> arqueros con batallón antiaéreo (Cazadores novatos, Brisas de Regia o Cazadores nómadas: Salva disruptiva inmoviliza) y un acorazado con Muro de hierro delante.</li>\n<li><b>Fines de semana:</b> 21–22/4, 28–29/4, 5–6/5, 12–13/5, 19–20/5 y 26–27/5; el 17/5 (jueves), Plaza y comidas a mitad.</li>\n<li>Prestigio al acabar: 6070 (rango 7).</li>\n</ul>\n<h4>Capítulo 8</h4>\n<ul>\n<li><b>Libre del 1/6 al 30/6.</b></li>\n<li><b>Prestigio 7 desde el inicio y 8 a mitad de capítulo:</b> Teatro, armas +1, Plaza de armas ×2,5, 4 ranuras de envío y batallones de rango C; con el 8, exámenes avanzados (nivel 35), Termas y actuar.</li>\n<li><b>Recluta</b> a <a href=\"#/personaje/PID_アレキサンドラ\">Alexandra</a> y, si no lo hiciste en el cap. 7, a Ninae, Ultand y Nezha. Con apoyo 3, <a href=\"#/personaje/PID_カターニャ\">Catania</a>, <a href=\"#/personaje/PID_シモン\">Simon</a>, <a href=\"#/personaje/PID_グザラン\">Guzran</a> o <a href=\"#/personaje/PID_ダンテ\">Dante</a> (8000 G) si te hacen falta.</li>\n<li><b>Envíos 7 y 8:</b> <a href=\"#/objeto/IID_ハードフィッシュ\">Peces acero</a> ×10 y <a href=\"#/objeto/IID_ラドンローチ\">Lochas del Ladon</a> ×35 (320 cada uno). Con el 8.º se abre el Catafracto. Peces en la Bahía de Socie y lochas en el lago Ladon<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Misiones (cierran el 31/7): «Bestias enormes» (80) y «Exterminio de Porcelios» (2500 G); «Mercancía robada» (80) cierra el 16/9.</li>\n<li><b>Batalla contra Nuzzuo:</b> 20 turnos y pierdes si cae Theodora. Armas envenenadas: lleva antídotos. Después, el Bosque Errante se cruza con 1, 3, 2, 1 y 3 mariposas<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Formación:</b> Novicios sacros (anulan el Veneno; Aguiño, Daimōn, Yaaman) y Arqueros diestros o Magos tutores, ya de rango C.</li>\n<li><b>Fines de semana:</b> 2–3/6, 9–10/6, 16–17/6 y 23–24/6. El domingo 17/6 es también Fiesta del Cuervo Dorado.</li>\n<li>Prestigio al acabar: 7920 (rango 9).</li>\n</ul>\n<h4>Capítulo 9</h4>\n<ul>\n<li><b>Libre del 1/7 al 31/7.</b> El capítulo sigue hasta el 24/8, pero sin tiempo libre: el 31/7 es el plazo real.</li>\n<li><b>Antes del 31/7</b> cierran 8 misiones de los caps. 6–8 (440 de Prestigio y 16 000 G). Hazlas primero.</li>\n<li><b>Prestigio 9 desde el inicio y 10 a mitad de capítulo:</b> 5 ranuras de envío y batallones de rango B. Con orador Excelente, la Arenga sube del 7 % al 34 % la probabilidad del Circo de Aesobos en Ribeira.</li>\n<li><b>Recluta</b> a <a href=\"#/personaje/PID_ヌッツォ\">Nuzzuo</a> (3 Arcos de hierro) e <a href=\"#/personaje/PID_イニオニ\">Inyoni</a> (4000 G; desde el 9/7). Con apoyo 3, <a href=\"#/personaje/PID_ムウ\">Mu</a>, <a href=\"#/personaje/PID_オリンピア\">Olympia</a> y <a href=\"#/personaje/PID_エスメラルダ\">Esmeralda</a>. Halvin pide 10 <a href=\"#/objeto/IID_デーツ\">Dátiles</a>.</li>\n<li><b>Envíos 9 y 10:</b> <a href=\"#/objeto/IID_ロカ\">Rocarraíces</a> ×35 (320) y <a href=\"#/objeto/IID_コーシャルーガー\">Sollos del Kothar</a> ×10 (350). Con el 10.º se abre el Guardián.</li>\n<li><b>Oro:</b> «Un manjar digno de los dioses» (6000 G; cierra el 15/10), «Hechiceros en el bosque» (4000 G) y «Los Aceros Infalibles contratacan» (cierran el 16/9).</li>\n<li><b>Batalla contra los digammas:</b> el jefe tiene tres barras de PV y las bestias envenenan. Lleva <a href=\"#/objeto/IID_獣狩りの弓\">Arcos de caza</a> y antídotos.</li>\n<li><b>Formación:</b> Novicios sacros otra vez; Circo de Aesobos u Ópera de Kalla si ya los tienes.</li>\n<li><b>Fines de semana:</b> 1/7, 7–8/7, 14–15/7, 21–22/7 y 28–29/7; el 17/7 (martes), Plaza y comidas a mitad.</li>\n<li>Prestigio al acabar: 9840 (rango 11).</li>\n</ul>\n<h4>Capítulo 10</h4>\n<ul>\n<li><b>Libre del 25/8 al 16/9.</b> Prestigio 11 desde el inicio y 12 a mitad de capítulo.</li>\n<li><b>Desvío de Leda:</b> acéptalo del 2/9 al 8/9; la batalla es el 9/9. Da 20 000 G, 150 de Prestigio, Escudo de plata y a <a href=\"#/personaje/PID_バッカニア\">Buccar</a> (<a href=\"#/trucos?s=desvios\">Fecha de los Desvíos</a>).</li>\n<li><b>Envíos 11 y 12:</b> <a href=\"#/objeto/IID_サバクキビ\">Mijo desértico</a> ×35 y <a href=\"#/objeto/IID_毒石\">Toxolitos</a> ×35 (350 cada uno).</li>\n<li><b>Barco de Anatolia:</b> si se lo prestas (en el cap. 10, antes de que acabe su tiempo libre el 16/9 a las 12:00; el 15/9 es el último día entero), no navegas hasta el 21/9, pero Anatolia y Sha Lan luchan contigo en la batalla del cap. 12. Navega antes lo que necesites.</li>\n<li>Misiones: «El ataque de las bestias aladas» (3000 G; cierra el 15/10), «Esqueletos en las ruinas» y «El retorno de los Aceros Infalibles» (3000 G).</li>\n<li><b>Batalla contra Talimun:</b> gana quien tenga más orbes al acabar el turno 12, y llevar un orbe deja la Def a 0. No te alejes de la artillería del centro<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fines de semana:</b> 25–26/8, 1–2/9, 8–9/9 y 15–16/9.</li>\n<li>Prestigio al acabar: 10 800 (rango 12; el exceso se pierde).</li>\n</ul>\n<h4>Capítulo 11</h4>\n<ul>\n<li><b>Libre del 17/9 al 15/10. Es el capítulo de los Desvíos</b> (20 000 G y 150 cada uno); el siguiente solo tiene 9 días, así que haz aquí todo lo largo:</li>\n<li>Bertrand: aceptar del 17/9 al 25/9; da a <a href=\"#/personaje/PID_ペペ\">Peppe</a> y un Lingote de oro enorme. Hay que derrotar a más de la mitad de los gigantes.</li>\n<li>Talimun: aceptar del 17/9 al 10/10 y combatir antes del 12/10; da a <a href=\"#/personaje/PID_ウーシュラ\">Ursula</a> y otra Espada purificadora.</li>\n<li>Solel: aceptar del 24/9 al 5/10; da Auricalco. El gigante anómalo es de nivel 45: magia y ataques a distancia.</li>\n<li><b>Envíos 13 y 14:</b> <a href=\"#/objeto/IID_リルフィッシュ\">Pirañas de Lir</a> ×35 y <a href=\"#/objeto/IID_海星石\">Ocealitos</a> ×35 (350 cada uno). Con el 14.º se abre el Jinete de baus.</li>\n<li>Misiones: «Gólems descontrolados» (80) y «Un cristal sin igual» (3000 G + 80).</li>\n<li><b>Batalla contra Cai:</b> magia y flechas. El orbe de fuego de la izquierda pide unidades de Res alta y la ballesta de la derecha, de Def alta<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Formación:</b> Ninae y Ultand junto a los de Res baja; Monjes de Aegina (Silencio) en un mago.</li>\n<li><b>Fines de semana:</b> 22–23/9, 29–30/9, 6–7/10 y 13–14/10; el 17/9 (lunes, primer día), Plaza y comidas a mitad.</li>\n<li>Prestigio al acabar: 10 800 (rango 12; el exceso se pierde).</li>\n</ul>\n<h4>Capítulo 12</h4>\n<ul>\n<li><b>Libre del 16/10 al 24/10: solo 9 días.</b> Último capítulo: gasta todo.</li>\n<li><b>Tres Desvíos</b> (20 000 G y 150 cada uno):</li>\n<li>Cai: aceptar del 16/10 al 22/10; da a <a href=\"#/personaje/PID_ティアラ\">Tialla</a> y una Caja de gemas.</li>\n<li>Dietrich: aceptar del 16/10 al 24/10; da una Salamandra.</li>\n<li>Orchel: aceptar del 18/10 al 24/10; da a <a href=\"#/personaje/PID_ディエゴ\">Diego</a> y un Bastón de sanación. Llega gratis para el 9.º puesto.</li>\n<li>El 24/10 cierran los envíos y todas las misiones: «En busca de una moneda», «Notas robadas» y las de los caps. 10–11.</li>\n<li><b>Gasta oro y Prestigio:</b> no pasan a la Parte 2. Equipa a cada unidad para la guerra (<a href=\"#/guia/guerra-y-salvacion\">Guerra y Salvación</a>).</li>\n<li><b>Batalla contra Dyan</b> (17/11): tropas anticaballería, así que protege a los montados. Al subir las primeras escaleras llegan dos oleadas de voladores por detrás: lleva arcos y desmonta la caballería antes de subir<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Fin de semana:</b> 20–21/10; el 17/10 (miércoles), Plaza y comidas a mitad.</li>\n<li>Prestigio al acabar: 10 800 (rango 12; el exceso se pierde).</li>\n</ul>"
     ],
     [
      "Equipo y tier list",
-     "<p>Consenso de varias listas<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Coste = apoyo con Theodora / Prestigio; «Cap.» es el primero en que puedes pagarlo haciendo todo.</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Unidad</th><th>Coste</th><th>Cap.</th><th>Nota</th><th>Rol</th></tr><tr><td><a href=\"#/personaje/PID_セオドラ\">Theodora</a></td><td>—</td><td>1</td><td>S</td><td>Tanque que cura (<a href=\"#/clase/JID_ガーディアン\">Guardián</a>)</td></tr><tr><td><a href=\"#/personaje/PID_ソフィア\">Sofia</a></td><td>1/2</td><td>5</td><td>S</td><td>Sanadora (<a href=\"#/clase/JID_ビショップ\">Obispo</a>)</td></tr><tr><td><a href=\"#/personaje/PID_シロッコ\">Sirocco</a></td><td>1/5</td><td>7</td><td>S</td><td>Mago con <a href=\"#/objeto/IID_サンダーソード\">Espada trueno</a> (<a href=\"#/clase/JID_ウァテス\">Vate</a>)</td></tr><tr><td><a href=\"#/personaje/PID_トビヤス\">Tobias</a></td><td>—</td><td>1</td><td>A</td><td>Pegador de técnicas (Catafracto u <a href=\"#/clase/JID_ヘヴィアーマー\">Hoplita</a>)</td></tr><tr><td><a href=\"#/personaje/PID_ノクチュラ\">Noctula</a></td><td>1/3</td><td>6</td><td>A</td><td>Esquiva con puños (<a href=\"#/clase/JID_セスタス\">Púgil</a> → <a href=\"#/clase/JID_ウォーリアー\">Guerrero</a>)</td></tr><tr><td><a href=\"#/personaje/PID_ボナパルテ\">Bonaventure</a></td><td>—</td><td>1</td><td>A−</td><td>Mago de apoyo: Hab y Gol para los de al lado</td></tr><tr><td><a href=\"#/personaje/PID_ニネ\">Ninae</a></td><td>3/6</td><td>8</td><td>A−</td><td>Acorazada antimagia que cura (Guardián)</td></tr><tr><td><a href=\"#/personaje/PID_ウルタンド\">Ultand</a></td><td>3/6</td><td>8</td><td>A−</td><td>Primera línea; Esq para los de al lado</td></tr><tr><td><a href=\"#/personaje/PID_ヌッツォ\">Nuzzuo</a></td><td>1/6</td><td>9</td><td>B+</td><td>Arquero antivoladores (<a href=\"#/clase/JID_フォレストナイト\">Jinete arquero</a>)</td></tr><tr><td><a href=\"#/personaje/PID_アレキサンドラ\">Alexandra</a></td><td>1/6</td><td>8</td><td>B+</td><td>Ala Celeste antimagos; no la asciendas</td></tr><tr><td><a href=\"#/personaje/PID_ライサンダー\">Lysander</a></td><td>—</td><td>4</td><td>B+</td><td>Jinete de esquiva (<a href=\"#/clase/JID_バーディンガー\">Jinete bardado</a>)</td></tr><tr><td><a href=\"#/personaje/PID_ナジャ\">Nezha</a></td><td>2/6</td><td>8</td><td>B+</td><td>Espadachín (<a href=\"#/clase/JID_シドー\">Shido</a>)</td></tr><tr><td><a href=\"#/personaje/PID_ムウ\">Mu</a></td><td>3/9</td><td>9</td><td>B+</td><td>Púgil → Guerrero</td></tr><tr><td><a href=\"#/personaje/PID_エスメラルダ\">Esmeralda</a></td><td>3/9</td><td>9</td><td>B+</td><td>Tanque con lanzas arrojadizas</td></tr><tr><td><a href=\"#/personaje/PID_グザラン\">Guzran</a></td><td>3/8</td><td>8</td><td>B+</td><td>Delantero (Shido)</td></tr><tr><td><a href=\"#/personaje/PID_ロレッタ\">Loretta</a></td><td>3/5</td><td>7</td><td>B</td><td>Esquivadora de relleno</td></tr><tr><td><a href=\"#/personaje/PID_ダイトウ\">Dadao</a></td><td>2/5</td><td>7</td><td>B</td><td>Hoplita</td></tr><tr><td><a href=\"#/personaje/PID_ダンテ\">Dante</a></td><td>3/6</td><td>8</td><td>B</td><td>Apoyo de crítico (8000 G)</td></tr><tr><td><a href=\"#/personaje/PID_オリンピア\">Olympia</a></td><td>3/9</td><td>9</td><td>B</td><td>Maga de crítico</td></tr><tr><td><a href=\"#/personaje/PID_ザーコネ\">Zarcone</a></td><td>1/4</td><td>7</td><td>B−</td><td>Hachero barato (Guerrero)</td></tr><tr><td><a href=\"#/personaje/PID_リリアン\">Lilian</a></td><td>—</td><td>4</td><td>C+</td><td>Arquera, si le sale la Fue</td></tr></table></div>\n<ul>\n<li><b>Con Bonaventure al lado</b>, Tobias no necesita arreglar su Hab: Sabio consejo da Hab +3 y Datos adicionales, Gol extra<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Tobias:</b> Catafracto da más PV y Fue, pero un montado pierde el batallón; Hoplita lo conserva<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Lilian floja:</b> Nuzzuo o Inyoni ocupan su puesto de arquera<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n</ul>\n<p>Builds según tu roster: <a href=\"#/equipo?ir=eq-equipamiento\">Mi partida › Equipo</a>.</p>"
+     "<p>Consenso de varias listas<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Coste = apoyo con Theodora / Prestigio; «Cap.» es el primero en que puedes pagarlo haciendo todo.</p>\n<div class=\"tw\"><table class=\"md\"><tr><th>Unidad</th><th>Coste</th><th>Cap.</th><th>Nota</th><th>Rol</th></tr><tr><td><a href=\"#/personaje/PID_セオドラ\">Theodora</a></td><td>—</td><td>1</td><td>S</td><td>Tanque que cura (<a href=\"#/clase/JID_ガーディアン\">Guardián</a>)</td></tr><tr><td><a href=\"#/personaje/PID_ソフィア\">Sofia</a></td><td>1/2</td><td>5</td><td>S</td><td>Sanadora (<a href=\"#/clase/JID_ビショップ\">Obispo</a>)</td></tr><tr><td><a href=\"#/personaje/PID_シロッコ\">Sirocco</a></td><td>1/5</td><td>7</td><td>S</td><td>Mago con <a href=\"#/objeto/IID_サンダーソード\">Espada trueno</a> (<a href=\"#/clase/JID_ウァテス\">Vate</a>)</td></tr><tr><td><a href=\"#/personaje/PID_トビヤス\">Tobias</a></td><td>—</td><td>1</td><td>A</td><td>Pegador de técnicas (Catafracto u <a href=\"#/clase/JID_ヘヴィアーマー\">Hoplita</a>)</td></tr><tr><td><a href=\"#/personaje/PID_ノクチュラ\">Noctula</a></td><td>1/3</td><td>6</td><td>A</td><td>Esquiva con puños (<a href=\"#/clase/JID_セスタス\">Púgil</a> → <a href=\"#/clase/JID_ウォーリアー\">Guerrero</a>)</td></tr><tr><td><a href=\"#/personaje/PID_ボナパルテ\">Bonaventure</a></td><td>—</td><td>1</td><td>A−</td><td>Mago de apoyo: Hab y Gol para los de al lado</td></tr><tr><td><a href=\"#/personaje/PID_ニネ\">Ninae</a></td><td>3/6</td><td>7</td><td>A−</td><td>Acorazada antimagia que cura (Guardián)</td></tr><tr><td><a href=\"#/personaje/PID_ウルタンド\">Ultand</a></td><td>3/6</td><td>7</td><td>A−</td><td>Primera línea; Esq para los de al lado</td></tr><tr><td><a href=\"#/personaje/PID_ヌッツォ\">Nuzzuo</a></td><td>1/6</td><td>9</td><td>B+</td><td>Arquero antivoladores (<a href=\"#/clase/JID_フォレストナイト\">Jinete arquero</a>)</td></tr><tr><td><a href=\"#/personaje/PID_アレキサンドラ\">Alexandra</a></td><td>1/6</td><td>8</td><td>B+</td><td>Ala Celeste antimagos; no la asciendas</td></tr><tr><td><a href=\"#/personaje/PID_ライサンダー\">Lysander</a></td><td>—</td><td>4</td><td>B+</td><td>Jinete de esquiva (<a href=\"#/clase/JID_バーディンガー\">Jinete bardado</a>)</td></tr><tr><td><a href=\"#/personaje/PID_ナジャ\">Nezha</a></td><td>2/6</td><td>7</td><td>B+</td><td>Espadachín (<a href=\"#/clase/JID_シドー\">Shido</a>)</td></tr><tr><td><a href=\"#/personaje/PID_ムウ\">Mu</a></td><td>3/9</td><td>9</td><td>B+</td><td>Púgil → Guerrero</td></tr><tr><td><a href=\"#/personaje/PID_エスメラルダ\">Esmeralda</a></td><td>3/9</td><td>9</td><td>B+</td><td>Tanque con lanzas arrojadizas</td></tr><tr><td><a href=\"#/personaje/PID_グザラン\">Guzran</a></td><td>3/8</td><td>8</td><td>B+</td><td>Delantero (Shido)</td></tr><tr><td><a href=\"#/personaje/PID_ロレッタ\">Loretta</a></td><td>3/5</td><td>7</td><td>B</td><td>Esquivadora de relleno</td></tr><tr><td><a href=\"#/personaje/PID_ダイトウ\">Dadao</a></td><td>2/5</td><td>7</td><td>B</td><td>Hoplita</td></tr><tr><td><a href=\"#/personaje/PID_ダンテ\">Dante</a></td><td>3/6</td><td>7</td><td>B</td><td>Apoyo de crítico (8000 G)</td></tr><tr><td><a href=\"#/personaje/PID_オリンピア\">Olympia</a></td><td>3/9</td><td>9</td><td>B</td><td>Maga de crítico</td></tr><tr><td><a href=\"#/personaje/PID_ザーコネ\">Zarcone</a></td><td>1/4</td><td>6</td><td>B−</td><td>Hachero barato (Guerrero)</td></tr><tr><td><a href=\"#/personaje/PID_リリアン\">Lilian</a></td><td>—</td><td>4</td><td>C+</td><td>Arquera, si le sale la Fue</td></tr></table></div>\n<ul>\n<li><b>Con Bonaventure al lado</b>, Tobias no necesita arreglar su Hab: Sabio consejo da Hab +3 y Datos adicionales, Gol extra<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Tobias:</b> Catafracto da más PV y Fue, pero un montado pierde el batallón; Hoplita lo conserva<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Lilian floja:</b> Nuzzuo o Inyoni ocupan su puesto de arquera<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n</ul>\n<p>Builds según tu roster: <a href=\"#/equipo?ir=eq-equipamiento\">Mi partida › Equipo</a>.</p>"
     ],
     [
      "Batallones, envíos y formaciones",
@@ -531750,11 +532270,11 @@ window.WIKI={
     ],
     [
      "Métodos de minmax",
-     "<ul>\n<li><b>EXP:</b> reparte la EXP; el nivel enemigo sigue a tus 10 unidades más altas (<a href=\"#/trucos?s=nivel-enemigo\">Nivel de los enemigos</a>). En Batalla rápida el remate da EXP ×3 (<a href=\"#/trucos?s=reserva\">Remate y reserva</a>). Detalle en <a href=\"#/guia/experiencia-y-niveles\">Experiencia y niveles</a>.</li>\n<li><b>Antorcha:</b> cada uso de <a href=\"#/objeto/IID_トーチ\">Antorcha</a> da 10 de EXP fijos; gasta sus usos con Bonaventure al final de cada mapa<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Crecimientos:</b> cambia de clase antes de cada tope y aprovecha los mínimos de clase al aprobar (<a href=\"#/trucos?s=minimos\">Mínimos</a>, <a href=\"#/trucos?s=secuencia\">Secuencia de subidas</a>).</li>\n<li><b>Competencias:</b> golpea y retírate en las mazmorras; conservas lo ganado (<a href=\"#/trucos?s=retirada\">Golpear y retirarse</a>). Sube así a Theodora a Lanza B para el Guardián.</li>\n<li><b>Apoyos rápidos:</b> comidas y Teatro cada semana y el bucle de apoyos al empezar los caps. 6, 7 y 8 (<a href=\"#/trucos?s=bucle-apoyos\">Bucle de apoyos</a>, <a href=\"#/guia/comidas\">Comidas</a>, <a href=\"#/trucos?s=bonos-apoyo\">Mejoras de apoyo</a>).</li>\n<li><b>Dinero:</b> envíos (77 000 G), 7 Desvíos (140 000 G) y misiones como «La espada asesina» y «Un manjar digno de los dioses» (<a href=\"#/trucos?s=desvios\">Fecha de los Desvíos</a>, <a href=\"#/guia/tiendas\">Tiendas</a>).</li>\n<li><b>Prestigio:</b> envíos (4390), misiones, Desvíos (1050), la exhibición contra Bertrand (500), las 24 audiencias (+50 cada una, por etapas de rango) y el Prestigio de historia (6480). Ver <a href=\"#/guia/prestigio\">Prestigio</a>.</li>\n<li><b>Esquirlas:</b> la primera Ayuda de salvación que conviene es «Exp adicional +10 %» (500)<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n</ul>"
+     "<p>Principios comunes en <a href=\"#/guia/minmax\">Min-max</a>; lo propio de la ruta de Theodora:</p>\n<ul>\n<li><b>EXP:</b> gasta los turnos que sobran en escaramuzas y mazmorras y lleva las plazas llenas; el nivel enemigo sigue a tus 10 unidades más altas (<a href=\"#/guia/experiencia-y-niveles\">Experiencia y niveles</a>, <a href=\"#/guia/escaramuzas\">Escaramuzas</a>).</li>\n<li><b>Antorcha:</b> cada uso de <a href=\"#/objeto/IID_トーチ\">Antorcha</a> da 10 de EXP fijos; gasta sus usos con Bonaventure al final de cada mapa<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Crecimientos:</b> cambia de clase antes de cada tope y aprovecha los mínimos de clase al aprobar (<a href=\"#/trucos?s=minimos\">Mínimos</a>, <a href=\"#/trucos?s=secuencia\">Secuencia de subidas</a>).</li>\n<li><b>Competencias:</b> golpea y retírate en las mazmorras; conservas lo ganado (<a href=\"#/trucos?s=retirada\">Golpear y retirarse</a>). Sube así a Theodora a Lanza B para el Guardián.</li>\n<li><b>Apoyos:</b> comidas y Teatro cada semana; apoyo hecho antes de llegar al rango de cada recluta (<a href=\"#/guia/comidas\">Comidas</a>, <a href=\"#/trucos?s=bonos-apoyo\">Mejoras de apoyo</a>).</li>\n<li><b>Dinero:</b> envíos (77 000 G), 7 Desvíos (140 000 G) y misiones como «La espada asesina» y «Un manjar digno de los dioses». Lo que quede al cerrar el cap. 12 se pierde: gástalo en equipo (<a href=\"#/trucos?s=desvios\">Fecha de los Desvíos</a>, <a href=\"#/guia/tiendas\">Tiendas</a>).</li>\n<li><b>Prestigio:</b> envíos (4390), misiones, Desvíos (1050), la exhibición contra Bertrand (500), las audiencias (+50 cada una) y las batallas principales (5450 hasta la del cap. 11) (<a href=\"#/guia/prestigio\">Prestigio</a>).</li>\n<li><b>Esquirlas:</b> la primera Ayuda de salvación que conviene es «Exp adicional +10 %» (500)<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n</ul>"
     ],
     [
      "Errores de las fuentes",
-     "<ul>\n<li>Se dice que el Guardián exige terminar la ruta de Dietrich. Theodora lo abre sola con 10 envíos.</li>\n<li>Se dice que el Catafracto pide 2 envíos. Son 8; los dos que se citan son el 7.º y el 8.º.</li>\n<li>Muchas builds de Theodora usan Rastreador, Trovador, Bailarín o Caladrio. En una primera ruta de Theodora no existen.</li>\n<li>Se recomienda a Fabio, Sha Lan, Cai o Leda para esta ruta. Ninguno se recluta con Theodora en la Parte 1.</li>\n<li>Se dice que la exhibición contra Bertrand se anuncia en el cap. 5. Es en el cap. 6 (6/4).</li>\n<li>Algunas guías incluyen «El broche de mi difunta hermana». Esa misión solo existe en las rutas de Dietrich y Leda.</li>\n<li>Se calcula el Prestigio como unos 500 por misión principal. Los caps. 1–4 no dan nada al cerrarse y del 5 al 12 dan entre 260 y 1220.</li>\n<li>Muchas listas bajan a Mu, Olympia, Esmeralda o Guzran por llegar tarde. Con el Prestigio de historia se pagan en los caps. 8–9, y Io y Kiroc (Prestigio 10) en el 9.</li>\n<li>Se dice que Sirocco pide Prestigio 6. Pide 5.</li>\n</ul>"
+     "<ul>\n<li>Se dice que el Guardián exige terminar la ruta de Dietrich. Theodora lo abre sola con 10 envíos.</li>\n<li>Se dice que el Catafracto pide 2 envíos. Son 8; los dos que se citan son el 7.º y el 8.º.</li>\n<li>Muchas builds de Theodora usan Rastreador, Trovador, Bailarín o Caladrio. En una primera ruta de Theodora no existen.</li>\n<li>Se recomienda a Fabio, Sha Lan, Cai o Leda para esta ruta. Ninguno se recluta con Theodora en la Parte 1.</li>\n<li>Se dice que la exhibición contra Bertrand se anuncia en el cap. 5. Es en el cap. 6 (6/4).</li>\n<li>Algunas guías incluyen «El broche de mi difunta hermana». Esa misión solo existe en las rutas de Dietrich y Leda.</li>\n<li>Se calcula el Prestigio como unos 500 por batalla principal. Los caps. 1–3 no dan nada; la batalla da 450 en el cap. 4, 600 en los 5, 7 y 8, 1100 en el 6 y 700 del 9 al 12.</li>\n<li>Muchas listas bajan a Mu, Olympia, Esmeralda o Guzran por llegar tarde. Con el Prestigio de las batallas principales se pagan en los caps. 8–9, y Io y Kiroc (Prestigio 10) en el 9.</li>\n<li>Se dice que Sirocco pide Prestigio 6. Pide 5.</li>\n</ul>"
     ]
    ]
   },
@@ -532022,8 +532542,8 @@ window.WIKI={
    "relacionados": [
     "dlc",
     "dificultad",
-    "historia",
-    "interfaz-y-menus"
+    "interfaz-y-menus",
+    "nueva-vuelta"
    ],
    "enlaces": [
     {
@@ -532043,7 +532563,7 @@ window.WIKI={
    "secs": [
     [
      "En resumen",
-     "<ul>\n<li>Exclusivo de Nintendo Switch 2; salió el 17/9/2026. Desarrolla Intelligent Systems y edita Nintendo<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Funciona a 30 fps en portátil y en televisión<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Versiones 1.0.1 y 1.1.0: ver <a href=\"#/guia/dlc\">DLC y parches</a>.</li>\n<li>Una sola ranura de guardado; el manual y el automático la comparten<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>No hay amiibo anunciados<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n</ul>"
+     "<ul>\n<li>Exclusivo de Nintendo Switch 2; salió el 17/9/2026. Desarrolla Intelligent Systems y edita Nintendo<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Funciona a 30 fps en portátil y en televisión<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Versiones 1.0.1 y 1.1.0: ver <a href=\"#/guia/dlc\">DLC y parches</a>.</li>\n<li>Una sola partida: el guardado manual y el automático la comparten<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>, pero el juego guarda aparte el inicio de cada capítulo y el progreso suspendido de cada ruta.</li>\n<li>No hay amiibo anunciados<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n</ul>"
     ],
     [
      "Duración<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>",
@@ -532055,7 +532575,7 @@ window.WIKI={
     ],
     [
      "Guardado",
-     "<p>Hay autoguardado al ver un examen, al entrar o salir de una ciudad y al terminar combates de zona explorable<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Antes de probar algo que dependa del azar (examen, cebo, caja), guardar a mano; ver también <a href=\"#/trucos?s=reiniciar\">Reiniciar capítulo</a>.</p>"
+     "<p>Hay autoguardado al ver un examen, al entrar o salir de una ciudad y al terminar combates de zona explorable<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. Antes de probar algo que dependa del azar (examen, cebo, caja), guardar a mano; ver también <a href=\"#/trucos?s=reiniciar\">Reiniciar capítulo</a>.</p>\n<p>Cada capítulo empezado deja un punto de inicio propio, y cada ruta conserva su progreso suspendido al volver a la Sala de los obeliscos. Si una partida queda en un punto donde no se puede avanzar, «Continuar» en el título ofrece volver a un punto anterior (se pierde lo hecho en ese capítulo o sección). «Reiniciar prólogo» rejuega el prólogo sin perder nada y pide haber guardado en la Sala de los obeliscos; para empezar de cero hay que borrar los datos desde los extras. Detalle en <a href=\"#/guia/nueva-vuelta\">Nueva vuelta</a>.</p>"
     ]
    ]
   },
@@ -532115,15 +532635,15 @@ window.WIKI={
     ],
     [
      "Normal o Difícil",
-     "<ul>\n<li><b>Habilidades de ajuste.</b> En Normal los enemigos llevan una habilidad oculta que les baja el Gol y el Crí (ver <a href=\"#/guia/combate\">Combate</a>) y no aprenden habilidades por competencia.</li>\n<li><b>Prólogo.</b> Los enemigos de las batallas del prólogo ignoran la dificultad.</li>\n<li><b>Enemigos extra.</b> En alguna batalla Difícil añade enemigos<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Atributos.</b> En Normal los atributos enemigos también son algo menores, en torno a 1 punto por cada 25 % de crecimiento<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Lo que no cambia.</b> El nivel enemigo sigue al del ejército igual en las dos dificultades. Las habilidades y barreras extra de cada enemigo son las mismas. La EXP tampoco cambia.</li>\n<li><b>Arena divina.</b> Las bendiciones cuestan más en Difícil: Fortuna 0/5, Aurora 15/20, Mars 20/30, Smyrnos 20/30, Jurah 10/15, Kalla 20/40 y Credna 10/20 (Normal/Difícil).</li>\n<li><b>Lunático.</b> No existe como opción.</li>\n</ul>"
+     "<ul>\n<li><b>Habilidades de ajuste.</b> En Normal los enemigos llevan una habilidad oculta que les baja el Gol y el Crí (ver <a href=\"#/guia/combate\">Combate</a>) y no aprenden habilidades por competencia.</li>\n<li><b>Prólogo.</b> Los enemigos de las batallas del prólogo ignoran la dificultad.</li>\n<li><b>Enemigos extra.</b> En alguna batalla Difícil añade enemigos<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li><b>Atributos.</b> En Normal cada atributo enemigo baja 1 punto por cada 25 % de crecimiento de ese atributo, como si tuviera 4 niveles menos de subidas. Difícil es la base: sus enemigos no llevan ningún ajuste.</li>\n<li><b>Enemigos de nivel bajo.</b> Los de nivel 5 o menos no aprenden habilidades por competencia en ninguna dificultad.</li>\n<li><b>Lo que no cambia.</b> El nivel enemigo sigue al del ejército igual en las dos dificultades. Las habilidades y barreras extra de cada enemigo son las mismas. La EXP tampoco cambia.</li>\n<li><b>Arena divina.</b> Las bendiciones cuestan más en Difícil: Fortuna 0/5, Aurora 15/20, Mars 20/30, Smyrnos 20/30, Jurah 10/15, Kalla 20/40 y Credna 10/20 (Normal/Difícil).</li>\n<li><b>Lunático.</b> No existe como opción. Los archivos guardan restos de un tercer nivel sin usar (enemigos con Gol +30 y 5 niveles más de subidas).</li>\n</ul>"
     ],
     [
      "Cómo se cambian",
-     "<ul>\n<li><b>Bajar de Difícil a Normal</b>: en la Sala de los obeliscos, «Cambiar la dificultad». El cambio es irreversible y no influye en la historia.</li>\n<li><b>Subir a Difícil o cambiar Novato ↔ Clásico</b>: pide «Reiniciar prólogo» desde el título, que rejuega el Prólogo y conserva el progreso<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n</ul>"
+     "<ul>\n<li><b>Bajar de Difícil a Normal</b>: en la Sala de los obeliscos, «Cambiar la dificultad». El cambio es irreversible y no influye en la historia.</li>\n<li><b>Subir a Difícil o cambiar Novato ↔ Clásico</b>: pide «Reiniciar prólogo» desde el título, que rejuega el Prólogo, conserva el progreso de cada senda y deja elegir otra vez la dificultad.</li>\n</ul>"
     ],
     [
      "Consejos de min-max",
-     "<ul>\n<li>En Difícil el Golpe pesa más que el daño: maestrías y técnicas de Golpe, halos de Golpe y arqueros con Crescendo.</li>\n<li>Como la EXP no cambia, Difícil no retrasa el desarrollo; solo exige más precisión y más Arena divina.</li>\n<li>En Clásico, la <a href=\"#/guia/fortuna\">Bendición de Fortuna</a> salva a quien iba a caer.</li>\n</ul>"
+     "<ul>\n<li>En Normal, el Gol −30 deja muchos golpes enemigos en 50 o menos, donde la cifra mostrada es exacta y no hay curva a su favor (<a href=\"#/guia/combate\">combate</a>).</li>\n<li>En Difícil el Golpe pesa más que el daño: maestrías y técnicas de Golpe, halos de Golpe y arqueros con Crescendo.</li>\n<li>Como la EXP no cambia, Difícil no retrasa el desarrollo; solo exige más precisión y más Arena divina.</li>\n<li>En Clásico, la <a href=\"#/guia/fortuna\">Bendición de Fortuna</a> salva a quien iba a caer.</li>\n</ul>"
     ]
    ]
   },
@@ -532161,7 +532681,7 @@ window.WIKI={
    "secs": [
     [
      "En resumen",
-     "<ul>\n<li>1.0.1: cuatro armas adicionales gratuitas, una por tipo: <a href=\"#/objeto/IID_開かれし救世の剣\">Espada elegida</a>, <a href=\"#/objeto/IID_氷の救世の槍\">Lanza elegida</a>, <a href=\"#/objeto/IID_ブレイザブリク\">Breidablik</a> y <a href=\"#/objeto/IID_王家の宝剣\">Espada real</a>. Se obtienen en cada ruta, pero no se conservan entre rutas.</li>\n<li>1.1.0: soporte del Pase de expansión.</li>\n<li>Oleada 1: un arma «Prototipo» por señor, inspirada en reliquias de Three Houses, con una misión en cada ruta.</li>\n<li>Oleada 2 (invierno de 2026): Aurora, Jurah y Smyrnos reclutables en la Parte 3<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Oleada 3 (2027): historias de Anatolia, Bertrand, Orchel y Talimun, con aliados y clases nuevas<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n</ul>"
+     "<ul>\n<li>1.0.1: cuatro armas adicionales gratuitas, una por tipo: <a href=\"#/objeto/IID_開かれし救世の剣\">Espada elegida</a>, <a href=\"#/objeto/IID_氷の救世の槍\">Lanza elegida</a>, <a href=\"#/objeto/IID_ブレイザブリク\">Breidablik</a> y <a href=\"#/objeto/IID_王家の宝剣\">Espada real</a>. Se obtienen en cada ruta, pero no se conservan entre rutas.</li>\n<li>1.1.0: soporte del Pase de expansión.</li>\n<li>Oleada 1: un arma «Prototipo» por señor, inspirada en reliquias de Three Houses, con una misión en cada ruta.</li>\n<li>Oleada 2 (invierno de 2026): Aurora, Jurah y Smyrnos reclutables en la Parte 3<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>.</li>\n<li>Oleada 3 (2027): rutas de Anatolia, Bertrand, Orchel y Talimun, con aliados y clases nuevas<span class=\"gu-com\" title=\"Dato de la comunidad\"><span class=\"sr-only\">(dato de la comunidad)</span></span>. El juego ya tiene sus condiciones de apertura (la Parte 2 terminada u omitida de ciertas rutas, ver <a href=\"#/guia/rutas\">Rutas</a>), pero en la versión 1.1.1 sus textos siguen vacíos.</li>\n</ul>"
     ],
     [
      "Armas de la 1.0.1",
@@ -532186,6 +532706,9 @@ window.WIKI={
    "titulo": "Interfaz y menús",
    "alias": [
     "interfaz",
+    "sala de los obeliscos",
+    "obelisco",
+    "menú de reinicio",
     "menús",
     "menus",
     "menú de la base",
@@ -532220,7 +532743,8 @@ window.WIKI={
     "¿Qué pestañas tiene la ficha de personaje?",
     "¿Cómo acelero el juego o quito animaciones?",
     "¿Conviene usar Optimizar equipo?",
-    "¿Cómo paso el tiempo sin hacer nada?"
+    "¿Cómo paso el tiempo sin hacer nada?",
+    "¿Qué hay en la Sala de los obeliscos?"
    ],
    "relacionados": [
     "ficha-tecnica",
@@ -532255,7 +532779,7 @@ window.WIKI={
    "secs": [
     [
      "En resumen",
-     "<ul>\n<li>Hay tres menús según dónde se esté: menú de la base, menú del mapa y menú de combate. Comparten Información, Guía de aventuras y Sistema.</li>\n<li>El Mapa local de Dagsion lleva al instante a cualquier instalación, zona o persona.</li>\n<li>La Guía de aventuras reúne actividades recomendadas, misiones, calendario, Previsión y recompensas de Prestigio o de moral.</li>\n<li>La ficha de personaje tiene cinco pestañas y un botón que da más detalles en casi cualquier pantalla.</li>\n<li>Velocidad del juego «Rápida» y Omitir animaciones son los ajustes que más tiempo ahorran.</li>\n</ul>"
+     "<ul>\n<li>Hay tres menús según dónde se esté: menú de la base, menú del mapa y menú de combate. Comparten Información, Guía de aventuras y Sistema. Rutas, partes, reinicios y Esquirlas se gestionan en la Sala de los obeliscos.</li>\n<li>El Mapa local de Dagsion lleva al instante a cualquier instalación, zona o persona.</li>\n<li>La Guía de aventuras reúne actividades recomendadas, misiones, calendario, Previsión y recompensas de Prestigio o de moral.</li>\n<li>La ficha de personaje tiene cinco pestañas y un botón que da más detalles en casi cualquier pantalla.</li>\n<li>Velocidad del juego «Rápida» y Omitir animaciones son los ajustes que más tiempo ahorran.</li>\n</ul>"
     ],
     [
      "Menú de la base",
@@ -532264,6 +532788,10 @@ window.WIKI={
     [
      "Menú del mapa y de combate",
      "<ul>\n<li><b>Menú del mapa</b>: Mapa del mundo, con la información de cada lugar por tipos (Bases, Poblaciones, Postas, Templos, Buscar, Animales, Zonas explorables…), y las mismas Información, Guía de aventuras y Sistema. Las acciones de cada lugar están en <a href=\"#/guia/mapa-del-mundo\">Mapa del mundo y viajes</a>.</li>\n<li><b>Preparativos de combate</b>: Elegir unidades, Despliegue, Inventario e Intercambiar antes de «¡A luchar!».</li>\n<li><b>Menú de combate</b>: Terminar fase, Batalla automática (Avanzar, Defender, Atacar o Retroceder), Retirarse e información.</li>\n</ul>"
+    ],
+    [
+     "Sala de los obeliscos y Percha",
+     "<ul>\n<li><b>Percha</b> (en las bases): Alimentar, Previsión, Reiniciar capítulo y Sala de los obeliscos, que suspende la ruta en curso.</li>\n<li><b>Obelisco de cada señor</b>: Tocar este obelisco (empezar la ruta), Reanudar, Reiniciar un capítulo, Pasar a la parte II u Omitir la parte II y, en la Puerta del Destino, Pasar a la campaña final y Reiniciar una sección.</li>\n<li><b>Sala</b>: Registro de logros, <a href=\"#/guia/esquirlas\">Ayudas de salvación, Arcón de la memoria y Fusión causal</a>, Recuerdos (galerías de eventos, vídeos, música y conversaciones de apoyo) y Cambiar la dificultad (solo a menor, irreversible).</li>\n<li><b>Menú de reinicio</b> en combate: Reiniciar batalla (conservando o no la EXP), Reiniciar antes de la batalla, Bendición de Fortuna, Reiniciar capítulo, Sala de los obeliscos y Pantalla del título. Qué deshace cada uno: <a href=\"#/guia/nueva-vuelta\">Nueva vuelta</a>.</li>\n</ul>"
     ],
     [
      "Información y fichas",

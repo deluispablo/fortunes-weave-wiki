@@ -90,7 +90,7 @@
           [t('Bueno'), '1000 / 10 / 40', '2000 / 10 / 40', t('normal 50 %, especial 100 %')], [t('Mejor'), '1000 / 10 / 50', '3000 / 10 / 50', pct(100)]] },
         t('Puntuación: momento lucido 70/40/20/0 por aptitud, «sin riesgo» 60; umbrales de resultado 300/180/50 (normal) y 500/300/80 (especial); 5 segundos para elegir.')) + roles(), 'teatro') +
       drinks() +
-      card(t('Termas'), therm + p(t('Desde Prestigio {a}; más baños con Prestigio {b}. 500 G. Dos unidades recuperan Motivación, PV y usos de hechizos y aprenden al azar una de las 7 habilidades del baño elegido. Los baños especiales salen los domingos y festivos y dan más apoyo. Probabilidad de resultado perfecto: 10 %.', { a: th.unlock_rank || 8, b: th.more_springs_rank || 9 })), 'termas') +
+      card(t('Termas'), therm + p(t('Desde Prestigio {a}; más baños con Prestigio {b}. 500 G. Dos unidades recuperan Motivación, PV y usos de hechizos y aprenden al azar una de las 7 habilidades del baño elegido; cada una tira por separado, así que pueden salir distintas, y no sale una que ya tenga al nivel máximo. El azar va con la partida guardada: recargar y repetir el baño da lo mismo si no haces nada antes. Los baños especiales salen los domingos y festivos y dan más apoyo. Probabilidad de resultado perfecto (más apoyo: 40 en vez de 20, 60 en vez de 30 en los especiales): 10 %.', { a: th.unlock_rank || 8, b: th.more_springs_rank || 9 })), 'termas') +
       card(t('Percha · Cuervo Blanco'), p(t('Una vez por semana, mientras el Cuervo Blanco (Eshmel) está posado, eliges a qué aliado llevar y qué comida darle; no viene nadie por su cuenta. Respondes con gestos y cada respuesta correcta sube el apoyo entre Eshmel y ese aliado, nunca con el señor de la ruta. Más apoyo con Eshmel da más rescates de apoyo. No gasta turno.')) + kv([
         ['Puntos', t('0/1/2/3 aciertos = 50/70/80/100 de apoyo; con afinidad óptima (×200 %), 100/140/160/200')],
         ['Preguntas', t('68 juegos de 10 respuestas (uno por personaje, con variantes para la Parte 3); las respuestas están en cada ficha de personaje')],
@@ -201,20 +201,23 @@
         [t('Servicio divino'), pct(50), t('Prestigio {n}: {p}', { n: 6, p: pct(80) }), t('Prestigio {n}: {p}', { n: 10, p: pct(120) }), pct(150), pct(200)]] },
         t('En la Parte 3 los dos últimos escalones llegan con las misiones de reconstrucción del coliseo, el comedor y el templo.')), 'multiplicadores') +
       card(t('Fuentes de Prestigio'), docHtml({ kv: [
-        [t('Audiencias'), t('+50 cada una, con etapas en los rangos 2, 4, 6, 8, 9 y 10 (6 por dios); no gastan turno ni servicio. Solo las conceden Mars, Smyrnos, Jurah y Kalla; Aurora y Credna nunca. Máximo en la Parte 1: 4 dioses × 6 etapas = 24 audiencias = 1200.')],
-        ...caiHide() ? [] : [[t('Altruismo del cap. 8 (ruta de Cai)'), t('«Exterminio de Porcelios» (+50, plazo cap. 9) y «Verduras para los aragueses» (+200; 30 de Melara, Shaktoh o Usama). El Shaktoh se compra en el mercado de Aguiño (50 G, 5 por reposición): comprar 5 y plantar 2–3 (cada cosecha da 10 como mínimo) cubre las 30.')]],
+        [t('Audiencias'), t('+50 cada una, con etapas en los rangos 2, 4, 6, 8, 9 y 10 (6 por dios); no son automáticas: hay que pedirlas en el templo, y cada una vale 50 aunque la etapa llegue tarde. No gastan turno ni servicio. Solo las conceden Mars, Smyrnos, Jurah y Kalla; Aurora y Credna nunca. Máximo en la Parte 1: 4 dioses × 6 etapas = 24 audiencias = 1200.')],
+        ...caiHide() ? [] : [[t('Altruismo del cap. 8 (ruta de Cai)'), t('«Exterminio de Porcelios» (+50, plazo cap. 9) y «Verduras para los aragueses» (+200; 30 de Melara, Shaktoh o Usama). El Shaktoh se compra en el mercado de Aguiño (50 G, 5 por reposición): comprar 5 y plantar 2–3 (cada cosecha da 10, o 1 planta rara si muta: sin abono pasa el 2–30 % de las veces según el campo; cada parcela da unas 3 cosechas) cubre las 30.')]],
+        [t('Batalla principal (por capítulo, sumando sus combates)'), routeParts(t('caps. 1–2: 0, caps. 3–7: 450, caps. 8–12: 700 (ruta de Cai); caps. 4–7: 400, caps. 8–10: 600, caps. 11–12: 700 (ruta de Dietrich); cap. 4: 450, cap. 5: 600, cap. 6: 1100, caps. 7–8: 600, caps. 9–12: 700 (ruta de Theodora); caps. 4–8: 500, caps. 9–12: 700 (ruta de Leda)'))],
+        [t('Historia (sin aviso)'), routeParts(t('+350 al acabar el cap. 2 y +350 al empezar el 3 (ruta de Cai); +200, +270 y +300 en los caps. 2, 3 y 4 (ruta de Dietrich); +300 en el cap. 4 (ruta de Leda); ninguno (ruta de Theodora)'))],
+        [t('Tropas del mapa'), ctxRoute() === 'dietrich' ? t('30 por cada tropa vencida.') : ctxRoute() ? '0' : t('0, salvo 30 por cada tropa vencida en la ruta de Dietrich.')],
         [t('Misiones'), routeParts(t('normales 10–200; Altruismo (ruta de Cai) 100–200 (26 misiones); Desvíos 150 + 20.000 G; peticiones de los dioses (Parte 3) 100 + 10.000 G.'))],
         [t('Teatro'), t('actuar (Prestigio 8): +10 con resultado normal o mejor, 0 con el peor.')],
-        [t('Sin Prestigio'), t('exámenes y reclutamientos.')]] }), 'fuentes');
+        [t('Sin Prestigio'), t('exámenes, reclutamientos, comidas, Plaza de armas, Servicio divino, Termas, ver una obra, la adivina y capturar monturas.')]] }), 'fuentes');
   }
 
   /* ================= Turnos y viajes ================= */
   function turnos() {
     return `<h1>${t('Turnos y viajes')}</h1>${guiaLink('tiempo-libre', 'mapa-del-mundo')}<p class="mut">${t('El capítulo tiene un plazo; cada día tiene 4 turnos de 6 horas (0, 6, 12 y 18 h). Moverse por el mapa, combatir y dormir gastan turnos; las actividades de Dagsion casi no. Conviene planificar rutas en bucle y volver a Dagsion al final de cada semana.')}</p>` +
       card(t('Turnos'), docHtml({ kv: [
-        [t('Turno'), t('6 horas, 4 por día. Turnos restantes = ⌊(límite − ahora) ÷ 6 h⌋.')], [t('Movimiento'), t('hasta 3 puntos del mapa por turno.')],
-        [t('Batalla'), t('1 turno, dure lo que dure: el reloj queda al inicio del bloque y avanza uno al terminar.')], [t('Carruaje'), t('0 turnos, solo la tarifa (100/200/300 G); el destino no necesita estar activado.')],
-        [t('Comprar'), t('en una ciudad puede gastar el turno.')], [t('Actividades de Dagsion'), t('+20 minutos cada una, sin turno; el reloj se para al final del turno en curso.')],
+        [t('Turno'), t('6 horas, 4 por día. Turnos restantes = (límite − inicio del turno en curso) ÷ 6 h: a las 15:33 del 15/3 con límite el 10/4 a las 12:00 se cuenta desde las 12:00 y quedan 104.')], [t('Movimiento'), t('hasta 3 tramos de camino por turno y una acción al llegar; los tramos que sobran se pierden. Un viaje de h tramos cuesta ⌈h ÷ 3⌉ turnos. Un punto de control cerrado obliga a parar encima.')],
+        [t('Batalla'), t('1 turno, dure lo que dure: el reloj queda al inicio del bloque y avanza uno al terminar.')], [t('Carruaje'), t('es la acción del turno, más la tarifa (100/200/300 G): llegar andando a la posta y montar en el mismo turno cuesta 1 turno en total. El Portal de los Dioses, igual.')],
+        [t('Comprar'), t('en las tiendas de una población no gasta el turno; después aún cabe una acción.')], [t('Actividades de Dagsion'), t('+20 minutos cada una, sin turno; el reloj se para al final del turno en curso.')],
         [t('Otros'), t('salir de la capital al mapa, descansar o un banquete: 1 turno cada uno.')], [t('Plazo'), t('al llegar en el mapa la historia avanza sola; si el destino no se visitó nunca, hay que repetir el capítulo.')]] }) +
         p(t('Motivación: <a href="#/instalaciones?ir=motivacion">Dagsion</a>.')), 'turnos') +
       card(t('Banquete'), docHtml(t('Desde Prestigio 2, 1 turno: de 1 a 10 ingredientes; apoyo base 20 por pareja; curación +10/30/50/100 % por puntos.')), 'banquete') +

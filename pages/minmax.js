@@ -111,7 +111,7 @@
   function monturas() {
     return bl([
       t('Una unidad montada suma el crecimiento de su montura, que sube con el vínculo (1–5). En la Parte 1 solo Cai captura monturas con bonos (en la Parte 3, cualquier ruta si Cai está en el ejército); las otras rutas en la Parte 1 reciben un {def} sin bonos, salvo {ros}, que trae {io}.', { def: L('montura', 'RID_デフォルト騎馬'), ros: L('montura', 'RID_ロシナン'), io: PJ('PID_イオ') }),
-      t('Captura (ruta de Cai desde el cap. 5 de la Parte 1; en la Parte 3 desde el cap. 2, con Cai en el ejército): poner un Cebo en una zona de animales y capturarlo en 2 turnos como máximo; el manjar favorito asegura la captura.'),
+      t('Captura (ruta de Cai desde el cap. 5 de la Parte 1; en la Parte 3 desde el cap. 2, con Cai en el ejército): poner un Cebo en una zona de animales e intentar capturarlo; la probabilidad de captura no se conoce.'),
       t('Vínculo: alimentar en el Establo una vez al día, hasta 20 puntos por comida (alimento de calidad alta, alimento y sabor preferidos, manjar favorito). Vínculo 2 a 20 puntos, 3 a 50, 4 a 90, 5 a 140. El vínculo es de cada pareja jinete–montura.'),
     ]) + p(t('Crecimiento, comida, habilidades y dónde se atrae cada montura: su ficha en <a href="#/monturas">Monturas</a>. La montura que conviene a cada unidad en cada etapa: <a href="#/equipo">Equipo</a>.'));  // i18n-ignore
   }
@@ -249,7 +249,7 @@
     return ficha(head(t('Reclutas recomendados'), r ? t('Quién compensa reclutar en la Parte 1 y cuánto cuesta en la ruta de {r}.', { r: esc(ROUTE_NAME[r]) }) : t('Quién compensa reclutar en la Parte 1 y cuánto cuesta en cada ruta.')) + guiaLink('reclutamiento') +
       routeChips('reclutas', qs, r), [
       ['reglas', 'Reglas', bl([
-        'Reclutar pronto: quien llega tarde sube con el 80 % de su crecimiento, sin crecimientos de clase, con competencias bajas y sin clases intermedias dominadas.',
+        'Reclutar pronto: quien llega tarde sube con el 80 % de su crecimiento (con el modificador de la clase que le toca, sin azar ni montura), con competencias bajas y sin clases intermedias dominadas.',
         'Si un recluta se desbloquea justo antes de cambiar de capítulo, conviene esperar al inicio del siguiente: entra con más nivel.',
         'El Prestigio que se pide es el de la ruta en curso.',
         'En la Parte 3 hacen falta muchas unidades: repartir los reclutas entre las cuatro rutas compensa más que repetirlos.',
@@ -297,13 +297,13 @@
     { id: 'derrota', g: 'EXP', t: 'Perder conserva la EXP', tag: '', h: p(t('Tras perder una batalla se puede reintentar conservando la EXP y las competencias ganadas: conviene luchar hasta la última unidad.')) },
     { id: 'reserva', g: 'EXP', t: 'Remate y reserva', tag: '', h: p(t('En la Batalla rápida, el golpe que remata da EXP ×3; las unidades en reserva reciben la mitad. Los jefes dan el doble.')) },
     { id: 'nivel-enemigo', g: 'Mecánicas ocultas', t: 'Nivel de los enemigos', tag: '', h: p(t('Al empezar cada capítulo, el nivel base es la media de los 10 aliados de mayor nivel, limitada al rango del capítulo. Enemigos normales +2, oficiales +3, jefes +5. Subir mucho a pocas unidades sube a todos los enemigos.')) },
-    { id: 'tardios', g: 'Mecánicas ocultas', t: 'Reclutas tardíos', tag: '', h: p(t('Una unidad no reclutada sube sola con el 80 % de su crecimiento personal y sin crecimientos de clase. Reclutar pronto da unidades más fuertes.')) },
+    { id: 'tardios', g: 'Mecánicas ocultas', t: 'Reclutas tardíos', tag: '', h: p(t('Una unidad no reclutada sube sola con el 80 % de su crecimiento: personal más el modificador de la clase que le marca su lista en cada nivel, sin azar, con al menos 2 atributos por nivel y sin montura. Reclutar pronto da unidades más fuertes.')) },
     { id: 'minimos', g: 'Mecánicas ocultas', t: 'Mínimos de clase al aprobar', tag: '', h: p(t('Aprobar un examen sube cada atributo por debajo del mínimo de la clase hasta ese mínimo, aunque no se cambie de clase: {a} regala Def a los magos y {b}, Vel.', { a: C('JID_重装歩兵'), b: C('JID_飛駝兵') })) },
     { id: 'bonos-apoyo', g: 'Mecánicas ocultas', t: 'Mejoras de apoyo en combate', tag: '', h: p(t('La Previsión oculta las Mejoras de apoyo (se ven pulsando X). Los de clase dependen de la familia de la clase del aliado adyacente y crecen del nivel 2 al 5; los de pareja son fijos desde el nivel 2 y son la única fuente de velocidad de ataque por apoyo. Algunas parejas sin conversaciones también tienen bono.')) },
     { id: 'busqueda', g: 'Mecánicas ocultas', t: 'Búsqueda acumulada', tag: '', h: p(t('La habilidad Búsqueda ({a}) y sus versiones de {b}, {c} y {d} se suman entre las unidades del grupo: varias unidades con ella multiplican los resultados Perfecto.', { a: CN('Pícaro'), b: CN('Rastreador'), c: CN('Buscasombras'), d: CN('Truhan') })) },  // i18n-ignore
     { id: 'tiempo', g: 'Mecánicas ocultas', t: 'Tiempo y turnos', tag: '', h: bl([
-      t('Cada batalla gasta 1 turno, dure lo que dure.'), t('El carruaje no gasta turnos: solo la tarifa (100 / 200 / 300 G). El destino no necesita estar activado.'),
-      t('Comprar en una ciudad puede gastar el turno.'), t('Las actividades de Dagsion no gastan turno: el reloj se para al final del turno en curso.')]) },
+      t('Cada batalla gasta 1 turno, dure lo que dure.'), t('El carruaje es la acción del turno, más la tarifa (100 / 200 / 300 G): llegar andando a la posta y montar en el mismo turno cuesta 1 turno en total.'),
+      t('Comprar en las tiendas de una población no gasta el turno.'), t('Las actividades de Dagsion no gastan turno: el reloj se para al final del turno en curso.')]) },
     { id: 'bendiciones', g: 'Mecánicas ocultas', t: 'Bendiciones y arena', tag: '', h: p(t('Las Bendiciones duran hasta la siguiente fase propia: se lanzan pronto. Rebobinar con Fortuna antes de lanzarlas devuelve su arena; la arena se rellena al entrar en una batalla principal o un Desvío.')) },
     { id: 'eventos', g: 'Perdibles', t: 'Eventos perdibles', tag: '', h: p(t('Los eventos aparecen como pulsos amarillos en el mapa de Dagsion y se pierden al cambiar de capítulo. En la Sala de los obeliscos (Santuario causalidad) → Recuerdos → Eventos se marcan con «?» los que faltan; se recuperan rejugando ese capítulo. Lista por ruta: <a href="#/perdibles">Perdibles</a>.')) },
     { id: 'desvios', g: 'Perdibles', t: 'Fecha de los Desvíos', tag: '', h: p(t('La fecha que anuncia un Desvío es la de aceptación: aceptarlo pronto en Dagsion muestra cuándo es el combate. Cada Desvío da 20 000 G y 150 de Prestigio.')) },
@@ -316,7 +316,7 @@
       !caiHide() && t('En la ruta de Cai, con el mapa desvelado, las monturas raras se capturan en cuanto se abre el Cebo, sin explorar antes.'),
       !caiHide() && t('Cai sigue sin poder ir al oeste: los fuertes de esa mitad no se abren y no hay Dátiles ni mazmorras del desierto en su Parte 1.'),
     ]) },
-    { id: 'fusion', g: 'Parte 3', t: 'Fusión causal', tag: '', h: p(t('Cuesta 300 Esquirlas cau. y conserva el mayor de los dos valores de nivel, cada atributo y la EXP de competencias y de clase; suma habilidades, técnicas y certificaciones. No conserva clase, montura, objetos ni apoyos. Rejugar una sección de la Parte 3 deshace las fusiones sin devolver las esquirlas: rejugar primero y fusionar después.')) },
+    { id: 'fusion', g: 'Parte 3', t: 'Fusión causal', tag: '', h: p(t('Cuesta 300 Esquirlas cau. Si la copia de la Parte 2 no supera a la de la Parte 3 en nada (atributo, nivel, EXP, competencia o habilidad aprendida), no cambia nada y las esquirlas se gastan igual. Si la supera, conserva el mayor valor de nivel, EXP, cada atributo y cada competencia, suma habilidades y suma las clases obtenidas en las dos copias con la Exp de clase más alta de cada una. No cambia la clase puesta, ni la montura, el batallón o los objetos. Rejugar una sección de la Parte 3 deshace las fusiones sin devolver las esquirlas: rejugar primero y fusionar después.')) },
   ].filter(x => !(x.cai && caiHide(true)));  // a Cai-only trick: not in Part 1 of another route
 
   function trucos(qs) {

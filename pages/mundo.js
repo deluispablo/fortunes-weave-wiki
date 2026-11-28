@@ -73,7 +73,9 @@
       [t('Parcelas'), list(Object.entries(fr.plots_by_renown || {}).map(([rk, n]) => t('{n} con Prestigio {r}', { n, r: rk }))) + (fr.plots_part3 ? t('; {n} en la Parte 3', { n: fr.plots_part3 }) : '')],
       [t('Cosecha'), fr.harvest_turns ? t('{q} unidades cada {n} turnos', { q: fr.harvest_qty, n: fr.harvest_turns }) : ''],
       [t('Cosecha extra'), list(Object.entries(fr.extra_harvest_pct || {}).filter(([, v]) => v).map(([n, v]) => `${nth(+n)} ${pct(v)}`))],
+      [t('Cosechas por parcela'), fr.expected_harvests ? t('{e} de media (la 2.ª es segura; cada una tira la siguiente; máximo {m})', { e: fr.expected_harvests, m: Math.max(1, ...Object.entries(fr.extra_harvest_pct || {}).filter(([, v]) => v).map(([n]) => +n)) }) : ''],
       [t('Mutación con abono'), list(Object.values(fr.fertiliser_mutation_pct || {}).map(f => `${itemL(f.item)} ${pct(f.pct)}`))],
+      [t('Mutación'), t('en cada cosecha, % de la parcela + % del abono; si muta, da 1 planta rara en vez de las {q} unidades', { q: fr.harvest_qty || 10 })],
     ]);
     const farmT = `<div class="tw"><table><tr><th>${t('Lugar')}</th><th>${t('Planta rara')}</th><th>${t('Mutación')}</th></tr>${farms.map(([k, s]) =>
       `<tr><td>${L('lugar', k)}</td><td>${itemL(s.farm.rare_plant)}</td><td>${s.farm.plot_mutation_pct != null ? pct(s.farm.plot_mutation_pct) : ''}${s.farm.faerghast?.note ? `<br><small>${esc(dt(s.farm.faerghast.note))}</small>` : ''}</td></tr>`).join('')}</table></div>`;

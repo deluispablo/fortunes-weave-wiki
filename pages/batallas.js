@@ -169,7 +169,7 @@
       [t('Derrota'), (b.lose || []).map(w => esc(dt(w))).join('<br>')],
       [t('Nivel de los enemigos'), b.lv ? `${b.lv[0]}–${b.lv[1]}` : ''],
       [t('Enemigos'), `${nFoes(b)}${b.rnd ? ' ' + t('(aleatorios, dependen de la zona)') : ''}`],
-      [t('Casillas de despliegue'), b.ps ? String(b.ps.length) : ''],
+      [t('Casillas de despliegue'), b.ps ? (b.pn ? Object.entries(b.pn).map(([r, n]) => `${esc(r)} ${n}`).join(' · ') : String(b.ps.length)) : ''],
       [t('Lluvia'), b.rain ? pct(b.rain) : ''],
       [t('Diálogos'), list(guionLinks.battle(b.id).map(([h, tl]) => `<a href="${h}">${esc(tl)}</a>`))],
       [t('Frases al caer'), (window.WIKI_EXT || {}).frases?.battles?.[b.id] ? `<a href="#/frases/${encodeURIComponent(b.id)}">${t('Frases al caer ({n})', { n: WIKI_EXT.frases.battles[b.id] })}</a>` : ''],

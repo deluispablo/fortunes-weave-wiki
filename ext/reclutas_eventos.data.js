@@ -3,10 +3,6 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["reclutas_eventos"]={
   "id": "Tia",
   "clave": "MID_LGV_Scout_Negotiation_SP_*_Tia",
   "rutas": {
-   "cai": {
-    "es": "Elige «Preguntarle para qué» y después «Darle las 3000 monedas»: sin ese oro no se une.",
-    "en": "Pick «Ask the reason», then «Give her the 3,000 gold»: without that gold she does not join."
-   },
    "dietrich": {
     "es": "Elige «Preguntarle para qué» y después «Darle las 3000 monedas»: sin ese oro no se une.",
     "en": "Pick «Ask the reason», then «Give her the 3,000 gold»: without that gold she does not join."
@@ -43,10 +39,6 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["reclutas_eventos"]={
   "id": "Fab",
   "clave": "MID_LGV_Scout_Negotiation_SP_*_Fab",
   "rutas": {
-   "dietrich": {
-    "es": "Pide un objeto a cambio: dale uno cuyo precio de compra esté entre 3000 y 5999 G, por ejemplo un arma de Da Mina (4000 G) o la Espada purificadora (3000 G). Si vale menos de 3000 G o 6000 G o más, lo rechaza y hay que volver a intentarlo. Al aceptar te devuelve el objeto.",
-    "en": "He asks for something in return: give him an item whose shop price is 3,000–5,999 G, e.g. a Da Mina weapon (4,000 G) or the Cleansing Blade (3,000 G). Below 3,000 G or at 6,000 G or more he refuses and you must try again. When he accepts he gives the item back."
-   },
    "leda": {
     "es": "Pide un objeto a cambio: dale uno cuyo precio de compra esté entre 3000 y 5999 G, por ejemplo un arma de Da Mina (4000 G) o la Espada purificadora (3000 G). Si vale menos de 3000 G o 6000 G o más, lo rechaza y hay que volver a intentarlo. Al aceptar te devuelve el objeto.",
     "en": "He asks for something in return: give him an item whose shop price is 3,000–5,999 G, e.g. a Da Mina weapon (4,000 G) or the Cleansing Blade (3,000 G). Below 3,000 G or at 6,000 G or more he refuses and you must try again. When he accepts he gives the item back."
@@ -87,13 +79,9 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["reclutas_eventos"]={
   "id": "Bon",
   "clave": "MID_LGV_Scout_Negotiation_SP_*_Bon",
   "rutas": {
-   "theodora": {
-    "es": "Elige «Asentir» las tres veces. Solo se recluta a uno de los dos: Bonaventure o Tobias.",
-    "en": "Pick «Agree» all three times. Only one of the two can be recruited: Bonaventure or Tobias."
-   },
    "p23": {
-    "es": "Elige «Asentir» las tres veces. Solo se recluta a uno de los dos: Bonaventure o Tobias.",
-    "en": "Pick «Agree» all three times. Only one of the two can be recruited: Bonaventure or Tobias."
+    "es": "Elige «Asentir» las tres veces. Solo se recluta a uno de los dos: Bonaventure o Tobias (cada uno exige que el otro no se haya unido).",
+    "en": "Pick «Agree» all three times. Only one of the two can be recruited: Bonaventure or Tobias (each needs the other not to have joined)."
    }
   }
  },
@@ -101,13 +89,9 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["reclutas_eventos"]={
   "id": "Tob",
   "clave": "MID_LGV_Scout_Negotiation_SP_*_Tob",
   "rutas": {
-   "theodora": {
-    "es": "Pide algo de beber: dale una de estas bebidas: Bebida «medicinal», Ghosh joven, Ghosh añejo, Ghosh jade, Ghosh seco, Ghosh de reserva, Ghosh volcánico, Ghosh carmesí, Ghosh sureño, Ghosh vivificante, Ghosh rústico, Shosh joven, Shosh añejo, Shosh aromático, Shosh suave, Shosh azul, Leche de jamella, Leche de yarca, Leche melosa, Cervi suave, Cervi fuerte, Cervi al ginji, Cervi pura. Los Ghosh, los Shosh y la Bebida «medicinal» son sus favoritas. El Garo o cualquier otro objeto lo hacen fracasar; se puede repetir. Solo se recluta a uno de los dos: Bonaventure o Tobias.",
-    "en": "He asks for a drink: give him one of these: Special \"Medicine\", Young Ghosh, Mature Ghosh, Jade Ghosh, Sun Ghosh, Secret Ghosh, Volcano Ghosh, Crimson Ghosh, Southern Ghosh, Energizing Ghosh, Rustic Ghosh, Young Shosh, Mature Shosh, Aromatic Shosh, Light Shosh, Blue Shosh, Jamel Milk, Yarc Milk, Honey Milk, Weak Cervi, Strong Cervi, Ginji Cervi, Pure-White Cervi. Ghosh, Shosh and the Special \"Medicine\" are his favourites. Garum or any other item makes it fail; you can retry. Only one of the two can be recruited: Bonaventure or Tobias."
-   },
    "p23": {
-    "es": "Pide algo de beber: dale una de estas bebidas: Bebida «medicinal», Ghosh joven, Ghosh añejo, Ghosh jade, Ghosh seco, Ghosh de reserva, Ghosh volcánico, Ghosh carmesí, Ghosh sureño, Ghosh vivificante, Ghosh rústico, Shosh joven, Shosh añejo, Shosh aromático, Shosh suave, Shosh azul, Leche de jamella, Leche de yarca, Leche melosa, Cervi suave, Cervi fuerte, Cervi al ginji, Cervi pura. Los Ghosh, los Shosh y la Bebida «medicinal» son sus favoritas. El Garo o cualquier otro objeto lo hacen fracasar; se puede repetir. Solo se recluta a uno de los dos: Bonaventure o Tobias.",
-    "en": "He asks for a drink: give him one of these: Special \"Medicine\", Young Ghosh, Mature Ghosh, Jade Ghosh, Sun Ghosh, Secret Ghosh, Volcano Ghosh, Crimson Ghosh, Southern Ghosh, Energizing Ghosh, Rustic Ghosh, Young Shosh, Mature Shosh, Aromatic Shosh, Light Shosh, Blue Shosh, Jamel Milk, Yarc Milk, Honey Milk, Weak Cervi, Strong Cervi, Ginji Cervi, Pure-White Cervi. Ghosh, Shosh and the Special \"Medicine\" are his favourites. Garum or any other item makes it fail; you can retry. Only one of the two can be recruited: Bonaventure or Tobias."
+    "es": "Pide algo de beber: dale una de estas bebidas: Bebida «medicinal», Ghosh joven, Ghosh añejo, Ghosh jade, Ghosh seco, Ghosh de reserva, Ghosh volcánico, Ghosh carmesí, Ghosh sureño, Ghosh vivificante, Ghosh rústico, Shosh joven, Shosh añejo, Shosh aromático, Shosh suave, Shosh azul, Leche de jamella, Leche de yarca, Leche melosa, Cervi suave, Cervi fuerte, Cervi al ginji, Cervi pura. Los Ghosh, los Shosh y la Bebida «medicinal» son sus favoritas. El Garo o cualquier otro objeto lo hacen fracasar; se puede repetir. Solo se recluta a uno de los dos: Bonaventure o Tobias (cada uno exige que el otro no se haya unido).",
+    "en": "He asks for a drink: give him one of these: Special \"Medicine\", Young Ghosh, Mature Ghosh, Jade Ghosh, Sun Ghosh, Secret Ghosh, Volcano Ghosh, Crimson Ghosh, Southern Ghosh, Energizing Ghosh, Rustic Ghosh, Young Shosh, Mature Shosh, Aromatic Shosh, Light Shosh, Blue Shosh, Jamel Milk, Yarc Milk, Honey Milk, Weak Cervi, Strong Cervi, Ginji Cervi, Pure-White Cervi. Ghosh, Shosh and the Special \"Medicine\" are his favourites. Garum or any other item makes it fail; you can retry. Only one of the two can be recruited: Bonaventure or Tobias (each needs the other not to have joined)."
    }
   }
  },
@@ -168,10 +152,6 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["reclutas_eventos"]={
     "en": "Just accept: pick «Agree»."
    },
    "theodora": {
-    "es": "Basta con aceptar: elige «Asentir».",
-    "en": "Just accept: pick «Agree»."
-   },
-   "leda": {
     "es": "Basta con aceptar: elige «Asentir».",
     "en": "Just accept: pick «Agree»."
    },
@@ -278,24 +258,24 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["reclutas_eventos"]={
   "clave": "MID_LGV_Scout_Negotiation_SP_*_Ven",
   "rutas": {
    "cai": {
-    "es": "Elige «Aliarse con él». Si lo rechazas insiste varias veces y aceptar en cualquiera vale; si lo rechazas todas, se va y se puede repetir.",
-    "en": "Pick «Agree to become allies». If you decline he insists several times and accepting at any point works; if you decline every time he leaves and you can retry."
+    "es": "Elige «Aliarse con él». Si lo rechazas insiste nueve veces más y aceptar en cualquiera vale; al décimo rechazo se retira y se puede volver a hablar con él.",
+    "en": "Pick «Agree to become allies». If you decline he insists nine more times and accepting at any point works; after the tenth refusal he backs off and you can talk to him again."
    },
    "dietrich": {
-    "es": "Elige «Aliarse con él». Si lo rechazas insiste varias veces y aceptar en cualquiera vale; si lo rechazas todas, se va y se puede repetir.",
-    "en": "Pick «Agree to become allies». If you decline he insists several times and accepting at any point works; if you decline every time he leaves and you can retry."
+    "es": "Elige «Aliarse con él». Si lo rechazas insiste nueve veces más y aceptar en cualquiera vale; al décimo rechazo se retira y se puede volver a hablar con él.",
+    "en": "Pick «Agree to become allies». If you decline he insists nine more times and accepting at any point works; after the tenth refusal he backs off and you can talk to him again."
    },
    "theodora": {
-    "es": "Elige «Aliarse con él». Si lo rechazas insiste varias veces y aceptar en cualquiera vale; si lo rechazas todas, se va y se puede repetir.",
-    "en": "Pick «Agree to become allies». If you decline he insists several times and accepting at any point works; if you decline every time he leaves and you can retry."
+    "es": "Elige «Aliarse con él». Si lo rechazas insiste nueve veces más y aceptar en cualquiera vale; al décimo rechazo se retira y se puede volver a hablar con él.",
+    "en": "Pick «Agree to become allies». If you decline he insists nine more times and accepting at any point works; after the tenth refusal he backs off and you can talk to him again."
    },
    "leda": {
-    "es": "Elige «Aliarse con él». Si lo rechazas insiste varias veces y aceptar en cualquiera vale; si lo rechazas todas, se va y se puede repetir.",
-    "en": "Pick «Agree to become allies». If you decline he insists several times and accepting at any point works; if you decline every time he leaves and you can retry."
+    "es": "Elige «Aliarse con él». Si lo rechazas insiste nueve veces más y aceptar en cualquiera vale; al décimo rechazo se retira y se puede volver a hablar con él.",
+    "en": "Pick «Agree to become allies». If you decline he insists nine more times and accepting at any point works; after the tenth refusal he backs off and you can talk to him again."
    },
    "p23": {
-    "es": "Elige «Aliarse con él». Si lo rechazas insiste varias veces y aceptar en cualquiera vale; si lo rechazas todas, se va y se puede repetir.",
-    "en": "Pick «Agree to become allies». If you decline he insists several times and accepting at any point works; if you decline every time he leaves and you can retry."
+    "es": "Elige «Aliarse con él». Si lo rechazas insiste nueve veces más y aceptar en cualquiera vale; al décimo rechazo se retira y se puede volver a hablar con él.",
+    "en": "Pick «Agree to become allies». If you decline he insists nine more times and accepting at any point works; after the tenth refusal he backs off and you can talk to him again."
    }
   }
  }

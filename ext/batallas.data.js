@@ -6591,14 +6591,6 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["batallas"]={
     [
      4,
      17
-    ],
-    [
-     3,
-     17
-    ],
-    [
-     5,
-     17
     ]
    ],
    "e": [
@@ -12053,6 +12045,10 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["batallas"]={
     [
      "Tu equipo va al este y los invitados al oeste. La casilla del sureste da +40 de esquiva; el grupo del norte no sale de su casilla de bonificación.",
      "https://www.rpgsite.net/guide/21213-fire-emblem-fortunes-weave-part-i-cais-path-walkthrough"
+    ],
+    [
+     "Si reclutaste a Goliath, al terminar tu primera fase no entra él como invitado sino un soldado de Bertrand que le sustituye.",
+     "datos: guion SC11_13 (bmap, UnitIsJoined → sustituto)"
     ]
    ],
    "m": "Tr010/",
@@ -13196,6 +13192,10 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["batallas"]={
     [
      "La barrera cae al activar dos interruptores o al derrotar a Castor. Cada círculo mágico funciona una vez: mueve a Cai entre ellos. Divide en dos grupos con su propio sanador.",
      "https://gamewith.jp/fefw/577780"
+    ],
+    [
+     "Goliath, Maxim y Dante luchan aquí como enemigos; si ya los reclutaste, en su lugar sale un sustituto.",
+     "datos: guion SC11_14 (bmap, UnitIsJoined → sustituto)"
     ]
    ],
    "m": "Tr008/SC11_14",
@@ -15122,10 +15122,6 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["batallas"]={
     [
      14,
      17
-    ],
-    [
-     15,
-     17
     ]
    ],
    "e": [
@@ -16297,18 +16293,6 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["batallas"]={
     ],
     [
      9,
-     19
-    ],
-    [
-     6,
-     19
-    ],
-    [
-     10,
-     19
-    ],
-    [
-     8,
      19
     ]
    ],
@@ -21699,18 +21683,6 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["batallas"]={
     [
      13,
      14
-    ],
-    [
-     7,
-     13
-    ],
-    [
-     9,
-     13
-    ],
-    [
-     8,
-     14
     ]
    ],
    "e": [
@@ -22499,15 +22471,11 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["batallas"]={
      16
     ],
     [
-     4,
-     17
-    ],
-    [
      3,
      17
     ],
     [
-     5,
+     4,
      17
     ]
    ],
@@ -32009,10 +31977,6 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["batallas"]={
     [
      2,
      17
-    ],
-    [
-     3,
-     18
     ]
    ],
    "e": [
@@ -39112,6 +39076,10 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["batallas"]={
     [
      "Bertrand trae pronto refuerzos por las casillas de teletransporte del norte. Las llamas se extienden desde el turno 7: avanza al norte. Al final de cada corredor de artillería hay un cofre de armas cerrado; la llave la lleva un enemigo marcado (o ábrelo con un pícaro o explorador).",
      "https://fortunesweave.co.uk/chapters/leda/1/12"
+    ],
+    [
+     "Goliath, Maxim y Dante luchan aquí como enemigos; si ya los reclutaste, en su lugar sale un sustituto.",
+     "datos: guion SC14_15 (bmap, UnitIsJoined → sustituto)"
     ]
    ],
    "m": "Tr008/SC14_15",
@@ -47085,6 +47053,12 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["batallas"]={
     30,
     35
    ],
+   "pn": {
+    "Cai": 9,
+    "Dietrich": 9,
+    "Theodora": 10,
+    "Leda": 9
+   },
    "ps": [
     [
      7,
@@ -48349,6 +48323,12 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["batallas"]={
     31,
     37
    ],
+   "pn": {
+    "Cai": 13,
+    "Dietrich": 13,
+    "Theodora": 14,
+    "Leda": 13
+   },
    "ps": [
     [
      21,
@@ -48401,10 +48381,6 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["batallas"]={
     [
      21,
      23
-    ],
-    [
-     24,
-     24
     ],
     [
      19,
@@ -49569,6 +49545,12 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["batallas"]={
     32,
     39
    ],
+   "pn": {
+    "Cai": 13,
+    "Dietrich": 13,
+    "Theodora": 14,
+    "Leda": 13
+   },
    "ps": [
     [
      29,
@@ -49585,10 +49567,6 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["batallas"]={
     [
      30,
      16
-    ],
-    [
-     28,
-     17
     ],
     [
      30,
@@ -50890,10 +50868,6 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["batallas"]={
     [
      13,
      28
-    ],
-    [
-     11,
-     29
     ]
    ],
    "e": [
@@ -52053,6 +52027,12 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["batallas"]={
     34,
     43
    ],
+   "pn": {
+    "Cai": 13,
+    "Dietrich": 13,
+    "Theodora": 14,
+    "Leda": 13
+   },
    "ps": [
     [
      23,
@@ -52104,10 +52084,6 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["batallas"]={
     ],
     [
      24,
-     28
-    ],
-    [
-     27,
      28
     ],
     [
@@ -53477,6 +53453,12 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["batallas"]={
     35,
     45
    ],
+   "pn": {
+    "Cai": 13,
+    "Dietrich": 13,
+    "Theodora": 14,
+    "Leda": 13
+   },
    "ps": [
     [
      10,
@@ -53529,10 +53511,6 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["batallas"]={
     [
      8,
      20
-    ],
-    [
-     12,
-     19
     ],
     [
      11,
@@ -54654,6 +54632,12 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["batallas"]={
     35,
     45
    ],
+   "pn": {
+    "Cai": 13,
+    "Dietrich": 13,
+    "Theodora": 14,
+    "Leda": 13
+   },
    "ps": [
     [
      2,
@@ -54706,10 +54690,6 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["batallas"]={
     [
      19,
      2
-    ],
-    [
-     17,
-     1
     ],
     [
      1,

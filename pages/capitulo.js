@@ -40,7 +40,7 @@
     if (p) out.push(at < 0 ? t('Portal al Templo de {g}: abierto. Del anexo del templo en Dagsion al templo principal, al instante.', { g: p.g })
       : t(at ? 'Portal al Templo de {g}: lo abre la historia en el cap. {n}; no hay que hacer nada.' : 'Portal al Templo de {g}: lo abre la historia en este capítulo; no hay que hacer nada.', { g: p.g, n: p.c.n }));
     out.push(t('Los demás portales se abren en la Parte 3, con la petición de cada dios.'));
-    out.push(t('Carruaje: 0 turnos, solo la tarifa (100/200/300 G). Solo sales de postas que ya visitaste: pasa por cada una al menos una vez.'));
+    out.push(t('Carruaje: es la acción del turno, más la tarifa (100/200/300 G); llegar andando a la posta y montar en el mismo turno cuesta 1 turno en total. Solo sales de postas que ya visitaste: pasa por cada una al menos una vez.'));
     if (route === 'cai') {
       const CL = W.map?.carriage_lines || [], free = new Set(CL.filter(l => !l.closed_cai && !l.cai_subquest).flatMap(l => [l.from_es, l.to_es]));
       const by = new Map(); CL.filter(l => l.cai_subquest).forEach(l => by.set(l.cai_subquest.id, new Set([...(by.get(l.cai_subquest.id) || []), l.from_es, l.to_es].filter(x => !free.has(x)))));

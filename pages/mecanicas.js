@@ -9,22 +9,22 @@
 
   const FORMULAS = [
     ['Constitución (Con)', 'Fue ÷ 5; reduce el efecto del peso del arma en la velocidad'],
-    ['Velocidad de ataque (VA)', 'Vel − máx(0, peso − Con); nunca supera la Vel'],
+    ['Velocidad de ataque (VA)', 'Vel − máx(0, peso − Con) + VA del arma + bonos; sin VA de arma ni bonos nunca supera la Vel'],
     ['Ataque doble', 'VA ≥ VA del rival + 4'],
     ['Golpe físico', 'Golpe del arma + Hab'],
     ['Golpe mágico', 'Golpe del hechizo + ⌊(Hab + Sue) ÷ 2⌋'],
     ['Crítico (Crí)', 'Crítico del arma + ⌊(Hab + Sue) ÷ 2⌋'],
-    ['Esquiva (Esq)', 'VA'],
-    ['Evitar crítico (Evit)', 'Sue'],
+    ['Esquiva (Esq)', 'VA + Esq del arma + bonos (no usa la Sue)'],
+    ['Evitar crítico (Evit)', 'Sue + Evit del arma + bonos'],
     ['Daño', '(Fue o Mag + Pot del arma) − (Def o Res); 0 o menos = sin daño'],
-    ['Daño crítico', '×3; los multiplicadores se suman (segundo golpe de espada ×1,2 + crítico = ×3,2)'],
+    ['Daño crítico', '×3; los multiplicadores mayores que 1 se suman (segundo golpe de espada ×1,2 + crítico = ×3,2); los menores que 1 (escudos, barreras) se aplican aparte, multiplicando'],
     ['Eficacia', '«eficaz» dobla la Pot del arma y «muy eficaz» la triplica; solo cuenta el mayor'],
     ['Espadas', 'el segundo golpe de un ataque doble hace más daño'],
     ['Hachas', 'daño mínimo 5'],
-    ['Golpe real', 'por encima del 50 % mostrado la probabilidad real es mayor (75 mostrado ≈ 85 real)'],
+    ['Golpe real', 'igual al mostrado hasta 50; por encima es mayor: 55 → 57, 60 → 65, 65 → 72, 70 → 79, 75 → 85, 80 → 90, 85 → 94, 90 → 97, 95 → 99'],
     ['Triángulo de armas', 'no existe'],
     ['Enemigos', 'muchos llevan una penalización oculta de Crítico (de −10 a −80, distinta en cada enemigo); el Favor infernal reduce a la mitad el daño que reciben salvo de ataques eficaces (la Espada purificadora lo anula)'],
-    ['Bonificaciones fijas', 'las de clase, arma y batallón comparten un tope de +10 por atributo'],
+    ['Bonificaciones fijas', 'las mejoras de un atributo suben como mucho +10 sobre su valor propio en el bando del jugador (99 en los enemigos); el terreno y el apoyo no cuentan en ese tope'],
   ];
   const COMPETENCIAS = [
     ['EXP acumulada por rango', 'E 0 · E+ 20 · D 35 · D+ 80 · C 220 · C+ 440 · B 690 · B+ 910 · A 1215 · A+ 1510 · S 1960 · S+ 2560'],
@@ -39,7 +39,7 @@
 
   // i18n: built with the translator passed in (t to render, fill for the search index, which search.js translates itself)
   const SECTIONS = t => [
-    { hid: 'experiencia', title: t('Experiencia (EXP)'), intro: [t('Cada 100 EXP la unidad sube un nivel. La EXP de un golpe o una muerte se multiplica por dos factores: la diferencia de nivel con el enemigo (luchar contra enemigos más fuertes paga mucho más) y el nivel propio (las unidades bajas aprenden más rápido). Curar no usa la diferencia de nivel: un sanador gana lo mismo cure a quien cure. Las muertes rinden más en unidades de nivel bajo frente a enemigos de nivel igual o superior; una unidad 5 niveles por encima del enemigo gana un 1 %.')],
+    { hid: 'experiencia', title: t('Experiencia (EXP)'), intro: [t('Cada 100 EXP la unidad sube un nivel. La EXP de un golpe o una muerte se multiplica por dos factores: la diferencia de nivel con el enemigo (luchar contra enemigos más fuertes paga mucho más) y el nivel propio (las unidades bajas aprenden más rápido). Curar con un bastón da una EXP fija: un sanador gana lo mismo cure a quien cure y tenga el nivel que tenga. Las muertes rinden más en unidades de nivel bajo frente a enemigos de nivel igual o superior; una unidad 5 niveles por encima del enemigo gana un 1 %.')],
       subs: [
         { hid: 'formula-de-exp', title: t('Fórmula de EXP'), blocks: [t('EXP = base × factor de diferencia de nivel × factor de nivel propio. Las dificultades no la cambian.'),
           T([t('Acción'), t('Diferencia de nivel'), t('Nivel propio')], [[t('Ataque'), t('sí'), t('sí')], [t('Magia de apoyo o curación'), t('no (100 %)'), t('sí')], [t('Habilidad de apoyo'), t('no'), t('sí')], [t('EXP fija'), t('no'), t('no')]]),
@@ -48,11 +48,11 @@
           t('Factor de nivel propio: Nv1 150 %, −5 por nivel hasta Nv11 = 100 %; Nv12 100 %; después −1 cada 2 niveles: Nv13–14 99, Nv19–20 96, Nv23–24 94, Nv29–30 91, Nv39–40 86, Nv49–50 81, Nv99 56.'),
           t('La EXP no baja por tardar turnos.'),
           K([[t('Muerte'), t('EXP base por clase del enemigo: 15 (clases de rango 0–2: Gladiador, Soldado, Cazador, Augur, Jinete de ornius), 20 (rango 3: Shido, Tirador…), 25 (rango 4), 30 (rango 5: La Hoja…), 35–45 (jefes especiales y monstruos), 10 (animales pequeños). El golpe final da más que un golpe.')],
-            [t('Curación'), t('EXP fija del bastón: Curar, Antorcha, Restaurar, Laia, Escudo mágico y Muro errante 10; Recuperar, Sanar, Rescatar, Resquia, Transportar, Barrera, Emergis y Regenerar 15; Fortalecer 20.')],
+            [t('Curación'), t('EXP fija del bastón: Curar, Antorcha, Restaurar, Laia, Escudo mágico y Muro errante 10; Recuperar, Sanar, Rescatar, Resquia, Transportar, Barrera, Emergis y Regenerar 15; Fortalecer 20. Se aplica tal cual a cualquier nivel.')],
             [t('Multiplicadores'), t('jefe ×2. En combates con órdenes: golpe final ×3, normal ×1, reserva ×0,5.')],
             [t('Ayuda de salvación'), t('«Exp adicional»: +10/20/30/40/50 %.')]]),
           T([t('Caso'), t('Cálculo'), t('Resultado (% de la base)')], [[t('Nv10 mata a un enemigo Nv12'), t('120 × 105 %'), t('126 %')], [t('Nv20 contra Nv20'), t('100 × 96 %'), t('96 %')], [t('Nv20 contra un jefe Nv22'), t('120 × 96 % × 2'), t('230 %')],
-            [t('Nv25 contra Nv20'), t('1 × 93 %'), t('~1 %')], [t('Sacerdote Nv5 lanza Curar'), t('10 × 130 %'), t('13 EXP')], [t('Sacerdote Nv20 lanza Curar'), t('10 × 96 %'), t('9 EXP')]])] },
+            [t('Nv25 contra Nv20'), t('1 × 93 %'), t('~1 %')], [t('Sacerdote de cualquier nivel lanza Curar'), t('EXP fija'), t('10 EXP')]])] },
         { hid: 'niveles-y-crecimiento', title: t('Niveles, tablas y crecimiento'), blocks: [K([
           [t('Nivel de unidad'), t('100 EXP por nivel, Nv2–99.')],
           [t('Competencias'), t('EXP para subir a Nv2…12: 20, 15, 45, 140, 220, 250, 220, 305, 295, 450, 600.')],

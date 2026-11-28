@@ -4,7 +4,7 @@
    and W.classes.mount_rules (bond thresholds, feeding points, capture and lure odds). */
 'use strict';
 (() => {
-  const R = (W.classes || {}).mount_rules || {}, FE = R.feed_exp || {}, CAP = R.capture || {};
+  const R = (W.classes || {}).mount_rules || {}, FE = R.feed_exp || {};
   const COM = () => `<span class="gu-com" title="${t('Dato de la comunidad')}"></span>`;
   /** data text in the reader's language: the wiki's prose dictionary, else the game's own table */
   const dx = s => (s && isEn() && EN_DICT().ui?.[s] != null ? t(s) : gt(s));
@@ -136,12 +136,11 @@
         { base: FE.base ?? 1, g1: G[1] ?? 0, g2: G[2] ?? 2, g3: G[3] ?? 5, ty: FE.fav_type ?? 6, ta: FE.fav_taste ?? 3, fav: FE.great_fav ?? 5, com: COM() })) +
       tw(['Ingrediente', '★', '★★', '★★★'], rows.map(([l, ty, s, fv]) => [t(l), ...[1, 2, 3].map(g => feedPts(g, ty, s, fv))])) +
       p(t('El tipo y el sabor de cada especie y sus ingredientes están en su ficha. El Favorito cambia de un animal a otro y se ve en el Establo.')) +
-      h4('Capturar') + p(t('Tras el Cebo aparece el animal y hay {turns} turnos para Capturar; cada turno huye con un {flee} %. Probabilidad: su Favorito {fav} %; si no, calidad (★★★ {g3}, ★★ {g2}, ★ {g1}) + coincidir en tipo o sabor {one} (los dos, {both}) + llamarlo con la mano {beckon} (sin confirmar). Si huye deja boñiga, abono que sube la mutación de los cultivos:',
-        { turns: CAP.max_turns ?? 2, flee: CAP.flee ?? 40, fav: CAP.great_fav ?? 100, g3: CAP.grade?.[3] ?? 40, g2: CAP.grade?.[2] ?? 20, g1: CAP.grade?.[1] ?? 0, one: CAP.match_one ?? 30, both: CAP.match_both ?? 60, beckon: CAP.beckon ?? 20 })) +
+      h4('Capturar') + p(t('Tras el Cebo aparece el animal y se puede intentar Capturar. La probabilidad de captura no se conoce. Si se escapa deja boñiga, abono que sube la mutación de los cultivos:')) +
       tw(['Abono', 'Mutación'], Object.entries(R.manure_mutation || {}).map(([n, v]) => [nlx(n), pct(v)])) +
-      h4('Cebo') + p(t('Cai pone un ingrediente en un campo de animales y el animal llega a los {n} turnos. Sin límite de cebos. Resultado de cada cebo (sin confirmar; coincide con lo que cuenta la comunidad):', { n: R.lure?.turns ?? 5 })) +
-      tw(['Cebo', 'Calidad', 'Aparece', 'Nada', 'Combate', 'Bono a la rara'], out.map(o => [t(o.correct ? 'tipo que le gusta' : 'otro tipo'), stars(o.grade), pct(o.appear), pct(o.nothing), pct(o.battle), `+${o.rare_bonus}`])) +
-      p(t('Con el tipo equivocado nunca aparece el animal. Lugares de cebo en {rec} y en cada ficha.', { rec: `<a href="#/recoleccion?ir=cebo">${t('Recolección')}</a>` })) +
+      h4('Cebo') + p(t('Cai pone un ingrediente en un campo de animales y el animal llega a los {n} turnos. Sin límite de cebos. Resultado de cada cebo (código del juego): primero se tira la columna «rara»; si sale, llega la especie rara del campo. Si no, se tira el resultado y la especie sale con el % de cada campo:', { n: R.lure?.turns ?? 5 })) +
+      tw(['Cebo', 'Calidad', 'Aparece', 'Nada', 'Combate', 'Bono a la rara'], out.map(o => [t(o.correct ? 'tipo que le gusta' : 'otro tipo'), stars(o.grade), pct(o.appear), pct(o.nothing), pct(o.battle), pct(o.rare_bonus)])) +
+      p(t('Con el tipo equivocado el animal nunca se queda en el campo, pero puede empezar el combate de captura. «Nada»: el animal se va. Lugares de cebo en {rec} y en cada ficha.', { rec: `<a href="#/recoleccion?ir=cebo">${t('Recolección')}</a>` })) +
       h4('Liberar') + p(t('El animal se va y deja un accesorio (Amuleto con vínculo 1–4, Talismán con vínculo 5) con los bonos de la montura; la tabla de cada especie está en su ficha.')) +
       h4('Misiones con monturas') + ul((R.quests || []).map(q => `<li>${qLink(q)}: ${q.deliver_mount ? t('entregar {n}× {what}', { n: q.n, what: L('montura', q.deliver_mount) }) : t('entregar {n}× {what}', { n: q.n, what: list((q.deliver_items || []).map(i => obj(i))) })}${(q.gives_mounts || []).length ? '; ' + t('da {n}× {what}', { n: q.gives_mounts.length, what: L('montura', q.gives_mounts[0]) }) : ''}</li>`)) +
       p(t('El {cl} dobla los bonos de la montura (×{n}).', { cl: CLASSES.JID_戦車兵 ? L('clase', 'JID_戦車兵') : t('Cuadriguero'), n: R.charioteer_factor ?? 2 })), 'establo');
