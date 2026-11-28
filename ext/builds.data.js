@@ -926,6 +926,33 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
      2,
      3
     ]
+   },
+   {
+    "id": "caladrio",
+    "name": "Caladrio con Magonius",
+    "name_en": "Caladrius with a Magonius",
+    "path": [
+     "Augur",
+     "Chamán",
+     "Caladrio"
+    ],
+    "weapon": "Magia negra",
+    "roles": [
+     "mago",
+     "montado"
+    ],
+    "when": [],
+    "why": "Con Magonius crece Mag 75; con Magonius negro, Mag 70 y Vel 55. Supera a Vate en PV, Vel y Def (40 frente a 20).",
+    "why_en": "With a Magonius she grows Mag 75; with a black Magonius, Mag 70 and Spd 55. She beats Sage in HP, Spd and Def (40 against 20).",
+    "fits": "Si Cai y Ultand no se llevan ya los Magonius.",
+    "fits_en": "If Cai and Ultand do not already take the Magonius.",
+    "routes": [
+     "cai"
+    ],
+    "parts": [
+     0,
+     1
+    ]
    }
   ],
   "PID_シロッコ": [
@@ -1960,6 +1987,33 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
      2,
      3
     ]
+   },
+   {
+    "id": "ornius",
+    "name": "Jinete de baus con Meganius",
+    "name_en": "Dragoon with a Meganius",
+    "path": [
+     "Jinete de ornius",
+     "Jin. ornius acorazado",
+     "Jinete de baus"
+    ],
+    "weapon": "Lanza",
+    "roles": [
+     "montado",
+     "golpe"
+    ],
+    "when": [],
+    "why": "Arregla su Vel 35: Jinete de ornius con Ornius salvaje crece Vel 55; Jin. ornius acorazado con Meganius, Def 70 como la Hoplita; Jinete de baus con Bau salvaje, PV 70, Fue 70 y Vel 45.",
+    "why_en": "Fixes her Spd 35: Ornius Rider with a Wild Ornius grows Spd 55; Armored Ornius with a Meganius, Def 70 like a Hoplite; Dragoon with a Wild Bau, HP 70, Str 70 and Spd 45.",
+    "fits": "Si otra unidad hace de tanque.",
+    "fits_en": "If another unit is the tank.",
+    "routes": [
+     "cai"
+    ],
+    "parts": [
+     0,
+     1
+    ]
    }
   ],
   "PID_グザラン": [
@@ -2346,6 +2400,33 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
     "parts": [
      2,
      3
+    ]
+   },
+   {
+    "id": "bardado",
+    "name": "Jinete bardado con Caballo de Ferganá",
+    "name_en": "Bardinger with a Ferghana Horse",
+    "path": [
+     "Gladiador",
+     "Jinete ligero",
+     "Jinete bardado"
+    ],
+    "weapon": "Espada",
+    "roles": [
+     "montado",
+     "golpe"
+    ],
+    "when": [],
+    "why": "Con espada, la línea del caballo es la suya: Jinete ligero pide Espada C y Jinete bardado Espada B. Con Caballo de Ferganá crece 25 puntos más que de Shido: Fue 60, Def 50 y Res 30 a cambio de 15 de Vel (50).",
+    "why_en": "With swords the horse line suits him: Cavalier needs Sword C and Bardinger Sword B. With a Ferghana Horse he grows 25 points more than as a Swordmaster: Str 60, Def 50 and Res 30 for 15 less Spd (50).",
+    "fits": "Si prefieres un delantero que aguante a uno que esquive.",
+    "fits_en": "If you prefer a front-liner who tanks over one who dodges.",
+    "routes": [
+     "cai"
+    ],
+    "parts": [
+     0,
+     1
     ]
    }
   ],
@@ -3689,6 +3770,37 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
      2,
      3
     ]
+   },
+   {
+    "id": "trovadora",
+    "name": "Trovadora con Monoceronte",
+    "name_en": "Troubadour with a Monoceros",
+    "path": [
+     "Augur",
+     "Sacerdote",
+     "Trovador"
+    ],
+    "weapon": "Magia blanca",
+    "roles": [
+     "sanador",
+     "montado"
+    ],
+    "when": [
+     {
+      "has": "PID_ティアラ"
+     }
+    ],
+    "why": "Trovador con Monoceronte crece Mag 60, Res 65 y Def 30, frente a Def 15 de Obispo, y mueve 6.",
+    "why_en": "Troubadour with a Monoceros grows Mag 60, Res 65 and Def 30, against a Bishop's Def 15, and moves 6.",
+    "fits": "Si Tialla también cura.",
+    "fits_en": "If Tialla also heals.",
+    "routes": [
+     "cai"
+    ],
+    "parts": [
+     0,
+     1
+    ]
    }
   ],
   "PID_フィアナ": [
@@ -4051,6 +4163,33 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
     "parts": [
      2,
      3
+    ]
+   },
+   {
+    "id": "caladrio",
+    "name": "Caladrio con Magonius negro",
+    "name_en": "Caladrius with a black Magonius",
+    "path": [
+     "Augur",
+     "Chamán",
+     "Caladrio"
+    ],
+    "weapon": "Magia negra",
+    "roles": [
+     "mago",
+     "montado"
+    ],
+    "when": [],
+    "why": "Con Magonius negro crece Mag 65 y Vel 60, y Def 30 en vez de 10 de Vate.",
+    "why_en": "With a black Magonius she grows Mag 65 and Spd 60, and Def 30 instead of a Sage's 10.",
+    "fits": "Si te falta un mago montado.",
+    "fits_en": "If you lack a mounted mage.",
+    "routes": [
+     "cai"
+    ],
+    "parts": [
+     0,
+     1
     ]
    }
   ],
@@ -6552,6 +6691,33 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
      2,
      3
     ]
+   },
+   {
+    "id": "bardado",
+    "name": "Jinete bardado",
+    "name_en": "Bardinger",
+    "path": [
+     "Gladiador",
+     "Jinete ligero",
+     "Jinete bardado"
+    ],
+    "weapon": "Espada",
+    "roles": [
+     "montado",
+     "golpe"
+    ],
+    "when": [],
+    "why": "Con Caballo de Ferganá crece Fue 60, Hab 55 y Def 50: 25 puntos más que de Shido, perdiendo Vel (45).",
+    "why_en": "With a Ferghana Horse he grows Str 60, Dex 55 and Def 50: 25 points more than as a Swordmaster, losing Spd (45).",
+    "fits": "Si Guzran ya es el Shido del equipo.",
+    "fits_en": "If Guzran is already the team's Swordmaster.",
+    "routes": [
+     "cai"
+    ],
+    "parts": [
+     0,
+     1
+    ]
    }
   ],
   "PID_セテス": [
@@ -6632,6 +6798,32 @@ window.WIKI_EXT=window.WIKI_EXT||{};WIKI_EXT["builds"]={
     "parts": [
      2,
      3
+    ]
+   },
+   {
+    "id": "ornius",
+    "name": "Jinete de baus con ornius veloz",
+    "name_en": "Dragoon with a fast ornius",
+    "path": [
+     "Jinete de ornius",
+     "Jin. ornius acorazado",
+     "Jinete de baus"
+    ],
+    "weapon": "Lanza",
+    "roles": [
+     "golpe"
+    ],
+    "when": [],
+    "why": "Jinete de ornius con Ornius salvaje desde que se une: Vel 60 y Hab 60 de crecimiento, frente a Vel 35 de Soldado. Jin. ornius acorazado mantiene ese ornius; en Jinete de baus cambia a Bau salvaje (Fue 60, Def 50), alimentado de antemano.",
+    "why_en": "Ornius Rider with a Wild Ornius from the day he joins: Spd 60 and Dex 60 growth, against Spd 35 as a Soldier. Armored Ornius keeps that ornius; as a Dragoon he switches to a Wild Bau (Str 60, Def 50), fed beforehand.",
+    "fits": "Casi siempre en un equipo montado.",
+    "fits_en": "Almost always in a mounted team.",
+    "routes": [
+     "cai"
+    ],
+    "parts": [
+     0,
+     1
     ]
    }
   ],
